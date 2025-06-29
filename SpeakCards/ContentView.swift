@@ -16,6 +16,9 @@ struct ContentView: View {
     @AppStorage("targetLanguage") private var targetLanguageRaw: String = Language.spanish.rawValue
     @AppStorage("didShowWelcomeSheet") private var didShowWelcomeSheet: Bool = false
     @State private var showWelcomeSheet = false
+    @State private var showSettings = false
+    @State private var showMyCards = false
+    @State private var showAddCardSheet = false
     
     var userLanguage: Language {
         Language(rawValue: userLanguageRaw) ?? .english
@@ -28,8 +31,10 @@ struct ContentView: View {
         VStack(spacing: 0) {
             CardStackView(items: items)
             ButtonRowView(
-                onAddItem: addItem,
-                onShuffle: shuffleCards
+                onAddItem: { showAddCardSheet = true },
+                onShuffle: shuffleCards,
+                onShowSettings: { showSettings = true },
+                onShowMyCards: { showMyCards = true }
             )
         }
         .background(Color(.systemBackground))
@@ -48,16 +53,33 @@ struct ContentView: View {
                 }
             )
         }
+        .sheet(isPresented: $showSettings) {
+            SettingsView(onClose: { showSettings = false })
+        }
+        .sheet(isPresented: $showMyCards) {
+            MyCardsListView(onClose: { showMyCards = false })
+        }
+        .sheet(isPresented: $showAddCardSheet) {
+            AddCardSheet(
+                userLanguage: userLanguage,
+                targetLanguage: targetLanguage,
+                onSave: { nativeText, targetText in
+                    addItem(nativeText: nativeText, targetText: targetText)
+                    showAddCardSheet = false
+                },
+                onCancel: { showAddCardSheet = false }
+            )
+        }
     }
     
-    private func addItem() {
+    private func addItem(nativeText: String, targetText: String) {
         withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
             let newItem = Item(
-                frontText: "Hello",
-                backText: "Hola",
-                frontLanguage: userLanguage,
-                backLanguage: targetLanguage,
-                notes: "A common greeting."
+                frontText: targetText,
+                backText: nativeText,
+                frontLanguage: targetLanguage,
+                backLanguage: userLanguage,
+                notes: nil
             )
             modelContext.insert(newItem)
         }
@@ -160,10 +182,12 @@ struct CardStackContent: View {
 struct ButtonRowView: View {
     let onAddItem: () -> Void
     let onShuffle: () -> Void
+    let onShowSettings: () -> Void
+    let onShowMyCards: () -> Void
     
     var body: some View {
         HStack(spacing: 40) {
-            MenuButton()
+            MenuButton(onShowSettings: onShowSettings, onShowMyCards: onShowMyCards)
             ShuffleButton(onShuffle: onShuffle)
             AddButton(onAddItem: onAddItem)
         }
@@ -173,10 +197,19 @@ struct ButtonRowView: View {
 }
 
 struct MenuButton: View {
+    let onShowSettings: () -> Void
+    let onShowMyCards: () -> Void
+    @State private var showMenu = false
+    
     var body: some View {
-        Button(action: {
-            // TODO: Implement menu functionality
-        }) {
+        Menu {
+            Button(action: onShowSettings) {
+                Label("Settings", systemImage: "gear")
+            }
+            Button(action: onShowMyCards) {
+                Label("My Cards", systemImage: "rectangle.stack")
+            }
+        } label: {
             Image(systemName: "line.3.horizontal")
                 .font(.title2)
                 .foregroundColor(.primary)
@@ -359,6 +392,87 @@ struct WelcomeSheet: View {
                 .padding(.horizontal)
                 .padding(.bottom)
                 .buttonStyle(.borderedProminent)
+            }
+        }
+    }
+}
+
+// Placeholder SettingsView
+struct SettingsView: View {
+    var onClose: () -> Void
+    var body: some View {
+        NavigationView {
+            VStack {
+                Text("Settings")
+                    .font(.largeTitle)
+                    .padding()
+                Spacer()
+            }
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Close", action: onClose)
+                }
+            }
+        }
+    }
+}
+
+// Placeholder MyCardsListView
+struct MyCardsListView: View {
+    var onClose: () -> Void
+    var body: some View {
+        NavigationView {
+            VStack {
+                Text("My Cards List")
+                    .font(.largeTitle)
+                    .padding()
+                Spacer()
+            }
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Close", action: onClose)
+                }
+            }
+        }
+    }
+}
+
+struct AddCardSheet: View {
+    let userLanguage: Language
+    let targetLanguage: Language
+    var onSave: (String, String) -> Void
+    var onCancel: () -> Void
+    @State private var nativeText: String = ""
+    @State private var targetText: String = ""
+    
+    var body: some View {
+        NavigationView {
+            Form {
+                Section(header: Text(userLanguage.displayName)) {
+                    TextField("Enter text in your language", text: $nativeText)
+                        .autocapitalization(.sentences)
+                }
+                Section(header: Text(targetLanguage.displayName)) {
+                    TextField("Enter text in target language", text: $targetText)
+                        .autocapitalization(.sentences)
+                }
+            }
+            .navigationTitle("Add Card")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Cancel", action: onCancel)
+                }
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Save") {
+                        if !nativeText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty && !targetText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                            onSave(nativeText, targetText)
+                        }
+                    }
+                    .disabled(nativeText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || targetText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+                }
             }
         }
     }
