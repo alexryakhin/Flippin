@@ -21,7 +21,21 @@ enum Language: String, Codable, CaseIterable, Identifiable {
     case custom = "custom"
     
     var id: String { rawValue }
-    
+
+    var translationCode: String {
+        switch self {
+        case .english, .englishAmerican: return "en"
+        case .spanish: return "es"
+        case .french: return "fr"
+        case .german: return "de"
+        case .italian: return "it"
+        case .chinese: return "zh"
+        case .japanese: return "ja"
+        case .russian: return "ru"
+        default : return "custom"
+        }
+    }
+
     var displayName: String {
         switch self {
         case .english: return "British English"
