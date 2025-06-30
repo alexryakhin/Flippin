@@ -187,9 +187,18 @@ struct ButtonRowView: View {
     var body: some View {
         HStack(spacing: 40) {
             MenuButton(onShowSettings: onShowSettings, onShowMyCards: onShowMyCards)
+                .buttonStyle(.bordered)
+                .clipShape(Circle())
             ShuffleButton(onShuffle: onShuffle)
+                .buttonStyle(.bordered)
+                .clipShape(Circle())
+
             AddButton(onAddItem: onAddItem)
+                .buttonStyle(.bordered)
+                .clipShape(Circle())
+
         }
+        
         .padding(.bottom, 50)
         .padding(.top, 30)
     }
@@ -210,8 +219,10 @@ struct MenuButton: View {
             }
         } label: {
             Image(systemName: "line.3.horizontal")
-                .font(.title2)
-                .foregroundColor(.primary)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 20, height: 20)
+                .padding()
         }
     }
 }
@@ -222,8 +233,10 @@ struct ShuffleButton: View {
     var body: some View {
         Button(action: onShuffle) {
             Image(systemName: "shuffle")
-                .font(.title2)
-                .foregroundColor(.primary)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 20, height: 20)
+                .padding()
         }
     }
 }
@@ -234,8 +247,10 @@ struct AddButton: View {
     var body: some View {
         Button(action: onAddItem) {
             Image(systemName: "plus")
-                .font(.title2)
-                .foregroundColor(.primary)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 20, height: 20)
+                .padding()
         }
     }
 }
@@ -300,6 +315,8 @@ struct CardView: View {
 
 struct CardFrontView: View {
     let item: Item
+    @State private var isPlayingTTS = false
+    
     var body: some View {
         VStack(spacing: 20) {
             HStack {
@@ -324,9 +341,33 @@ struct CardFrontView: View {
                     .padding(.top, 10)
             }
             Spacer()
-            Text("Tap to see answer")
-                .font(.footnote)
-                .foregroundColor(.gray)
+            HStack {
+                Button(action: {
+                    isPlayingTTS = true
+                    Task {
+                        do {
+                            try await TTSPlayer.shared.play(item.frontText)
+                        } catch {
+                            print("TTS error: \(error)")
+                        }
+                        isPlayingTTS = false
+                    }
+                }) {
+                    Image(systemName: isPlayingTTS ? "speaker.wave.2.fill" : "speaker.wave.2")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 24, height: 24)
+                        .padding(8)
+                }
+                .buttonStyle(.bordered)
+                .clipShape(Circle())
+                Spacer()
+                Text("Show answer")
+                    .font(.footnote)
+                    .foregroundColor(.gray)
+            }
+            .padding(.horizontal)
+            .padding(.bottom, 8)
         }
     }
 }

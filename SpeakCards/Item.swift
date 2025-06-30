@@ -10,6 +10,7 @@ import SwiftData
 
 enum Language: String, Codable, CaseIterable, Identifiable {
     case english = "en"
+    case englishAmerican = "en-us"
     case spanish = "es"
     case french = "fr"
     case german = "de"
@@ -23,7 +24,8 @@ enum Language: String, Codable, CaseIterable, Identifiable {
     
     var displayName: String {
         switch self {
-        case .english: return "English"
+        case .english: return "British English"
+        case .englishAmerican: return "American English"
         case .spanish: return "Spanish"
         case .french: return "French"
         case .german: return "German"
