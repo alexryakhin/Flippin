@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct CardFrontView: View {
-    let item: Item
+    let item: CardItem
     @State private var isPlayingTTS = false
     
     var body: some View {
@@ -39,7 +39,7 @@ struct CardFrontView: View {
                     isPlayingTTS = true
                     Task {
                         do {
-                            try await TTSPlayer.shared.play(item.frontText)
+                            try await TTSPlayer.shared.play(item.frontText, language: item.frontLanguage)
                         } catch {
                             print("TTS error: \(error)")
                         }

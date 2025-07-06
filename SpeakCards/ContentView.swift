@@ -10,7 +10,7 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query(sort: \Item.timestamp) private var items: [Item]
+    @Query(sort: \CardItem.timestamp) private var items: [CardItem]
 
     @AppStorage("userLanguage") private var userLanguageRaw: String = Locale.current.language.languageCode?.identifier ?? Language.english.rawValue
     @AppStorage("targetLanguage") private var targetLanguageRaw: String = Language.spanish.rawValue
@@ -73,7 +73,7 @@ struct ContentView: View {
     
     private func addItem(nativeText: String, targetText: String) {
         withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
-            let newItem = Item(
+            let newItem = CardItem(
                 frontText: targetText,
                 backText: nativeText,
                 frontLanguage: targetLanguage,

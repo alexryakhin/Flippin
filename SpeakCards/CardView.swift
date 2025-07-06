@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct CardView: View {
-    let item: Item
+    let item: CardItem
     @State private var isFlipped = false
     @State private var animationStart: Date? = nil
     @State private var animationDirection: CGFloat = 1 // 1 for forward, -1 for backward

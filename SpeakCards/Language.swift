@@ -1,12 +1,11 @@
 //
-//  Item.swift
+//  Language.swift
 //  SpeakCards
 //
-//  Created by Alexander Riakhin on 6/29/25.
+//  Created by Alexander Riakhin on 7/6/25.
 //
 
 import Foundation
-import SwiftData
 
 enum Language: String, Codable, CaseIterable, Identifiable {
     case english = "en"
@@ -15,11 +14,18 @@ enum Language: String, Codable, CaseIterable, Identifiable {
     case french = "fr"
     case german = "de"
     case italian = "it"
+    case portuguese = "pt"
+    case dutch = "nl"
+    case swedish = "sv"
     case chinese = "zh"
     case japanese = "ja"
+    case korean = "ko"
+    case vietnamese = "vi"
     case russian = "ru"
-    case custom = "custom"
-    
+    case arabic = "ar"
+    case hindi = "hi"
+    case croatian = "hr"
+
     var id: String { rawValue }
 
     var translationCode: String {
@@ -29,10 +35,17 @@ enum Language: String, Codable, CaseIterable, Identifiable {
         case .french: return "fr"
         case .german: return "de"
         case .italian: return "it"
+        case .portuguese: return "pt"
+        case .dutch: return "nl"
+        case .swedish: return "sv"
         case .chinese: return "zh"
         case .japanese: return "ja"
+        case .korean: return "ko"
+        case .vietnamese: return "vi"
         case .russian: return "ru"
-        default : return "custom"
+        case .arabic: return "ar"
+        case .hindi: return "hi"
+        case .croatian: return "hr"
         }
     }
 
@@ -44,29 +57,17 @@ enum Language: String, Codable, CaseIterable, Identifiable {
         case .french: return "French"
         case .german: return "German"
         case .italian: return "Italian"
+        case .portuguese: return "Portuguese"
+        case .dutch: return "Dutch"
+        case .swedish: return "Swedish"
         case .chinese: return "Chinese"
         case .japanese: return "Japanese"
+        case .korean: return "Korean"
+        case .vietnamese: return "Vietnamese"
         case .russian: return "Russian"
-        case .custom: return "Custom"
+        case .arabic: return "Arabic"
+        case .hindi: return "Hindi"
+        case .croatian: return "Croatian"
         }
-    }
-}
-
-@Model
-final class Item {
-    var timestamp: Date
-    var frontText: String
-    var backText: String
-    var frontLanguage: Language
-    var backLanguage: Language
-    var notes: String?
-    
-    init(timestamp: Date = Date(), frontText: String, backText: String, frontLanguage: Language, backLanguage: Language, notes: String? = nil) {
-        self.timestamp = timestamp
-        self.frontText = frontText
-        self.backText = backText
-        self.frontLanguage = frontLanguage
-        self.backLanguage = backLanguage
-        self.notes = notes
     }
 }

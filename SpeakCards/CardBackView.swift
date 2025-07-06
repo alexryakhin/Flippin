@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct CardBackView: View {
-    let item: Item
+    let item: CardItem
     var body: some View {
         VStack(spacing: 20) {
             HStack {

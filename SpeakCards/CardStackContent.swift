@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct CardStackContent: View {
-    let items: [Item]
+    let items: [CardItem]
     let currentCardIndex: Int
     @Binding var dragOffset: CGFloat
     let onCardChange: (Int) -> Void

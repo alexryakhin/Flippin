@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct CardStackView: View {
-    let items: [Item]
+    let items: [CardItem]
     @State private var currentCardIndex = 0
     @State private var dragOffset: CGFloat = 0
     
