@@ -1,6 +1,6 @@
 //
 //  WelcomeSheet.swift
-//  SpeakCards
+//  Flippin
 //
 //  Created by Alexander Riakhin on 6/30/25.
 //
@@ -15,12 +15,12 @@ struct WelcomeSheet: View {
         NavigationView {
             ScrollView {
                 VStack(spacing: 30) {
-                    Text("Welcome to SpeakCards!")
+                    Text("Welcome to Flippin!")
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .padding(.top, 30)
                         .multilineTextAlignment(.center)
-                    Text("SpeakCards helps you learn and practice new languages using flashcards. Select your native language and the language you want to learn.")
+                    Text("Flippin helps you learn and practice new languages using flashcards. Select your native language and the language you want to learn.")
                         .font(.body)
                         .multilineTextAlignment(.center)
                     VStack(spacing: 20) {

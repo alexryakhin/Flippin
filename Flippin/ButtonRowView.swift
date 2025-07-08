@@ -1,6 +1,6 @@
 //
 //  ButtonRowView.swift
-//  SpeakCards
+//  Flippin
 //
 //  Created by Alexander Riakhin on 6/30/25.
 //
@@ -11,7 +11,13 @@ struct ButtonRowView: View {
     let onShuffle: () -> Void
     let onShowSettings: () -> Void
     let onShowMyCards: () -> Void
-    
+
+    @AppStorage(UserDefaultsKey.userGradientColor) private var userGradientColorHex: String = "#4A90E2" // Default blue
+
+    var userGradientColor: Color {
+        Color(hexString: userGradientColorHex) ?? .blue
+    }
+
     var body: some View {
         HStack(spacing: 40) {
             Menu {
@@ -26,30 +32,30 @@ struct ButtonRowView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 20, height: 20)
-                    .padding()
+                    .padding(20)
+                    .foregroundColor(Color(.label))
             }
-            .buttonStyle(.bordered)
-            .clipShape(Circle())
+            .background(.ultraThinMaterial)
+            .clipShape(RoundedRectangle(cornerRadius: 16))
 
             Button(action: onShuffle) {
-                Image(systemName: "shuffle")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 20, height: 20)
-                    .padding()
+                Label("Shuffle", systemImage: "shuffle")
+                    .padding(20)
+                    .foregroundColor(Color(.label))
             }
-            .buttonStyle(.bordered)
-            .clipShape(Circle())
+            .background(.ultraThinMaterial)
+            .clipShape(RoundedRectangle(cornerRadius: 16))
 
             Button(action: onAddItem) {
                 Image(systemName: "plus")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 20, height: 20)
-                    .padding()
+                    .padding(20)
+                    .foregroundColor(Color(.label))
             }
-            .buttonStyle(.bordered)
-            .clipShape(Circle())
+            .background(.ultraThinMaterial)
+            .clipShape(RoundedRectangle(cornerRadius: 16))
         }
         .padding(.vertical, 36)
     }

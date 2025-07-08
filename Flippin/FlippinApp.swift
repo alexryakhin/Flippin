@@ -1,6 +1,6 @@
 //
-//  SpeakCardsApp.swift
-//  SpeakCards
+//  FlippinApp.swift
+//  Flippin
 //
 //  Created by Alexander Riakhin on 6/29/25.
 //
@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 @main
-struct SpeakCardsApp: App {
+struct FlippinApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             CardItem.self,

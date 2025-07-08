@@ -1,6 +1,6 @@
 //
 //  CardFrontView.swift
-//  SpeakCards
+//  Flippin
 //
 //  Created by Alexander Riakhin on 6/30/25.
 //

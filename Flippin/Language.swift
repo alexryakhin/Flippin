@@ -1,6 +1,6 @@
 //
 //  Language.swift
-//  SpeakCards
+//  Flippin
 //
 //  Created by Alexander Riakhin on 7/6/25.
 //

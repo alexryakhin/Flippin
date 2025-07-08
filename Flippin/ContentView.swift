@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  SpeakCards
+//  Flippin
 //
 //  Created by Alexander Riakhin on 6/29/25.
 //
@@ -12,9 +12,10 @@ struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \CardItem.timestamp) private var items: [CardItem]
 
-    @AppStorage("userLanguage") private var userLanguageRaw: String = Language(rawValue: Locale.current.language.languageCode?.identifier ?? "en")?.rawValue ?? Language.english.rawValue
-    @AppStorage("targetLanguage") private var targetLanguageRaw: String = Language.spanish.rawValue
-    @AppStorage("didShowWelcomeSheet") private var didShowWelcomeSheet: Bool = false
+    @AppStorage(UserDefaultsKey.userLanguage) private var userLanguageRaw: String = Language(rawValue: Locale.current.language.languageCode?.identifier ?? "en")?.rawValue ?? Language.english.rawValue
+    @AppStorage(UserDefaultsKey.targetLanguage) private var targetLanguageRaw: String = Language.spanish.rawValue
+    @AppStorage(UserDefaultsKey.userGradientColor) private var userGradientColorHex: String = "#4A90E2" // Default blue
+    @AppStorage(UserDefaultsKey.didShowWelcomeSheet) private var didShowWelcomeSheet: Bool = false
     @State private var showWelcomeSheet = false
     @State private var showSettings = false
     @State private var showMyCards = false
@@ -27,6 +28,10 @@ struct ContentView: View {
         Language(rawValue: targetLanguageRaw) ?? .spanish
     }
     
+    var userGradientColor: Color {
+        Color(hexString: userGradientColorHex) ?? .blue
+    }
+    
     var body: some View {
         VStack(spacing: 0) {
             CardStackView(items: items)
@@ -37,7 +42,17 @@ struct ContentView: View {
                 onShowMyCards: { showMyCards = true }
             )
         }
-        .background(Color(.systemBackground))
+        .background {
+            LinearGradient(
+                colors: [
+                    userGradientColor.lighter(by: 15),
+                    userGradientColor.darker(by: 10)
+                ],
+                startPoint: .top,
+                endPoint: .bottom
+            )
+            .ignoresSafeArea()
+        }
         .onAppear {
             if !didShowWelcomeSheet {
                 showWelcomeSheet = true
@@ -60,14 +75,7 @@ struct ContentView: View {
             MyCardsListView()
         }
         .sheet(isPresented: $showAddCardSheet) {
-            AddCardSheet(
-                userLanguage: userLanguage,
-                targetLanguage: targetLanguage,
-                onSave: { nativeText, targetText in
-                    addItem(nativeText: nativeText, targetText: targetText)
-                    showAddCardSheet = false
-                }
-            )
+            AddCardSheet()
         }
     }
     

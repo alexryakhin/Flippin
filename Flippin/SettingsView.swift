@@ -1,6 +1,6 @@
 //
 //  SettingsView.swift
-//  SpeakCards
+//  Flippin
 //
 //  Created by Alexander Riakhin on 6/30/25.
 //
@@ -8,8 +8,13 @@ import SwiftUI
 
 struct SettingsView: View {
     @Environment(\.dismiss) var dismiss
-    @AppStorage("userLanguage") private var userLanguageRaw: String = Language(rawValue: Locale.current.language.languageCode?.identifier ?? "en")?.rawValue ?? Language.english.rawValue
-    @AppStorage("targetLanguage") private var targetLanguageRaw: String = Language.spanish.rawValue
+    @AppStorage(UserDefaultsKey.userLanguage) private var userLanguageRaw: String = Language(rawValue: Locale.current.language.languageCode?.identifier ?? "en")?.rawValue ?? Language.english.rawValue
+    @AppStorage(UserDefaultsKey.targetLanguage) private var targetLanguageRaw: String = Language.spanish.rawValue
+    @AppStorage(UserDefaultsKey.userGradientColor) private var userGradientColorHex: String = "#4A90E2" // Default blue
+
+    var userGradientColor: Color {
+        Color(hexString: userGradientColorHex) ?? .blue
+    }
 
     var body: some View {
         NavigationView {
@@ -38,6 +43,14 @@ struct SettingsView: View {
                         .pickerStyle(.wheel)
                     }
                     .padding(.vertical, 8)
+                }
+                Section(header: Text("Background")) {
+                    ColorPicker("Background Color", selection: Binding(
+                        get: { userGradientColor },
+                        set: { newColor in
+                            userGradientColorHex = newColor.uiColor.toHexString()
+                        }
+                    ))
                 }
             }
             .navigationTitle("Settings")

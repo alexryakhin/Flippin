@@ -1,6 +1,6 @@
 //
 //  CardView.swift
-//  SpeakCards
+//  Flippin
 //
 //  Created by Alexander Riakhin on 6/30/25.
 //
@@ -38,15 +38,8 @@ struct CardView: View {
             }
             .padding(25)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(
-                RoundedRectangle(cornerRadius: 20)
-                    .fill(Color(.systemBackground))
-                    .shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 5)
-            )
-            .overlay(
-                RoundedRectangle(cornerRadius: 20)
-                    .stroke(Color(.systemGray5), lineWidth: 1)
-            )
+            .background(.ultraThinMaterial)
+            .clipShape(RoundedRectangle(cornerRadius: 20))
             .rotation3DEffect(.degrees(animatedAngle), axis: (x: 0, y: 1, z: 0))
             .onTapGesture {
                 if animationStart == nil {

@@ -1,6 +1,6 @@
 //
 //  Item.swift
-//  SpeakCards
+//  Flippin
 //
 //  Created by Alexander Riakhin on 6/29/25.
 //
