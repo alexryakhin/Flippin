@@ -16,10 +16,12 @@ struct ContentView: View {
     @AppStorage(UserDefaultsKey.targetLanguage) private var targetLanguageRaw: String = Language.spanish.rawValue
     @AppStorage(UserDefaultsKey.userGradientColor) private var userGradientColorHex: String = "#4A90E2" // Default blue
     @AppStorage(UserDefaultsKey.didShowWelcomeSheet) private var didShowWelcomeSheet: Bool = false
+
     @State private var showWelcomeSheet = false
     @State private var showSettings = false
     @State private var showMyCards = false
     @State private var showAddCardSheet = false
+    @State private var shuffledItems: [CardItem] = []
     
     var userLanguage: Language {
         Language(rawValue: userLanguageRaw) ?? .english
@@ -52,9 +54,23 @@ struct ContentView: View {
         }
     }
     
+    var displayItems: [CardItem] {
+        return shuffledItems.isEmpty ? items : shuffledItems
+    }
+    
+    // Reset shuffle when items change (new cards added/removed)
+    private func resetShuffleIfNeeded() {
+        if !shuffledItems.isEmpty {
+            // If we have shuffled items but the count doesn't match, reset
+            if shuffledItems.count != items.count {
+                shuffledItems = []
+            }
+        }
+    }
+    
     var body: some View {
         VStack(spacing: 0) {
-            CardStackView(items: items)
+            CardStackView(items: displayItems)
             ButtonRowView(
                 onAddItem: { showAddCardSheet = true },
                 onShuffle: shuffleCards,
@@ -74,6 +90,9 @@ struct ContentView: View {
             if !didShowWelcomeSheet {
                 showWelcomeSheet = true
             }
+        }
+        .onChange(of: items.count) { _, _ in
+            resetShuffleIfNeeded()
         }
         .sheet(isPresented: $showWelcomeSheet) {
             WelcomeSheet(
@@ -110,7 +129,14 @@ struct ContentView: View {
     }
     
     private func shuffleCards() {
-        // TODO: Implement shuffle functionality
-        // This would require modifying the data model or adding a shuffle mechanism
+        withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
+            if shuffledItems.isEmpty {
+                // First shuffle: create shuffled copy
+                shuffledItems = items.shuffled()
+            } else {
+                // Subsequent shuffles: reshuffle the current shuffled array
+                shuffledItems = shuffledItems.shuffled()
+            }
+        }
     }
 }
