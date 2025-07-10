@@ -8,9 +8,7 @@ import SwiftUI
 
 struct CardStackView: View {
     let items: [CardItem]
-    @State private var currentCardIndex = 0
-    @State private var dragOffset: CGFloat = 0
-    
+
     var body: some View {
         ZStack {
             if items.isEmpty {
@@ -25,16 +23,7 @@ struct CardStackView: View {
                     Text("Tap the + button to add your first card")
                 }
             } else {
-                CardStackContent(
-                    items: items,
-                    currentCardIndex: currentCardIndex,
-                    dragOffset: $dragOffset,
-                    onCardChange: { newIndex in
-                        withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
-                            currentCardIndex = newIndex
-                        }
-                    }
-                )
+                CardStackContent(items: items)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)

@@ -8,9 +8,8 @@ import SwiftUI
 
 struct CardStackContent: View {
     let items: [CardItem]
-    let currentCardIndex: Int
-    @Binding var dragOffset: CGFloat
-    let onCardChange: (Int) -> Void
+    @State private var currentCardIndex = 0
+    @State private var dragOffset: CGFloat = 0
     
     var body: some View {
         ForEach(Array(items.enumerated()), id: \.element.id) { index, item in
@@ -40,9 +39,13 @@ struct CardStackContent: View {
         let translation = value.location.x - value.startLocation.x
         let threshold: CGFloat = 100
         if translation > threshold && currentCardIndex > 0 {
-            onCardChange(currentCardIndex - 1)
+            withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
+                currentCardIndex -= 1
+            }
         } else if translation < -threshold && currentCardIndex < items.count - 1 {
-            onCardChange(currentCardIndex + 1)
+            withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
+                currentCardIndex += 1
+            }
         }
         dragOffset = 0
     }
