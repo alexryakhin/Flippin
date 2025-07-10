@@ -51,10 +51,9 @@ struct MyCardsListView: View {
                 } else {
                     List {
                         ForEach(filteredCards) { card in
-                            CardRowView(card: card) {
-                                deleteCard(card)
-                            }
+                            CardRowView(card: card)
                         }
+                        .onDelete(perform: deleteCards)
                     }
                     .searchable(text: $searchText, prompt: "Search cards...")
                 }
@@ -70,11 +69,11 @@ struct MyCardsListView: View {
                 
                 if !cards.isEmpty {
                     ToolbarItem(placement: .primaryAction) {
-                        Button("Clear All") {
+                        Button("Clear All", role: .destructive) {
                             cardToDelete = nil
                             showingDeleteAlert = true
                         }
-                        .foregroundColor(.red)
+                        .foregroundStyle(.red)
                     }
                 }
             }
@@ -89,9 +88,11 @@ struct MyCardsListView: View {
         }
     }
     
-    private func deleteCard(_ card: CardItem) {
+    private func deleteCards(offsets: IndexSet) {
         withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
-            modelContext.delete(card)
+            for index in offsets {
+                modelContext.delete(filteredCards[index])
+            }
         }
     }
     
@@ -106,7 +107,6 @@ struct MyCardsListView: View {
 
 struct CardRowView: View {
     let card: CardItem
-    let onDelete: () -> Void
     
     @State private var isFlipped = false
     @State private var isPlayingTTS = false
@@ -118,7 +118,7 @@ struct CardRowView: View {
                     HStack {
                         Text(card.frontLanguage.displayName)
                             .font(.caption)
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
                             .padding(.horizontal, 8)
                             .padding(.vertical, 2)
                             .background(.ultraThinMaterial)
@@ -126,11 +126,11 @@ struct CardRowView: View {
                         
                         Image(systemName: "arrow.right")
                             .font(.caption)
-                            .foregroundColor(.secondary)
-                        
+                            .foregroundStyle(.secondary)
+
                         Text(card.backLanguage.displayName)
                             .font(.caption)
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
                             .padding(.horizontal, 8)
                             .padding(.vertical, 2)
                             .background(.ultraThinMaterial)
@@ -139,16 +139,10 @@ struct CardRowView: View {
                     
                     Text(card.timestamp, format: Date.FormatStyle(date: .abbreviated, time: .shortened))
                         .font(.caption2)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                 }
                 
                 Spacer()
-                
-                Button(action: onDelete) {
-                    Image(systemName: "trash")
-                        .foregroundColor(.red)
-                }
-                .buttonStyle(.plain)
             }
             
             VStack(spacing: 8) {
@@ -173,7 +167,7 @@ struct CardRowView: View {
                     }) {
                         Image(systemName: isPlayingTTS ? "speaker.wave.2.fill" : "speaker.wave.2")
                             .font(.caption)
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
                     }
                     .buttonStyle(.plain)
                 }
@@ -184,7 +178,7 @@ struct CardRowView: View {
                     HStack {
                         Text(card.backText)
                             .font(.subheadline)
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
                             .multilineTextAlignment(.leading)
                             .lineLimit(2)
                         
@@ -203,7 +197,7 @@ struct CardRowView: View {
                         }) {
                             Image(systemName: isPlayingTTS ? "speaker.wave.2.fill" : "speaker.wave.2")
                                 .font(.caption)
-                                .foregroundColor(.secondary)
+                                .foregroundStyle(.secondary)
                         }
                         .buttonStyle(.plain)
                     }
@@ -212,7 +206,7 @@ struct CardRowView: View {
                 if let notes = card.notes, !notes.isEmpty {
                     Text(notes)
                         .font(.caption)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                         .multilineTextAlignment(.leading)
                         .lineLimit(1)
                 }

@@ -7,6 +7,13 @@
 import SwiftUI
 
 struct CardFrontView: View {
+    @AppStorage(UserDefaultsKey.userGradientColor) private var userGradientColorHex: String = "#4A90E2" // Default blue
+    @Environment(\.colorScheme) private var colorScheme
+
+    var userGradientColor: Color {
+        Color(hexString: userGradientColorHex) ?? .blue
+    }
+
     let item: CardItem
     @State private var isPlayingTTS = false
     
@@ -15,21 +22,22 @@ struct CardFrontView: View {
             HStack {
                 Text(item.frontLanguage.displayName)
                     .font(.headline)
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
                 Spacer()
                 Text(item.timestamp, format: Date.FormatStyle(date: .abbreviated, time: .shortened))
                     .font(.caption)
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
             }
             Text(item.frontText)
                 .font(.largeTitle)
+                .foregroundStyle(.primary)
                 .fontWeight(.bold)
                 .multilineTextAlignment(.center)
                 .padding(.vertical, 20)
             if let notes = item.notes, !notes.isEmpty {
                 Text(notes)
                     .font(.body)
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
                     .padding(.top, 10)
             }
@@ -50,17 +58,30 @@ struct CardFrontView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 24, height: 24)
-                        .padding(8)
+                        .padding(16)
                 }
-                .buttonStyle(.bordered)
-                .clipShape(Circle())
+                .tint(adjustedTintColor)
+
                 Spacer()
+
                 Text("Show answer")
                     .font(.footnote)
-                    .foregroundColor(.gray)
+                    .foregroundStyle(.secondary)
             }
             .padding(.horizontal)
             .padding(.bottom, 8)
+        }
+    }
+}
+
+extension CardFrontView {
+    var adjustedTintColor: Color {
+        let baseColor = userGradientColor
+
+        switch (colorScheme, baseColor.isLight) {
+        case (.dark, false): return userGradientColor.lighter(by: 50)
+        case (.light, true): return userGradientColor.darker(by: 50)
+        default: return userGradientColor
         }
     }
 }

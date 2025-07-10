@@ -13,21 +13,22 @@ struct CardBackView: View {
             HStack {
                 Text(item.backLanguage.displayName)
                     .font(.headline)
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
                 Spacer()
                 Text(item.timestamp, format: Date.FormatStyle(date: .abbreviated, time: .shortened))
                     .font(.caption)
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
             }
             Text(item.backText)
                 .font(.largeTitle)
+                .foregroundStyle(.primary)
                 .fontWeight(.bold)
                 .multilineTextAlignment(.center)
                 .padding(.vertical, 20)
             Spacer()
             Text("Tap to go back")
                 .font(.footnote)
-                .foregroundColor(.gray)
+                .foregroundStyle(.secondary)
         }
     }
 }

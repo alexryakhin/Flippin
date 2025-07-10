@@ -12,12 +12,6 @@ struct ButtonRowView: View {
     let onShowSettings: () -> Void
     let onShowMyCards: () -> Void
 
-    @AppStorage(UserDefaultsKey.userGradientColor) private var userGradientColorHex: String = "#4A90E2" // Default blue
-
-    var userGradientColor: Color {
-        Color(hexString: userGradientColorHex) ?? .blue
-    }
-
     var body: some View {
         HStack(spacing: 40) {
             Menu {
@@ -37,6 +31,7 @@ struct ButtonRowView: View {
             }
             .background(.ultraThinMaterial)
             .clipShape(RoundedRectangle(cornerRadius: 16))
+            .shadow(radius: 1)
 
             Button(action: onShuffle) {
                 Label("Shuffle", systemImage: "shuffle")
@@ -45,6 +40,7 @@ struct ButtonRowView: View {
             }
             .background(.ultraThinMaterial)
             .clipShape(RoundedRectangle(cornerRadius: 16))
+            .shadow(radius: 1)
 
             Button(action: onAddItem) {
                 Image(systemName: "plus")
@@ -56,6 +52,7 @@ struct ButtonRowView: View {
             }
             .background(.ultraThinMaterial)
             .clipShape(RoundedRectangle(cornerRadius: 16))
+            .shadow(radius: 1)
         }
         .padding(.vertical, 36)
     }

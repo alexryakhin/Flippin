@@ -41,6 +41,7 @@ struct CardView: View {
             .background(.ultraThinMaterial)
             .clipShape(RoundedRectangle(cornerRadius: 20))
             .rotation3DEffect(.degrees(animatedAngle), axis: (x: 0, y: 1, z: 0))
+            .shadow(radius: 1)
             .onTapGesture {
                 if animationStart == nil {
                     animationDirection = isFlipped ? -1 : 1

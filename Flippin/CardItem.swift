@@ -17,7 +17,14 @@ final class CardItem {
     var backLanguage: Language
     var notes: String?
     
-    init(timestamp: Date = Date(), frontText: String, backText: String, frontLanguage: Language, backLanguage: Language, notes: String? = nil) {
+    init(
+        timestamp: Date = Date(),
+        frontText: String,
+        backText: String,
+        frontLanguage: Language,
+        backLanguage: Language,
+        notes: String? = nil
+    ) {
         self.timestamp = timestamp
         self.frontText = frontText
         self.backText = backText

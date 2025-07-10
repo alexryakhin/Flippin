@@ -32,6 +32,26 @@ struct ContentView: View {
         Color(hexString: userGradientColorHex) ?? .blue
     }
     
+    @Environment(\.colorScheme) private var colorScheme
+    
+    var adjustedGradientColors: [Color] {
+        let baseColor = userGradientColor
+        
+        // If we're in dark mode and the color is bright, darken it significantly
+        if colorScheme == .dark && baseColor.isLight {
+            return [
+                baseColor.darker(by: 40), // Much darker for dark mode
+                baseColor.darker(by: 60)  // Even darker for the bottom
+            ]
+        } else {
+            // Use the original gradient for light mode or already dark colors
+            return [
+                baseColor.lighter(by: 15),
+                baseColor.darker(by: 10)
+            ]
+        }
+    }
+    
     var body: some View {
         VStack(spacing: 0) {
             CardStackView(items: items)
@@ -44,10 +64,7 @@ struct ContentView: View {
         }
         .background {
             LinearGradient(
-                colors: [
-                    userGradientColor.lighter(by: 15),
-                    userGradientColor.darker(by: 10)
-                ],
+                colors: adjustedGradientColors,
                 startPoint: .top,
                 endPoint: .bottom
             )

@@ -20,29 +20,17 @@ struct SettingsView: View {
         NavigationView {
             List {
                 Section(header: Text("Languages")) {
-                    VStack(alignment: .leading) {
-                        Text("My Language")
-                            .font(.headline)
-                        Picker("My Language", selection: $userLanguageRaw) {
-                            ForEach(Language.allCases) { lang in
-                                Text(lang.displayName).tag(lang.rawValue)
-                            }
+                    Picker("My Language", selection: $userLanguageRaw) {
+                        ForEach(Language.allCases) { lang in
+                            Text(lang.displayName).tag(lang.rawValue)
                         }
-                        .pickerStyle(.wheel)
                     }
-                    .padding(.vertical, 8)
-                    
-                    VStack(alignment: .leading) {
-                        Text("Target Language")
-                            .font(.headline)
-                        Picker("Target Language", selection: $targetLanguageRaw) {
-                            ForEach(Language.allCases) { lang in
-                                Text(lang.displayName).tag(lang.rawValue)
-                            }
+
+                    Picker("Target Language", selection: $targetLanguageRaw) {
+                        ForEach(Language.allCases) { lang in
+                            Text(lang.displayName).tag(lang.rawValue)
                         }
-                        .pickerStyle(.wheel)
                     }
-                    .padding(.vertical, 8)
                 }
                 Section(header: Text("Background")) {
                     ColorPicker("Background Color", selection: Binding(
