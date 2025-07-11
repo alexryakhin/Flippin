@@ -6,11 +6,15 @@
 //
 import SwiftUI
 
+
+
 struct ButtonRowView: View {
     let onAddItem: () -> Void
     let onShuffle: () -> Void
     let onShowSettings: () -> Void
     let onShowMyCards: () -> Void
+    let onFilterTags: () -> Void
+    let isFilterActive: Bool
 
     var body: some View {
         HStack {
@@ -27,22 +31,27 @@ struct ButtonRowView: View {
                     .scaledToFit()
                     .frame(width: 20, height: 20)
                     .padding(20)
-                    .foregroundColor(Color(.label))
             }
-            .background(.thinMaterial)
-            .clipShape(RoundedRectangle(cornerRadius: 16))
-            .shadow(radius: 1)
+            .buttonStyle(ActionButtonStyle())
+
+            Spacer()
+
+            Button(action: onFilterTags) {
+                Image(systemName: "tag")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 20, height: 20)
+                    .padding(20)
+            }
+            .buttonStyle(ActionButtonStyle(tintColor: isFilterActive ? .blue : Color(.label)))
 
             Spacer()
 
             Button(action: onShuffle) {
                 Label("Shuffle", systemImage: "shuffle")
                     .padding(20)
-                    .foregroundColor(Color(.label))
             }
-            .background(.thinMaterial)
-            .clipShape(RoundedRectangle(cornerRadius: 16))
-            .shadow(radius: 1)
+            .buttonStyle(ActionButtonStyle())
 
             Spacer()
 
@@ -52,11 +61,8 @@ struct ButtonRowView: View {
                     .scaledToFit()
                     .frame(width: 20, height: 20)
                     .padding(20)
-                    .foregroundColor(Color(.label))
             }
-            .background(.thinMaterial)
-            .clipShape(RoundedRectangle(cornerRadius: 16))
-            .shadow(radius: 1)
+            .buttonStyle(ActionButtonStyle())
         }
     }
 }

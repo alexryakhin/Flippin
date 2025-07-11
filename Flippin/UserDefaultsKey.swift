@@ -9,4 +9,6 @@ enum UserDefaultsKey {
     static let userPreferences = "userPreferences"
     static let savedCards = "savedCards"
     static let appSettings = "appSettings"
+    static let availableTags = "availableTags"
+    static let selectedFilterTag = "selectedFilterTag"
 }

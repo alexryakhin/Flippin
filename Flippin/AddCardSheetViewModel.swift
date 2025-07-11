@@ -15,11 +15,14 @@ class AddCardSheetViewModel: ObservableObject {
     @Published var nativeText: String = ""
     @Published var targetText: String = ""
     @Published var isTranslating: Bool = false
+    @Published var selectedTags: Set<String> = []
+    @Published var newTagText: String = ""
     
     @AppStorage(UserDefaultsKey.userLanguage) private var userLanguageRaw: String = Language.english.rawValue
     @AppStorage(UserDefaultsKey.targetLanguage) private var targetLanguageRaw: String = Language.spanish.rawValue
 
     private var cancellables = Set<AnyCancellable>()
+    private let tagManager = TagManager()
     
     var userLanguage: Language {
         Language(rawValue: userLanguageRaw) ?? .english
@@ -27,6 +30,10 @@ class AddCardSheetViewModel: ObservableObject {
     
     var targetLanguage: Language {
         Language(rawValue: targetLanguageRaw) ?? .spanish
+    }
+    
+    var availableTags: [String] {
+        tagManager.availableTags
     }
     
     init() {
@@ -65,6 +72,25 @@ class AddCardSheetViewModel: ObservableObject {
         isTranslating = false
     }
     
+    func addTag(_ tag: String) {
+        let trimmedTag = tag.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmedTag.isEmpty else { return }
+        
+        if selectedTags.count < 5 {
+            selectedTags.insert(trimmedTag)
+            tagManager.addTag(trimmedTag)
+        }
+    }
+    
+    func removeTag(_ tag: String) {
+        selectedTags.remove(tag)
+    }
+    
+    func addNewTag() {
+        addTag(newTagText)
+        newTagText = ""
+    }
+    
     func saveCard(modelContext: ModelContext) -> Bool {
         let trimmedNative = nativeText.trimmingCharacters(in: .whitespacesAndNewlines)
         let trimmedTarget = targetText.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -78,7 +104,8 @@ class AddCardSheetViewModel: ObservableObject {
             backText: trimmedNative,
             frontLanguage: targetLanguage,
             backLanguage: userLanguage,
-            notes: nil
+            notes: nil,
+            tags: selectedTags.isEmpty ? nil : Array(selectedTags)
         )
         
         modelContext.insert(newItem)

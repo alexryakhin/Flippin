@@ -11,6 +11,9 @@ struct SettingsView: View {
     @AppStorage(UserDefaultsKey.userLanguage) private var userLanguageRaw: String = Language(rawValue: Locale.current.language.languageCode?.identifier ?? "en")?.rawValue ?? Language.english.rawValue
     @AppStorage(UserDefaultsKey.targetLanguage) private var targetLanguageRaw: String = Language.spanish.rawValue
     @AppStorage(UserDefaultsKey.userGradientColor) private var userGradientColorHex: String = "#4A90E2" // Default blue
+    @StateObject private var tagManager = TagManager()
+    @State private var newTagText = ""
+    @State private var showingAddTagAlert = false
 
     var userGradientColor: Color {
         Color(hexString: userGradientColorHex) ?? .blue
@@ -32,6 +35,7 @@ struct SettingsView: View {
                         }
                     }
                 }
+                
                 Section(header: Text("Background")) {
                     ColorPicker("Background Color", selection: Binding(
                         get: { userGradientColor },
@@ -39,6 +43,38 @@ struct SettingsView: View {
                             userGradientColorHex = newColor.uiColor.toHexString()
                         }
                     ))
+                }
+                
+                Section(header: Text("Tags Management")) {
+                    HStack {
+                        TextField("New tag name", text: $newTagText)
+                            .textFieldStyle(.roundedBorder)
+                        
+                        Button("Add") {
+                            if !newTagText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                                tagManager.addTag(newTagText)
+                                newTagText = ""
+                            }
+                        }
+                        .disabled(newTagText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+                    }
+                    
+                    if !tagManager.availableTags.isEmpty {
+                        ForEach(tagManager.availableTags, id: \.self) { tag in
+                            HStack {
+                                Text(tag)
+                                Spacer()
+                                Button("Delete") {
+                                    tagManager.removeTag(tag)
+                                }
+                                .foregroundStyle(.red)
+                                .font(.caption)
+                            }
+                        }
+                    } else {
+                        Text("No tags available")
+                            .foregroundStyle(.secondary)
+                    }
                 }
             }
             .navigationTitle("Settings")

@@ -29,6 +29,62 @@ struct AddCardSheet: View {
                         }
                     }
                 }
+                
+                Section(header: Text("Tags (\(viewModel.selectedTags.count)/5)")) {
+                    // Add new tag
+                    HStack {
+                        TextField("Add new tag", text: $viewModel.newTagText)
+                            .textFieldStyle(.roundedBorder)
+                        
+                        Button("Add") {
+                            viewModel.addNewTag()
+                        }
+                        .disabled(viewModel.newTagText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || viewModel.selectedTags.count >= 5)
+                    }
+                    
+                    // Selected tags
+                    if !viewModel.selectedTags.isEmpty {
+                        ForEach(Array(viewModel.selectedTags), id: \.self) { tag in
+                            HStack {
+                                Text(tag)
+                                Spacer()
+                                Button("Remove") {
+                                    viewModel.removeTag(tag)
+                                }
+                                .foregroundStyle(.red)
+                                .font(.caption)
+                            }
+                        }
+                    }
+                    
+                    // Available tags to select
+                    if !viewModel.availableTags.isEmpty {
+                        ForEach(viewModel.availableTags, id: \.self) { tag in
+                            if !viewModel.selectedTags.contains(tag) {
+                                Button {
+                                    viewModel.addTag(tag)
+                                } label: {
+                                    HStack {
+                                        Text(tag)
+                                        Spacer()
+                                        if viewModel.selectedTags.count < 5 {
+                                            Image(systemName: "plus.circle")
+                                                .foregroundStyle(.blue)
+                                        }
+                                    }
+                                }
+                                .disabled(viewModel.selectedTags.count >= 5)
+                                .foregroundStyle(.primary)
+                            }
+                        }
+                    }
+                    
+                    if viewModel.availableTags.isEmpty && viewModel.selectedTags.isEmpty {
+                        Text("No tags available. Add some tags in Settings.")
+                            .foregroundStyle(.secondary)
+                            .font(.caption)
+                    }
+                }
             }
             .navigationTitle("Add Card")
             .navigationBarTitleDisplayMode(.inline)

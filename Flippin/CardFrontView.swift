@@ -20,15 +20,17 @@ struct CardFrontView: View {
     var body: some View {
         VStack(spacing: 20) {
             HStack {
-                Text(item.frontLanguage.displayName)
+                Text(item.frontLanguage?.displayName ?? "Unknown")
                     .font(.headline)
                     .foregroundStyle(.secondary)
                 Spacer()
-                Text(item.timestamp, format: Date.FormatStyle(date: .abbreviated, time: .shortened))
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
+                if let timestamp = item.timestamp {
+                    Text(timestamp, format: Date.FormatStyle(date: .abbreviated, time: .shortened))
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
             }
-            Text(item.frontText)
+            Text(item.frontText ?? "")
                 .font(.largeTitle)
                 .foregroundStyle(.primary)
                 .fontWeight(.bold)
@@ -41,13 +43,33 @@ struct CardFrontView: View {
                     .multilineTextAlignment(.center)
                     .padding(.top, 10)
             }
+            
+            if let tags = item.tags, !tags.isEmpty {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 6) {
+                        ForEach(tags, id: \.self) { tag in
+                            Text(tag)
+                                .font(.caption)
+                                .padding(.horizontal, 8)
+                                .padding(.vertical, 4)
+                                .background(.blue.opacity(0.1))
+                                .foregroundStyle(.blue)
+                                .clipShape(Capsule())
+                        }
+                    }
+                    .padding(.horizontal, 1)
+                }
+            }
+            
             Spacer()
             HStack {
                 Button(action: {
                     isPlayingTTS = true
                     Task {
                         do {
-                            try await TTSPlayer.shared.play(item.frontText, language: item.frontLanguage)
+                            let text = item.frontText ?? ""
+                            let language = item.frontLanguage ?? .english
+                            try await TTSPlayer.shared.play(text, language: language)
                         } catch {
                             print("TTS error: \(error)")
                         }

@@ -10,7 +10,7 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query(sort: \CardItem.timestamp) private var items: [CardItem]
+    @Query(sort: \CardItem.timestamp, order: .forward) private var items: [CardItem]
 
     @AppStorage(UserDefaultsKey.userLanguage) private var userLanguageRaw: String = Language(rawValue: Locale.current.language.languageCode?.identifier ?? "en")?.rawValue ?? Language.english.rawValue
     @AppStorage(UserDefaultsKey.targetLanguage) private var targetLanguageRaw: String = Language.spanish.rawValue
@@ -22,11 +22,21 @@ struct ContentView: View {
     @State private var showMyCards = false
     @State private var showAddCardSheet = false
     @State private var shuffledItems: [CardItem] = []
+    @StateObject private var tagManager = TagManager()
+    @State private var showingTagFilter = false
 
     @Environment(\.colorScheme) private var colorScheme
 
+    var filteredItems: [CardItem] {
+        if !tagManager.currentFilterTag.isEmpty {
+            return tagManager.filterCards(items, by: tagManager.currentFilterTag)
+        }
+        return items
+    }
+
     var displayItems: [CardItem] {
-        return shuffledItems.isEmpty ? items : shuffledItems
+        let itemsToUse = shuffledItems.isEmpty ? filteredItems : shuffledItems
+        return itemsToUse
     }
 
     var body: some View {
@@ -34,14 +44,16 @@ struct ContentView: View {
             cardsStackView
                 .if(isPad) { view in
                     view
-                        .frame(width: 500, height: 850, alignment: .center)
+                        .frame(maxWidth: 500, maxHeight: 850, alignment: .center)
                         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                 }
             ButtonRowView(
                 onAddItem: { showAddCardSheet = true },
                 onShuffle: shuffleCards,
                 onShowSettings: { showSettings = true },
-                onShowMyCards: { showMyCards = true }
+                onShowMyCards: { showMyCards = true },
+                onFilterTags: { showingTagFilter = true },
+                isFilterActive: !tagManager.currentFilterTag.isEmpty
             )
         }
         .padding(24)
@@ -59,7 +71,10 @@ struct ContentView: View {
             }
         }
         .onChange(of: items.count) { _, _ in
-            resetShuffleIfNeeded()
+            resetShuffle()
+        }
+        .onChange(of: tagManager.currentFilterTag) { _, _ in
+            resetShuffle()
         }
         .sheet(isPresented: $showWelcomeSheet) {
             WelcomeSheet(
@@ -82,11 +97,15 @@ struct ContentView: View {
         .sheet(isPresented: $showAddCardSheet) {
             AddCardSheet()
         }
+        .sheet(isPresented: $showingTagFilter) {
+            TagFilterView(tagManager: tagManager)
+                .presentationDetents(.init(Set([.medium])))
+        }
     }
 
     @ViewBuilder
     private var cardsStackView: some View {
-        if displayItems.isEmpty {
+        if items.isEmpty {
             ContentUnavailableView {
                 VStack {
                     Image(systemName: "rectangle.stack")
@@ -98,6 +117,28 @@ struct ContentView: View {
                     .foregroundStyle(.secondary)
             }
             .foregroundColor(adjustedForegroundColor)
+        } else if displayItems.isEmpty {
+            ContentUnavailableView {
+                VStack {
+                    Image(systemName: "tag")
+                        .font(.largeTitle)
+                    Text("No cards with selected tag")
+                }
+            } description: {
+                if !tagManager.currentFilterTag.isEmpty {
+                    Text("No cards found with tag \"\(tagManager.currentFilterTag)\"")
+                } else {
+                    Text("No cards available")
+                }
+            } actions: {
+                if !tagManager.currentFilterTag.isEmpty {
+                    Button("Clear Filter") {
+                        tagManager.clearFilter()
+                    }
+                    .buttonStyle(.borderedProminent)
+                }
+            }
+            .foregroundColor(adjustedForegroundColor)
         } else {
             CardStackScrollView(items: displayItems)
         }
@@ -107,7 +148,7 @@ struct ContentView: View {
         withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
             if shuffledItems.isEmpty {
                 // First shuffle: create shuffled copy
-                shuffledItems = items.shuffled()
+                shuffledItems = filteredItems.shuffled()
             } else {
                 // Subsequent shuffles: reshuffle the current shuffled array
                 shuffledItems = shuffledItems.shuffled()
@@ -115,14 +156,8 @@ struct ContentView: View {
         }
     }
 
-    // Reset shuffle when items change (new cards added/removed)
-    private func resetShuffleIfNeeded() {
-        if !shuffledItems.isEmpty {
-            // If we have shuffled items but the count doesn't match, reset
-            if shuffledItems.count != items.count {
-                shuffledItems = []
-            }
-        }
+    private func resetShuffle() {
+        shuffledItems = []
     }
 }
 

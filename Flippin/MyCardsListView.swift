@@ -15,20 +15,31 @@ struct MyCardsListView: View {
     @State private var searchText = ""
     @State private var showingDeleteAlert = false
     @State private var cardToDelete: CardItem?
+    @StateObject private var tagManager = TagManager()
+    @State private var showingTagFilter = false
 
     let onAddCard: () -> Void
 
     var filteredCards: [CardItem] {
-        if searchText.isEmpty {
-            return cards
-        } else {
-            return cards.filter { card in
-                card.frontText.localizedCaseInsensitiveContains(searchText) ||
-                card.backText.localizedCaseInsensitiveContains(searchText) ||
-                card.frontLanguage.displayName.localizedCaseInsensitiveContains(searchText) ||
-                card.backLanguage.displayName.localizedCaseInsensitiveContains(searchText)
+        var filtered = cards
+        
+        // Apply tag filter first
+        if !tagManager.currentFilterTag.isEmpty {
+            filtered = tagManager.filterCards(filtered, by: tagManager.currentFilterTag)
+        }
+        
+        // Then apply search filter
+        if !searchText.isEmpty {
+            filtered = filtered.filter { card in
+                (card.frontText ?? "").localizedCaseInsensitiveContains(searchText) ||
+                (card.backText ?? "").localizedCaseInsensitiveContains(searchText) ||
+                (card.frontLanguage?.displayName ?? "").localizedCaseInsensitiveContains(searchText) ||
+                (card.backLanguage?.displayName ?? "").localizedCaseInsensitiveContains(searchText) ||
+                (card.tags?.joined(separator: " ") ?? "").localizedCaseInsensitiveContains(searchText)
             }
         }
+        
+        return filtered
     }
     
     var body: some View {
@@ -51,6 +62,34 @@ struct MyCardsListView: View {
                         }
                         .buttonStyle(.borderedProminent)
                     }
+                } else if filteredCards.isEmpty {
+                    ContentUnavailableView {
+                        VStack {
+                            Image(systemName: "tag")
+                                .font(.largeTitle)
+                                .foregroundStyle(.secondary)
+                            Text("No cards with selected tag")
+                        }
+                    } description: {
+                        if !tagManager.currentFilterTag.isEmpty {
+                            Text("No cards found with tag \"\(tagManager.currentFilterTag)\"")
+                        } else {
+                            Text("No cards match your search")
+                        }
+                    } actions: {
+                        if !tagManager.currentFilterTag.isEmpty {
+                            Button("Clear Filter") {
+                                tagManager.clearFilter()
+                            }
+                            .buttonStyle(.borderedProminent)
+                        }
+                        if !searchText.isEmpty {
+                            Button("Clear Search") {
+                                searchText = ""
+                            }
+                            .buttonStyle(.bordered)
+                        }
+                    }
                 } else {
                     List {
                         ForEach(filteredCards) { card in
@@ -72,11 +111,20 @@ struct MyCardsListView: View {
                 
                 if !cards.isEmpty {
                     ToolbarItem(placement: .primaryAction) {
-                        Button("Clear All", role: .destructive) {
-                            cardToDelete = nil
-                            showingDeleteAlert = true
+                        HStack {
+                            Button {
+                                showingTagFilter = true
+                            } label: {
+                                Image(systemName: "tag")
+                                    .foregroundStyle(tagManager.currentFilterTag.isEmpty ? .secondary : .primary)
+                            }
+                            
+                            Button("Clear All", role: .destructive) {
+                                cardToDelete = nil
+                                showingDeleteAlert = true
+                            }
+                            .foregroundStyle(.red)
                         }
-                        .foregroundStyle(.red)
                     }
                 }
             }
@@ -88,6 +136,9 @@ struct MyCardsListView: View {
             }
         } message: {
             Text("Are you sure you want to delete all cards? This action cannot be undone.")
+        }
+        .sheet(isPresented: $showingTagFilter) {
+            TagFilterView(tagManager: tagManager)
         }
     }
     
@@ -103,79 +154,6 @@ struct MyCardsListView: View {
         withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
             for card in cards {
                 modelContext.delete(card)
-            }
-        }
-    }
-}
-
-struct CardRowView: View {
-    let card: CardItem
-    
-    @State private var isFlipped = false
-    @State private var isPlayingTTS = false
-    
-    var body: some View {
-        let text = isFlipped ? card.backText : card.frontText
-        let language = isFlipped ? card.backLanguage : card.frontLanguage
-
-        VStack(spacing: 12) {
-            HStack {
-                Text(language.displayName)
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-                    .padding(.horizontal, 8)
-                    .padding(.vertical, 2)
-                    .background(.thinMaterial)
-                    .clipShape(Capsule())
-
-                Spacer()
-
-                Text(card.timestamp, format: Date.FormatStyle(date: .abbreviated, time: .shortened))
-                    .font(.caption2)
-                    .foregroundStyle(.secondary)
-            }
-
-            VStack(spacing: 8) {
-                HStack {
-                    Text(text)
-                        .font(.headline)
-                        .multilineTextAlignment(.leading)
-                        .lineLimit(2)
-                    
-                    Spacer()
-                    
-                    Button {
-                        isPlayingTTS = true
-                        Task {
-                            do {
-                                try await TTSPlayer.shared.play(text, language: language)
-                            } catch {
-                                print("TTS error: \(error)")
-                            }
-                            isPlayingTTS = false
-                        }
-                    } label: {
-                        Image(systemName: isPlayingTTS ? "speaker.wave.2.fill" : "speaker.wave.2")
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                    }
-                    .buttonStyle(.plain)
-                }
-
-                if let notes = card.notes, !notes.isEmpty {
-                    Text(notes)
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                        .multilineTextAlignment(.leading)
-                        .lineLimit(1)
-                }
-            }
-        }
-        .padding(.vertical, 8)
-        .contentShape(Rectangle())
-        .onTapGesture {
-            withAnimation(.easeInOut(duration: 0.3)) {
-                isFlipped.toggle()
             }
         }
     }

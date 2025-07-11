@@ -11,20 +11,40 @@ struct CardBackView: View {
     var body: some View {
         VStack(spacing: 20) {
             HStack {
-                Text(item.backLanguage.displayName)
+                Text(item.backLanguage?.displayName ?? "Unknown")
                     .font(.headline)
                     .foregroundStyle(.secondary)
                 Spacer()
-                Text(item.timestamp, format: Date.FormatStyle(date: .abbreviated, time: .shortened))
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
+                if let timestamp = item.timestamp {
+                    Text(timestamp, format: Date.FormatStyle(date: .abbreviated, time: .shortened))
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
             }
-            Text(item.backText)
+            Text(item.backText ?? "")
                 .font(.largeTitle)
                 .foregroundStyle(.primary)
                 .fontWeight(.bold)
                 .multilineTextAlignment(.center)
                 .padding(.vertical, 20)
+            
+            if let tags = item.tags, !tags.isEmpty {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 6) {
+                        ForEach(tags, id: \.self) { tag in
+                            Text(tag)
+                                .font(.caption)
+                                .padding(.horizontal, 8)
+                                .padding(.vertical, 4)
+                                .background(.blue.opacity(0.1))
+                                .foregroundStyle(.blue)
+                                .clipShape(Capsule())
+                        }
+                    }
+                    .padding(.horizontal, 1)
+                }
+            }
+            
             Spacer()
             Text("Tap to go back")
                 .font(.footnote)
