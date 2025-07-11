@@ -30,6 +30,12 @@ struct AddCardSheet: View {
                     }
                 }
                 
+                Section(header: Text("Notes")) {
+                    TextField("Add notes (optional)", text: $viewModel.notes, axis: .vertical)
+                        .lineLimit(3...6)
+                        .autocapitalization(.sentences)
+                }
+                
                 Section(header: Text("Tags (\(viewModel.selectedTags.count)/5)")) {
                     // Add new tag
                     HStack {

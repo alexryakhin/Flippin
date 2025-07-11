@@ -17,6 +17,7 @@ class AddCardSheetViewModel: ObservableObject {
     @Published var isTranslating: Bool = false
     @Published var selectedTags: Set<String> = []
     @Published var newTagText: String = ""
+    @Published var notes: String = ""
     
     @AppStorage(UserDefaultsKey.userLanguage) private var userLanguageRaw: String = Language.english.rawValue
     @AppStorage(UserDefaultsKey.targetLanguage) private var targetLanguageRaw: String = Language.spanish.rawValue
@@ -94,6 +95,7 @@ class AddCardSheetViewModel: ObservableObject {
     func saveCard(modelContext: ModelContext) -> Bool {
         let trimmedNative = nativeText.trimmingCharacters(in: .whitespacesAndNewlines)
         let trimmedTarget = targetText.trimmingCharacters(in: .whitespacesAndNewlines)
+        let trimmedNotes = notes.trimmingCharacters(in: .whitespacesAndNewlines)
         
         guard !trimmedNative.isEmpty && !trimmedTarget.isEmpty else {
             return false
@@ -104,7 +106,7 @@ class AddCardSheetViewModel: ObservableObject {
             backText: trimmedNative,
             frontLanguage: targetLanguage,
             backLanguage: userLanguage,
-            notes: nil,
+            notes: trimmedNotes.isEmpty ? nil : trimmedNotes,
             tags: selectedTags.isEmpty ? nil : Array(selectedTags)
         )
         
