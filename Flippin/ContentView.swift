@@ -22,55 +22,16 @@ struct ContentView: View {
     @State private var showMyCards = false
     @State private var showAddCardSheet = false
     @State private var shuffledItems: [CardItem] = []
-    
-    var userLanguage: Language {
-        Language(rawValue: userLanguageRaw) ?? .english
-    }
-    var targetLanguage: Language {
-        Language(rawValue: targetLanguageRaw) ?? .spanish
-    }
-    
-    var userGradientColor: Color {
-        Color(hexString: userGradientColorHex) ?? .blue
-    }
-    
+
     @Environment(\.colorScheme) private var colorScheme
-    
-    var adjustedGradientColors: [Color] {
-        let baseColor = userGradientColor
-        
-        // If we're in dark mode and the color is bright, darken it significantly
-        if colorScheme == .dark && baseColor.isLight {
-            return [
-                baseColor.darker(by: 40), // Much darker for dark mode
-                baseColor.darker(by: 60)  // Even darker for the bottom
-            ]
-        } else {
-            // Use the original gradient for light mode or already dark colors
-            return [
-                baseColor.lighter(by: 15),
-                baseColor.darker(by: 10)
-            ]
-        }
-    }
-    
+
     var displayItems: [CardItem] {
         return shuffledItems.isEmpty ? items : shuffledItems
     }
-    
-    // Reset shuffle when items change (new cards added/removed)
-    private func resetShuffleIfNeeded() {
-        if !shuffledItems.isEmpty {
-            // If we have shuffled items but the count doesn't match, reset
-            if shuffledItems.count != items.count {
-                shuffledItems = []
-            }
-        }
-    }
-    
+
     var body: some View {
-        VStack(spacing: 0) {
-            CardStackView(items: displayItems)
+        VStack(spacing: 24) {
+            cardsStackView
             ButtonRowView(
                 onAddItem: { showAddCardSheet = true },
                 onShuffle: shuffleCards,
@@ -78,6 +39,7 @@ struct ContentView: View {
                 onShowMyCards: { showMyCards = true }
             )
         }
+        .padding(24)
         .background {
             LinearGradient(
                 colors: adjustedGradientColors,
@@ -108,26 +70,34 @@ struct ContentView: View {
             SettingsView()
         }
         .sheet(isPresented: $showMyCards) {
-            MyCardsListView()
+            MyCardsListView(onAddCard: {
+                showAddCardSheet = true
+            })
         }
         .sheet(isPresented: $showAddCardSheet) {
             AddCardSheet()
         }
     }
-    
-    private func addItem(nativeText: String, targetText: String) {
-        withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
-            let newItem = CardItem(
-                frontText: targetText,
-                backText: nativeText,
-                frontLanguage: targetLanguage,
-                backLanguage: userLanguage,
-                notes: nil
-            )
-            modelContext.insert(newItem)
+
+    @ViewBuilder
+    private var cardsStackView: some View {
+        if displayItems.isEmpty {
+            ContentUnavailableView {
+                VStack {
+                    Image(systemName: "rectangle.stack")
+                        .font(.largeTitle)
+                    Text("No cards yet")
+                }
+            } description: {
+                Text("Tap the + button to add your first card")
+                    .foregroundStyle(.secondary)
+            }
+            .foregroundColor(adjustedForegroundColor)
+        } else {
+            CardStackScrollView(items: displayItems)
         }
     }
-    
+
     private func shuffleCards() {
         withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
             if shuffledItems.isEmpty {
@@ -137,6 +107,55 @@ struct ContentView: View {
                 // Subsequent shuffles: reshuffle the current shuffled array
                 shuffledItems = shuffledItems.shuffled()
             }
+        }
+    }
+
+    // Reset shuffle when items change (new cards added/removed)
+    private func resetShuffleIfNeeded() {
+        if !shuffledItems.isEmpty {
+            // If we have shuffled items but the count doesn't match, reset
+            if shuffledItems.count != items.count {
+                shuffledItems = []
+            }
+        }
+    }
+}
+
+private extension ContentView {
+
+    var userLanguage: Language {
+        Language(rawValue: userLanguageRaw) ?? .english
+    }
+    var targetLanguage: Language {
+        Language(rawValue: targetLanguageRaw) ?? .spanish
+    }
+
+    var userGradientColor: Color {
+        Color(hexString: userGradientColorHex) ?? .blue
+    }
+
+    var adjustedGradientColors: [Color] {
+        let baseColor = userGradientColor
+
+        // If we're in dark mode and the color is bright, darken it significantly
+        if colorScheme == .dark && baseColor.isLight {
+            return [
+                baseColor.darker(by: 40), // Much darker for dark mode
+                baseColor.darker(by: 60)  // Even darker for the bottom
+            ]
+        } else {
+            // Use the original gradient for light mode or already dark colors
+            return [
+                baseColor.lighter(by: 20),
+                baseColor.darker(by: 20)
+            ]
+        }
+    }
+
+    var adjustedForegroundColor: Color {
+        switch (colorScheme, userGradientColor.isLight) {
+        case (.light, false): return Color(.systemBackground)
+        default: return Color(.label)
         }
     }
 }

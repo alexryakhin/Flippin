@@ -15,7 +15,9 @@ struct MyCardsListView: View {
     @State private var searchText = ""
     @State private var showingDeleteAlert = false
     @State private var cardToDelete: CardItem?
-    
+
+    let onAddCard: () -> Void
+
     var filteredCards: [CardItem] {
         if searchText.isEmpty {
             return cards
@@ -44,6 +46,7 @@ struct MyCardsListView: View {
                         Text("Add your first card to start learning")
                     } actions: {
                         Button("Add Card") {
+                            onAddCard()
                             dismiss()
                         }
                         .buttonStyle(.borderedProminent)
@@ -112,97 +115,53 @@ struct CardRowView: View {
     @State private var isPlayingTTS = false
     
     var body: some View {
+        let text = isFlipped ? card.backText : card.frontText
+        let language = isFlipped ? card.backLanguage : card.frontLanguage
+
         VStack(spacing: 12) {
             HStack {
-                VStack(alignment: .leading, spacing: 4) {
-                    HStack {
-                        Text(card.frontLanguage.displayName)
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                            .padding(.horizontal, 8)
-                            .padding(.vertical, 2)
-                            .background(.ultraThinMaterial)
-                            .clipShape(Capsule())
-                        
-                        Image(systemName: "arrow.right")
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
+                Text(language.displayName)
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 2)
+                    .background(.thinMaterial)
+                    .clipShape(Capsule())
 
-                        Text(card.backLanguage.displayName)
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                            .padding(.horizontal, 8)
-                            .padding(.vertical, 2)
-                            .background(.ultraThinMaterial)
-                            .clipShape(Capsule())
-                    }
-                    
-                    Text(card.timestamp, format: Date.FormatStyle(date: .abbreviated, time: .shortened))
-                        .font(.caption2)
-                        .foregroundStyle(.secondary)
-                }
-                
                 Spacer()
+
+                Text(card.timestamp, format: Date.FormatStyle(date: .abbreviated, time: .shortened))
+                    .font(.caption2)
+                    .foregroundStyle(.secondary)
             }
-            
+
             VStack(spacing: 8) {
                 HStack {
-                    Text(card.frontText)
+                    Text(text)
                         .font(.headline)
                         .multilineTextAlignment(.leading)
                         .lineLimit(2)
                     
                     Spacer()
                     
-                    Button(action: {
+                    Button {
                         isPlayingTTS = true
                         Task {
                             do {
-                                try await TTSPlayer.shared.play(card.frontText, language: card.frontLanguage)
+                                try await TTSPlayer.shared.play(text, language: language)
                             } catch {
                                 print("TTS error: \(error)")
                             }
                             isPlayingTTS = false
                         }
-                    }) {
+                    } label: {
                         Image(systemName: isPlayingTTS ? "speaker.wave.2.fill" : "speaker.wave.2")
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     }
                     .buttonStyle(.plain)
                 }
-                
-                if isFlipped {
-                    Divider()
-                    
-                    HStack {
-                        Text(card.backText)
-                            .font(.subheadline)
-                            .foregroundStyle(.secondary)
-                            .multilineTextAlignment(.leading)
-                            .lineLimit(2)
-                        
-                        Spacer()
-                        
-                        Button(action: {
-                            isPlayingTTS = true
-                            Task {
-                                do {
-                                    try await TTSPlayer.shared.play(card.backText, language: card.backLanguage)
-                                } catch {
-                                    print("TTS error: \(error)")
-                                }
-                                isPlayingTTS = false
-                            }
-                        }) {
-                            Image(systemName: isPlayingTTS ? "speaker.wave.2.fill" : "speaker.wave.2")
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                        }
-                        .buttonStyle(.plain)
-                    }
-                }
-                
+
                 if let notes = card.notes, !notes.isEmpty {
                     Text(notes)
                         .font(.caption)

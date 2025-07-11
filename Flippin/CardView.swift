@@ -38,7 +38,7 @@ struct CardView: View {
             }
             .padding(25)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(.ultraThinMaterial)
+            .background(.thinMaterial)
             .clipShape(RoundedRectangle(cornerRadius: 20))
             .rotation3DEffect(.degrees(animatedAngle), axis: (x: 0, y: 1, z: 0))
             .shadow(radius: 1)

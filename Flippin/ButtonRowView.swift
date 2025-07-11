@@ -13,7 +13,7 @@ struct ButtonRowView: View {
     let onShowMyCards: () -> Void
 
     var body: some View {
-        HStack(spacing: 40) {
+        HStack {
             Menu {
                 Button(action: onShowSettings) {
                     Label("Settings", systemImage: "gear")
@@ -29,18 +29,22 @@ struct ButtonRowView: View {
                     .padding(20)
                     .foregroundColor(Color(.label))
             }
-            .background(.ultraThinMaterial)
+            .background(.thinMaterial)
             .clipShape(RoundedRectangle(cornerRadius: 16))
             .shadow(radius: 1)
+
+            Spacer()
 
             Button(action: onShuffle) {
                 Label("Shuffle", systemImage: "shuffle")
                     .padding(20)
                     .foregroundColor(Color(.label))
             }
-            .background(.ultraThinMaterial)
+            .background(.thinMaterial)
             .clipShape(RoundedRectangle(cornerRadius: 16))
             .shadow(radius: 1)
+
+            Spacer()
 
             Button(action: onAddItem) {
                 Image(systemName: "plus")
@@ -50,10 +54,9 @@ struct ButtonRowView: View {
                     .padding(20)
                     .foregroundColor(Color(.label))
             }
-            .background(.ultraThinMaterial)
+            .background(.thinMaterial)
             .clipShape(RoundedRectangle(cornerRadius: 16))
             .shadow(radius: 1)
         }
-        .padding(.vertical, 36)
     }
 }
