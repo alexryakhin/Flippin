@@ -22,7 +22,7 @@ struct CardStackScrollView: View {
                                 content
                                     .scaleEffect(scale(geometryProxy))
                                     .offset(x: minX(geometryProxy))
-                                    .offset(x: excessMinX(geometryProxy))
+                                    .offset(x: excessMinX(geometryProxy, offset: isPad ? 40 : 16))
                             }
                             .zIndex(items.zIndex(item))
                     }

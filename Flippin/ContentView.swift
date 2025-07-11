@@ -32,6 +32,11 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 24) {
             cardsStackView
+                .if(isPad) { view in
+                    view
+                        .frame(width: 500, height: 850, alignment: .center)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                }
             ButtonRowView(
                 onAddItem: { showAddCardSheet = true },
                 onShuffle: shuffleCards,
