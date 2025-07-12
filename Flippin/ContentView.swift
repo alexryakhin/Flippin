@@ -14,7 +14,8 @@ struct ContentView: View {
 
     @AppStorage(UserDefaultsKey.userLanguage) private var userLanguageRaw: String = Language(rawValue: Locale.current.language.languageCode?.identifier ?? "en")?.rawValue ?? Language.english.rawValue
     @AppStorage(UserDefaultsKey.targetLanguage) private var targetLanguageRaw: String = Language.spanish.rawValue
-    @AppStorage(UserDefaultsKey.userGradientColor) private var userGradientColorHex: String = "#4A90E2" // Default blue
+    @AppStorage(UserDefaultsKey.userGradientColor) private var userGradientColorHex: String = "#4B9FF8" // Default blue
+    @AppStorage(UserDefaultsKey.backgroundStyle) private var backgroundStyleRaw: String = BackgroundStyle.gradient.rawValue
     @AppStorage(UserDefaultsKey.didShowWelcomeSheet) private var didShowWelcomeSheet: Bool = false
 
     @State private var showWelcomeSheet = false
@@ -58,12 +59,10 @@ struct ContentView: View {
         }
         .padding(24)
         .background {
-            LinearGradient(
-                colors: adjustedGradientColors,
-                startPoint: .top,
-                endPoint: .bottom
+            AnimatedBackground(
+                style: backgroundStyle,
+                baseColor: userGradientColor
             )
-            .ignoresSafeArea()
         }
         .onAppear {
             if !didShowWelcomeSheet {
@@ -108,8 +107,9 @@ struct ContentView: View {
         if items.isEmpty {
             ContentUnavailableView {
                 VStack {
-                    Image(systemName: "rectangle.stack")
+                    Image(systemName: "rectangle.stack.fill")
                         .font(.largeTitle)
+                        .rotationEffect(.init(degrees: 90))
                     Text("No cards yet")
                 }
             } description: {
@@ -173,26 +173,13 @@ private extension ContentView {
     var userGradientColor: Color {
         Color(hexString: userGradientColorHex) ?? .blue
     }
-
-    var adjustedGradientColors: [Color] {
-        let baseColor = userGradientColor
-
-        // If we're in dark mode and the color is bright, darken it significantly
-        if colorScheme == .dark && baseColor.isLight {
-            return [
-                baseColor.darker(by: 40), // Much darker for dark mode
-                baseColor.darker(by: 60)  // Even darker for the bottom
-            ]
-        } else {
-            // Use the original gradient for light mode or already dark colors
-            return [
-                baseColor.lighter(by: 20),
-                baseColor.darker(by: 20)
-            ]
-        }
+    
+    var backgroundStyle: BackgroundStyle {
+        BackgroundStyle(rawValue: backgroundStyleRaw) ?? .gradient
     }
 
     var adjustedForegroundColor: Color {
+        guard !backgroundStyle.isAlwaysDark else { return Color(.white) }
         switch (colorScheme, userGradientColor.isLight) {
         case (.light, false): return Color(.systemBackground)
         default: return Color(.label)

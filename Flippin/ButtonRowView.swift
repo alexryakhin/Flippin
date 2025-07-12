@@ -23,7 +23,11 @@ struct ButtonRowView: View {
                     Label("Settings", systemImage: "gear")
                 }
                 Button(action: onShowMyCards) {
-                    Label("My Cards", systemImage: "rectangle.stack")
+                    Label {
+                        Text("My Cards")
+                    } icon: {
+                        Image(.stackCards)
+                    }
                 }
             } label: {
                 Image(systemName: "line.3.horizontal")
@@ -48,8 +52,19 @@ struct ButtonRowView: View {
             Spacer()
 
             Button(action: onShuffle) {
-                Label("Shuffle", systemImage: "shuffle")
-                    .padding(20)
+                Group {
+                    if isPad {
+                        Label("Shuffle", systemImage: "shuffle")
+                            .padding(20)
+                            .lineLimit(1)
+                    } else {
+                        Image(systemName: "shuffle")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 20, height: 20)
+                            .padding(20)
+                    }
+                }
             }
             .buttonStyle(ActionButtonStyle())
 

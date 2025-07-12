@@ -48,7 +48,7 @@ struct CardView: View {
                     animationStart = now
                 }
             }
-            .onChange(of: progress) { newProgress in
+            .onChange(of: progress) { _, newProgress in
                 if newProgress >= 1, animationStart != nil {
                     isFlipped.toggle()
                     animationStart = nil

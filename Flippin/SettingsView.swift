@@ -10,13 +10,19 @@ struct SettingsView: View {
     @Environment(\.dismiss) var dismiss
     @AppStorage(UserDefaultsKey.userLanguage) private var userLanguageRaw: String = Language(rawValue: Locale.current.language.languageCode?.identifier ?? "en")?.rawValue ?? Language.english.rawValue
     @AppStorage(UserDefaultsKey.targetLanguage) private var targetLanguageRaw: String = Language.spanish.rawValue
-    @AppStorage(UserDefaultsKey.userGradientColor) private var userGradientColorHex: String = "#4A90E2" // Default blue
+    @AppStorage(UserDefaultsKey.userGradientColor) private var userGradientColorHex: String = "#4B9FF8" // Default blue
+    @AppStorage(UserDefaultsKey.backgroundStyle) private var backgroundStyleRaw: String = BackgroundStyle.gradient.rawValue
     @StateObject private var tagManager = TagManager()
     @State private var newTagText = ""
     @State private var showingAddTagAlert = false
+    @State private var showingBackgroundPreview = false
 
     var userGradientColor: Color {
         Color(hexString: userGradientColorHex) ?? .blue
+    }
+    
+    var backgroundStyle: BackgroundStyle {
+        BackgroundStyle(rawValue: backgroundStyleRaw) ?? .gradient
     }
 
     var body: some View {
@@ -43,6 +49,29 @@ struct SettingsView: View {
                             userGradientColorHex = newColor.uiColor.toHexString()
                         }
                     ))
+                    
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text("Background Style")
+                                .font(.headline)
+                            Text(backgroundStyle.displayName)
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                        Spacer()
+                        Button("Preview") {
+                            showingBackgroundPreview = true
+                        }
+                        .buttonStyle(.bordered)
+                    }
+                    
+                    Picker("Background Style", selection: $backgroundStyleRaw) {
+                        ForEach(BackgroundStyle.allCases, id: \.self) { style in
+                            Label(style.displayName, systemImage: style.icon)
+                                .tag(style.rawValue)
+                        }
+                    }
+                    .pickerStyle(.menu)
                 }
                 
                 Section(header: Text("Tags Management")) {
@@ -85,6 +114,9 @@ struct SettingsView: View {
                         dismiss()
                     }
                 }
+            }
+            .sheet(isPresented: $showingBackgroundPreview) {
+                BackgroundPreviewView(selectedStyle: $backgroundStyleRaw)
             }
         }
     }

@@ -48,9 +48,10 @@ struct MyCardsListView: View {
                 if cards.isEmpty {
                     ContentUnavailableView {
                         VStack {
-                            Image(systemName: "rectangle.stack")
+                            Image(systemName: "rectangle.stack.fill")
                                 .font(.largeTitle)
                                 .foregroundStyle(.secondary)
+                                .rotationEffect(.init(degrees: 90))
                             Text("No cards yet")
                         }
                     } description: {

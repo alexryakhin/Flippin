@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct CardFrontView: View {
-    @AppStorage(UserDefaultsKey.userGradientColor) private var userGradientColorHex: String = "#4A90E2" // Default blue
+    @AppStorage(UserDefaultsKey.userGradientColor) private var userGradientColorHex: String = "#4B9FF8" // Default blue
     @Environment(\.colorScheme) private var colorScheme
 
     var userGradientColor: Color {
