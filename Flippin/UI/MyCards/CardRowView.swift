@@ -5,6 +5,7 @@
 //  Created by Alexander Riakhin on 7/11/25.
 //
 import SwiftUI
+import Flow
 
 struct CardRowView: View {
     let card: CardItem
@@ -71,19 +72,16 @@ struct CardRowView: View {
                 }
                 
                 if let tags = card.tags, !tags.isEmpty {
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 4) {
-                            ForEach(tags, id: \.self) { tag in
-                                Text(tag)
-                                    .font(.caption2)
-                                    .padding(.horizontal, 6)
-                                    .padding(.vertical, 2)
-                                    .background(.blue.opacity(0.1))
-                                    .foregroundStyle(.blue)
-                                    .clipShape(Capsule())
-                            }
+                    HFlow(spacing: 4) {
+                        ForEach(tags, id: \.self) { tag in
+                            Text(tag)
+                                .font(.caption2)
+                                .padding(.horizontal, 6)
+                                .padding(.vertical, 2)
+                                .background(.blue.opacity(0.1))
+                                .foregroundStyle(.blue)
+                                .clipShape(Capsule())
                         }
-                        .padding(.horizontal, 1)
                     }
                 }
             }

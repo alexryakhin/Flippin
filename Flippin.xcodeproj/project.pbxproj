@@ -6,6 +6,10 @@
 	objectVersion = 90;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		53BEAE352E23A3C8003E07F0 /* Flow in Frameworks */ = {isa = PBXBuildFile; productRef = 53BEAE342E23A3C8003E07F0 /* Flow */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		533792E12E110B250097F5BF /* Flippin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flippin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -35,6 +39,7 @@
 		533792DE2E110B250097F5BF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
+				53BEAE352E23A3C8003E07F0 /* Flow in Frameworks */,
 			);
 		};
 /* End PBXFrameworksBuildPhase section */
@@ -73,6 +78,9 @@
 				533792E32E110B250097F5BF /* Flippin */,
 			);
 			name = Flippin;
+			packageProductDependencies = (
+				53BEAE342E23A3C8003E07F0 /* Flow */,
+			);
 			productName = SpeakCards;
 			productReference = 533792E12E110B250097F5BF /* Flippin.app */;
 			productType = "com.apple.product-type.application";
@@ -101,6 +109,9 @@
 			);
 			mainGroup = 533792D82E110B250097F5BF;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				53BEAE332E23A3C8003E07F0 /* XCRemoteSwiftPackageReference "SwiftUI-Flow" */,
+			);
 			preferredProjectObjectVersion = 90;
 			productRefGroup = 533792E22E110B250097F5BF /* Products */;
 			projectDirPath = "";
@@ -339,6 +350,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		53BEAE332E23A3C8003E07F0 /* XCRemoteSwiftPackageReference "SwiftUI-Flow" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tevelee/SwiftUI-Flow.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		53BEAE342E23A3C8003E07F0 /* Flow */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53BEAE332E23A3C8003E07F0 /* XCRemoteSwiftPackageReference "SwiftUI-Flow" */;
+			productName = Flow;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 533792D92E110B250097F5BF /* Project object */;
 }

@@ -6,6 +6,7 @@
 //
 import SwiftUI
 import SwiftData
+import Flow
 
 struct AddCardSheet: View {
     @Environment(\.dismiss) var dismiss
@@ -50,37 +51,44 @@ struct AddCardSheet: View {
                     
                     // Selected tags
                     if !viewModel.selectedTags.isEmpty {
-                        ForEach(Array(viewModel.selectedTags), id: \.self) { tag in
-                            HStack {
-                                Text(tag)
-                                Spacer()
-                                Button("Remove") {
-                                    viewModel.removeTag(tag)
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text("Selected Tags")
+                                .font(.subheadline)
+                                .foregroundStyle(.secondary)
+                            
+                            HFlow(spacing: 6) {
+                                ForEach(Array(viewModel.selectedTags), id: \.self) { tag in
+                                    SelectedTagButton(
+                                        title: tag,
+                                        onRemove: {
+                                            viewModel.removeTag(tag)
+                                        }
+                                    )
                                 }
-                                .foregroundStyle(.red)
-                                .font(.caption)
                             }
                         }
                     }
                     
                     // Available tags to select
                     if !viewModel.availableTags.isEmpty {
-                        ForEach(viewModel.availableTags, id: \.self) { tag in
-                            if !viewModel.selectedTags.contains(tag) {
-                                Button {
-                                    viewModel.addTag(tag)
-                                } label: {
-                                    HStack {
-                                        Text(tag)
-                                        Spacer()
-                                        if viewModel.selectedTags.count < 5 {
-                                            Image(systemName: "plus.circle")
-                                                .foregroundStyle(.blue)
+                        let availableTags = viewModel.availableTags.filter { !viewModel.selectedTags.contains($0) }
+                        if !availableTags.isEmpty {
+                            VStack(alignment: .leading, spacing: 8) {
+                                Text("Available Tags")
+                                    .font(.subheadline)
+                                    .foregroundStyle(.secondary)
+                                
+                                HFlow(spacing: 6) {
+                                    ForEach(availableTags, id: \.self) { tag in
+                                        TagButton(
+                                            title: tag,
+                                            isSelected: false,
+                                            isDisabled: viewModel.selectedTags.count >= 5
+                                        ) {
+                                            viewModel.addTag(tag)
                                         }
                                     }
                                 }
-                                .disabled(viewModel.selectedTags.count >= 5)
-                                .foregroundStyle(.primary)
                             }
                         }
                     }
@@ -114,5 +122,35 @@ struct AddCardSheet: View {
         .onDisappear {
             viewModel.cancel()
         }
+    }
+}
+
+struct SelectedTagButton: View {
+    let title: String
+    let onRemove: () -> Void
+    
+    var body: some View {
+        HStack(spacing: 6) {
+            Text(title)
+                .font(.subheadline)
+            
+            Button(action: onRemove) {
+                Image(systemName: "xmark.circle.fill")
+                    .font(.caption)
+                    .foregroundStyle(.red)
+            }
+            .buttonStyle(.plain)
+        }
+        .padding(.horizontal, 10)
+        .padding(.vertical, 4)
+        .background(
+            Capsule()
+                .fill(Color.blue.opacity(0.1))
+        )
+        .foregroundStyle(.blue)
+        .overlay(
+            Capsule()
+                .stroke(Color.blue.opacity(0.3), lineWidth: 1)
+        )
     }
 }
