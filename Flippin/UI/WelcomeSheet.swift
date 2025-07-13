@@ -49,7 +49,7 @@ struct WelcomeSheet: View {
                     }
                 }
                 .navigationBarHidden(true)
-                .padding()
+                .padding(16)
             }
             .background(Color(.systemGroupedBackground))
             .safeAreaInset(edge: .bottom) {
@@ -57,7 +57,7 @@ struct WelcomeSheet: View {
                     Text("Continue")
                         .font(.headline)
                         .frame(maxWidth: .infinity)
-                        .padding()
+                        .padding(16)
                 }
                 .padding(.horizontal)
                 .padding(.bottom)

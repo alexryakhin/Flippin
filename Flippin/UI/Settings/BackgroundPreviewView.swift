@@ -2,13 +2,8 @@ import SwiftUI
 
 struct BackgroundPreviewView: View {
     @Environment(\.dismiss) var dismiss
-    @AppStorage(UserDefaultsKey.userGradientColor) private var userGradientColorHex: String = Constant.defaultColorHex
-    @Binding var selectedStyle: String
-    
-    var userGradientColor: Color {
-        Color(hexString: userGradientColorHex) ?? .blue
-    }
-    
+    @StateObject private var colorManager = ColorManager()
+
     var body: some View {
         NavigationView {
             ScrollView {
@@ -19,10 +14,10 @@ struct BackgroundPreviewView: View {
                     ForEach(BackgroundStyle.allCases, id: \.self) { style in
                         BackgroundPreviewCard(
                             style: style,
-                            baseColor: userGradientColor,
-                            isSelected: selectedStyle == style.rawValue
+                            baseColor: colorManager.userGradientColor,
+                            isSelected: colorManager.backgroundStyle == style
                         ) {
-                            selectedStyle = style.rawValue
+                            colorManager.setBackgroundStyle(style)
                         }
                     }
                 }
@@ -95,7 +90,3 @@ struct BackgroundPreviewCard: View {
         }
     }
 }
-
-#Preview {
-    BackgroundPreviewView(selectedStyle: .constant(BackgroundStyle.gradient.rawValue))
-} 

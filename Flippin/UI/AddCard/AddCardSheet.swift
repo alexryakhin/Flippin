@@ -15,93 +15,88 @@ struct AddCardSheet: View {
     
     var body: some View {
         NavigationView {
-            Form {
-                Section(header: Text(viewModel.userLanguage.displayName)) {
-                    TextField("Enter text in your language", text: $viewModel.nativeText)
-                        .autocapitalization(.sentences)
-                }
-                Section(header: Text(viewModel.targetLanguage.displayName)) {
-                    ZStack(alignment: .trailing) {
-                        TextField("Enter text in target language", text: $viewModel.targetText)
+            ScrollView {
+                VStack(spacing: 16) {
+                    CustomSectionView(
+                        header: viewModel.userLanguage.displayName
+                    ) {
+                        TextField("Enter text in your language", text: $viewModel.nativeText, axis: .vertical)
                             .autocapitalization(.sentences)
-                        if viewModel.isTranslating {
-                            ProgressView()
-                                .padding(.trailing, 8)
+                            .clippedWithPaddingAndBackground()
+                    } headerTrailingContent: {
+                        SectionHeaderButton("Done") {
+                            UIApplication.shared.endEditing()
                         }
                     }
-                }
-                
-                Section(header: Text("Notes")) {
-                    TextField("Add notes (optional)", text: $viewModel.notes, axis: .vertical)
-                        .lineLimit(3...6)
-                        .autocapitalization(.sentences)
-                }
-                
-                Section(header: Text("Tags (\(viewModel.selectedTags.count)/5)")) {
-                    // Add new tag
-                    HStack {
-                        TextField("Add new tag", text: $viewModel.newTagText)
-                            .textFieldStyle(.roundedBorder)
-                        
-                        Button("Add") {
-                            viewModel.addNewTag()
-                        }
-                        .disabled(viewModel.newTagText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || viewModel.selectedTags.count >= 5)
-                    }
-                    
-                    // Selected tags
-                    if !viewModel.selectedTags.isEmpty {
-                        VStack(alignment: .leading, spacing: 8) {
-                            Text("Selected Tags")
-                                .font(.subheadline)
-                                .foregroundStyle(.secondary)
-                            
-                            HFlow(spacing: 6) {
-                                ForEach(Array(viewModel.selectedTags), id: \.self) { tag in
-                                    SelectedTagButton(
-                                        title: tag,
-                                        onRemove: {
-                                            viewModel.removeTag(tag)
-                                        }
-                                    )
+
+                    CustomSectionView(
+                        header: viewModel.targetLanguage.displayName
+                    ) {
+                        TextField("Enter text in target language", text: $viewModel.targetText, axis: .vertical)
+                            .autocapitalization(.sentences)
+                            .clippedWithPaddingAndBackground()
+                            .overlay(alignment: .trailing) {
+                                if viewModel.isTranslating {
+                                    ProgressView()
+                                        .padding(.trailing, 8)
                                 }
                             }
-                            .frame(maxWidth: .infinity, alignment: .leading)
+                    } headerTrailingContent: {
+                        SectionHeaderButton("Done") {
+                            UIApplication.shared.endEditing()
                         }
                     }
-                    
-                    // Available tags to select
-                    if !viewModel.availableTags.isEmpty {
-                        let availableTags = viewModel.availableTags.filter { !viewModel.selectedTags.contains($0) }
-                        if !availableTags.isEmpty {
-                            VStack(alignment: .leading, spacing: 8) {
-                                Text("Available Tags")
-                                    .font(.subheadline)
-                                    .foregroundStyle(.secondary)
-                                
-                                HFlow(spacing: 6) {
-                                    ForEach(availableTags, id: \.self) { tag in
-                                        TagButton(
-                                            title: tag,
-                                            isSelected: false,
-                                            isDisabled: viewModel.selectedTags.count >= 5
-                                        ) {
+
+                    CustomSectionView(
+                        header: "Notes"
+                    ) {
+                        TextField("Add notes (optional)", text: $viewModel.notes, axis: .vertical)
+                            .autocapitalization(.sentences)
+                            .clippedWithPaddingAndBackground()
+                            .overlay(alignment: .trailing) {
+                                if viewModel.isTranslating {
+                                    ProgressView()
+                                        .padding(.trailing, 8)
+                                }
+                            }
+                    } headerTrailingContent: {
+                        SectionHeaderButton("Done") {
+                            UIApplication.shared.endEditing()
+                        }
+                    }
+
+                    CustomSectionView(
+                        header: "Tags (\(viewModel.selectedTags.count)/5)"
+                    ) {
+                        if !viewModel.availableTags.isEmpty {
+                            HFlow(spacing: 6) {
+                                ForEach(viewModel.availableTags, id: \.self) { tag in
+                                    TagButton(
+                                        title: tag,
+                                        isSelected: viewModel.selectedTags.contains(tag),
+                                        isDisabled: viewModel.selectedTags.count >= 5
+                                    ) {
+                                        if viewModel.selectedTags.contains(tag) {
+                                            viewModel.removeTag(tag)
+                                        } else {
                                             viewModel.addTag(tag)
                                         }
                                     }
                                 }
-                                .frame(maxWidth: .infinity, alignment: .leading)
                             }
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .clippedWithPaddingAndBackground()
+                        } else {
+                            Text("No tags available. Add some tags in Settings.")
+                                .foregroundStyle(.secondary)
+                                .font(.caption)
+                                .clippedWithPaddingAndBackground()
                         }
                     }
-                    
-                    if viewModel.availableTags.isEmpty && viewModel.selectedTags.isEmpty {
-                        Text("No tags available. Add some tags in Settings.")
-                            .foregroundStyle(.secondary)
-                            .font(.caption)
-                    }
                 }
+                .padding(16)
             }
+            .background(Color(.systemGroupedBackground))
             .navigationTitle("Add Card")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {

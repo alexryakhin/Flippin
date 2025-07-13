@@ -1,12 +1,8 @@
 import SwiftUI
 
 struct BackgroundDemoView: View {
-    @AppStorage(UserDefaultsKey.userGradientColor) private var userGradientColorHex: String = Constant.defaultColorHex
-    
-    var userGradientColor: Color {
-        Color(hexString: userGradientColorHex) ?? .blue
-    }
-    
+    @StateObject private var colorManager = ColorManager()
+
     var body: some View {
         NavigationView {
             ScrollView {
@@ -17,7 +13,7 @@ struct BackgroundDemoView: View {
                     ForEach(BackgroundStyle.allCases, id: \.self) { style in
                         VStack {
                             ZStack {
-                                AnimatedBackground(style: style, baseColor: userGradientColor)
+                                AnimatedBackground(style: style, baseColor: colorManager.userGradientColor)
                                     .frame(height: 200)
                                     .clipShape(RoundedRectangle(cornerRadius: 16))
                                 
@@ -42,7 +38,7 @@ struct BackgroundDemoView: View {
                         }
                     }
                 }
-                .padding()
+                .padding(16)
             }
             .background(Color(.systemGroupedBackground))
             .navigationTitle("Background Demo")
@@ -50,7 +46,3 @@ struct BackgroundDemoView: View {
         }
     }
 }
-
-#Preview {
-    BackgroundDemoView()
-} 

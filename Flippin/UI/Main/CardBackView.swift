@@ -8,6 +8,8 @@ import SwiftUI
 import Flow
 
 struct CardBackView: View {
+    @StateObject private var colorManager = ColorManager()
+
     let item: CardItem
     var body: some View {
         VStack(spacing: 20) {
@@ -22,13 +24,14 @@ struct CardBackView: View {
                         .foregroundStyle(.secondary)
                 }
             }
+            Spacer()
+
             Text(item.backText ?? "")
                 .font(.largeTitle)
                 .foregroundStyle(.primary)
                 .fontWeight(.bold)
                 .multilineTextAlignment(.center)
-                .padding(.vertical, 20)
-            
+
             if let tags = item.tags, !tags.isEmpty {
                 HFlow(spacing: 6) {
                     ForEach(tags, id: \.self) { tag in
@@ -36,15 +39,16 @@ struct CardBackView: View {
                             .font(.caption)
                             .padding(.horizontal, 8)
                             .padding(.vertical, 4)
-                            .background(.blue.opacity(0.1))
-                            .foregroundStyle(.blue)
+                            .background(colorManager.adjustedTintColor.opacity(0.1))
+                            .foregroundStyle(colorManager.adjustedTintColor)
                             .clipShape(Capsule())
                     }
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
+                .frame(maxWidth: .infinity, alignment: .center)
             }
-            
+
             Spacer()
+
             Text("Tap to go back")
                 .font(.footnote)
                 .foregroundStyle(.secondary)

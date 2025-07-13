@@ -11,20 +11,12 @@ struct SettingsView: View {
     @Environment(\.dismiss) var dismiss
     @AppStorage(UserDefaultsKey.userLanguage) private var userLanguageRaw: String = Language(rawValue: Locale.current.language.languageCode?.identifier ?? "en")?.rawValue ?? Language.english.rawValue
     @AppStorage(UserDefaultsKey.targetLanguage) private var targetLanguageRaw: String = Language.spanish.rawValue
-    @AppStorage(UserDefaultsKey.userGradientColor) private var userGradientColorHex: String = Constant.defaultColorHex // Default blue
-    @AppStorage(UserDefaultsKey.backgroundStyle) private var backgroundStyleRaw: String = BackgroundStyle.gradient.rawValue
+
+    @StateObject private var colorManager = ColorManager()
     @StateObject private var tagManager = TagManager()
     @State private var newTagText = ""
     @State private var showingAddTagAlert = false
     @State private var showingBackgroundPreview = false
-
-    var userGradientColor: Color {
-        Color(hexString: userGradientColorHex) ?? .blue
-    }
-    
-    var backgroundStyle: BackgroundStyle {
-        BackgroundStyle(rawValue: backgroundStyleRaw) ?? .gradient
-    }
 
     var body: some View {
         NavigationView {
@@ -45,9 +37,9 @@ struct SettingsView: View {
                 
                 Section(header: Text("Background")) {
                     ColorPicker("Background Color", selection: Binding(
-                        get: { userGradientColor },
+                        get: { colorManager.userGradientColor },
                         set: { newColor in
-                            userGradientColorHex = newColor.uiColor.toHexString()
+                            colorManager.setUserGradientColor(newColor)
                         }
                     ))
                     
@@ -55,7 +47,7 @@ struct SettingsView: View {
                         Text("Background Style")
                             .frame(maxWidth: .infinity, alignment: .leading)
 
-                        Button(backgroundStyle.displayName) {
+                        Button(colorManager.backgroundStyle.displayName) {
                             showingBackgroundPreview = true
                         }
                         .buttonStyle(.bordered)
@@ -110,7 +102,7 @@ struct SettingsView: View {
                 }
             }
             .sheet(isPresented: $showingBackgroundPreview) {
-                BackgroundPreviewView(selectedStyle: $backgroundStyleRaw)
+                BackgroundPreviewView()
             }
         }
     }
@@ -126,7 +118,7 @@ struct SettingsTagButton: View {
                 .font(.subheadline)
             
             Button(action: onDelete) {
-                Image(systemName: "trash.circle.fill")
+                Image(systemName: "xmark.circle.fill")
                     .font(.caption)
                     .foregroundStyle(.red)
             }

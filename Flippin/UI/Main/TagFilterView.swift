@@ -10,19 +10,21 @@ import Flow
 struct TagFilterView: View {
     @Environment(\.dismiss) var dismiss
     @ObservedObject var tagManager: TagManager
-    
+
+    var onToSettings: () -> Void
+
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
-                // Show All Cards button
-                Button("Show All Cards") {
-                    tagManager.clearFilter()
-                    dismiss()
-                }
-                .buttonStyle(.borderedProminent)
-                .padding(.horizontal)
-                
                 if !tagManager.availableTags.isEmpty {
+                    // Show All Cards button
+                    Button("Clear selection") {
+                        tagManager.clearFilter()
+                        dismiss()
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .padding(.horizontal)
+
                     VStack(alignment: .leading, spacing: 12) {
                         Text("Available Tags")
                             .font(.headline)
@@ -43,14 +45,23 @@ struct TagFilterView: View {
                         .padding(.horizontal)
                     }
                 } else {
-                    VStack {
-                        Image(systemName: "tag")
-                            .font(.largeTitle)
-                            .foregroundStyle(.secondary)
-                        Text("No tags available")
-                            .foregroundStyle(.secondary)
+                    ContentUnavailableView {
+                        VStack {
+                            Image(systemName: "tag")
+                                .font(.largeTitle)
+                                .foregroundStyle(.secondary)
+                                .rotationEffect(.init(degrees: 90))
+                            Text("No tags available")
+                        }
+                    } description: {
+                        Text("Manage tags in the settings.")
+                    } actions: {
+                        Button("To settings") {
+                            onToSettings()
+                            dismiss()
+                        }
+                        .buttonStyle(.borderedProminent)
                     }
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
                 
                 Spacer()

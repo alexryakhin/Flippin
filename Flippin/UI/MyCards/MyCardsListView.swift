@@ -19,6 +19,7 @@ struct MyCardsListView: View {
     @State private var showingTagFilter = false
 
     let onAddCard: () -> Void
+    let onToSettings: () -> Void
 
     var filteredCards: [CardItem] {
         var filtered = cards
@@ -139,7 +140,7 @@ struct MyCardsListView: View {
             Text("Are you sure you want to delete all cards? This action cannot be undone.")
         }
         .sheet(isPresented: $showingTagFilter) {
-            TagFilterView(tagManager: tagManager)
+            TagFilterView(tagManager: tagManager, onToSettings: onToSettings)
         }
     }
     

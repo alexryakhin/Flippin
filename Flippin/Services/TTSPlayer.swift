@@ -14,13 +14,13 @@ protocol TTSPlayerInterface {
 
 final class TTSPlayer: TTSPlayerInterface {
 
-    public static let shared: TTSPlayerInterface = TTSPlayer()
+    static let shared: TTSPlayerInterface = TTSPlayer()
 
     private var player: AVAudioPlayer?
 
     private init() {}
 
-    public func play(_ text: String, language: Language) async throws {
+    func play(_ text: String, language: Language) async throws {
         guard !text.isEmpty else { return }
 
         let escapedText = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""

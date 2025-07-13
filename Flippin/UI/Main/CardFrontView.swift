@@ -8,16 +8,11 @@ import SwiftUI
 import Flow
 
 struct CardFrontView: View {
-    @AppStorage(UserDefaultsKey.userGradientColor) private var userGradientColorHex: String = Constant.defaultColorHex // Default blue
-    @Environment(\.colorScheme) private var colorScheme
-
-    var userGradientColor: Color {
-        Color(hexString: userGradientColorHex) ?? .blue
-    }
 
     let item: CardItem
     @State private var isPlayingTTS = false
-    
+    @StateObject private var colorManager = ColorManager()
+
     var body: some View {
         VStack(spacing: 20) {
             HStack {
@@ -31,18 +26,20 @@ struct CardFrontView: View {
                         .foregroundStyle(.secondary)
                 }
             }
+
+            Spacer()
+
             Text(item.frontText ?? "")
                 .font(.largeTitle)
                 .foregroundStyle(.primary)
                 .fontWeight(.bold)
                 .multilineTextAlignment(.center)
-                .padding(.vertical, 20)
+
             if let notes = item.notes, !notes.isEmpty {
                 Text(notes)
                     .font(.body)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
-                    .padding(.top, 10)
             }
             
             if let tags = item.tags, !tags.isEmpty {
@@ -52,15 +49,16 @@ struct CardFrontView: View {
                             .font(.caption)
                             .padding(.horizontal, 8)
                             .padding(.vertical, 4)
-                            .background(.blue.opacity(0.1))
-                            .foregroundStyle(.blue)
+                            .background(colorManager.adjustedTintColor.opacity(0.1))
+                            .foregroundStyle(colorManager.adjustedTintColor)
                             .clipShape(Capsule())
                     }
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
+                .frame(maxWidth: .infinity, alignment: .center)
             }
             
             Spacer()
+
             HStack {
                 Button(action: {
                     isPlayingTTS = true
@@ -79,9 +77,8 @@ struct CardFrontView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 24, height: 24)
-                        .padding(16)
                 }
-                .tint(adjustedTintColor)
+                .tint(colorManager.adjustedTintColor)
 
                 Spacer()
 
@@ -89,20 +86,6 @@ struct CardFrontView: View {
                     .font(.footnote)
                     .foregroundStyle(.secondary)
             }
-            .padding(.horizontal)
-            .padding(.bottom, 8)
-        }
-    }
-}
-
-extension CardFrontView {
-    var adjustedTintColor: Color {
-        let baseColor = userGradientColor
-
-        switch (colorScheme, baseColor.isLight) {
-        case (.dark, false): return userGradientColor.lighter(by: 50)
-        case (.light, true): return userGradientColor.darker(by: 50)
-        default: return userGradientColor
         }
     }
 }

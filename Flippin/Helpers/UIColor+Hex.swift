@@ -1,4 +1,11 @@
 import UIKit
+import SwiftUI
+
+extension UIColor {
+    var swiftUIColor: Color {
+        Color(uiColor: self)
+    }
+}
 
 extension UIColor {
 

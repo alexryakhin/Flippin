@@ -14,8 +14,6 @@ struct ContentView: View {
 
     @AppStorage(UserDefaultsKey.userLanguage) private var userLanguageRaw: String = Language(rawValue: Locale.current.language.languageCode?.identifier ?? "en")?.rawValue ?? Language.english.rawValue
     @AppStorage(UserDefaultsKey.targetLanguage) private var targetLanguageRaw: String = Language.spanish.rawValue
-    @AppStorage(UserDefaultsKey.userGradientColor) private var userGradientColorHex: String = Constant.defaultColorHex // Default blue
-    @AppStorage(UserDefaultsKey.backgroundStyle) private var backgroundStyleRaw: String = BackgroundStyle.gradient.rawValue
     @AppStorage(UserDefaultsKey.didShowWelcomeSheet) private var didShowWelcomeSheet: Bool = false
 
     @State private var showWelcomeSheet = false
@@ -24,6 +22,7 @@ struct ContentView: View {
     @State private var showAddCardSheet = false
     @State private var shuffledItems: [CardItem] = []
     @StateObject private var tagManager = TagManager()
+    @StateObject private var colorManager = ColorManager()
     @State private var showingTagFilter = false
 
     @Environment(\.colorScheme) private var colorScheme
@@ -60,8 +59,8 @@ struct ContentView: View {
         .padding(24)
         .background {
             AnimatedBackground(
-                style: backgroundStyle,
-                baseColor: userGradientColor
+                style: colorManager.backgroundStyle,
+                baseColor: colorManager.userGradientColor
             )
         }
         .onAppear {
@@ -89,16 +88,23 @@ struct ContentView: View {
             SettingsView()
         }
         .sheet(isPresented: $showMyCards) {
-            MyCardsListView(onAddCard: {
-                showAddCardSheet = true
-            })
+            MyCardsListView(
+                onAddCard: {
+                    showAddCardSheet = true
+                },
+                onToSettings: {
+                    showSettings = true
+                }
+            )
         }
         .sheet(isPresented: $showAddCardSheet) {
             AddCardSheet()
         }
         .sheet(isPresented: $showingTagFilter) {
-            TagFilterView(tagManager: tagManager)
-                .presentationDetents(.init(Set([.medium])))
+            TagFilterView(tagManager: tagManager) {
+                showSettings = true
+            }
+            .presentationDetents(.init(Set([.medium])))
         }
     }
 
@@ -116,7 +122,7 @@ struct ContentView: View {
                 Text("Tap the + button to add your first card")
                     .foregroundStyle(.secondary)
             }
-            .foregroundColor(adjustedForegroundColor)
+            .foregroundColor(colorManager.adjustedForegroundColor)
         } else if displayItems.isEmpty {
             ContentUnavailableView {
                 VStack {
@@ -138,7 +144,7 @@ struct ContentView: View {
                     .buttonStyle(.borderedProminent)
                 }
             }
-            .foregroundColor(adjustedForegroundColor)
+            .foregroundColor(colorManager.adjustedForegroundColor)
         } else {
             CardStackScrollView(items: displayItems)
         }
@@ -170,19 +176,5 @@ private extension ContentView {
         Language(rawValue: targetLanguageRaw) ?? .spanish
     }
 
-    var userGradientColor: Color {
-        Color(hexString: userGradientColorHex) ?? .blue
-    }
     
-    var backgroundStyle: BackgroundStyle {
-        BackgroundStyle(rawValue: backgroundStyleRaw) ?? .gradient
-    }
-
-    var adjustedForegroundColor: Color {
-        guard !backgroundStyle.isAlwaysDark else { return Color(.white) }
-        switch (colorScheme, userGradientColor.isLight) {
-        case (.light, false): return Color(.systemBackground)
-        default: return Color(.label)
-        }
-    }
 }
