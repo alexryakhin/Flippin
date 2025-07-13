@@ -6,8 +6,6 @@
 //
 import SwiftUI
 
-
-
 struct ButtonRowView: View {
     let onAddItem: () -> Void
     let onShuffle: () -> Void

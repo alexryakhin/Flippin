@@ -2,7 +2,7 @@ import SwiftUI
 
 struct BackgroundPreviewView: View {
     @Environment(\.dismiss) var dismiss
-    @AppStorage(UserDefaultsKey.userGradientColor) private var userGradientColorHex: String = "#4B9FF8"
+    @AppStorage(UserDefaultsKey.userGradientColor) private var userGradientColorHex: String = Constant.defaultColorHex
     @Binding var selectedStyle: String
     
     var userGradientColor: Color {

@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct BackgroundDemoView: View {
-    @AppStorage(UserDefaultsKey.userGradientColor) private var userGradientColorHex: String = "#4B9FF8"
+    @AppStorage(UserDefaultsKey.userGradientColor) private var userGradientColorHex: String = Constant.defaultColorHex
     
     var userGradientColor: Color {
         Color(hexString: userGradientColorHex) ?? .blue
