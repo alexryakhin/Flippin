@@ -44,6 +44,7 @@ struct BackgroundDemoView: View {
                 }
                 .padding()
             }
+            .background(Color(.systemGroupedBackground))
             .navigationTitle("Background Demo")
             .navigationBarTitleDisplayMode(.inline)
         }

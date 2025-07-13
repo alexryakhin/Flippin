@@ -51,6 +51,7 @@ struct WelcomeSheet: View {
                 .navigationBarHidden(true)
                 .padding()
             }
+            .background(Color(.systemGroupedBackground))
             .safeAreaInset(edge: .bottom) {
                 Button(action: onContinue) {
                     Text("Continue")

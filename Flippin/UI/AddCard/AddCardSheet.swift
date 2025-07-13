@@ -66,6 +66,7 @@ struct AddCardSheet: View {
                                     )
                                 }
                             }
+                            .frame(maxWidth: .infinity, alignment: .leading)
                         }
                     }
                     
@@ -89,6 +90,7 @@ struct AddCardSheet: View {
                                         }
                                     }
                                 }
+                                .frame(maxWidth: .infinity, alignment: .leading)
                             }
                         }
                     }

@@ -13,9 +13,9 @@ struct BackgroundPreviewView: View {
         NavigationView {
             ScrollView {
                 LazyVGrid(columns: [
-                    GridItem(.flexible()),
-                    GridItem(.flexible())
-                ], spacing: 20) {
+                    GridItem(.flexible(), spacing: 16),
+                    GridItem(.flexible(), spacing: 16)
+                ], spacing: 16) {
                     ForEach(BackgroundStyle.allCases, id: \.self) { style in
                         BackgroundPreviewCard(
                             style: style,
@@ -26,8 +26,9 @@ struct BackgroundPreviewView: View {
                         }
                     }
                 }
-                .padding()
+                .padding(16)
             }
+            .background(Color(.systemGroupedBackground))
             .navigationTitle("Background Styles")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -51,7 +52,12 @@ struct BackgroundPreviewCard: View {
     let baseColor: Color
     let isSelected: Bool
     let onTap: () -> Void
-    
+
+    var foreGroundColor: Color {
+        guard !style.isAlwaysDark else { return .white }
+        return baseColor.isLight ? .black : .white
+    }
+
     var body: some View {
         VStack {
             ZStack {
@@ -62,18 +68,26 @@ struct BackgroundPreviewCard: View {
                 VStack {
                     Image(systemName: style.icon)
                         .font(.title2)
-                        .foregroundColor(.white)
+                        .foregroundColor(foreGroundColor)
                     Text(style.displayName)
                         .font(.caption)
-                        .foregroundColor(.white)
+                        .foregroundColor(foreGroundColor)
                         .fontWeight(.medium)
                 }
-            }
-            
-            if isSelected {
-                Image(systemName: "checkmark.circle.fill")
-                    .foregroundColor(.blue)
-                    .font(.title3)
+
+                if isSelected {
+                    RoundedRectangle(cornerRadius: 12)
+                        .stroke(style: StrokeStyle(lineWidth: 4))
+                        .foregroundStyle(.accent)
+                        .overlay(alignment: .topTrailing) {
+                            Image(systemName: "checkmark.circle.fill")
+                                .foregroundStyle(.accent)
+                                .font(.title3)
+                                .background(Color.white)
+                                .clipShape(Circle())
+                                .padding(8)
+                        }
+                }
             }
         }
         .onTapGesture {

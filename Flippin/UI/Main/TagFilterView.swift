@@ -39,6 +39,7 @@ struct TagFilterView: View {
                                 }
                             }
                         }
+                        .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.horizontal)
                     }
                 } else {

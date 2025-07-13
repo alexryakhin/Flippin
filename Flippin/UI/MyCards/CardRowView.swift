@@ -83,6 +83,7 @@ struct CardRowView: View {
                                 .clipShape(Capsule())
                         }
                     }
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 }
             }
         }

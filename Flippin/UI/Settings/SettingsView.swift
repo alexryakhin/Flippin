@@ -52,27 +52,14 @@ struct SettingsView: View {
                     ))
                     
                     HStack {
-                        VStack(alignment: .leading) {
-                            Text("Background Style")
-                                .font(.headline)
-                            Text(backgroundStyle.displayName)
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                        }
-                        Spacer()
-                        Button("Preview") {
+                        Text("Background Style")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+
+                        Button(backgroundStyle.displayName) {
                             showingBackgroundPreview = true
                         }
                         .buttonStyle(.bordered)
                     }
-                    
-                    Picker("Background Style", selection: $backgroundStyleRaw) {
-                        ForEach(BackgroundStyle.allCases, id: \.self) { style in
-                            Label(style.displayName, systemImage: style.icon)
-                                .tag(style.rawValue)
-                        }
-                    }
-                    .pickerStyle(.menu)
                 }
                 
                 Section(header: Text("Tags Management")) {
@@ -105,6 +92,7 @@ struct SettingsView: View {
                                     )
                                 }
                             }
+                            .frame(maxWidth: .infinity, alignment: .leading)
                         }
                     } else {
                         Text("No tags available")
