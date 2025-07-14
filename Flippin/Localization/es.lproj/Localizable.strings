@@ -6,79 +6,79 @@
 */
 
 // MARK: - Navigation Titles
-"Add Card" = "Add Card";
-"Settings" = "Settings";
-"My Cards" = "My Cards";
-"Background Styles" = "Background Styles";
-"Background Demo" = "Background Demo";
+"Add Card" = "Agregar Tarjeta";
+"Settings" = "Configuración";
+"My Cards" = "Mis Tarjetas";
+"Background Styles" = "Estilos de Fondo";
+"Background Demo" = "Demo de Fondo";
 
 // MARK: - Welcome Screen
-"Welcome to Flippin!" = "Welcome to Flippin!";
-"Flippin helps you learn and practice new languages using flashcards. Select your native language and the language you want to learn." = "Flippin helps you learn and practice new languages using flashcards. Select your native language and the language you want to learn.";
-"My language" = "My language";
-"I'm learning" = "I'm learning";
-"Continue" = "Continue";
+"Welcome to Flippin!" = "¡Bienvenido a Flippin!";
+"Flippin helps you learn and practice new languages using flashcards. Select your native language and the language you want to learn." = "Flippin te ayuda a aprender y practicar nuevos idiomas usando tarjetas de memoria. Selecciona tu idioma nativo y el idioma que quieres aprender.";
+"My language" = "Mi idioma";
+"I'm learning" = "Estoy aprendiendo";
+"Continue" = "Continuar";
 
 // MARK: - Content Views
-"No cards yet" = "No cards yet";
-"Tap the + button to add your first card" = "Tap the + button to add your first card";
-"No cards with selected tag" = "No cards with selected tag";
-"No cards found with tag \"%@\"" = "No cards found with tag \"%@\"";
-"No cards available" = "No cards available";
-"Add your first card to start learning" = "Add your first card to start learning";
-"No cards match your search" = "No cards match your search";
+"No cards yet" = "Aún no hay tarjetas";
+"Tap the + button to add your first card" = "Toca el botón + para agregar tu primera tarjeta";
+"No cards with selected tag" = "No hay tarjetas con la etiqueta seleccionada";
+"No cards found with tag \"%@\"" = "No se encontraron tarjetas con la etiqueta \"%@\"";
+"No cards available" = "No hay tarjetas disponibles";
+"Add your first card to start learning" = "Agrega tu primera tarjeta para comenzar a aprender";
+"No cards match your search" = "No hay tarjetas que coincidan con tu búsqueda";
 
 // MARK: - Card Views
-"Show answer" = "Show answer";
-"Tap to go back" = "Tap to go back";
+"Show answer" = "Mostrar respuesta";
+"Tap to go back" = "Toca para volver";
 
 // MARK: - Tag Management
-"Available Tags" = "Available Tags";
-"No tags available" = "No tags available";
-"Manage tags in the settings." = "Manage tags in the settings.";
-"To settings" = "To settings";
-"New tag name" = "New tag name";
-"Add" = "Add";
-"Tags Management" = "Tags Management";
+"Available Tags" = "Etiquetas Disponibles";
+"No tags available" = "No hay etiquetas disponibles";
+"Manage tags in the settings." = "Gestiona las etiquetas en la configuración.";
+"To settings" = "A configuración";
+"New tag name" = "Nombre de nueva etiqueta";
+"Add" = "Agregar";
+"Tags Management" = "Gestión de Etiquetas";
 
 // MARK: - Settings
-"Languages" = "Languages";
-"My Language" = "My Language";
-"Target Language" = "Target Language";
-"Background" = "Background";
-"Background Color" = "Background Color";
-"Background Style" = "Background Style";
-"Tap to see full screen" = "Tap to see full screen";
+"Languages" = "Idiomas";
+"My Language" = "Mi Idioma";
+"Target Language" = "Idioma Objetivo";
+"Background" = "Fondo";
+"Background Color" = "Color de Fondo";
+"Background Style" = "Estilo de Fondo";
+"Tap to see full screen" = "Toca para ver pantalla completa";
 
 // MARK: - Add Card
-"Enter text in your language" = "Enter text in your language";
-"Enter text in target language" = "Enter text in target language";
-"Add notes (optional)" = "Add notes (optional)";
-"Notes" = "Notes";
-"Tags (%d/5)" = "Tags (%d/5)";
-"No tags available. Add some tags in Settings." = "No tags available. Add some tags in Settings.";
+"Enter text in your language" = "Ingresa texto en tu idioma";
+"Enter text in target language" = "Ingresa texto en el idioma objetivo";
+"Add notes (optional)" = "Agregar notas (opcional)";
+"Notes" = "Notas";
+"Tags (%d/5)" = "Etiquetas (%d/5)";
+"No tags available. Add some tags in Settings." = "No hay etiquetas disponibles. Agrega algunas etiquetas en Configuración.";
 
 // MARK: - Buttons
-"Done" = "Done";
-"Cancel" = "Cancel";
-"Save" = "Save";
-"Close" = "Close";
-"Clear Filter" = "Clear Filter";
-"Clear Search" = "Clear Search";
-"Add Card" = "Add Card";
-"Delete All" = "Delete All";
-"Delete All Cards" = "Delete All Cards";
-"Are you sure you want to delete all cards? This action cannot be undone." = "Are you sure you want to delete all cards? This action cannot be undone.";
+"Done" = "Listo";
+"Cancel" = "Cancelar";
+"Save" = "Guardar";
+"Close" = "Cerrar";
+"Clear Filter" = "Limpiar Filtro";
+"Clear Search" = "Limpiar Búsqueda";
+"Add Card" = "Agregar Tarjeta";
+"Delete All" = "Eliminar Todo";
+"Delete All Cards" = "Eliminar Todas las Tarjetas";
+"Are you sure you want to delete all cards? This action cannot be undone." = "¿Estás seguro de que quieres eliminar todas las tarjetas? Esta acción no se puede deshacer.";
 
 // MARK: - Labels
-"Settings" = "Settings";
-"Menu" = "Menu";
-"Tag filter" = "Tag filter";
-"Shuffle" = "Shuffle";
-"Add card" = "Add card";
+"Settings" = "Configuración";
+"Menu" = "Menú";
+"Tag filter" = "Filtro de etiquetas";
+"Shuffle" = "Mezclar";
+"Add card" = "Agregar tarjeta";
 
 // MARK: - Search
-"Search cards..." = "Search cards...";
+"Search cards..." = "Buscar tarjetas...";
 
 // MARK: - Placeholder Text
 "AB" = "AB";
