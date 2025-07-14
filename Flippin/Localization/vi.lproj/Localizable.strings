@@ -6,98 +6,98 @@
 */
 
 // MARK: - Navigation Titles
-"Add Card" = "Add Card";
-"Settings" = "Settings";
-"My Cards" = "My Cards";
-"Background Styles" = "Background Styles";
-"Background Demo" = "Background Demo";
+"addCard" = "Thêm thẻ";
+"settings" = "Cài đặt";
+"myCards" = "Thẻ của tôi";
+"backgroundStyles" = "Kiểu nền";
+"backgroundDemo" = "Demo nền";
 
 // MARK: - Welcome Screen
-"Welcome to Flippin!" = "Welcome to Flippin!";
-"Flippin helps you learn and practice new languages using flashcards. Select your native language and the language you want to learn." = "Flippin helps you learn and practice new languages using flashcards. Select your native language and the language you want to learn.";
-"My language" = "My language";
-"I'm learning" = "I'm learning";
-"Continue" = "Continue";
+"welcomeScreenTitle" = "Chào mừng đến với Flippin!";
+"welcomeScreenMessage" = "Flippin giúp bạn học và thực hành ngôn ngữ mới bằng cách sử dụng thẻ ghi nhớ. Chọn ngôn ngữ mẹ đẻ và ngôn ngữ bạn muốn học.";
+"myLanguage" = "Ngôn ngữ của tôi";
+"imLearning" = "Tôi đang học";
+"continueButton" = "Tiếp tục";
 
 // MARK: - Content Views
-"No cards yet" = "No cards yet";
-"Tap the + button to add your first card" = "Tap the + button to add your first card";
-"No cards with selected tag" = "No cards with selected tag";
-"No cards found with tag \"%@\"" = "No cards found with tag \"%@\"";
-"No cards available" = "No cards available";
-"Add your first card to start learning" = "Add your first card to start learning";
-"No cards match your search" = "No cards match your search";
+"noCardsYet" = "Chưa có thẻ nào";
+"tapToAddFirstCard" = "Nhấn vào nút + để thêm thẻ đầu tiên của bạn";
+"noCardsWithSelectedTag" = "Không có thẻ nào với thẻ đã chọn";
+"noCardsFoundWithTag" = "Không tìm thấy thẻ nào với thẻ \"%@\"";
+"noCardsAvailable" = "Không có thẻ nào khả dụng";
+"addFirstCardToStartLearning" = "Thêm thẻ đầu tiên của bạn để bắt đầu học";
+"noCardsMatchSearch" = "Không có thẻ nào khớp với tìm kiếm của bạn";
 
 // MARK: - Card Views
-"Show answer" = "Show answer";
-"Tap to go back" = "Tap to go back";
+"showAnswer" = "Hiển thị câu trả lời";
+"tapToGoBack" = "Nhấn để quay lại";
 
 // MARK: - Tag Management
-"Available Tags" = "Available Tags";
-"No tags available" = "No tags available";
-"Manage tags in the settings." = "Manage tags in the settings.";
-"To settings" = "To settings";
-"New tag name" = "New tag name";
-"Add" = "Add";
-"Tags Management" = "Tags Management";
+"availableTags" = "Thẻ khả dụng";
+"noTagsAvailable" = "Không có thẻ nào khả dụng";
+"manageTagsInSettings" = "Quản lý thẻ trong cài đặt.";
+"toSettings" = "Đến cài đặt";
+"newTagName" = "Tên thẻ mới";
+"add" = "Thêm";
+"tagsManagement" = "Quản lý thẻ";
 
 // MARK: - Settings
-"Languages" = "Languages";
-"My Language" = "My Language";
-"Target Language" = "Target Language";
-"Background" = "Background";
-"Background Color" = "Background Color";
-"Background Style" = "Background Style";
-"Tap to see full screen" = "Tap to see full screen";
+"languages" = "Ngôn ngữ";
+"myLanguageSettings" = "Ngôn ngữ của tôi";
+"targetLanguage" = "Ngôn ngữ đích";
+"background" = "Nền";
+"backgroundColor" = "Màu nền";
+"backgroundStyle" = "Kiểu nền";
+"tapToSeeFullScreen" = "Nhấn để xem toàn màn hình";
 
 // MARK: - Add Card
-"Enter text in your language" = "Enter text in your language";
-"Enter text in target language" = "Enter text in target language";
-"Add notes (optional)" = "Add notes (optional)";
-"Notes" = "Notes";
-"Tags (%d/5)" = "Tags (%d/5)";
-"No tags available. Add some tags in Settings." = "No tags available. Add some tags in Settings.";
+"enterTextInYourLanguage" = "Nhập văn bản bằng ngôn ngữ của bạn";
+"enterTextInTargetLanguage" = "Nhập văn bản bằng ngôn ngữ đích";
+"addNotesOptional" = "Thêm ghi chú (tùy chọn)";
+"notes" = "Ghi chú";
+"tagsCount" = "Thẻ (%d/5)";
+"noTagsAvailableAddInSettings" = "Không có thẻ nào khả dụng. Thêm một số thẻ trong Cài đặt.";
 
 // MARK: - Buttons
-"Done" = "Done";
-"Cancel" = "Cancel";
-"Save" = "Save";
-"Close" = "Close";
-"Clear Filter" = "Clear Filter";
-"Clear Search" = "Clear Search";
-"Add Card" = "Add Card";
-"Delete All" = "Delete All";
-"Delete All Cards" = "Delete All Cards";
-"Are you sure you want to delete all cards? This action cannot be undone." = "Are you sure you want to delete all cards? This action cannot be undone.";
+"done" = "Xong";
+"cancel" = "Hủy";
+"save" = "Lưu";
+"close" = "Đóng";
+"clearFilter" = "Xóa bộ lọc";
+"clearSearch" = "Xóa tìm kiếm";
+"addCardButton" = "Thêm thẻ";
+"deleteAll" = "Xóa tất cả";
+"deleteAllCards" = "Xóa tất cả thẻ";
+"deleteAllCardsConfirmation" = "Bạn có chắc chắn muốn xóa tất cả thẻ? Hành động này không thể hoàn tác.";
 
 // MARK: - Labels
-"Settings" = "Settings";
-"Menu" = "Menu";
-"Tag filter" = "Tag filter";
-"Shuffle" = "Shuffle";
-"Add card" = "Add card";
+"settingsLabel" = "Cài đặt";
+"menu" = "Menu";
+"tagFilter" = "Bộ lọc thẻ";
+"shuffle" = "Xáo trộn";
+"addCardLabel" = "Thêm thẻ";
 
 // MARK: - Search
-"Search cards..." = "Search cards...";
+"searchCards" = "Tìm kiếm thẻ...";
 
 // MARK: - Placeholder Text
-"AB" = "AB";
+"placeholderAB" = "AB";
 
 // MARK: - Languages
-"English" = "English";
-"Spanish" = "Spanish";
-"French" = "French";
-"German" = "German";
-"Italian" = "Italian";
-"Portuguese" = "Portuguese";
-"Dutch" = "Dutch";
-"Swedish" = "Swedish";
-"Chinese" = "Chinese";
-"Japanese" = "Japanese";
-"Korean" = "Korean";
-"Vietnamese" = "Vietnamese";
-"Russian" = "Russian";
-"Arabic" = "Arabic";
-"Hindi" = "Hindi";
-"Croatian" = "Croatian";
-"Ukrainian" = "Ukrainian";
+"english" = "Tiếng Anh";
+"spanish" = "Tiếng Tây Ban Nha";
+"french" = "Tiếng Pháp";
+"german" = "Tiếng Đức";
+"italian" = "Tiếng Ý";
+"portuguese" = "Tiếng Bồ Đào Nha";
+"dutch" = "Tiếng Hà Lan";
+"swedish" = "Tiếng Thụy Điển";
+"chinese" = "Tiếng Trung";
+"japanese" = "Tiếng Nhật";
+"korean" = "Tiếng Hàn";
+"vietnamese" = "Tiếng Việt";
+"russian" = "Tiếng Nga";
+"arabic" = "Tiếng Ả Rập";
+"hindi" = "Tiếng Hindi";
+"croatian" = "Tiếng Croatia";
+"ukrainian" = "Tiếng Ukraine";

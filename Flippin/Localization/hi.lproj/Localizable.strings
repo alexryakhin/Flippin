@@ -6,98 +6,98 @@
 */
 
 // MARK: - Navigation Titles
-"Add Card" = "Add Card";
-"Settings" = "Settings";
-"My Cards" = "My Cards";
-"Background Styles" = "Background Styles";
-"Background Demo" = "Background Demo";
+"addCard" = "कार्ड जोड़ें";
+"settings" = "सेटिंग्स";
+"myCards" = "मेरे कार्ड";
+"backgroundStyles" = "पृष्ठभूमि शैलियाँ";
+"backgroundDemo" = "पृष्ठभूमि डेमो";
 
 // MARK: - Welcome Screen
-"Welcome to Flippin!" = "Welcome to Flippin!";
-"Flippin helps you learn and practice new languages using flashcards. Select your native language and the language you want to learn." = "Flippin helps you learn and practice new languages using flashcards. Select your native language and the language you want to learn.";
-"My language" = "My language";
-"I'm learning" = "I'm learning";
-"Continue" = "Continue";
+"welcomeScreenTitle" = "Flippin में आपका स्वागत है!";
+"welcomeScreenMessage" = "Flippin आपको फ्लैशकार्ड का उपयोग करके नई भाषाएँ सीखने और अभ्यास करने में मदद करता है। अपनी मातृभाषा और वह भाषा चुनें जिसे आप सीखना चाहते हैं।";
+"myLanguage" = "मेरी भाषा";
+"imLearning" = "मैं सीख रहा हूँ";
+"continueButton" = "जारी रखें";
 
 // MARK: - Content Views
-"No cards yet" = "No cards yet";
-"Tap the + button to add your first card" = "Tap the + button to add your first card";
-"No cards with selected tag" = "No cards with selected tag";
-"No cards found with tag \"%@\"" = "No cards found with tag \"%@\"";
-"No cards available" = "No cards available";
-"Add your first card to start learning" = "Add your first card to start learning";
-"No cards match your search" = "No cards match your search";
+"noCardsYet" = "अभी तक कोई कार्ड नहीं";
+"tapToAddFirstCard" = "अपना पहला कार्ड जोड़ने के लिए + बटन पर टैप करें";
+"noCardsWithSelectedTag" = "चयनित टैग के साथ कोई कार्ड नहीं";
+"noCardsFoundWithTag" = "टैग \"%@\" के साथ कोई कार्ड नहीं मिला";
+"noCardsAvailable" = "कोई कार्ड उपलब्ध नहीं";
+"addFirstCardToStartLearning" = "सीखना शुरू करने के लिए अपना पहला कार्ड जोड़ें";
+"noCardsMatchSearch" = "कोई कार्ड आपकी खोज से मेल नहीं खाता";
 
 // MARK: - Card Views
-"Show answer" = "Show answer";
-"Tap to go back" = "Tap to go back";
+"showAnswer" = "उत्तर दिखाएं";
+"tapToGoBack" = "वापस जाने के लिए टैप करें";
 
 // MARK: - Tag Management
-"Available Tags" = "Available Tags";
-"No tags available" = "No tags available";
-"Manage tags in the settings." = "Manage tags in the settings.";
-"To settings" = "To settings";
-"New tag name" = "New tag name";
-"Add" = "Add";
-"Tags Management" = "Tags Management";
+"availableTags" = "उपलब्ध टैग";
+"noTagsAvailable" = "कोई टैग उपलब्ध नहीं";
+"manageTagsInSettings" = "सेटिंग्स में टैग प्रबंधित करें।";
+"toSettings" = "सेटिंग्स में";
+"newTagName" = "नया टैग नाम";
+"add" = "जोड़ें";
+"tagsManagement" = "टैग प्रबंधन";
 
 // MARK: - Settings
-"Languages" = "Languages";
-"My Language" = "My Language";
-"Target Language" = "Target Language";
-"Background" = "Background";
-"Background Color" = "Background Color";
-"Background Style" = "Background Style";
-"Tap to see full screen" = "Tap to see full screen";
+"languages" = "भाषाएँ";
+"myLanguageSettings" = "मेरी भाषा";
+"targetLanguage" = "लक्ष्य भाषा";
+"background" = "पृष्ठभूमि";
+"backgroundColor" = "पृष्ठभूमि रंग";
+"backgroundStyle" = "पृष्ठभूमि शैली";
+"tapToSeeFullScreen" = "पूर्ण स्क्रीन देखने के लिए टैप करें";
 
 // MARK: - Add Card
-"Enter text in your language" = "Enter text in your language";
-"Enter text in target language" = "Enter text in target language";
-"Add notes (optional)" = "Add notes (optional)";
-"Notes" = "Notes";
-"Tags (%d/5)" = "Tags (%d/5)";
-"No tags available. Add some tags in Settings." = "No tags available. Add some tags in Settings.";
+"enterTextInYourLanguage" = "अपनी भाषा में टेक्स्ट दर्ज करें";
+"enterTextInTargetLanguage" = "लक्ष्य भाषा में टेक्स्ट दर्ज करें";
+"addNotesOptional" = "नोट्स जोड़ें (वैकल्पिक)";
+"notes" = "नोट्स";
+"tagsCount" = "टैग (%d/5)";
+"noTagsAvailableAddInSettings" = "कोई टैग उपलब्ध नहीं। सेटिंग्स में कुछ टैग जोड़ें।";
 
 // MARK: - Buttons
-"Done" = "Done";
-"Cancel" = "Cancel";
-"Save" = "Save";
-"Close" = "Close";
-"Clear Filter" = "Clear Filter";
-"Clear Search" = "Clear Search";
-"Add Card" = "Add Card";
-"Delete All" = "Delete All";
-"Delete All Cards" = "Delete All Cards";
-"Are you sure you want to delete all cards? This action cannot be undone." = "Are you sure you want to delete all cards? This action cannot be undone.";
+"done" = "हो गया";
+"cancel" = "रद्द करें";
+"save" = "सहेजें";
+"close" = "बंद करें";
+"clearFilter" = "फ़िल्टर साफ़ करें";
+"clearSearch" = "खोज साफ़ करें";
+"addCardButton" = "कार्ड जोड़ें";
+"deleteAll" = "सभी हटाएं";
+"deleteAllCards" = "सभी कार्ड हटाएं";
+"deleteAllCardsConfirmation" = "क्या आप वाकई सभी कार्ड हटाना चाहते हैं? यह क्रिया पूर्ववत नहीं की जा सकती।";
 
 // MARK: - Labels
-"Settings" = "Settings";
-"Menu" = "Menu";
-"Tag filter" = "Tag filter";
-"Shuffle" = "Shuffle";
-"Add card" = "Add card";
+"settingsLabel" = "सेटिंग्स";
+"menu" = "मेनू";
+"tagFilter" = "टैग फ़िल्टर";
+"shuffle" = "फेरबदल";
+"addCardLabel" = "कार्ड जोड़ें";
 
 // MARK: - Search
-"Search cards..." = "Search cards...";
+"searchCards" = "कार्ड खोजें...";
 
 // MARK: - Placeholder Text
-"AB" = "AB";
+"placeholderAB" = "AB";
 
 // MARK: - Languages
-"English" = "English";
-"Spanish" = "Spanish";
-"French" = "French";
-"German" = "German";
-"Italian" = "Italian";
-"Portuguese" = "Portuguese";
-"Dutch" = "Dutch";
-"Swedish" = "Swedish";
-"Chinese" = "Chinese";
-"Japanese" = "Japanese";
-"Korean" = "Korean";
-"Vietnamese" = "Vietnamese";
-"Russian" = "Russian";
-"Arabic" = "Arabic";
-"Hindi" = "Hindi";
-"Croatian" = "Croatian";
-"Ukrainian" = "Ukrainian";
+"english" = "अंग्रेज़ी";
+"spanish" = "स्पेनिश";
+"french" = "फ्रेंच";
+"german" = "जर्मन";
+"italian" = "इतालवी";
+"portuguese" = "पुर्तगाली";
+"dutch" = "डच";
+"swedish" = "स्वीडिश";
+"chinese" = "चीनी";
+"japanese" = "जापानी";
+"korean" = "कोरियाई";
+"vietnamese" = "वियतनामी";
+"russian" = "रूसी";
+"arabic" = "अरबी";
+"hindi" = "हिंदी";
+"croatian" = "क्रोएशियाई";
+"ukrainian" = "यूक्रेनी";

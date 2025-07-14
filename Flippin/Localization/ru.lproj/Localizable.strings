@@ -6,98 +6,98 @@
 */
 
 // MARK: - Navigation Titles
-"Add Card" = "Добавить карточку";
-"Settings" = "Настройки";
-"My Cards" = "Мои карточки";
-"Background Styles" = "Стили фона";
-"Background Demo" = "Демо фона";
+"addCard" = "Добавить карточку";
+"settings" = "Настройки";
+"myCards" = "Мои карточки";
+"backgroundStyles" = "Стили фона";
+"backgroundDemo" = "Демо фона";
 
 // MARK: - Welcome Screen
-"Welcome to Flippin!" = "Добро пожаловать в Flippin!";
-"Flippin helps you learn and practice new languages using flashcards. Select your native language and the language you want to learn." = "Flippin помогает вам изучать и практиковать новые языки с помощью карточек. Выберите ваш родной язык и язык, который хотите изучить.";
-"My language" = "Мой язык";
-"I'm learning" = "Я изучаю";
-"Continue" = "Продолжить";
+"welcomeScreenTitle" = "Добро пожаловать в Flippin!";
+"welcomeScreenMessage" = "Flippin помогает вам изучать и практиковать новые языки с помощью карточек. Выберите ваш родной язык и язык, который хотите изучить.";
+"myLanguage" = "Мой язык";
+"imLearning" = "Я изучаю";
+"continueButton" = "Продолжить";
 
 // MARK: - Content Views
-"No cards yet" = "Пока нет карточек";
-"Tap the + button to add your first card" = "Нажмите кнопку +, чтобы добавить первую карточку";
-"No cards with selected tag" = "Нет карточек с выбранным тегом";
-"No cards found with tag \"%@\"" = "Не найдено карточек с тегом \"%@\"";
-"No cards available" = "Нет доступных карточек";
-"Add your first card to start learning" = "Добавьте первую карточку, чтобы начать обучение";
-"No cards match your search" = "Нет карточек, соответствующих вашему поиску";
+"noCardsYet" = "Пока нет карточек";
+"tapToAddFirstCard" = "Нажмите кнопку +, чтобы добавить первую карточку";
+"noCardsWithSelectedTag" = "Нет карточек с выбранным тегом";
+"noCardsFoundWithTag" = "Не найдено карточек с тегом \"%@\"";
+"noCardsAvailable" = "Нет доступных карточек";
+"addFirstCardToStartLearning" = "Добавьте первую карточку, чтобы начать обучение";
+"noCardsMatchSearch" = "Нет карточек, соответствующих вашему поиску";
 
 // MARK: - Card Views
-"Show answer" = "Показать ответ";
-"Tap to go back" = "Нажмите, чтобы вернуться";
+"showAnswer" = "Показать ответ";
+"tapToGoBack" = "Нажмите, чтобы вернуться";
 
 // MARK: - Tag Management
-"Available Tags" = "Доступные теги";
-"No tags available" = "Нет доступных тегов";
-"Manage tags in the settings." = "Управляйте тегами в настройках.";
-"To settings" = "В настройки";
-"New tag name" = "Название нового тега";
-"Add" = "Добавить";
-"Tags Management" = "Управление тегами";
+"availableTags" = "Доступные теги";
+"noTagsAvailable" = "Нет доступных тегов";
+"manageTagsInSettings" = "Управляйте тегами в настройках.";
+"toSettings" = "В настройки";
+"newTagName" = "Название нового тега";
+"add" = "Добавить";
+"tagsManagement" = "Управление тегами";
 
 // MARK: - Settings
-"Languages" = "Языки";
-"My Language" = "Мой язык";
-"Target Language" = "Целевой язык";
-"Background" = "Фон";
-"Background Color" = "Цвет фона";
-"Background Style" = "Стиль фона";
-"Tap to see full screen" = "Нажмите для полноэкранного режима";
+"languages" = "Языки";
+"myLanguageSettings" = "Мой язык";
+"targetLanguage" = "Целевой язык";
+"background" = "Фон";
+"backgroundColor" = "Цвет фона";
+"backgroundStyle" = "Стиль фона";
+"tapToSeeFullScreen" = "Нажмите для полноэкранного режима";
 
 // MARK: - Add Card
-"Enter text in your language" = "Введите текст на вашем языке";
-"Enter text in target language" = "Введите текст на целевом языке";
-"Add notes (optional)" = "Добавить заметки (необязательно)";
-"Notes" = "Заметки";
-"Tags (%d/5)" = "Теги (%d/5)";
-"No tags available. Add some tags in Settings." = "Нет доступных тегов. Добавьте теги в настройках.";
+"enterTextInYourLanguage" = "Введите текст на вашем языке";
+"enterTextInTargetLanguage" = "Введите текст на целевом языке";
+"addNotesOptional" = "Добавить заметки (необязательно)";
+"notes" = "Заметки";
+"tagsCount" = "Теги (%d/5)";
+"noTagsAvailableAddInSettings" = "Нет доступных тегов. Добавьте теги в настройках.";
 
 // MARK: - Buttons
-"Done" = "Готово";
-"Cancel" = "Отмена";
-"Save" = "Сохранить";
-"Close" = "Закрыть";
-"Clear Filter" = "Очистить фильтр";
-"Clear Search" = "Очистить поиск";
-"Add Card" = "Добавить карточку";
-"Delete All" = "Удалить все";
-"Delete All Cards" = "Удалить все карточки";
-"Are you sure you want to delete all cards? This action cannot be undone." = "Вы уверены, что хотите удалить все карточки? Это действие нельзя отменить.";
+"done" = "Готово";
+"cancel" = "Отмена";
+"save" = "Сохранить";
+"close" = "Закрыть";
+"clearFilter" = "Очистить фильтр";
+"clearSearch" = "Очистить поиск";
+"addCardButton" = "Добавить карточку";
+"deleteAll" = "Удалить все";
+"deleteAllCards" = "Удалить все карточки";
+"deleteAllCardsConfirmation" = "Вы уверены, что хотите удалить все карточки? Это действие нельзя отменить.";
 
 // MARK: - Labels
-"Settings" = "Настройки";
-"Menu" = "Меню";
-"Tag filter" = "Фильтр тегов";
-"Shuffle" = "Перемешать";
-"Add card" = "Добавить карточку";
+"settingsLabel" = "Настройки";
+"menu" = "Меню";
+"tagFilter" = "Фильтр тегов";
+"shuffle" = "Перемешать";
+"addCardLabel" = "Добавить карточку";
 
 // MARK: - Search
-"Search cards..." = "Поиск карточек...";
+"searchCards" = "Поиск карточек...";
 
 // MARK: - Placeholder Text
-"AB" = "АБ";
+"placeholderAB" = "AB";
 
 // MARK: - Languages
-"English" = "Английский";
-"Spanish" = "Испанский";
-"French" = "Французский";
-"German" = "Немецкий";
-"Italian" = "Итальянский";
-"Portuguese" = "Португальский";
-"Dutch" = "Голландский";
-"Swedish" = "Шведский";
-"Chinese" = "Китайский";
-"Japanese" = "Японский";
-"Korean" = "Корейский";
-"Vietnamese" = "Вьетнамский";
-"Russian" = "Русский";
-"Arabic" = "Арабский";
-"Hindi" = "Хинди";
-"Croatian" = "Хорватский";
-"Ukrainian" = "Украинский";
+"english" = "Английский";
+"spanish" = "Испанский";
+"french" = "Французский";
+"german" = "Немецкий";
+"italian" = "Итальянский";
+"portuguese" = "Португальский";
+"dutch" = "Голландский";
+"swedish" = "Шведский";
+"chinese" = "Китайский";
+"japanese" = "Японский";
+"korean" = "Корейский";
+"vietnamese" = "Вьетнамский";
+"russian" = "Русский";
+"arabic" = "Арабский";
+"hindi" = "Хинди";
+"croatian" = "Хорватский";
+"ukrainian" = "Украинский";

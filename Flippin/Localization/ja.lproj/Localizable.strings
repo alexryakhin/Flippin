@@ -6,98 +6,98 @@
 */
 
 // MARK: - Navigation Titles
-"Add Card" = "Add Card";
-"Settings" = "Settings";
-"My Cards" = "My Cards";
-"Background Styles" = "Background Styles";
-"Background Demo" = "Background Demo";
+"addCard" = "カードを追加";
+"settings" = "設定";
+"myCards" = "マイカード";
+"backgroundStyles" = "背景スタイル";
+"backgroundDemo" = "背景デモ";
 
 // MARK: - Welcome Screen
-"Welcome to Flippin!" = "Welcome to Flippin!";
-"Flippin helps you learn and practice new languages using flashcards. Select your native language and the language you want to learn." = "Flippin helps you learn and practice new languages using flashcards. Select your native language and the language you want to learn.";
-"My language" = "My language";
-"I'm learning" = "I'm learning";
-"Continue" = "Continue";
+"welcomeScreenTitle" = "Flippinへようこそ！";
+"welcomeScreenMessage" = "Flippinはフラッシュカードを使って新しい言語を学び、練習するのに役立ちます。あなたの母国語と学びたい言語を選択してください。";
+"myLanguage" = "私の言語";
+"imLearning" = "学習中";
+"continueButton" = "続行";
 
 // MARK: - Content Views
-"No cards yet" = "No cards yet";
-"Tap the + button to add your first card" = "Tap the + button to add your first card";
-"No cards with selected tag" = "No cards with selected tag";
-"No cards found with tag \"%@\"" = "No cards found with tag \"%@\"";
-"No cards available" = "No cards available";
-"Add your first card to start learning" = "Add your first card to start learning";
-"No cards match your search" = "No cards match your search";
+"noCardsYet" = "まだカードがありません";
+"tapToAddFirstCard" = "+ボタンをタップして最初のカードを追加";
+"noCardsWithSelectedTag" = "選択されたタグのカードがありません";
+"noCardsFoundWithTag" = "タグ「%@」のカードが見つかりません";
+"noCardsAvailable" = "利用可能なカードがありません";
+"addFirstCardToStartLearning" = "学習を始めるために最初のカードを追加してください";
+"noCardsMatchSearch" = "検索に一致するカードがありません";
 
 // MARK: - Card Views
-"Show answer" = "Show answer";
-"Tap to go back" = "Tap to go back";
+"showAnswer" = "答えを表示";
+"tapToGoBack" = "戻るにはタップ";
 
 // MARK: - Tag Management
-"Available Tags" = "Available Tags";
-"No tags available" = "No tags available";
-"Manage tags in the settings." = "Manage tags in the settings.";
-"To settings" = "To settings";
-"New tag name" = "New tag name";
-"Add" = "Add";
-"Tags Management" = "Tags Management";
+"availableTags" = "利用可能なタグ";
+"noTagsAvailable" = "利用可能なタグがありません";
+"manageTagsInSettings" = "設定でタグを管理してください。";
+"toSettings" = "設定へ";
+"newTagName" = "新しいタグ名";
+"add" = "追加";
+"tagsManagement" = "タグ管理";
 
 // MARK: - Settings
-"Languages" = "Languages";
-"My Language" = "My Language";
-"Target Language" = "Target Language";
-"Background" = "Background";
-"Background Color" = "Background Color";
-"Background Style" = "Background Style";
-"Tap to see full screen" = "Tap to see full screen";
+"languages" = "言語";
+"myLanguageSettings" = "私の言語";
+"targetLanguage" = "目標言語";
+"background" = "背景";
+"backgroundColor" = "背景色";
+"backgroundStyle" = "背景スタイル";
+"tapToSeeFullScreen" = "全画面表示するにはタップ";
 
 // MARK: - Add Card
-"Enter text in your language" = "Enter text in your language";
-"Enter text in target language" = "Enter text in target language";
-"Add notes (optional)" = "Add notes (optional)";
-"Notes" = "Notes";
-"Tags (%d/5)" = "Tags (%d/5)";
-"No tags available. Add some tags in Settings." = "No tags available. Add some tags in Settings.";
+"enterTextInYourLanguage" = "あなたの言語でテキストを入力";
+"enterTextInTargetLanguage" = "目標言語でテキストを入力";
+"addNotesOptional" = "メモを追加（任意）";
+"notes" = "メモ";
+"tagsCount" = "タグ（%d/5）";
+"noTagsAvailableAddInSettings" = "利用可能なタグがありません。設定でタグを追加してください。";
 
 // MARK: - Buttons
-"Done" = "Done";
-"Cancel" = "Cancel";
-"Save" = "Save";
-"Close" = "Close";
-"Clear Filter" = "Clear Filter";
-"Clear Search" = "Clear Search";
-"Add Card" = "Add Card";
-"Delete All" = "Delete All";
-"Delete All Cards" = "Delete All Cards";
-"Are you sure you want to delete all cards? This action cannot be undone." = "Are you sure you want to delete all cards? This action cannot be undone.";
+"done" = "完了";
+"cancel" = "キャンセル";
+"save" = "保存";
+"close" = "閉じる";
+"clearFilter" = "フィルターをクリア";
+"clearSearch" = "検索をクリア";
+"addCardButton" = "カードを追加";
+"deleteAll" = "すべて削除";
+"deleteAllCards" = "すべてのカードを削除";
+"deleteAllCardsConfirmation" = "すべてのカードを削除してもよろしいですか？この操作は元に戻せません。";
 
 // MARK: - Labels
-"Settings" = "Settings";
-"Menu" = "Menu";
-"Tag filter" = "Tag filter";
-"Shuffle" = "Shuffle";
-"Add card" = "Add card";
+"settingsLabel" = "設定";
+"menu" = "メニュー";
+"tagFilter" = "タグフィルター";
+"shuffle" = "シャッフル";
+"addCardLabel" = "カードを追加";
 
 // MARK: - Search
-"Search cards..." = "Search cards...";
+"searchCards" = "カードを検索...";
 
 // MARK: - Placeholder Text
-"AB" = "AB";
+"placeholderAB" = "AB";
 
 // MARK: - Languages
-"English" = "English";
-"Spanish" = "Spanish";
-"French" = "French";
-"German" = "German";
-"Italian" = "Italian";
-"Portuguese" = "Portuguese";
-"Dutch" = "Dutch";
-"Swedish" = "Swedish";
-"Chinese" = "Chinese";
-"Japanese" = "Japanese";
-"Korean" = "Korean";
-"Vietnamese" = "Vietnamese";
-"Russian" = "Russian";
-"Arabic" = "Arabic";
-"Hindi" = "Hindi";
-"Croatian" = "Croatian";
-"Ukrainian" = "Ukrainian";
+"english" = "英語";
+"spanish" = "スペイン語";
+"french" = "フランス語";
+"german" = "ドイツ語";
+"italian" = "イタリア語";
+"portuguese" = "ポルトガル語";
+"dutch" = "オランダ語";
+"swedish" = "スウェーデン語";
+"chinese" = "中国語";
+"japanese" = "日本語";
+"korean" = "韓国語";
+"vietnamese" = "ベトナム語";
+"russian" = "ロシア語";
+"arabic" = "アラビア語";
+"hindi" = "ヒンディー語";
+"croatian" = "クロアチア語";
+"ukrainian" = "ウクライナ語";

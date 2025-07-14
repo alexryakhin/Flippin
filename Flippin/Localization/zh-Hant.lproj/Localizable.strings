@@ -6,98 +6,98 @@
 */
 
 // MARK: - Navigation Titles
-"Add Card" = "Add Card";
-"Settings" = "Settings";
-"My Cards" = "My Cards";
-"Background Styles" = "Background Styles";
-"Background Demo" = "Background Demo";
+"addCard" = "新增卡片";
+"settings" = "設定";
+"myCards" = "我的卡片";
+"backgroundStyles" = "背景樣式";
+"backgroundDemo" = "背景示範";
 
 // MARK: - Welcome Screen
-"Welcome to Flippin!" = "Welcome to Flippin!";
-"Flippin helps you learn and practice new languages using flashcards. Select your native language and the language you want to learn." = "Flippin helps you learn and practice new languages using flashcards. Select your native language and the language you want to learn.";
-"My language" = "My language";
-"I'm learning" = "I'm learning";
-"Continue" = "Continue";
+"welcomeScreenTitle" = "歡迎使用 Flippin！";
+"welcomeScreenMessage" = "Flippin 幫助您使用閃卡學習和練習新語言。選擇您的母語和您想學習的語言。";
+"myLanguage" = "我的語言";
+"imLearning" = "我正在學習";
+"continueButton" = "繼續";
 
 // MARK: - Content Views
-"No cards yet" = "No cards yet";
-"Tap the + button to add your first card" = "Tap the + button to add your first card";
-"No cards with selected tag" = "No cards with selected tag";
-"No cards found with tag \"%@\"" = "No cards found with tag \"%@\"";
-"No cards available" = "No cards available";
-"Add your first card to start learning" = "Add your first card to start learning";
-"No cards match your search" = "No cards match your search";
+"noCardsYet" = "還沒有卡片";
+"tapToAddFirstCard" = "點擊 + 按鈕新增您的第一張卡片";
+"noCardsWithSelectedTag" = "沒有帶有選定標籤的卡片";
+"noCardsFoundWithTag" = "未找到帶有標籤 \"%@\" 的卡片";
+"noCardsAvailable" = "沒有可用的卡片";
+"addFirstCardToStartLearning" = "新增您的第一張卡片開始學習";
+"noCardsMatchSearch" = "沒有卡片符合您的搜尋";
 
 // MARK: - Card Views
-"Show answer" = "Show answer";
-"Tap to go back" = "Tap to go back";
+"showAnswer" = "顯示答案";
+"tapToGoBack" = "點擊返回";
 
 // MARK: - Tag Management
-"Available Tags" = "Available Tags";
-"No tags available" = "No tags available";
-"Manage tags in the settings." = "Manage tags in the settings.";
-"To settings" = "To settings";
-"New tag name" = "New tag name";
-"Add" = "Add";
-"Tags Management" = "Tags Management";
+"availableTags" = "可用標籤";
+"noTagsAvailable" = "沒有可用標籤";
+"manageTagsInSettings" = "在設定中管理標籤。";
+"toSettings" = "前往設定";
+"newTagName" = "新標籤名稱";
+"add" = "新增";
+"tagsManagement" = "標籤管理";
 
 // MARK: - Settings
-"Languages" = "Languages";
-"My Language" = "My Language";
-"Target Language" = "Target Language";
-"Background" = "Background";
-"Background Color" = "Background Color";
-"Background Style" = "Background Style";
-"Tap to see full screen" = "Tap to see full screen";
+"languages" = "語言";
+"myLanguageSettings" = "我的語言";
+"targetLanguage" = "目標語言";
+"background" = "背景";
+"backgroundColor" = "背景顏色";
+"backgroundStyle" = "背景樣式";
+"tapToSeeFullScreen" = "點擊查看全螢幕";
 
 // MARK: - Add Card
-"Enter text in your language" = "Enter text in your language";
-"Enter text in target language" = "Enter text in target language";
-"Add notes (optional)" = "Add notes (optional)";
-"Notes" = "Notes";
-"Tags (%d/5)" = "Tags (%d/5)";
-"No tags available. Add some tags in Settings." = "No tags available. Add some tags in Settings.";
+"enterTextInYourLanguage" = "用您的語言輸入文字";
+"enterTextInTargetLanguage" = "用目標語言輸入文字";
+"addNotesOptional" = "新增備註（選用）";
+"notes" = "備註";
+"tagsCount" = "標籤 (%d/5)";
+"noTagsAvailableAddInSettings" = "沒有可用標籤。在設定中新增一些標籤。";
 
 // MARK: - Buttons
-"Done" = "Done";
-"Cancel" = "Cancel";
-"Save" = "Save";
-"Close" = "Close";
-"Clear Filter" = "Clear Filter";
-"Clear Search" = "Clear Search";
-"Add Card" = "Add Card";
-"Delete All" = "Delete All";
-"Delete All Cards" = "Delete All Cards";
-"Are you sure you want to delete all cards? This action cannot be undone." = "Are you sure you want to delete all cards? This action cannot be undone.";
+"done" = "完成";
+"cancel" = "取消";
+"save" = "儲存";
+"close" = "關閉";
+"clearFilter" = "清除篩選";
+"clearSearch" = "清除搜尋";
+"addCardButton" = "新增卡片";
+"deleteAll" = "刪除全部";
+"deleteAllCards" = "刪除所有卡片";
+"deleteAllCardsConfirmation" = "您確定要刪除所有卡片嗎？此操作無法復原。";
 
 // MARK: - Labels
-"Settings" = "Settings";
-"Menu" = "Menu";
-"Tag filter" = "Tag filter";
-"Shuffle" = "Shuffle";
-"Add card" = "Add card";
+"settingsLabel" = "設定";
+"menu" = "選單";
+"tagFilter" = "標籤篩選";
+"shuffle" = "隨機排序";
+"addCardLabel" = "新增卡片";
 
 // MARK: - Search
-"Search cards..." = "Search cards...";
+"searchCards" = "搜尋卡片...";
 
 // MARK: - Placeholder Text
-"AB" = "AB";
+"placeholderAB" = "AB";
 
 // MARK: - Languages
-"English" = "English";
-"Spanish" = "Spanish";
-"French" = "French";
-"German" = "German";
-"Italian" = "Italian";
-"Portuguese" = "Portuguese";
-"Dutch" = "Dutch";
-"Swedish" = "Swedish";
-"Chinese" = "Chinese";
-"Japanese" = "Japanese";
-"Korean" = "Korean";
-"Vietnamese" = "Vietnamese";
-"Russian" = "Russian";
-"Arabic" = "Arabic";
-"Hindi" = "Hindi";
-"Croatian" = "Croatian";
-"Ukrainian" = "Ukrainian";
+"english" = "英語";
+"spanish" = "西班牙語";
+"french" = "法語";
+"german" = "德語";
+"italian" = "義大利語";
+"portuguese" = "葡萄牙語";
+"dutch" = "荷蘭語";
+"swedish" = "瑞典語";
+"chinese" = "中文";
+"japanese" = "日語";
+"korean" = "韓語";
+"vietnamese" = "越南語";
+"russian" = "俄語";
+"arabic" = "阿拉伯語";
+"hindi" = "印地語";
+"croatian" = "克羅埃西亞語";
+"ukrainian" = "烏克蘭語";

@@ -6,98 +6,98 @@
 */
 
 // MARK: - Navigation Titles
-"Add Card" = "Add Card";
-"Settings" = "Settings";
-"My Cards" = "My Cards";
-"Background Styles" = "Background Styles";
-"Background Demo" = "Background Demo";
+"addCard" = "Lägg till kort";
+"settings" = "Inställningar";
+"myCards" = "Mina kort";
+"backgroundStyles" = "Bakgrundsstilar";
+"backgroundDemo" = "Bakgrundsdemo";
 
 // MARK: - Welcome Screen
-"Welcome to Flippin!" = "Welcome to Flippin!";
-"Flippin helps you learn and practice new languages using flashcards. Select your native language and the language you want to learn." = "Flippin helps you learn and practice new languages using flashcards. Select your native language and the language you want to learn.";
-"My language" = "My language";
-"I'm learning" = "I'm learning";
-"Continue" = "Continue";
+"welcomeScreenTitle" = "Välkommen till Flippin!";
+"welcomeScreenMessage" = "Flippin hjälper dig att lära dig och öva nya språk med hjälp av flashcards. Välj ditt modersmål och språket du vill lära dig.";
+"myLanguage" = "Mitt språk";
+"imLearning" = "Jag lär mig";
+"continueButton" = "Fortsätt";
 
 // MARK: - Content Views
-"No cards yet" = "No cards yet";
-"Tap the + button to add your first card" = "Tap the + button to add your first card";
-"No cards with selected tag" = "No cards with selected tag";
-"No cards found with tag \"%@\"" = "No cards found with tag \"%@\"";
-"No cards available" = "No cards available";
-"Add your first card to start learning" = "Add your first card to start learning";
-"No cards match your search" = "No cards match your search";
+"noCardsYet" = "Inga kort än";
+"tapToAddFirstCard" = "Tryck på + knappen för att lägga till ditt första kort";
+"noCardsWithSelectedTag" = "Inga kort med vald tagg";
+"noCardsFoundWithTag" = "Inga kort hittades med taggen \"%@\"";
+"noCardsAvailable" = "Inga kort tillgängliga";
+"addFirstCardToStartLearning" = "Lägg till ditt första kort för att börja lära dig";
+"noCardsMatchSearch" = "Inga kort matchar din sökning";
 
 // MARK: - Card Views
-"Show answer" = "Show answer";
-"Tap to go back" = "Tap to go back";
+"showAnswer" = "Visa svar";
+"tapToGoBack" = "Tryck för att gå tillbaka";
 
 // MARK: - Tag Management
-"Available Tags" = "Available Tags";
-"No tags available" = "No tags available";
-"Manage tags in the settings." = "Manage tags in the settings.";
-"To settings" = "To settings";
-"New tag name" = "New tag name";
-"Add" = "Add";
-"Tags Management" = "Tags Management";
+"availableTags" = "Tillgängliga taggar";
+"noTagsAvailable" = "Inga taggar tillgängliga";
+"manageTagsInSettings" = "Hantera taggar i inställningarna.";
+"toSettings" = "Till inställningar";
+"newTagName" = "Nytt taggnamn";
+"add" = "Lägg till";
+"tagsManagement" = "Tagghantering";
 
 // MARK: - Settings
-"Languages" = "Languages";
-"My Language" = "My Language";
-"Target Language" = "Target Language";
-"Background" = "Background";
-"Background Color" = "Background Color";
-"Background Style" = "Background Style";
-"Tap to see full screen" = "Tap to see full screen";
+"languages" = "Språk";
+"myLanguageSettings" = "Mitt språk";
+"targetLanguage" = "Målspråk";
+"background" = "Bakgrund";
+"backgroundColor" = "Bakgrundsfärg";
+"backgroundStyle" = "Bakgrundsstil";
+"tapToSeeFullScreen" = "Tryck för att se helskärm";
 
 // MARK: - Add Card
-"Enter text in your language" = "Enter text in your language";
-"Enter text in target language" = "Enter text in target language";
-"Add notes (optional)" = "Add notes (optional)";
-"Notes" = "Notes";
-"Tags (%d/5)" = "Tags (%d/5)";
-"No tags available. Add some tags in Settings." = "No tags available. Add some tags in Settings.";
+"enterTextInYourLanguage" = "Ange text på ditt språk";
+"enterTextInTargetLanguage" = "Ange text på målspråket";
+"addNotesOptional" = "Lägg till anteckningar (valfritt)";
+"notes" = "Anteckningar";
+"tagsCount" = "Taggar (%d/5)";
+"noTagsAvailableAddInSettings" = "Inga taggar tillgängliga. Lägg till några taggar i Inställningar.";
 
 // MARK: - Buttons
-"Done" = "Done";
-"Cancel" = "Cancel";
-"Save" = "Save";
-"Close" = "Close";
-"Clear Filter" = "Clear Filter";
-"Clear Search" = "Clear Search";
-"Add Card" = "Add Card";
-"Delete All" = "Delete All";
-"Delete All Cards" = "Delete All Cards";
-"Are you sure you want to delete all cards? This action cannot be undone." = "Are you sure you want to delete all cards? This action cannot be undone.";
+"done" = "Klar";
+"cancel" = "Avbryt";
+"save" = "Spara";
+"close" = "Stäng";
+"clearFilter" = "Rensa filter";
+"clearSearch" = "Rensa sökning";
+"addCardButton" = "Lägg till kort";
+"deleteAll" = "Radera alla";
+"deleteAllCards" = "Radera alla kort";
+"deleteAllCardsConfirmation" = "Är du säker på att du vill radera alla kort? Denna åtgärd kan inte ångras.";
 
 // MARK: - Labels
-"Settings" = "Settings";
-"Menu" = "Menu";
-"Tag filter" = "Tag filter";
-"Shuffle" = "Shuffle";
-"Add card" = "Add card";
+"settingsLabel" = "Inställningar";
+"menu" = "Meny";
+"tagFilter" = "Tagfilter";
+"shuffle" = "Blanda";
+"addCardLabel" = "Lägg till kort";
 
 // MARK: - Search
-"Search cards..." = "Search cards...";
+"searchCards" = "Sök kort...";
 
 // MARK: - Placeholder Text
-"AB" = "AB";
+"placeholderAB" = "AB";
 
 // MARK: - Languages
-"English" = "English";
-"Spanish" = "Spanish";
-"French" = "French";
-"German" = "German";
-"Italian" = "Italian";
-"Portuguese" = "Portuguese";
-"Dutch" = "Dutch";
-"Swedish" = "Swedish";
-"Chinese" = "Chinese";
-"Japanese" = "Japanese";
-"Korean" = "Korean";
-"Vietnamese" = "Vietnamese";
-"Russian" = "Russian";
-"Arabic" = "Arabic";
-"Hindi" = "Hindi";
-"Croatian" = "Croatian";
-"Ukrainian" = "Ukrainian";
+"english" = "Engelska";
+"spanish" = "Spanska";
+"french" = "Franska";
+"german" = "Tyska";
+"italian" = "Italienska";
+"portuguese" = "Portugisiska";
+"dutch" = "Nederländska";
+"swedish" = "Svenska";
+"chinese" = "Kinesiska";
+"japanese" = "Japanska";
+"korean" = "Koreanska";
+"vietnamese" = "Vietnamesiska";
+"russian" = "Ryska";
+"arabic" = "Arabiska";
+"hindi" = "Hindi";
+"croatian" = "Kroatiska";
+"ukrainian" = "Ukrainska";

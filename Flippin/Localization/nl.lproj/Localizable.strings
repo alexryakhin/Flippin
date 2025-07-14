@@ -6,98 +6,98 @@
 */
 
 // MARK: - Navigation Titles
-"Add Card" = "Add Card";
-"Settings" = "Settings";
-"My Cards" = "My Cards";
-"Background Styles" = "Background Styles";
-"Background Demo" = "Background Demo";
+"addCard" = "Kaart toevoegen";
+"settings" = "Instellingen";
+"myCards" = "Mijn kaarten";
+"backgroundStyles" = "Achtergrondstijlen";
+"backgroundDemo" = "Achtergrond demo";
 
 // MARK: - Welcome Screen
-"Welcome to Flippin!" = "Welcome to Flippin!";
-"Flippin helps you learn and practice new languages using flashcards. Select your native language and the language you want to learn." = "Flippin helps you learn and practice new languages using flashcards. Select your native language and the language you want to learn.";
-"My language" = "My language";
-"I'm learning" = "I'm learning";
-"Continue" = "Continue";
+"welcomeScreenTitle" = "Welkom bij Flippin!";
+"welcomeScreenMessage" = "Flippin helpt je nieuwe talen te leren en te oefenen met flashcards. Selecteer je moedertaal en de taal die je wilt leren.";
+"myLanguage" = "Mijn taal";
+"imLearning" = "Ik leer";
+"continueButton" = "Doorgaan";
 
 // MARK: - Content Views
-"No cards yet" = "No cards yet";
-"Tap the + button to add your first card" = "Tap the + button to add your first card";
-"No cards with selected tag" = "No cards with selected tag";
-"No cards found with tag \"%@\"" = "No cards found with tag \"%@\"";
-"No cards available" = "No cards available";
-"Add your first card to start learning" = "Add your first card to start learning";
-"No cards match your search" = "No cards match your search";
+"noCardsYet" = "Nog geen kaarten";
+"tapToAddFirstCard" = "Tik op de + knop om je eerste kaart toe te voegen";
+"noCardsWithSelectedTag" = "Geen kaarten met geselecteerde tag";
+"noCardsFoundWithTag" = "Geen kaarten gevonden met tag \"%@\"";
+"noCardsAvailable" = "Geen kaarten beschikbaar";
+"addFirstCardToStartLearning" = "Voeg je eerste kaart toe om te beginnen met leren";
+"noCardsMatchSearch" = "Geen kaarten komen overeen met je zoekopdracht";
 
 // MARK: - Card Views
-"Show answer" = "Show answer";
-"Tap to go back" = "Tap to go back";
+"showAnswer" = "Antwoord tonen";
+"tapToGoBack" = "Tik om terug te gaan";
 
 // MARK: - Tag Management
-"Available Tags" = "Available Tags";
-"No tags available" = "No tags available";
-"Manage tags in the settings." = "Manage tags in the settings.";
-"To settings" = "To settings";
-"New tag name" = "New tag name";
-"Add" = "Add";
-"Tags Management" = "Tags Management";
+"availableTags" = "Beschikbare tags";
+"noTagsAvailable" = "Geen tags beschikbaar";
+"manageTagsInSettings" = "Beheer tags in de instellingen.";
+"toSettings" = "Naar instellingen";
+"newTagName" = "Nieuwe tag naam";
+"add" = "Toevoegen";
+"tagsManagement" = "Tag beheer";
 
 // MARK: - Settings
-"Languages" = "Languages";
-"My Language" = "My Language";
-"Target Language" = "Target Language";
-"Background" = "Background";
-"Background Color" = "Background Color";
-"Background Style" = "Background Style";
-"Tap to see full screen" = "Tap to see full screen";
+"languages" = "Talen";
+"myLanguageSettings" = "Mijn taal";
+"targetLanguage" = "Doeltaal";
+"background" = "Achtergrond";
+"backgroundColor" = "Achtergrondkleur";
+"backgroundStyle" = "Achtergrondstijl";
+"tapToSeeFullScreen" = "Tik voor volledig scherm";
 
 // MARK: - Add Card
-"Enter text in your language" = "Enter text in your language";
-"Enter text in target language" = "Enter text in target language";
-"Add notes (optional)" = "Add notes (optional)";
-"Notes" = "Notes";
-"Tags (%d/5)" = "Tags (%d/5)";
-"No tags available. Add some tags in Settings." = "No tags available. Add some tags in Settings.";
+"enterTextInYourLanguage" = "Voer tekst in in je taal";
+"enterTextInTargetLanguage" = "Voer tekst in in de doeltaal";
+"addNotesOptional" = "Notities toevoegen (optioneel)";
+"notes" = "Notities";
+"tagsCount" = "Tags (%d/5)";
+"noTagsAvailableAddInSettings" = "Geen tags beschikbaar. Voeg enkele tags toe in Instellingen.";
 
 // MARK: - Buttons
-"Done" = "Done";
-"Cancel" = "Cancel";
-"Save" = "Save";
-"Close" = "Close";
-"Clear Filter" = "Clear Filter";
-"Clear Search" = "Clear Search";
-"Add Card" = "Add Card";
-"Delete All" = "Delete All";
-"Delete All Cards" = "Delete All Cards";
-"Are you sure you want to delete all cards? This action cannot be undone." = "Are you sure you want to delete all cards? This action cannot be undone.";
+"done" = "Klaar";
+"cancel" = "Annuleren";
+"save" = "Opslaan";
+"close" = "Sluiten";
+"clearFilter" = "Filter wissen";
+"clearSearch" = "Zoeken wissen";
+"addCardButton" = "Kaart toevoegen";
+"deleteAll" = "Alles verwijderen";
+"deleteAllCards" = "Alle kaarten verwijderen";
+"deleteAllCardsConfirmation" = "Weet je zeker dat je alle kaarten wilt verwijderen? Deze actie kan niet ongedaan worden gemaakt.";
 
 // MARK: - Labels
-"Settings" = "Settings";
-"Menu" = "Menu";
-"Tag filter" = "Tag filter";
-"Shuffle" = "Shuffle";
-"Add card" = "Add card";
+"settingsLabel" = "Instellingen";
+"menu" = "Menu";
+"tagFilter" = "Tag filter";
+"shuffle" = "Schudden";
+"addCardLabel" = "Kaart toevoegen";
 
 // MARK: - Search
-"Search cards..." = "Search cards...";
+"searchCards" = "Kaarten zoeken...";
 
 // MARK: - Placeholder Text
-"AB" = "AB";
+"placeholderAB" = "AB";
 
 // MARK: - Languages
-"English" = "English";
-"Spanish" = "Spanish";
-"French" = "French";
-"German" = "German";
-"Italian" = "Italian";
-"Portuguese" = "Portuguese";
-"Dutch" = "Dutch";
-"Swedish" = "Swedish";
-"Chinese" = "Chinese";
-"Japanese" = "Japanese";
-"Korean" = "Korean";
-"Vietnamese" = "Vietnamese";
-"Russian" = "Russian";
-"Arabic" = "Arabic";
-"Hindi" = "Hindi";
-"Croatian" = "Croatian";
-"Ukrainian" = "Ukrainian";
+"english" = "Engels";
+"spanish" = "Spaans";
+"french" = "Frans";
+"german" = "Duits";
+"italian" = "Italiaans";
+"portuguese" = "Portugees";
+"dutch" = "Nederlands";
+"swedish" = "Zweeds";
+"chinese" = "Chinees";
+"japanese" = "Japans";
+"korean" = "Koreaans";
+"vietnamese" = "Vietnamees";
+"russian" = "Russisch";
+"arabic" = "Arabisch";
+"hindi" = "Hindi";
+"croatian" = "Kroatisch";
+"ukrainian" = "Oekraïens";

@@ -6,98 +6,98 @@
 */
 
 // MARK: - Navigation Titles
-"Add Card" = "Karte hinzufügen";
-"Settings" = "Einstellungen";
-"My Cards" = "Meine Karten";
-"Background Styles" = "Hintergrund-Stile";
-"Background Demo" = "Hintergrund-Demo";
+"addCard" = "Karte hinzufügen";
+"settings" = "Einstellungen";
+"myCards" = "Meine Karten";
+"backgroundStyles" = "Hintergrundstile";
+"backgroundDemo" = "Hintergrund-Demo";
 
 // MARK: - Welcome Screen
-"Welcome to Flippin!" = "Willkommen bei Flippin!";
-"Flippin helps you learn and practice new languages using flashcards. Select your native language and the language you want to learn." = "Flippin hilft dir dabei, neue Sprachen mit Karteikarten zu lernen und zu üben. Wähle deine Muttersprache und die Sprache aus, die du lernen möchtest.";
-"My language" = "Meine Sprache";
-"I'm learning" = "Ich lerne";
-"Continue" = "Weiter";
+"welcomeScreenTitle" = "Willkommen bei Flippin!";
+"welcomeScreenMessage" = "Flippin hilft Ihnen dabei, neue Sprachen mit Karteikarten zu lernen und zu üben. Wählen Sie Ihre Muttersprache und die Sprache, die Sie lernen möchten.";
+"myLanguage" = "Meine Sprache";
+"imLearning" = "Ich lerne";
+"continueButton" = "Weiter";
 
 // MARK: - Content Views
-"No cards yet" = "Noch keine Karten";
-"Tap the + button to add your first card" = "Tippe auf den + Button, um deine erste Karte hinzuzufügen";
-"No cards with selected tag" = "Keine Karten mit ausgewähltem Tag";
-"No cards found with tag \"%@\"" = "Keine Karten mit Tag \"%@\" gefunden";
-"No cards available" = "Keine Karten verfügbar";
-"Add your first card to start learning" = "Füge deine erste Karte hinzu, um mit dem Lernen zu beginnen";
-"No cards match your search" = "Keine Karten entsprechen deiner Suche";
+"noCardsYet" = "Noch keine Karten";
+"tapToAddFirstCard" = "Tippen Sie auf die + Schaltfläche, um Ihre erste Karte hinzuzufügen";
+"noCardsWithSelectedTag" = "Keine Karten mit ausgewähltem Tag";
+"noCardsFoundWithTag" = "Keine Karten mit Tag \"%@\" gefunden";
+"noCardsAvailable" = "Keine Karten verfügbar";
+"addFirstCardToStartLearning" = "Fügen Sie Ihre erste Karte hinzu, um mit dem Lernen zu beginnen";
+"noCardsMatchSearch" = "Keine Karten entsprechen Ihrer Suche";
 
 // MARK: - Card Views
-"Show answer" = "Antwort anzeigen";
-"Tap to go back" = "Tippe zum Zurückgehen";
+"showAnswer" = "Antwort anzeigen";
+"tapToGoBack" = "Tippen Sie, um zurückzugehen";
 
 // MARK: - Tag Management
-"Available Tags" = "Verfügbare Tags";
-"No tags available" = "Keine Tags verfügbar";
-"Manage tags in the settings." = "Tags in den Einstellungen verwalten.";
-"To settings" = "Zu den Einstellungen";
-"New tag name" = "Neuer Tag-Name";
-"Add" = "Hinzufügen";
-"Tags Management" = "Tag-Verwaltung";
+"availableTags" = "Verfügbare Tags";
+"noTagsAvailable" = "Keine Tags verfügbar";
+"manageTagsInSettings" = "Tags in den Einstellungen verwalten.";
+"toSettings" = "Zu den Einstellungen";
+"newTagName" = "Neuer Tag-Name";
+"add" = "Hinzufügen";
+"tagsManagement" = "Tag-Verwaltung";
 
 // MARK: - Settings
-"Languages" = "Sprachen";
-"My Language" = "Meine Sprache";
-"Target Language" = "Zielsprache";
-"Background" = "Hintergrund";
-"Background Color" = "Hintergrundfarbe";
-"Background Style" = "Hintergrund-Stil";
-"Tap to see full screen" = "Tippe für Vollbildansicht";
+"languages" = "Sprachen";
+"myLanguageSettings" = "Meine Sprache";
+"targetLanguage" = "Zielsprache";
+"background" = "Hintergrund";
+"backgroundColor" = "Hintergrundfarbe";
+"backgroundStyle" = "Hintergrundstil";
+"tapToSeeFullScreen" = "Tippen Sie für Vollbildansicht";
 
 // MARK: - Add Card
-"Enter text in your language" = "Gib Text in deiner Sprache ein";
-"Enter text in target language" = "Gib Text in der Zielsprache ein";
-"Add notes (optional)" = "Notizen hinzufügen (optional)";
-"Notes" = "Notizen";
-"Tags (%d/5)" = "Tags (%d/5)";
-"No tags available. Add some tags in Settings." = "Keine Tags verfügbar. Füge einige Tags in den Einstellungen hinzu.";
+"enterTextInYourLanguage" = "Geben Sie Text in Ihrer Sprache ein";
+"enterTextInTargetLanguage" = "Geben Sie Text in der Zielsprache ein";
+"addNotesOptional" = "Notizen hinzufügen (optional)";
+"notes" = "Notizen";
+"tagsCount" = "Tags (%d/5)";
+"noTagsAvailableAddInSettings" = "Keine Tags verfügbar. Fügen Sie einige Tags in den Einstellungen hinzu.";
 
 // MARK: - Buttons
-"Done" = "Fertig";
-"Cancel" = "Abbrechen";
-"Save" = "Speichern";
-"Close" = "Schließen";
-"Clear Filter" = "Filter löschen";
-"Clear Search" = "Suche löschen";
-"Add Card" = "Karte hinzufügen";
-"Delete All" = "Alle löschen";
-"Delete All Cards" = "Alle Karten löschen";
-"Are you sure you want to delete all cards? This action cannot be undone." = "Bist du sicher, dass du alle Karten löschen möchtest? Diese Aktion kann nicht rückgängig gemacht werden.";
+"done" = "Fertig";
+"cancel" = "Abbrechen";
+"save" = "Speichern";
+"close" = "Schließen";
+"clearFilter" = "Filter löschen";
+"clearSearch" = "Suche löschen";
+"addCardButton" = "Karte hinzufügen";
+"deleteAll" = "Alle löschen";
+"deleteAllCards" = "Alle Karten löschen";
+"deleteAllCardsConfirmation" = "Sind Sie sicher, dass Sie alle Karten löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden.";
 
 // MARK: - Labels
-"Settings" = "Einstellungen";
-"Menu" = "Menü";
-"Tag filter" = "Tag-Filter";
-"Shuffle" = "Mischen";
-"Add card" = "Karte hinzufügen";
+"settingsLabel" = "Einstellungen";
+"menu" = "Menü";
+"tagFilter" = "Tag-Filter";
+"shuffle" = "Mischen";
+"addCardLabel" = "Karte hinzufügen";
 
 // MARK: - Search
-"Search cards..." = "Karten suchen...";
+"searchCards" = "Karten suchen...";
 
 // MARK: - Placeholder Text
-"AB" = "AB";
+"placeholderAB" = "AB";
 
 // MARK: - Languages
-"English" = "Englisch";
-"Spanish" = "Spanisch";
-"French" = "Französisch";
-"German" = "Deutsch";
-"Italian" = "Italienisch";
-"Portuguese" = "Portugiesisch";
-"Dutch" = "Niederländisch";
-"Swedish" = "Schwedisch";
-"Chinese" = "Chinesisch";
-"Japanese" = "Japanisch";
-"Korean" = "Koreanisch";
-"Vietnamese" = "Vietnamesisch";
-"Russian" = "Russisch";
-"Arabic" = "Arabisch";
-"Hindi" = "Hindi";
-"Croatian" = "Kroatisch";
-"Ukrainian" = "Ukrainisch";
+"english" = "Englisch";
+"spanish" = "Spanisch";
+"french" = "Französisch";
+"german" = "Deutsch";
+"italian" = "Italienisch";
+"portuguese" = "Portugiesisch";
+"dutch" = "Niederländisch";
+"swedish" = "Schwedisch";
+"chinese" = "Chinesisch";
+"japanese" = "Japanisch";
+"korean" = "Koreanisch";
+"vietnamese" = "Vietnamesisch";
+"russian" = "Russisch";
+"arabic" = "Arabisch";
+"hindi" = "Hindi";
+"croatian" = "Kroatisch";
+"ukrainian" = "Ukrainisch";

@@ -6,98 +6,98 @@
 */
 
 // MARK: - Navigation Titles
-"Add Card" = "إضافة بطاقة";
-"Settings" = "الإعدادات";
-"My Cards" = "بطاقاتي";
-"Background Styles" = "أنماط الخلفية";
-"Background Demo" = "عرض الخلفية";
+"addCard" = "إضافة بطاقة";
+"settings" = "الإعدادات";
+"myCards" = "بطاقاتي";
+"backgroundStyles" = "أنماط الخلفية";
+"backgroundDemo" = "عرض الخلفية";
 
 // MARK: - Welcome Screen
-"Welcome to Flippin!" = "مرحباً بك في فليبن!";
-"Flippin helps you learn and practice new languages using flashcards. Select your native language and the language you want to learn." = "يساعدك فليبن على تعلم وممارسة لغات جديدة باستخدام البطاقات التعليمية. اختر لغتك الأم واللغة التي تريد تعلمها.";
-"My language" = "لغتي";
-"I'm learning" = "أنا أتعلم";
-"Continue" = "متابعة";
+"welcomeScreenTitle" = "مرحباً بك في Flippin!";
+"welcomeScreenMessage" = "يساعدك Flippin على تعلم وممارسة لغات جديدة باستخدام البطاقات التعليمية. اختر لغتك الأم واللغة التي تريد تعلمها.";
+"myLanguage" = "لغتي";
+"imLearning" = "أنا أتعلم";
+"continueButton" = "متابعة";
 
 // MARK: - Content Views
-"No cards yet" = "لا توجد بطاقات بعد";
-"Tap the + button to add your first card" = "اضغط على زر + لإضافة بطاقتك الأولى";
-"No cards with selected tag" = "لا توجد بطاقات بالوسم المحدد";
-"No cards found with tag \"%@\"" = "لم يتم العثور على بطاقات بالوسم \"%@\"";
-"No cards available" = "لا توجد بطاقات متاحة";
-"Add your first card to start learning" = "أضف بطاقتك الأولى لبدء التعلم";
-"No cards match your search" = "لا توجد بطاقات تطابق بحثك";
+"noCardsYet" = "لا توجد بطاقات بعد";
+"tapToAddFirstCard" = "انقر على زر + لإضافة بطاقتك الأولى";
+"noCardsWithSelectedTag" = "لا توجد بطاقات بالوسم المحدد";
+"noCardsFoundWithTag" = "لا توجد بطاقات بالوسم \"%@\"";
+"noCardsAvailable" = "لا توجد بطاقات متاحة";
+"addFirstCardToStartLearning" = "أضف بطاقتك الأولى لبدء التعلم";
+"noCardsMatchSearch" = "لا توجد بطاقات تطابق بحثك";
 
 // MARK: - Card Views
-"Show answer" = "عرض الإجابة";
-"Tap to go back" = "اضغط للعودة";
+"showAnswer" = "إظهار الإجابة";
+"tapToGoBack" = "انقر للعودة";
 
 // MARK: - Tag Management
-"Available Tags" = "الأوسمة المتاحة";
-"No tags available" = "لا توجد أوسمة متاحة";
-"Manage tags in the settings." = "إدارة الأوسمة في الإعدادات.";
-"To settings" = "إلى الإعدادات";
-"New tag name" = "اسم الوسم الجديد";
-"Add" = "إضافة";
-"Tags Management" = "إدارة الأوسمة";
+"availableTags" = "الوسوم المتاحة";
+"noTagsAvailable" = "لا توجد وسوم متاحة";
+"manageTagsInSettings" = "إدارة الوسوم في الإعدادات.";
+"toSettings" = "إلى الإعدادات";
+"newTagName" = "اسم الوسم الجديد";
+"add" = "إضافة";
+"tagsManagement" = "إدارة الوسوم";
 
 // MARK: - Settings
-"Languages" = "اللغات";
-"My Language" = "لغتي";
-"Target Language" = "اللغة المستهدفة";
-"Background" = "الخلفية";
-"Background Color" = "لون الخلفية";
-"Background Style" = "نمط الخلفية";
-"Tap to see full screen" = "اضغط لرؤية الشاشة الكاملة";
+"languages" = "اللغات";
+"myLanguageSettings" = "لغتي";
+"targetLanguage" = "اللغة المستهدفة";
+"background" = "الخلفية";
+"backgroundColor" = "لون الخلفية";
+"backgroundStyle" = "نمط الخلفية";
+"tapToSeeFullScreen" = "انقر لرؤية الشاشة الكاملة";
 
 // MARK: - Add Card
-"Enter text in your language" = "أدخل النص بلغتك";
-"Enter text in target language" = "أدخل النص باللغة المستهدفة";
-"Add notes (optional)" = "إضافة ملاحظات (اختياري)";
-"Notes" = "الملاحظات";
-"Tags (%d/5)" = "الأوسمة (%d/5)";
-"No tags available. Add some tags in Settings." = "لا توجد أوسمة متاحة. أضف بعض الأوسمة في الإعدادات.";
+"enterTextInYourLanguage" = "أدخل النص بلغتك";
+"enterTextInTargetLanguage" = "أدخل النص باللغة المستهدفة";
+"addNotesOptional" = "إضافة ملاحظات (اختياري)";
+"notes" = "الملاحظات";
+"tagsCount" = "الوسوم (%d/5)";
+"noTagsAvailableAddInSettings" = "لا توجد وسوم متاحة. أضف بعض الوسوم في الإعدادات.";
 
 // MARK: - Buttons
-"Done" = "تم";
-"Cancel" = "إلغاء";
-"Save" = "حفظ";
-"Close" = "إغلاق";
-"Clear Filter" = "مسح الفلتر";
-"Clear Search" = "مسح البحث";
-"Add Card" = "إضافة بطاقة";
-"Delete All" = "حذف الكل";
-"Delete All Cards" = "حذف جميع البطاقات";
-"Are you sure you want to delete all cards? This action cannot be undone." = "هل أنت متأكد من أنك تريد حذف جميع البطاقات؟ لا يمكن التراجع عن هذا الإجراء.";
+"done" = "تم";
+"cancel" = "إلغاء";
+"save" = "حفظ";
+"close" = "إغلاق";
+"clearFilter" = "مسح الفلتر";
+"clearSearch" = "مسح البحث";
+"addCardButton" = "إضافة بطاقة";
+"deleteAll" = "حذف الكل";
+"deleteAllCards" = "حذف جميع البطاقات";
+"deleteAllCardsConfirmation" = "هل أنت متأكد من أنك تريد حذف جميع البطاقات؟ لا يمكن التراجع عن هذا الإجراء.";
 
 // MARK: - Labels
-"Settings" = "الإعدادات";
-"Menu" = "القائمة";
-"Tag filter" = "فلتر الأوسمة";
-"Shuffle" = "خلط";
-"Add card" = "إضافة بطاقة";
+"settingsLabel" = "الإعدادات";
+"menu" = "القائمة";
+"tagFilter" = "فلتر الوسوم";
+"shuffle" = "خلط";
+"addCardLabel" = "إضافة بطاقة";
 
 // MARK: - Search
-"Search cards..." = "البحث في البطاقات...";
+"searchCards" = "البحث في البطاقات...";
 
 // MARK: - Placeholder Text
-"AB" = "أب";
+"placeholderAB" = "AB";
 
 // MARK: - Languages
-"English" = "الإنجليزية";
-"Spanish" = "الإسبانية";
-"French" = "الفرنسية";
-"German" = "الألمانية";
-"Italian" = "الإيطالية";
-"Portuguese" = "البرتغالية";
-"Dutch" = "الهولندية";
-"Swedish" = "السويدية";
-"Chinese" = "الصينية";
-"Japanese" = "اليابانية";
-"Korean" = "الكورية";
-"Vietnamese" = "الفيتنامية";
-"Russian" = "الروسية";
-"Arabic" = "العربية";
-"Hindi" = "الهندية";
-"Croatian" = "الكرواتية";
-"Ukrainian" = "الأوكرانية";
+"english" = "الإنجليزية";
+"spanish" = "الإسبانية";
+"french" = "الفرنسية";
+"german" = "الألمانية";
+"italian" = "الإيطالية";
+"portuguese" = "البرتغالية";
+"dutch" = "الهولندية";
+"swedish" = "السويدية";
+"chinese" = "الصينية";
+"japanese" = "اليابانية";
+"korean" = "الكورية";
+"vietnamese" = "الفيتنامية";
+"russian" = "الروسية";
+"arabic" = "العربية";
+"hindi" = "الهندية";
+"croatian" = "الكرواتية";
+"ukrainian" = "الأوكرانية";

@@ -6,98 +6,98 @@
 */
 
 // MARK: - Navigation Titles
-"Add Card" = "Add Card";
-"Settings" = "Settings";
-"My Cards" = "My Cards";
-"Background Styles" = "Background Styles";
-"Background Demo" = "Background Demo";
+"addCard" = "Aggiungi carta";
+"settings" = "Impostazioni";
+"myCards" = "Le mie carte";
+"backgroundStyles" = "Stili di sfondo";
+"backgroundDemo" = "Demo sfondo";
 
 // MARK: - Welcome Screen
-"Welcome to Flippin!" = "Welcome to Flippin!";
-"Flippin helps you learn and practice new languages using flashcards. Select your native language and the language you want to learn." = "Flippin helps you learn and practice new languages using flashcards. Select your native language and the language you want to learn.";
-"My language" = "My language";
-"I'm learning" = "I'm learning";
-"Continue" = "Continue";
+"welcomeScreenTitle" = "Benvenuto in Flippin!";
+"welcomeScreenMessage" = "Flippin ti aiuta a imparare e praticare nuove lingue usando le flashcard. Seleziona la tua lingua madre e la lingua che vuoi imparare.";
+"myLanguage" = "La mia lingua";
+"imLearning" = "Sto imparando";
+"continueButton" = "Continua";
 
 // MARK: - Content Views
-"No cards yet" = "No cards yet";
-"Tap the + button to add your first card" = "Tap the + button to add your first card";
-"No cards with selected tag" = "No cards with selected tag";
-"No cards found with tag \"%@\"" = "No cards found with tag \"%@\"";
-"No cards available" = "No cards available";
-"Add your first card to start learning" = "Add your first card to start learning";
-"No cards match your search" = "No cards match your search";
+"noCardsYet" = "Nessuna carta ancora";
+"tapToAddFirstCard" = "Tocca il pulsante + per aggiungere la tua prima carta";
+"noCardsWithSelectedTag" = "Nessuna carta con il tag selezionato";
+"noCardsFoundWithTag" = "Nessuna carta trovata con il tag \"%@\"";
+"noCardsAvailable" = "Nessuna carta disponibile";
+"addFirstCardToStartLearning" = "Aggiungi la tua prima carta per iniziare a imparare";
+"noCardsMatchSearch" = "Nessuna carta corrisponde alla tua ricerca";
 
 // MARK: - Card Views
-"Show answer" = "Show answer";
-"Tap to go back" = "Tap to go back";
+"showAnswer" = "Mostra risposta";
+"tapToGoBack" = "Tocca per tornare indietro";
 
 // MARK: - Tag Management
-"Available Tags" = "Available Tags";
-"No tags available" = "No tags available";
-"Manage tags in the settings." = "Manage tags in the settings.";
-"To settings" = "To settings";
-"New tag name" = "New tag name";
-"Add" = "Add";
-"Tags Management" = "Tags Management";
+"availableTags" = "Tag disponibili";
+"noTagsAvailable" = "Nessun tag disponibile";
+"manageTagsInSettings" = "Gestisci i tag nelle impostazioni.";
+"toSettings" = "Alle impostazioni";
+"newTagName" = "Nome nuovo tag";
+"add" = "Aggiungi";
+"tagsManagement" = "Gestione tag";
 
 // MARK: - Settings
-"Languages" = "Languages";
-"My Language" = "My Language";
-"Target Language" = "Target Language";
-"Background" = "Background";
-"Background Color" = "Background Color";
-"Background Style" = "Background Style";
-"Tap to see full screen" = "Tap to see full screen";
+"languages" = "Lingue";
+"myLanguageSettings" = "La mia lingua";
+"targetLanguage" = "Lingua di destinazione";
+"background" = "Sfondo";
+"backgroundColor" = "Colore di sfondo";
+"backgroundStyle" = "Stile di sfondo";
+"tapToSeeFullScreen" = "Tocca per vedere a schermo intero";
 
 // MARK: - Add Card
-"Enter text in your language" = "Enter text in your language";
-"Enter text in target language" = "Enter text in target language";
-"Add notes (optional)" = "Add notes (optional)";
-"Notes" = "Notes";
-"Tags (%d/5)" = "Tags (%d/5)";
-"No tags available. Add some tags in Settings." = "No tags available. Add some tags in Settings.";
+"enterTextInYourLanguage" = "Inserisci il testo nella tua lingua";
+"enterTextInTargetLanguage" = "Inserisci il testo nella lingua di destinazione";
+"addNotesOptional" = "Aggiungi note (opzionale)";
+"notes" = "Note";
+"tagsCount" = "Tag (%d/5)";
+"noTagsAvailableAddInSettings" = "Nessun tag disponibile. Aggiungi alcuni tag nelle Impostazioni.";
 
 // MARK: - Buttons
-"Done" = "Done";
-"Cancel" = "Cancel";
-"Save" = "Save";
-"Close" = "Close";
-"Clear Filter" = "Clear Filter";
-"Clear Search" = "Clear Search";
-"Add Card" = "Add Card";
-"Delete All" = "Delete All";
-"Delete All Cards" = "Delete All Cards";
-"Are you sure you want to delete all cards? This action cannot be undone." = "Are you sure you want to delete all cards? This action cannot be undone.";
+"done" = "Fatto";
+"cancel" = "Annulla";
+"save" = "Salva";
+"close" = "Chiudi";
+"clearFilter" = "Cancella filtro";
+"clearSearch" = "Cancella ricerca";
+"addCardButton" = "Aggiungi carta";
+"deleteAll" = "Elimina tutto";
+"deleteAllCards" = "Elimina tutte le carte";
+"deleteAllCardsConfirmation" = "Sei sicuro di voler eliminare tutte le carte? Questa azione non può essere annullata.";
 
 // MARK: - Labels
-"Settings" = "Settings";
-"Menu" = "Menu";
-"Tag filter" = "Tag filter";
-"Shuffle" = "Shuffle";
-"Add card" = "Add card";
+"settingsLabel" = "Impostazioni";
+"menu" = "Menu";
+"tagFilter" = "Filtro tag";
+"shuffle" = "Mescola";
+"addCardLabel" = "Aggiungi carta";
 
 // MARK: - Search
-"Search cards..." = "Search cards...";
+"searchCards" = "Cerca carte...";
 
 // MARK: - Placeholder Text
-"AB" = "AB";
+"placeholderAB" = "AB";
 
 // MARK: - Languages
-"English" = "English";
-"Spanish" = "Spanish";
-"French" = "French";
-"German" = "German";
-"Italian" = "Italian";
-"Portuguese" = "Portuguese";
-"Dutch" = "Dutch";
-"Swedish" = "Swedish";
-"Chinese" = "Chinese";
-"Japanese" = "Japanese";
-"Korean" = "Korean";
-"Vietnamese" = "Vietnamese";
-"Russian" = "Russian";
-"Arabic" = "Arabic";
-"Hindi" = "Hindi";
-"Croatian" = "Croatian";
-"Ukrainian" = "Ukrainian";
+"english" = "Inglese";
+"spanish" = "Spagnolo";
+"french" = "Francese";
+"german" = "Tedesco";
+"italian" = "Italiano";
+"portuguese" = "Portoghese";
+"dutch" = "Olandese";
+"swedish" = "Svedese";
+"chinese" = "Cinese";
+"japanese" = "Giapponese";
+"korean" = "Coreano";
+"vietnamese" = "Vietnamita";
+"russian" = "Russo";
+"arabic" = "Arabo";
+"hindi" = "Hindi";
+"croatian" = "Croato";
+"ukrainian" = "Ucraino";

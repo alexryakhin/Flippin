@@ -6,98 +6,98 @@
 */
 
 // MARK: - Navigation Titles
-"Add Card" = "Add Card";
-"Settings" = "Settings";
-"My Cards" = "My Cards";
-"Background Styles" = "Background Styles";
-"Background Demo" = "Background Demo";
+"addCard" = "Додати картку";
+"settings" = "Налаштування";
+"myCards" = "Мої картки";
+"backgroundStyles" = "Стилі фону";
+"backgroundDemo" = "Демо фону";
 
 // MARK: - Welcome Screen
-"Welcome to Flippin!" = "Welcome to Flippin!";
-"Flippin helps you learn and practice new languages using flashcards. Select your native language and the language you want to learn." = "Flippin helps you learn and practice new languages using flashcards. Select your native language and the language you want to learn.";
-"My language" = "My language";
-"I'm learning" = "I'm learning";
-"Continue" = "Continue";
+"welcomeScreenTitle" = "Ласкаво просимо до Flippin!";
+"welcomeScreenMessage" = "Flippin допомагає вам вивчати та практикувати нові мови за допомогою карток. Виберіть свою рідну мову та мову, яку ви хочете вивчити.";
+"myLanguage" = "Моя мова";
+"imLearning" = "Я вивчаю";
+"continueButton" = "Продовжити";
 
 // MARK: - Content Views
-"No cards yet" = "No cards yet";
-"Tap the + button to add your first card" = "Tap the + button to add your first card";
-"No cards with selected tag" = "No cards with selected tag";
-"No cards found with tag \"%@\"" = "No cards found with tag \"%@\"";
-"No cards available" = "No cards available";
-"Add your first card to start learning" = "Add your first card to start learning";
-"No cards match your search" = "No cards match your search";
+"noCardsYet" = "Поки що немає карток";
+"tapToAddFirstCard" = "Натисніть кнопку +, щоб додати свою першу картку";
+"noCardsWithSelectedTag" = "Немає карток з вибраним тегом";
+"noCardsFoundWithTag" = "Не знайдено карток з тегом \"%@\"";
+"noCardsAvailable" = "Немає доступних карток";
+"addFirstCardToStartLearning" = "Додайте свою першу картку, щоб почати навчання";
+"noCardsMatchSearch" = "Немає карток, що відповідають вашому пошуку";
 
 // MARK: - Card Views
-"Show answer" = "Show answer";
-"Tap to go back" = "Tap to go back";
+"showAnswer" = "Показати відповідь";
+"tapToGoBack" = "Натисніть, щоб повернутися";
 
 // MARK: - Tag Management
-"Available Tags" = "Available Tags";
-"No tags available" = "No tags available";
-"Manage tags in the settings." = "Manage tags in the settings.";
-"To settings" = "To settings";
-"New tag name" = "New tag name";
-"Add" = "Add";
-"Tags Management" = "Tags Management";
+"availableTags" = "Доступні теги";
+"noTagsAvailable" = "Немає доступних тегів";
+"manageTagsInSettings" = "Керуйте тегами в налаштуваннях.";
+"toSettings" = "До налаштувань";
+"newTagName" = "Назва нового тегу";
+"add" = "Додати";
+"tagsManagement" = "Управління тегами";
 
 // MARK: - Settings
-"Languages" = "Languages";
-"My Language" = "My Language";
-"Target Language" = "Target Language";
-"Background" = "Background";
-"Background Color" = "Background Color";
-"Background Style" = "Background Style";
-"Tap to see full screen" = "Tap to see full screen";
+"languages" = "Мови";
+"myLanguageSettings" = "Моя мова";
+"targetLanguage" = "Цільова мова";
+"background" = "Фон";
+"backgroundColor" = "Колір фону";
+"backgroundStyle" = "Стиль фону";
+"tapToSeeFullScreen" = "Натисніть для повноекранного перегляду";
 
 // MARK: - Add Card
-"Enter text in your language" = "Enter text in your language";
-"Enter text in target language" = "Enter text in target language";
-"Add notes (optional)" = "Add notes (optional)";
-"Notes" = "Notes";
-"Tags (%d/5)" = "Tags (%d/5)";
-"No tags available. Add some tags in Settings." = "No tags available. Add some tags in Settings.";
+"enterTextInYourLanguage" = "Введіть текст своєю мовою";
+"enterTextInTargetLanguage" = "Введіть текст цільовою мовою";
+"addNotesOptional" = "Додати нотатки (необов'язково)";
+"notes" = "Нотатки";
+"tagsCount" = "Теги (%d/5)";
+"noTagsAvailableAddInSettings" = "Немає доступних тегів. Додайте кілька тегів у Налаштуваннях.";
 
 // MARK: - Buttons
-"Done" = "Done";
-"Cancel" = "Cancel";
-"Save" = "Save";
-"Close" = "Close";
-"Clear Filter" = "Clear Filter";
-"Clear Search" = "Clear Search";
-"Add Card" = "Add Card";
-"Delete All" = "Delete All";
-"Delete All Cards" = "Delete All Cards";
-"Are you sure you want to delete all cards? This action cannot be undone." = "Are you sure you want to delete all cards? This action cannot be undone.";
+"done" = "Готово";
+"cancel" = "Скасувати";
+"save" = "Зберегти";
+"close" = "Закрити";
+"clearFilter" = "Очистити фільтр";
+"clearSearch" = "Очистити пошук";
+"addCardButton" = "Додати картку";
+"deleteAll" = "Видалити все";
+"deleteAllCards" = "Видалити всі картки";
+"deleteAllCardsConfirmation" = "Ви впевнені, що хочете видалити всі картки? Цю дію неможливо скасувати.";
 
 // MARK: - Labels
-"Settings" = "Settings";
-"Menu" = "Menu";
-"Tag filter" = "Tag filter";
-"Shuffle" = "Shuffle";
-"Add card" = "Add card";
+"settingsLabel" = "Налаштування";
+"menu" = "Меню";
+"tagFilter" = "Фільтр тегів";
+"shuffle" = "Перемішати";
+"addCardLabel" = "Додати картку";
 
 // MARK: - Search
-"Search cards..." = "Search cards...";
+"searchCards" = "Пошук карток...";
 
 // MARK: - Placeholder Text
-"AB" = "AB";
+"placeholderAB" = "AB";
 
 // MARK: - Languages
-"English" = "English";
-"Spanish" = "Spanish";
-"French" = "French";
-"German" = "German";
-"Italian" = "Italian";
-"Portuguese" = "Portuguese";
-"Dutch" = "Dutch";
-"Swedish" = "Swedish";
-"Chinese" = "Chinese";
-"Japanese" = "Japanese";
-"Korean" = "Korean";
-"Vietnamese" = "Vietnamese";
-"Russian" = "Russian";
-"Arabic" = "Arabic";
-"Hindi" = "Hindi";
-"Croatian" = "Croatian";
-"Ukrainian" = "Ukrainian";
+"english" = "Англійська";
+"spanish" = "Іспанська";
+"french" = "Французька";
+"german" = "Німецька";
+"italian" = "Італійська";
+"portuguese" = "Португальська";
+"dutch" = "Голландська";
+"swedish" = "Шведська";
+"chinese" = "Китайська";
+"japanese" = "Японська";
+"korean" = "Корейська";
+"vietnamese" = "В'єтнамська";
+"russian" = "Російська";
+"arabic" = "Арабська";
+"hindi" = "Гінді";
+"croatian" = "Хорватська";
+"ukrainian" = "Українська";

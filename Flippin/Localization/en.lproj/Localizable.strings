@@ -6,98 +6,98 @@
 */
 
 // MARK: - Navigation Titles
-"Add Card" = "Add Card";
-"Settings" = "Settings";
-"My Cards" = "My Cards";
-"Background Styles" = "Background Styles";
-"Background Demo" = "Background Demo";
+"addCard" = "Add Card";
+"settings" = "Settings";
+"myCards" = "My Cards";
+"backgroundStyles" = "Background Styles";
+"backgroundDemo" = "Background Demo";
 
 // MARK: - Welcome Screen
-"Welcome to Flippin!" = "Welcome to Flippin!";
-"Flippin helps you learn and practice new languages using flashcards. Select your native language and the language you want to learn." = "Flippin helps you learn and practice new languages using flashcards. Select your native language and the language you want to learn.";
-"My language" = "My language";
-"I'm learning" = "I'm learning";
-"Continue" = "Continue";
+"welcomeScreenTitle" = "Welcome to Flippin!";
+"welcomeScreenMessage" = "Flippin helps you learn and practice new languages using flashcards. Select your native language and the language you want to learn.";
+"myLanguage" = "My language";
+"imLearning" = "I'm learning";
+"continueButton" = "Continue";
 
 // MARK: - Content Views
-"No cards yet" = "No cards yet";
-"Tap the + button to add your first card" = "Tap the + button to add your first card";
-"No cards with selected tag" = "No cards with selected tag";
-"No cards found with tag \"%@\"" = "No cards found with tag \"%@\"";
-"No cards available" = "No cards available";
-"Add your first card to start learning" = "Add your first card to start learning";
-"No cards match your search" = "No cards match your search";
+"noCardsYet" = "No cards yet";
+"tapToAddFirstCard" = "Tap the + button to add your first card";
+"noCardsWithSelectedTag" = "No cards with selected tag";
+"noCardsFoundWithTag" = "No cards found with tag \"%@\"";
+"noCardsAvailable" = "No cards available";
+"addFirstCardToStartLearning" = "Add your first card to start learning";
+"noCardsMatchSearch" = "No cards match your search";
 
 // MARK: - Card Views
-"Show answer" = "Show answer";
-"Tap to go back" = "Tap to go back";
+"showAnswer" = "Show answer";
+"tapToGoBack" = "Tap to go back";
 
 // MARK: - Tag Management
-"Available Tags" = "Available Tags";
-"No tags available" = "No tags available";
-"Manage tags in the settings." = "Manage tags in the settings.";
-"To settings" = "To settings";
-"New tag name" = "New tag name";
-"Add" = "Add";
-"Tags Management" = "Tags Management";
+"availableTags" = "Available Tags";
+"noTagsAvailable" = "No tags available";
+"manageTagsInSettings" = "Manage tags in the settings.";
+"toSettings" = "To settings";
+"newTagName" = "New tag name";
+"add" = "Add";
+"tagsManagement" = "Tags Management";
 
 // MARK: - Settings
-"Languages" = "Languages";
-"My Language" = "My Language";
-"Target Language" = "Target Language";
-"Background" = "Background";
-"Background Color" = "Background Color";
-"Background Style" = "Background Style";
-"Tap to see full screen" = "Tap to see full screen";
+"languages" = "Languages";
+"myLanguageSettings" = "My Language";
+"targetLanguage" = "Target Language";
+"background" = "Background";
+"backgroundColor" = "Background Color";
+"backgroundStyle" = "Background Style";
+"tapToSeeFullScreen" = "Tap to see full screen";
 
 // MARK: - Add Card
-"Enter text in your language" = "Enter text in your language";
-"Enter text in target language" = "Enter text in target language";
-"Add notes (optional)" = "Add notes (optional)";
-"Notes" = "Notes";
-"Tags (%d/5)" = "Tags (%d/5)";
-"No tags available. Add some tags in Settings." = "No tags available. Add some tags in Settings.";
+"enterTextInYourLanguage" = "Enter text in your language";
+"enterTextInTargetLanguage" = "Enter text in target language";
+"addNotesOptional" = "Add notes (optional)";
+"notes" = "Notes";
+"tagsCount" = "Tags (%d/5)";
+"noTagsAvailableAddInSettings" = "No tags available. Add some tags in Settings.";
 
 // MARK: - Buttons
-"Done" = "Done";
-"Cancel" = "Cancel";
-"Save" = "Save";
-"Close" = "Close";
-"Clear Filter" = "Clear Filter";
-"Clear Search" = "Clear Search";
-"Add Card" = "Add Card";
-"Delete All" = "Delete All";
-"Delete All Cards" = "Delete All Cards";
-"Are you sure you want to delete all cards? This action cannot be undone." = "Are you sure you want to delete all cards? This action cannot be undone.";
+"done" = "Done";
+"cancel" = "Cancel";
+"save" = "Save";
+"close" = "Close";
+"clearFilter" = "Clear Filter";
+"clearSearch" = "Clear Search";
+"addCardButton" = "Add Card";
+"deleteAll" = "Delete All";
+"deleteAllCards" = "Delete All Cards";
+"deleteAllCardsConfirmation" = "Are you sure you want to delete all cards? This action cannot be undone.";
 
 // MARK: - Labels
-"Settings" = "Settings";
-"Menu" = "Menu";
-"Tag filter" = "Tag filter";
-"Shuffle" = "Shuffle";
-"Add card" = "Add card";
+"settingsLabel" = "Settings";
+"menu" = "Menu";
+"tagFilter" = "Tag filter";
+"shuffle" = "Shuffle";
+"addCardLabel" = "Add card";
 
 // MARK: - Search
-"Search cards..." = "Search cards...";
+"searchCards" = "Search cards...";
 
 // MARK: - Placeholder Text
-"AB" = "AB";
+"placeholderAB" = "AB";
 
 // MARK: - Languages
-"English" = "English";
-"Spanish" = "Spanish";
-"French" = "French";
-"German" = "German";
-"Italian" = "Italian";
-"Portuguese" = "Portuguese";
-"Dutch" = "Dutch";
-"Swedish" = "Swedish";
-"Chinese" = "Chinese";
-"Japanese" = "Japanese";
-"Korean" = "Korean";
-"Vietnamese" = "Vietnamese";
-"Russian" = "Russian";
-"Arabic" = "Arabic";
-"Hindi" = "Hindi";
-"Croatian" = "Croatian";
-"Ukrainian" = "Ukrainian";
+"english" = "English";
+"spanish" = "Spanish";
+"french" = "French";
+"german" = "German";
+"italian" = "Italian";
+"portuguese" = "Portuguese";
+"dutch" = "Dutch";
+"swedish" = "Swedish";
+"chinese" = "Chinese";
+"japanese" = "Japanese";
+"korean" = "Korean";
+"vietnamese" = "Vietnamese";
+"russian" = "Russian";
+"arabic" = "Arabic";
+"hindi" = "Hindi";
+"croatian" = "Croatian";
+"ukrainian" = "Ukrainian";

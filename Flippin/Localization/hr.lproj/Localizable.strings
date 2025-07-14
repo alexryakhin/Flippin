@@ -6,98 +6,98 @@
 */
 
 // MARK: - Navigation Titles
-"Add Card" = "Add Card";
-"Settings" = "Settings";
-"My Cards" = "My Cards";
-"Background Styles" = "Background Styles";
-"Background Demo" = "Background Demo";
+"addCard" = "Dodaj karticu";
+"settings" = "Postavke";
+"myCards" = "Moje kartice";
+"backgroundStyles" = "Stilovi pozadine";
+"backgroundDemo" = "Demo pozadine";
 
 // MARK: - Welcome Screen
-"Welcome to Flippin!" = "Welcome to Flippin!";
-"Flippin helps you learn and practice new languages using flashcards. Select your native language and the language you want to learn." = "Flippin helps you learn and practice new languages using flashcards. Select your native language and the language you want to learn.";
-"My language" = "My language";
-"I'm learning" = "I'm learning";
-"Continue" = "Continue";
+"welcomeScreenTitle" = "Dobrodošli u Flippin!";
+"welcomeScreenMessage" = "Flippin vam pomaže učiti i vježbati nove jezike koristeći flash kartice. Odaberite svoj materinski jezik i jezik koji želite naučiti.";
+"myLanguage" = "Moj jezik";
+"imLearning" = "Učim";
+"continueButton" = "Nastavi";
 
 // MARK: - Content Views
-"No cards yet" = "No cards yet";
-"Tap the + button to add your first card" = "Tap the + button to add your first card";
-"No cards with selected tag" = "No cards with selected tag";
-"No cards found with tag \"%@\"" = "No cards found with tag \"%@\"";
-"No cards available" = "No cards available";
-"Add your first card to start learning" = "Add your first card to start learning";
-"No cards match your search" = "No cards match your search";
+"noCardsYet" = "Još nema kartica";
+"tapToAddFirstCard" = "Dodirnite + gumb za dodavanje prve kartice";
+"noCardsWithSelectedTag" = "Nema kartica s odabranom oznakom";
+"noCardsFoundWithTag" = "Nema kartica s oznakom \"%@\"";
+"noCardsAvailable" = "Nema dostupnih kartica";
+"addFirstCardToStartLearning" = "Dodajte svoju prvu karticu za početak učenja";
+"noCardsMatchSearch" = "Nema kartica koje odgovaraju vašoj pretrazi";
 
 // MARK: - Card Views
-"Show answer" = "Show answer";
-"Tap to go back" = "Tap to go back";
+"showAnswer" = "Prikaži odgovor";
+"tapToGoBack" = "Dodirnite za povratak";
 
 // MARK: - Tag Management
-"Available Tags" = "Available Tags";
-"No tags available" = "No tags available";
-"Manage tags in the settings." = "Manage tags in the settings.";
-"To settings" = "To settings";
-"New tag name" = "New tag name";
-"Add" = "Add";
-"Tags Management" = "Tags Management";
+"availableTags" = "Dostupne oznake";
+"noTagsAvailable" = "Nema dostupnih oznaka";
+"manageTagsInSettings" = "Upravljajte oznakama u postavkama.";
+"toSettings" = "U postavke";
+"newTagName" = "Naziv nove oznake";
+"add" = "Dodaj";
+"tagsManagement" = "Upravljanje oznakama";
 
 // MARK: - Settings
-"Languages" = "Languages";
-"My Language" = "My Language";
-"Target Language" = "Target Language";
-"Background" = "Background";
-"Background Color" = "Background Color";
-"Background Style" = "Background Style";
-"Tap to see full screen" = "Tap to see full screen";
+"languages" = "Jezici";
+"myLanguageSettings" = "Moj jezik";
+"targetLanguage" = "Ciljni jezik";
+"background" = "Pozadina";
+"backgroundColor" = "Boja pozadine";
+"backgroundStyle" = "Stil pozadine";
+"tapToSeeFullScreen" = "Dodirnite za prikaz punog ekrana";
 
 // MARK: - Add Card
-"Enter text in your language" = "Enter text in your language";
-"Enter text in target language" = "Enter text in target language";
-"Add notes (optional)" = "Add notes (optional)";
-"Notes" = "Notes";
-"Tags (%d/5)" = "Tags (%d/5)";
-"No tags available. Add some tags in Settings." = "No tags available. Add some tags in Settings.";
+"enterTextInYourLanguage" = "Unesite tekst na svom jeziku";
+"enterTextInTargetLanguage" = "Unesite tekst na ciljnom jeziku";
+"addNotesOptional" = "Dodajte bilješke (opcijalno)";
+"notes" = "Bilješke";
+"tagsCount" = "Oznake (%d/5)";
+"noTagsAvailableAddInSettings" = "Nema dostupnih oznaka. Dodajte neke oznake u Postavkama.";
 
 // MARK: - Buttons
-"Done" = "Done";
-"Cancel" = "Cancel";
-"Save" = "Save";
-"Close" = "Close";
-"Clear Filter" = "Clear Filter";
-"Clear Search" = "Clear Search";
-"Add Card" = "Add Card";
-"Delete All" = "Delete All";
-"Delete All Cards" = "Delete All Cards";
-"Are you sure you want to delete all cards? This action cannot be undone." = "Are you sure you want to delete all cards? This action cannot be undone.";
+"done" = "Gotovo";
+"cancel" = "Odustani";
+"save" = "Spremi";
+"close" = "Zatvori";
+"clearFilter" = "Očisti filter";
+"clearSearch" = "Očisti pretragu";
+"addCardButton" = "Dodaj karticu";
+"deleteAll" = "Obriši sve";
+"deleteAllCards" = "Obriši sve kartice";
+"deleteAllCardsConfirmation" = "Jeste li sigurni da želite obrisati sve kartice? Ova radnja se ne može poništiti.";
 
 // MARK: - Labels
-"Settings" = "Settings";
-"Menu" = "Menu";
-"Tag filter" = "Tag filter";
-"Shuffle" = "Shuffle";
-"Add card" = "Add card";
+"settingsLabel" = "Postavke";
+"menu" = "Izbornik";
+"tagFilter" = "Filter oznaka";
+"shuffle" = "Promiješaj";
+"addCardLabel" = "Dodaj karticu";
 
 // MARK: - Search
-"Search cards..." = "Search cards...";
+"searchCards" = "Pretraži kartice...";
 
 // MARK: - Placeholder Text
-"AB" = "AB";
+"placeholderAB" = "AB";
 
 // MARK: - Languages
-"English" = "English";
-"Spanish" = "Spanish";
-"French" = "French";
-"German" = "German";
-"Italian" = "Italian";
-"Portuguese" = "Portuguese";
-"Dutch" = "Dutch";
-"Swedish" = "Swedish";
-"Chinese" = "Chinese";
-"Japanese" = "Japanese";
-"Korean" = "Korean";
-"Vietnamese" = "Vietnamese";
-"Russian" = "Russian";
-"Arabic" = "Arabic";
-"Hindi" = "Hindi";
-"Croatian" = "Croatian";
-"Ukrainian" = "Ukrainian";
+"english" = "Engleski";
+"spanish" = "Španjolski";
+"french" = "Francuski";
+"german" = "Njemački";
+"italian" = "Talijanski";
+"portuguese" = "Portugalski";
+"dutch" = "Nizozemski";
+"swedish" = "Švedski";
+"chinese" = "Kineski";
+"japanese" = "Japanski";
+"korean" = "Korejski";
+"vietnamese" = "Vijetnamski";
+"russian" = "Ruski";
+"arabic" = "Arapski";
+"hindi" = "Hindski";
+"croatian" = "Hrvatski";
+"ukrainian" = "Ukrajinski";
