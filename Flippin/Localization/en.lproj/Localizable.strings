@@ -25,6 +25,7 @@
 "noCardsWithSelectedTag" = "No cards with selected tag";
 "noCardsFoundWithTag" = "No cards found with tag \"%@\"";
 "noCardsAvailable" = "No cards available";
+"noCardsFound" = "No cards found";
 "addFirstCardToStartLearning" = "Add your first card to start learning";
 "noCardsMatchSearch" = "No cards match your search";
 

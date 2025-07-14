@@ -25,6 +25,7 @@
 "noCardsWithSelectedTag" = "Нет карточек с выбранным тегом";
 "noCardsFoundWithTag" = "Не найдено карточек с тегом \"%@\"";
 "noCardsAvailable" = "Нет доступных карточек";
+"noCardsFound" = "Карточки не найдены";
 "addFirstCardToStartLearning" = "Добавьте первую карточку, чтобы начать обучение";
 "noCardsMatchSearch" = "Нет карточек, соответствующих вашему поиску";
 

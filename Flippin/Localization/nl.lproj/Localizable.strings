@@ -25,6 +25,7 @@
 "noCardsWithSelectedTag" = "Geen kaarten met geselecteerde tag";
 "noCardsFoundWithTag" = "Geen kaarten gevonden met tag \"%@\"";
 "noCardsAvailable" = "Geen kaarten beschikbaar";
+"noCardsFound" = "Geen kaarten gevonden";
 "addFirstCardToStartLearning" = "Voeg je eerste kaart toe om te beginnen met leren";
 "noCardsMatchSearch" = "Geen kaarten komen overeen met je zoekopdracht";
 

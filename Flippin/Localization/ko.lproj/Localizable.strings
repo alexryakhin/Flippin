@@ -25,6 +25,7 @@
 "noCardsWithSelectedTag" = "선택된 태그의 카드가 없습니다";
 "noCardsFoundWithTag" = "태그 \"%@\"의 카드를 찾을 수 없습니다";
 "noCardsAvailable" = "사용 가능한 카드가 없습니다";
+"noCardsFound" = "카드를 찾을 수 없습니다";
 "addFirstCardToStartLearning" = "학습을 시작하려면 첫 번째 카드를 추가하세요";
 "noCardsMatchSearch" = "검색과 일치하는 카드가 없습니다";
 

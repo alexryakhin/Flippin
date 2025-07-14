@@ -19,20 +19,23 @@ final class ColorManager: ObservableObject {
         Color(hexString: userGradientColorHex) ?? .blue
     }
 
-    var adjustedTintColor: Color {
+    func adjustedTintColor(_ colorScheme: ColorScheme) -> Color {
         let baseColor = userGradientColor
 
-        switch (UITraitCollection.current.userInterfaceStyle, baseColor.isLight) {
+        switch (colorScheme, baseColor.isLight) {
         case (.dark, false): return userGradientColor.lighter(by: 50)
         case (.light, true): return userGradientColor.darker(by: 50)
         default: return userGradientColor
         }
     }
 
-    var adjustedForegroundColor: Color {
+    func adjustedForegroundColor(_ colorScheme: ColorScheme) -> Color {
         guard !backgroundStyle.isAlwaysDark else { return Color(.white) }
-        switch (UITraitCollection.current.userInterfaceStyle, userGradientColor.isLight) {
-        case (.light, false): return Color(.systemBackground)
+        switch (colorScheme, userGradientColor.isLight) {
+        case (.light, false): return Color(.white)
+        case (.dark, false): return Color(.white)
+        case (.light, true): return Color(.black)
+        case (.dark, true): return Color(.black)
         default: return Color(.label)
         }
     }

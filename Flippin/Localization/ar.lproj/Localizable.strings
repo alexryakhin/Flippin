@@ -25,6 +25,7 @@
 "noCardsWithSelectedTag" = "لا توجد بطاقات بالوسم المحدد";
 "noCardsFoundWithTag" = "لا توجد بطاقات بالوسم \"%@\"";
 "noCardsAvailable" = "لا توجد بطاقات متاحة";
+"noCardsFound" = "لم يتم العثور على بطاقات";
 "addFirstCardToStartLearning" = "أضف بطاقتك الأولى لبدء التعلم";
 "noCardsMatchSearch" = "لا توجد بطاقات تطابق بحثك";
 

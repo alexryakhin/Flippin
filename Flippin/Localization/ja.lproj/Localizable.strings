@@ -25,6 +25,7 @@
 "noCardsWithSelectedTag" = "選択されたタグのカードがありません";
 "noCardsFoundWithTag" = "タグ「%@」のカードが見つかりません";
 "noCardsAvailable" = "利用可能なカードがありません";
+"noCardsFound" = "カードが見つかりません";
 "addFirstCardToStartLearning" = "学習を始めるために最初のカードを追加してください";
 "noCardsMatchSearch" = "検索に一致するカードがありません";
 

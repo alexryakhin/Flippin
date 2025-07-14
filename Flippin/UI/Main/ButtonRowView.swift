@@ -7,6 +7,9 @@
 import SwiftUI
 
 struct ButtonRowView: View {
+    @Environment(\.colorScheme) var colorScheme
+    @StateObject private var colorManager = ColorManager()
+
     let onAddItem: () -> Void
     let onShuffle: () -> Void
     let onShowSettings: () -> Void
@@ -37,7 +40,13 @@ struct ButtonRowView: View {
             Button(action: onFilterTags) {
                 ActionButtonLabel(LocalizationKeys.tagFilter.localized, systemImage: "tag")
             }
-            .buttonStyle(ActionButtonStyle(tintColor: isFilterActive ? .blue : Color(.label)))
+            .buttonStyle(
+                ActionButtonStyle(
+                    tintColor: isFilterActive
+                    ? colorManager.adjustedTintColor(colorScheme)
+                    : Color(.label)
+                )
+            )
 
             Spacer()
 

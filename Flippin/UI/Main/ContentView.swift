@@ -122,7 +122,7 @@ struct ContentView: View {
                 Text(LocalizationKeys.tapToAddFirstCard.localized)
                     .foregroundStyle(.secondary)
             }
-            .foregroundColor(colorManager.adjustedForegroundColor)
+            .foregroundColor(colorManager.adjustedForegroundColor(colorScheme))
         } else if displayItems.isEmpty {
             ContentUnavailableView {
                 VStack {
@@ -142,9 +142,10 @@ struct ContentView: View {
                         tagManager.clearFilter()
                     }
                     .buttonStyle(.borderedProminent)
+                    .tint(colorManager.adjustedTintColor(colorScheme))
                 }
             }
-            .foregroundColor(colorManager.adjustedForegroundColor)
+            .foregroundColor(colorManager.adjustedForegroundColor(colorScheme))
         } else {
             CardStackScrollView(items: displayItems)
         }
@@ -175,6 +176,4 @@ private extension ContentView {
     var targetLanguage: Language {
         Language(rawValue: targetLanguageRaw) ?? .spanish
     }
-
-    
 }

@@ -25,6 +25,7 @@
 "noCardsWithSelectedTag" = "Không có thẻ nào với thẻ đã chọn";
 "noCardsFoundWithTag" = "Không tìm thấy thẻ nào với thẻ \"%@\"";
 "noCardsAvailable" = "Không có thẻ nào khả dụng";
+"noCardsFound" = "Không tìm thấy thẻ nào";
 "addFirstCardToStartLearning" = "Thêm thẻ đầu tiên của bạn để bắt đầu học";
 "noCardsMatchSearch" = "Không có thẻ nào khớp với tìm kiếm của bạn";
 

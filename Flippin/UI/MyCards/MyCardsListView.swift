@@ -70,7 +70,7 @@ struct MyCardsListView: View {
                             Image(systemName: "tag")
                                 .font(.largeTitle)
                                 .foregroundStyle(.secondary)
-                            Text(LocalizationKeys.noCardsWithSelectedTag.localized)
+                            Text(LocalizationKeys.noCardsFound.localized)
                         }
                     } description: {
                         if !tagManager.currentFilterTag.isEmpty {
@@ -99,9 +99,9 @@ struct MyCardsListView: View {
                         }
                         .onDelete(perform: deleteCards)
                     }
-                    .searchable(text: $searchText, prompt: LocalizationKeys.searchCards.localized)
                 }
             }
+            .searchable(text: $searchText, prompt: LocalizationKeys.searchCards.localized)
             .navigationTitle(LocalizationKeys.myCards.localized)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {

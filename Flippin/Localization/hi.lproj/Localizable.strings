@@ -25,6 +25,7 @@
 "noCardsWithSelectedTag" = "चयनित टैग के साथ कोई कार्ड नहीं";
 "noCardsFoundWithTag" = "टैग \"%@\" के साथ कोई कार्ड नहीं मिला";
 "noCardsAvailable" = "कोई कार्ड उपलब्ध नहीं";
+"noCardsFound" = "कोई कार्ड नहीं मिला";
 "addFirstCardToStartLearning" = "सीखना शुरू करने के लिए अपना पहला कार्ड जोड़ें";
 "noCardsMatchSearch" = "कोई कार्ड आपकी खोज से मेल नहीं खाता";
 

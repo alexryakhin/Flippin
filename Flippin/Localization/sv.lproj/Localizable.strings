@@ -25,6 +25,7 @@
 "noCardsWithSelectedTag" = "Inga kort med vald tagg";
 "noCardsFoundWithTag" = "Inga kort hittades med taggen \"%@\"";
 "noCardsAvailable" = "Inga kort tillgängliga";
+"noCardsFound" = "Inga kort hittades";
 "addFirstCardToStartLearning" = "Lägg till ditt första kort för att börja lära dig";
 "noCardsMatchSearch" = "Inga kort matchar din sökning";
 

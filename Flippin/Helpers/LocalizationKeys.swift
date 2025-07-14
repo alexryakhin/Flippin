@@ -22,6 +22,7 @@ enum LocalizationKeys {
     static let noCardsWithSelectedTag = "noCardsWithSelectedTag"
     static let noCardsFoundWithTag = "noCardsFoundWithTag"
     static let noCardsAvailable = "noCardsAvailable"
+    static let noCardsFound = "noCardsFound"
     static let addFirstCardToStartLearning = "addFirstCardToStartLearning"
     static let noCardsMatchSearch = "noCardsMatchSearch"
     

@@ -50,8 +50,8 @@ struct CardFrontView: View {
                             .font(.caption)
                             .padding(.horizontal, 6)
                             .padding(.vertical, 4)
-                            .background(colorManager.adjustedTintColor.opacity(0.1))
-                            .foregroundStyle(colorManager.adjustedTintColor)
+                            .background(colorManager.adjustedTintColor(colorScheme).opacity(0.1))
+                            .foregroundStyle(colorManager.adjustedTintColor(colorScheme))
                             .clipShape(Capsule())
                     }
                 }
@@ -79,7 +79,7 @@ struct CardFrontView: View {
                         .scaledToFit()
                         .frame(width: 24, height: 24)
                 }
-                .tint(colorManager.adjustedTintColor)
+                .tint(colorManager.adjustedTintColor(colorScheme))
 
                 Spacer()
 

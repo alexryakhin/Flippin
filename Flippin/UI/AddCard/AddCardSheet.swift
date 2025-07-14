@@ -12,7 +12,11 @@ struct AddCardSheet: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.modelContext) private var modelContext
     @StateObject private var viewModel = AddCardSheetViewModel()
-    
+
+    @FocusState private var isUserLanguageTextFieldFocused: Bool
+    @FocusState private var isTargetLanguageTextFieldFocused: Bool
+    @FocusState private var isNotesTextFieldFocused: Bool
+
     var body: some View {
         NavigationView {
             ScrollView {
@@ -22,10 +26,13 @@ struct AddCardSheet: View {
                     ) {
                         TextField(LocalizationKeys.enterTextInYourLanguage.localized, text: $viewModel.nativeText, axis: .vertical)
                             .autocapitalization(.sentences)
+                            .focused($isUserLanguageTextFieldFocused)
                             .clippedWithPaddingAndBackground()
                     } headerTrailingContent: {
-                        SectionHeaderButton(LocalizationKeys.done.localized) {
-                            UIApplication.shared.endEditing()
+                        if isUserLanguageTextFieldFocused {
+                            SectionHeaderButton(LocalizationKeys.done.localized) {
+                                UIApplication.shared.endEditing()
+                            }
                         }
                     }
 
@@ -34,6 +41,7 @@ struct AddCardSheet: View {
                     ) {
                         TextField(LocalizationKeys.enterTextInTargetLanguage.localized, text: $viewModel.targetText, axis: .vertical)
                             .autocapitalization(.sentences)
+                            .focused($isTargetLanguageTextFieldFocused)
                             .clippedWithPaddingAndBackground()
                             .overlay(alignment: .trailing) {
                                 if viewModel.isTranslating {
@@ -42,8 +50,10 @@ struct AddCardSheet: View {
                                 }
                             }
                     } headerTrailingContent: {
-                        SectionHeaderButton(LocalizationKeys.done.localized) {
-                            UIApplication.shared.endEditing()
+                        if isTargetLanguageTextFieldFocused {
+                            SectionHeaderButton(LocalizationKeys.done.localized) {
+                                UIApplication.shared.endEditing()
+                            }
                         }
                     }
 
@@ -52,10 +62,13 @@ struct AddCardSheet: View {
                     ) {
                         TextField(LocalizationKeys.addNotesOptional.localized, text: $viewModel.notes, axis: .vertical)
                             .autocapitalization(.sentences)
+                            .focused($isNotesTextFieldFocused)
                             .clippedWithPaddingAndBackground()
                     } headerTrailingContent: {
-                        SectionHeaderButton(LocalizationKeys.done.localized) {
-                            UIApplication.shared.endEditing()
+                        if isNotesTextFieldFocused {
+                            SectionHeaderButton(LocalizationKeys.done.localized) {
+                                UIApplication.shared.endEditing()
+                            }
                         }
                     }
 

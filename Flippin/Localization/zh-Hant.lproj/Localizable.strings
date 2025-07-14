@@ -25,6 +25,7 @@
 "noCardsWithSelectedTag" = "沒有帶有選定標籤的卡片";
 "noCardsFoundWithTag" = "未找到帶有標籤 \"%@\" 的卡片";
 "noCardsAvailable" = "沒有可用的卡片";
+"noCardsFound" = "未找到卡片";
 "addFirstCardToStartLearning" = "新增您的第一張卡片開始學習";
 "noCardsMatchSearch" = "沒有卡片符合您的搜尋";
 

@@ -40,8 +40,8 @@ struct CardBackView: View {
                             .font(.caption)
                             .padding(.horizontal, 6)
                             .padding(.vertical, 4)
-                            .background(colorManager.adjustedTintColor.opacity(0.1))
-                            .foregroundStyle(colorManager.adjustedTintColor)
+                            .background(colorManager.adjustedTintColor(colorScheme).opacity(0.1))
+                            .foregroundStyle(colorManager.adjustedTintColor(colorScheme))
                             .clipShape(Capsule())
                     }
                 }

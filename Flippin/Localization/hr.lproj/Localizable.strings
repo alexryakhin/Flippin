@@ -25,6 +25,7 @@
 "noCardsWithSelectedTag" = "Nema kartica s odabranom oznakom";
 "noCardsFoundWithTag" = "Nema kartica s oznakom \"%@\"";
 "noCardsAvailable" = "Nema dostupnih kartica";
+"noCardsFound" = "Nema pronađenih kartica";
 "addFirstCardToStartLearning" = "Dodajte svoju prvu karticu za početak učenja";
 "noCardsMatchSearch" = "Nema kartica koje odgovaraju vašoj pretrazi";
 

@@ -25,6 +25,7 @@
 "noCardsWithSelectedTag" = "Aucune carte avec l'étiquette sélectionnée";
 "noCardsFoundWithTag" = "Aucune carte trouvée avec l'étiquette \"%@\"";
 "noCardsAvailable" = "Aucune carte disponible";
+"noCardsFound" = "Aucune carte trouvée";
 "addFirstCardToStartLearning" = "Ajoutez votre première carte pour commencer à apprendre";
 "noCardsMatchSearch" = "Aucune carte ne correspond à votre recherche";
 
