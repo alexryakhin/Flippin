@@ -17,15 +17,11 @@ struct CardRowView: View {
         let text = isFlipped ? (card.backText ?? "") : (card.frontText ?? "")
         let language = isFlipped ? (card.backLanguage ?? .english) : (card.frontLanguage ?? .english)
 
-        VStack(spacing: 12) {
+        VStack(spacing: 8) {
             HStack {
                 Text(language.displayName)
                     .font(.caption)
                     .foregroundStyle(.secondary)
-                    .padding(.horizontal, 8)
-                    .padding(.vertical, 2)
-                    .background(.thinMaterial)
-                    .clipShape(Capsule())
 
                 Spacer()
 
@@ -36,59 +32,56 @@ struct CardRowView: View {
                 }
             }
 
-            VStack(spacing: 8) {
-                HStack {
-                    Text(text)
-                        .font(.headline)
-                        .multilineTextAlignment(.leading)
-                        .lineLimit(2)
-                    
-                    Spacer()
-                    
-                    Button {
-                        isPlayingTTS = true
-                        Task {
-                            do {
-                                try await TTSPlayer.shared.play(text, language: language)
-                            } catch {
-                                print("TTS error: \(error)")
-                            }
-                            isPlayingTTS = false
-                        }
-                    } label: {
-                        Image(systemName: isPlayingTTS ? "speaker.wave.2.fill" : "speaker.wave.2")
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                    }
-                    .buttonStyle(.plain)
-                }
+            HStack {
+                Text(text)
+                    .font(.headline)
+                    .multilineTextAlignment(.leading)
+                    .lineLimit(2)
 
-                if let notes = card.notes, !notes.isEmpty {
-                    Text(notes)
+                Spacer()
+
+                Button {
+                    isPlayingTTS = true
+                    Task {
+                        do {
+                            try await TTSPlayer.shared.play(text, language: language)
+                        } catch {
+                            print("TTS error: \(error)")
+                        }
+                        isPlayingTTS = false
+                    }
+                } label: {
+                    Image(systemName: isPlayingTTS ? "speaker.wave.2.fill" : "speaker.wave.2")
                         .font(.caption)
                         .foregroundStyle(.secondary)
-                        .multilineTextAlignment(.leading)
-                        .lineLimit(1)
                 }
-                
-                if let tags = card.tags, !tags.isEmpty {
-                    HFlow(spacing: 4) {
-                        ForEach(tags, id: \.self) { tag in
-                            Text(tag)
-                                .font(.caption2)
-                                .padding(.horizontal, 6)
-                                .padding(.vertical, 2)
-                                .background(.blue.opacity(0.1))
-                                .foregroundStyle(.blue)
-                                .clipShape(Capsule())
-                        }
+                .buttonStyle(.plain)
+            }
+
+            if let notes = card.notes, !notes.isEmpty {
+                Text(notes)
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                    .multilineTextAlignment(.leading)
+                    .lineLimit(1)
+            }
+
+            if let tags = card.tags, !tags.isEmpty {
+                HFlow(spacing: 4) {
+                    ForEach(tags, id: \.self) { tag in
+                        Text(tag)
+                            .font(.caption2)
+                            .padding(.horizontal, 6)
+                            .padding(.vertical, 2)
+                            .background(.accent.opacity(0.1))
+                            .foregroundStyle(.accent)
+                            .clipShape(Capsule())
                     }
-                    .frame(maxWidth: .infinity, alignment: .leading)
                 }
+                .frame(maxWidth: .infinity, alignment: .leading)
             }
         }
-        .padding(.vertical, 8)
-        .contentShape(Rectangle())
+        .padding(.vertical, 4)
         .onTapGesture {
             withAnimation(.easeInOut(duration: 0.3)) {
                 isFlipped.toggle()

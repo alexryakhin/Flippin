@@ -121,7 +121,7 @@ struct MyCardsListView: View {
                                     .foregroundStyle(tagManager.currentFilterTag.isEmpty ? .secondary : .primary)
                             }
                             
-                            Button("Clear All", role: .destructive) {
+                            Button("Delete All", role: .destructive) {
                                 cardToDelete = nil
                                 showingDeleteAlert = true
                             }
@@ -141,6 +141,7 @@ struct MyCardsListView: View {
         }
         .sheet(isPresented: $showingTagFilter) {
             TagFilterView(tagManager: tagManager, onToSettings: onToSettings)
+                .presentationDetents([.fraction(0.3)])
         }
     }
     

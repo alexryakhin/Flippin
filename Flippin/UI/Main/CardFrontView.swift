@@ -8,6 +8,7 @@ import SwiftUI
 import Flow
 
 struct CardFrontView: View {
+    @Environment(\.colorScheme) var colorScheme
 
     let item: CardItem
     @State private var isPlayingTTS = false
@@ -47,7 +48,7 @@ struct CardFrontView: View {
                     ForEach(tags, id: \.self) { tag in
                         Text(tag)
                             .font(.caption)
-                            .padding(.horizontal, 8)
+                            .padding(.horizontal, 6)
                             .padding(.vertical, 4)
                             .background(colorManager.adjustedTintColor.opacity(0.1))
                             .foregroundStyle(colorManager.adjustedTintColor)

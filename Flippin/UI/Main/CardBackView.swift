@@ -8,6 +8,7 @@ import SwiftUI
 import Flow
 
 struct CardBackView: View {
+    @Environment(\.colorScheme) var colorScheme
     @StateObject private var colorManager = ColorManager()
 
     let item: CardItem
@@ -37,7 +38,7 @@ struct CardBackView: View {
                     ForEach(tags, id: \.self) { tag in
                         Text(tag)
                             .font(.caption)
-                            .padding(.horizontal, 8)
+                            .padding(.horizontal, 6)
                             .padding(.vertical, 4)
                             .background(colorManager.adjustedTintColor.opacity(0.1))
                             .foregroundStyle(colorManager.adjustedTintColor)

@@ -2,6 +2,7 @@ import SwiftUI
 
 struct BackgroundPreviewView: View {
     @Environment(\.dismiss) var dismiss
+    @Environment(\.colorScheme) var colorScheme
     @StateObject private var colorManager = ColorManager()
 
     var body: some View {

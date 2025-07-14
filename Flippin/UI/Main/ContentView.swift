@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
+    @Environment(\.colorScheme) var colorScheme
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \CardItem.timestamp, order: .forward) private var items: [CardItem]
 
@@ -24,8 +25,6 @@ struct ContentView: View {
     @StateObject private var tagManager = TagManager()
     @StateObject private var colorManager = ColorManager()
     @State private var showingTagFilter = false
-
-    @Environment(\.colorScheme) private var colorScheme
 
     var filteredItems: [CardItem] {
         if !tagManager.currentFilterTag.isEmpty {
@@ -104,7 +103,7 @@ struct ContentView: View {
             TagFilterView(tagManager: tagManager) {
                 showSettings = true
             }
-            .presentationDetents(.init(Set([.medium])))
+            .presentationDetents([.fraction(0.3)])
         }
     }
 

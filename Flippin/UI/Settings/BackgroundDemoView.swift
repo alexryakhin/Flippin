@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct BackgroundDemoView: View {
+    @Environment(\.colorScheme) var colorScheme
     @StateObject private var colorManager = ColorManager()
 
     var body: some View {

@@ -28,52 +28,28 @@ struct ButtonRowView: View {
                     }
                 }
             } label: {
-                Image(systemName: "line.3.horizontal")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 20, height: 20)
-                    .padding(20)
+                ActionButtonLabel("Menu", systemImage: "line.3.horizontal")
             }
             .buttonStyle(ActionButtonStyle())
 
             Spacer()
 
             Button(action: onFilterTags) {
-                Image(systemName: "tag")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 20, height: 20)
-                    .padding(20)
+                ActionButtonLabel("Tag filter", systemImage: "tag")
             }
             .buttonStyle(ActionButtonStyle(tintColor: isFilterActive ? .blue : Color(.label)))
 
             Spacer()
 
             Button(action: onShuffle) {
-                Group {
-                    if isPad {
-                        Label("Shuffle", systemImage: "shuffle")
-                            .padding(20)
-                            .lineLimit(1)
-                    } else {
-                        Image(systemName: "shuffle")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 20, height: 20)
-                            .padding(20)
-                    }
-                }
+                ActionButtonLabel("Shuffle", systemImage: "shuffle")
             }
             .buttonStyle(ActionButtonStyle())
 
             Spacer()
 
             Button(action: onAddItem) {
-                Image(systemName: "plus")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 20, height: 20)
-                    .padding(20)
+                ActionButtonLabel("Add card", systemImage: "plus")
             }
             .buttonStyle(ActionButtonStyle())
         }

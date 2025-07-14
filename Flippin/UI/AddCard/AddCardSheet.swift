@@ -16,7 +16,7 @@ struct AddCardSheet: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                VStack(spacing: 16) {
+                VStack(spacing: 24) {
                     CustomSectionView(
                         header: viewModel.userLanguage.displayName
                     ) {
@@ -53,12 +53,6 @@ struct AddCardSheet: View {
                         TextField("Add notes (optional)", text: $viewModel.notes, axis: .vertical)
                             .autocapitalization(.sentences)
                             .clippedWithPaddingAndBackground()
-                            .overlay(alignment: .trailing) {
-                                if viewModel.isTranslating {
-                                    ProgressView()
-                                        .padding(.trailing, 8)
-                                }
-                            }
                     } headerTrailingContent: {
                         SectionHeaderButton("Done") {
                             UIApplication.shared.endEditing()
@@ -90,6 +84,7 @@ struct AddCardSheet: View {
                             Text("No tags available. Add some tags in Settings.")
                                 .foregroundStyle(.secondary)
                                 .font(.caption)
+                                .frame(maxWidth: .infinity, alignment: .leading)
                                 .clippedWithPaddingAndBackground()
                         }
                     }
@@ -119,35 +114,5 @@ struct AddCardSheet: View {
         .onDisappear {
             viewModel.cancel()
         }
-    }
-}
-
-struct SelectedTagButton: View {
-    let title: String
-    let onRemove: () -> Void
-    
-    var body: some View {
-        HStack(spacing: 6) {
-            Text(title)
-                .font(.subheadline)
-            
-            Button(action: onRemove) {
-                Image(systemName: "xmark.circle.fill")
-                    .font(.caption)
-                    .foregroundStyle(.red)
-            }
-            .buttonStyle(.plain)
-        }
-        .padding(.horizontal, 10)
-        .padding(.vertical, 4)
-        .background(
-            Capsule()
-                .fill(Color.blue.opacity(0.1))
-        )
-        .foregroundStyle(.blue)
-        .overlay(
-            Capsule()
-                .stroke(Color.blue.opacity(0.3), lineWidth: 1)
-        )
     }
 }
