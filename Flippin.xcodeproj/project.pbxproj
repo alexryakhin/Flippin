@@ -123,6 +123,7 @@
 				ar,
 				hi,
 				uk,
+				ru,
 			);
 			mainGroup = 533792D82E110B250097F5BF;
 			minimizedProjectReferenceProxies = 1;
