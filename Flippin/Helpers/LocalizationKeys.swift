@@ -98,6 +98,20 @@ enum LocalizationKeys {
     static let hindi = "hindi"
     static let croatian = "croatian"
     static let ukrainian = "ukrainian"
+    
+    // MARK: - Background Styles
+    static let gradient = "gradient"
+    static let lavaLamp = "lavaLamp"
+    static let snow = "snow"
+    static let rain = "rain"
+    static let stars = "stars"
+    static let bubbles = "bubbles"
+    static let waves = "waves"
+    static let particles = "particles"
+    static let aurora = "aurora"
+    static let fireflies = "fireflies"
+    static let ocean = "ocean"
+    static let galaxy = "galaxy"
 }
 
 // MARK: - String Extension for Localization

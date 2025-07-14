@@ -101,3 +101,17 @@
 "hindi" = "Hindi";
 "croatian" = "Croata";
 "ukrainian" = "Ucraniano";
+
+// MARK: - Background Styles
+"gradient" = "Gradiente";
+"lavaLamp" = "Lâmpada de Lava";
+"snow" = "Neve";
+"rain" = "Chuva";
+"stars" = "Estrelas";
+"bubbles" = "Bolhas";
+"waves" = "Ondas";
+"particles" = "Partículas";
+"aurora" = "Aurora";
+"fireflies" = "Pirilampos";
+"ocean" = "Oceano";
+"galaxy" = "Galáxia";

@@ -101,3 +101,17 @@
 "hindi" = "ヒンディー語";
 "croatian" = "クロアチア語";
 "ukrainian" = "ウクライナ語";
+
+// MARK: - Background Styles
+"gradient" = "グラデーション";
+"lavaLamp" = "ラバーランプ";
+"snow" = "雪";
+"rain" = "雨";
+"stars" = "星空";
+"bubbles" = "泡";
+"waves" = "波";
+"particles" = "粒子";
+"aurora" = "オーロラ";
+"fireflies" = "蛍";
+"ocean" = "海";
+"galaxy" = "銀河";

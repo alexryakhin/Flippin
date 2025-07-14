@@ -104,6 +104,7 @@ struct ContentView: View {
                 showSettings = true
             }
             .presentationDetents([.fraction(0.3)])
+            .presentationDragIndicator(.visible)
         }
     }
 

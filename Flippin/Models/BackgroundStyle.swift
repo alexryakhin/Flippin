@@ -15,7 +15,20 @@ enum BackgroundStyle: String, CaseIterable {
     case galaxy = "Galaxy"
     
     var displayName: String {
-        return self.rawValue
+        switch self {
+        case .gradient: return LocalizationKeys.gradient.localized
+        case .lavaLamp: return LocalizationKeys.lavaLamp.localized
+        case .snow: return LocalizationKeys.snow.localized
+        case .rain: return LocalizationKeys.rain.localized
+        case .stars: return LocalizationKeys.stars.localized
+        case .bubbles: return LocalizationKeys.bubbles.localized
+        case .waves: return LocalizationKeys.waves.localized
+        case .particles: return LocalizationKeys.particles.localized
+        case .aurora: return LocalizationKeys.aurora.localized
+        case .fireflies: return LocalizationKeys.fireflies.localized
+        case .ocean: return LocalizationKeys.ocean.localized
+        case .galaxy: return LocalizationKeys.galaxy.localized
+        }
     }
     
     var icon: String {
