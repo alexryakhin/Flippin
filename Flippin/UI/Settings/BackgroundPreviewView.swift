@@ -25,16 +25,16 @@ struct BackgroundPreviewView: View {
                 .padding(16)
             }
             .background(Color(.systemGroupedBackground))
-            .navigationTitle("Background Styles")
+            .navigationTitle(LocalizationKeys.backgroundStyles.localized)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") {
+                    Button(LocalizationKeys.cancel.localized) {
                         dismiss()
                     }
                 }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Done") {
+                    Button(LocalizationKeys.done.localized) {
                         dismiss()
                     }
                 }

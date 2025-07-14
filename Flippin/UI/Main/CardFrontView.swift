@@ -17,7 +17,7 @@ struct CardFrontView: View {
     var body: some View {
         VStack(spacing: 20) {
             HStack {
-                Text(item.frontLanguage?.displayName ?? "Unknown")
+                Text(item.frontLanguage?.displayName ?? LocalizationKeys.english.localized)
                     .font(.headline)
                     .foregroundStyle(.secondary)
                 Spacer()
@@ -83,7 +83,7 @@ struct CardFrontView: View {
 
                 Spacer()
 
-                Text("Show answer")
+                Text(LocalizationKeys.showAnswer.localized)
                     .font(.footnote)
                     .foregroundStyle(.secondary)
             }

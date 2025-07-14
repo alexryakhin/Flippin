@@ -15,7 +15,7 @@ struct CardBackView: View {
     var body: some View {
         VStack(spacing: 20) {
             HStack {
-                Text(item.backLanguage?.displayName ?? "Unknown")
+                Text(item.backLanguage?.displayName ?? LocalizationKeys.english.localized)
                     .font(.headline)
                     .foregroundStyle(.secondary)
                 Spacer()
@@ -50,7 +50,7 @@ struct CardBackView: View {
 
             Spacer()
 
-            Text("Tap to go back")
+            Text(LocalizationKeys.tapToGoBack.localized)
                 .font(.footnote)
                 .foregroundStyle(.secondary)
         }

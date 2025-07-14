@@ -16,7 +16,7 @@ struct TagFilterView: View {
         VStack(spacing: 20) {
             if !tagManager.availableTags.isEmpty {
                 VStack(alignment: .center, spacing: 24) {
-                    Text("Available Tags")
+                    Text(LocalizationKeys.availableTags.localized)
                         .font(.headline)
                         .padding(.horizontal)
 
@@ -44,12 +44,12 @@ struct TagFilterView: View {
                             .font(.largeTitle)
                             .foregroundStyle(.secondary)
                             .rotationEffect(.init(degrees: 90))
-                        Text("No tags available")
+                        Text(LocalizationKeys.noTagsAvailable.localized)
                     }
                 } description: {
-                    Text("Manage tags in the settings.")
+                    Text(LocalizationKeys.manageTagsInSettings.localized)
                 } actions: {
-                    Button("To settings") {
+                    Button(LocalizationKeys.toSettings.localized) {
                         onToSettings()
                     }
                     .buttonStyle(.borderedProminent)

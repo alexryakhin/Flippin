@@ -29,7 +29,7 @@ struct BackgroundDemoView: View {
                                 }
                             }
                             
-                            Text("Tap to see full screen")
+                            Text(LocalizationKeys.tapToSeeFullScreen.localized)
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                         }
@@ -42,7 +42,7 @@ struct BackgroundDemoView: View {
                 .padding(16)
             }
             .background(Color(.systemGroupedBackground))
-            .navigationTitle("Background Demo")
+            .navigationTitle(LocalizationKeys.backgroundDemo.localized)
             .navigationBarTitleDisplayMode(.inline)
         }
     }

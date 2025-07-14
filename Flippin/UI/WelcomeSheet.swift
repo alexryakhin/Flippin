@@ -15,20 +15,20 @@ struct WelcomeSheet: View {
         NavigationView {
             ScrollView {
                 VStack(spacing: 30) {
-                    Text("Welcome to Flippin!")
+                    Text(LocalizationKeys.welcomeScreenTitle.localized)
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .padding(.top, 30)
                         .multilineTextAlignment(.center)
-                    Text("Flippin helps you learn and practice new languages using flashcards. Select your native language and the language you want to learn.")
+                    Text(LocalizationKeys.welcomeScreenMessage.localized)
                         .font(.body)
                         .multilineTextAlignment(.center)
                     VStack(spacing: 20) {
                         HStack {
-                            Text("My language")
+                            Text(LocalizationKeys.myLanguage.localized)
                                 .font(.headline)
                                 .frame(maxWidth: .infinity, alignment: .leading)
-                            Picker("My language", selection: $userLanguageRaw) {
+                            Picker(LocalizationKeys.myLanguage.localized, selection: $userLanguageRaw) {
                                 ForEach(Language.allCases) { lang in
                                     Text(lang.displayName).tag(lang.rawValue)
                                 }
@@ -36,10 +36,10 @@ struct WelcomeSheet: View {
                             .pickerStyle(.menu)
                         }
                         HStack {
-                            Text("I'm learning")
+                            Text(LocalizationKeys.imLearning.localized)
                                 .font(.headline)
                                 .frame(maxWidth: .infinity, alignment: .leading)
-                            Picker("I'm learning", selection: $targetLanguageRaw) {
+                            Picker(LocalizationKeys.imLearning.localized, selection: $targetLanguageRaw) {
                                 ForEach(Language.allCases) { lang in
                                     Text(lang.displayName).tag(lang.rawValue)
                                 }
@@ -54,7 +54,7 @@ struct WelcomeSheet: View {
             .background(Color(.systemGroupedBackground))
             .safeAreaInset(edge: .bottom) {
                 Button(action: onContinue) {
-                    Text("Continue")
+                    Text(LocalizationKeys.continueButton.localized)
                         .font(.headline)
                         .frame(maxWidth: .infinity)
                         .padding(16)

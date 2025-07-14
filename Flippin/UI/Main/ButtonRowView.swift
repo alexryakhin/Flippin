@@ -18,38 +18,38 @@ struct ButtonRowView: View {
         HStack {
             Menu {
                 Button(action: onShowSettings) {
-                    Label("Settings", systemImage: "gear")
+                    Label(LocalizationKeys.settingsLabel.localized, systemImage: "gear")
                 }
                 Button(action: onShowMyCards) {
                     Label {
-                        Text("My Cards")
+                        Text(LocalizationKeys.myCards.localized)
                     } icon: {
                         Image(.stackCards)
                     }
                 }
             } label: {
-                ActionButtonLabel("Menu", systemImage: "line.3.horizontal")
+                ActionButtonLabel(LocalizationKeys.menu.localized, systemImage: "line.3.horizontal")
             }
             .buttonStyle(ActionButtonStyle())
 
             Spacer()
 
             Button(action: onFilterTags) {
-                ActionButtonLabel("Tag filter", systemImage: "tag")
+                ActionButtonLabel(LocalizationKeys.tagFilter.localized, systemImage: "tag")
             }
             .buttonStyle(ActionButtonStyle(tintColor: isFilterActive ? .blue : Color(.label)))
 
             Spacer()
 
             Button(action: onShuffle) {
-                ActionButtonLabel("Shuffle", systemImage: "shuffle")
+                ActionButtonLabel(LocalizationKeys.shuffle.localized, systemImage: "shuffle")
             }
             .buttonStyle(ActionButtonStyle())
 
             Spacer()
 
             Button(action: onAddItem) {
-                ActionButtonLabel("Add card", systemImage: "plus")
+                ActionButtonLabel(LocalizationKeys.addCardLabel.localized, systemImage: "plus")
             }
             .buttonStyle(ActionButtonStyle())
         }

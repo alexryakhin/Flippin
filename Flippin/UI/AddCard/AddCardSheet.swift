@@ -20,11 +20,11 @@ struct AddCardSheet: View {
                     CustomSectionView(
                         header: viewModel.userLanguage.displayName
                     ) {
-                        TextField("Enter text in your language", text: $viewModel.nativeText, axis: .vertical)
+                        TextField(LocalizationKeys.enterTextInYourLanguage.localized, text: $viewModel.nativeText, axis: .vertical)
                             .autocapitalization(.sentences)
                             .clippedWithPaddingAndBackground()
                     } headerTrailingContent: {
-                        SectionHeaderButton("Done") {
+                        SectionHeaderButton(LocalizationKeys.done.localized) {
                             UIApplication.shared.endEditing()
                         }
                     }
@@ -32,7 +32,7 @@ struct AddCardSheet: View {
                     CustomSectionView(
                         header: viewModel.targetLanguage.displayName
                     ) {
-                        TextField("Enter text in target language", text: $viewModel.targetText, axis: .vertical)
+                        TextField(LocalizationKeys.enterTextInTargetLanguage.localized, text: $viewModel.targetText, axis: .vertical)
                             .autocapitalization(.sentences)
                             .clippedWithPaddingAndBackground()
                             .overlay(alignment: .trailing) {
@@ -42,25 +42,25 @@ struct AddCardSheet: View {
                                 }
                             }
                     } headerTrailingContent: {
-                        SectionHeaderButton("Done") {
+                        SectionHeaderButton(LocalizationKeys.done.localized) {
                             UIApplication.shared.endEditing()
                         }
                     }
 
                     CustomSectionView(
-                        header: "Notes"
+                        header: LocalizationKeys.notes.localized
                     ) {
-                        TextField("Add notes (optional)", text: $viewModel.notes, axis: .vertical)
+                        TextField(LocalizationKeys.addNotesOptional.localized, text: $viewModel.notes, axis: .vertical)
                             .autocapitalization(.sentences)
                             .clippedWithPaddingAndBackground()
                     } headerTrailingContent: {
-                        SectionHeaderButton("Done") {
+                        SectionHeaderButton(LocalizationKeys.done.localized) {
                             UIApplication.shared.endEditing()
                         }
                     }
 
                     CustomSectionView(
-                        header: "Tags (\(viewModel.selectedTags.count)/5)"
+                        header: LocalizationKeys.tagsCount.localized(with: viewModel.selectedTags.count)
                     ) {
                         if !viewModel.availableTags.isEmpty {
                             HFlow(spacing: 6) {
@@ -81,7 +81,7 @@ struct AddCardSheet: View {
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .clippedWithPaddingAndBackground()
                         } else {
-                            Text("No tags available. Add some tags in Settings.")
+                            Text(LocalizationKeys.noTagsAvailableAddInSettings.localized)
                                 .foregroundStyle(.secondary)
                                 .font(.caption)
                                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -92,17 +92,17 @@ struct AddCardSheet: View {
                 .padding(16)
             }
             .background(Color(.systemGroupedBackground))
-            .navigationTitle("Add Card")
+            .navigationTitle(LocalizationKeys.addCard.localized)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") {
+                    Button(LocalizationKeys.cancel.localized) {
                         viewModel.cancel()
                         dismiss()
                     }
                 }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Save") {
+                    Button(LocalizationKeys.save.localized) {
                         if viewModel.saveCard(modelContext: modelContext) {
                             dismiss()
                         }

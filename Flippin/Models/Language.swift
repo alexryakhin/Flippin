@@ -53,23 +53,23 @@ enum Language: String, Codable, CaseIterable, Identifiable {
 
     var displayName: String {
         switch self {
-        case .english: return NSLocalizedString("English", comment: "English language name")
-        case .spanish: return NSLocalizedString("Spanish", comment: "Spanish language name")
-        case .french: return NSLocalizedString("French", comment: "French language name")
-        case .german: return NSLocalizedString("German", comment: "German language name")
-        case .italian: return NSLocalizedString("Italian", comment: "Italian language name")
-        case .portuguese: return NSLocalizedString("Portuguese", comment: "Portuguese language name")
-        case .dutch: return NSLocalizedString("Dutch", comment: "Dutch language name")
-        case .swedish: return NSLocalizedString("Swedish", comment: "Swedish language name")
-        case .chinese: return NSLocalizedString("Chinese", comment: "Chinese language name")
-        case .japanese: return NSLocalizedString("Japanese", comment: "Japanese language name")
-        case .korean: return NSLocalizedString("Korean", comment: "Korean language name")
-        case .vietnamese: return NSLocalizedString("Vietnamese", comment: "Vietnamese language name")
-        case .russian: return NSLocalizedString("Russian", comment: "Russian language name")
-        case .arabic: return NSLocalizedString("Arabic", comment: "Arabic language name")
-        case .hindi: return NSLocalizedString("Hindi", comment: "Hindi language name")
-        case .croatian: return NSLocalizedString("Croatian", comment: "Croatian language name")
-        case .ukranian: return NSLocalizedString("Ukrainian", comment: "Ukrainian language name")
+        case .english: return LocalizationKeys.english.localized
+        case .spanish: return LocalizationKeys.spanish.localized
+        case .french: return LocalizationKeys.french.localized
+        case .german: return LocalizationKeys.german.localized
+        case .italian: return LocalizationKeys.italian.localized
+        case .portuguese: return LocalizationKeys.portuguese.localized
+        case .dutch: return LocalizationKeys.dutch.localized
+        case .swedish: return LocalizationKeys.swedish.localized
+        case .chinese: return LocalizationKeys.chinese.localized
+        case .japanese: return LocalizationKeys.japanese.localized
+        case .korean: return LocalizationKeys.korean.localized
+        case .vietnamese: return LocalizationKeys.vietnamese.localized
+        case .russian: return LocalizationKeys.russian.localized
+        case .arabic: return LocalizationKeys.arabic.localized
+        case .hindi: return LocalizationKeys.hindi.localized
+        case .croatian: return LocalizationKeys.croatian.localized
+        case .ukranian: return LocalizationKeys.ukrainian.localized
         }
     }
 }

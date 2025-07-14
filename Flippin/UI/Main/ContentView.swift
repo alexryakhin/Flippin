@@ -115,10 +115,10 @@ struct ContentView: View {
                     Image(systemName: "rectangle.stack.fill")
                         .font(.largeTitle)
                         .rotationEffect(.init(degrees: 90))
-                    Text("No cards yet")
+                    Text(LocalizationKeys.noCardsYet.localized)
                 }
             } description: {
-                Text("Tap the + button to add your first card")
+                Text(LocalizationKeys.tapToAddFirstCard.localized)
                     .foregroundStyle(.secondary)
             }
             .foregroundColor(colorManager.adjustedForegroundColor)
@@ -127,17 +127,17 @@ struct ContentView: View {
                 VStack {
                     Image(systemName: "tag")
                         .font(.largeTitle)
-                    Text("No cards with selected tag")
+                    Text(LocalizationKeys.noCardsWithSelectedTag.localized)
                 }
             } description: {
                 if !tagManager.currentFilterTag.isEmpty {
-                    Text("No cards found with tag \"\(tagManager.currentFilterTag)\"")
+                    Text(LocalizationKeys.noCardsFoundWithTag.localized(with: tagManager.currentFilterTag))
                 } else {
-                    Text("No cards available")
+                    Text(LocalizationKeys.noCardsAvailable.localized)
                 }
             } actions: {
                 if !tagManager.currentFilterTag.isEmpty {
-                    Button("Clear Filter") {
+                    Button(LocalizationKeys.clearFilter.localized) {
                         tagManager.clearFilter()
                     }
                     .buttonStyle(.borderedProminent)

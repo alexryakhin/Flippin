@@ -53,12 +53,12 @@ struct MyCardsListView: View {
                                 .font(.largeTitle)
                                 .foregroundStyle(.secondary)
                                 .rotationEffect(.init(degrees: 90))
-                            Text("No cards yet")
+                            Text(LocalizationKeys.noCardsYet.localized)
                         }
                     } description: {
-                        Text("Add your first card to start learning")
+                        Text(LocalizationKeys.addFirstCardToStartLearning.localized)
                     } actions: {
-                        Button("Add Card") {
+                        Button(LocalizationKeys.addCardButton.localized) {
                             onAddCard()
                             dismiss()
                         }
@@ -70,23 +70,23 @@ struct MyCardsListView: View {
                             Image(systemName: "tag")
                                 .font(.largeTitle)
                                 .foregroundStyle(.secondary)
-                            Text("No cards with selected tag")
+                            Text(LocalizationKeys.noCardsWithSelectedTag.localized)
                         }
                     } description: {
                         if !tagManager.currentFilterTag.isEmpty {
-                            Text("No cards found with tag \"\(tagManager.currentFilterTag)\"")
+                            Text(LocalizationKeys.noCardsFoundWithTag.localized(with: tagManager.currentFilterTag))
                         } else {
-                            Text("No cards match your search")
+                            Text(LocalizationKeys.noCardsMatchSearch.localized)
                         }
                     } actions: {
                         if !tagManager.currentFilterTag.isEmpty {
-                            Button("Clear Filter") {
+                            Button(LocalizationKeys.clearFilter.localized) {
                                 tagManager.clearFilter()
                             }
                             .buttonStyle(.borderedProminent)
                         }
                         if !searchText.isEmpty {
-                            Button("Clear Search") {
+                            Button(LocalizationKeys.clearSearch.localized) {
                                 searchText = ""
                             }
                             .buttonStyle(.bordered)
@@ -99,14 +99,14 @@ struct MyCardsListView: View {
                         }
                         .onDelete(perform: deleteCards)
                     }
-                    .searchable(text: $searchText, prompt: "Search cards...")
+                    .searchable(text: $searchText, prompt: LocalizationKeys.searchCards.localized)
                 }
             }
-            .navigationTitle("My Cards")
+            .navigationTitle(LocalizationKeys.myCards.localized)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Close") {
+                    Button(LocalizationKeys.close.localized) {
                         dismiss()
                     }
                 }
@@ -121,7 +121,7 @@ struct MyCardsListView: View {
                                     .foregroundStyle(tagManager.currentFilterTag.isEmpty ? .secondary : .primary)
                             }
                             
-                            Button("Delete All", role: .destructive) {
+                            Button(LocalizationKeys.deleteAll.localized, role: .destructive) {
                                 cardToDelete = nil
                                 showingDeleteAlert = true
                             }
@@ -131,13 +131,13 @@ struct MyCardsListView: View {
                 }
             }
         }
-        .alert("Delete All Cards", isPresented: $showingDeleteAlert) {
-            Button("Cancel", role: .cancel) { }
-            Button("Delete All", role: .destructive) {
+        .alert(LocalizationKeys.deleteAllCards.localized, isPresented: $showingDeleteAlert) {
+            Button(LocalizationKeys.cancel.localized, role: .cancel) { }
+            Button(LocalizationKeys.deleteAll.localized, role: .destructive) {
                 deleteAllCards()
             }
         } message: {
-            Text("Are you sure you want to delete all cards? This action cannot be undone.")
+            Text(LocalizationKeys.deleteAllCardsConfirmation.localized)
         }
         .sheet(isPresented: $showingTagFilter) {
             TagFilterView(tagManager: tagManager, onToSettings: onToSettings)

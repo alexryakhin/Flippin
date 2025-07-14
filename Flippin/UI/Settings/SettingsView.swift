@@ -24,15 +24,15 @@ struct SettingsView: View {
             ScrollView {
                 VStack(spacing: 24) {
                     CustomSectionView(
-                        header: "Languages"
+                        header: LocalizationKeys.languages.localized
                     ) {
                         FormWithDivider {
                             CellWrapper {
-                                Text("My Language")
+                                Text(LocalizationKeys.myLanguageSettings.localized)
                                     .font(.subheadline)
                                     .foregroundStyle(.secondary)
                             } trailingContent: {
-                                Picker("My Language", selection: $userLanguageRaw) {
+                                Picker(LocalizationKeys.myLanguageSettings.localized, selection: $userLanguageRaw) {
                                     ForEach(Language.allCases) { lang in
                                         Text(lang.displayName).tag(lang.rawValue)
                                     }
@@ -41,11 +41,11 @@ struct SettingsView: View {
                             }
 
                             CellWrapper {
-                                Text("Target Language")
+                                Text(LocalizationKeys.targetLanguage.localized)
                                     .font(.subheadline)
                                     .foregroundStyle(.secondary)
                             } trailingContent: {
-                                Picker("Target Language", selection: $targetLanguageRaw) {
+                                Picker(LocalizationKeys.targetLanguage.localized, selection: $targetLanguageRaw) {
                                     ForEach(Language.allCases) { lang in
                                         Text(lang.displayName).tag(lang.rawValue)
                                     }
@@ -57,11 +57,11 @@ struct SettingsView: View {
                     }
 
                     CustomSectionView(
-                        header: "Background"
+                        header: LocalizationKeys.background.localized
                     ) {
                         FormWithDivider {
                             CellWrapper {
-                                Text("Background Color")
+                                Text(LocalizationKeys.backgroundColor.localized)
                                     .font(.subheadline)
                                     .foregroundStyle(.secondary)
                             } trailingContent: {
@@ -75,7 +75,7 @@ struct SettingsView: View {
                             }
 
                             CellWrapper {
-                                Text("Background Style")
+                                Text(LocalizationKeys.backgroundStyle.localized)
                                     .font(.subheadline)
                                     .foregroundStyle(.secondary)
                             } trailingContent: {
@@ -89,18 +89,18 @@ struct SettingsView: View {
                     }
 
                     CustomSectionView(
-                        header: "Tags Management"
+                        header: LocalizationKeys.tagsManagement.localized
                     ) {
                         VStack(spacing: 12) {
                             HStack {
-                                TextField("New tag name", text: $newTagText)
+                                TextField(LocalizationKeys.newTagName.localized, text: $newTagText)
                                     .textFieldStyle(.roundedBorder)
                                     .autocorrectionDisabled()
                                     .textInputAutocapitalization(.never)
                                     .keyboardType(.asciiCapable)
                                     .textContentType(.nickname)
 
-                                Button("Add") {
+                                Button(LocalizationKeys.add.localized) {
                                     if !newTagText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
                                         tagManager.addTag(newTagText)
                                         newTagText = ""
@@ -111,7 +111,7 @@ struct SettingsView: View {
                             
                             if !tagManager.availableTags.isEmpty {
                                 VStack(alignment: .leading, spacing: 8) {
-                                    Text("Available Tags")
+                                    Text(LocalizationKeys.availableTags.localized)
                                         .font(.subheadline)
                                         .foregroundStyle(.secondary)
                                     
@@ -128,7 +128,7 @@ struct SettingsView: View {
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                 }
                             } else {
-                                Text("No tags available")
+                                Text(LocalizationKeys.noTagsAvailable.localized)
                                     .foregroundStyle(.secondary)
                                     .font(.caption)
                             }
@@ -139,11 +139,11 @@ struct SettingsView: View {
                 .padding(16)
             }
             .background(Color(.systemGroupedBackground))
-            .navigationTitle("Settings")
+            .navigationTitle(LocalizationKeys.settings.localized)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Close") {
+                    Button(LocalizationKeys.close.localized) {
                         dismiss()
                     }
                 }
