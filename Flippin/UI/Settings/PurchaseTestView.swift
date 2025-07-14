@@ -2,7 +2,6 @@ import SwiftUI
 import StoreKit
 
 typealias SKTransaction = StoreKit.Transaction
-typealias SKProduct = StoreKit.Product
 
 struct PurchaseTestView: View {
     @StateObject private var purchaseService = PurchaseService.shared
@@ -70,9 +69,32 @@ struct PurchaseTestView: View {
                         .foregroundColor(.secondary)
                 } else {
                     ForEach(purchaseService.products) { product in
-                        ProductRowView(product: product) {
+                        ProductRowView(
+                            product: product,
+                            isPurchased: purchaseService.isProductPurchased(product.id)
+                        ) {
                             await purchaseSpecificProduct(product.id)
                         }
+                    }
+                }
+            }
+            
+            Section("Purchased Products") {
+                let purchasedProducts = purchaseService.getPurchasedProducts()
+                if purchasedProducts.isEmpty {
+                    Text("No products purchased yet")
+                        .foregroundColor(.secondary)
+                        .italic()
+                } else {
+                    ForEach(purchasedProducts, id: \.self) { productId in
+                        HStack {
+                            Image(systemName: "checkmark.circle.fill")
+                                .foregroundColor(.green)
+                            Text(productId)
+                                .font(.system(.body, design: .monospaced))
+                            Spacer()
+                        }
+                        .padding(.vertical, 2)
                     }
                 }
             }
@@ -126,6 +148,12 @@ struct PurchaseTestView: View {
                     "Test purchase completed! Transaction ID: \(result.transactionId ?? "Unknown")" :
                     "Test purchase failed: \(result.error ?? "Unknown error")"
             )
+            
+            // Force UI update after purchase
+            if result.success {
+                // Small delay to ensure transaction is processed
+                try? await Task.sleep(nanoseconds: 500_000_000) // 0.5 seconds
+            }
         }
     }
     
@@ -152,6 +180,7 @@ struct PurchaseTestView: View {
 
 struct ProductRowView: View {
     let product: Product
+    let isPurchased: Bool
     let onPurchase: () async -> Void
     
     @State private var isPurchasing = false
@@ -160,8 +189,17 @@ struct ProductRowView: View {
         VStack(alignment: .leading, spacing: 8) {
             HStack {
                 VStack(alignment: .leading) {
-                    Text(product.displayName)
-                        .font(.headline)
+                    HStack {
+                        Text(product.displayName)
+                            .font(.headline)
+                        
+                        if isPurchased {
+                            Image(systemName: "checkmark.circle.fill")
+                                .foregroundColor(.green)
+                                .font(.caption)
+                        }
+                    }
+                    
                     Text(product.description)
                         .font(.subheadline)
                         .foregroundColor(.secondary)
@@ -169,30 +207,55 @@ struct ProductRowView: View {
                 
                 Spacer()
                 
-                Text(product.priceString)
-                    .font(.headline)
-                    .foregroundColor(.accentColor)
+                VStack(alignment: .trailing) {
+                    if isPurchased {
+                        Text("Purchased")
+                            .font(.caption)
+                            .foregroundColor(.green)
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 4)
+                            .background(Color.green.opacity(0.1))
+                            .cornerRadius(8)
+                    } else {
+                        Text(product.displayPrice)
+                            .font(.headline)
+                            .foregroundColor(.accentColor)
+                    }
+                }
             }
             
-            Button(action: {
-                Task {
-                    isPurchasing = true
-                    await onPurchase()
-                    isPurchasing = false
-                }
-            }) {
-                HStack {
-                    if isPurchasing {
-                        ProgressView()
-                            .scaleEffect(0.8)
-                    } else {
-                        Image(systemName: "cart")
+            if !isPurchased {
+                Button(action: {
+                    Task {
+                        isPurchasing = true
+                        await onPurchase()
+                        isPurchasing = false
                     }
-                    Text("Purchase")
+                }) {
+                    HStack {
+                        if isPurchasing {
+                            ProgressView()
+                                .scaleEffect(0.8)
+                        } else {
+                            Image(systemName: "cart")
+                        }
+                        Text("Purchase")
+                    }
                 }
+                .disabled(isPurchasing)
+                .buttonStyle(.borderedProminent)
+            } else {
+                HStack {
+                    Image(systemName: "checkmark.circle.fill")
+                        .foregroundColor(.green)
+                    Text("Already Purchased")
+                        .foregroundColor(.green)
+                }
+                .padding(.vertical, 8)
+                .frame(maxWidth: .infinity)
+                .background(Color.green.opacity(0.1))
+                .cornerRadius(8)
             }
-            .disabled(isPurchasing)
-            .buttonStyle(.borderedProminent)
         }
         .padding(.vertical, 4)
     }

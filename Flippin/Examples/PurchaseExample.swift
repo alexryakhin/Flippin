@@ -154,4 +154,28 @@ extension PurchaseExample {
         let transactions = await purchaseService.getTransactionHistory()
         return !transactions.isEmpty
     }
+    
+    /// Check if specific product is purchased
+    @MainActor static func isProductPurchased(_ productId: String) -> Bool {
+        return PurchaseService.shared.isProductPurchased(productId)
+    }
+    
+    /// Get all purchased product IDs
+    @MainActor static func getPurchasedProducts() -> [String] {
+        return PurchaseService.shared.getPurchasedProducts()
+    }
+    
+    /// Example of checking purchase status
+    @MainActor static func checkPurchaseStatus() {
+        let unlimitedCardsId = "com.dor.flippin.unlimited_cards"
+        
+        if isProductPurchased(unlimitedCardsId) {
+            print("✅ Unlimited Cards is purchased")
+        } else {
+            print("❌ Unlimited Cards is not purchased")
+        }
+        
+        let purchasedProducts = getPurchasedProducts()
+        print("📦 Purchased products: \(purchasedProducts)")
+    }
 } 

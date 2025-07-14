@@ -1,23 +1,6 @@
 import Foundation
 import StoreKit
 
-// MARK: - Purchase Models
-struct Product: Identifiable {
-    let id: String
-    let displayName: String
-    let description: String
-    let price: Decimal
-    let priceString: String
-    let type: ProductType
-    
-    enum ProductType {
-        case consumable
-        case nonConsumable
-        case autoRenewable
-        case nonRenewable
-    }
-}
-
 struct PurchaseResult {
     let success: Bool
     let transactionId: String?
@@ -34,6 +17,7 @@ class PurchaseService: ObservableObject {
     @Published var isPurchasing = false
     @Published var lastTransactionId: String?
     @Published var isListeningForUpdates = false
+    @Published var purchasedProductIds: Set<String> = []
     
     private var productIds = [
         "com.dor.flippin.premium_monthly",
@@ -45,44 +29,20 @@ class PurchaseService: ObservableObject {
         Task {
             await loadProducts()
             await listenForTransactionUpdates()
+            await loadPurchasedProducts()
         }
     }
     
     // MARK: - Product Loading
     func loadProducts() async {
         do {
-            let storeProducts = try await SKProduct.products(for: productIds)
-            products = storeProducts.map { storeProduct in
-                Product(
-                    id: storeProduct.id,
-                    displayName: storeProduct.displayName,
-                    description: storeProduct.description,
-                    price: storeProduct.price,
-                    priceString: storeProduct.displayPrice,
-                    type: determineProductType(storeProduct)
-                )
-            }
+            products = try await Product.products(for: productIds)
             print("📦 Loaded \(products.count) products")
         } catch {
             print("❌ Failed to load products: \(error)")
         }
     }
-    
-    private func determineProductType(_ storeProduct: SKProduct) -> Product.ProductType {
-        switch storeProduct.type {
-        case .consumable:
-            return .consumable
-        case .nonConsumable:
-            return .nonConsumable
-        case .autoRenewable:
-            return .autoRenewable
-        case .nonRenewable:
-            return .nonRenewable
-        default:
-            return .nonConsumable
-        }
-    }
-    
+
     // MARK: - Purchase Methods
     func purchaseProduct(_ productId: String) async -> PurchaseResult {
         guard let product = products.first(where: { $0.id == productId }) else {
@@ -98,7 +58,7 @@ class PurchaseService: ObservableObject {
         defer { isPurchasing = false }
         
         do {
-            let storeProduct = try await SKProduct.products(for: [productId]).first
+            let storeProduct = try await Product.products(for: [productId]).first
             guard let storeProduct = storeProduct else {
                 return PurchaseResult(
                     success: false,
@@ -123,7 +83,7 @@ class PurchaseService: ObservableObject {
                 AnalyticsService.trackEvent(.purchaseCompleted, parameters: [
                     "product_id": productId,
                     "transaction_id": transaction.id.description,
-                    "price": product.priceString
+                    "price": product.displayPrice
                 ])
                 
                 return PurchaseResult(
@@ -234,6 +194,9 @@ class PurchaseService: ObservableObject {
                 // Update last transaction ID
                 lastTransactionId = transaction.id.description
                 
+                // Add to purchased products
+                await addToPurchasedProducts(transaction.productID)
+                
                 // Track transaction update
                 AnalyticsService.trackEvent(.transactionUpdated, parameters: [
                     "transaction_id": transaction.id.description,
@@ -243,6 +206,7 @@ class PurchaseService: ObservableObject {
                 
                 print("📋 Transaction update received: \(transaction.id.description)")
                 print("🛍️ Product: \(transaction.productID)")
+                print("✅ Added to purchased products")
                 
                 // Finish the transaction
                 await transaction.finish()
@@ -254,10 +218,42 @@ class PurchaseService: ObservableObject {
         }
     }
     
+    // MARK: - Purchased Products Management
+    private func loadPurchasedProducts() async {
+        print("📦 Loading purchased products...")
+        
+        for await result in Transaction.currentEntitlements {
+            do {
+                let transaction = try checkVerified(result)
+                await addToPurchasedProducts(transaction.productID)
+            } catch {
+                print("❌ Failed to verify transaction: \(error)")
+            }
+        }
+        
+        print("✅ Loaded \(purchasedProductIds.count) purchased products")
+    }
+    
+    private func addToPurchasedProducts(_ productId: String) async {
+        await MainActor.run {
+            purchasedProductIds.insert(productId)
+            print("✅ Added \(productId) to purchased products")
+        }
+    }
+    
+    func isProductPurchased(_ productId: String) -> Bool {
+        return purchasedProductIds.contains(productId)
+    }
+    
+    func getPurchasedProducts() -> [String] {
+        return Array(purchasedProductIds)
+    }
+    
     // MARK: - Restore Purchases
     func restorePurchases() async -> Bool {
         do {
             try await AppStore.sync()
+            await loadPurchasedProducts() // Reload purchased products after sync
             print("✅ Purchases restored successfully")
             return true
         } catch {
@@ -284,10 +280,3 @@ enum PurchaseError: Error, LocalizedError {
         }
     }
 }
-
-// MARK: - Analytics Events Extension
-extension AnalyticsEvent {
-    static let purchaseCompleted = AnalyticsEvent(rawValue: "purchase_completed")!
-    static let purchaseFailed = AnalyticsEvent(rawValue: "purchase_failed")!
-    static let purchaseRestored = AnalyticsEvent(rawValue: "purchase_restored")!
-} 

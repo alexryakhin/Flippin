@@ -1,5 +1,15 @@
 {
-  "identifier" : "FlippinTestConfiguration",
+  "appPolicies" : {
+    "eula" : "",
+    "policies" : [
+      {
+        "locale" : "en_US",
+        "policyText" : "",
+        "policyURL" : ""
+      }
+    ]
+  },
+  "identifier" : "490810D6",
   "nonRenewingSubscriptions" : [
 
   ],
@@ -7,10 +17,10 @@
     {
       "displayPrice" : "0.99",
       "familyShareable" : false,
-      "internalID" : "unlimited_cards",
+      "internalID" : "6748602880",
       "localizations" : [
         {
-          "description" : "Remove the limit on the number of cards you can create",
+          "description" : "Unlimited Cards Description",
           "displayName" : "Unlimited Cards",
           "locale" : "en_US"
         }
@@ -21,10 +31,10 @@
     }
   ],
   "settings" : {
-    "_applicationInternalID" : "com.dor.flippin",
+    "_applicationInternalID" : "6748499528",
     "_developerTeamID" : "69S862NXBP",
     "_failTransactionsEnabled" : false,
-    "_lastSynchronizedDate" : 738345600.0,
+    "_lastSynchronizedDate" : 774182203.85316205,
     "_locale" : "en_US",
     "_storefront" : "USA",
     "_storeKitErrors" : [
@@ -77,13 +87,9 @@
   },
   "subscriptionGroups" : [
     {
-      "id" : "21482456",
+      "id" : "21731755",
       "localizations" : [
-        {
-          "description" : "Premium features for Flippin",
-          "displayName" : "Flippin Premium",
-          "locale" : "en_US"
-        }
+
       ],
       "name" : "Premium",
       "subscriptions" : [
@@ -94,14 +100,14 @@
           "codeOffers" : [
 
           ],
-          "displayPrice" : "4.99",
+          "displayPrice" : "1.99",
           "familyShareable" : true,
           "groupNumber" : 1,
-          "internalID" : "premium_monthly",
+          "internalID" : "6748603046",
           "introductoryOffer" : null,
           "localizations" : [
             {
-              "description" : "Premium features for one month",
+              "description" : "Premium Monthly Description",
               "displayName" : "Premium Monthly",
               "locale" : "en_US"
             }
@@ -109,8 +115,11 @@
           "productID" : "com.dor.flippin.premium_monthly",
           "recurringSubscriptionPeriod" : "P1M",
           "referenceName" : "Premium Monthly",
-          "subscriptionGroupID" : "21482456",
-          "type" : "RecurringSubscription"
+          "subscriptionGroupID" : "21731755",
+          "type" : "RecurringSubscription",
+          "winbackOffers" : [
+
+          ]
         },
         {
           "adHocOffers" : [
@@ -119,14 +128,14 @@
           "codeOffers" : [
 
           ],
-          "displayPrice" : "39.99",
+          "displayPrice" : "19.99",
           "familyShareable" : true,
           "groupNumber" : 2,
-          "internalID" : "premium_yearly",
+          "internalID" : "6748603055",
           "introductoryOffer" : null,
           "localizations" : [
             {
-              "description" : "Premium features for one year",
+              "description" : "Premium Yearly Description",
               "displayName" : "Premium Yearly",
               "locale" : "en_US"
             }
@@ -134,14 +143,17 @@
           "productID" : "com.dor.flippin.premium_yearly",
           "recurringSubscriptionPeriod" : "P1Y",
           "referenceName" : "Premium Yearly",
-          "subscriptionGroupID" : "21482456",
-          "type" : "RecurringSubscription"
+          "subscriptionGroupID" : "21731755",
+          "type" : "RecurringSubscription",
+          "winbackOffers" : [
+
+          ]
         }
       ]
     }
   ],
   "version" : {
-    "major" : 3,
+    "major" : 4,
     "minor" : 0
   }
-} 
+}

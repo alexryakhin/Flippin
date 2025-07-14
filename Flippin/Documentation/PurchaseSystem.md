@@ -11,6 +11,7 @@
 - Загрузка продуктов из App Store
 - Выполнение покупок
 - Автоматическое прослушивание обновлений транзакций
+- Отслеживание купленных продуктов
 - Получение истории транзакций
 - Восстановление покупок
 
@@ -18,7 +19,8 @@
 UI для тестирования покупок:
 - Кнопка для выполнения тестовой покупки
 - Отображение последнего transaction ID
-- Просмотр доступных продуктов
+- Просмотр доступных продуктов с статусом покупки
+- Список купленных продуктов
 - История транзакций
 
 ### 3. StoreKit Configuration
@@ -161,6 +163,18 @@ let hasPurchases = await PurchaseExample.hasAnyPurchases()
 if hasPurchases {
     print("У пользователя есть покупки")
 }
+
+// Проверить конкретный продукт
+let unlimitedCardsId = "com.dor.flippin.unlimited_cards"
+if PurchaseExample.isProductPurchased(unlimitedCardsId) {
+    print("Unlimited Cards куплен")
+} else {
+    print("Unlimited Cards не куплен")
+}
+
+// Получить все купленные продукты
+let purchasedProducts = PurchaseExample.getPurchasedProducts()
+print("Купленные продукты: \(purchasedProducts)")
 
 // Получить последний transaction ID
 if let lastTransactionId = PurchaseExample.getLastTransactionId() {

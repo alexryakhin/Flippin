@@ -51,7 +51,7 @@
          </BuildableReference>
       </BuildableProductRunnable>
       <StoreKitConfigurationFileReference
-         identifier = "../../Flippin/Configuration/StoreKitConfiguration.storekit">
+         identifier = "../../Flippin/Configuration/Flippin.storekit">
       </StoreKitConfigurationFileReference>
    </LaunchAction>
    <ProfileAction
