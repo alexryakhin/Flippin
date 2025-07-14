@@ -19,6 +19,7 @@ struct BackgroundPreviewView: View {
                             isSelected: colorManager.backgroundStyle == style
                         ) {
                             colorManager.setBackgroundStyle(style)
+                            AnalyticsService.trackSettingsEvent(.backgroundStyleChanged, newValue: style.rawValue)
                         }
                     }
                 }

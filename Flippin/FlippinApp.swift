@@ -7,6 +7,8 @@
 
 import SwiftUI
 import SwiftData
+import Firebase
+import FirebaseAnalytics
 
 @main
 struct FlippinApp: App {
@@ -26,6 +28,11 @@ struct FlippinApp: App {
             fatalError("Could not create ModelContainer: \(error)")
         }
     }()
+
+    init() {
+        FirebaseApp.configure()
+        AnalyticsService.trackEvent(.appLaunched)
+    }
 
     var body: some Scene {
         WindowGroup {

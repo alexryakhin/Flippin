@@ -10,14 +10,18 @@ enum TranslationServiceError: Error {
 final class TranslationService {
     static func translate(text: String, from sourceLang: String, to targetLang: String) async throws -> String {
         guard let encodedText = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+            AnalyticsService.trackErrorEvent(.translationFailed, errorMessage: "Invalid URL encoding")
             throw TranslationServiceError.invalidURL
         }
         let urlString = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=\(sourceLang)&tl=\(targetLang)&dt=t&q=\(encodedText)"
         guard let url = URL(string: urlString) else {
+            AnalyticsService.trackErrorEvent(.translationFailed, errorMessage: "Invalid URL")
             throw TranslationServiceError.invalidURL
         }
         let (data, response) = try await URLSession.shared.data(from: url)
         guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+            let statusCode = (response as? HTTPURLResponse)?.statusCode ?? 0
+            AnalyticsService.trackErrorEvent(.translationFailed, errorMessage: "HTTP \(statusCode)")
             throw TranslationServiceError.invalidResponse
         }
         // The response is a nested JSON array
@@ -29,6 +33,7 @@ final class TranslationService {
             print("Detected language:", detectedLanguage)
             return translated
         }
+        AnalyticsService.trackErrorEvent(.translationFailed, errorMessage: "Decoding error")
         throw TranslationServiceError.decodingError
     }
 } 

@@ -88,6 +88,7 @@ struct MyCardsListView: View {
                         if !searchText.isEmpty {
                             Button(LocalizationKeys.clearSearch.localized) {
                                 searchText = ""
+                                AnalyticsService.trackSearchEvent(.searchCleared)
                             }
                             .buttonStyle(.bordered)
                         }
@@ -120,6 +121,11 @@ struct MyCardsListView: View {
                                 Image(systemName: "tag")
                                     .foregroundStyle(tagManager.currentFilterTag.isEmpty ? .secondary : .primary)
                             }
+                            .onChange(of: showingTagFilter) { _, isPresented in
+                                if isPresented {
+                                    AnalyticsService.trackEvent(.tagFilterApplied)
+                                }
+                            }
                             
                             Button(LocalizationKeys.deleteAll.localized, role: .destructive) {
                                 cardToDelete = nil
@@ -148,13 +154,21 @@ struct MyCardsListView: View {
     private func deleteCards(offsets: IndexSet) {
         withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
             for index in offsets {
-                modelContext.delete(filteredCards[index])
+                let card = filteredCards[index]
+                AnalyticsService.trackCardEvent(
+                    .cardDeleted,
+                    cardLanguage: card.frontLanguage?.rawValue,
+                    hasTags: !(card.tags?.isEmpty ?? true),
+                    tagCount: card.tags?.count ?? .zero
+                )
+                modelContext.delete(card)
             }
         }
     }
     
     private func deleteAllCards() {
         withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
+            AnalyticsService.trackEvent(.cardDeleted, parameters: ["deleted_count": cards.count])
             for card in cards {
                 modelContext.delete(card)
             }

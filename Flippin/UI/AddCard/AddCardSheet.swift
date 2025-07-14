@@ -117,6 +117,13 @@ struct AddCardSheet: View {
                 ToolbarItem(placement: .confirmationAction) {
                     Button(LocalizationKeys.save.localized) {
                         if viewModel.saveCard(modelContext: modelContext) {
+                            // Track card added event
+                            AnalyticsService.trackCardEvent(
+                                .cardAdded,
+                                cardLanguage: viewModel.targetLanguage.rawValue,
+                                hasTags: !viewModel.selectedTags.isEmpty,
+                                tagCount: viewModel.selectedTags.count
+                            )
                             dismiss()
                         }
                     }

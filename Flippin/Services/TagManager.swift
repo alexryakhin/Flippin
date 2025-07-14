@@ -42,6 +42,7 @@ final class TagManager: ObservableObject {
     
     func removeTag(_ tag: String) {
         availableTags.removeAll { $0 == tag }
+        AnalyticsService.trackTagEvent(.tagDeleted, tagName: tag, tagCount: availableTags.count)
     }
     
     func addTagToCard(_ tag: String, card: CardItem) {

@@ -38,6 +38,9 @@ struct SettingsView: View {
                                     }
                                 }
                                 .pickerStyle(.menu)
+                                .onChange(of: userLanguageRaw) { oldValue, newValue in
+                                    AnalyticsService.trackSettingsEvent(.languageChanged, oldValue: oldValue, newValue: newValue)
+                                }
                             }
 
                             CellWrapper {
@@ -51,6 +54,9 @@ struct SettingsView: View {
                                     }
                                 }
                                 .pickerStyle(.menu)
+                                .onChange(of: targetLanguageRaw) { oldValue, newValue in
+                                    AnalyticsService.trackSettingsEvent(.languageChanged, oldValue: oldValue, newValue: newValue)
+                                }
                             }
                         }
                         .clippedWithBackground()
@@ -69,6 +75,7 @@ struct SettingsView: View {
                                     get: { colorManager.userGradientColor },
                                     set: { newColor in
                                         colorManager.setUserGradientColor(newColor)
+                                        AnalyticsService.trackSettingsEvent(.backgroundColorChanged, newValue: newColor.description)
                                     }
                                 ))
                                 .labelsHidden()
@@ -81,6 +88,7 @@ struct SettingsView: View {
                             } trailingContent: {
                                 Button(colorManager.backgroundStyle.displayName) {
                                     showingBackgroundPreview = true
+                                    AnalyticsService.trackNavigationEvent(.backgroundDemoOpened, screenName: "BackgroundDemo")
                                 }
                                 .buttonStyle(.bordered)
                             }
@@ -103,6 +111,7 @@ struct SettingsView: View {
                                 Button(LocalizationKeys.add.localized) {
                                     if !newTagText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
                                         tagManager.addTag(newTagText)
+                                        AnalyticsService.trackTagEvent(.tagAdded, tagName: newTagText, tagCount: tagManager.availableTags.count)
                                         newTagText = ""
                                     }
                                 }

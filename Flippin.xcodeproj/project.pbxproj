@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		53BEAE352E23A3C8003E07F0 /* Flow in Frameworks */ = {isa = PBXBuildFile; productRef = 53BEAE342E23A3C8003E07F0 /* Flow */; };
+		53BEF19D2E24E1D4002F2A76 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 53BEF19C2E24E1D4002F2A76 /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		53BEF19F2E24E1D4002F2A76 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 53BEF19E2E24E1D4002F2A76 /* FirebaseCrashlytics */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,7 +41,9 @@
 		533792DE2E110B250097F5BF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
+				53BEF19F2E24E1D4002F2A76 /* FirebaseCrashlytics in Frameworks */,
 				53BEAE352E23A3C8003E07F0 /* Flow in Frameworks */,
+				53BEF19D2E24E1D4002F2A76 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 			);
 		};
 /* End PBXFrameworksBuildPhase section */
@@ -80,6 +84,8 @@
 			name = Flippin;
 			packageProductDependencies = (
 				53BEAE342E23A3C8003E07F0 /* Flow */,
+				53BEF19C2E24E1D4002F2A76 /* FirebaseAnalyticsWithoutAdIdSupport */,
+				53BEF19E2E24E1D4002F2A76 /* FirebaseCrashlytics */,
 			);
 			productName = SpeakCards;
 			productReference = 533792E12E110B250097F5BF /* Flippin.app */;
@@ -129,6 +135,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				53BEAE332E23A3C8003E07F0 /* XCRemoteSwiftPackageReference "SwiftUI-Flow" */,
+				53BEF19B2E24E1D4002F2A76 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			preferredProjectObjectVersion = 90;
 			productRefGroup = 533792E22E110B250097F5BF /* Products */;
@@ -378,6 +385,14 @@
 				minimumVersion = 3.1.1;
 			};
 		};
+		53BEF19B2E24E1D4002F2A76 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.15.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -385,6 +400,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 53BEAE332E23A3C8003E07F0 /* XCRemoteSwiftPackageReference "SwiftUI-Flow" */;
 			productName = Flow;
+		};
+		53BEF19C2E24E1D4002F2A76 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53BEF19B2E24E1D4002F2A76 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		53BEF19E2E24E1D4002F2A76 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53BEF19B2E24E1D4002F2A76 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

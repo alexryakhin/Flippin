@@ -46,6 +46,14 @@ struct CardView: View {
                 if animationStart == nil {
                     animationDirection = isFlipped ? -1 : 1
                     animationStart = now
+                    
+                    // Track card flip event
+                    AnalyticsService.trackCardEvent(
+                        .cardFlipped,
+                        cardLanguage: item.frontLanguage?.rawValue,
+                        hasTags: !(item.tags?.isEmpty ?? true),
+                        tagCount: item.tags?.count ?? .zero
+                    )
                 }
             }
             .onChange(of: progress) { _, newProgress in

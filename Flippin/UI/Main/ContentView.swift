@@ -65,6 +65,7 @@ struct ContentView: View {
         .onAppear {
             if !didShowWelcomeSheet {
                 showWelcomeSheet = true
+                AnalyticsService.trackEvent(.welcomeScreenOpened)
             }
         }
         .onChange(of: items.count) { _, _ in
@@ -86,6 +87,11 @@ struct ContentView: View {
         .sheet(isPresented: $showSettings) {
             SettingsView()
         }
+        .onChange(of: showSettings) { _, isPresented in
+            if isPresented {
+                AnalyticsService.trackNavigationEvent(.settingsScreenOpened, screenName: "Settings")
+            }
+        }
         .sheet(isPresented: $showMyCards) {
             MyCardsListView(
                 onAddCard: {
@@ -96,8 +102,18 @@ struct ContentView: View {
                 }
             )
         }
+        .onChange(of: showMyCards) { _, isPresented in
+            if isPresented {
+                AnalyticsService.trackNavigationEvent(.myCardsScreenOpened, screenName: "MyCards")
+            }
+        }
         .sheet(isPresented: $showAddCardSheet) {
             AddCardSheet()
+        }
+        .onChange(of: showAddCardSheet) { _, isPresented in
+            if isPresented {
+                AnalyticsService.trackNavigationEvent(.addCardScreenOpened, screenName: "AddCard")
+            }
         }
         .sheet(isPresented: $showingTagFilter) {
             TagFilterView(tagManager: tagManager) {
@@ -161,6 +177,7 @@ struct ContentView: View {
                 shuffledItems = shuffledItems.shuffled()
             }
         }
+        AnalyticsService.trackEvent(.cardsShuffled)
     }
 
     private func resetShuffle() {

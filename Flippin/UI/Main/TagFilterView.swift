@@ -28,8 +28,10 @@ struct TagFilterView: View {
                             ) {
                                 if tagManager.currentFilterTag == tag {
                                     tagManager.currentFilterTag = ""
+                                    AnalyticsService.trackTagEvent(.tagFilterCleared, tagName: tag)
                                 } else {
                                     tagManager.currentFilterTag = tag
+                                    AnalyticsService.trackTagEvent(.tagFilterApplied, tagName: tag)
                                 }
                             }
                         }

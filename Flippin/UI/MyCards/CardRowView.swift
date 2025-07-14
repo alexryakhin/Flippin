@@ -45,8 +45,10 @@ struct CardRowView: View {
                     Task {
                         do {
                             try await TTSPlayer.shared.play(text, language: language)
+                            AnalyticsService.trackEvent(.cardPlayed)
                         } catch {
                             print("TTS error: \(error)")
+                            AnalyticsService.trackErrorEvent(.ttsFailed, errorMessage: error.localizedDescription)
                         }
                         isPlayingTTS = false
                     }
@@ -85,6 +87,14 @@ struct CardRowView: View {
         .onTapGesture {
             withAnimation(.easeInOut(duration: 0.3)) {
                 isFlipped.toggle()
+                
+                // Track card flip event
+                AnalyticsService.trackCardEvent(
+                    .cardFlipped,
+                    cardLanguage: card.frontText,
+                    hasTags: !(card.tags?.isEmpty ?? true),
+                    tagCount: card.tags?.count ?? .zero
+                )
             }
         }
     }
