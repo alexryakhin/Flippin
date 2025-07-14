@@ -24,6 +24,7 @@ enum Language: String, Codable, CaseIterable, Identifiable {
     case arabic = "ar"
     case hindi = "hi"
     case croatian = "hr"
+    case ukranian = "uk"
 
     var id: String { rawValue }
 
@@ -45,6 +46,7 @@ enum Language: String, Codable, CaseIterable, Identifiable {
         case .arabic: return "ar"
         case .hindi: return "hi"
         case .croatian: return "hr"
+        case .ukranian: return "uk"
         }
     }
 
@@ -66,6 +68,7 @@ enum Language: String, Codable, CaseIterable, Identifiable {
         case .arabic: return "Arabic"
         case .hindi: return "Hindi"
         case .croatian: return "Croatian"
+        case .ukranian: return "Ukrainian"
         }
     }
 }

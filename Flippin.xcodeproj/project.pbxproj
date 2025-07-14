@@ -107,6 +107,22 @@
 				en,
 				Base,
 				hr,
+				es,
+				fr,
+				de,
+				it,
+				"pt-PT",
+				nl,
+				sv,
+				"zh-Hans",
+				"zh-Hant",
+				"pt-BR",
+				ja,
+				ko,
+				vi,
+				ar,
+				hi,
+				uk,
 			);
 			mainGroup = 533792D82E110B250097F5BF;
 			minimizedProjectReferenceProxies = 1;
