@@ -18,6 +18,7 @@ struct SettingsView: View {
     @State private var newTagText = ""
     @State private var showingAddTagAlert = false
     @State private var showingBackgroundPreview = false
+    @State private var showingPurchaseTest = false
 
     var body: some View {
         NavigationView {
@@ -144,6 +145,24 @@ struct SettingsView: View {
                         }
                         .clippedWithPaddingAndBackground()
                     }
+
+                    CustomSectionView(
+                        header: "Purchase Testing"
+                    ) {
+                        VStack(spacing: 12) {
+                            Text("Test in-app purchases and get transaction IDs")
+                                .font(.subheadline)
+                                .foregroundStyle(.secondary)
+                            
+                            Button("Open Purchase Test") {
+                                showingPurchaseTest = true
+                                AnalyticsService.trackEvent(.purchaseTestOpened)
+                            }
+                            .buttonStyle(.borderedProminent)
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .clippedWithPaddingAndBackground()
+                    }
                 }
                 .padding(16)
             }
@@ -159,6 +178,11 @@ struct SettingsView: View {
             }
             .sheet(isPresented: $showingBackgroundPreview) {
                 BackgroundPreviewView()
+            }
+            .sheet(isPresented: $showingPurchaseTest) {
+                NavigationView {
+                    PurchaseTestView()
+                }
             }
         }
     }

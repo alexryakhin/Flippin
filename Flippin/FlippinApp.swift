@@ -19,7 +19,7 @@ struct FlippinApp: App {
         let modelConfiguration = ModelConfiguration(
             schema: schema, 
             isStoredInMemoryOnly: false,
-            cloudKitDatabase: .automatic
+            cloudKitDatabase: .private("iCloud.com.dor.flippin")
         )
 
         do {

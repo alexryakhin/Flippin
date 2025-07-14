@@ -46,6 +46,11 @@ enum AnalyticsEvent: String, CaseIterable {
     case errorOccurred = "error_occurred"
     case translationFailed = "translation_failed"
     case ttsFailed = "tts_failed"
+    
+    // MARK: - Purchase Events
+    case purchaseTestOpened = "purchase_test_opened"
+    case transactionUpdated = "transaction_updated"
+    case transactionVerificationFailed = "transaction_verification_failed"
 }
 
 // MARK: - Analytics Service
