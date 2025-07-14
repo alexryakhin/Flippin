@@ -82,3 +82,22 @@
 
 // MARK: - Placeholder Text
 "AB" = "AB";
+
+// MARK: - Languages
+"English" = "Englisch";
+"Spanish" = "Spanisch";
+"French" = "Französisch";
+"German" = "Deutsch";
+"Italian" = "Italienisch";
+"Portuguese" = "Portugiesisch";
+"Dutch" = "Niederländisch";
+"Swedish" = "Schwedisch";
+"Chinese" = "Chinesisch";
+"Japanese" = "Japanisch";
+"Korean" = "Koreanisch";
+"Vietnamese" = "Vietnamesisch";
+"Russian" = "Russisch";
+"Arabic" = "Arabisch";
+"Hindi" = "Hindi";
+"Croatian" = "Kroatisch";
+"Ukrainian" = "Ukrainisch";

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUICore
 
 enum Language: String, Codable, CaseIterable, Identifiable {
     case english = "en"
@@ -52,23 +53,23 @@ enum Language: String, Codable, CaseIterable, Identifiable {
 
     var displayName: String {
         switch self {
-        case .english: return "English"
-        case .spanish: return "Spanish"
-        case .french: return "French"
-        case .german: return "German"
-        case .italian: return "Italian"
-        case .portuguese: return "Portuguese"
-        case .dutch: return "Dutch"
-        case .swedish: return "Swedish"
-        case .chinese: return "Chinese"
-        case .japanese: return "Japanese"
-        case .korean: return "Korean"
-        case .vietnamese: return "Vietnamese"
-        case .russian: return "Russian"
-        case .arabic: return "Arabic"
-        case .hindi: return "Hindi"
-        case .croatian: return "Croatian"
-        case .ukranian: return "Ukrainian"
+        case .english: return NSLocalizedString("English", comment: "English language name")
+        case .spanish: return NSLocalizedString("Spanish", comment: "Spanish language name")
+        case .french: return NSLocalizedString("French", comment: "French language name")
+        case .german: return NSLocalizedString("German", comment: "German language name")
+        case .italian: return NSLocalizedString("Italian", comment: "Italian language name")
+        case .portuguese: return NSLocalizedString("Portuguese", comment: "Portuguese language name")
+        case .dutch: return NSLocalizedString("Dutch", comment: "Dutch language name")
+        case .swedish: return NSLocalizedString("Swedish", comment: "Swedish language name")
+        case .chinese: return NSLocalizedString("Chinese", comment: "Chinese language name")
+        case .japanese: return NSLocalizedString("Japanese", comment: "Japanese language name")
+        case .korean: return NSLocalizedString("Korean", comment: "Korean language name")
+        case .vietnamese: return NSLocalizedString("Vietnamese", comment: "Vietnamese language name")
+        case .russian: return NSLocalizedString("Russian", comment: "Russian language name")
+        case .arabic: return NSLocalizedString("Arabic", comment: "Arabic language name")
+        case .hindi: return NSLocalizedString("Hindi", comment: "Hindi language name")
+        case .croatian: return NSLocalizedString("Croatian", comment: "Croatian language name")
+        case .ukranian: return NSLocalizedString("Ukrainian", comment: "Ukrainian language name")
         }
     }
 }
