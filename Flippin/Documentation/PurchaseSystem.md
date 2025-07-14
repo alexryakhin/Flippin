@@ -1,48 +1,48 @@
-# Система покупок Flippin
+# Flippin Purchase System
 
-## Обзор
+## Overview
 
-Система покупок в приложении Flippin использует StoreKit 2 для обработки in-app покупок. Система поддерживает тестовые покупки и предоставляет полную информацию о транзакциях, включая идентификаторы транзакций.
+The purchase system in the Flippin app uses StoreKit 2 to handle in-app purchases. The system supports test purchases and provides complete transaction information, including transaction identifiers.
 
-## Компоненты
+## Components
 
 ### 1. PurchaseService
-Основной сервис для управления покупками:
-- Загрузка продуктов из App Store
-- Выполнение покупок
-- Автоматическое прослушивание обновлений транзакций
-- Отслеживание купленных продуктов
-- Получение истории транзакций
-- Восстановление покупок
+Main service for managing purchases:
+- Loading products from App Store
+- Executing purchases
+- Automatic listening for transaction updates
+- Tracking purchased products
+- Getting transaction history
+- Restoring purchases
 
 ### 2. PurchaseTestView
-UI для тестирования покупок:
-- Кнопка для выполнения тестовой покупки
-- Отображение последнего transaction ID
-- Просмотр доступных продуктов с статусом покупки
-- Список купленных продуктов
-- История транзакций
+UI for testing purchases:
+- Button for performing test purchases
+- Displaying the last transaction ID
+- Viewing available products with purchase status
+- List of purchased products
+- Transaction history
 
 ### 3. StoreKit Configuration
-Конфигурационный файл для тестовых продуктов:
-- `com.dor.flippin.unlimited_cards` - Непотребляемый продукт ($0.99)
-- `com.dor.flippin.premium_monthly` - Подписка на месяц ($4.99)
-- `com.dor.flippin.premium_yearly` - Подписка на год ($39.99)
+Configuration file for test products:
+- `com.dor.flippin.unlimited_cards` - Non-consumable product ($0.99)
+- `com.dor.flippin.premium_monthly` - Monthly subscription ($1.99)
+- `com.dor.flippin.premium_yearly` - Yearly subscription ($19.99)
 
-## Как выполнить тестовую покупку
+## How to Perform a Test Purchase
 
-### Способ 1: Через UI
-1. Откройте приложение Flippin
-2. Перейдите в Настройки (Settings)
-3. Найдите секцию "Purchase Testing"
-4. Нажмите "Open Purchase Test"
-5. Нажмите "Start Test Purchase"
-6. Подтвердите покупку в диалоге StoreKit
-7. Получите transaction ID в результатах
+### Method 1: Through UI
+1. Open the Flippin app
+2. Go to Settings
+3. Find the "Purchase Testing" section
+4. Tap "Open Purchase Test"
+5. Tap "Start Test Purchase"
+6. Confirm the purchase in the StoreKit dialog
+7. Get the transaction ID in the results
 
-### Способ 2: Программно
+### Method 2: Programmatically
 ```swift
-// Простая тестовая покупка
+// Simple test purchase
 Task {
     let result = await PurchaseService.shared.performTestPurchase()
     if result.success {
@@ -50,7 +50,7 @@ Task {
     }
 }
 
-// Покупка конкретного продукта
+// Purchase specific product
 Task {
     let result = await PurchaseService.shared.purchaseProduct("com.dor.flippin.unlimited_cards")
     if result.success {
@@ -59,23 +59,23 @@ Task {
 }
 ```
 
-## Прослушивание обновлений транзакций
+## Transaction Updates Listening
 
-Система автоматически запускает прослушивание обновлений транзакций при инициализации `PurchaseService`. Это критически важно для предотвращения потери покупок.
+The system automatically starts listening for transaction updates when `PurchaseService` is initialized. This is critically important for preventing loss of purchases.
 
-### Автоматическое прослушивание
+### Automatic Listening
 ```swift
-// При инициализации PurchaseService автоматически запускается:
+// When PurchaseService is initialized, it automatically starts:
 private func listenForTransactionUpdates() async {
     for await result in Transaction.updates {
         let transaction = try checkVerified(result)
-        // Обработка транзакции
+        // Process transaction
         await transaction.finish()
     }
 }
 ```
 
-### Проверка статуса прослушивания
+### Checking Listener Status
 ```swift
 let purchaseService = PurchaseService.shared
 if purchaseService.isListeningForUpdates {
@@ -85,9 +85,9 @@ if purchaseService.isListeningForUpdates {
 }
 ```
 
-## Получение Transaction ID
+## Getting Transaction ID
 
-### Из результата покупки
+### From Purchase Result
 ```swift
 let result = await PurchaseService.shared.performTestPurchase()
 if result.success {
@@ -96,7 +96,7 @@ if result.success {
 }
 ```
 
-### Из истории транзакций
+### From Transaction History
 ```swift
 let transactions = await PurchaseService.shared.getTransactionHistory()
 for transaction in transactions {
@@ -106,125 +106,125 @@ for transaction in transactions {
 }
 ```
 
-### Из UI
-После успешной покупки transaction ID отображается в секции "Last Transaction ID" и может быть скопирован в буфер обмена.
+### From UI
+After a successful purchase, the transaction ID is displayed in the "Last Transaction ID" section and can be copied to clipboard.
 
-## Настройка для тестирования
+## Setup for Testing
 
 ### 1. StoreKit Configuration
-Файл `StoreKitConfiguration.storekit` содержит конфигурацию тестовых продуктов. Для использования:
+The `StoreKitConfiguration.storekit` file contains test product configuration. To use:
 
-1. Откройте проект в Xcode
-2. Выберите схему (scheme) для запуска
-3. В настройках схемы включите "StoreKit Configuration"
-4. Выберите файл `FlippinTestConfiguration`
+1. Open the project in Xcode
+2. Select the scheme (scheme) for launch
+3. In scheme settings, enable "StoreKit Configuration"
+4. Select the `FlippinTestConfiguration` file
 
-### 2. Тестовые аккаунты
-Для тестирования в симуляторе:
-- Используйте встроенные тестовые аккаунты StoreKit
-- Или создайте тестовый аккаунт в App Store Connect
+### 2. Test Accounts
+For testing in simulator:
+- Use built-in StoreKit test accounts
+- Or create a test account in App Store Connect
 
-### 3. Режим отладки
-В Xcode включите:
+### 3. Debug Mode
+In Xcode enable:
 - StoreKit Testing
 - StoreKit Configuration
 - StoreKit Transaction Manager
 
-## Примеры использования
+## Usage Examples
 
-### Полный цикл покупки
+### Complete Purchase Flow
 ```swift
-// 1. Загрузить продукты
+// 1. Load products
 await PurchaseService.shared.loadProducts()
 
-// 2. Выполнить покупку
+// 2. Perform purchase
 let result = await PurchaseService.shared.performTestPurchase()
 
-// 3. Обработать результат
+// 3. Handle result
 if result.success {
     let transactionId = result.transactionId
-    print("Покупка успешна! Transaction ID: \(transactionId ?? "Unknown")")
+    print("Purchase successful! Transaction ID: \(transactionId ?? "Unknown")")
     
-    // 4. Сохранить transaction ID
+    // 4. Save transaction ID
     UserDefaults.standard.set(transactionId, forKey: "last_transaction_id")
     
-    // 5. Получить историю транзакций
+    // 5. Get transaction history
     let transactions = await PurchaseService.shared.getTransactionHistory()
-    print("Всего транзакций: \(transactions.count)")
+    print("Total transactions: \(transactions.count)")
 } else {
-    print("Ошибка покупки: \(result.error ?? "Unknown error")")
+    print("Purchase error: \(result.error ?? "Unknown error")")
 }
 ```
 
-### Проверка покупок
+### Checking Purchases
 ```swift
-// Проверить, есть ли покупки
+// Check if user has any purchases
 let hasPurchases = await PurchaseExample.hasAnyPurchases()
 if hasPurchases {
-    print("У пользователя есть покупки")
+    print("User has purchases")
 }
 
-// Проверить конкретный продукт
+// Check specific product
 let unlimitedCardsId = "com.dor.flippin.unlimited_cards"
 if PurchaseExample.isProductPurchased(unlimitedCardsId) {
-    print("Unlimited Cards куплен")
+    print("Unlimited Cards is purchased")
 } else {
-    print("Unlimited Cards не куплен")
+    print("Unlimited Cards is not purchased")
 }
 
-// Получить все купленные продукты
+// Get all purchased products
 let purchasedProducts = PurchaseExample.getPurchasedProducts()
-print("Купленные продукты: \(purchasedProducts)")
+print("Purchased products: \(purchasedProducts)")
 
-// Получить последний transaction ID
+// Get last transaction ID
 if let lastTransactionId = PurchaseExample.getLastTransactionId() {
-    print("Последний Transaction ID: \(lastTransactionId)")
+    print("Last Transaction ID: \(lastTransactionId)")
 }
 ```
 
-## Обработка ошибок
+## Error Handling
 
-### Типичные ошибки
-- `Product not found` - Продукт не найден в App Store
-- `Purchase cancelled by user` - Пользователь отменил покупку
-- `Purchase pending approval` - Покупка ожидает одобрения
-- `Transaction verification failed` - Ошибка верификации транзакции
+### Common Errors
+- `Product not found` - Product not found in App Store
+- `Purchase cancelled by user` - User cancelled the purchase
+- `Purchase pending approval` - Purchase pending approval
+- `Transaction verification failed` - Transaction verification error
 
-### Обработка ошибок
+### Error Handling
 ```swift
 let result = await PurchaseService.shared.performTestPurchase()
 if !result.success {
     switch result.error {
     case "Product not found":
-        print("Продукт не найден")
+        print("Product not found")
     case "Purchase cancelled by user":
-        print("Пользователь отменил покупку")
+        print("User cancelled purchase")
     default:
-        print("Ошибка: \(result.error ?? "Unknown")")
+        print("Error: \(result.error ?? "Unknown")")
     }
 }
 ```
 
-## Аналитика
+## Analytics
 
-Система автоматически отслеживает события покупок:
-- `purchase_completed` - Успешная покупка
-- `purchase_failed` - Неудачная покупка
-- `purchase_restored` - Восстановление покупок
-- `purchase_test_opened` - Открытие тестирования покупок
+The system automatically tracks purchase events:
+- `purchase_completed` - Successful purchase
+- `purchase_failed` - Failed purchase
+- `purchase_restored` - Purchase restoration
+- `purchase_test_opened` - Opening purchase testing
 
-## Безопасность
+## Security
 
-- Все транзакции верифицируются через StoreKit
-- Transaction ID генерируется Apple и уникален
-- Автоматическое прослушивание обновлений транзакций предотвращает потерю покупок
-- Поддержка восстановления покупок
-- Обработка всех возможных состояний покупки
+- All transactions are verified through StoreKit
+- Transaction ID is generated by Apple and is unique
+- Automatic listening for transaction updates prevents loss of purchases
+- Support for purchase restoration
+- Handling of all possible purchase states
 
-## Поддержка
+## Support
 
-При возникновении проблем:
-1. Проверьте настройки StoreKit Configuration
-2. Убедитесь, что продукты настроены в App Store Connect
-3. Проверьте логи Xcode для диагностики
-4. Используйте StoreKit Transaction Manager для отладки 
+If you encounter problems:
+1. Check StoreKit Configuration settings
+2. Make sure products are configured in App Store Connect
+3. Check Xcode logs for diagnostics
+4. Use StoreKit Transaction Manager for debugging 

@@ -1,96 +1,96 @@
-# Настройка синхронизации StoreKit Configuration
+# StoreKit Configuration Sync Setup
 
-## Обзор
-Синхронизация StoreKit Configuration позволяет автоматически получать актуальные данные о продуктах из App Store Connect прямо в Xcode для тестирования.
+## Overview
+StoreKit Configuration synchronization allows you to automatically get up-to-date product data from App Store Connect directly in Xcode for testing.
 
-## Пошаговая настройка
+## Step-by-Step Setup
 
-### 1. Подготовка в App Store Connect
+### 1. Preparation in App Store Connect
 
-#### 1.1 Создание продуктов
-1. Войдите в [App Store Connect](https://appstoreconnect.apple.com/)
-2. Выберите приложение "Flippin"
-3. Перейдите в **"Функции"** → **"In-App Purchases"**
-4. Создайте следующие продукты:
+#### 1.1 Creating Products
+1. Sign in to [App Store Connect](https://appstoreconnect.apple.com/)
+2. Select the "Flippin" app
+3. Go to **"Features"** → **"In-App Purchases"**
+4. Create the following products:
 
-**Непотребляемый продукт:**
+**Non-consumable product:**
 - Product ID: `com.dor.flippin.unlimited_cards`
 - Type: Non-Consumable
 - Reference Name: Unlimited Cards
 - Price: $0.99
 
-**Подписки:**
+**Subscriptions:**
 - Product ID: `com.dor.flippin.premium_monthly`
 - Type: Auto-Renewable Subscription
 - Reference Name: Premium Monthly
-- Price: $4.99
+- Price: $1.99
 
 - Product ID: `com.dor.flippin.premium_yearly`
 - Type: Auto-Renewable Subscription
 - Reference Name: Premium Yearly
-- Price: $39.99
+- Price: $19.99
 
-#### 1.2 Настройка подписок
-1. Создайте **Subscription Group** с именем "Premium"
-2. Добавьте оба продукта подписки в эту группу
-3. Настройте **Family Sharing** для подписок
+#### 1.2 Subscription Setup
+1. Create a **Subscription Group** named "Premium"
+2. Add both subscription products to this group
+3. Configure **Family Sharing** for subscriptions
 
-### 2. Настройка в Xcode
+### 2. Setup in Xcode
 
-#### 2.1 Включение StoreKit Configuration
-1. Откройте проект `Flippin.xcodeproj`
-2. Выберите схему (scheme) для запуска
-3. Нажмите **"Edit Scheme..."**
-4. В разделе **"Run"** → **"Options"**
-5. Включите **"StoreKit Configuration"**
-6. Выберите файл `FlippinTestConfiguration`
+#### 2.1 Enabling StoreKit Configuration
+1. Open the `Flippin.xcodeproj` project
+2. Select the scheme (scheme) for launch
+3. Click **"Edit Scheme..."**
+4. In the **"Run"** → **"Options"** section
+5. Enable **"StoreKit Configuration"**
+6. Select the `FlippinTestConfiguration` file
 
-#### 2.2 Настройка синхронизации
-1. В Xcode выберите **"Product"** → **"StoreKit"** → **"Manage StoreKit Configuration"**
-2. В открывшемся окне нажмите **"Sync with App Store Connect"**
-3. Войдите в свой Apple Developer аккаунт
-4. Выберите приложение "Flippin"
-5. Нажмите **"Sync"**
+#### 2.2 Setting up Synchronization
+1. In Xcode, select **"Product"** → **"StoreKit"** → **"Manage StoreKit Configuration"**
+2. In the opened window, click **"Sync with App Store Connect"**
+3. Sign in with your Apple Developer account
+4. Select the "Flippin" app
+5. Click **"Sync"**
 
-### 3. Автоматическая синхронизация
+### 3. Automatic Synchronization
 
-#### 3.1 Настройка автоматической синхронизации
-1. В окне **"Manage StoreKit Configuration"**
-2. Включите **"Automatic Sync"**
-3. Установите интервал синхронизации (рекомендуется: 1 час)
+#### 3.1 Setting up Automatic Sync
+1. In the **"Manage StoreKit Configuration"** window
+2. Enable **"Automatic Sync"**
+3. Set the sync interval (recommended: 1 hour)
 
-#### 3.2 Проверка синхронизации
-После синхронизации в конфигурационном файле должны появиться:
-- Актуальные цены из App Store Connect
-- Правильные Product ID
-- Настройки подписок
-- Локализация
+#### 3.2 Checking Synchronization
+After synchronization, the configuration file should contain:
+- Up-to-date prices from App Store Connect
+- Correct Product IDs
+- Subscription settings
+- Localization
 
-### 4. Тестирование синхронизации
+### 4. Testing Synchronization
 
-#### 4.1 Проверка продуктов
+#### 4.1 Checking Products
 ```swift
-// В коде проверьте, что продукты загружаются
+// In code, check that products are loaded
 let products = await PurchaseService.shared.products
 print("Loaded \(products.count) products from App Store Connect")
 ```
 
-#### 4.2 Тестирование покупок
-1. Запустите приложение в симуляторе
-2. Перейдите в **Settings** → **Purchase Testing**
-3. Нажмите **"Start Test Purchase"**
-4. Убедитесь, что используются реальные продукты
+#### 4.2 Testing Purchases
+1. Run the app in simulator
+2. Go to **Settings** → **Purchase Testing**
+3. Tap **"Start Test Purchase"**
+4. Make sure real products are being used
 
-### 5. Устранение проблем
+### 5. Troubleshooting
 
-#### 5.1 Проблемы с синхронизацией
-- **Ошибка аутентификации**: Проверьте Apple Developer аккаунт
-- **Продукты не найдены**: Убедитесь, что продукты созданы в App Store Connect
-- **Цены не обновились**: Подождите несколько минут и повторите синхронизацию
+#### 5.1 Sync Issues
+- **Authentication error**: Check Apple Developer account
+- **Products not found**: Make sure products are created in App Store Connect
+- **Prices not updated**: Wait a few minutes and retry synchronization
 
-#### 5.2 Проверка статуса
+#### 5.2 Status Check
 ```swift
-// Проверьте статус синхронизации
+// Check sync status
 if purchaseService.products.isEmpty {
     print("⚠️ Products not loaded - check sync status")
 } else {
@@ -98,63 +98,63 @@ if purchaseService.products.isEmpty {
 }
 ```
 
-### 6. Ручная синхронизация
+### 6. Manual Synchronization
 
-#### 6.1 Принудительная синхронизация
-1. В Xcode: **Product** → **StoreKit** → **Manage StoreKit Configuration**
-2. Нажмите **"Sync Now"**
-3. Дождитесь завершения синхронизации
+#### 6.1 Forced Synchronization
+1. In Xcode: **Product** → **StoreKit** → **Manage StoreKit Configuration**
+2. Click **"Sync Now"**
+3. Wait for synchronization to complete
 
-#### 6.2 Обновление конфигурации
-После синхронизации конфигурационный файл автоматически обновится с:
-- Актуальными ценами
-- Правильными Product ID
-- Настройками подписок
-- Локализацией
+#### 6.2 Configuration Update
+After synchronization, the configuration file will automatically update with:
+- Up-to-date prices
+- Correct Product IDs
+- Subscription settings
+- Localization
 
-### 7. Мониторинг синхронизации
+### 7. Monitoring Synchronization
 
-#### 7.1 Логи синхронизации
-В консоли Xcode вы увидите:
+#### 7.1 Sync Logs
+In Xcode console you'll see:
 ```
 🔔 Starting transaction updates listener...
 📦 Loaded 3 products from App Store Connect
 ✅ Sync completed successfully
 ```
 
-#### 7.2 Проверка в UI
-В приложении в разделе **Purchase Testing**:
-- Статус "Transaction listener active" должен быть зеленым
-- Продукты должны отображаться с актуальными ценами
-- Тестовые покупки должны работать корректно
+#### 7.2 UI Check
+In the app in the **Purchase Testing** section:
+- Status "Transaction listener active" should be green
+- Products should display with up-to-date prices
+- Test purchases should work correctly
 
-## Важные замечания
+## Important Notes
 
-### Для разработки:
-- Используйте **Sandbox** окружение для тестирования
-- Создайте тестовые аккаунты в App Store Connect
-- Тестируйте в симуляторе и на реальных устройствах
+### For Development:
+- Use **Sandbox** environment for testing
+- Create test accounts in App Store Connect
+- Test in simulator and on real devices
 
-### Для продакшена:
-- Убедитесь, что все продукты прошли ревью Apple
-- Настройте цены для всех целевых регионов
-- Протестируйте покупки в TestFlight
+### For Production:
+- Make sure all products have passed Apple review
+- Set prices for all target regions
+- Test purchases in TestFlight
 
-### Безопасность:
-- Никогда не коммитьте реальные данные продуктов в git
-- Используйте `.gitignore` для конфиденциальных данных
-- Регулярно обновляйте конфигурацию
+### Security:
+- Never commit real product data to git
+- Use `.gitignore` for confidential data
+- Regularly update configuration
 
-## Команды для отладки
+## Debug Commands
 
-### Проверка синхронизации
+### Checking Synchronization
 ```bash
-# В терминале Xcode
+# In Xcode terminal
 xcrun simctl spawn booted log show --predicate 'process == "StoreKit"' --last 1h
 ```
 
-### Сброс конфигурации
+### Resetting Configuration
 ```bash
-# Удалить кэш StoreKit
+# Remove StoreKit cache
 rm -rf ~/Library/Developer/Xcode/DerivedData/*/StoreKit
 ``` 

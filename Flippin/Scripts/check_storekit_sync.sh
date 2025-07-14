@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # StoreKit Configuration Sync Check Script
-# Проверяет статус синхронизации StoreKit Configuration
+# Checks the sync status of StoreKit Configuration
 
 echo "🔍 Checking StoreKit Configuration sync status..."
 
-# Проверяем наличие конфигурационного файла
+# Check for configuration file
 CONFIG_FILE="Flippin/Configuration/StoreKitConfiguration.storekit"
 
 if [ ! -f "$CONFIG_FILE" ]; then
@@ -15,7 +15,7 @@ fi
 
 echo "✅ StoreKit Configuration file found"
 
-# Проверяем настройки синхронизации
+# Check sync settings
 if grep -q '"_syncEnabled" : true' "$CONFIG_FILE"; then
     echo "✅ Sync is enabled"
 else
@@ -28,11 +28,11 @@ else
     echo "⚠️  Automatic sync mode is not enabled"
 fi
 
-# Проверяем наличие продуктов
+# Check for products
 PRODUCT_COUNT=$(grep -c '"productID"' "$CONFIG_FILE")
 echo "📦 Found $PRODUCT_COUNT products in configuration"
 
-# Проверяем конкретные продукты
+# Check specific products
 REQUIRED_PRODUCTS=(
     "com.dor.flippin.unlimited_cards"
     "com.dor.flippin.premium_monthly"
@@ -48,7 +48,7 @@ for product in "${REQUIRED_PRODUCTS[@]}"; do
     fi
 done
 
-# Проверяем цены
+# Check prices
 echo "💰 Checking prices:"
 if grep -q '"displayPrice"' "$CONFIG_FILE"; then
     echo "✅ Prices are configured"
@@ -56,7 +56,7 @@ else
     echo "⚠️  Prices are not configured"
 fi
 
-# Проверяем подписки
+# Check subscriptions
 echo "📅 Checking subscriptions:"
 if grep -q '"subscriptionGroups"' "$CONFIG_FILE"; then
     echo "✅ Subscription groups are configured"

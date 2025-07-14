@@ -1,149 +1,149 @@
-# 🎯 Демонстрация отслеживания покупок
+# 🎯 Purchase Status Tracking Demo
 
-## Что изменилось
+## What Changed
 
-### ✅ Новые возможности:
+### ✅ New Features:
 
-1. **Автоматическое отслеживание покупок**
-   - При успешной покупке продукт автоматически добавляется в список купленных
-   - UI обновляется в реальном времени
+1. **Automatic Purchase Tracking**
+   - When a purchase is successful, the product is automatically added to the purchased list
+   - UI updates in real-time
 
-2. **Визуальные индикаторы**
-   - ✅ Зеленая галочка для купленных продуктов
-   - 💰 Цена скрывается для купленных продуктов
-   - 🛒 Кнопка "Purchase" заменяется на "Already Purchased"
+2. **Visual Indicators**
+   - ✅ Green checkmark for purchased products
+   - 💰 Price is hidden for purchased products
+   - 🛒 "Purchase" button is replaced with "Already Purchased"
 
-3. **Новые секции в UI**
-   - **"Purchased Products"** - список всех купленных продуктов
-   - **"Available Products"** - показывает статус каждого продукта
+3. **New UI Sections**
+   - **"Purchased Products"** - list of all purchased products
+   - **"Available Products"** - shows status of each product
 
-## 🚀 Как это работает
+## 🚀 How It Works
 
-### 1. До покупки:
+### 1. Before Purchase:
 ```
 📦 Unlimited Cards
    Remove the limit on the number of cards you can create
                                     $0.99
-   [Purchase] ← Кнопка активна
+   [Purchase] ← Button active
 ```
 
-### 2. После покупки:
+### 2. After Purchase:
 ```
 📦 Unlimited Cards ✅
    Remove the limit on the number of cards you can create
                                  [Purchased]
-   [Already Purchased] ← Кнопка заменена
+   [Already Purchased] ← Button replaced
 ```
 
-### 3. В секции "Purchased Products":
+### 3. In "Purchased Products" section:
 ```
 ✅ com.dor.flippin.unlimited_cards
 ```
 
-## 💻 Программное использование
+## 💻 Programmatic Usage
 
-### Проверка статуса продукта:
+### Checking Product Status:
 ```swift
 let unlimitedCardsId = "com.dor.flippin.unlimited_cards"
 
 if PurchaseService.shared.isProductPurchased(unlimitedCardsId) {
     print("✅ Unlimited Cards is purchased")
-    // Показать премиум функции
+    // Show premium features
 } else {
     print("❌ Unlimited Cards is not purchased")
-    // Показать ограниченные функции
+    // Show limited features
 }
 ```
 
-### Получение всех купленных продуктов:
+### Getting All Purchased Products:
 ```swift
 let purchasedProducts = PurchaseService.shared.getPurchasedProducts()
 print("📦 Purchased: \(purchasedProducts)")
 // Output: ["com.dor.flippin.unlimited_cards"]
 ```
 
-### Реакция на покупку в коде:
+### Reacting to Purchase in Code:
 ```swift
-// В вашем приложении
+// In your app
 if PurchaseService.shared.isProductPurchased("com.dor.flippin.unlimited_cards") {
-    // Убрать лимит на количество карточек
+    // Remove limit on number of cards
     cardLimit = .max
 } else {
-    // Установить лимит
+    // Set limit
     cardLimit = 10
 }
 ```
 
-## 🎨 UI изменения
+## 🎨 UI Changes
 
 ### ProductRowView:
-- **Непокупленный продукт**: Показывает цену и кнопку "Purchase"
-- **Купленный продукт**: Показывает "Purchased" и "Already Purchased"
+- **Unpurchased product**: Shows price and "Purchase" button
+- **Purchased product**: Shows "Purchased" and "Already Purchased"
 
 ### PurchaseTestView:
-- **Новая секция**: "Purchased Products" с списком купленных продуктов
-- **Обновленная секция**: "Available Products" с индикаторами статуса
+- **New section**: "Purchased Products" with list of purchased products
+- **Updated section**: "Available Products" with status indicators
 
-## 🔄 Автоматическое обновление
+## 🔄 Automatic Updates
 
-### При покупке:
-1. Пользователь нажимает "Purchase"
-2. Транзакция обрабатывается через StoreKit
-3. `Transaction.updates` получает обновление
-4. Продукт автоматически добавляется в `purchasedProductIds`
-5. UI обновляется в реальном времени
+### During Purchase:
+1. User taps "Purchase"
+2. Transaction is processed through StoreKit
+3. `Transaction.updates` receives update
+4. Product is automatically added to `purchasedProductIds`
+5. UI updates in real-time
 
-### При восстановлении покупок:
-1. Пользователь нажимает "Restore Purchases"
-2. `AppStore.sync()` синхронизирует с App Store
-3. `loadPurchasedProducts()` загружает все купленные продукты
-4. UI обновляется с актуальным статусом
+### During Purchase Restoration:
+1. User taps "Restore Purchases"
+2. `AppStore.sync()` syncs with App Store
+3. `loadPurchasedProducts()` loads all purchased products
+4. UI updates with current status
 
-## 🧪 Тестирование
+## 🧪 Testing
 
-### Тестовый сценарий:
-1. Запустите приложение
-2. Перейдите в **Settings** → **Purchase Testing**
-3. Нажмите **"Start Test Purchase"**
-4. Подтвердите покупку
-5. Наблюдайте, как UI обновляется:
-   - Продукт появляется в "Purchased Products"
-   - Статус продукта меняется на "Purchased"
-   - Кнопка "Purchase" заменяется на "Already Purchased"
+### Test Scenario:
+1. Launch the app
+2. Go to **Settings** → **Purchase Testing**
+3. Tap **"Start Test Purchase"**
+4. Confirm the purchase
+5. Observe how UI updates:
+   - Product appears in "Purchased Products"
+   - Product status changes to "Purchased"
+   - "Purchase" button is replaced with "Already Purchased"
 
-### Проверка в коде:
+### Code Check:
 ```swift
-// После покупки
+// After purchase
 PurchaseExample.checkPurchaseStatus()
 // Output:
 // ✅ Unlimited Cards is purchased
 // 📦 Purchased products: ["com.dor.flippin.unlimited_cards"]
 ```
 
-## 🎯 Преимущества
+## 🎯 Benefits
 
-1. **Удобство пользователя**: Четко видно, что уже куплено
-2. **Предотвращение повторных покупок**: UI блокирует повторные покупки
-3. **Автоматическое обновление**: Не требует перезапуска приложения
-4. **Надежность**: Использует официальные StoreKit API
-5. **Отладка**: Подробные логи для разработчиков
+1. **User Convenience**: Clearly see what's already purchased
+2. **Prevent Duplicate Purchases**: UI blocks repeated purchases
+3. **Automatic Updates**: No app restart required
+4. **Reliability**: Uses official StoreKit APIs
+5. **Debugging**: Detailed logs for developers
 
-## 🔧 Настройка в вашем приложении
+## 🔧 Setup in Your App
 
-### Для ограничения функций:
+### For Feature Limitations:
 ```swift
 class CardManager {
     var maxCards: Int {
         if PurchaseService.shared.isProductPurchased("com.dor.flippin.unlimited_cards") {
             return .max
         } else {
-            return 10 // Лимит для бесплатных пользователей
+            return 10 // Limit for free users
         }
     }
 }
 ```
 
-### Для показа премиум UI:
+### For Premium UI:
 ```swift
 struct PremiumFeatureView: View {
     var body: some View {
@@ -156,4 +156,4 @@ struct PremiumFeatureView: View {
 }
 ```
 
-Теперь ваше приложение полностью реагирует на покупки! 🎉 
+Your app now fully responds to purchases! 🎉 
