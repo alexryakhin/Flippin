@@ -6,27 +6,28 @@
 */
 
 // MARK: - Navigation Titles
-"addCard" = "Добавить карточку";
+"addCard" = "Добавить Карточку";
+"addNewCard" = "Добавить Новую Карточку";
 "settings" = "Настройки";
-"myCards" = "Мои карточки";
-"backgroundStyles" = "Стили фона";
-"backgroundDemo" = "Демо фона";
+"myCards" = "Мои Карточки";
+"backgroundStyles" = "Стили Фона";
+"backgroundDemo" = "Демо Фона";
 
 // MARK: - Welcome Screen
 "welcomeScreenTitle" = "Добро пожаловать в Flippin!";
-"welcomeScreenMessage" = "Flippin помогает вам изучать и практиковать новые языки с помощью карточек. Выберите ваш родной язык и язык, который хотите изучить.";
+"welcomeScreenMessage" = "Flippin помогает вам изучать и практиковать новые языки с помощью карточек для запоминания. Выберите свой родной язык и язык, который вы хотите изучить.";
 "myLanguage" = "Мой язык";
 "imLearning" = "Я изучаю";
 "continueButton" = "Продолжить";
 
 // MARK: - Content Views
 "noCardsYet" = "Пока нет карточек";
-"tapToAddFirstCard" = "Нажмите кнопку +, чтобы добавить первую карточку";
+"tapToAddFirstCard" = "Нажмите кнопку +, чтобы добавить свою первую карточку";
 "noCardsWithSelectedTag" = "Нет карточек с выбранным тегом";
 "noCardsFoundWithTag" = "Не найдено карточек с тегом \"%@\"";
 "noCardsAvailable" = "Нет доступных карточек";
 "noCardsFound" = "Карточки не найдены";
-"addFirstCardToStartLearning" = "Добавьте первую карточку, чтобы начать обучение";
+"addFirstCardToStartLearning" = "Добавьте свою первую карточку, чтобы начать обучение";
 "noCardsMatchSearch" = "Нет карточек, соответствующих вашему поиску";
 
 // MARK: - Card Views
@@ -34,41 +35,49 @@
 "tapToGoBack" = "Нажмите, чтобы вернуться";
 
 // MARK: - Tag Management
-"availableTags" = "Доступные теги";
+"availableTags" = "Доступные Теги";
 "noTagsAvailable" = "Нет доступных тегов";
 "manageTagsInSettings" = "Управляйте тегами в настройках.";
 "toSettings" = "В настройки";
 "newTagName" = "Название нового тега";
 "add" = "Добавить";
-"tagsManagement" = "Управление тегами";
+"addTag" = "Добавить Тег";
+"tagsManagement" = "Управление Тегами";
+"filterByTag" = "Фильтровать по Тегу";
 
 // MARK: - Settings
 "languages" = "Языки";
-"myLanguageSettings" = "Мой язык";
-"targetLanguage" = "Целевой язык";
+"myLanguageSettings" = "Мой Язык";
+"targetLanguage" = "Целевой Язык";
 "background" = "Фон";
-"backgroundColor" = "Цвет фона";
-"backgroundStyle" = "Стиль фона";
-"tapToSeeFullScreen" = "Нажмите для полноэкранного режима";
+"backgroundColor" = "Цвет Фона";
+"backgroundStyle" = "Стиль Фона";
+"tapToSeeFullScreen" = "Нажмите, чтобы увидеть полноэкранный режим";
 
 // MARK: - Add Card
-"enterTextInYourLanguage" = "Введите текст на вашем языке";
+"enterTextInYourLanguage" = "Введите текст на своем языке";
 "enterTextInTargetLanguage" = "Введите текст на целевом языке";
 "addNotesOptional" = "Добавить заметки (необязательно)";
 "notes" = "Заметки";
 "tagsCount" = "Теги (%d/5)";
-"noTagsAvailableAddInSettings" = "Нет доступных тегов. Добавьте теги в настройках.";
+"noTagsAvailableAddInSettings" = "Нет доступных тегов. Добавьте несколько тегов в Настройки.";
+"translating" = "Перевод...";
+"translationWillAppearHere" = "Перевод появится здесь";
 
 // MARK: - Buttons
 "done" = "Готово";
 "cancel" = "Отмена";
 "save" = "Сохранить";
 "close" = "Закрыть";
-"clearFilter" = "Очистить фильтр";
-"clearSearch" = "Очистить поиск";
-"addCardButton" = "Добавить карточку";
-"deleteAll" = "Удалить все";
-"deleteAllCards" = "Удалить все карточки";
+"clear" = "Очистить";
+"clearFilter" = "Очистить Фильтр";
+"clearSearch" = "Очистить Поиск";
+"addCardButton" = "Добавить Карточку";
+"delete" = "Удалить";
+"deleteCard" = "Удалить Карточку";
+"deleteCardConfirmation" = "Вы уверены, что хотите удалить эту карточку? Это действие нельзя отменить.";
+"deleteAll" = "Удалить Все";
+"deleteAllCards" = "Удалить Все Карточки";
 "deleteAllCardsConfirmation" = "Вы уверены, что хотите удалить все карточки? Это действие нельзя отменить.";
 
 // MARK: - Labels
@@ -105,14 +114,14 @@
 
 // MARK: - Background Styles
 "gradient" = "Градиент";
-"lavaLamp" = "Лавовая лампа";
+"lavaLamp" = "Лавовая Лампа";
 "snow" = "Снег";
 "rain" = "Дождь";
 "stars" = "Звезды";
 "bubbles" = "Пузыри";
 "waves" = "Волны";
 "particles" = "Частицы";
-"aurora" = "Аврора";
+"aurora" = "Северное Сияние";
 "fireflies" = "Светлячки";
 "ocean" = "Океан";
 "galaxy" = "Галактика";

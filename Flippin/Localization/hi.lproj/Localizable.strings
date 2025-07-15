@@ -7,27 +7,28 @@
 
 // MARK: - Navigation Titles
 "addCard" = "कार्ड जोड़ें";
+"addNewCard" = "नया कार्ड जोड़ें";
 "settings" = "सेटिंग्स";
 "myCards" = "मेरे कार्ड";
-"backgroundStyles" = "पृष्ठभूमि शैलियाँ";
+"backgroundStyles" = "पृष्ठभूमि शैलियां";
 "backgroundDemo" = "पृष्ठभूमि डेमो";
 
 // MARK: - Welcome Screen
 "welcomeScreenTitle" = "Flippin में आपका स्वागत है!";
-"welcomeScreenMessage" = "Flippin आपको फ्लैशकार्ड का उपयोग करके नई भाषाएँ सीखने और अभ्यास करने में मदद करता है। अपनी मातृभाषा और वह भाषा चुनें जिसे आप सीखना चाहते हैं।";
+"welcomeScreenMessage" = "Flippin आपको फ्लैशकार्ड का उपयोग करके नई भाषाएं सीखने और अभ्यास करने में मदद करता है। अपनी मातृभाषा और जिस भाषा को आप सीखना चाहते हैं उसे चुनें।";
 "myLanguage" = "मेरी भाषा";
-"imLearning" = "मैं सीख रहा हूँ";
+"imLearning" = "मैं सीख रहा हूं";
 "continueButton" = "जारी रखें";
 
 // MARK: - Content Views
 "noCardsYet" = "अभी तक कोई कार्ड नहीं";
 "tapToAddFirstCard" = "अपना पहला कार्ड जोड़ने के लिए + बटन पर टैप करें";
 "noCardsWithSelectedTag" = "चयनित टैग के साथ कोई कार्ड नहीं";
-"noCardsFoundWithTag" = "टैग \"%@\" के साथ कोई कार्ड नहीं मिला";
+"noCardsFoundWithTag" = "\"%@\" टैग के साथ कोई कार्ड नहीं मिला";
 "noCardsAvailable" = "कोई कार्ड उपलब्ध नहीं";
 "noCardsFound" = "कोई कार्ड नहीं मिला";
 "addFirstCardToStartLearning" = "सीखना शुरू करने के लिए अपना पहला कार्ड जोड़ें";
-"noCardsMatchSearch" = "कोई कार्ड आपकी खोज से मेल नहीं खाता";
+"noCardsMatchSearch" = "आपकी खोज से मेल खाने वाला कोई कार्ड नहीं";
 
 // MARK: - Card Views
 "showAnswer" = "उत्तर दिखाएं";
@@ -40,10 +41,12 @@
 "toSettings" = "सेटिंग्स में";
 "newTagName" = "नया टैग नाम";
 "add" = "जोड़ें";
+"addTag" = "टैग जोड़ें";
 "tagsManagement" = "टैग प्रबंधन";
+"filterByTag" = "टैग द्वारा फ़िल्टर करें";
 
 // MARK: - Settings
-"languages" = "भाषाएँ";
+"languages" = "भाषाएं";
 "myLanguageSettings" = "मेरी भाषा";
 "targetLanguage" = "लक्ष्य भाषा";
 "background" = "पृष्ठभूमि";
@@ -52,21 +55,27 @@
 "tapToSeeFullScreen" = "पूर्ण स्क्रीन देखने के लिए टैप करें";
 
 // MARK: - Add Card
-"enterTextInYourLanguage" = "अपनी भाषा में टेक्स्ट दर्ज करें";
-"enterTextInTargetLanguage" = "लक्ष्य भाषा में टेक्स्ट दर्ज करें";
+"enterTextInYourLanguage" = "अपनी भाषा में पाठ दर्ज करें";
+"enterTextInTargetLanguage" = "लक्ष्य भाषा में पाठ दर्ज करें";
 "addNotesOptional" = "नोट्स जोड़ें (वैकल्पिक)";
 "notes" = "नोट्स";
 "tagsCount" = "टैग (%d/5)";
 "noTagsAvailableAddInSettings" = "कोई टैग उपलब्ध नहीं। सेटिंग्स में कुछ टैग जोड़ें।";
+"translating" = "अनुवाद कर रहा है...";
+"translationWillAppearHere" = "अनुवाद यहां दिखाई देगा";
 
 // MARK: - Buttons
 "done" = "हो गया";
 "cancel" = "रद्द करें";
 "save" = "सहेजें";
 "close" = "बंद करें";
+"clear" = "साफ़ करें";
 "clearFilter" = "फ़िल्टर साफ़ करें";
 "clearSearch" = "खोज साफ़ करें";
 "addCardButton" = "कार्ड जोड़ें";
+"delete" = "हटाएं";
+"deleteCard" = "कार्ड हटाएं";
+"deleteCardConfirmation" = "क्या आप वाकई इस कार्ड को हटाना चाहते हैं? यह क्रिया पूर्ववत नहीं की जा सकती।";
 "deleteAll" = "सभी हटाएं";
 "deleteAllCards" = "सभी कार्ड हटाएं";
 "deleteAllCardsConfirmation" = "क्या आप वाकई सभी कार्ड हटाना चाहते हैं? यह क्रिया पूर्ववत नहीं की जा सकती।";

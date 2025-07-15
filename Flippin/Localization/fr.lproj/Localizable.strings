@@ -6,15 +6,16 @@
 */
 
 // MARK: - Navigation Titles
-"addCard" = "Ajouter une carte";
+"addCard" = "Ajouter une Carte";
+"addNewCard" = "Ajouter une Nouvelle Carte";
 "settings" = "Paramètres";
-"myCards" = "Mes cartes";
-"backgroundStyles" = "Styles d'arrière-plan";
-"backgroundDemo" = "Démo d'arrière-plan";
+"myCards" = "Mes Cartes";
+"backgroundStyles" = "Styles d'Arrière-plan";
+"backgroundDemo" = "Démo d'Arrière-plan";
 
 // MARK: - Welcome Screen
-"welcomeScreenTitle" = "Bienvenue dans Flippin !";
-"welcomeScreenMessage" = "Flippin vous aide à apprendre et pratiquer de nouvelles langues en utilisant des cartes mémoire. Sélectionnez votre langue maternelle et la langue que vous souhaitez apprendre.";
+"welcomeScreenTitle" = "Bienvenue sur Flippin !";
+"welcomeScreenMessage" = "Flippin vous aide à apprendre et pratiquer de nouvelles langues en utilisant des cartes mémoire. Sélectionnez votre langue maternelle et la langue que vous voulez apprendre.";
 "myLanguage" = "Ma langue";
 "imLearning" = "J'apprends";
 "continueButton" = "Continuer";
@@ -34,41 +35,49 @@
 "tapToGoBack" = "Appuyez pour revenir";
 
 // MARK: - Tag Management
-"availableTags" = "Étiquettes disponibles";
+"availableTags" = "Étiquettes Disponibles";
 "noTagsAvailable" = "Aucune étiquette disponible";
 "manageTagsInSettings" = "Gérez les étiquettes dans les paramètres.";
 "toSettings" = "Vers les paramètres";
 "newTagName" = "Nom de la nouvelle étiquette";
 "add" = "Ajouter";
-"tagsManagement" = "Gestion des étiquettes";
+"addTag" = "Ajouter une Étiquette";
+"tagsManagement" = "Gestion des Étiquettes";
+"filterByTag" = "Filtrer par Étiquette";
 
 // MARK: - Settings
 "languages" = "Langues";
-"myLanguageSettings" = "Ma langue";
-"targetLanguage" = "Langue cible";
+"myLanguageSettings" = "Ma Langue";
+"targetLanguage" = "Langue Cible";
 "background" = "Arrière-plan";
-"backgroundColor" = "Couleur d'arrière-plan";
-"backgroundStyle" = "Style d'arrière-plan";
+"backgroundColor" = "Couleur d'Arrière-plan";
+"backgroundStyle" = "Style d'Arrière-plan";
 "tapToSeeFullScreen" = "Appuyez pour voir en plein écran";
 
 // MARK: - Add Card
-"enterTextInYourLanguage" = "Entrez le texte dans votre langue";
-"enterTextInTargetLanguage" = "Entrez le texte dans la langue cible";
+"enterTextInYourLanguage" = "Entrez du texte dans votre langue";
+"enterTextInTargetLanguage" = "Entrez du texte dans la langue cible";
 "addNotesOptional" = "Ajouter des notes (optionnel)";
 "notes" = "Notes";
 "tagsCount" = "Étiquettes (%d/5)";
 "noTagsAvailableAddInSettings" = "Aucune étiquette disponible. Ajoutez quelques étiquettes dans les Paramètres.";
+"translating" = "Traduction en cours...";
+"translationWillAppearHere" = "La traduction apparaîtra ici";
 
 // MARK: - Buttons
 "done" = "Terminé";
 "cancel" = "Annuler";
 "save" = "Enregistrer";
 "close" = "Fermer";
-"clearFilter" = "Effacer le filtre";
-"clearSearch" = "Effacer la recherche";
-"addCardButton" = "Ajouter une carte";
-"deleteAll" = "Tout supprimer";
-"deleteAllCards" = "Supprimer toutes les cartes";
+"clear" = "Effacer";
+"clearFilter" = "Effacer le Filtre";
+"clearSearch" = "Effacer la Recherche";
+"addCardButton" = "Ajouter une Carte";
+"delete" = "Supprimer";
+"deleteCard" = "Supprimer la Carte";
+"deleteCardConfirmation" = "Êtes-vous sûr de vouloir supprimer cette carte ? Cette action ne peut pas être annulée.";
+"deleteAll" = "Tout Supprimer";
+"deleteAllCards" = "Supprimer Toutes les Cartes";
 "deleteAllCardsConfirmation" = "Êtes-vous sûr de vouloir supprimer toutes les cartes ? Cette action ne peut pas être annulée.";
 
 // MARK: - Labels
@@ -105,7 +114,7 @@
 
 // MARK: - Background Styles
 "gradient" = "Dégradé";
-"lavaLamp" = "Lampe à Lave";
+"lavaLamp" = "Lampe de Lave";
 "snow" = "Neige";
 "rain" = "Pluie";
 "stars" = "Étoiles";

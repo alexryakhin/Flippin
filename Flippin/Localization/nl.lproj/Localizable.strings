@@ -6,15 +6,16 @@
 */
 
 // MARK: - Navigation Titles
-"addCard" = "Kaart toevoegen";
+"addCard" = "Kaart Toevoegen";
+"addNewCard" = "Nieuwe Kaart Toevoegen";
 "settings" = "Instellingen";
-"myCards" = "Mijn kaarten";
+"myCards" = "Mijn Kaarten";
 "backgroundStyles" = "Achtergrondstijlen";
-"backgroundDemo" = "Achtergrond demo";
+"backgroundDemo" = "Achtergrond Demo";
 
 // MARK: - Welcome Screen
 "welcomeScreenTitle" = "Welkom bij Flippin!";
-"welcomeScreenMessage" = "Flippin helpt je nieuwe talen te leren en te oefenen met flashcards. Selecteer je moedertaal en de taal die je wilt leren.";
+"welcomeScreenMessage" = "Flippin helpt je nieuwe talen te leren en oefenen met flashcards. Selecteer je moedertaal en de taal die je wilt leren.";
 "myLanguage" = "Mijn taal";
 "imLearning" = "Ik leer";
 "continueButton" = "Doorgaan";
@@ -27,29 +28,31 @@
 "noCardsAvailable" = "Geen kaarten beschikbaar";
 "noCardsFound" = "Geen kaarten gevonden";
 "addFirstCardToStartLearning" = "Voeg je eerste kaart toe om te beginnen met leren";
-"noCardsMatchSearch" = "Geen kaarten komen overeen met je zoekopdracht";
+"noCardsMatchSearch" = "Geen kaarten die overeenkomen met je zoekopdracht";
 
 // MARK: - Card Views
 "showAnswer" = "Antwoord tonen";
 "tapToGoBack" = "Tik om terug te gaan";
 
 // MARK: - Tag Management
-"availableTags" = "Beschikbare tags";
+"availableTags" = "Beschikbare Tags";
 "noTagsAvailable" = "Geen tags beschikbaar";
 "manageTagsInSettings" = "Beheer tags in de instellingen.";
 "toSettings" = "Naar instellingen";
 "newTagName" = "Nieuwe tag naam";
 "add" = "Toevoegen";
-"tagsManagement" = "Tag beheer";
+"addTag" = "Tag Toevoegen";
+"tagsManagement" = "Tag Beheer";
+"filterByTag" = "Filteren op Tag";
 
 // MARK: - Settings
 "languages" = "Talen";
-"myLanguageSettings" = "Mijn taal";
+"myLanguageSettings" = "Mijn Taal";
 "targetLanguage" = "Doeltaal";
 "background" = "Achtergrond";
 "backgroundColor" = "Achtergrondkleur";
 "backgroundStyle" = "Achtergrondstijl";
-"tapToSeeFullScreen" = "Tik voor volledig scherm";
+"tapToSeeFullScreen" = "Tik om volledig scherm te zien";
 
 // MARK: - Add Card
 "enterTextInYourLanguage" = "Voer tekst in in je taal";
@@ -58,17 +61,23 @@
 "notes" = "Notities";
 "tagsCount" = "Tags (%d/5)";
 "noTagsAvailableAddInSettings" = "Geen tags beschikbaar. Voeg enkele tags toe in Instellingen.";
+"translating" = "Vertalen...";
+"translationWillAppearHere" = "Vertaling verschijnt hier";
 
 // MARK: - Buttons
 "done" = "Klaar";
 "cancel" = "Annuleren";
 "save" = "Opslaan";
 "close" = "Sluiten";
-"clearFilter" = "Filter wissen";
-"clearSearch" = "Zoeken wissen";
-"addCardButton" = "Kaart toevoegen";
-"deleteAll" = "Alles verwijderen";
-"deleteAllCards" = "Alle kaarten verwijderen";
+"clear" = "Wissen";
+"clearFilter" = "Filter Wissen";
+"clearSearch" = "Zoeken Wissen";
+"addCardButton" = "Kaart Toevoegen";
+"delete" = "Verwijderen";
+"deleteCard" = "Kaart Verwijderen";
+"deleteCardConfirmation" = "Weet je zeker dat je deze kaart wilt verwijderen? Deze actie kan niet ongedaan worden gemaakt.";
+"deleteAll" = "Alles Verwijderen";
+"deleteAllCards" = "Alle Kaarten Verwijderen";
 "deleteAllCardsConfirmation" = "Weet je zeker dat je alle kaarten wilt verwijderen? Deze actie kan niet ongedaan worden gemaakt.";
 
 // MARK: - Labels

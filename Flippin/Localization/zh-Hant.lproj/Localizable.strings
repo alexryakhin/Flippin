@@ -7,25 +7,26 @@
 
 // MARK: - Navigation Titles
 "addCard" = "新增卡片";
+"addNewCard" = "新增卡片";
 "settings" = "設定";
 "myCards" = "我的卡片";
 "backgroundStyles" = "背景樣式";
 "backgroundDemo" = "背景示範";
 
 // MARK: - Welcome Screen
-"welcomeScreenTitle" = "歡迎使用 Flippin！";
-"welcomeScreenMessage" = "Flippin 幫助您使用閃卡學習和練習新語言。選擇您的母語和您想學習的語言。";
+"welcomeScreenTitle" = "歡迎使用Flippin！";
+"welcomeScreenMessage" = "Flippin幫助您使用閃卡學習和練習新語言。選擇您的母語和您想學習的語言。";
 "myLanguage" = "我的語言";
 "imLearning" = "我正在學習";
 "continueButton" = "繼續";
 
 // MARK: - Content Views
 "noCardsYet" = "還沒有卡片";
-"tapToAddFirstCard" = "點擊 + 按鈕新增您的第一張卡片";
-"noCardsWithSelectedTag" = "沒有帶有選定標籤的卡片";
-"noCardsFoundWithTag" = "未找到帶有標籤 \"%@\" 的卡片";
+"tapToAddFirstCard" = "點擊+按鈕新增您的第一張卡片";
+"noCardsWithSelectedTag" = "沒有選中標籤的卡片";
+"noCardsFoundWithTag" = "沒有找到標籤為「%@」的卡片";
 "noCardsAvailable" = "沒有可用的卡片";
-"noCardsFound" = "未找到卡片";
+"noCardsFound" = "沒有找到卡片";
 "addFirstCardToStartLearning" = "新增您的第一張卡片開始學習";
 "noCardsMatchSearch" = "沒有卡片符合您的搜尋";
 
@@ -40,7 +41,9 @@
 "toSettings" = "前往設定";
 "newTagName" = "新標籤名稱";
 "add" = "新增";
+"addTag" = "新增標籤";
 "tagsManagement" = "標籤管理";
+"filterByTag" = "依標籤篩選";
 
 // MARK: - Settings
 "languages" = "語言";
@@ -54,20 +57,26 @@
 // MARK: - Add Card
 "enterTextInYourLanguage" = "用您的語言輸入文字";
 "enterTextInTargetLanguage" = "用目標語言輸入文字";
-"addNotesOptional" = "新增備註（選用）";
+"addNotesOptional" = "新增備註（可選）";
 "notes" = "備註";
-"tagsCount" = "標籤 (%d/5)";
+"tagsCount" = "標籤（%d/5）";
 "noTagsAvailableAddInSettings" = "沒有可用標籤。在設定中新增一些標籤。";
+"translating" = "翻譯中...";
+"translationWillAppearHere" = "翻譯將在此顯示";
 
 // MARK: - Buttons
 "done" = "完成";
 "cancel" = "取消";
 "save" = "儲存";
 "close" = "關閉";
+"clear" = "清除";
 "clearFilter" = "清除篩選";
 "clearSearch" = "清除搜尋";
 "addCardButton" = "新增卡片";
-"deleteAll" = "刪除全部";
+"delete" = "刪除";
+"deleteCard" = "刪除卡片";
+"deleteCardConfirmation" = "您確定要刪除這張卡片嗎？此操作無法復原。";
+"deleteAll" = "全部刪除";
 "deleteAllCards" = "刪除所有卡片";
 "deleteAllCardsConfirmation" = "您確定要刪除所有卡片嗎？此操作無法復原。";
 
@@ -75,7 +84,7 @@
 "settingsLabel" = "設定";
 "menu" = "選單";
 "tagFilter" = "標籤篩選";
-"shuffle" = "隨機排序";
+"shuffle" = "隨機";
 "addCardLabel" = "新增卡片";
 
 // MARK: - Search
@@ -104,11 +113,11 @@
 "ukrainian" = "烏克蘭語";
 
 // MARK: - Background Styles
-"gradient" = "漸變";
+"gradient" = "漸層";
 "lavaLamp" = "熔岩燈";
-"snow" = "雪花";
-"rain" = "雨滴";
-"stars" = "星空";
+"snow" = "雪";
+"rain" = "雨";
+"stars" = "星星";
 "bubbles" = "氣泡";
 "waves" = "波浪";
 "particles" = "粒子";

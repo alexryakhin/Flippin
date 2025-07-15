@@ -7,6 +7,7 @@
 
 // MARK: - Navigation Titles
 "addCard" = "カードを追加";
+"addNewCard" = "新しいカードを追加";
 "settings" = "設定";
 "myCards" = "マイカード";
 "backgroundStyles" = "背景スタイル";
@@ -14,7 +15,7 @@
 
 // MARK: - Welcome Screen
 "welcomeScreenTitle" = "Flippinへようこそ！";
-"welcomeScreenMessage" = "Flippinはフラッシュカードを使って新しい言語を学び、練習するのに役立ちます。あなたの母国語と学びたい言語を選択してください。";
+"welcomeScreenMessage" = "Flippinはフラッシュカードを使って新しい言語を学び、練習するのに役立ちます。母国語と学習したい言語を選択してください。";
 "myLanguage" = "私の言語";
 "imLearning" = "学習中";
 "continueButton" = "続行";
@@ -26,12 +27,12 @@
 "noCardsFoundWithTag" = "タグ「%@」のカードが見つかりません";
 "noCardsAvailable" = "利用可能なカードがありません";
 "noCardsFound" = "カードが見つかりません";
-"addFirstCardToStartLearning" = "学習を始めるために最初のカードを追加してください";
+"addFirstCardToStartLearning" = "最初のカードを追加して学習を開始";
 "noCardsMatchSearch" = "検索に一致するカードがありません";
 
 // MARK: - Card Views
 "showAnswer" = "答えを表示";
-"tapToGoBack" = "戻るにはタップ";
+"tapToGoBack" = "タップして戻る";
 
 // MARK: - Tag Management
 "availableTags" = "利用可能なタグ";
@@ -40,7 +41,9 @@
 "toSettings" = "設定へ";
 "newTagName" = "新しいタグ名";
 "add" = "追加";
+"addTag" = "タグを追加";
 "tagsManagement" = "タグ管理";
+"filterByTag" = "タグでフィルター";
 
 // MARK: - Settings
 "languages" = "言語";
@@ -49,24 +52,30 @@
 "background" = "背景";
 "backgroundColor" = "背景色";
 "backgroundStyle" = "背景スタイル";
-"tapToSeeFullScreen" = "全画面表示するにはタップ";
+"tapToSeeFullScreen" = "タップしてフルスクリーン表示";
 
 // MARK: - Add Card
 "enterTextInYourLanguage" = "あなたの言語でテキストを入力";
 "enterTextInTargetLanguage" = "目標言語でテキストを入力";
-"addNotesOptional" = "メモを追加（任意）";
+"addNotesOptional" = "メモを追加（オプション）";
 "notes" = "メモ";
 "tagsCount" = "タグ（%d/5）";
 "noTagsAvailableAddInSettings" = "利用可能なタグがありません。設定でタグを追加してください。";
+"translating" = "翻訳中...";
+"translationWillAppearHere" = "翻訳がここに表示されます";
 
 // MARK: - Buttons
 "done" = "完了";
 "cancel" = "キャンセル";
 "save" = "保存";
 "close" = "閉じる";
+"clear" = "クリア";
 "clearFilter" = "フィルターをクリア";
 "clearSearch" = "検索をクリア";
 "addCardButton" = "カードを追加";
+"delete" = "削除";
+"deleteCard" = "カードを削除";
+"deleteCardConfirmation" = "このカードを削除してもよろしいですか？この操作は元に戻せません。";
 "deleteAll" = "すべて削除";
 "deleteAllCards" = "すべてのカードを削除";
 "deleteAllCardsConfirmation" = "すべてのカードを削除してもよろしいですか？この操作は元に戻せません。";
@@ -105,10 +114,10 @@
 
 // MARK: - Background Styles
 "gradient" = "グラデーション";
-"lavaLamp" = "ラバーランプ";
+"lavaLamp" = "ラバランプ";
 "snow" = "雪";
 "rain" = "雨";
-"stars" = "星空";
+"stars" = "星";
 "bubbles" = "泡";
 "waves" = "波";
 "particles" = "粒子";

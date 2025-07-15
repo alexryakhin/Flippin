@@ -6,15 +6,16 @@
 */
 
 // MARK: - Navigation Titles
-"addCard" = "Aggiungi carta";
+"addCard" = "Aggiungi Carta";
+"addNewCard" = "Aggiungi Nuova Carta";
 "settings" = "Impostazioni";
-"myCards" = "Le mie carte";
-"backgroundStyles" = "Stili di sfondo";
-"backgroundDemo" = "Demo sfondo";
+"myCards" = "Le Mie Carte";
+"backgroundStyles" = "Stili di Sfondo";
+"backgroundDemo" = "Demo Sfondo";
 
 // MARK: - Welcome Screen
-"welcomeScreenTitle" = "Benvenuto in Flippin!";
-"welcomeScreenMessage" = "Flippin ti aiuta a imparare e praticare nuove lingue usando le flashcard. Seleziona la tua lingua madre e la lingua che vuoi imparare.";
+"welcomeScreenTitle" = "Benvenuto su Flippin!";
+"welcomeScreenMessage" = "Flippin ti aiuta ad imparare e praticare nuove lingue usando le carte di memoria. Seleziona la tua lingua madre e la lingua che vuoi imparare.";
 "myLanguage" = "La mia lingua";
 "imLearning" = "Sto imparando";
 "continueButton" = "Continua";
@@ -26,7 +27,7 @@
 "noCardsFoundWithTag" = "Nessuna carta trovata con il tag \"%@\"";
 "noCardsAvailable" = "Nessuna carta disponibile";
 "noCardsFound" = "Nessuna carta trovata";
-"addFirstCardToStartLearning" = "Aggiungi la tua prima carta per iniziare a imparare";
+"addFirstCardToStartLearning" = "Aggiungi la tua prima carta per iniziare ad imparare";
 "noCardsMatchSearch" = "Nessuna carta corrisponde alla tua ricerca";
 
 // MARK: - Card Views
@@ -34,41 +35,49 @@
 "tapToGoBack" = "Tocca per tornare indietro";
 
 // MARK: - Tag Management
-"availableTags" = "Tag disponibili";
+"availableTags" = "Tag Disponibili";
 "noTagsAvailable" = "Nessun tag disponibile";
 "manageTagsInSettings" = "Gestisci i tag nelle impostazioni.";
 "toSettings" = "Alle impostazioni";
 "newTagName" = "Nome nuovo tag";
 "add" = "Aggiungi";
-"tagsManagement" = "Gestione tag";
+"addTag" = "Aggiungi Tag";
+"tagsManagement" = "Gestione Tag";
+"filterByTag" = "Filtra per Tag";
 
 // MARK: - Settings
 "languages" = "Lingue";
-"myLanguageSettings" = "La mia lingua";
-"targetLanguage" = "Lingua di destinazione";
+"myLanguageSettings" = "La Mia Lingua";
+"targetLanguage" = "Lingua Obiettivo";
 "background" = "Sfondo";
-"backgroundColor" = "Colore di sfondo";
-"backgroundStyle" = "Stile di sfondo";
+"backgroundColor" = "Colore Sfondo";
+"backgroundStyle" = "Stile Sfondo";
 "tapToSeeFullScreen" = "Tocca per vedere a schermo intero";
 
 // MARK: - Add Card
-"enterTextInYourLanguage" = "Inserisci il testo nella tua lingua";
-"enterTextInTargetLanguage" = "Inserisci il testo nella lingua di destinazione";
+"enterTextInYourLanguage" = "Inserisci testo nella tua lingua";
+"enterTextInTargetLanguage" = "Inserisci testo nella lingua obiettivo";
 "addNotesOptional" = "Aggiungi note (opzionale)";
 "notes" = "Note";
 "tagsCount" = "Tag (%d/5)";
 "noTagsAvailableAddInSettings" = "Nessun tag disponibile. Aggiungi alcuni tag nelle Impostazioni.";
+"translating" = "Traduzione in corso...";
+"translationWillAppearHere" = "La traduzione apparirà qui";
 
 // MARK: - Buttons
 "done" = "Fatto";
 "cancel" = "Annulla";
 "save" = "Salva";
 "close" = "Chiudi";
-"clearFilter" = "Cancella filtro";
-"clearSearch" = "Cancella ricerca";
-"addCardButton" = "Aggiungi carta";
-"deleteAll" = "Elimina tutto";
-"deleteAllCards" = "Elimina tutte le carte";
+"clear" = "Cancella";
+"clearFilter" = "Cancella Filtro";
+"clearSearch" = "Cancella Ricerca";
+"addCardButton" = "Aggiungi Carta";
+"delete" = "Elimina";
+"deleteCard" = "Elimina Carta";
+"deleteCardConfirmation" = "Sei sicuro di voler eliminare questa carta? Questa azione non può essere annullata.";
+"deleteAll" = "Elimina Tutto";
+"deleteAllCards" = "Elimina Tutte le Carte";
 "deleteAllCardsConfirmation" = "Sei sicuro di voler eliminare tutte le carte? Questa azione non può essere annullata.";
 
 // MARK: - Labels

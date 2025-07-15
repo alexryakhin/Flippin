@@ -6,11 +6,12 @@
 */
 
 // MARK: - Navigation Titles
-"addCard" = "Thêm thẻ";
+"addCard" = "Thêm Thẻ";
+"addNewCard" = "Thêm Thẻ Mới";
 "settings" = "Cài đặt";
-"myCards" = "Thẻ của tôi";
-"backgroundStyles" = "Kiểu nền";
-"backgroundDemo" = "Demo nền";
+"myCards" = "Thẻ của Tôi";
+"backgroundStyles" = "Kiểu Nền";
+"backgroundDemo" = "Demo Nền";
 
 // MARK: - Welcome Screen
 "welcomeScreenTitle" = "Chào mừng đến với Flippin!";
@@ -22,8 +23,8 @@
 // MARK: - Content Views
 "noCardsYet" = "Chưa có thẻ nào";
 "tapToAddFirstCard" = "Nhấn vào nút + để thêm thẻ đầu tiên của bạn";
-"noCardsWithSelectedTag" = "Không có thẻ nào với thẻ đã chọn";
-"noCardsFoundWithTag" = "Không tìm thấy thẻ nào với thẻ \"%@\"";
+"noCardsWithSelectedTag" = "Không có thẻ nào với nhãn đã chọn";
+"noCardsFoundWithTag" = "Không tìm thấy thẻ nào với nhãn \"%@\"";
 "noCardsAvailable" = "Không có thẻ nào khả dụng";
 "noCardsFound" = "Không tìm thấy thẻ nào";
 "addFirstCardToStartLearning" = "Thêm thẻ đầu tiên của bạn để bắt đầu học";
@@ -34,47 +35,55 @@
 "tapToGoBack" = "Nhấn để quay lại";
 
 // MARK: - Tag Management
-"availableTags" = "Thẻ khả dụng";
-"noTagsAvailable" = "Không có thẻ nào khả dụng";
-"manageTagsInSettings" = "Quản lý thẻ trong cài đặt.";
+"availableTags" = "Nhãn Khả Dụng";
+"noTagsAvailable" = "Không có nhãn nào khả dụng";
+"manageTagsInSettings" = "Quản lý nhãn trong cài đặt.";
 "toSettings" = "Đến cài đặt";
-"newTagName" = "Tên thẻ mới";
+"newTagName" = "Tên nhãn mới";
 "add" = "Thêm";
-"tagsManagement" = "Quản lý thẻ";
+"addTag" = "Thêm Nhãn";
+"tagsManagement" = "Quản Lý Nhãn";
+"filterByTag" = "Lọc theo Nhãn";
 
 // MARK: - Settings
 "languages" = "Ngôn ngữ";
-"myLanguageSettings" = "Ngôn ngữ của tôi";
-"targetLanguage" = "Ngôn ngữ đích";
+"myLanguageSettings" = "Ngôn Ngữ Của Tôi";
+"targetLanguage" = "Ngôn Ngữ Mục Tiêu";
 "background" = "Nền";
-"backgroundColor" = "Màu nền";
-"backgroundStyle" = "Kiểu nền";
+"backgroundColor" = "Màu Nền";
+"backgroundStyle" = "Kiểu Nền";
 "tapToSeeFullScreen" = "Nhấn để xem toàn màn hình";
 
 // MARK: - Add Card
 "enterTextInYourLanguage" = "Nhập văn bản bằng ngôn ngữ của bạn";
-"enterTextInTargetLanguage" = "Nhập văn bản bằng ngôn ngữ đích";
+"enterTextInTargetLanguage" = "Nhập văn bản bằng ngôn ngữ mục tiêu";
 "addNotesOptional" = "Thêm ghi chú (tùy chọn)";
 "notes" = "Ghi chú";
-"tagsCount" = "Thẻ (%d/5)";
-"noTagsAvailableAddInSettings" = "Không có thẻ nào khả dụng. Thêm một số thẻ trong Cài đặt.";
+"tagsCount" = "Nhãn (%d/5)";
+"noTagsAvailableAddInSettings" = "Không có nhãn nào khả dụng. Thêm một số nhãn trong Cài đặt.";
+"translating" = "Đang dịch...";
+"translationWillAppearHere" = "Bản dịch sẽ xuất hiện ở đây";
 
 // MARK: - Buttons
 "done" = "Xong";
 "cancel" = "Hủy";
 "save" = "Lưu";
 "close" = "Đóng";
-"clearFilter" = "Xóa bộ lọc";
-"clearSearch" = "Xóa tìm kiếm";
-"addCardButton" = "Thêm thẻ";
-"deleteAll" = "Xóa tất cả";
-"deleteAllCards" = "Xóa tất cả thẻ";
-"deleteAllCardsConfirmation" = "Bạn có chắc chắn muốn xóa tất cả thẻ? Hành động này không thể hoàn tác.";
+"clear" = "Xóa";
+"clearFilter" = "Xóa Bộ Lọc";
+"clearSearch" = "Xóa Tìm Kiếm";
+"addCardButton" = "Thêm Thẻ";
+"delete" = "Xóa";
+"deleteCard" = "Xóa Thẻ";
+"deleteCardConfirmation" = "Bạn có chắc chắn muốn xóa thẻ này không? Hành động này không thể hoàn tác.";
+"deleteAll" = "Xóa Tất Cả";
+"deleteAllCards" = "Xóa Tất Cả Thẻ";
+"deleteAllCardsConfirmation" = "Bạn có chắc chắn muốn xóa tất cả thẻ không? Hành động này không thể hoàn tác.";
 
 // MARK: - Labels
 "settingsLabel" = "Cài đặt";
 "menu" = "Menu";
-"tagFilter" = "Bộ lọc thẻ";
+"tagFilter" = "Bộ lọc nhãn";
 "shuffle" = "Xáo trộn";
 "addCardLabel" = "Thêm thẻ";
 

@@ -6,7 +6,7 @@
 echo "🔍 Checking StoreKit Configuration sync status..."
 
 # Check for configuration file
-CONFIG_FILE="Flippin/Configuration/StoreKitConfiguration.storekit"
+CONFIG_FILE="Flippin/Configuration/Flippin.storekit"
 
 if [ ! -f "$CONFIG_FILE" ]; then
     echo "❌ StoreKit Configuration file not found: $CONFIG_FILE"

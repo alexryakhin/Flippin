@@ -6,15 +6,16 @@
 */
 
 // MARK: - Navigation Titles
-"addCard" = "Додати картку";
+"addCard" = "Додати Картку";
+"addNewCard" = "Додати Нову Картку";
 "settings" = "Налаштування";
-"myCards" = "Мої картки";
-"backgroundStyles" = "Стилі фону";
-"backgroundDemo" = "Демо фону";
+"myCards" = "Мої Картки";
+"backgroundStyles" = "Стилі Фону";
+"backgroundDemo" = "Демо Фону";
 
 // MARK: - Welcome Screen
 "welcomeScreenTitle" = "Ласкаво просимо до Flippin!";
-"welcomeScreenMessage" = "Flippin допомагає вам вивчати та практикувати нові мови за допомогою карток. Виберіть свою рідну мову та мову, яку ви хочете вивчити.";
+"welcomeScreenMessage" = "Flippin допомагає вам вивчати та практикувати нові мови за допомогою карток для запам'ятовування. Виберіть свою рідну мову та мову, яку ви хочете вивчити.";
 "myLanguage" = "Моя мова";
 "imLearning" = "Я вивчаю";
 "continueButton" = "Продовжити";
@@ -34,22 +35,24 @@
 "tapToGoBack" = "Натисніть, щоб повернутися";
 
 // MARK: - Tag Management
-"availableTags" = "Доступні теги";
+"availableTags" = "Доступні Теги";
 "noTagsAvailable" = "Немає доступних тегів";
 "manageTagsInSettings" = "Керуйте тегами в налаштуваннях.";
 "toSettings" = "До налаштувань";
 "newTagName" = "Назва нового тегу";
 "add" = "Додати";
-"tagsManagement" = "Управління тегами";
+"addTag" = "Додати Тег";
+"tagsManagement" = "Управління Тегами";
+"filterByTag" = "Фільтрувати за Тегом";
 
 // MARK: - Settings
 "languages" = "Мови";
-"myLanguageSettings" = "Моя мова";
-"targetLanguage" = "Цільова мова";
+"myLanguageSettings" = "Моя Мова";
+"targetLanguage" = "Цільова Мова";
 "background" = "Фон";
-"backgroundColor" = "Колір фону";
-"backgroundStyle" = "Стиль фону";
-"tapToSeeFullScreen" = "Натисніть для повноекранного перегляду";
+"backgroundColor" = "Колір Фону";
+"backgroundStyle" = "Стиль Фону";
+"tapToSeeFullScreen" = "Натисніть, щоб побачити повний екран";
 
 // MARK: - Add Card
 "enterTextInYourLanguage" = "Введіть текст своєю мовою";
@@ -57,18 +60,24 @@
 "addNotesOptional" = "Додати нотатки (необов'язково)";
 "notes" = "Нотатки";
 "tagsCount" = "Теги (%d/5)";
-"noTagsAvailableAddInSettings" = "Немає доступних тегів. Додайте кілька тегів у Налаштуваннях.";
+"noTagsAvailableAddInSettings" = "Немає доступних тегів. Додайте кілька тегів у Налаштування.";
+"translating" = "Переклад...";
+"translationWillAppearHere" = "Переклад з'явиться тут";
 
 // MARK: - Buttons
 "done" = "Готово";
 "cancel" = "Скасувати";
 "save" = "Зберегти";
 "close" = "Закрити";
-"clearFilter" = "Очистити фільтр";
-"clearSearch" = "Очистити пошук";
-"addCardButton" = "Додати картку";
-"deleteAll" = "Видалити все";
-"deleteAllCards" = "Видалити всі картки";
+"clear" = "Очистити";
+"clearFilter" = "Очистити Фільтр";
+"clearSearch" = "Очистити Пошук";
+"addCardButton" = "Додати Картку";
+"delete" = "Видалити";
+"deleteCard" = "Видалити Картку";
+"deleteCardConfirmation" = "Ви впевнені, що хочете видалити цю картку? Цю дію неможливо скасувати.";
+"deleteAll" = "Видалити Все";
+"deleteAllCards" = "Видалити Всі Картки";
 "deleteAllCardsConfirmation" = "Ви впевнені, що хочете видалити всі картки? Цю дію неможливо скасувати.";
 
 // MARK: - Labels
@@ -105,14 +114,14 @@
 
 // MARK: - Background Styles
 "gradient" = "Градієнт";
-"lavaLamp" = "Лавова лампа";
+"lavaLamp" = "Лавова Лампа";
 "snow" = "Сніг";
 "rain" = "Дощ";
 "stars" = "Зірки";
 "bubbles" = "Бульбашки";
 "waves" = "Хвилі";
 "particles" = "Частинки";
-"aurora" = "Аврора";
+"aurora" = "Північне Сяйво";
 "fireflies" = "Світлячки";
 "ocean" = "Океан";
 "galaxy" = "Галактика";

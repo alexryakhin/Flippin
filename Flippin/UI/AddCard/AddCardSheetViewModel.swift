@@ -7,7 +7,6 @@
 
 import Foundation
 import SwiftUI
-import SwiftData
 import Combine
 
 @MainActor
@@ -93,26 +92,25 @@ class AddCardSheetViewModel: ObservableObject {
         newTagText = ""
     }
     
-    func saveCard(modelContext: ModelContext) -> Bool {
+    func createCard() -> CardItem? {
         let trimmedNative = nativeText.trimmingCharacters(in: .whitespacesAndNewlines)
         let trimmedTarget = targetText.trimmingCharacters(in: .whitespacesAndNewlines)
         let trimmedNotes = notes.trimmingCharacters(in: .whitespacesAndNewlines)
         
         guard !trimmedNative.isEmpty && !trimmedTarget.isEmpty else {
-            return false
+            return nil
         }
         
-        let newItem = CardItem(
+        return CardItem(
+            timestamp: Date(),
             frontText: trimmedTarget,
             backText: trimmedNative,
             frontLanguage: targetLanguage,
             backLanguage: userLanguage,
-            notes: trimmedNotes.isEmpty ? nil : trimmedNotes,
-            tags: selectedTags.isEmpty ? nil : Array(selectedTags)
+            notes: trimmedNotes.isEmpty ? "" : trimmedNotes,
+            tags: selectedTags.isEmpty ? [] : Array(selectedTags),
+            id: UUID().uuidString
         )
-        
-        modelContext.insert(newItem)
-        return true
     }
     
     func cancel() {

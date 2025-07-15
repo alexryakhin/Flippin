@@ -9,15 +9,16 @@ import Flow
 
 struct CardRowView: View {
     let card: CardItem
+    let onDelete: () -> Void
     
     @State private var isFlipped = false
     @State private var isPlayingTTS = false
     
     var body: some View {
-        let text = isFlipped ? (card.backText ?? "") : (card.frontText ?? "")
-        let language = isFlipped ? (card.backLanguage ?? .english) : (card.frontLanguage ?? .english)
+        let text = isFlipped ? card.backText : card.frontText
+        let language = isFlipped ? card.backLanguage : card.frontLanguage
 
-        VStack(spacing: 8) {
+        VStack(alignment: .leading, spacing: 8) {
             HStack {
                 Text(language.displayName)
                     .font(.caption)
@@ -25,11 +26,9 @@ struct CardRowView: View {
 
                 Spacer()
 
-                if let timestamp = card.timestamp {
-                    Text(timestamp, format: Date.FormatStyle(date: .abbreviated, time: .shortened))
-                        .font(.caption2)
-                        .foregroundStyle(.secondary)
-                }
+                Text(card.timestamp, format: Date.FormatStyle(date: .abbreviated, time: .shortened))
+                    .font(.caption2)
+                    .foregroundStyle(.secondary)
             }
 
             HStack {
@@ -60,17 +59,17 @@ struct CardRowView: View {
                 .buttonStyle(.plain)
             }
 
-            if let notes = card.notes, !notes.isEmpty {
-                Text(notes)
+            if !card.notes.isEmpty {
+                Text(card.notes)
                     .font(.caption)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.leading)
                     .lineLimit(1)
             }
 
-            if let tags = card.tags, !tags.isEmpty {
+            if !card.tags.isEmpty {
                 HFlow(spacing: 4) {
-                    ForEach(tags, id: \.self) { tag in
+                    ForEach(card.tags, id: \.self) { tag in
                         Text(tag)
                             .font(.caption2)
                             .padding(.horizontal, 6)
@@ -84,6 +83,13 @@ struct CardRowView: View {
             }
         }
         .padding(.vertical, 4)
+        .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+            Button(role: .destructive) {
+                onDelete()
+            } label: {
+                Label(LocalizationKeys.delete.localized, systemImage: "trash")
+            }
+        }
         .onTapGesture {
             withAnimation(.easeInOut(duration: 0.3)) {
                 isFlipped.toggle()
@@ -92,8 +98,8 @@ struct CardRowView: View {
                 AnalyticsService.trackCardEvent(
                     .cardFlipped,
                     cardLanguage: card.frontText,
-                    hasTags: !(card.tags?.isEmpty ?? true),
-                    tagCount: card.tags?.count ?? .zero
+                    hasTags: !card.tags.isEmpty,
+                    tagCount: card.tags.count
                 )
             }
         }

@@ -6,16 +6,17 @@
 */
 
 // MARK: - Navigation Titles
-"addCard" = "Adicionar cartão";
+"addCard" = "Adicionar Cartão";
+"addNewCard" = "Adicionar Novo Cartão";
 "settings" = "Definições";
-"myCards" = "Os meus cartões";
-"backgroundStyles" = "Estilos de fundo";
-"backgroundDemo" = "Demo de fundo";
+"myCards" = "Os Meus Cartões";
+"backgroundStyles" = "Estilos de Fundo";
+"backgroundDemo" = "Demo de Fundo";
 
 // MARK: - Welcome Screen
 "welcomeScreenTitle" = "Bem-vindo ao Flippin!";
-"welcomeScreenMessage" = "O Flippin ajuda-te a aprender e praticar novos idiomas usando cartões de memória. Seleciona o teu idioma nativo e o idioma que queres aprender.";
-"myLanguage" = "O meu idioma";
+"welcomeScreenMessage" = "O Flippin ajuda-te a aprender e praticar novos idiomas usando cartões de memória. Seleciona a tua língua materna e o idioma que queres aprender.";
+"myLanguage" = "A minha língua";
 "imLearning" = "Estou a aprender";
 "continueButton" = "Continuar";
 
@@ -34,41 +35,49 @@
 "tapToGoBack" = "Toca para voltar";
 
 // MARK: - Tag Management
-"availableTags" = "Etiquetas disponíveis";
+"availableTags" = "Etiquetas Disponíveis";
 "noTagsAvailable" = "Nenhuma etiqueta disponível";
 "manageTagsInSettings" = "Gerencia as etiquetas nas definições.";
 "toSettings" = "Para definições";
 "newTagName" = "Nome da nova etiqueta";
 "add" = "Adicionar";
-"tagsManagement" = "Gestão de etiquetas";
+"addTag" = "Adicionar Etiqueta";
+"tagsManagement" = "Gestão de Etiquetas";
+"filterByTag" = "Filtrar por Etiqueta";
 
 // MARK: - Settings
 "languages" = "Idiomas";
-"myLanguageSettings" = "O meu idioma";
-"targetLanguage" = "Idioma de destino";
+"myLanguageSettings" = "A Minha Língua";
+"targetLanguage" = "Idioma Alvo";
 "background" = "Fundo";
-"backgroundColor" = "Cor de fundo";
-"backgroundStyle" = "Estilo de fundo";
+"backgroundColor" = "Cor de Fundo";
+"backgroundStyle" = "Estilo de Fundo";
 "tapToSeeFullScreen" = "Toca para ver em ecrã completo";
 
 // MARK: - Add Card
-"enterTextInYourLanguage" = "Introduz o texto no teu idioma";
-"enterTextInTargetLanguage" = "Introduz o texto no idioma de destino";
+"enterTextInYourLanguage" = "Introduz texto na tua língua";
+"enterTextInTargetLanguage" = "Introduz texto no idioma alvo";
 "addNotesOptional" = "Adicionar notas (opcional)";
 "notes" = "Notas";
 "tagsCount" = "Etiquetas (%d/5)";
 "noTagsAvailableAddInSettings" = "Nenhuma etiqueta disponível. Adiciona algumas etiquetas nas Definições.";
+"translating" = "A traduzir...";
+"translationWillAppearHere" = "A tradução aparecerá aqui";
 
 // MARK: - Buttons
 "done" = "Concluído";
 "cancel" = "Cancelar";
 "save" = "Guardar";
 "close" = "Fechar";
-"clearFilter" = "Limpar filtro";
-"clearSearch" = "Limpar pesquisa";
-"addCardButton" = "Adicionar cartão";
-"deleteAll" = "Eliminar tudo";
-"deleteAllCards" = "Eliminar todos os cartões";
+"clear" = "Limpar";
+"clearFilter" = "Limpar Filtro";
+"clearSearch" = "Limpar Pesquisa";
+"addCardButton" = "Adicionar Cartão";
+"delete" = "Eliminar";
+"deleteCard" = "Eliminar Cartão";
+"deleteCardConfirmation" = "Tens a certeza de que queres eliminar este cartão? Esta ação não pode ser desfeita.";
+"deleteAll" = "Eliminar Tudo";
+"deleteAllCards" = "Eliminar Todos os Cartões";
 "deleteAllCardsConfirmation" = "Tens a certeza de que queres eliminar todos os cartões? Esta ação não pode ser desfeita.";
 
 // MARK: - Labels
@@ -113,6 +122,6 @@
 "waves" = "Ondas";
 "particles" = "Partículas";
 "aurora" = "Aurora";
-"fireflies" = "Pirilampos";
+"fireflies" = "Vaga-lumes";
 "ocean" = "Oceano";
 "galaxy" = "Galáxia";

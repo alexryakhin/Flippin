@@ -6,11 +6,12 @@
 */
 
 // MARK: - Navigation Titles
-"addCard" = "Lägg till kort";
+"addCard" = "Lägg till Kort";
+"addNewCard" = "Lägg till Nytt Kort";
 "settings" = "Inställningar";
-"myCards" = "Mina kort";
+"myCards" = "Mina Kort";
 "backgroundStyles" = "Bakgrundsstilar";
-"backgroundDemo" = "Bakgrundsdemo";
+"backgroundDemo" = "Bakgrund Demo";
 
 // MARK: - Welcome Screen
 "welcomeScreenTitle" = "Välkommen till Flippin!";
@@ -20,7 +21,7 @@
 "continueButton" = "Fortsätt";
 
 // MARK: - Content Views
-"noCardsYet" = "Inga kort än";
+"noCardsYet" = "Inga kort ännu";
 "tapToAddFirstCard" = "Tryck på + knappen för att lägga till ditt första kort";
 "noCardsWithSelectedTag" = "Inga kort med vald tagg";
 "noCardsFoundWithTag" = "Inga kort hittades med taggen \"%@\"";
@@ -34,17 +35,19 @@
 "tapToGoBack" = "Tryck för att gå tillbaka";
 
 // MARK: - Tag Management
-"availableTags" = "Tillgängliga taggar";
+"availableTags" = "Tillgängliga Taggar";
 "noTagsAvailable" = "Inga taggar tillgängliga";
 "manageTagsInSettings" = "Hantera taggar i inställningarna.";
 "toSettings" = "Till inställningar";
 "newTagName" = "Nytt taggnamn";
 "add" = "Lägg till";
+"addTag" = "Lägg till Tagg";
 "tagsManagement" = "Tagghantering";
+"filterByTag" = "Filtrera efter Tagg";
 
 // MARK: - Settings
 "languages" = "Språk";
-"myLanguageSettings" = "Mitt språk";
+"myLanguageSettings" = "Mitt Språk";
 "targetLanguage" = "Målspråk";
 "background" = "Bakgrund";
 "backgroundColor" = "Bakgrundsfärg";
@@ -58,23 +61,29 @@
 "notes" = "Anteckningar";
 "tagsCount" = "Taggar (%d/5)";
 "noTagsAvailableAddInSettings" = "Inga taggar tillgängliga. Lägg till några taggar i Inställningar.";
+"translating" = "Översätter...";
+"translationWillAppearHere" = "Översättningen kommer att visas här";
 
 // MARK: - Buttons
 "done" = "Klar";
 "cancel" = "Avbryt";
 "save" = "Spara";
 "close" = "Stäng";
-"clearFilter" = "Rensa filter";
-"clearSearch" = "Rensa sökning";
-"addCardButton" = "Lägg till kort";
-"deleteAll" = "Radera alla";
-"deleteAllCards" = "Radera alla kort";
+"clear" = "Rensa";
+"clearFilter" = "Rensa Filter";
+"clearSearch" = "Rensa Sökning";
+"addCardButton" = "Lägg till Kort";
+"delete" = "Radera";
+"deleteCard" = "Radera Kort";
+"deleteCardConfirmation" = "Är du säker på att du vill radera detta kort? Denna åtgärd kan inte ångras.";
+"deleteAll" = "Radera Allt";
+"deleteAllCards" = "Radera Alla Kort";
 "deleteAllCardsConfirmation" = "Är du säker på att du vill radera alla kort? Denna åtgärd kan inte ångras.";
 
 // MARK: - Labels
 "settingsLabel" = "Inställningar";
 "menu" = "Meny";
-"tagFilter" = "Tagfilter";
+"tagFilter" = "Taggfilter";
 "shuffle" = "Blanda";
 "addCardLabel" = "Lägg till kort";
 

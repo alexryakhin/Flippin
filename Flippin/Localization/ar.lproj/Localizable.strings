@@ -7,6 +7,7 @@
 
 // MARK: - Navigation Titles
 "addCard" = "إضافة بطاقة";
+"addNewCard" = "إضافة بطاقة جديدة";
 "settings" = "الإعدادات";
 "myCards" = "بطاقاتي";
 "backgroundStyles" = "أنماط الخلفية";
@@ -14,16 +15,16 @@
 
 // MARK: - Welcome Screen
 "welcomeScreenTitle" = "مرحباً بك في Flippin!";
-"welcomeScreenMessage" = "يساعدك Flippin على تعلم وممارسة لغات جديدة باستخدام البطاقات التعليمية. اختر لغتك الأم واللغة التي تريد تعلمها.";
+"welcomeScreenMessage" = "يساعدك Flippin على تعلم وممارسة لغات جديدة باستخدام بطاقات الذاكرة. اختر لغتك الأم واللغة التي تريد تعلمها.";
 "myLanguage" = "لغتي";
 "imLearning" = "أنا أتعلم";
 "continueButton" = "متابعة";
 
 // MARK: - Content Views
 "noCardsYet" = "لا توجد بطاقات بعد";
-"tapToAddFirstCard" = "انقر على زر + لإضافة بطاقتك الأولى";
+"tapToAddFirstCard" = "انقر على الزر + لإضافة بطاقتك الأولى";
 "noCardsWithSelectedTag" = "لا توجد بطاقات بالوسم المحدد";
-"noCardsFoundWithTag" = "لا توجد بطاقات بالوسم \"%@\"";
+"noCardsFoundWithTag" = "لم يتم العثور على بطاقات بالوسم \"%@\"";
 "noCardsAvailable" = "لا توجد بطاقات متاحة";
 "noCardsFound" = "لم يتم العثور على بطاقات";
 "addFirstCardToStartLearning" = "أضف بطاقتك الأولى لبدء التعلم";
@@ -40,7 +41,9 @@
 "toSettings" = "إلى الإعدادات";
 "newTagName" = "اسم الوسم الجديد";
 "add" = "إضافة";
+"addTag" = "إضافة وسم";
 "tagsManagement" = "إدارة الوسوم";
+"filterByTag" = "تصفية حسب الوسم";
 
 // MARK: - Settings
 "languages" = "اللغات";
@@ -58,15 +61,21 @@
 "notes" = "الملاحظات";
 "tagsCount" = "الوسوم (%d/5)";
 "noTagsAvailableAddInSettings" = "لا توجد وسوم متاحة. أضف بعض الوسوم في الإعدادات.";
+"translating" = "جاري الترجمة...";
+"translationWillAppearHere" = "ستظهر الترجمة هنا";
 
 // MARK: - Buttons
 "done" = "تم";
 "cancel" = "إلغاء";
 "save" = "حفظ";
 "close" = "إغلاق";
-"clearFilter" = "مسح الفلتر";
+"clear" = "مسح";
+"clearFilter" = "مسح المرشح";
 "clearSearch" = "مسح البحث";
 "addCardButton" = "إضافة بطاقة";
+"delete" = "حذف";
+"deleteCard" = "حذف البطاقة";
+"deleteCardConfirmation" = "هل أنت متأكد من أنك تريد حذف هذه البطاقة؟ لا يمكن التراجع عن هذا الإجراء.";
 "deleteAll" = "حذف الكل";
 "deleteAllCards" = "حذف جميع البطاقات";
 "deleteAllCardsConfirmation" = "هل أنت متأكد من أنك تريد حذف جميع البطاقات؟ لا يمكن التراجع عن هذا الإجراء.";
@@ -74,7 +83,7 @@
 // MARK: - Labels
 "settingsLabel" = "الإعدادات";
 "menu" = "القائمة";
-"tagFilter" = "فلتر الوسوم";
+"tagFilter" = "مرشح الوسوم";
 "shuffle" = "خلط";
 "addCardLabel" = "إضافة بطاقة";
 
@@ -111,7 +120,7 @@
 "stars" = "النجوم";
 "bubbles" = "الفقاعات";
 "waves" = "الأمواج";
-"particles" = "الجسيمات";
+"particles" = "الجزيئات";
 "aurora" = "الشفق القطبي";
 "fireflies" = "اليراعات";
 "ocean" = "المحيط";

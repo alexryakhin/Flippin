@@ -6,15 +6,16 @@
 */
 
 // MARK: - Navigation Titles
-"addCard" = "Dodaj karticu";
+"addCard" = "Dodaj Karticu";
+"addNewCard" = "Dodaj Novu Karticu";
 "settings" = "Postavke";
-"myCards" = "Moje kartice";
-"backgroundStyles" = "Stilovi pozadine";
-"backgroundDemo" = "Demo pozadine";
+"myCards" = "Moje Kartice";
+"backgroundStyles" = "Stilovi Pozadine";
+"backgroundDemo" = "Demo Pozadine";
 
 // MARK: - Welcome Screen
 "welcomeScreenTitle" = "Dobrodošli u Flippin!";
-"welcomeScreenMessage" = "Flippin vam pomaže učiti i vježbati nove jezike koristeći flash kartice. Odaberite svoj materinski jezik i jezik koji želite naučiti.";
+"welcomeScreenMessage" = "Flippin vam pomaže učiti i vježbati nove jezike koristeći kartice za pamćenje. Odaberite svoj materinski jezik i jezik koji želite učiti.";
 "myLanguage" = "Moj jezik";
 "imLearning" = "Učim";
 "continueButton" = "Nastavi";
@@ -26,7 +27,7 @@
 "noCardsFoundWithTag" = "Nema kartica s oznakom \"%@\"";
 "noCardsAvailable" = "Nema dostupnih kartica";
 "noCardsFound" = "Nema pronađenih kartica";
-"addFirstCardToStartLearning" = "Dodajte svoju prvu karticu za početak učenja";
+"addFirstCardToStartLearning" = "Dodajte prvu karticu za početak učenja";
 "noCardsMatchSearch" = "Nema kartica koje odgovaraju vašoj pretrazi";
 
 // MARK: - Card Views
@@ -34,41 +35,49 @@
 "tapToGoBack" = "Dodirnite za povratak";
 
 // MARK: - Tag Management
-"availableTags" = "Dostupne oznake";
+"availableTags" = "Dostupne Oznake";
 "noTagsAvailable" = "Nema dostupnih oznaka";
 "manageTagsInSettings" = "Upravljajte oznakama u postavkama.";
 "toSettings" = "U postavke";
 "newTagName" = "Naziv nove oznake";
 "add" = "Dodaj";
-"tagsManagement" = "Upravljanje oznakama";
+"addTag" = "Dodaj Oznaku";
+"tagsManagement" = "Upravljanje Oznakama";
+"filterByTag" = "Filtriraj po Oznaci";
 
 // MARK: - Settings
 "languages" = "Jezici";
-"myLanguageSettings" = "Moj jezik";
-"targetLanguage" = "Ciljni jezik";
+"myLanguageSettings" = "Moj Jezik";
+"targetLanguage" = "Ciljni Jezik";
 "background" = "Pozadina";
-"backgroundColor" = "Boja pozadine";
-"backgroundStyle" = "Stil pozadine";
-"tapToSeeFullScreen" = "Dodirnite za prikaz punog ekrana";
+"backgroundColor" = "Boja Pozadine";
+"backgroundStyle" = "Stil Pozadine";
+"tapToSeeFullScreen" = "Dodirnite za prikaz punog zaslona";
 
 // MARK: - Add Card
 "enterTextInYourLanguage" = "Unesite tekst na svom jeziku";
 "enterTextInTargetLanguage" = "Unesite tekst na ciljnom jeziku";
-"addNotesOptional" = "Dodajte bilješke (opcijalno)";
+"addNotesOptional" = "Dodajte bilješke (opcija)";
 "notes" = "Bilješke";
 "tagsCount" = "Oznake (%d/5)";
-"noTagsAvailableAddInSettings" = "Nema dostupnih oznaka. Dodajte neke oznake u Postavkama.";
+"noTagsAvailableAddInSettings" = "Nema dostupnih oznaka. Dodajte neke oznake u Postavke.";
+"translating" = "Prevođenje...";
+"translationWillAppearHere" = "Prijevod će se pojaviti ovdje";
 
 // MARK: - Buttons
 "done" = "Gotovo";
 "cancel" = "Odustani";
 "save" = "Spremi";
 "close" = "Zatvori";
-"clearFilter" = "Očisti filter";
-"clearSearch" = "Očisti pretragu";
-"addCardButton" = "Dodaj karticu";
-"deleteAll" = "Obriši sve";
-"deleteAllCards" = "Obriši sve kartice";
+"clear" = "Očisti";
+"clearFilter" = "Očisti Filter";
+"clearSearch" = "Očisti Pretragu";
+"addCardButton" = "Dodaj Karticu";
+"delete" = "Obriši";
+"deleteCard" = "Obriši Karticu";
+"deleteCardConfirmation" = "Jeste li sigurni da želite obrisati ovu karticu? Ova radnja se ne može poništiti.";
+"deleteAll" = "Obriši Sve";
+"deleteAllCards" = "Obriši Sve Kartice";
 "deleteAllCardsConfirmation" = "Jeste li sigurni da želite obrisati sve kartice? Ova radnja se ne može poništiti.";
 
 // MARK: - Labels
@@ -105,7 +114,7 @@
 
 // MARK: - Background Styles
 "gradient" = "Gradijent";
-"lavaLamp" = "Lava lampa";
+"lavaLamp" = "Lava Lampa";
 "snow" = "Snijeg";
 "rain" = "Kiša";
 "stars" = "Zvijezde";

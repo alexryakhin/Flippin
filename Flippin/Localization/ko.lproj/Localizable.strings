@@ -7,6 +7,7 @@
 
 // MARK: - Navigation Titles
 "addCard" = "카드 추가";
+"addNewCard" = "새 카드 추가";
 "settings" = "설정";
 "myCards" = "내 카드";
 "backgroundStyles" = "배경 스타일";
@@ -14,24 +15,24 @@
 
 // MARK: - Welcome Screen
 "welcomeScreenTitle" = "Flippin에 오신 것을 환영합니다!";
-"welcomeScreenMessage" = "Flippin은 플래시카드를 사용하여 새로운 언어를 배우고 연습하는 데 도움을 줍니다. 모국어와 배우고 싶은 언어를 선택하세요.";
+"welcomeScreenMessage" = "Flippin은 플래시카드를 사용하여 새로운 언어를 학습하고 연습하는 데 도움이 됩니다. 모국어와 학습하고 싶은 언어를 선택하세요.";
 "myLanguage" = "내 언어";
-"imLearning" = "배우는 중";
+"imLearning" = "학습 중";
 "continueButton" = "계속";
 
 // MARK: - Content Views
 "noCardsYet" = "아직 카드가 없습니다";
-"tapToAddFirstCard" = "첫 번째 카드를 추가하려면 + 버튼을 탭하세요";
+"tapToAddFirstCard" = "+ 버튼을 탭하여 첫 번째 카드를 추가하세요";
 "noCardsWithSelectedTag" = "선택된 태그의 카드가 없습니다";
 "noCardsFoundWithTag" = "태그 \"%@\"의 카드를 찾을 수 없습니다";
 "noCardsAvailable" = "사용 가능한 카드가 없습니다";
 "noCardsFound" = "카드를 찾을 수 없습니다";
-"addFirstCardToStartLearning" = "학습을 시작하려면 첫 번째 카드를 추가하세요";
+"addFirstCardToStartLearning" = "첫 번째 카드를 추가하여 학습을 시작하세요";
 "noCardsMatchSearch" = "검색과 일치하는 카드가 없습니다";
 
 // MARK: - Card Views
 "showAnswer" = "답 보기";
-"tapToGoBack" = "돌아가려면 탭";
+"tapToGoBack" = "돌아가려면 탭하세요";
 
 // MARK: - Tag Management
 "availableTags" = "사용 가능한 태그";
@@ -40,7 +41,9 @@
 "toSettings" = "설정으로";
 "newTagName" = "새 태그 이름";
 "add" = "추가";
+"addTag" = "태그 추가";
 "tagsManagement" = "태그 관리";
+"filterByTag" = "태그로 필터링";
 
 // MARK: - Settings
 "languages" = "언어";
@@ -49,7 +52,7 @@
 "background" = "배경";
 "backgroundColor" = "배경색";
 "backgroundStyle" = "배경 스타일";
-"tapToSeeFullScreen" = "전체 화면을 보려면 탭";
+"tapToSeeFullScreen" = "전체 화면을 보려면 탭하세요";
 
 // MARK: - Add Card
 "enterTextInYourLanguage" = "자신의 언어로 텍스트를 입력하세요";
@@ -57,16 +60,22 @@
 "addNotesOptional" = "메모 추가 (선택사항)";
 "notes" = "메모";
 "tagsCount" = "태그 (%d/5)";
-"noTagsAvailableAddInSettings" = "사용 가능한 태그가 없습니다. 설정에서 일부 태그를 추가하세요.";
+"noTagsAvailableAddInSettings" = "사용 가능한 태그가 없습니다. 설정에서 태그를 추가하세요.";
+"translating" = "번역 중...";
+"translationWillAppearHere" = "번역이 여기에 나타납니다";
 
 // MARK: - Buttons
 "done" = "완료";
 "cancel" = "취소";
 "save" = "저장";
 "close" = "닫기";
+"clear" = "지우기";
 "clearFilter" = "필터 지우기";
 "clearSearch" = "검색 지우기";
 "addCardButton" = "카드 추가";
+"delete" = "삭제";
+"deleteCard" = "카드 삭제";
+"deleteCardConfirmation" = "이 카드를 삭제하시겠습니까? 이 작업은 취소할 수 없습니다.";
 "deleteAll" = "모두 삭제";
 "deleteAllCards" = "모든 카드 삭제";
 "deleteAllCardsConfirmation" = "모든 카드를 삭제하시겠습니까? 이 작업은 취소할 수 없습니다.";

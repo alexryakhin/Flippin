@@ -125,6 +125,7 @@ struct PurchaseTestView: View {
                 }
             }
         }
+        .background(Color(.systemGroupedBackground))
         .navigationTitle("Purchase Testing")
         .navigationBarTitleDisplayMode(.inline)
         .alert(alertTitle, isPresented: $showingAlert) {

@@ -6,12 +6,10 @@
 //
 
 import SwiftUI
-import SwiftData
 
 struct ContentView: View {
     @Environment(\.colorScheme) var colorScheme
-    @Environment(\.modelContext) private var modelContext
-    @Query(sort: \CardItem.timestamp, order: .forward) private var items: [CardItem]
+    @EnvironmentObject private var cardsProvider: CardsProvider
 
     @AppStorage(UserDefaultsKey.userLanguage) private var userLanguageRaw: String = Language(rawValue: Locale.current.language.languageCode?.identifier ?? "en")?.rawValue ?? Language.english.rawValue
     @AppStorage(UserDefaultsKey.targetLanguage) private var targetLanguageRaw: String = Language.spanish.rawValue
@@ -28,9 +26,9 @@ struct ContentView: View {
 
     var filteredItems: [CardItem] {
         if !tagManager.currentFilterTag.isEmpty {
-            return tagManager.filterCards(items, by: tagManager.currentFilterTag)
+            return tagManager.filterCards(cardsProvider.cards, by: tagManager.currentFilterTag)
         }
-        return items
+        return cardsProvider.cards
     }
 
     var displayItems: [CardItem] {
@@ -68,7 +66,7 @@ struct ContentView: View {
                 AnalyticsService.trackEvent(.welcomeScreenOpened)
             }
         }
-        .onChange(of: items.count) { _, _ in
+        .onChange(of: cardsProvider.cards.count) { _, _ in
             resetShuffle()
         }
         .onChange(of: tagManager.currentFilterTag) { _, _ in
@@ -94,13 +92,11 @@ struct ContentView: View {
         }
         .sheet(isPresented: $showMyCards) {
             MyCardsListView(
-                onAddCard: {
-                    showAddCardSheet = true
-                },
                 onToSettings: {
                     showSettings = true
                 }
             )
+            .environmentObject(cardsProvider)
         }
         .onChange(of: showMyCards) { _, isPresented in
             if isPresented {
@@ -108,7 +104,9 @@ struct ContentView: View {
             }
         }
         .sheet(isPresented: $showAddCardSheet) {
-            AddCardSheet()
+            AddCardSheet { newCard in
+                cardsProvider.addCard(newCard)
+            }
         }
         .onChange(of: showAddCardSheet) { _, isPresented in
             if isPresented {
@@ -126,7 +124,7 @@ struct ContentView: View {
 
     @ViewBuilder
     private var cardsStackView: some View {
-        if items.isEmpty {
+        if cardsProvider.cards.isEmpty {
             ContentUnavailableView {
                 VStack {
                     Image(systemName: "rectangle.stack.fill")

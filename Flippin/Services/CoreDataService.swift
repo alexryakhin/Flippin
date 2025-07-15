@@ -1,0 +1,76 @@
+//
+//  CoreDataService.swift
+//  Flippin
+//
+//  Created by Alexander Riakhin on 7/15/25.
+//
+
+import CoreData
+import Combine
+
+public class CoreDataService: ObservableObject {
+
+    public static let shared = CoreDataService()
+    public let dataUpdatedPublisher = PassthroughSubject<Void, Never>()
+
+    public var context: NSManagedObjectContext {
+        return persistentContainer.viewContext
+    }
+
+    private lazy var persistentContainer: NSPersistentCloudKitContainer = {
+        let container = NSPersistentCloudKitContainer(name: "FlippinCoreDataModel")
+
+        // Configure CloudKit
+        guard let description = container.persistentStoreDescriptions.first else {
+            fatalError("Failed to retrieve a persistent store description.")
+        }
+        
+        description.setOption(true as NSNumber, forKey: NSPersistentHistoryTrackingKey)
+        description.setOption(true as NSNumber, forKey: NSPersistentStoreRemoteChangeNotificationPostOptionKey)
+        description.shouldMigrateStoreAutomatically = true
+        description.shouldInferMappingModelAutomatically = true
+        
+        // Configure CloudKit container
+        let cloudKitOptions = NSPersistentCloudKitContainerOptions(
+            containerIdentifier: "iCloud.com.dor.flippin"
+        )
+        description.cloudKitContainerOptions = cloudKitOptions
+        
+        container.loadPersistentStores { _, error in
+            if let error = error as NSError? {
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        }
+        
+        container.viewContext.automaticallyMergesChangesFromParent = true
+        container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+        
+        return container
+    }()
+
+    private var cancellables: Set<AnyCancellable> = []
+
+    private init() {
+        setupBindings()
+    }
+
+    public func saveContext() throws {
+        let context = persistentContainer.viewContext
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                throw error
+            }
+        }
+    }
+
+    private func setupBindings() {
+        NotificationCenter.default.publisher(for: .NSManagedObjectContextDidSave)
+            .debounce(for: .seconds(0.3), scheduler: DispatchQueue.main)
+            .sink { [weak self] _ in
+                self?.dataUpdatedPublisher.send()
+            }
+            .store(in: &cancellables)
+    }
+} 

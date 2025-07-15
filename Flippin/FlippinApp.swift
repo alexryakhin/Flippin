@@ -6,28 +6,13 @@
 //
 
 import SwiftUI
-import SwiftData
+import CoreData
 import Firebase
 import FirebaseAnalytics
 
 @main
 struct FlippinApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            CardItem.self,
-        ])
-        let modelConfiguration = ModelConfiguration(
-            schema: schema, 
-            isStoredInMemoryOnly: false,
-            cloudKitDatabase: .private("iCloud.com.dor.flippin")
-        )
-
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
-    }()
+    @StateObject private var cardsProvider = CardsProvider()
 
     init() {
         FirebaseApp.configure()
@@ -37,7 +22,7 @@ struct FlippinApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(cardsProvider)
         }
-        .modelContainer(sharedModelContainer)
     }
 }

@@ -4,6 +4,7 @@ enum LocalizationKeys {
     
     // MARK: - Navigation Titles
     static let addCard = "addCard"
+    static let addNewCard = "addNewCard"
     static let settings = "settings"
     static let myCards = "myCards"
     static let backgroundStyles = "backgroundStyles"
@@ -37,7 +38,9 @@ enum LocalizationKeys {
     static let toSettings = "toSettings"
     static let newTagName = "newTagName"
     static let add = "add"
+    static let addTag = "addTag"
     static let tagsManagement = "tagsManagement"
+    static let filterByTag = "filterByTag"
     
     // MARK: - Settings
     static let languages = "languages"
@@ -55,15 +58,21 @@ enum LocalizationKeys {
     static let notes = "notes"
     static let tagsCount = "tagsCount"
     static let noTagsAvailableAddInSettings = "noTagsAvailableAddInSettings"
+    static let translating = "translating"
+    static let translationWillAppearHere = "translationWillAppearHere"
     
     // MARK: - Buttons
     static let done = "done"
     static let cancel = "cancel"
     static let save = "save"
     static let close = "close"
+    static let clear = "clear"
     static let clearFilter = "clearFilter"
     static let clearSearch = "clearSearch"
     static let addCardButton = "addCardButton"
+    static let delete = "delete"
+    static let deleteCard = "deleteCard"
+    static let deleteCardConfirmation = "deleteCardConfirmation"
     static let deleteAll = "deleteAll"
     static let deleteAllCards = "deleteAllCards"
     static let deleteAllCardsConfirmation = "deleteAllCardsConfirmation"

@@ -50,9 +50,9 @@ struct CardView: View {
                     // Track card flip event
                     AnalyticsService.trackCardEvent(
                         .cardFlipped,
-                        cardLanguage: item.frontLanguage?.rawValue,
-                        hasTags: !(item.tags?.isEmpty ?? true),
-                        tagCount: item.tags?.count ?? .zero
+                        cardLanguage: item.frontLanguage.rawValue,
+                        hasTags: !item.tags.isEmpty,
+                        tagCount: item.tags.count
                     )
                 }
             }

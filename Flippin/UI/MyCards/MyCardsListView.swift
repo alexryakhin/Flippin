@@ -5,173 +5,121 @@
 //  Created by Alexander Riakhin on 6/30/25.
 //
 import SwiftUI
-import SwiftData
 
 struct MyCardsListView: View {
     @Environment(\.dismiss) var dismiss
-    @Environment(\.modelContext) private var modelContext
-    @Query(sort: \CardItem.timestamp, order: .reverse) private var cards: [CardItem]
+    @EnvironmentObject private var cardsProvider: CardsProvider
     
     @State private var searchText = ""
     @State private var showingDeleteAlert = false
     @State private var cardToDelete: CardItem?
     @StateObject private var tagManager = TagManager()
     @State private var showingTagFilter = false
+    @State private var showAddCardSheet = false
 
-    let onAddCard: () -> Void
     let onToSettings: () -> Void
 
     var filteredCards: [CardItem] {
-        var filtered = cards
+        var filtered = cardsProvider.cards
         
-        // Apply tag filter first
+        if !searchText.isEmpty {
+            filtered = filtered.filter { card in
+                card.frontText.localizedCaseInsensitiveContains(searchText) ||
+                card.backText.localizedCaseInsensitiveContains(searchText) ||
+                card.notes.localizedCaseInsensitiveContains(searchText) ||
+                card.tags.contains { $0.localizedCaseInsensitiveContains(searchText) }
+            }
+        }
+        
         if !tagManager.currentFilterTag.isEmpty {
             filtered = tagManager.filterCards(filtered, by: tagManager.currentFilterTag)
         }
         
-        // Then apply search filter
-        if !searchText.isEmpty {
-            filtered = filtered.filter { card in
-                (card.frontText ?? "").localizedCaseInsensitiveContains(searchText) ||
-                (card.backText ?? "").localizedCaseInsensitiveContains(searchText) ||
-                (card.frontLanguage?.displayName ?? "").localizedCaseInsensitiveContains(searchText) ||
-                (card.backLanguage?.displayName ?? "").localizedCaseInsensitiveContains(searchText) ||
-                (card.tags?.joined(separator: " ") ?? "").localizedCaseInsensitiveContains(searchText)
-            }
-        }
-        
-        return filtered
+        return filtered.sorted { $0.timestamp > $1.timestamp }
     }
-    
+
     var body: some View {
         NavigationView {
-            VStack(spacing: 0) {
-                if cards.isEmpty {
-                    ContentUnavailableView {
-                        VStack {
-                            Image(systemName: "rectangle.stack.fill")
-                                .font(.largeTitle)
-                                .foregroundStyle(.secondary)
-                                .rotationEffect(.init(degrees: 90))
-                            Text(LocalizationKeys.noCardsYet.localized)
-                        }
-                    } description: {
-                        Text(LocalizationKeys.addFirstCardToStartLearning.localized)
-                    } actions: {
-                        Button(LocalizationKeys.addCardButton.localized) {
-                            onAddCard()
-                            dismiss()
-                        }
-                        .buttonStyle(.borderedProminent)
-                    }
-                } else if filteredCards.isEmpty {
-                    ContentUnavailableView {
-                        VStack {
-                            Image(systemName: "tag")
-                                .font(.largeTitle)
-                                .foregroundStyle(.secondary)
-                            Text(LocalizationKeys.noCardsFound.localized)
-                        }
-                    } description: {
-                        if !tagManager.currentFilterTag.isEmpty {
-                            Text(LocalizationKeys.noCardsFoundWithTag.localized(with: tagManager.currentFilterTag))
-                        } else {
-                            Text(LocalizationKeys.noCardsMatchSearch.localized)
-                        }
-                    } actions: {
-                        if !tagManager.currentFilterTag.isEmpty {
-                            Button(LocalizationKeys.clearFilter.localized) {
-                                tagManager.clearFilter()
-                            }
-                            .buttonStyle(.borderedProminent)
-                        }
-                        if !searchText.isEmpty {
-                            Button(LocalizationKeys.clearSearch.localized) {
-                                searchText = ""
-                                AnalyticsService.trackSearchEvent(.searchCleared)
-                            }
-                            .buttonStyle(.bordered)
-                        }
-                    }
-                } else {
-                    List {
-                        ForEach(filteredCards) { card in
-                            CardRowView(card: card)
-                        }
-                        .onDelete(perform: deleteCards)
+            List {
+                ForEach(filteredCards) { card in
+                    CardRowView(card: card) {
+                        cardToDelete = card
+                        showingDeleteAlert = true
                     }
                 }
             }
-            .searchable(text: $searchText, prompt: LocalizationKeys.searchCards.localized)
+            .listStyle(.insetGrouped)
+            .searchable(
+                text: $searchText,
+                prompt: LocalizationKeys.searchCards.localized
+            )
             .navigationTitle(LocalizationKeys.myCards.localized)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
+                ToolbarItem(placement: .navigationBarLeading) {
                     Button(LocalizationKeys.close.localized) {
                         dismiss()
                     }
                 }
-                
-                if !cards.isEmpty {
-                    ToolbarItem(placement: .primaryAction) {
-                        HStack {
-                            Button {
-                                showingTagFilter = true
-                            } label: {
+                ToolbarItem(placement: .bottomBar) {
+                    HStack {
+                        Button {
+                            showingTagFilter = true
+                        } label: {
+                            HStack {
                                 Image(systemName: "tag")
-                                    .foregroundStyle(tagManager.currentFilterTag.isEmpty ? .secondary : .primary)
+                                Text(tagManager.currentFilterTag.isEmpty
+                                     ? LocalizationKeys.filterByTag.localized
+                                     : tagManager.currentFilterTag
+                                )
                             }
-                            .onChange(of: showingTagFilter) { _, isPresented in
-                                if isPresented {
-                                    AnalyticsService.trackEvent(.tagFilterApplied)
-                                }
-                            }
-                            
-                            Button(LocalizationKeys.deleteAll.localized, role: .destructive) {
+                        }
+                        .foregroundColor(tagManager.currentFilterTag.isEmpty ? .primary : .blue)
+                        
+                        Spacer()
+                        
+                        if !filteredCards.isEmpty {
+                            Button(LocalizationKeys.deleteAll.localized) {
                                 cardToDelete = nil
                                 showingDeleteAlert = true
                             }
-                            .foregroundStyle(.red)
+                            .foregroundColor(.red)
                         }
                     }
                 }
             }
         }
-        .alert(LocalizationKeys.deleteAllCards.localized, isPresented: $showingDeleteAlert) {
-            Button(LocalizationKeys.cancel.localized, role: .cancel) { }
-            Button(LocalizationKeys.deleteAll.localized, role: .destructive) {
-                deleteAllCards()
+        .sheet(isPresented: $showAddCardSheet) {
+            AddCardSheet { newCard in
+                cardsProvider.addCard(newCard)
             }
-        } message: {
-            Text(LocalizationKeys.deleteAllCardsConfirmation.localized)
         }
         .sheet(isPresented: $showingTagFilter) {
-            TagFilterView(tagManager: tagManager, onToSettings: onToSettings)
-                .presentationDetents([.fraction(0.3)])
+            TagFilterView(tagManager: tagManager) {
+                onToSettings()
+            }
+            .presentationDetents([.fraction(0.3)])
+            .presentationDragIndicator(.visible)
+        }
+        .alert(LocalizationKeys.deleteCard.localized, isPresented: $showingDeleteAlert) {
+            Button(LocalizationKeys.delete.localized, role: .destructive) {
+                if let card = cardToDelete {
+                    deleteCard(card)
+                }
+            }
+            Button(LocalizationKeys.cancel.localized, role: .cancel) {}
+        } message: {
+            Text(LocalizationKeys.deleteCardConfirmation.localized)
         }
     }
-    
-    private func deleteCards(offsets: IndexSet) {
-        withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
-            for index in offsets {
-                let card = filteredCards[index]
-                AnalyticsService.trackCardEvent(
-                    .cardDeleted,
-                    cardLanguage: card.frontLanguage?.rawValue,
-                    hasTags: !(card.tags?.isEmpty ?? true),
-                    tagCount: card.tags?.count ?? .zero
-                )
-                modelContext.delete(card)
-            }
-        }
-    }
-    
-    private func deleteAllCards() {
-        withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
-            AnalyticsService.trackEvent(.cardDeleted, parameters: ["deleted_count": cards.count])
-            for card in cards {
-                modelContext.delete(card)
-            }
-        }
+
+    private func deleteCard(_ card: CardItem) {
+        AnalyticsService.trackCardEvent(
+            .cardDeleted,
+            cardLanguage: card.frontLanguage.rawValue,
+            hasTags: !card.tags.isEmpty,
+            tagCount: card.tags.count
+        )
+        cardsProvider.deleteCard(with: card.id)
     }
 }

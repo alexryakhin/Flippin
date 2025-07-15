@@ -6,10 +6,11 @@
 */
 
 // MARK: - Navigation Titles
-"addCard" = "Karte hinzufügen";
+"addCard" = "Karte Hinzufügen";
+"addNewCard" = "Neue Karte Hinzufügen";
 "settings" = "Einstellungen";
 "myCards" = "Meine Karten";
-"backgroundStyles" = "Hintergrundstile";
+"backgroundStyles" = "Hintergrund-Stile";
 "backgroundDemo" = "Hintergrund-Demo";
 
 // MARK: - Welcome Screen
@@ -36,11 +37,13 @@
 // MARK: - Tag Management
 "availableTags" = "Verfügbare Tags";
 "noTagsAvailable" = "Keine Tags verfügbar";
-"manageTagsInSettings" = "Tags in den Einstellungen verwalten.";
+"manageTagsInSettings" = "Verwalten Sie Tags in den Einstellungen.";
 "toSettings" = "Zu den Einstellungen";
 "newTagName" = "Neuer Tag-Name";
 "add" = "Hinzufügen";
+"addTag" = "Tag Hinzufügen";
 "tagsManagement" = "Tag-Verwaltung";
+"filterByTag" = "Nach Tag Filtern";
 
 // MARK: - Settings
 "languages" = "Sprachen";
@@ -48,8 +51,8 @@
 "targetLanguage" = "Zielsprache";
 "background" = "Hintergrund";
 "backgroundColor" = "Hintergrundfarbe";
-"backgroundStyle" = "Hintergrundstil";
-"tapToSeeFullScreen" = "Tippen Sie für Vollbildansicht";
+"backgroundStyle" = "Hintergrund-Stil";
+"tapToSeeFullScreen" = "Tippen Sie, um Vollbild zu sehen";
 
 // MARK: - Add Card
 "enterTextInYourLanguage" = "Geben Sie Text in Ihrer Sprache ein";
@@ -58,17 +61,23 @@
 "notes" = "Notizen";
 "tagsCount" = "Tags (%d/5)";
 "noTagsAvailableAddInSettings" = "Keine Tags verfügbar. Fügen Sie einige Tags in den Einstellungen hinzu.";
+"translating" = "Übersetze...";
+"translationWillAppearHere" = "Übersetzung wird hier erscheinen";
 
 // MARK: - Buttons
 "done" = "Fertig";
 "cancel" = "Abbrechen";
 "save" = "Speichern";
 "close" = "Schließen";
-"clearFilter" = "Filter löschen";
-"clearSearch" = "Suche löschen";
-"addCardButton" = "Karte hinzufügen";
-"deleteAll" = "Alle löschen";
-"deleteAllCards" = "Alle Karten löschen";
+"clear" = "Löschen";
+"clearFilter" = "Filter Löschen";
+"clearSearch" = "Suche Löschen";
+"addCardButton" = "Karte Hinzufügen";
+"delete" = "Löschen";
+"deleteCard" = "Karte Löschen";
+"deleteCardConfirmation" = "Sind Sie sicher, dass Sie diese Karte löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden.";
+"deleteAll" = "Alle Löschen";
+"deleteAllCards" = "Alle Karten Löschen";
 "deleteAllCardsConfirmation" = "Sind Sie sicher, dass Sie alle Karten löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden.";
 
 // MARK: - Labels

@@ -15,27 +15,25 @@ struct CardBackView: View {
     var body: some View {
         VStack(spacing: 20) {
             HStack {
-                Text(item.backLanguage?.displayName ?? LocalizationKeys.english.localized)
+                Text(item.backLanguage.displayName)
                     .font(.headline)
                     .foregroundStyle(.secondary)
                 Spacer()
-                if let timestamp = item.timestamp {
-                    Text(timestamp, format: Date.FormatStyle(date: .abbreviated, time: .shortened))
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                }
+                Text(item.timestamp, format: Date.FormatStyle(date: .abbreviated, time: .shortened))
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
             }
             Spacer()
 
-            Text(item.backText ?? "")
+            Text(item.backText)
                 .font(.largeTitle)
                 .foregroundStyle(.primary)
                 .fontWeight(.bold)
                 .multilineTextAlignment(.center)
 
-            if let tags = item.tags, !tags.isEmpty {
+            if !item.tags.isEmpty {
                 HFlow(spacing: 6) {
-                    ForEach(tags, id: \.self) { tag in
+                    ForEach(item.tags, id: \.self) { tag in
                         Text(tag)
                             .font(.caption)
                             .padding(.horizontal, 6)

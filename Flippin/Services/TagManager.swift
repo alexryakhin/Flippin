@@ -45,30 +45,10 @@ final class TagManager: ObservableObject {
         AnalyticsService.trackTagEvent(.tagDeleted, tagName: tag, tagCount: availableTags.count)
     }
     
-    func addTagToCard(_ tag: String, card: CardItem) {
-        let trimmedTag = tag.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !trimmedTag.isEmpty else { return }
-        
-        var currentTags = card.tags ?? []
-        if !currentTags.contains(trimmedTag) && currentTags.count < 5 {
-            currentTags.append(trimmedTag)
-            card.tags = currentTags
-        }
-        
-        // Add to available tags if not already there
-        addTag(trimmedTag)
-    }
-    
-    func removeTagFromCard(_ tag: String, card: CardItem) {
-        var currentTags = card.tags ?? []
-        currentTags.removeAll { $0 == tag }
-        card.tags = currentTags.isEmpty ? nil : currentTags
-    }
-    
     func filterCards(_ cards: [CardItem], by tag: String?) -> [CardItem] {
         guard let tag = tag, !tag.isEmpty else { return cards }
         return cards.filter { card in
-            card.tags?.contains(tag) == true
+            card.tags.contains(tag)
         }
     }
     

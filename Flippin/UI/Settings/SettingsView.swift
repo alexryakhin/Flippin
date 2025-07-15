@@ -149,7 +149,7 @@ struct SettingsView: View {
                     CustomSectionView(
                         header: "Purchase Testing"
                     ) {
-                        VStack(spacing: 12) {
+                        VStack(alignment: .leading, spacing: 12) {
                             Text("Test in-app purchases and get transaction IDs")
                                 .font(.subheadline)
                                 .foregroundStyle(.secondary)

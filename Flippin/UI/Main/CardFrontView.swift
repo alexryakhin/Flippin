@@ -17,35 +17,33 @@ struct CardFrontView: View {
     var body: some View {
         VStack(spacing: 20) {
             HStack {
-                Text(item.frontLanguage?.displayName ?? LocalizationKeys.english.localized)
+                Text(item.frontLanguage.displayName)
                     .font(.headline)
                     .foregroundStyle(.secondary)
                 Spacer()
-                if let timestamp = item.timestamp {
-                    Text(timestamp, format: Date.FormatStyle(date: .abbreviated, time: .shortened))
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                }
+                Text(item.timestamp, format: Date.FormatStyle(date: .abbreviated, time: .shortened))
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
             }
 
             Spacer()
 
-            Text(item.frontText ?? "")
+            Text(item.frontText)
                 .font(.largeTitle)
                 .foregroundStyle(.primary)
                 .fontWeight(.bold)
                 .multilineTextAlignment(.center)
 
-            if let notes = item.notes, !notes.isEmpty {
-                Text(notes)
+            if !item.notes.isEmpty {
+                Text(item.notes)
                     .font(.body)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
             }
             
-            if let tags = item.tags, !tags.isEmpty {
+            if !item.tags.isEmpty {
                 HFlow(spacing: 6) {
-                    ForEach(tags, id: \.self) { tag in
+                    ForEach(item.tags, id: \.self) { tag in
                         Text(tag)
                             .font(.caption)
                             .padding(.horizontal, 6)
@@ -65,8 +63,8 @@ struct CardFrontView: View {
                     isPlayingTTS = true
                     Task {
                         do {
-                            let text = item.frontText ?? ""
-                            let language = item.frontLanguage ?? .english
+                            let text = item.frontText
+                            let language = item.frontLanguage
                             try await TTSPlayer.shared.play(text, language: language)
                         } catch {
                             print("TTS error: \(error)")

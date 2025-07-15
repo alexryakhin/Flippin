@@ -6,11 +6,12 @@
 */
 
 // MARK: - Navigation Titles
-"addCard" = "Adicionar cartão";
+"addCard" = "Adicionar Cartão";
+"addNewCard" = "Adicionar Novo Cartão";
 "settings" = "Configurações";
-"myCards" = "Meus cartões";
-"backgroundStyles" = "Estilos de fundo";
-"backgroundDemo" = "Demo de fundo";
+"myCards" = "Meus Cartões";
+"backgroundStyles" = "Estilos de Fundo";
+"backgroundDemo" = "Demo de Fundo";
 
 // MARK: - Welcome Screen
 "welcomeScreenTitle" = "Bem-vindo ao Flippin!";
@@ -34,41 +35,49 @@
 "tapToGoBack" = "Toque para voltar";
 
 // MARK: - Tag Management
-"availableTags" = "Tags disponíveis";
+"availableTags" = "Tags Disponíveis";
 "noTagsAvailable" = "Nenhuma tag disponível";
 "manageTagsInSettings" = "Gerencie as tags nas configurações.";
 "toSettings" = "Para configurações";
 "newTagName" = "Nome da nova tag";
 "add" = "Adicionar";
-"tagsManagement" = "Gerenciamento de tags";
+"addTag" = "Adicionar Tag";
+"tagsManagement" = "Gerenciamento de Tags";
+"filterByTag" = "Filtrar por Tag";
 
 // MARK: - Settings
 "languages" = "Idiomas";
-"myLanguageSettings" = "Meu idioma";
-"targetLanguage" = "Idioma de destino";
+"myLanguageSettings" = "Meu Idioma";
+"targetLanguage" = "Idioma Alvo";
 "background" = "Fundo";
-"backgroundColor" = "Cor de fundo";
-"backgroundStyle" = "Estilo de fundo";
+"backgroundColor" = "Cor de Fundo";
+"backgroundStyle" = "Estilo de Fundo";
 "tapToSeeFullScreen" = "Toque para ver em tela cheia";
 
 // MARK: - Add Card
-"enterTextInYourLanguage" = "Digite o texto no seu idioma";
-"enterTextInTargetLanguage" = "Digite o texto no idioma de destino";
+"enterTextInYourLanguage" = "Digite texto no seu idioma";
+"enterTextInTargetLanguage" = "Digite texto no idioma alvo";
 "addNotesOptional" = "Adicionar notas (opcional)";
 "notes" = "Notas";
 "tagsCount" = "Tags (%d/5)";
 "noTagsAvailableAddInSettings" = "Nenhuma tag disponível. Adicione algumas tags nas Configurações.";
+"translating" = "Traduzindo...";
+"translationWillAppearHere" = "A tradução aparecerá aqui";
 
 // MARK: - Buttons
 "done" = "Concluído";
 "cancel" = "Cancelar";
 "save" = "Salvar";
 "close" = "Fechar";
-"clearFilter" = "Limpar filtro";
-"clearSearch" = "Limpar pesquisa";
-"addCardButton" = "Adicionar cartão";
-"deleteAll" = "Excluir tudo";
-"deleteAllCards" = "Excluir todos os cartões";
+"clear" = "Limpar";
+"clearFilter" = "Limpar Filtro";
+"clearSearch" = "Limpar Pesquisa";
+"addCardButton" = "Adicionar Cartão";
+"delete" = "Excluir";
+"deleteCard" = "Excluir Cartão";
+"deleteCardConfirmation" = "Tem certeza de que deseja excluir este cartão? Esta ação não pode ser desfeita.";
+"deleteAll" = "Excluir Tudo";
+"deleteAllCards" = "Excluir Todos os Cartões";
 "deleteAllCardsConfirmation" = "Tem certeza de que deseja excluir todos os cartões? Esta ação não pode ser desfeita.";
 
 // MARK: - Labels

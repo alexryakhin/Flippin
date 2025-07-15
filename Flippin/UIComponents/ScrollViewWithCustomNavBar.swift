@@ -38,6 +38,7 @@ struct ScrollViewWithCustomNavBar<Content: View, NavigationBar: View>: View {
                     scrollOffset = value
                 }
         }
+        .background(Color(.systemGroupedBackground))
         .coordinateSpace(name: ScrollOffsetPreferenceKey.coordinateSpaceName)
         .safeAreaInset(edge: .top) {
             navigationBar()
