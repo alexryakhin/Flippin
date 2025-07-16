@@ -45,7 +45,7 @@ struct TagButton: View {
         if isDisabled {
             return Color.gray.opacity(0.05)
         } else if isSelected {
-            return Color.blue
+            return Color.accentColor
         } else {
             return Color.gray.opacity(0.1)
         }
@@ -65,7 +65,7 @@ struct TagButton: View {
         if isDisabled {
             return Color.gray.opacity(0.2)
         } else if isSelected {
-            return Color.blue
+            return Color.accentColor
         } else {
             return Color.gray.opacity(0.3)
         }

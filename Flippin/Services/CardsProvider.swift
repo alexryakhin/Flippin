@@ -15,7 +15,12 @@ final class CardsProvider: ObservableObject {
     let cardsErrorPublisher = PassthroughSubject<Error, Never>()
 
     private let coreDataService = CoreDataService.shared
+    private var tagManager: TagManager?
     private var cancellables = Set<AnyCancellable>()
+    
+    func setTagManager(_ tagManager: TagManager) {
+        self.tagManager = tagManager
+    }
 
     init() {
         setupBindings()
@@ -45,10 +50,17 @@ final class CardsProvider: ObservableObject {
             frontLanguage: card.frontLanguage,
             backLanguage: card.backLanguage,
             notes: card.notes.isEmpty ? nil : card.notes,
-            tags: card.tags.isEmpty ? nil : card.tags,
+            tagNames: nil, // We'll handle tags separately
             isFavorite: card.isFavorite,
             id: card.id
         )
+        
+        // Add tags using TagManager
+        for tagName in card.tags {
+            if let tag = tagManager?.findOrCreateTag(withName: tagName) {
+                cdCard.addToTags(tag)
+            }
+        }
         
         do {
             try coreDataService.saveContext()
@@ -59,7 +71,7 @@ final class CardsProvider: ObservableObject {
 
     /// Removes a card from Core Data
     func deleteCard(with id: String) {
-        let fetchRequest: NSFetchRequest<CDCardItem> = CDCardItem.fetchRequest()
+        let fetchRequest = CDCardItem.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id == %@", id)
 
         do {
@@ -115,8 +127,19 @@ final class CardsProvider: ObservableObject {
                 cdCard.frontLanguage = card.frontLanguage
                 cdCard.backLanguage = card.backLanguage
                 cdCard.notes = card.notes.isEmpty ? nil : card.notes
-                cdCard.tags = card.tags.isEmpty ? nil : card.tags
                 cdCard.isFavorite = card.isFavorite
+                
+                // Update tags
+                let existingTags = cdCard.tagArray
+                for tag in existingTags {
+                    cdCard.removeFromTags(tag)
+                }
+                
+                for tagName in card.tags {
+                    if let tag = tagManager?.findOrCreateTag(withName: tagName) {
+                        cdCard.addToTags(tag)
+                    }
+                }
                 
                 try coreDataService.saveContext()
             }
@@ -127,6 +150,7 @@ final class CardsProvider: ObservableObject {
 
     private func setupBindings() {
         coreDataService.dataUpdatedPublisher
+            .receive(on: RunLoop.main)
             .sink { [weak self] _ in
                 self?.fetchCards()
             }

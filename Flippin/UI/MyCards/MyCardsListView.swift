@@ -14,7 +14,7 @@ struct MyCardsListView: View {
     @State private var searchText = ""
     @State private var showingDeleteAlert = false
     @State private var cardToDelete: CardItem?
-    @StateObject private var tagManager = TagManager()
+    @EnvironmentObject private var tagManager: TagManager
     @State private var showingTagFilter = false
     @State private var showAddCardSheet = false
 
@@ -41,15 +41,27 @@ struct MyCardsListView: View {
 
     var body: some View {
         NavigationView {
-            List {
-                ForEach(filteredCards) { card in
-                    CardRowView(card: card) {
-                        cardToDelete = card
-                        showingDeleteAlert = true
+            VStack {
+                if cardsProvider.cards.isEmpty {
+                    noCardsView
+                } else if filteredCards.isEmpty {
+                    if tagManager.currentFilterTag.isEmpty {
+                        noCardsFoundView
+                    } else {
+                        noCardsWithTagsView
                     }
+                } else {
+                    List {
+                        ForEach(filteredCards) { card in
+                            CardRowView(card: card) {
+                                cardToDelete = card
+                                showingDeleteAlert = true
+                            }
+                        }
+                    }
+                    .listStyle(.insetGrouped)
                 }
             }
-            .listStyle(.insetGrouped)
             .searchable(
                 text: $searchText,
                 prompt: LocalizationKeys.searchCards.localized
@@ -63,32 +75,31 @@ struct MyCardsListView: View {
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem(placement: .bottomBar) {
-                    HStack {
-                        Button {
-                            showingTagFilter = true
-                        } label: {
-                            HStack {
-                                Image(systemName: "tag")
-                                Text(tagManager.currentFilterTag.isEmpty
-                                     ? LocalizationKeys.filterByTag.localized
-                                     : tagManager.currentFilterTag
+                    Menu {
+                        Section {
+                            Button {
+                                showingTagFilter = true
+                            } label: {
+                                Label(
+                                    tagManager.currentFilterTag.isEmpty
+                                    ? LocalizationKeys.filterByTag.localized
+                                    : tagManager.currentFilterTag,
+                                    systemImage: "tag"
                                 )
                             }
                         }
-                        .foregroundColor(tagManager.currentFilterTag.isEmpty ? .primary : .blue)
-                        
-                        Spacer()
-                        
                         if !filteredCards.isEmpty {
-                            Button(LocalizationKeys.deleteAll.localized) {
-                                cardToDelete = nil
-                                showingDeleteAlert = true
+                            Section {
+                                Button(role: .destructive) {
+                                    cardToDelete = nil
+                                    showingDeleteAlert = true
+                                } label: {
+                                    Label(LocalizationKeys.deleteAllCards.localized, systemImage: "trash")
+                                }
                             }
-                            .foregroundColor(.red)
                         }
+                    } label: {
+                        Image(systemName: "ellipsis.circle")
                     }
                 }
             }
@@ -99,9 +110,10 @@ struct MyCardsListView: View {
             }
         }
         .sheet(isPresented: $showingTagFilter) {
-            TagFilterView(tagManager: tagManager) {
+            TagFilterView {
                 onToSettings()
             }
+            .environmentObject(tagManager)
             .presentationDetents([.fraction(0.3)])
             .presentationDragIndicator(.visible)
         }
@@ -116,6 +128,51 @@ struct MyCardsListView: View {
             Button(LocalizationKeys.cancel.localized, role: .cancel) {}
         } message: {
             Text(cardToDelete == nil ? LocalizationKeys.deleteAllCardsConfirmation.localized : LocalizationKeys.deleteCardConfirmation.localized)
+        }
+    }
+
+    private var noCardsView: some View {
+        ContentUnavailableView {
+            VStack {
+                Image(systemName: "rectangle.stack.fill")
+                    .font(.largeTitle)
+                    .rotationEffect(.init(degrees: 90))
+                Text(LocalizationKeys.noCardsYet.localized)
+            }
+        } description: {
+            Text(LocalizationKeys.tapToAddFirstCard.localized)
+                .foregroundStyle(.secondary)
+        }
+    }
+
+    private var noCardsFoundView: some View {
+        ContentUnavailableView {
+            VStack {
+                Image(systemName: "magnifyingglass")
+                    .font(.largeTitle)
+                Text(LocalizationKeys.noCardsFound.localized)
+            }
+        } description: {
+            Text(LocalizationKeys.noCardsMatchSearch.localized)
+                .foregroundStyle(.secondary)
+        }
+    }
+
+    private var noCardsWithTagsView: some View {
+        ContentUnavailableView {
+            VStack {
+                Image(systemName: "tag")
+                    .font(.largeTitle)
+                Text(LocalizationKeys.noCardsWithSelectedTag.localized)
+            }
+        } description: {
+            Text(LocalizationKeys.noCardsFoundWithTag.localized(with: tagManager.currentFilterTag))
+                .foregroundStyle(.secondary)
+        } actions: {
+            Button(LocalizationKeys.clearFilter.localized) {
+                tagManager.clearFilter()
+            }
+            .buttonStyle(.borderedProminent)
         }
     }
 

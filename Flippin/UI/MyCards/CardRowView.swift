@@ -94,11 +94,12 @@ struct CardRowView: View {
         }
         .padding(.vertical, 4)
         .swipeActions(edge: .trailing, allowsFullSwipe: false) {
-            Button(role: .destructive) {
+            Button {
                 onDelete()
             } label: {
                 Label(LocalizationKeys.delete.localized, systemImage: "trash")
             }
+            .tint(.red)
         }
         .onTapGesture {
             withAnimation(.easeInOut(duration: 0.3)) {

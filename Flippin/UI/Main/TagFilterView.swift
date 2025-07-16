@@ -8,7 +8,7 @@ import SwiftUI
 import Flow
 
 struct TagFilterView: View {
-    @ObservedObject var tagManager: TagManager
+    @EnvironmentObject private var tagManager: TagManager
 
     var onToSettings: () -> Void
 

@@ -19,7 +19,7 @@ struct ContentView: View {
     @State private var showMyCards = false
     @State private var showAddCardSheet = false
     @State private var shuffledItems: [CardItem] = []
-    @StateObject private var tagManager = TagManager()
+    @EnvironmentObject private var tagManager: TagManager
     @StateObject private var colorManager = ColorManager()
     @State private var showingTagFilter = false
 
@@ -64,6 +64,8 @@ struct ContentView: View {
                 showWelcomeSheet = true
                 AnalyticsService.trackEvent(.welcomeScreenOpened)
             }
+            // Inject TagManager into CardsProvider
+            cardsProvider.setTagManager(tagManager)
         }
         .onChange(of: cardsProvider.cards.count) { _, _ in
             resetShuffle()
@@ -98,6 +100,7 @@ struct ContentView: View {
             )
             .environmentObject(cardsProvider)
             .environmentObject(languageManager)
+            .environmentObject(tagManager)
         }
         .onChange(of: showMyCards) { _, isPresented in
             if isPresented {
@@ -116,9 +119,10 @@ struct ContentView: View {
             }
         }
         .sheet(isPresented: $showingTagFilter) {
-            TagFilterView(tagManager: tagManager) {
+            TagFilterView {
                 showSettings = true
             }
+            .environmentObject(tagManager)
             .presentationDetents([.fraction(0.3)])
             .presentationDragIndicator(.visible)
         }

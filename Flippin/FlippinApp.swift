@@ -14,6 +14,7 @@ import FirebaseAnalytics
 struct FlippinApp: App {
     @StateObject private var cardsProvider = CardsProvider()
     @StateObject private var languageManager = LanguageManager()
+    @StateObject private var tagManager = TagManager()
 
     init() {
         FirebaseApp.configure()
@@ -25,6 +26,7 @@ struct FlippinApp: App {
             ContentView()
                 .environmentObject(cardsProvider)
                 .environmentObject(languageManager)
+                .environmentObject(tagManager)
         }
     }
 }

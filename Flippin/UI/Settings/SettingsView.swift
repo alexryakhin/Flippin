@@ -93,7 +93,7 @@ struct SettingsView: View {
                     CustomSectionView(
                         header: LocalizationKeys.tagsManagement.localized
                     ) {
-                        VStack(spacing: 12) {
+                        VStack(alignment: .leading, spacing: 12) {
                             HStack {
                                 TextField(LocalizationKeys.newTagName.localized, text: $newTagText)
                                     .textFieldStyle(.roundedBorder)

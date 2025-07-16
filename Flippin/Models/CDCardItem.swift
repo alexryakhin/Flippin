@@ -16,10 +16,10 @@ public class CDCardItem: NSManagedObject {
     @NSManaged public var frontLanguageRaw: String?
     @NSManaged public var backLanguageRaw: String?
     @NSManaged public var notes: String?
-    @NSManaged public var tagsData: Data?
     @NSManaged public var id: String?
     @NSManaged public var isFavorite: Bool
-    
+    @NSManaged public var tags: NSSet?
+
     var frontLanguage: Language? {
         get {
             guard let rawValue = frontLanguageRaw else { return nil }
@@ -29,7 +29,7 @@ public class CDCardItem: NSManagedObject {
             frontLanguageRaw = newValue?.rawValue
         }
     }
-    
+
     var backLanguage: Language? {
         get {
             guard let rawValue = backLanguageRaw else { return nil }
@@ -39,15 +39,14 @@ public class CDCardItem: NSManagedObject {
             backLanguageRaw = newValue?.rawValue
         }
     }
-    
-    var tags: [String]? {
-        get {
-            guard let data = tagsData else { return nil }
-            return try? JSONDecoder().decode([String].self, from: data)
-        }
-        set {
-            tagsData = try? JSONEncoder().encode(newValue)
-        }
+
+    var tagArray: [CDTag] {
+        let set = tags as? Set<CDTag> ?? []
+        return Array(set)
+    }
+
+    var tagNames: [String] {
+        return tagArray.compactMap { $0.name }
     }
 }
 
@@ -60,7 +59,7 @@ extension CDCardItem {
         frontLanguage: Language = .english,
         backLanguage: Language = .spanish,
         notes: String? = nil,
-        tags: [String]? = nil,
+        tagNames: [String]? = nil,
         isFavorite: Bool = false,
         id: String = UUID().uuidString
     ) {
@@ -71,11 +70,13 @@ extension CDCardItem {
         self.frontLanguage = frontLanguage
         self.backLanguage = backLanguage
         self.notes = notes
-        self.tags = tags
         self.isFavorite = isFavorite
         self.id = id
+
+        // Tags will be handled separately by the CardsProvider
+        // This is to avoid creating duplicate tags
     }
-    
+
     var coreModel: CardItem? {
         guard let timestamp = timestamp,
               let frontText = frontText,
@@ -85,7 +86,7 @@ extension CDCardItem {
               let id = id else {
             return nil
         }
-        
+
         return CardItem(
             timestamp: timestamp,
             frontText: frontText,
@@ -93,7 +94,7 @@ extension CDCardItem {
             frontLanguage: frontLanguage,
             backLanguage: backLanguage,
             notes: notes ?? "",
-            tags: tags ?? [],
+            tags: tagNames,
             isFavorite: isFavorite,
             id: id
         )
@@ -105,4 +106,19 @@ extension CDCardItem {
     @nonobjc public class func fetchRequest() -> NSFetchRequest<CDCardItem> {
         return NSFetchRequest<CDCardItem>(entityName: "CardItem")
     }
+}
+
+// MARK: - Generated accessors for tags
+extension CDCardItem {
+    @objc(addTagsObject:)
+    @NSManaged public func addToTags(_ value: CDTag)
+
+    @objc(removeTagsObject:)
+    @NSManaged public func removeFromTags(_ value: CDTag)
+
+    @objc(addTags:)
+    @NSManaged public func addToTags(_ values: NSSet)
+
+    @objc(removeTags:)
+    @NSManaged public func removeFromTags(_ values: NSSet)
 }
