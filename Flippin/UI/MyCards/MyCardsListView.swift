@@ -9,6 +9,7 @@ import SwiftUI
 struct MyCardsListView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject private var cardsProvider: CardsProvider
+    @EnvironmentObject private var languageManager: LanguageManager
     
     @State private var searchText = ""
     @State private var showingDeleteAlert = false
@@ -101,15 +102,17 @@ struct MyCardsListView: View {
             .presentationDetents([.fraction(0.3)])
             .presentationDragIndicator(.visible)
         }
-        .alert(LocalizationKeys.deleteCard.localized, isPresented: $showingDeleteAlert) {
+        .alert(cardToDelete == nil ? LocalizationKeys.deleteAllCards.localized : LocalizationKeys.deleteCard.localized, isPresented: $showingDeleteAlert) {
             Button(LocalizationKeys.delete.localized, role: .destructive) {
                 if let card = cardToDelete {
                     deleteCard(card)
+                } else {
+                    deleteAllCards()
                 }
             }
             Button(LocalizationKeys.cancel.localized, role: .cancel) {}
         } message: {
-            Text(LocalizationKeys.deleteCardConfirmation.localized)
+            Text(cardToDelete == nil ? LocalizationKeys.deleteAllCardsConfirmation.localized : LocalizationKeys.deleteCardConfirmation.localized)
         }
     }
 
@@ -121,5 +124,10 @@ struct MyCardsListView: View {
             tagCount: card.tags.count
         )
         cardsProvider.deleteCard(with: card.id)
+    }
+    
+    private func deleteAllCards() {
+        AnalyticsService.trackEvent(.allCardsDeleted)
+        cardsProvider.deleteAllCards()
     }
 }

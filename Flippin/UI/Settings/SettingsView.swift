@@ -9,8 +9,7 @@ import Flow
 
 struct SettingsView: View {
     @Environment(\.dismiss) var dismiss
-    @AppStorage(UserDefaultsKey.userLanguage) private var userLanguageRaw: String = Language(rawValue: Locale.current.language.languageCode?.identifier ?? "en")?.rawValue ?? Language.english.rawValue
-    @AppStorage(UserDefaultsKey.targetLanguage) private var targetLanguageRaw: String = Language.spanish.rawValue
+    @EnvironmentObject private var languageManager: LanguageManager
 
     @Environment(\.colorScheme) var colorScheme
     @StateObject private var colorManager = ColorManager()
@@ -33,15 +32,12 @@ struct SettingsView: View {
                                     .font(.subheadline)
                                     .foregroundStyle(.secondary)
                             } trailingContent: {
-                                Picker(LocalizationKeys.myLanguageSettings.localized, selection: $userLanguageRaw) {
+                                Picker(LocalizationKeys.myLanguageSettings.localized, selection: $languageManager.userLanguageRaw) {
                                     ForEach(Language.allCases) { lang in
                                         Text(lang.displayName).tag(lang.rawValue)
                                     }
                                 }
                                 .pickerStyle(.menu)
-                                .onChange(of: userLanguageRaw) { oldValue, newValue in
-                                    AnalyticsService.trackSettingsEvent(.languageChanged, oldValue: oldValue, newValue: newValue)
-                                }
                             }
 
                             CellWrapper {
@@ -49,15 +45,12 @@ struct SettingsView: View {
                                     .font(.subheadline)
                                     .foregroundStyle(.secondary)
                             } trailingContent: {
-                                Picker(LocalizationKeys.targetLanguage.localized, selection: $targetLanguageRaw) {
+                                Picker(LocalizationKeys.targetLanguage.localized, selection: $languageManager.targetLanguageRaw) {
                                     ForEach(Language.allCases) { lang in
                                         Text(lang.displayName).tag(lang.rawValue)
                                     }
                                 }
                                 .pickerStyle(.menu)
-                                .onChange(of: targetLanguageRaw) { oldValue, newValue in
-                                    AnalyticsService.trackSettingsEvent(.languageChanged, oldValue: oldValue, newValue: newValue)
-                                }
                             }
                         }
                         .clippedWithBackground()
@@ -184,6 +177,7 @@ struct SettingsView: View {
                     PurchaseTestView()
                 }
             }
+
         }
     }
 }

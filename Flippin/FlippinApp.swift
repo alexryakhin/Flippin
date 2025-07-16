@@ -13,6 +13,7 @@ import FirebaseAnalytics
 @main
 struct FlippinApp: App {
     @StateObject private var cardsProvider = CardsProvider()
+    @StateObject private var languageManager = LanguageManager()
 
     init() {
         FirebaseApp.configure()
@@ -23,6 +24,7 @@ struct FlippinApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(cardsProvider)
+                .environmentObject(languageManager)
         }
     }
 }

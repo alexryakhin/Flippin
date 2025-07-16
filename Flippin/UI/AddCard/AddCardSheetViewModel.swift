@@ -18,18 +18,16 @@ class AddCardSheetViewModel: ObservableObject {
     @Published var newTagText: String = ""
     @Published var notes: String = ""
     
-    @AppStorage(UserDefaultsKey.userLanguage) private var userLanguageRaw: String = Language.english.rawValue
-    @AppStorage(UserDefaultsKey.targetLanguage) private var targetLanguageRaw: String = Language.spanish.rawValue
-
     private var cancellables = Set<AnyCancellable>()
     private let tagManager = TagManager()
+    private var languageManager: LanguageManager?
     
     var userLanguage: Language {
-        Language(rawValue: userLanguageRaw) ?? .english
+        languageManager?.userLanguage ?? .english
     }
     
     var targetLanguage: Language {
-        Language(rawValue: targetLanguageRaw) ?? .spanish
+        languageManager?.targetLanguage ?? .spanish
     }
     
     var availableTags: [String] {
@@ -38,6 +36,10 @@ class AddCardSheetViewModel: ObservableObject {
     
     init() {
         setupTranslationPipeline()
+    }
+    
+    func setLanguageManager(_ languageManager: LanguageManager) {
+        self.languageManager = languageManager
     }
     
     private func setupTranslationPipeline() {

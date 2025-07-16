@@ -70,6 +70,21 @@ final class CardsProvider: ObservableObject {
             cardsErrorPublisher.send(error)
         }
     }
+    
+    /// Removes all cards from Core Data
+    func deleteAllCards() {
+        let fetchRequest: NSFetchRequest<CDCardItem> = CDCardItem.fetchRequest()
+        
+        do {
+            let allCards = try coreDataService.context.fetch(fetchRequest)
+            for card in allCards {
+                coreDataService.context.delete(card)
+            }
+            try coreDataService.saveContext()
+        } catch {
+            cardsErrorPublisher.send(error)
+        }
+    }
 
     /// Updates an existing card in Core Data
     func updateCard(_ card: CardItem) {

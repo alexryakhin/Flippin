@@ -9,6 +9,7 @@ import Flow
 
 struct AddCardSheet: View {
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject private var languageManager: LanguageManager
     @StateObject private var viewModel = AddCardSheetViewModel()
     
     let onSave: (CardItem) -> Void
@@ -51,6 +52,9 @@ struct AddCardSheet: View {
                     }
                     .disabled(viewModel.nativeText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || viewModel.targetText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
                 }
+            }
+            .onAppear {
+                viewModel.setLanguageManager(languageManager)
             }
         }
     }

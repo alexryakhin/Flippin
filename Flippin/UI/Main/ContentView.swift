@@ -10,9 +10,8 @@ import SwiftUI
 struct ContentView: View {
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject private var cardsProvider: CardsProvider
+    @EnvironmentObject private var languageManager: LanguageManager
 
-    @AppStorage(UserDefaultsKey.userLanguage) private var userLanguageRaw: String = Language(rawValue: Locale.current.language.languageCode?.identifier ?? "en")?.rawValue ?? Language.english.rawValue
-    @AppStorage(UserDefaultsKey.targetLanguage) private var targetLanguageRaw: String = Language.spanish.rawValue
     @AppStorage(UserDefaultsKey.didShowWelcomeSheet) private var didShowWelcomeSheet: Bool = false
 
     @State private var showWelcomeSheet = false
@@ -74,16 +73,17 @@ struct ContentView: View {
         }
         .sheet(isPresented: $showWelcomeSheet) {
             WelcomeSheet(
-                userLanguageRaw: $userLanguageRaw,
-                targetLanguageRaw: $targetLanguageRaw,
                 onContinue: {
                     didShowWelcomeSheet = true
                     showWelcomeSheet = false
                 }
             )
+            .environmentObject(languageManager)
+            .interactiveDismissDisabled()
         }
         .sheet(isPresented: $showSettings) {
             SettingsView()
+                .environmentObject(languageManager)
         }
         .onChange(of: showSettings) { _, isPresented in
             if isPresented {
@@ -97,6 +97,7 @@ struct ContentView: View {
                 }
             )
             .environmentObject(cardsProvider)
+            .environmentObject(languageManager)
         }
         .onChange(of: showMyCards) { _, isPresented in
             if isPresented {
@@ -107,6 +108,7 @@ struct ContentView: View {
             AddCardSheet { newCard in
                 cardsProvider.addCard(newCard)
             }
+            .environmentObject(languageManager)
         }
         .onChange(of: showAddCardSheet) { _, isPresented in
             if isPresented {
@@ -183,12 +185,4 @@ struct ContentView: View {
     }
 }
 
-private extension ContentView {
 
-    var userLanguage: Language {
-        Language(rawValue: userLanguageRaw) ?? .english
-    }
-    var targetLanguage: Language {
-        Language(rawValue: targetLanguageRaw) ?? .spanish
-    }
-}

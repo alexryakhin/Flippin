@@ -9,6 +9,7 @@ enum AnalyticsEvent: String, CaseIterable {
     case cardAdded = "card_added"
     case cardDeleted = "card_deleted"
     case cardEdited = "card_edited"
+    case allCardsDeleted = "all_cards_deleted"
     
     // MARK: - Navigation Events
     case settingsScreenOpened = "settings_screen_opened"

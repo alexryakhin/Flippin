@@ -7,8 +7,7 @@
 import SwiftUI
 
 struct WelcomeSheet: View {
-    @Binding var userLanguageRaw: String
-    @Binding var targetLanguageRaw: String
+    @EnvironmentObject private var languageManager: LanguageManager
     var onContinue: () -> Void
     
     var body: some View {
@@ -28,7 +27,7 @@ struct WelcomeSheet: View {
                             Text(LocalizationKeys.myLanguage.localized)
                                 .font(.headline)
                                 .frame(maxWidth: .infinity, alignment: .leading)
-                            Picker(LocalizationKeys.myLanguage.localized, selection: $userLanguageRaw) {
+                            Picker(LocalizationKeys.myLanguage.localized, selection: $languageManager.userLanguageRaw) {
                                 ForEach(Language.allCases) { lang in
                                     Text(lang.displayName).tag(lang.rawValue)
                                 }
@@ -39,7 +38,7 @@ struct WelcomeSheet: View {
                             Text(LocalizationKeys.imLearning.localized)
                                 .font(.headline)
                                 .frame(maxWidth: .infinity, alignment: .leading)
-                            Picker(LocalizationKeys.imLearning.localized, selection: $targetLanguageRaw) {
+                            Picker(LocalizationKeys.imLearning.localized, selection: $languageManager.targetLanguageRaw) {
                                 ForEach(Language.allCases) { lang in
                                     Text(lang.displayName).tag(lang.rawValue)
                                 }
