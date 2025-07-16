@@ -18,6 +18,7 @@ public class CDCardItem: NSManagedObject {
     @NSManaged public var notes: String?
     @NSManaged public var tagsData: Data?
     @NSManaged public var id: String?
+    @NSManaged public var isFavorite: Bool
     
     var frontLanguage: Language? {
         get {
@@ -60,6 +61,7 @@ extension CDCardItem {
         backLanguage: Language = .spanish,
         notes: String? = nil,
         tags: [String]? = nil,
+        isFavorite: Bool = false,
         id: String = UUID().uuidString
     ) {
         self.init(context: context)
@@ -70,6 +72,7 @@ extension CDCardItem {
         self.backLanguage = backLanguage
         self.notes = notes
         self.tags = tags
+        self.isFavorite = isFavorite
         self.id = id
     }
     
@@ -91,6 +94,7 @@ extension CDCardItem {
             backLanguage: backLanguage,
             notes: notes ?? "",
             tags: tags ?? [],
+            isFavorite: isFavorite,
             id: id
         )
     }

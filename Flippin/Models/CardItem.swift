@@ -16,6 +16,7 @@ struct CardItem: Identifiable {
     var backLanguage: Language
     var notes: String
     var tags: [String]
+    var isFavorite: Bool
     var id: String
 
     init(
@@ -26,6 +27,7 @@ struct CardItem: Identifiable {
         backLanguage: Language,
         notes: String,
         tags: [String],
+        isFavorite: Bool,
         id: String
     ) {
         self.timestamp = timestamp
@@ -35,6 +37,7 @@ struct CardItem: Identifiable {
         self.backLanguage = backLanguage
         self.notes = notes
         self.tags = tags
+        self.isFavorite = isFavorite
         self.id = id
     }
 }

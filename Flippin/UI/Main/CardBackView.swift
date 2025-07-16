@@ -9,6 +9,7 @@ import Flow
 
 struct CardBackView: View {
     @Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject private var cardsProvider: CardsProvider
     @StateObject private var colorManager = ColorManager()
 
     let item: CardItem
@@ -19,6 +20,16 @@ struct CardBackView: View {
                     .font(.headline)
                     .foregroundStyle(.secondary)
                 Spacer()
+                
+                Button(action: {
+                    cardsProvider.toggleFavorite(for: item.id)
+                }) {
+                    Image(systemName: item.isFavorite ? "heart.fill" : "heart")
+                        .foregroundStyle(item.isFavorite ? .red : .secondary)
+                        .font(.title3)
+                }
+                .buttonStyle(.plain)
+                
                 Text(item.timestamp, format: Date.FormatStyle(date: .abbreviated, time: .shortened))
                     .font(.caption)
                     .foregroundStyle(.secondary)

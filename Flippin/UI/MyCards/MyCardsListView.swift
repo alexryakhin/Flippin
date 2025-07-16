@@ -62,6 +62,9 @@ struct MyCardsListView: View {
                         dismiss()
                     }
                 }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    EditButton()
+                }
                 ToolbarItem(placement: .bottomBar) {
                     HStack {
                         Button {

@@ -52,6 +52,7 @@ public class CoreDataService: ObservableObject {
 
     private init() {
         setupBindings()
+        setupRemoteChangeNotification()
     }
 
     public func saveContext() throws {
@@ -72,5 +73,15 @@ public class CoreDataService: ObservableObject {
                 self?.dataUpdatedPublisher.send()
             }
             .store(in: &cancellables)
+    }
+
+    private func setupRemoteChangeNotification() {
+        NotificationCenter.default.addObserver(
+            forName: .NSPersistentStoreRemoteChange,
+            object: persistentContainer.persistentStoreCoordinator,
+            queue: .main
+        ) { [weak self] _ in
+            self?.dataUpdatedPublisher.send()
+        }
     }
 } 

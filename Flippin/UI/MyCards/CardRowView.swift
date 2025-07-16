@@ -10,6 +10,7 @@ import Flow
 struct CardRowView: View {
     let card: CardItem
     let onDelete: () -> Void
+    @EnvironmentObject private var cardsProvider: CardsProvider
     
     @State private var isFlipped = false
     @State private var isPlayingTTS = false
@@ -25,6 +26,15 @@ struct CardRowView: View {
                     .foregroundStyle(.secondary)
 
                 Spacer()
+                
+                Button(action: {
+                    cardsProvider.toggleFavorite(for: card.id)
+                }) {
+                    Image(systemName: card.isFavorite ? "heart.fill" : "heart")
+                        .foregroundStyle(card.isFavorite ? .red : .secondary)
+                        .font(.caption)
+                }
+                .buttonStyle(.plain)
 
                 Text(card.timestamp, format: Date.FormatStyle(date: .abbreviated, time: .shortened))
                     .font(.caption2)

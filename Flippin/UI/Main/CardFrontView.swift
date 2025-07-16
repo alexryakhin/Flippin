@@ -9,6 +9,7 @@ import Flow
 
 struct CardFrontView: View {
     @Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject private var cardsProvider: CardsProvider
 
     let item: CardItem
     @State private var isPlayingTTS = false
@@ -21,6 +22,16 @@ struct CardFrontView: View {
                     .font(.headline)
                     .foregroundStyle(.secondary)
                 Spacer()
+                
+                Button(action: {
+                    cardsProvider.toggleFavorite(for: item.id)
+                }) {
+                    Image(systemName: item.isFavorite ? "heart.fill" : "heart")
+                        .foregroundStyle(item.isFavorite ? .red : .secondary)
+                        .font(.title3)
+                }
+                .buttonStyle(.plain)
+                
                 Text(item.timestamp, format: Date.FormatStyle(date: .abbreviated, time: .shortened))
                     .font(.caption)
                     .foregroundStyle(.secondary)

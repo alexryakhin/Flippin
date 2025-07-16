@@ -111,6 +111,7 @@ class AddCardSheetViewModel: ObservableObject {
             backLanguage: userLanguage,
             notes: trimmedNotes.isEmpty ? "" : trimmedNotes,
             tags: selectedTags.isEmpty ? [] : Array(selectedTags),
+            isFavorite: false,
             id: UUID().uuidString
         )
     }

@@ -46,6 +46,7 @@ final class CardsProvider: ObservableObject {
             backLanguage: card.backLanguage,
             notes: card.notes.isEmpty ? nil : card.notes,
             tags: card.tags.isEmpty ? nil : card.tags,
+            isFavorite: card.isFavorite,
             id: card.id
         )
         
@@ -86,6 +87,21 @@ final class CardsProvider: ObservableObject {
         }
     }
 
+    /// Toggles the favorite status of a card
+    func toggleFavorite(for cardId: String) {
+        let fetchRequest: NSFetchRequest<CDCardItem> = CDCardItem.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id == %@", cardId)
+
+        do {
+            if let cdCard = try coreDataService.context.fetch(fetchRequest).first {
+                cdCard.isFavorite.toggle()
+                try coreDataService.saveContext()
+            }
+        } catch {
+            cardsErrorPublisher.send(error)
+        }
+    }
+    
     /// Updates an existing card in Core Data
     func updateCard(_ card: CardItem) {
         let fetchRequest: NSFetchRequest<CDCardItem> = CDCardItem.fetchRequest()
@@ -100,6 +116,7 @@ final class CardsProvider: ObservableObject {
                 cdCard.backLanguage = card.backLanguage
                 cdCard.notes = card.notes.isEmpty ? nil : card.notes
                 cdCard.tags = card.tags.isEmpty ? nil : card.tags
+                cdCard.isFavorite = card.isFavorite
                 
                 try coreDataService.saveContext()
             }
