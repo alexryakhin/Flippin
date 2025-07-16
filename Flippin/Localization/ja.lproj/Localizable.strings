@@ -29,6 +29,7 @@
 "noCardsFound" = "カードが見つかりません";
 "addFirstCardToStartLearning" = "最初のカードを追加して学習を開始";
 "noCardsMatchSearch" = "検索に一致するカードがありません";
+"noCardsForLanguagePair" = "この言語ペアのカードがありません";
 
 // MARK: - Card Views
 "showAnswer" = "答えを表示";
@@ -44,6 +45,8 @@
 "addTag" = "タグを追加";
 "tagsManagement" = "タグ管理";
 "filterByTag" = "タグでフィルター";
+"filterByLanguage" = "言語でフィルター";
+"filterByLanguageDescription" = "選択した言語に一致するカードのみを表示";
 
 // MARK: - Settings
 "languages" = "言語";

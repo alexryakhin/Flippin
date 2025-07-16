@@ -29,6 +29,7 @@
 "noCardsFound" = "Không tìm thấy thẻ nào";
 "addFirstCardToStartLearning" = "Thêm thẻ đầu tiên của bạn để bắt đầu học";
 "noCardsMatchSearch" = "Không có thẻ nào khớp với tìm kiếm của bạn";
+"noCardsForLanguagePair" = "Không có thẻ nào cho cặp ngôn ngữ này";
 
 // MARK: - Card Views
 "showAnswer" = "Hiển thị câu trả lời";
@@ -44,6 +45,8 @@
 "addTag" = "Thêm Nhãn";
 "tagsManagement" = "Quản Lý Nhãn";
 "filterByTag" = "Lọc theo Nhãn";
+"filterByLanguage" = "Lọc theo Ngôn ngữ";
+"filterByLanguageDescription" = "Chỉ hiển thị các thẻ phù hợp với ngôn ngữ bạn đã chọn";
 
 // MARK: - Settings
 "languages" = "Ngôn ngữ";

@@ -226,13 +226,13 @@ struct ProductRowView: View {
             }
             
             if !isPurchased {
-                Button(action: {
+                Button {
                     Task {
                         isPurchasing = true
                         await onPurchase()
                         isPurchasing = false
                     }
-                }) {
+                } label: {
                     HStack {
                         if isPurchasing {
                             ProgressView()

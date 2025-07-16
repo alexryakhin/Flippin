@@ -22,6 +22,12 @@ final class LanguageManager: ObservableObject {
         }
     }
 
+    @Published var filterByLanguage: Bool {
+        didSet {
+            UserDefaults.standard.set(filterByLanguage, forKey: UserDefaultsKey.filterByLanguage)
+        }
+    }
+
     var userLanguageRaw: String {
         get { userLanguage.rawValue }
         set {
@@ -61,6 +67,9 @@ final class LanguageManager: ObservableObject {
             self.targetLanguage = .spanish
             UserDefaults.standard.set(Language.spanish.rawValue, forKey: UserDefaultsKey.targetLanguage)
         }
+
+        // Initialize language filter from UserDefaults
+        self.filterByLanguage = UserDefaults.standard.bool(forKey: UserDefaultsKey.filterByLanguage)
     }
 
     // MARK: - Public Methods
@@ -78,5 +87,13 @@ final class LanguageManager: ObservableObject {
     func resetToSystemLanguage() {
         let detectedLanguage = Language(rawValue: Locale.current.language.languageCode?.identifier ?? "en") ?? .english
         setUserLanguage(detectedLanguage)
+    }
+
+    func filterCards(_ cards: [CardItem]) -> [CardItem] {
+        guard filterByLanguage else { return cards }
+        
+        return cards.filter { card in
+            card.frontLanguage == targetLanguage && card.backLanguage == userLanguage
+        }
     }
 }

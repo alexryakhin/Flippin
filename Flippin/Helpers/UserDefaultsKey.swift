@@ -12,4 +12,5 @@ enum UserDefaultsKey {
     static let appSettings = "appSettings"
     static let availableTags = "availableTags"
     static let selectedFilterTag = "selectedFilterTag"
+    static let filterByLanguage = "filterByLanguage"
 }

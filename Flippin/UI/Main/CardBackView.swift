@@ -21,15 +21,14 @@ struct CardBackView: View {
                     .foregroundStyle(.secondary)
                 Spacer()
                 
-                Button(action: {
+                Button {
                     cardsProvider.toggleFavorite(for: item.id)
-                }) {
+                } label: {
                     Image(systemName: item.isFavorite ? "heart.fill" : "heart")
-                        .foregroundStyle(item.isFavorite ? .red : .secondary)
                         .font(.title3)
                 }
-                .buttonStyle(.plain)
-                
+                .tint(colorManager.adjustedTintColor(colorScheme))
+
                 Text(item.timestamp, format: Date.FormatStyle(date: .abbreviated, time: .shortened))
                     .font(.caption)
                     .foregroundStyle(.secondary)

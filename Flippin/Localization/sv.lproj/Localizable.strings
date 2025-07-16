@@ -29,6 +29,7 @@
 "noCardsFound" = "Inga kort hittades";
 "addFirstCardToStartLearning" = "Lägg till ditt första kort för att börja lära dig";
 "noCardsMatchSearch" = "Inga kort matchar din sökning";
+"noCardsForLanguagePair" = "Inga kort för detta språkpar";
 
 // MARK: - Card Views
 "showAnswer" = "Visa svar";
@@ -44,6 +45,8 @@
 "addTag" = "Lägg till Tagg";
 "tagsManagement" = "Tagghantering";
 "filterByTag" = "Filtrera efter Tagg";
+"filterByLanguage" = "Filtrera efter Språk";
+"filterByLanguageDescription" = "Visa endast kort som matchar dina valda språk";
 
 // MARK: - Settings
 "languages" = "Språk";

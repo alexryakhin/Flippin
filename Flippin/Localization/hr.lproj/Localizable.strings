@@ -29,6 +29,7 @@
 "noCardsFound" = "Nema pronađenih kartica";
 "addFirstCardToStartLearning" = "Dodajte prvu karticu za početak učenja";
 "noCardsMatchSearch" = "Nema kartica koje odgovaraju vašoj pretrazi";
+"noCardsForLanguagePair" = "Nema kartica za ovaj par jezika";
 
 // MARK: - Card Views
 "showAnswer" = "Prikaži odgovor";
@@ -44,6 +45,8 @@
 "addTag" = "Dodaj Oznaku";
 "tagsManagement" = "Upravljanje Oznakama";
 "filterByTag" = "Filtriraj po Oznaci";
+"filterByLanguage" = "Filtriraj po Jeziku";
+"filterByLanguageDescription" = "Prikaži samo kartice koje odgovaraju vašim odabranim jezicima";
 
 // MARK: - Settings
 "languages" = "Jezici";

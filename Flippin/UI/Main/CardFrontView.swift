@@ -23,15 +23,14 @@ struct CardFrontView: View {
                     .foregroundStyle(.secondary)
                 Spacer()
                 
-                Button(action: {
+                Button {
                     cardsProvider.toggleFavorite(for: item.id)
-                }) {
+                } label: {
                     Image(systemName: item.isFavorite ? "heart.fill" : "heart")
-                        .foregroundStyle(item.isFavorite ? .red : .secondary)
                         .font(.title3)
                 }
-                .buttonStyle(.plain)
-                
+                .tint(colorManager.adjustedTintColor(colorScheme))
+
                 Text(item.timestamp, format: Date.FormatStyle(date: .abbreviated, time: .shortened))
                     .font(.caption)
                     .foregroundStyle(.secondary)
@@ -70,7 +69,7 @@ struct CardFrontView: View {
             Spacer()
 
             HStack {
-                Button(action: {
+                Button {
                     isPlayingTTS = true
                     Task {
                         do {
@@ -82,7 +81,7 @@ struct CardFrontView: View {
                         }
                         isPlayingTTS = false
                     }
-                }) {
+                } label: {
                     Image(systemName: isPlayingTTS ? "speaker.wave.2.fill" : "speaker.wave.2")
                         .resizable()
                         .scaledToFit()

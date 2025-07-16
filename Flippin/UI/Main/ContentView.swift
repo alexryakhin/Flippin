@@ -24,10 +24,17 @@ struct ContentView: View {
     @State private var showingTagFilter = false
 
     var filteredItems: [CardItem] {
+        var filtered = cardsProvider.cards
+        
+        // Apply language filter first
+        filtered = languageManager.filterCards(filtered)
+        
+        // Then apply tag filter
         if !tagManager.currentFilterTag.isEmpty {
-            return tagManager.filterCards(cardsProvider.cards, by: tagManager.currentFilterTag)
+            filtered = tagManager.filterCards(filtered, by: tagManager.currentFilterTag)
         }
-        return cardsProvider.cards
+        
+        return filtered
     }
 
     var displayItems: [CardItem] {
@@ -131,44 +138,66 @@ struct ContentView: View {
     @ViewBuilder
     private var cardsStackView: some View {
         if cardsProvider.cards.isEmpty {
-            ContentUnavailableView {
-                VStack {
-                    Image(systemName: "rectangle.stack.fill")
-                        .font(.largeTitle)
-                        .rotationEffect(.init(degrees: 90))
-                    Text(LocalizationKeys.noCardsYet.localized)
-                }
-            } description: {
-                Text(LocalizationKeys.tapToAddFirstCard.localized)
-                    .foregroundStyle(.secondary)
-            }
-            .foregroundColor(colorManager.adjustedForegroundColor(colorScheme))
+            noCardsView
         } else if displayItems.isEmpty {
-            ContentUnavailableView {
-                VStack {
-                    Image(systemName: "tag")
-                        .font(.largeTitle)
-                    Text(LocalizationKeys.noCardsWithSelectedTag.localized)
-                }
-            } description: {
-                if !tagManager.currentFilterTag.isEmpty {
-                    Text(LocalizationKeys.noCardsFoundWithTag.localized(with: tagManager.currentFilterTag))
-                } else {
-                    Text(LocalizationKeys.noCardsAvailable.localized)
-                }
-            } actions: {
-                if !tagManager.currentFilterTag.isEmpty {
-                    Button(LocalizationKeys.clearFilter.localized) {
-                        tagManager.clearFilter()
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .tint(colorManager.adjustedTintColor(colorScheme))
-                }
+            if languageManager.filterByLanguage {
+                filteredByLanguageCardsEmptyView
+            }else {
+                noCardsWithTagsView
             }
-            .foregroundColor(colorManager.adjustedForegroundColor(colorScheme))
         } else {
             CardStackScrollView(items: displayItems)
         }
+    }
+
+    private var noCardsView: some View {
+        ContentUnavailableView {
+            VStack {
+                Image(systemName: "rectangle.stack.fill")
+                    .font(.largeTitle)
+                    .rotationEffect(.init(degrees: 90))
+                Text(LocalizationKeys.noCardsYet.localized)
+            }
+        } description: {
+            Text(LocalizationKeys.tapToAddFirstCard.localized)
+                .foregroundStyle(.secondary)
+        }
+        .foregroundColor(colorManager.adjustedForegroundColor(colorScheme))
+    }
+
+    private var noCardsWithTagsView: some View {
+        ContentUnavailableView {
+            VStack {
+                Image(systemName: "tag")
+                    .font(.largeTitle)
+                Text(LocalizationKeys.noCardsWithSelectedTag.localized)
+            }
+        } description: {
+            Text(LocalizationKeys.noCardsFoundWithTag.localized(with: tagManager.currentFilterTag))
+                .foregroundStyle(.secondary)
+        } actions: {
+            Button(LocalizationKeys.clearFilter.localized) {
+                tagManager.clearFilter()
+            }
+            .buttonStyle(.borderedProminent)
+            .tint(colorManager.adjustedTintColor(colorScheme))
+        }
+        .foregroundColor(colorManager.adjustedForegroundColor(colorScheme))
+    }
+
+    private var filteredByLanguageCardsEmptyView: some View {
+        ContentUnavailableView {
+            VStack {
+                Image(systemName: "rectangle.stack.fill")
+                    .font(.largeTitle)
+                    .rotationEffect(.init(degrees: 90))
+                Text(LocalizationKeys.noCardsYet.localized)
+            }
+        } description: {
+            Text(LocalizationKeys.noCardsForLanguagePair.localized)
+                .foregroundStyle(.secondary)
+        }
+        .foregroundColor(colorManager.adjustedForegroundColor(colorScheme))
     }
 
     private func shuffleCards() {

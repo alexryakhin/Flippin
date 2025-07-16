@@ -30,7 +30,7 @@ struct SettingsView: View {
                             CellWrapper {
                                 Text(LocalizationKeys.myLanguageSettings.localized)
                                     .font(.subheadline)
-                                    .foregroundStyle(.secondary)
+                                    .foregroundStyle(.primary)
                             } trailingContent: {
                                 Picker(LocalizationKeys.myLanguageSettings.localized, selection: $languageManager.userLanguageRaw) {
                                     ForEach(Language.allCases) { lang in
@@ -43,7 +43,7 @@ struct SettingsView: View {
                             CellWrapper {
                                 Text(LocalizationKeys.targetLanguage.localized)
                                     .font(.subheadline)
-                                    .foregroundStyle(.secondary)
+                                    .foregroundStyle(.primary)
                             } trailingContent: {
                                 Picker(LocalizationKeys.targetLanguage.localized, selection: $languageManager.targetLanguageRaw) {
                                     ForEach(Language.allCases) { lang in
@@ -51,6 +51,20 @@ struct SettingsView: View {
                                     }
                                 }
                                 .pickerStyle(.menu)
+                            }
+
+                            CellWrapper {
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text(LocalizationKeys.filterByLanguage.localized)
+                                        .font(.subheadline)
+                                        .foregroundStyle(.primary)
+                                    Text(LocalizationKeys.filterByLanguageDescription.localized)
+                                        .font(.caption)
+                                        .foregroundStyle(.secondary)
+                                }
+                            } trailingContent: {
+                                Toggle("", isOn: $languageManager.filterByLanguage)
+                                    .labelsHidden()
                             }
                         }
                         .clippedWithBackground()
@@ -63,7 +77,7 @@ struct SettingsView: View {
                             CellWrapper {
                                 Text(LocalizationKeys.backgroundColor.localized)
                                     .font(.subheadline)
-                                    .foregroundStyle(.secondary)
+                                    .foregroundStyle(.primary)
                             } trailingContent: {
                                 ColorPicker("", selection: Binding(
                                     get: { colorManager.userGradientColor },
@@ -78,7 +92,7 @@ struct SettingsView: View {
                             CellWrapper {
                                 Text(LocalizationKeys.backgroundStyle.localized)
                                     .font(.subheadline)
-                                    .foregroundStyle(.secondary)
+                                    .foregroundStyle(.primary)
                             } trailingContent: {
                                 Button(colorManager.backgroundStyle.displayName) {
                                     showingBackgroundPreview = true

@@ -23,6 +23,9 @@ struct MyCardsListView: View {
     var filteredCards: [CardItem] {
         var filtered = cardsProvider.cards
         
+        // Apply language filter first
+        filtered = languageManager.filterCards(filtered)
+        
         if !searchText.isEmpty {
             filtered = filtered.filter { card in
                 card.frontText.localizedCaseInsensitiveContains(searchText) ||
@@ -45,7 +48,9 @@ struct MyCardsListView: View {
                 if cardsProvider.cards.isEmpty {
                     noCardsView
                 } else if filteredCards.isEmpty {
-                    if tagManager.currentFilterTag.isEmpty {
+                    if languageManager.filterByLanguage {
+                        filteredByLanguageCardsEmptyView
+                    } else if tagManager.currentFilterTag.isEmpty {
                         noCardsFoundView
                     } else {
                         noCardsWithTagsView
@@ -80,12 +85,7 @@ struct MyCardsListView: View {
                             Button {
                                 showingTagFilter = true
                             } label: {
-                                Label(
-                                    tagManager.currentFilterTag.isEmpty
-                                    ? LocalizationKeys.filterByTag.localized
-                                    : tagManager.currentFilterTag,
-                                    systemImage: "tag"
-                                )
+                                Label(LocalizationKeys.filterByTag.localized, systemImage: "tag")
                             }
                         }
                         if !filteredCards.isEmpty {
@@ -141,6 +141,20 @@ struct MyCardsListView: View {
             }
         } description: {
             Text(LocalizationKeys.tapToAddFirstCard.localized)
+                .foregroundStyle(.secondary)
+        }
+    }
+
+    private var filteredByLanguageCardsEmptyView: some View {
+        ContentUnavailableView {
+            VStack {
+                Image(systemName: "rectangle.stack.fill")
+                    .font(.largeTitle)
+                    .rotationEffect(.init(degrees: 90))
+                Text(LocalizationKeys.noCardsYet.localized)
+            }
+        } description: {
+            Text(LocalizationKeys.noCardsForLanguagePair.localized)
                 .foregroundStyle(.secondary)
         }
     }

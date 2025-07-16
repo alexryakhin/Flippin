@@ -29,6 +29,7 @@
 "noCardsFound" = "카드를 찾을 수 없습니다";
 "addFirstCardToStartLearning" = "첫 번째 카드를 추가하여 학습을 시작하세요";
 "noCardsMatchSearch" = "검색과 일치하는 카드가 없습니다";
+"noCardsForLanguagePair" = "이 언어 쌍에 대한 카드가 없습니다";
 
 // MARK: - Card Views
 "showAnswer" = "답 보기";
@@ -44,6 +45,8 @@
 "addTag" = "태그 추가";
 "tagsManagement" = "태그 관리";
 "filterByTag" = "태그로 필터링";
+"filterByLanguage" = "언어로 필터링";
+"filterByLanguageDescription" = "선택한 언어와 일치하는 카드만 표시";
 
 // MARK: - Settings
 "languages" = "언어";

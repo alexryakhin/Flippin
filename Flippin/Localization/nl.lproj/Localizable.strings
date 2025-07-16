@@ -29,6 +29,7 @@
 "noCardsFound" = "Geen kaarten gevonden";
 "addFirstCardToStartLearning" = "Voeg je eerste kaart toe om te beginnen met leren";
 "noCardsMatchSearch" = "Geen kaarten die overeenkomen met je zoekopdracht";
+"noCardsForLanguagePair" = "Geen kaarten voor dit taalpaar";
 
 // MARK: - Card Views
 "showAnswer" = "Antwoord tonen";
@@ -44,6 +45,8 @@
 "addTag" = "Tag Toevoegen";
 "tagsManagement" = "Tag Beheer";
 "filterByTag" = "Filteren op Tag";
+"filterByLanguage" = "Filteren op Taal";
+"filterByLanguageDescription" = "Toon alleen kaarten die overeenkomen met uw geselecteerde talen";
 
 // MARK: - Settings
 "languages" = "Talen";

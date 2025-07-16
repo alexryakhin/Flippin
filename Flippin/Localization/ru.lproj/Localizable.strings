@@ -29,6 +29,7 @@
 "noCardsFound" = "Карточки не найдены";
 "addFirstCardToStartLearning" = "Добавьте свою первую карточку, чтобы начать обучение";
 "noCardsMatchSearch" = "Нет карточек, соответствующих вашему поиску";
+"noCardsForLanguagePair" = "Нет карточек для этой пары языков";
 
 // MARK: - Card Views
 "showAnswer" = "Показать ответ";
@@ -44,6 +45,8 @@
 "addTag" = "Добавить Тег";
 "tagsManagement" = "Управление Тегами";
 "filterByTag" = "Фильтровать по Тегу";
+"filterByLanguage" = "Фильтровать по Языку";
+"filterByLanguageDescription" = "Показывать только карточки, соответствующие вашим выбранным языкам";
 
 // MARK: - Settings
 "languages" = "Языки";

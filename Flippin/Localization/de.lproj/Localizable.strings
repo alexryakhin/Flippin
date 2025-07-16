@@ -29,6 +29,7 @@
 "noCardsFound" = "Keine Karten gefunden";
 "addFirstCardToStartLearning" = "Fügen Sie Ihre erste Karte hinzu, um mit dem Lernen zu beginnen";
 "noCardsMatchSearch" = "Keine Karten entsprechen Ihrer Suche";
+"noCardsForLanguagePair" = "Keine Karten für dieses Sprachenpaar";
 
 // MARK: - Card Views
 "showAnswer" = "Antwort anzeigen";
@@ -44,6 +45,8 @@
 "addTag" = "Tag Hinzufügen";
 "tagsManagement" = "Tag-Verwaltung";
 "filterByTag" = "Nach Tag Filtern";
+"filterByLanguage" = "Nach Sprache filtern";
+"filterByLanguageDescription" = "Nur Karten anzeigen, die Ihren ausgewählten Sprachen entsprechen";
 
 // MARK: - Settings
 "languages" = "Sprachen";

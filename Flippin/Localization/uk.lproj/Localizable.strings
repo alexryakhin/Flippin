@@ -29,6 +29,7 @@
 "noCardsFound" = "Картки не знайдено";
 "addFirstCardToStartLearning" = "Додайте свою першу картку, щоб почати навчання";
 "noCardsMatchSearch" = "Немає карток, що відповідають вашому пошуку";
+"noCardsForLanguagePair" = "Немає карток для цієї пари мов";
 
 // MARK: - Card Views
 "showAnswer" = "Показати відповідь";
@@ -44,6 +45,8 @@
 "addTag" = "Додати Тег";
 "tagsManagement" = "Управління Тегами";
 "filterByTag" = "Фільтрувати за Тегом";
+"filterByLanguage" = "Фільтрувати за Мовою";
+"filterByLanguageDescription" = "Показувати тільки картки, які відповідають вашим вибраним мовам";
 
 // MARK: - Settings
 "languages" = "Мови";

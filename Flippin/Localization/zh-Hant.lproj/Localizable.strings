@@ -29,6 +29,7 @@
 "noCardsFound" = "沒有找到卡片";
 "addFirstCardToStartLearning" = "新增您的第一張卡片開始學習";
 "noCardsMatchSearch" = "沒有卡片符合您的搜尋";
+"noCardsForLanguagePair" = "沒有此語言對的卡片";
 
 // MARK: - Card Views
 "showAnswer" = "顯示答案";
@@ -44,6 +45,8 @@
 "addTag" = "新增標籤";
 "tagsManagement" = "標籤管理";
 "filterByTag" = "依標籤篩選";
+"filterByLanguage" = "依語言篩選";
+"filterByLanguageDescription" = "僅顯示與您選擇的語言相符的卡片";
 
 // MARK: - Settings
 "languages" = "語言";

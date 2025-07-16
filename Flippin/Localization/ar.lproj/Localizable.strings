@@ -29,6 +29,7 @@
 "noCardsFound" = "لم يتم العثور على بطاقات";
 "addFirstCardToStartLearning" = "أضف بطاقتك الأولى لبدء التعلم";
 "noCardsMatchSearch" = "لا توجد بطاقات تطابق بحثك";
+"noCardsForLanguagePair" = "لا توجد بطاقات لهذا الزوج من اللغات";
 
 // MARK: - Card Views
 "showAnswer" = "إظهار الإجابة";
@@ -44,6 +45,8 @@
 "addTag" = "إضافة وسم";
 "tagsManagement" = "إدارة الوسوم";
 "filterByTag" = "تصفية حسب الوسم";
+"filterByLanguage" = "تصفية حسب اللغة";
+"filterByLanguageDescription" = "عرض البطاقات التي تطابق لغاتك المختارة فقط";
 
 // MARK: - Settings
 "languages" = "اللغات";

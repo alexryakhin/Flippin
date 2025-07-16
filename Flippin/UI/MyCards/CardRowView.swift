@@ -27,9 +27,9 @@ struct CardRowView: View {
 
                 Spacer()
                 
-                Button(action: {
+                Button {
                     cardsProvider.toggleFavorite(for: card.id)
-                }) {
+                } label: {
                     Image(systemName: card.isFavorite ? "heart.fill" : "heart")
                         .foregroundStyle(card.isFavorite ? .red : .secondary)
                         .font(.caption)

@@ -41,6 +41,9 @@ enum LocalizationKeys {
     static let addTag = "addTag"
     static let tagsManagement = "tagsManagement"
     static let filterByTag = "filterByTag"
+    static let filterByLanguage = "filterByLanguage"
+    static let filterByLanguageDescription = "filterByLanguageDescription"
+    static let noCardsForLanguagePair = "noCardsForLanguagePair"
     
     // MARK: - Settings
     static let languages = "languages"

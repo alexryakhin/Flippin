@@ -29,6 +29,7 @@
 "noCardsFound" = "Nenhum cartão encontrado";
 "addFirstCardToStartLearning" = "Adiciona o teu primeiro cartão para começares a aprender";
 "noCardsMatchSearch" = "Nenhum cartão corresponde à tua pesquisa";
+"noCardsForLanguagePair" = "Nenhum cartão para este par de idiomas";
 
 // MARK: - Card Views
 "showAnswer" = "Mostrar resposta";
@@ -44,6 +45,8 @@
 "addTag" = "Adicionar Etiqueta";
 "tagsManagement" = "Gestão de Etiquetas";
 "filterByTag" = "Filtrar por Etiqueta";
+"filterByLanguage" = "Filtrar por Idioma";
+"filterByLanguageDescription" = "Mostrar apenas cartões que correspondam aos seus idiomas selecionados";
 
 // MARK: - Settings
 "languages" = "Idiomas";
