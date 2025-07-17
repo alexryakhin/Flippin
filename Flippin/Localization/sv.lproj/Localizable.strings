@@ -76,6 +76,8 @@
 "clearFilter" = "Rensa Filter";
 "clearSearch" = "Rensa Sökning";
 "addCardButton" = "Lägg till Kort";
+"edit" = "Redigera";
+"editCard" = "Redigera Kort";
 "delete" = "Radera";
 "deleteCard" = "Radera Kort";
 "deleteCardConfirmation" = "Är du säker på att du vill radera detta kort? Denna åtgärd kan inte ångras.";

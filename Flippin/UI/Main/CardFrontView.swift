@@ -13,7 +13,7 @@ struct CardFrontView: View {
 
     let item: CardItem
     @State private var isPlayingTTS = false
-    @StateObject private var colorManager = ColorManager()
+    @EnvironmentObject private var colorManager: ColorManager
 
     var body: some View {
         VStack(spacing: 20) {

@@ -14,6 +14,7 @@ struct MyCardsListView: View {
     @State private var searchText = ""
     @State private var showingDeleteAlert = false
     @State private var cardToDelete: CardItem?
+    @State private var cardToEdit: CardItem?
     @EnvironmentObject private var tagManager: TagManager
     @State private var showingTagFilter = false
     @State private var showAddCardSheet = false
@@ -58,10 +59,16 @@ struct MyCardsListView: View {
                 } else {
                     List {
                         ForEach(filteredCards) { card in
-                            CardRowView(card: card) {
-                                cardToDelete = card
-                                showingDeleteAlert = true
-                            }
+                            CardRowView(
+                                card: card,
+                                onDelete: {
+                                    cardToDelete = card
+                                    showingDeleteAlert = true
+                                },
+                                onEdit: {
+                                    cardToEdit = card
+                                }
+                            )
                         }
                     }
                     .listStyle(.insetGrouped)
@@ -116,6 +123,17 @@ struct MyCardsListView: View {
             .environmentObject(tagManager)
             .presentationDetents([.fraction(0.3)])
             .presentationDragIndicator(.visible)
+        }
+        .sheet(item: $cardToEdit) { card in
+            EditCardSheet(card: card) { updatedCard in
+                cardsProvider.updateCard(updatedCard)
+                AnalyticsService.trackCardEvent(
+                    .cardEdited,
+                    cardLanguage: updatedCard.frontLanguage.rawValue,
+                    hasTags: !updatedCard.tags.isEmpty,
+                    tagCount: updatedCard.tags.count
+                )
+            }
         }
         .alert(cardToDelete == nil ? LocalizationKeys.deleteAllCards.localized : LocalizationKeys.deleteCard.localized, isPresented: $showingDeleteAlert) {
             Button(LocalizationKeys.delete.localized, role: .destructive) {

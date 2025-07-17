@@ -19,6 +19,10 @@ final class ColorManager: ObservableObject {
         Color(hexString: userGradientColorHex) ?? .blue
     }
 
+    static let shared = ColorManager()
+
+    private init() { }
+
     func adjustedTintColor(_ colorScheme: ColorScheme) -> Color {
         let baseColor = userGradientColor
 

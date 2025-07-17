@@ -1,8 +1,8 @@
 //
-//  AddCardSheetViewModel.swift
+//  EditCardSheetViewModel.swift
 //  Flippin
 //
-//  Created by Alexander Riakhin on 6/30/25.
+//  Created by Alexander Riakhin on 12/19/25.
 //
 
 import Foundation
@@ -10,23 +10,34 @@ import SwiftUI
 import Combine
 
 @MainActor
-final class AddCardSheetViewModel: ObservableObject {
+final class EditCardSheetViewModel: ObservableObject {
     @Published var nativeText: String = ""
     @Published var targetText: String = ""
     @Published var isTranslating: Bool = false
     @Published var selectedTags: Set<String> = []
     @Published var newTagText: String = ""
     @Published var notes: String = ""
-
+    
     private var cancellables = Set<AnyCancellable>()
     private let tagManager = TagManager.shared
     private let languageManager = LanguageManager.shared
+    private let originalCard: CardItem
+    let onSave: (CardItem) -> Void
 
     var availableTags: [String] {
         tagManager.availableTags
     }
-
-    init() {
+    
+    init(card: CardItem, onSave: @escaping (CardItem) -> Void) {
+        self.originalCard = card
+        self.onSave = onSave
+        
+        // Initialize with existing card data
+        self.nativeText = card.backText
+        self.targetText = card.frontText
+        self.notes = card.notes
+        self.selectedTags = Set(card.tags)
+        
         setupTranslationPipeline()
     }
 
@@ -43,10 +54,10 @@ final class AddCardSheetViewModel: ObservableObject {
             }
             .store(in: &cancellables)
     }
-
+    
     private func translateText(_ text: String) async {
         guard !isTranslating else { return }
-
+        
         isTranslating = true
 
         do {
@@ -60,52 +71,52 @@ final class AddCardSheetViewModel: ObservableObject {
             print("Translation failed: \(error)")
             AnalyticsService.trackErrorEvent(.translationFailed, errorMessage: error.localizedDescription)
         }
-
+        
         isTranslating = false
     }
-
+    
     func addTag(_ tag: String) {
         let trimmedTag = tag.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmedTag.isEmpty else { return }
-
+        
         if selectedTags.count < 5 {
             selectedTags.insert(trimmedTag)
             tagManager.addTag(trimmedTag)
         }
     }
-
+    
     func removeTag(_ tag: String) {
         selectedTags.remove(tag)
     }
-
+    
     func addNewTag() {
         addTag(newTagText)
         newTagText = ""
     }
-
-    func createCard() -> CardItem? {
+    
+    func updateCard() -> CardItem? {
         let trimmedNative = nativeText.trimmingCharacters(in: .whitespacesAndNewlines)
         let trimmedTarget = targetText.trimmingCharacters(in: .whitespacesAndNewlines)
         let trimmedNotes = notes.trimmingCharacters(in: .whitespacesAndNewlines)
-
+        
         guard !trimmedNative.isEmpty && !trimmedTarget.isEmpty else {
             return nil
         }
-
+        
         return CardItem(
-            timestamp: Date(),
+            timestamp: originalCard.timestamp, // Keep original timestamp
             frontText: trimmedTarget,
             backText: trimmedNative,
             frontLanguage: languageManager.targetLanguage,
             backLanguage: languageManager.userLanguage,
             notes: trimmedNotes.isEmpty ? "" : trimmedNotes,
             tags: selectedTags.isEmpty ? [] : Array(selectedTags),
-            isFavorite: false,
-            id: UUID().uuidString
+            isFavorite: originalCard.isFavorite, // Keep original favorite status
+            id: originalCard.id // Keep original ID
         )
     }
-
+    
     func cancel() {
         cancellables.removeAll()
     }
-}
+} 

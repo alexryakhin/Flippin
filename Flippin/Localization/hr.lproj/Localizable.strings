@@ -76,6 +76,8 @@
 "clearFilter" = "Očisti Filter";
 "clearSearch" = "Očisti Pretragu";
 "addCardButton" = "Dodaj Karticu";
+"edit" = "Uredi";
+"editCard" = "Uredi Karticu";
 "delete" = "Obriši";
 "deleteCard" = "Obriši Karticu";
 "deleteCardConfirmation" = "Jeste li sigurni da želite obrisati ovu karticu? Ova radnja se ne može poništiti.";

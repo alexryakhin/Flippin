@@ -10,6 +10,7 @@ import Flow
 struct CardRowView: View {
     let card: CardItem
     let onDelete: () -> Void
+    let onEdit: () -> Void
     @EnvironmentObject private var cardsProvider: CardsProvider
     
     @State private var isFlipped = false
@@ -100,6 +101,14 @@ struct CardRowView: View {
                 Label(LocalizationKeys.delete.localized, systemImage: "trash")
             }
             .tint(.red)
+        }
+        .swipeActions(edge: .leading, allowsFullSwipe: false) {
+            Button {
+                onEdit()
+            } label: {
+                Label(LocalizationKeys.edit.localized, systemImage: "pencil")
+            }
+            .tint(.blue)
         }
         .onTapGesture {
             withAnimation(.easeInOut(duration: 0.3)) {

@@ -10,7 +10,7 @@ struct PurchaseResult {
 
 // MARK: - Purchase Service
 @MainActor
-class PurchaseService: ObservableObject {
+final class PurchaseService: ObservableObject {
     static let shared = PurchaseService()
     
     @Published var products: [Product] = []

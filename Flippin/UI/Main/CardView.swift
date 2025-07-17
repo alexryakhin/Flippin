@@ -7,12 +7,19 @@
 import SwiftUI
 
 struct CardView: View {
-    let item: CardItem
     @EnvironmentObject private var cardsProvider: CardsProvider
+    @EnvironmentObject private var colorManager: ColorManager
+
     @State private var isFlipped = false
     @State private var animationStart: Date? = nil
     @State private var animationDirection: CGFloat = 1 // 1 for forward, -1 for backward
-    let animationDuration: Double = 0.5 // seconds
+
+    private let animationDuration: Double = 0.5 // seconds
+    private let item: CardItem
+
+    init(item: CardItem) {
+        self.item = item
+    }
 
     var body: some View {
         TimelineView(.animation) { context in
@@ -32,8 +39,10 @@ struct CardView: View {
             ZStack {
                 if animatedAngle <= 90 {
                     CardFrontView(item: item)
+                        .environmentObject(colorManager)
                 } else {
                     CardBackView(item: item)
+                        .environmentObject(colorManager)
                         .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
                 }
             }

@@ -76,6 +76,8 @@
 "clearFilter" = "Filter Wissen";
 "clearSearch" = "Zoeken Wissen";
 "addCardButton" = "Kaart Toevoegen";
+"edit" = "Bewerken";
+"editCard" = "Kaart Bewerken";
 "delete" = "Verwijderen";
 "deleteCard" = "Kaart Verwijderen";
 "deleteCardConfirmation" = "Weet je zeker dat je deze kaart wilt verwijderen? Deze actie kan niet ongedaan worden gemaakt.";

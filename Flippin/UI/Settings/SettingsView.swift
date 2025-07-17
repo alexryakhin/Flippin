@@ -9,11 +9,12 @@ import Flow
 
 struct SettingsView: View {
     @Environment(\.dismiss) var dismiss
-    @EnvironmentObject private var languageManager: LanguageManager
-
     @Environment(\.colorScheme) var colorScheme
-    @StateObject private var colorManager = ColorManager()
-    @StateObject private var tagManager = TagManager()
+
+    @EnvironmentObject private var languageManager: LanguageManager
+    @EnvironmentObject private var colorManager: ColorManager
+    @EnvironmentObject private var tagManager: TagManager
+
     @State private var newTagText = ""
     @State private var showingAddTagAlert = false
     @State private var showingBackgroundPreview = false
@@ -185,6 +186,7 @@ struct SettingsView: View {
             }
             .sheet(isPresented: $showingBackgroundPreview) {
                 BackgroundPreviewView()
+                    .environmentObject(colorManager)
             }
             .sheet(isPresented: $showingPurchaseTest) {
                 NavigationView {

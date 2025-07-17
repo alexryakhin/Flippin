@@ -57,7 +57,7 @@ enum AnalyticsEvent: String, CaseIterable {
 }
 
 // MARK: - Analytics Service
-class AnalyticsService {
+final class AnalyticsService {
     static let shared = AnalyticsService()
     
     private init() {}

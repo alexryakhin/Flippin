@@ -7,7 +7,12 @@
 import SwiftUI
 
 struct CardStackScrollView: View {
-    let items: [CardItem]
+    @EnvironmentObject private var colorManager: ColorManager
+    private let items: [CardItem]
+
+    init(items: [CardItem]) {
+        self.items = items
+    }
 
     var body: some View {
         GeometryReader { geometry in
@@ -17,6 +22,7 @@ struct CardStackScrollView: View {
                 HStack(spacing: 0) {
                     ForEach(items, id: \.id) { item in
                         CardView(item: item)
+                            .environmentObject(colorManager)
                             .frame(width: size.width)
                             .visualEffect { content, geometryProxy in
                                 content

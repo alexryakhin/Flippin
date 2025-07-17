@@ -76,6 +76,8 @@
 "clearFilter" = "Xóa Bộ Lọc";
 "clearSearch" = "Xóa Tìm Kiếm";
 "addCardButton" = "Thêm Thẻ";
+"edit" = "Chỉnh sửa";
+"editCard" = "Chỉnh sửa Thẻ";
 "delete" = "Xóa";
 "deleteCard" = "Xóa Thẻ";
 "deleteCardConfirmation" = "Bạn có chắc chắn muốn xóa thẻ này không? Hành động này không thể hoàn tác.";

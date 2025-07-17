@@ -8,7 +8,7 @@ import SwiftUI
 
 struct ButtonRowView: View {
     @Environment(\.colorScheme) var colorScheme
-    @StateObject private var colorManager = ColorManager()
+    @EnvironmentObject private var colorManager: ColorManager
 
     let onAddItem: () -> Void
     let onShuffle: () -> Void

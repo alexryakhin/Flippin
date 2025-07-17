@@ -15,12 +15,8 @@ final class CardsProvider: ObservableObject {
     let cardsErrorPublisher = PassthroughSubject<Error, Never>()
 
     private let coreDataService = CoreDataService.shared
-    private var tagManager: TagManager?
+    private let tagManager = TagManager.shared
     private var cancellables = Set<AnyCancellable>()
-    
-    func setTagManager(_ tagManager: TagManager) {
-        self.tagManager = tagManager
-    }
 
     init() {
         setupBindings()
@@ -57,7 +53,7 @@ final class CardsProvider: ObservableObject {
         
         // Add tags using TagManager
         for tagName in card.tags {
-            if let tag = tagManager?.findOrCreateTag(withName: tagName) {
+            if let tag = tagManager.findOrCreateTag(withName: tagName) {
                 cdCard.addToTags(tag)
             }
         }
@@ -136,7 +132,7 @@ final class CardsProvider: ObservableObject {
                 }
                 
                 for tagName in card.tags {
-                    if let tag = tagManager?.findOrCreateTag(withName: tagName) {
+                    if let tag = tagManager.findOrCreateTag(withName: tagName) {
                         cdCard.addToTags(tag)
                     }
                 }

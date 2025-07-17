@@ -76,6 +76,8 @@
 "clearFilter" = "Clear Filter";
 "clearSearch" = "Clear Search";
 "addCardButton" = "Add Card";
+"edit" = "Edit";
+"editCard" = "Edit Card";
 "delete" = "Delete";
 "deleteCard" = "Delete Card";
 "deleteCardConfirmation" = "Are you sure you want to delete this card? This action cannot be undone.";

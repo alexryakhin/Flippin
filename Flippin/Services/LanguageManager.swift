@@ -10,6 +10,9 @@ import SwiftUI
 
 @MainActor
 final class LanguageManager: ObservableObject {
+
+    static let shared = LanguageManager()
+
     @Published private(set) var userLanguage: Language {
         didSet {
             UserDefaults.standard.set(userLanguage.rawValue, forKey: UserDefaultsKey.userLanguage)
@@ -46,7 +49,7 @@ final class LanguageManager: ObservableObject {
         }
     }
 
-    init() {
+    private init() {
         // Initialize user language from UserDefaults or detect from system
         let savedUserLanguage = UserDefaults.standard.string(forKey: UserDefaultsKey.userLanguage)
         if let savedUserLanguage = savedUserLanguage, let language = Language(rawValue: savedUserLanguage) {

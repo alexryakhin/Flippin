@@ -76,6 +76,8 @@
 "clearFilter" = "مسح المرشح";
 "clearSearch" = "مسح البحث";
 "addCardButton" = "إضافة بطاقة";
+"edit" = "تعديل";
+"editCard" = "تعديل البطاقة";
 "delete" = "حذف";
 "deleteCard" = "حذف البطاقة";
 "deleteCardConfirmation" = "هل أنت متأكد من أنك تريد حذف هذه البطاقة؟ لا يمكن التراجع عن هذا الإجراء.";

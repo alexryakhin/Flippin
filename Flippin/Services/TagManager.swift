@@ -16,7 +16,9 @@ final class TagManager: ObservableObject {
     private let coreDataService = CoreDataService.shared
     private var cancellables: Set<AnyCancellable> = []
 
-    init() {
+    static let shared = TagManager()
+
+    private init() {
         setupBindings()
         updateAvailableTags()
     }

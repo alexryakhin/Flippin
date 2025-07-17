@@ -2,8 +2,8 @@ import Foundation
 import StoreKit
 
 // MARK: - Purchase Example Usage
-class PurchaseExample {
-    
+final class PurchaseExample {
+
     // MARK: - Example 1: Simple Test Purchase
     static func performSimpleTestPurchase() async {
         print("🧪 Starting simple test purchase...")

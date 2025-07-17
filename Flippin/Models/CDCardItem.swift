@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 
 @objc(CDCardItem)
-public class CDCardItem: NSManagedObject {
+public final class CDCardItem: NSManagedObject {
     @NSManaged public var timestamp: Date?
     @NSManaged public var frontText: String?
     @NSManaged public var backText: String?

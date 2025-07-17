@@ -10,7 +10,7 @@ import Flow
 struct CardBackView: View {
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject private var cardsProvider: CardsProvider
-    @StateObject private var colorManager = ColorManager()
+    @EnvironmentObject private var colorManager: ColorManager
 
     let item: CardItem
     var body: some View {

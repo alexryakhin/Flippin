@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 
 @objc(CDTag)
-public class CDTag: NSManagedObject {
+public final class CDTag: NSManagedObject {
     @NSManaged public var id: String?
     @NSManaged public var name: String?
     @NSManaged public var cards: NSSet?

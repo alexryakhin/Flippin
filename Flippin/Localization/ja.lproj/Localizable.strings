@@ -76,6 +76,8 @@
 "clearFilter" = "フィルターをクリア";
 "clearSearch" = "検索をクリア";
 "addCardButton" = "カードを追加";
+"edit" = "編集";
+"editCard" = "カードを編集";
 "delete" = "削除";
 "deleteCard" = "カードを削除";
 "deleteCardConfirmation" = "このカードを削除してもよろしいですか？この操作は元に戻せません。";

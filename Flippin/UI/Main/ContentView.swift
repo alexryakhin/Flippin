@@ -11,6 +11,8 @@ struct ContentView: View {
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject private var cardsProvider: CardsProvider
     @EnvironmentObject private var languageManager: LanguageManager
+    @EnvironmentObject private var tagManager: TagManager
+    @EnvironmentObject private var colorManager: ColorManager
 
     @AppStorage(UserDefaultsKey.didShowWelcomeSheet) private var didShowWelcomeSheet: Bool = false
 
@@ -19,8 +21,6 @@ struct ContentView: View {
     @State private var showMyCards = false
     @State private var showAddCardSheet = false
     @State private var shuffledItems: [CardItem] = []
-    @EnvironmentObject private var tagManager: TagManager
-    @StateObject private var colorManager = ColorManager()
     @State private var showingTagFilter = false
 
     var filteredItems: [CardItem] {
@@ -58,6 +58,7 @@ struct ContentView: View {
                 onFilterTags: { showingTagFilter = true },
                 isFilterActive: !tagManager.currentFilterTag.isEmpty
             )
+            .environmentObject(colorManager)
         }
         .padding(24)
         .background {
@@ -71,8 +72,6 @@ struct ContentView: View {
                 showWelcomeSheet = true
                 AnalyticsService.trackEvent(.welcomeScreenOpened)
             }
-            // Inject TagManager into CardsProvider
-            cardsProvider.setTagManager(tagManager)
         }
         .onChange(of: cardsProvider.cards.count) { _, _ in
             resetShuffle()
@@ -93,6 +92,7 @@ struct ContentView: View {
         .sheet(isPresented: $showSettings) {
             SettingsView()
                 .environmentObject(languageManager)
+                .environmentObject(colorManager)
         }
         .onChange(of: showSettings) { _, isPresented in
             if isPresented {
@@ -147,6 +147,7 @@ struct ContentView: View {
             }
         } else {
             CardStackScrollView(items: displayItems)
+                .environmentObject(colorManager)
         }
     }
 

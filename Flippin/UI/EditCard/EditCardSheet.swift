@@ -1,25 +1,23 @@
 //
-//  AddCardSheet.swift
+//  EditCardSheet.swift
 //  Flippin
 //
-//  Created by Alexander Riakhin on 6/30/25.
+//  Created by Alexander Riakhin on 12/19/25.
 //
 import SwiftUI
 import Flow
 
-struct AddCardSheet: View {
+struct EditCardSheet: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject private var languageManager: LanguageManager
-    @StateObject private var viewModel = AddCardSheetViewModel()
+    @StateObject private var viewModel: EditCardSheetViewModel
     
-    let onSave: (CardItem) -> Void
-
     @FocusState private var isUserLanguageTextFieldFocused: Bool
     @FocusState private var isTargetLanguageTextFieldFocused: Bool
     @FocusState private var isNotesTextFieldFocused: Bool
 
-    init(onSave: @escaping (CardItem) -> Void) {
-        self.onSave = onSave
+    init(card: CardItem, onSave: @escaping (CardItem) -> Void) {
+        self._viewModel = StateObject(wrappedValue: EditCardSheetViewModel(card: card, onSave: onSave))
     }
 
     var body: some View {
@@ -34,7 +32,7 @@ struct AddCardSheet: View {
                 .padding(16)
             }
             .background(Color(.systemGroupedBackground))
-            .navigationTitle(LocalizationKeys.addNewCard.localized)
+            .navigationTitle(LocalizationKeys.editCard.localized)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -45,8 +43,8 @@ struct AddCardSheet: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(LocalizationKeys.save.localized) {
-                        if let newCard = viewModel.createCard() {
-                            onSave(newCard)
+                        if let updatedCard = viewModel.updateCard() {
+                            viewModel.onSave(updatedCard)
                             dismiss()
                         }
                     }
@@ -143,4 +141,4 @@ struct AddCardSheet: View {
             }
         }
     }
-}
+} 

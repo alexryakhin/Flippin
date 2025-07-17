@@ -282,9 +282,3 @@ struct TransactionRowView: View {
         .padding(.vertical, 4)
     }
 }
-
-#Preview {
-    NavigationView {
-        PurchaseTestView()
-    }
-} 

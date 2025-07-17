@@ -76,6 +76,8 @@
 "clearFilter" = "清除篩選";
 "clearSearch" = "清除搜尋";
 "addCardButton" = "新增卡片";
+"edit" = "編輯";
+"editCard" = "編輯卡片";
 "delete" = "刪除";
 "deleteCard" = "刪除卡片";
 "deleteCardConfirmation" = "您確定要刪除這張卡片嗎？此操作無法復原。";

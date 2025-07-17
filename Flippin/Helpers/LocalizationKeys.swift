@@ -73,6 +73,8 @@ enum LocalizationKeys {
     static let clearFilter = "clearFilter"
     static let clearSearch = "clearSearch"
     static let addCardButton = "addCardButton"
+    static let edit = "edit"
+    static let editCard = "editCard"
     static let delete = "delete"
     static let deleteCard = "deleteCard"
     static let deleteCardConfirmation = "deleteCardConfirmation"
