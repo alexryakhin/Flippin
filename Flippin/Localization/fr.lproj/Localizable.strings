@@ -47,6 +47,11 @@
 "filterByTag" = "Filtrer par Étiquette";
 "filterByLanguage" = "Filtrer par Langue";
 "filterByLanguageDescription" = "Afficher uniquement les cartes qui correspondent à vos langues sélectionnées";
+"filterByFavorites" = "Filtrer par Favoris";
+"showAllCards" = "Afficher Toutes les Cartes";
+"showFavoritesOnly" = "Afficher Seulement les Favoris";
+"noFavoriteCards" = "Aucune Carte Favorite";
+"noFavoriteCardsDescription" = "Vous n'avez pas encore marqué de cartes comme favorites";
 
 // MARK: - Settings
 "languages" = "Langues";

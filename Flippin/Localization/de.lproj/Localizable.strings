@@ -47,6 +47,11 @@
 "filterByTag" = "Nach Tag Filtern";
 "filterByLanguage" = "Nach Sprache filtern";
 "filterByLanguageDescription" = "Nur Karten anzeigen, die Ihren ausgewählten Sprachen entsprechen";
+"filterByFavorites" = "Nach Favoriten filtern";
+"showAllCards" = "Alle Karten anzeigen";
+"showFavoritesOnly" = "Nur Favoriten anzeigen";
+"noFavoriteCards" = "Keine Favoriten-Karten";
+"noFavoriteCardsDescription" = "Sie haben noch keine Karten als Favoriten markiert";
 
 // MARK: - Settings
 "languages" = "Sprachen";

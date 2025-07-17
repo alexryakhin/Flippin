@@ -39,6 +39,7 @@ struct MyCardsListView: View {
         if !tagManager.currentFilterTag.isEmpty {
             filtered = tagManager.filterCards(filtered, by: tagManager.currentFilterTag)
         }
+        filtered = tagManager.filterCardsByFavorite(filtered)
         
         return filtered.sorted { $0.timestamp > $1.timestamp }
     }
@@ -49,7 +50,9 @@ struct MyCardsListView: View {
                 if cardsProvider.cards.isEmpty {
                     noCardsView
                 } else if filteredCards.isEmpty {
-                    if languageManager.filterByLanguage {
+                    if tagManager.isFavoriteFilterOn {
+                        noFavoriteCardsView
+                    } else if languageManager.filterByLanguage {
                         filteredByLanguageCardsEmptyView
                     } else if tagManager.currentFilterTag.isEmpty {
                         noCardsFoundView
@@ -89,10 +92,21 @@ struct MyCardsListView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Menu {
                         Section {
-                            Button {
-                                showingTagFilter = true
-                            } label: {
-                                Label(LocalizationKeys.filterByTag.localized, systemImage: "tag")
+                            Picker(LocalizationKeys.filterByFavorites.localized, selection: $tagManager.isFavoriteFilterOn) {
+                                Text(LocalizationKeys.showAllCards.localized).tag(false)
+                                Text(LocalizationKeys.showFavoritesOnly.localized).tag(true)
+                            }
+                            .pickerStyle(.menu)
+                        }
+                        if !tagManager.availableTags.isEmpty {
+                            Section {
+                                Picker(LocalizationKeys.filterByTag.localized, selection: $tagManager.currentFilterTag) {
+                                    Text(LocalizationKeys.showAllCards.localized).tag("")
+                                    ForEach(tagManager.availableTags, id: \.self) { tag in
+                                        Text(tag).tag(tag)
+                                    }
+                                }
+                                .pickerStyle(.menu)
                             }
                         }
                         if !filteredCards.isEmpty {
@@ -115,14 +129,6 @@ struct MyCardsListView: View {
             AddCardSheet { newCard in
                 cardsProvider.addCard(newCard)
             }
-        }
-        .sheet(isPresented: $showingTagFilter) {
-            TagFilterView {
-                onToSettings()
-            }
-            .environmentObject(tagManager)
-            .presentationDetents([.fraction(0.3)])
-            .presentationDragIndicator(.visible)
         }
         .sheet(item: $cardToEdit) { card in
             EditCardSheet(card: card) { updatedCard in
@@ -190,6 +196,20 @@ struct MyCardsListView: View {
         }
     }
 
+    private var noFavoriteCardsView: some View {
+        ContentUnavailableView {
+            VStack {
+                Image(systemName: "heart")
+                    .font(.largeTitle)
+                    .foregroundStyle(.red)
+                Text(LocalizationKeys.noFavoriteCards.localized)
+            }
+        } description: {
+            Text(LocalizationKeys.noFavoriteCardsDescription.localized)
+                .foregroundStyle(.secondary)
+        }
+    }
+
     private var noCardsWithTagsView: some View {
         ContentUnavailableView {
             VStack {
@@ -223,3 +243,4 @@ struct MyCardsListView: View {
         cardsProvider.deleteAllCards()
     }
 }
+

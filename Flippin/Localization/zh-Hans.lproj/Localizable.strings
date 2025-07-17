@@ -47,6 +47,11 @@
 "filterByTag" = "按标签筛选";
 "filterByLanguage" = "按语言筛选";
 "filterByLanguageDescription" = "仅显示与您选择的语言匹配的卡片";
+"filterByFavorites" = "按收藏筛选";
+"showAllCards" = "显示所有卡片";
+"showFavoritesOnly" = "仅显示收藏";
+"noFavoriteCards" = "没有收藏卡片";
+"noFavoriteCardsDescription" = "您还没有将任何卡片标记为收藏";
 
 // MARK: - Settings
 "languages" = "语言";

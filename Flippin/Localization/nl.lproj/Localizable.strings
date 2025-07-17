@@ -47,6 +47,11 @@
 "filterByTag" = "Filteren op Tag";
 "filterByLanguage" = "Filteren op Taal";
 "filterByLanguageDescription" = "Toon alleen kaarten die overeenkomen met uw geselecteerde talen";
+"filterByFavorites" = "Filteren op Favorieten";
+"showAllCards" = "Alle Kaarten Tonen";
+"showFavoritesOnly" = "Alleen Favorieten Tonen";
+"noFavoriteCards" = "Geen Favoriete Kaarten";
+"noFavoriteCardsDescription" = "U heeft nog geen kaarten als favoriet gemarkeerd";
 
 // MARK: - Settings
 "languages" = "Talen";

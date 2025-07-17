@@ -24,6 +24,7 @@ final class TagManager: ObservableObject {
     }
     
     @Published private(set) var availableTags: [String] = []
+    @Published var isFavoriteFilterOn: Bool = false
     
     private func updateAvailableTags() {
         let request: NSFetchRequest<CDTag> = CDTag.fetchRequest()
@@ -86,6 +87,11 @@ final class TagManager: ObservableObject {
         return cards.filter { card in
             card.tags.contains(tag)
         }
+    }
+    
+    func filterCardsByFavorite(_ cards: [CardItem]) -> [CardItem] {
+        guard isFavoriteFilterOn else { return cards }
+        return cards.filter { $0.isFavorite }
     }
     
     func clearFilter() {

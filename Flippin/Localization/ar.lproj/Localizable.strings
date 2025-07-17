@@ -47,6 +47,11 @@
 "filterByTag" = "تصفية حسب الوسم";
 "filterByLanguage" = "تصفية حسب اللغة";
 "filterByLanguageDescription" = "عرض البطاقات التي تطابق لغاتك المختارة فقط";
+"filterByFavorites" = "تصفية حسب المفضلة";
+"showAllCards" = "عرض جميع البطاقات";
+"showFavoritesOnly" = "عرض المفضلة فقط";
+"noFavoriteCards" = "لا توجد بطاقات مفضلة";
+"noFavoriteCardsDescription" = "لم تقم بوضع أي بطاقة كمفضلة بعد";
 
 // MARK: - Settings
 "languages" = "اللغات";

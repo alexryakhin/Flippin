@@ -47,6 +47,11 @@
 "filterByTag" = "Filter by Tag";
 "filterByLanguage" = "Filter by Language";
 "filterByLanguageDescription" = "Show only cards that match your selected languages";
+"filterByFavorites" = "Filter by Favorites";
+"showAllCards" = "Show All Cards";
+"showFavoritesOnly" = "Show Favorites Only";
+"noFavoriteCards" = "No Favorite Cards";
+"noFavoriteCardsDescription" = "You haven't marked any cards as favorites yet";
 
 // MARK: - Settings
 "languages" = "Languages";

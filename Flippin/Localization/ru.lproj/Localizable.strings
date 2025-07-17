@@ -47,6 +47,11 @@
 "filterByTag" = "Фильтровать по Тегу";
 "filterByLanguage" = "Фильтровать по Языку";
 "filterByLanguageDescription" = "Показывать только карточки, соответствующие вашим выбранным языкам";
+"filterByFavorites" = "Фильтровать по избранному";
+"showAllCards" = "Показать все карточки";
+"showFavoritesOnly" = "Показать только избранные";
+"noFavoriteCards" = "Нет избранных карточек";
+"noFavoriteCardsDescription" = "Вы еще не отметили ни одной карточки как избранную";
 
 // MARK: - Settings
 "languages" = "Языки";

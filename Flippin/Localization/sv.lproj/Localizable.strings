@@ -47,6 +47,11 @@
 "filterByTag" = "Filtrera efter Tagg";
 "filterByLanguage" = "Filtrera efter Språk";
 "filterByLanguageDescription" = "Visa endast kort som matchar dina valda språk";
+"filterByFavorites" = "Filtrera efter Favoriter";
+"showAllCards" = "Visa Alla Kort";
+"showFavoritesOnly" = "Visa Endast Favoriter";
+"noFavoriteCards" = "Inga Favoritkort";
+"noFavoriteCardsDescription" = "Du har inte markerat några kort som favoriter än";
 
 // MARK: - Settings
 "languages" = "Språk";

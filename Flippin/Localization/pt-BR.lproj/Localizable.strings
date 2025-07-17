@@ -47,6 +47,11 @@
 "filterByTag" = "Filtrar por Tag";
 "filterByLanguage" = "Filtrar por Idioma";
 "filterByLanguageDescription" = "Mostrar apenas cartões que correspondam aos seus idiomas selecionados";
+"filterByFavorites" = "Filtrar por Favoritos";
+"showAllCards" = "Mostrar Todos os Cartões";
+"showFavoritesOnly" = "Mostrar Apenas Favoritos";
+"noFavoriteCards" = "Nenhum Cartão Favorito";
+"noFavoriteCardsDescription" = "Você ainda não marcou nenhum cartão como favorito";
 
 // MARK: - Settings
 "languages" = "Idiomas";

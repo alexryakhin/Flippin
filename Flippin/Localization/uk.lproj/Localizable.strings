@@ -47,6 +47,11 @@
 "filterByTag" = "Фільтрувати за Тегом";
 "filterByLanguage" = "Фільтрувати за Мовою";
 "filterByLanguageDescription" = "Показувати тільки картки, які відповідають вашим вибраним мовам";
+"filterByFavorites" = "Фільтрувати за улюбленими";
+"showAllCards" = "Показати всі картки";
+"showFavoritesOnly" = "Показати лише улюблені";
+"noFavoriteCards" = "Немає улюблених карток";
+"noFavoriteCardsDescription" = "Ви ще не позначили жодної картки як улюблену";
 
 // MARK: - Settings
 "languages" = "Мови";

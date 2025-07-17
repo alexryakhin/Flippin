@@ -47,6 +47,11 @@
 "filterByTag" = "Lọc theo Nhãn";
 "filterByLanguage" = "Lọc theo Ngôn ngữ";
 "filterByLanguageDescription" = "Chỉ hiển thị các thẻ phù hợp với ngôn ngữ bạn đã chọn";
+"filterByFavorites" = "Lọc theo Yêu thích";
+"showAllCards" = "Hiện tất cả thẻ";
+"showFavoritesOnly" = "Chỉ hiện Yêu thích";
+"noFavoriteCards" = "Không có thẻ yêu thích";
+"noFavoriteCardsDescription" = "Bạn chưa đánh dấu thẻ nào là yêu thích";
 
 // MARK: - Settings
 "languages" = "Ngôn ngữ";

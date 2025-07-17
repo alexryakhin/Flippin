@@ -21,7 +21,6 @@ struct ContentView: View {
     @State private var showMyCards = false
     @State private var showAddCardSheet = false
     @State private var shuffledItems: [CardItem] = []
-    @State private var showingTagFilter = false
 
     var filteredItems: [CardItem] {
         var filtered = cardsProvider.cards
@@ -33,7 +32,7 @@ struct ContentView: View {
         if !tagManager.currentFilterTag.isEmpty {
             filtered = tagManager.filterCards(filtered, by: tagManager.currentFilterTag)
         }
-        
+        filtered = tagManager.filterCardsByFavorite(filtered)
         return filtered
     }
 
@@ -55,8 +54,7 @@ struct ContentView: View {
                 onShuffle: shuffleCards,
                 onShowSettings: { showSettings = true },
                 onShowMyCards: { showMyCards = true },
-                onFilterTags: { showingTagFilter = true },
-                isFilterActive: !tagManager.currentFilterTag.isEmpty
+                isFilterActive: !tagManager.currentFilterTag.isEmpty || tagManager.isFavoriteFilterOn
             )
             .environmentObject(colorManager)
         }
@@ -125,14 +123,6 @@ struct ContentView: View {
                 AnalyticsService.trackNavigationEvent(.addCardScreenOpened, screenName: "AddCard")
             }
         }
-        .sheet(isPresented: $showingTagFilter) {
-            TagFilterView {
-                showSettings = true
-            }
-            .environmentObject(tagManager)
-            .presentationDetents([.fraction(0.3)])
-            .presentationDragIndicator(.visible)
-        }
     }
 
     @ViewBuilder
@@ -140,9 +130,11 @@ struct ContentView: View {
         if cardsProvider.cards.isEmpty {
             noCardsView
         } else if displayItems.isEmpty {
-            if languageManager.filterByLanguage {
+            if tagManager.isFavoriteFilterOn {
+                noFavoriteCardsView
+            } else if languageManager.filterByLanguage {
                 filteredByLanguageCardsEmptyView
-            }else {
+            } else {
                 noCardsWithTagsView
             }
         } else {
@@ -196,6 +188,20 @@ struct ContentView: View {
             }
         } description: {
             Text(LocalizationKeys.noCardsForLanguagePair.localized)
+                .foregroundStyle(.secondary)
+        }
+        .foregroundColor(colorManager.adjustedForegroundColor(colorScheme))
+    }
+
+    private var noFavoriteCardsView: some View {
+        ContentUnavailableView {
+            VStack {
+                Image(systemName: "heart")
+                    .font(.largeTitle)
+                Text(LocalizationKeys.noFavoriteCards.localized)
+            }
+        } description: {
+            Text(LocalizationKeys.noFavoriteCardsDescription.localized)
                 .foregroundStyle(.secondary)
         }
         .foregroundColor(colorManager.adjustedForegroundColor(colorScheme))

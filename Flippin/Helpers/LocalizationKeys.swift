@@ -44,6 +44,11 @@ enum LocalizationKeys {
     static let filterByLanguage = "filterByLanguage"
     static let filterByLanguageDescription = "filterByLanguageDescription"
     static let noCardsForLanguagePair = "noCardsForLanguagePair"
+    static let filterByFavorites = "filterByFavorites"
+    static let showAllCards = "showAllCards"
+    static let showFavoritesOnly = "showFavoritesOnly"
+    static let noFavoriteCards = "noFavoriteCards"
+    static let noFavoriteCardsDescription = "noFavoriteCardsDescription"
     
     // MARK: - Settings
     static let languages = "languages"

@@ -47,6 +47,11 @@
 "filterByTag" = "Filtriraj po Oznaci";
 "filterByLanguage" = "Filtriraj po Jeziku";
 "filterByLanguageDescription" = "Prikaži samo kartice koje odgovaraju vašim odabranim jezicima";
+"filterByFavorites" = "Filtriraj po favoritima";
+"showAllCards" = "Prikaži sve kartice";
+"showFavoritesOnly" = "Prikaži samo favorite";
+"noFavoriteCards" = "Nema omiljenih kartica";
+"noFavoriteCardsDescription" = "Još niste označili nijednu karticu kao omiljenu";
 
 // MARK: - Settings
 "languages" = "Jezici";

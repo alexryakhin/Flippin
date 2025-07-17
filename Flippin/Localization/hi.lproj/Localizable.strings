@@ -47,6 +47,11 @@
 "filterByTag" = "टैग द्वारा फ़िल्टर करें";
 "filterByLanguage" = "भाषा द्वारा फ़िल्टर करें";
 "filterByLanguageDescription" = "केवल उन कार्ड्स को दिखाएं जो आपकी चुनी हुई भाषाओं से मेल खाते हैं";
+"filterByFavorites" = "पसंदीदा द्वारा फ़िल्टर करें";
+"showAllCards" = "सभी कार्ड दिखाएँ";
+"showFavoritesOnly" = "केवल पसंदीदा दिखाएँ";
+"noFavoriteCards" = "कोई पसंदीदा कार्ड नहीं";
+"noFavoriteCardsDescription" = "आपने अभी तक कोई कार्ड पसंदीदा नहीं बनाया है";
 
 // MARK: - Settings
 "languages" = "भाषाएं";

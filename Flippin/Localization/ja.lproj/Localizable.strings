@@ -47,6 +47,11 @@
 "filterByTag" = "タグでフィルター";
 "filterByLanguage" = "言語でフィルター";
 "filterByLanguageDescription" = "選択した言語に一致するカードのみを表示";
+"filterByFavorites" = "お気に入りでフィルター";
+"showAllCards" = "すべてのカードを表示";
+"showFavoritesOnly" = "お気に入りのみ表示";
+"noFavoriteCards" = "お気に入りカードなし";
+"noFavoriteCardsDescription" = "まだお気に入りにしたカードはありません";
 
 // MARK: - Settings
 "languages" = "言語";
