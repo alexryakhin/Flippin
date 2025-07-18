@@ -25,19 +25,35 @@ final class CardsProvider: ObservableObject {
 
     /// Fetches latest data from Core Data
     func fetchCards() {
+        Task { @MainActor in
+            SyncManager.shared.startSync()
+        }
         let request = CDCardItem.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(keyPath: \CDCardItem.timestamp, ascending: true)]
         
         do {
             let cards = try coreDataService.context.fetch(request)
             self.cards = cards.compactMap(\.coreModel)
+
+            // Sync completed
+            Task { @MainActor in
+                SyncManager.shared.syncCompleted()
+            }
         } catch {
+            // Sync failed
+            Task { @MainActor in
+                SyncManager.shared.syncFailed()
+            }
             cardsErrorPublisher.send(error)
         }
     }
 
     /// Adds a new card to Core Data
     func addCard(_ card: CardItem) {
+        Task { @MainActor in
+            SyncManager.shared.startSync()
+        }
+        
         let cdCard = CDCardItem(
             context: coreDataService.context,
             timestamp: card.timestamp,
@@ -63,13 +79,26 @@ final class CardsProvider: ObservableObject {
             
             // Haptic feedback for card addition
             HapticService.shared.cardAdded()
+            
+            // Sync completed
+            Task { @MainActor in
+                SyncManager.shared.syncCompleted()
+            }
         } catch {
+            // Sync failed
+            Task { @MainActor in
+                SyncManager.shared.syncFailed()
+            }
             cardsErrorPublisher.send(error)
         }
     }
 
     /// Removes a card from Core Data
     func deleteCard(with id: String) {
+        Task { @MainActor in
+            SyncManager.shared.startSync()
+        }
+        
         let fetchRequest = CDCardItem.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id == %@", id)
 
@@ -80,14 +109,27 @@ final class CardsProvider: ObservableObject {
                 
                 // Haptic feedback for card deletion
                 HapticService.shared.cardDeleted()
+                
+                // Sync completed
+                Task { @MainActor in
+                    SyncManager.shared.syncCompleted()
+                }
             }
         } catch {
+            // Sync failed
+            Task { @MainActor in
+                SyncManager.shared.syncFailed()
+            }
             cardsErrorPublisher.send(error)
         }
     }
     
     /// Removes all cards from Core Data
     func deleteAllCards() {
+        Task { @MainActor in
+            SyncManager.shared.startSync()
+        }
+        
         let fetchRequest: NSFetchRequest<CDCardItem> = CDCardItem.fetchRequest()
         
         do {
@@ -96,13 +138,26 @@ final class CardsProvider: ObservableObject {
                 coreDataService.context.delete(card)
             }
             try coreDataService.saveContext()
+            
+            // Sync completed
+            Task { @MainActor in
+                SyncManager.shared.syncCompleted()
+            }
         } catch {
+            // Sync failed
+            Task { @MainActor in
+                SyncManager.shared.syncFailed()
+            }
             cardsErrorPublisher.send(error)
         }
     }
 
     /// Toggles the favorite status of a card
     func toggleFavorite(for cardId: String) {
+        Task { @MainActor in
+            SyncManager.shared.startSync()
+        }
+        
         let fetchRequest: NSFetchRequest<CDCardItem> = CDCardItem.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id == %@", cardId)
 
@@ -114,14 +169,27 @@ final class CardsProvider: ObservableObject {
                 
                 // Haptic feedback for favorite toggle
                 HapticService.shared.favoriteToggled(isFavorite: cdCard.isFavorite)
+                
+                // Sync completed
+                Task { @MainActor in
+                    SyncManager.shared.syncCompleted()
+                }
             }
         } catch {
+            // Sync failed
+            Task { @MainActor in
+                SyncManager.shared.syncFailed()
+            }
             cardsErrorPublisher.send(error)
         }
     }
     
     /// Updates an existing card in Core Data
     func updateCard(_ card: CardItem) {
+        Task { @MainActor in
+            SyncManager.shared.startSync()
+        }
+        
         let fetchRequest: NSFetchRequest<CDCardItem> = CDCardItem.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id == %@", card.id)
 
@@ -151,8 +219,17 @@ final class CardsProvider: ObservableObject {
                 
                 // Haptic feedback for card editing
                 HapticService.shared.cardEdited()
+                
+                // Sync completed
+                Task { @MainActor in
+                    SyncManager.shared.syncCompleted()
+                }
             }
         } catch {
+            // Sync failed
+            Task { @MainActor in
+                SyncManager.shared.syncFailed()
+            }
             cardsErrorPublisher.send(error)
         }
     }

@@ -67,6 +67,10 @@ final class TagManager: ObservableObject {
         let trimmedTag = tag.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmedTag.isEmpty else { return }
         
+        Task { @MainActor in
+            SyncManager.shared.startSync()
+        }
+        
         // Check if tag already exists
         let request: NSFetchRequest<CDTag> = CDTag.fetchRequest()
         request.predicate = NSPredicate(format: "name == %@", trimmedTag)
@@ -83,13 +87,26 @@ final class TagManager: ObservableObject {
                 DispatchQueue.main.async {
                     HapticService.shared.tagAdded()
                 }
+                
+                // Sync completed
+                Task { @MainActor in
+                    SyncManager.shared.syncCompleted()
+                }
             }
         } catch {
+            // Sync failed
+            Task { @MainActor in
+                SyncManager.shared.syncFailed()
+            }
             print("Error adding tag: \(error)")
         }
     }
     
-    func removeTag(_ tag: String) {
+        func removeTag(_ tag: String) {
+        Task { @MainActor in
+            SyncManager.shared.startSync()
+        }
+        
         let request: NSFetchRequest<CDTag> = CDTag.fetchRequest()
         request.predicate = NSPredicate(format: "name == %@", tag)
         
@@ -105,9 +122,18 @@ final class TagManager: ObservableObject {
             DispatchQueue.main.async {
                 HapticService.shared.tagDeleted()
             }
-
+            
+            // Sync completed
+            Task { @MainActor in
+                SyncManager.shared.syncCompleted()
+            }
+            
             AnalyticsService.trackTagEvent(.tagDeleted, tagName: tag, tagCount: availableTags.count)
         } catch {
+            // Sync failed
+            Task { @MainActor in
+                SyncManager.shared.syncFailed()
+            }
             print("Error removing tag: \(error)")
         }
     }

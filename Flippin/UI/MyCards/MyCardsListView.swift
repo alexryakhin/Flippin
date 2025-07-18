@@ -14,6 +14,7 @@ struct LanguageGroup: Identifiable {
 }
 
 struct MyCardsListView: View {
+    @StateObject private var syncManager = SyncManager.shared
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject private var cardsProvider: CardsProvider
     @EnvironmentObject private var languageManager: LanguageManager
@@ -113,9 +114,17 @@ struct MyCardsListView: View {
                 text: $searchText,
                 prompt: LocalizationKeys.searchCards.localized
             )
-            .navigationTitle(LocalizationKeys.myCards.localized)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
+                ToolbarItem(placement: .principal) {
+                    HStack {
+                        SyncIndicator(state: syncManager.syncState)
+                            .transition(.scale)
+                        Text(LocalizationKeys.myCards.localized)
+                            .font(.headline)
+                    }
+                    .animation(.bouncy, value: syncManager.syncState)
+                }
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(LocalizationKeys.close.localized) {
                         HapticService.shared.buttonTapped()

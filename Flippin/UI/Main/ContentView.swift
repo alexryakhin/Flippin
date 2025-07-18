@@ -13,6 +13,7 @@ struct ContentView: View {
     @EnvironmentObject private var languageManager: LanguageManager
     @EnvironmentObject private var tagManager: TagManager
     @EnvironmentObject private var colorManager: ColorManager
+    @StateObject private var syncManager = SyncManager.shared
 
     @AppStorage(UserDefaultsKey.didShowWelcomeSheet) private var didShowWelcomeSheet: Bool = false
 
@@ -64,6 +65,12 @@ struct ContentView: View {
                 style: colorManager.backgroundStyle,
                 baseColor: colorManager.userGradientColor
             )
+        }
+        .overlay(alignment: .topTrailing) {
+            SyncIndicator(state: syncManager.syncState)
+                .transition(.scale)
+                .animation(.bouncy, value: syncManager.syncState)
+                .padding(.horizontal, 8)
         }
         .onAppear {
             if !didShowWelcomeSheet {
