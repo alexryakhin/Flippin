@@ -55,6 +55,18 @@
 
 // MARK: - Settings
 "languages" = "اللغات";
+
+// MARK: - Preset Collections
+"presetCollections" = "المجموعات المحددة مسبقاً";
+"seeAllCollections" = "عرض الكل";
+"importCollection" = "استيراد المجموعة";
+"importButton" = "استيراد";
+"importCollectionMessage" = "استيراد %@ مع %d بطاقة إلى مجموعتك؟";
+"noCollectionsFound" = "لم يتم العثور على مجموعات";
+"tryAdjustingSearch" = "حاول تعديل البحث أو معايير التصفية";
+"getStartedWithCollections" = "ابدأ بمجموعات البطاقات المختارة للمواضيع والمواقف الشائعة";
+"searchCollections" = "البحث في المجموعات...";
+"allCategories" = "الكل";
 "myLanguageSettings" = "لغتي";
 "targetLanguage" = "اللغة المستهدفة";
 "background" = "الخلفية";

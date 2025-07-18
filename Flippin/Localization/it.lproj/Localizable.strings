@@ -55,6 +55,18 @@
 
 // MARK: - Settings
 "languages" = "Lingue";
+
+// MARK: - Preset Collections
+"presetCollections" = "Collezioni Predefinite";
+"seeAllCollections" = "Vedi Tutto";
+"importCollection" = "Importa Collezione";
+"importButton" = "Importa";
+"importCollectionMessage" = "Importare %@ con %d carte nella tua collezione?";
+"noCollectionsFound" = "Nessuna collezione trovata";
+"tryAdjustingSearch" = "Prova ad aggiustare la tua ricerca o criteri di filtro";
+"getStartedWithCollections" = "Inizia con set di carte curati per argomenti e situazioni comuni";
+"searchCollections" = "Cerca collezioni...";
+"allCategories" = "Tutte";
 "myLanguageSettings" = "La Mia Lingua";
 "targetLanguage" = "Lingua Obiettivo";
 "background" = "Sfondo";

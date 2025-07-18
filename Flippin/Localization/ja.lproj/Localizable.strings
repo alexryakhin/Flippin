@@ -55,6 +55,18 @@
 
 // MARK: - Settings
 "languages" = "言語";
+
+// MARK: - Preset Collections
+"presetCollections" = "プリセットコレクション";
+"seeAllCollections" = "すべて表示";
+"importCollection" = "コレクションをインポート";
+"importButton" = "インポート";
+"importCollectionMessage" = "%@ の %d 枚のカードをコレクションにインポートしますか？";
+"noCollectionsFound" = "コレクションが見つかりません";
+"tryAdjustingSearch" = "検索またはフィルター条件を調整してみてください";
+"getStartedWithCollections" = "一般的なトピックや状況のためのキュレーションされたカードセットから始めましょう";
+"searchCollections" = "コレクションを検索...";
+"allCategories" = "すべて";
 "myLanguageSettings" = "私の言語";
 "targetLanguage" = "目標言語";
 "background" = "背景";

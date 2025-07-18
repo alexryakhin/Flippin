@@ -55,6 +55,18 @@
 
 // MARK: - Settings
 "languages" = "Språk";
+
+// MARK: - Preset Collections
+"presetCollections" = "Fördefinierade Samlingar";
+"seeAllCollections" = "Se Alla";
+"importCollection" = "Importera Samling";
+"importButton" = "Importera";
+"importCollectionMessage" = "Importera %@ med %d kort till din samling?";
+"noCollectionsFound" = "Inga samlingar hittades";
+"tryAdjustingSearch" = "Försök att justera din sökning eller filterkriterier";
+"getStartedWithCollections" = "Börja med kuraterade kortuppsättningar för vanliga ämnen och situationer";
+"searchCollections" = "Sök samlingar...";
+"allCategories" = "Alla";
 "myLanguageSettings" = "Mitt Språk";
 "targetLanguage" = "Målspråk";
 "background" = "Bakgrund";

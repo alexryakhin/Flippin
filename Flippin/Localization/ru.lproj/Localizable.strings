@@ -55,6 +55,18 @@
 
 // MARK: - Settings
 "languages" = "Языки";
+
+// MARK: - Preset Collections
+"presetCollections" = "Предустановленные Коллекции";
+"seeAllCollections" = "Посмотреть Все";
+"importCollection" = "Импортировать Коллекцию";
+"importButton" = "Импортировать";
+"importCollectionMessage" = "Импортировать %@ с %d карточками в вашу коллекцию?";
+"noCollectionsFound" = "Коллекции не найдены";
+"tryAdjustingSearch" = "Попробуйте изменить поиск или критерии фильтра";
+"getStartedWithCollections" = "Начните с курированных наборов карточек для общих тем и ситуаций";
+"searchCollections" = "Поиск коллекций...";
+"allCategories" = "Все";
 "myLanguageSettings" = "Мой Язык";
 "targetLanguage" = "Целевой Язык";
 "background" = "Фон";

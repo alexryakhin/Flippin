@@ -55,6 +55,18 @@
 
 // MARK: - Settings
 "languages" = "भाषाएं";
+
+// MARK: - Preset Collections
+"presetCollections" = "पूर्व-निर्धारित संग्रह";
+"seeAllCollections" = "सभी देखें";
+"importCollection" = "संग्रह आयात करें";
+"importButton" = "आयात करें";
+"importCollectionMessage" = "%@ के %d कार्ड को अपने संग्रह में आयात करें?";
+"noCollectionsFound" = "कोई संग्रह नहीं मिला";
+"tryAdjustingSearch" = "अपनी खोज या फ़िल्टर मानदंड को समायोजित करने का प्रयास करें";
+"getStartedWithCollections" = "सामान्य विषयों और स्थितियों के लिए क्यूरेटेड कार्ड सेट के साथ शुरू करें";
+"searchCollections" = "संग्रह खोजें...";
+"allCategories" = "सभी";
 "myLanguageSettings" = "मेरी भाषा";
 "targetLanguage" = "लक्ष्य भाषा";
 "background" = "पृष्ठभूमि";

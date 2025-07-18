@@ -55,6 +55,18 @@
 
 // MARK: - Settings
 "languages" = "Talen";
+
+// MARK: - Preset Collections
+"presetCollections" = "Vooraf Gedefinieerde Collecties";
+"seeAllCollections" = "Alles Bekijken";
+"importCollection" = "Collectie Importeren";
+"importButton" = "Importeren";
+"importCollectionMessage" = "%@ met %d kaarten importeren naar je collectie?";
+"noCollectionsFound" = "Geen collecties gevonden";
+"tryAdjustingSearch" = "Probeer je zoekopdracht of filtercriteria aan te passen";
+"getStartedWithCollections" = "Begin met samengestelde kaartensets voor veelvoorkomende onderwerpen en situaties";
+"searchCollections" = "Collecties zoeken...";
+"allCategories" = "Alle";
 "myLanguageSettings" = "Mijn Taal";
 "targetLanguage" = "Doeltaal";
 "background" = "Achtergrond";

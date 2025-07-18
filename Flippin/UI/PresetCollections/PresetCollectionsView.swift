@@ -1,0 +1,160 @@
+//
+//  PresetCollectionsView.swift
+//  Flippin
+//
+//  Created by Alexander Riakhin on 12/19/25.
+//
+
+import SwiftUI
+
+struct PresetCollectionsView: View {
+    @Environment(\.dismiss) var dismiss
+    @Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject private var languageManager: LanguageManager
+    @EnvironmentObject private var cardsProvider: CardsProvider
+    @EnvironmentObject private var colorManager: ColorManager
+
+    @StateObject private var presetService = PresetCollectionService.shared
+    @State private var searchText = ""
+    @State private var selectedCategory: PresetCategory?
+    @State private var showingImportAlert = false
+    @State private var collectionToImport: PresetCollection?
+    //    @Namespace private var categoryFilterViewNamespace
+
+    var filteredCollections: [PresetCollection] {
+        var collections = presetService.getCollections(
+            for: languageManager.userLanguage,
+            targetLanguage: languageManager.targetLanguage
+        )
+
+        if !searchText.isEmpty {
+            collections = collections.filter { collection in
+                collection.name.localizedCaseInsensitiveContains(searchText) ||
+                collection.description.localizedCaseInsensitiveContains(searchText) ||
+                collection.cards.contains { card in
+                    card.frontText.localizedCaseInsensitiveContains(searchText) ||
+                    card.backText.localizedCaseInsensitiveContains(searchText)
+                }
+            }
+        }
+
+        if let selectedCategory = selectedCategory {
+            collections = collections.filter { $0.category == selectedCategory }
+        }
+
+        return collections
+    }
+
+    var body: some View {
+        NavigationView {
+            VStack(spacing: 0) {
+                ScrollViewWithCustomNavBar {
+                    LazyVGrid(columns: [
+                        GridItem(.flexible(), spacing: 16),
+                        GridItem(.flexible(), spacing: 16)
+                    ], spacing: 16) {
+                        ForEach(filteredCollections) { collection in
+                            PresetCollectionCard(collection: collection) {
+                                collectionToImport = collection
+                                showingImportAlert = true
+                            }
+                            .clippedWithPaddingAndBackground()
+                        }
+                    }
+                    .padding(.horizontal, 16)
+                } navigationBar: {
+                    categoryFilterView
+                        .padding(.bottom, 8)
+                }
+                .overlay {
+                    if filteredCollections.isEmpty {
+                        ContentUnavailableView {
+                            VStack {
+                                Image(systemName: "rectangle.stack")
+                                    .font(.largeTitle)
+                                Text(LocalizationKeys.noCollectionsFound.localized)
+                            }
+                        } description: {
+                            Text(LocalizationKeys.tryAdjustingSearch.localized)
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                }
+            }
+            .navigationTitle(LocalizationKeys.presetCollections.localized)
+            .navigationBarTitleDisplayMode(.inline)
+            .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: LocalizationKeys.searchCollections.localized)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(LocalizationKeys.close.localized) {
+                        dismiss()
+                    }
+                }
+            }
+        }
+        .alert(LocalizationKeys.importCollection.localized, isPresented: $showingImportAlert) {
+            Button(LocalizationKeys.cancel.localized, role: .cancel) { }
+            Button(LocalizationKeys.importButton.localized) {
+                if let collection = collectionToImport {
+                    importCollection(collection)
+                }
+            }
+        } message: {
+            if let collection = collectionToImport {
+                Text(LocalizationKeys.importCollectionMessage.localized(with: collection.name, collection.cardCount))
+            }
+        }
+    }
+
+    private var categoryFilterView: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 8) {
+                Button(action: {
+                    selectedCategory = nil
+                }) {
+                    Text(LocalizationKeys.allCategories.localized)
+                        .font(.caption)
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 6)
+                        .background(selectedCategory == nil ? colorManager.adjustedTintColor(colorScheme) : Color(.systemGray5))
+                        .foregroundColor(selectedCategory == nil ? .white : .primary)
+                        .clipShape(Capsule())
+                }
+
+                ForEach(PresetCategory.allCases, id: \.self) { category in
+                    Button(action: {
+                        selectedCategory = selectedCategory == category ? nil : category
+                    }) {
+                        HStack(spacing: 4) {
+                            Image(systemName: category.icon)
+                                .font(.caption)
+                            Text(category.displayName)
+                                .font(.caption)
+                        }
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 6)
+                        .background(selectedCategory == category ? colorManager.adjustedTintColor(colorScheme) : Color(.systemGray5))
+                        .foregroundColor(selectedCategory == category ? .white : .primary)
+                        .clipShape(Capsule())
+                    }
+                }
+            }
+            .padding(.horizontal, 16)
+        }
+    }
+
+    private func importCollection(_ collection: PresetCollection) {
+        let cardItems = presetService.convertPresetCardsToCardItems(
+            collection.cards,
+            userLanguage: languageManager.userLanguage,
+            targetLanguage: languageManager.targetLanguage
+        )
+
+        for card in cardItems {
+            cardsProvider.addCard(card)
+        }
+
+        // Show success feedback
+        HapticService.shared.success()
+    }
+}

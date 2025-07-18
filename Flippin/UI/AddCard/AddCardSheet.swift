@@ -10,6 +10,8 @@ import Flow
 struct AddCardSheet: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject private var languageManager: LanguageManager
+    @EnvironmentObject private var cardsProvider: CardsProvider
+    @EnvironmentObject private var colorManager: ColorManager
     @StateObject private var viewModel = AddCardSheetViewModel()
     
     let onSave: (CardItem) -> Void
@@ -30,6 +32,7 @@ struct AddCardSheet: View {
                     translationSection
                     notesSection
                     tagsSection
+                    presetCollectionsSection
                 }
                 .padding(16)
             }
@@ -141,6 +144,17 @@ struct AddCardSheet: View {
                     UIApplication.shared.endEditing()
                 }
             }
+        }
+    }
+    
+    private var presetCollectionsSection: some View {
+        CustomSectionView(
+            header: LocalizationKeys.presetCollections.localized
+        ) {
+            FeaturedPresetCollections()
+                .environmentObject(languageManager)
+                .environmentObject(cardsProvider)
+                .environmentObject(colorManager)
         }
     }
 }

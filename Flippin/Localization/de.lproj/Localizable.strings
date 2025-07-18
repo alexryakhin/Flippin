@@ -55,6 +55,18 @@
 
 // MARK: - Settings
 "languages" = "Sprachen";
+
+// MARK: - Preset Collections
+"presetCollections" = "Vordefinierte Sammlungen";
+"seeAllCollections" = "Alle anzeigen";
+"importCollection" = "Sammlung importieren";
+"importButton" = "Importieren";
+"importCollectionMessage" = "%@ mit %d Karten in Ihre Sammlung importieren?";
+"noCollectionsFound" = "Keine Sammlungen gefunden";
+"tryAdjustingSearch" = "Versuchen Sie, Ihre Suche oder Filterkriterien anzupassen";
+"getStartedWithCollections" = "Beginnen Sie mit kuratierten Kartensätzen für häufige Themen und Situationen";
+"searchCollections" = "Sammlungen suchen...";
+"allCategories" = "Alle";
 "myLanguageSettings" = "Meine Sprache";
 "targetLanguage" = "Zielsprache";
 "background" = "Hintergrund";

@@ -136,6 +136,8 @@ struct ContentView: View {
                 cardsProvider.addCard(newCard)
             }
             .environmentObject(languageManager)
+            .environmentObject(cardsProvider)
+            .environmentObject(colorManager)
         }
         .onChange(of: showAddCardSheet) { _, isPresented in
             if isPresented {
@@ -163,18 +165,25 @@ struct ContentView: View {
     }
 
     private var noCardsView: some View {
-        ContentUnavailableView {
-            VStack {
-                Image(systemName: "rectangle.stack.fill")
-                    .font(.largeTitle)
-                    .rotationEffect(.init(degrees: 90))
-                Text(LocalizationKeys.noCardsYet.localized)
+        VStack(spacing: 24) {
+            ContentUnavailableView {
+                VStack {
+                    Image(systemName: "rectangle.stack.fill")
+                        .font(.largeTitle)
+                        .rotationEffect(.init(degrees: 90))
+                    Text(LocalizationKeys.noCardsYet.localized)
+                }
+            } description: {
+                Text(LocalizationKeys.tapToAddFirstCard.localized)
+                    .foregroundStyle(.secondary)
             }
-        } description: {
-            Text(LocalizationKeys.tapToAddFirstCard.localized)
-                .foregroundStyle(.secondary)
+            .foregroundColor(colorManager.adjustedForegroundColor(colorScheme))
+            
+            FeaturedPresetCollections()
+                .environmentObject(languageManager)
+                .environmentObject(cardsProvider)
+                .environmentObject(colorManager)
         }
-        .foregroundColor(colorManager.adjustedForegroundColor(colorScheme))
     }
 
     private var noCardsWithTagsView: some View {

@@ -55,6 +55,18 @@
 
 // MARK: - Settings
 "languages" = "Idiomas";
+
+// MARK: - Preset Collections
+"presetCollections" = "Coleções Pré-definidas";
+"seeAllCollections" = "Ver Todas";
+"importCollection" = "Importar Coleção";
+"importButton" = "Importar";
+"importCollectionMessage" = "Importar %@ com %d cartões para sua coleção?";
+"noCollectionsFound" = "Nenhuma coleção encontrada";
+"tryAdjustingSearch" = "Tente ajustar sua pesquisa ou critérios de filtro";
+"getStartedWithCollections" = "Comece com conjuntos de cartões curados para tópicos e situações comuns";
+"searchCollections" = "Pesquisar coleções...";
+"allCategories" = "Todas";
 "myLanguageSettings" = "Meu Idioma";
 "targetLanguage" = "Idioma Alvo";
 "background" = "Fundo";

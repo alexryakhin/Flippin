@@ -94,7 +94,7 @@ extension CDCardItem {
             frontLanguage: frontLanguage,
             backLanguage: backLanguage,
             notes: notes ?? "",
-            tags: tagNames,
+            tags: tagNames.sorted(),
             isFavorite: isFavorite,
             id: id
         )

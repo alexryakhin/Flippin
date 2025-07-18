@@ -55,6 +55,18 @@
 
 // MARK: - Settings
 "languages" = "Jezici";
+
+// MARK: - Preset Collections
+"presetCollections" = "Unaprijed Definirane Kolekcije";
+"seeAllCollections" = "Pogledaj Sve";
+"importCollection" = "Uvezi Kolekciju";
+"importButton" = "Uvezi";
+"importCollectionMessage" = "Uvezi %@ s %d kartica u tvoju kolekciju?";
+"noCollectionsFound" = "Nisu pronađene kolekcije";
+"tryAdjustingSearch" = "Pokušaj prilagoditi pretragu ili kriterije filtriranja";
+"getStartedWithCollections" = "Započni s kuriranim setovima kartica za uobičajene teme i situacije";
+"searchCollections" = "Pretraži kolekcije...";
+"allCategories" = "Sve";
 "myLanguageSettings" = "Moj Jezik";
 "targetLanguage" = "Ciljni Jezik";
 "background" = "Pozadina";

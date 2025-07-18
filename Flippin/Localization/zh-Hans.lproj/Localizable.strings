@@ -55,6 +55,18 @@
 
 // MARK: - Settings
 "languages" = "语言";
+
+// MARK: - Preset Collections
+"presetCollections" = "预设集合";
+"seeAllCollections" = "查看全部";
+"importCollection" = "导入集合";
+"importButton" = "导入";
+"importCollectionMessage" = "将 %@ 的 %d 张卡片导入到您的集合中？";
+"noCollectionsFound" = "未找到集合";
+"tryAdjustingSearch" = "请尝试调整搜索或筛选条件";
+"getStartedWithCollections" = "从常见主题和情况的精选卡片集开始";
+"searchCollections" = "搜索集合...";
+"allCategories" = "全部";
 "myLanguageSettings" = "我的语言";
 "targetLanguage" = "目标语言";
 "background" = "背景";

@@ -52,6 +52,18 @@ enum LocalizationKeys {
     
     // MARK: - Settings
     static let languages = "languages"
+    
+    // MARK: - Preset Collections
+    static let presetCollections = "presetCollections"
+    static let seeAllCollections = "seeAllCollections"
+    static let importCollection = "importCollection"
+    static let importButton = "importButton"
+    static let importCollectionMessage = "importCollectionMessage"
+    static let noCollectionsFound = "noCollectionsFound"
+    static let tryAdjustingSearch = "tryAdjustingSearch"
+    static let getStartedWithCollections = "getStartedWithCollections"
+    static let searchCollections = "searchCollections"
+    static let allCategories = "allCategories"
     static let myLanguageSettings = "myLanguageSettings"
     static let targetLanguage = "targetLanguage"
     static let background = "background"

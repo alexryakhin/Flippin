@@ -18,6 +18,7 @@ struct MyCardsListView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject private var cardsProvider: CardsProvider
     @EnvironmentObject private var languageManager: LanguageManager
+    @EnvironmentObject private var colorManager: ColorManager
     
     @State private var searchText = ""
     @State private var showingDeleteAlert = false
@@ -198,16 +199,23 @@ struct MyCardsListView: View {
     }
 
     private var noCardsView: some View {
-        ContentUnavailableView {
-            VStack {
-                Image(systemName: "rectangle.stack.fill")
-                    .font(.largeTitle)
-                    .rotationEffect(.init(degrees: 90))
-                Text(LocalizationKeys.noCardsYet.localized)
+        VStack(spacing: 24) {
+            ContentUnavailableView {
+                VStack {
+                    Image(systemName: "rectangle.stack.fill")
+                        .font(.largeTitle)
+                        .rotationEffect(.init(degrees: 90))
+                    Text(LocalizationKeys.noCardsYet.localized)
+                }
+            } description: {
+                Text(LocalizationKeys.tapToAddFirstCard.localized)
+                    .foregroundStyle(.secondary)
             }
-        } description: {
-            Text(LocalizationKeys.tapToAddFirstCard.localized)
-                .foregroundStyle(.secondary)
+            
+            FeaturedPresetCollections()
+                .environmentObject(languageManager)
+                .environmentObject(cardsProvider)
+                .environmentObject(colorManager)
         }
     }
 

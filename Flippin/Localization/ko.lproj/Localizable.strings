@@ -55,6 +55,18 @@
 
 // MARK: - Settings
 "languages" = "언어";
+
+// MARK: - Preset Collections
+"presetCollections" = "사전 정의된 컬렉션";
+"seeAllCollections" = "모두 보기";
+"importCollection" = "컬렉션 가져오기";
+"importButton" = "가져오기";
+"importCollectionMessage" = "%@의 %d개 카드를 컬렉션에 가져오시겠습니까?";
+"noCollectionsFound" = "컬렉션을 찾을 수 없습니다";
+"tryAdjustingSearch" = "검색 또는 필터 조건을 조정해 보세요";
+"getStartedWithCollections" = "일반적인 주제와 상황을 위한 큐레이션된 카드 세트로 시작하세요";
+"searchCollections" = "컬렉션 검색...";
+"allCategories" = "모두";
 "myLanguageSettings" = "내 언어";
 "targetLanguage" = "목표 언어";
 "background" = "배경";
