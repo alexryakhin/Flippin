@@ -6,6 +6,13 @@
 //
 import SwiftUI
 
+// MARK: - Language Group Structure
+struct LanguageGroup: Identifiable {
+    let id = UUID()
+    let language: Language
+    let cards: [CardItem]
+}
+
 struct MyCardsListView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject private var cardsProvider: CardsProvider
@@ -43,13 +50,34 @@ struct MyCardsListView: View {
         
         return filtered.sorted { $0.timestamp > $1.timestamp }
     }
+    
+    // Group cards by target language when language filter is off
+    var groupedCards: [LanguageGroup] {
+        guard !languageManager.filterByLanguage else {
+            // If language filter is on, return single group
+            return [LanguageGroup(language: languageManager.targetLanguage, cards: filteredCards)]
+        }
+        
+        // Group cards by target language
+        let grouped = Dictionary(grouping: filteredCards) { card in
+            card.frontLanguage
+        }
+        
+        // Convert to sorted array of LanguageGroup
+        return grouped.map { language, cards in
+            LanguageGroup(language: language, cards: cards.sorted { $0.timestamp > $1.timestamp })
+        }.sorted { group1, group2 in
+            // Sort groups by language display name
+            group1.language.displayName < group2.language.displayName
+        }
+    }
 
     var body: some View {
         NavigationView {
             VStack {
                 if cardsProvider.cards.isEmpty {
                     noCardsView
-                } else if filteredCards.isEmpty {
+                } else if groupedCards.isEmpty {
                     if tagManager.isFavoriteFilterOn {
                         noFavoriteCardsView
                     } else if languageManager.filterByLanguage {
@@ -61,17 +89,21 @@ struct MyCardsListView: View {
                     }
                 } else {
                     List {
-                        ForEach(filteredCards) { card in
-                            CardRowView(
-                                card: card,
-                                onDelete: {
-                                    cardToDelete = card
-                                    showingDeleteAlert = true
-                                },
-                                onEdit: {
-                                    cardToEdit = card
+                        ForEach(groupedCards) { group in
+                            Section(header: Text(group.language.displayName)) {
+                                ForEach(group.cards) { card in
+                                    CardRowView(
+                                        card: card,
+                                        onDelete: {
+                                            cardToDelete = card
+                                            showingDeleteAlert = true
+                                        },
+                                        onEdit: {
+                                            cardToEdit = card
+                                        }
+                                    )
                                 }
-                            )
+                            }
                         }
                     }
                     .listStyle(.insetGrouped)
@@ -110,7 +142,7 @@ struct MyCardsListView: View {
                                 .pickerStyle(.menu)
                             }
                         }
-                        if !filteredCards.isEmpty {
+                        if !groupedCards.isEmpty {
                             Section {
                                 Button(role: .destructive) {
                                     cardToDelete = nil
