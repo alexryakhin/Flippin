@@ -182,6 +182,7 @@ struct ContentView: View {
                 .foregroundStyle(.secondary)
         } actions: {
             Button(LocalizationKeys.clearFilter.localized) {
+                HapticService.shared.buttonTapped()
                 tagManager.clearFilter()
             }
             .buttonStyle(.borderedProminent)
@@ -229,6 +230,10 @@ struct ContentView: View {
                 shuffledItems = shuffledItems.shuffled()
             }
         }
+        
+        // Haptic feedback for card shuffle
+        HapticService.shared.cardsShuffled()
+        
         AnalyticsService.trackEvent(.cardsShuffled)
     }
 

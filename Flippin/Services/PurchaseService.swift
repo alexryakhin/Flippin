@@ -86,6 +86,9 @@ final class PurchaseService: ObservableObject {
                     "price": product.displayPrice
                 ])
                 
+                // Haptic feedback for successful purchase
+                HapticService.shared.purchaseSuccess()
+                
                 return PurchaseResult(
                     success: true,
                     transactionId: transaction.id.description,
@@ -121,6 +124,9 @@ final class PurchaseService: ObservableObject {
         } catch {
             print("❌ Purchase failed: \(error)")
             AnalyticsService.trackErrorEvent(.purchaseFailed, errorMessage: error.localizedDescription)
+            
+            // Haptic feedback for failed purchase
+            HapticService.shared.purchaseFailed()
             
             return PurchaseResult(
                 success: false,

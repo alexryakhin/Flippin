@@ -31,11 +31,13 @@ struct BackgroundPreviewView: View {
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button(LocalizationKeys.cancel.localized) {
+                        HapticService.shared.buttonTapped()
                         dismiss()
                     }
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button(LocalizationKeys.done.localized) {
+                        HapticService.shared.buttonTapped()
                         dismiss()
                     }
                 }
@@ -88,6 +90,7 @@ struct BackgroundPreviewCard: View {
             }
         }
         .onTapGesture {
+            HapticService.shared.settingChanged()
             onTap()
         }
     }

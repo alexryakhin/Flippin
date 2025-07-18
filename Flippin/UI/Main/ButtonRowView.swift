@@ -20,10 +20,16 @@ struct ButtonRowView: View {
     var body: some View {
         HStack {
             Menu {
-                Button(action: onShowSettings) {
+                Button(action: {
+                    HapticService.shared.menuOpened()
+                    onShowSettings()
+                }) {
                     Label(LocalizationKeys.settingsLabel.localized, systemImage: "gear")
                 }
-                Button(action: onShowMyCards) {
+                Button(action: {
+                    HapticService.shared.menuOpened()
+                    onShowMyCards()
+                }) {
                     Label {
                         Text(LocalizationKeys.myCards.localized)
                     } icon: {
@@ -69,14 +75,20 @@ struct ButtonRowView: View {
 
             Spacer()
 
-            Button(action: onShuffle) {
+            Button(action: {
+                HapticService.shared.buttonTapped()
+                onShuffle()
+            }) {
                 ActionButtonLabel(LocalizationKeys.shuffle.localized, systemImage: "shuffle")
             }
             .buttonStyle(ActionButtonStyle())
 
             Spacer()
 
-            Button(action: onAddItem) {
+            Button(action: {
+                HapticService.shared.buttonTapped()
+                onAddItem()
+            }) {
                 ActionButtonLabel(LocalizationKeys.addCardLabel.localized, systemImage: "plus")
             }
             .buttonStyle(ActionButtonStyle())

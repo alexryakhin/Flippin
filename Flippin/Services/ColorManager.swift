@@ -50,5 +50,8 @@ final class ColorManager: ObservableObject {
 
     func setBackgroundStyle(_ newStyle: BackgroundStyle) {
         backgroundStyleRaw = newStyle.rawValue
+        
+        // Haptic feedback for background style change
+        HapticService.shared.backgroundStyleChanged()
     }
 }

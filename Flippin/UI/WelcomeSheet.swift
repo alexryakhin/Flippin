@@ -52,7 +52,10 @@ struct WelcomeSheet: View {
             }
             .background(Color(.systemGroupedBackground))
             .safeAreaInset(edge: .bottom) {
-                Button(action: onContinue) {
+                Button(action: {
+                    HapticService.shared.buttonTapped()
+                    onContinue()
+                }) {
                     Text(LocalizationKeys.continueButton.localized)
                         .font(.headline)
                         .frame(maxWidth: .infinity)

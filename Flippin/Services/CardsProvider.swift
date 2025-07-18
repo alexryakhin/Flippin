@@ -60,6 +60,9 @@ final class CardsProvider: ObservableObject {
         
         do {
             try coreDataService.saveContext()
+            
+            // Haptic feedback for card addition
+            HapticService.shared.cardAdded()
         } catch {
             cardsErrorPublisher.send(error)
         }
@@ -74,6 +77,9 @@ final class CardsProvider: ObservableObject {
             if let object = try coreDataService.context.fetch(fetchRequest).first {
                 coreDataService.context.delete(object)
                 try coreDataService.saveContext()
+                
+                // Haptic feedback for card deletion
+                HapticService.shared.cardDeleted()
             }
         } catch {
             cardsErrorPublisher.send(error)
@@ -102,8 +108,12 @@ final class CardsProvider: ObservableObject {
 
         do {
             if let cdCard = try coreDataService.context.fetch(fetchRequest).first {
+                let wasFavorite = cdCard.isFavorite
                 cdCard.isFavorite.toggle()
                 try coreDataService.saveContext()
+                
+                // Haptic feedback for favorite toggle
+                HapticService.shared.favoriteToggled(isFavorite: cdCard.isFavorite)
             }
         } catch {
             cardsErrorPublisher.send(error)
@@ -138,6 +148,9 @@ final class CardsProvider: ObservableObject {
                 }
                 
                 try coreDataService.saveContext()
+                
+                // Haptic feedback for card editing
+                HapticService.shared.cardEdited()
             }
         } catch {
             cardsErrorPublisher.send(error)

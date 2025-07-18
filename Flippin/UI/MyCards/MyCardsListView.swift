@@ -86,6 +86,7 @@ struct MyCardsListView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(LocalizationKeys.close.localized) {
+                        HapticService.shared.buttonTapped()
                         dismiss()
                     }
                 }
@@ -222,6 +223,7 @@ struct MyCardsListView: View {
                 .foregroundStyle(.secondary)
         } actions: {
             Button(LocalizationKeys.clearFilter.localized) {
+                HapticService.shared.buttonTapped()
                 tagManager.clearFilter()
             }
             .buttonStyle(.borderedProminent)

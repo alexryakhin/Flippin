@@ -24,7 +24,16 @@ final class TagManager: ObservableObject {
     }
     
     @Published private(set) var availableTags: [String] = []
-    @Published var isFavoriteFilterOn: Bool = false
+    @Published var isFavoriteFilterOn: Bool = false {
+        didSet {
+            // Haptic feedback for favorite filter toggle
+            if oldValue != isFavoriteFilterOn {
+                DispatchQueue.main.async {
+                    HapticService.shared.filterApplied()
+                }
+            }
+        }
+    }
     
     private func updateAvailableTags() {
         let request: NSFetchRequest<CDTag> = CDTag.fetchRequest()
@@ -41,7 +50,17 @@ final class TagManager: ObservableObject {
     
     var currentFilterTag: String {
         get { selectedFilterTag }
-        set { selectedFilterTag = newValue }
+        set { 
+            let oldValue = selectedFilterTag
+            selectedFilterTag = newValue
+            
+            // Haptic feedback for filter applied (only if it's a new filter)
+            if oldValue != newValue && !newValue.isEmpty {
+                DispatchQueue.main.async {
+                    HapticService.shared.filterApplied()
+                }
+            }
+        }
     }
     
     func addTag(_ tag: String) {
@@ -59,6 +78,11 @@ final class TagManager: ObservableObject {
                 _ = CDTag(context: coreDataService.context, name: trimmedTag)
                 try coreDataService.saveContext()
                 updateAvailableTags()
+                
+                // Haptic feedback for tag addition
+                DispatchQueue.main.async {
+                    HapticService.shared.tagAdded()
+                }
             }
         } catch {
             print("Error adding tag: \(error)")
@@ -76,6 +100,12 @@ final class TagManager: ObservableObject {
             }
             try coreDataService.saveContext()
             updateAvailableTags()
+            
+            // Haptic feedback for tag deletion
+            DispatchQueue.main.async {
+                HapticService.shared.tagDeleted()
+            }
+
             AnalyticsService.trackTagEvent(.tagDeleted, tagName: tag, tagCount: availableTags.count)
         } catch {
             print("Error removing tag: \(error)")
@@ -96,6 +126,11 @@ final class TagManager: ObservableObject {
     
     func clearFilter() {
         currentFilterTag = ""
+        
+        // Haptic feedback for filter cleared
+        DispatchQueue.main.async {
+            HapticService.shared.filterCleared()
+        }
     }
     
     func getUnusedTags() -> [String] {

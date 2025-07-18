@@ -79,11 +79,19 @@ final class LanguageManager: ObservableObject {
 
     func setUserLanguage(_ language: Language) {
         userLanguage = language
+        
+        // Haptic feedback for language change
+        HapticService.shared.languageChanged()
+        
         AnalyticsService.trackSettingsEvent(.languageChanged, oldValue: userLanguage.rawValue, newValue: language.rawValue)
     }
 
     func setTargetLanguage(_ language: Language) {
         targetLanguage = language
+        
+        // Haptic feedback for language change
+        HapticService.shared.languageChanged()
+        
         AnalyticsService.trackSettingsEvent(.languageChanged, oldValue: targetLanguage.rawValue, newValue: language.rawValue)
     }
 

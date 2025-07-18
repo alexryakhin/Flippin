@@ -70,6 +70,9 @@ struct CardFrontView: View {
 
             HStack {
                 Button {
+                    // Haptic feedback for TTS start
+                    HapticService.shared.ttsStarted()
+                    
                     isPlayingTTS = true
                     Task {
                         do {

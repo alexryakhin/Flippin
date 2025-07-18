@@ -26,7 +26,10 @@ struct PurchaseTestView: View {
                             .foregroundColor(.secondary)
                     }
                     
-                    Button(action: performTestPurchase) {
+                    Button(action: {
+                        HapticService.shared.buttonTapped()
+                        performTestPurchase()
+                    }) {
                         HStack {
                             if purchaseService.isPurchasing {
                                 ProgressView()

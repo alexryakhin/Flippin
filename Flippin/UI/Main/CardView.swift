@@ -57,6 +57,9 @@ struct CardView: View {
                     animationDirection = isFlipped ? -1 : 1
                     animationStart = now
                     
+                    // Haptic feedback for card flip
+                    HapticService.shared.cardFlipped()
+                    
                     // Track card flip event
                     AnalyticsService.trackCardEvent(
                         .cardFlipped,

@@ -56,6 +56,9 @@ final class AddCardSheetViewModel: ObservableObject {
                 to: languageManager.targetLanguage.rawValue
             )
             targetText = translated
+            
+            // Haptic feedback for translation completion
+            HapticService.shared.translationCompleted()
         } catch {
             print("Translation failed: \(error)")
             AnalyticsService.trackErrorEvent(.translationFailed, errorMessage: error.localizedDescription)

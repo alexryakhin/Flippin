@@ -51,6 +51,9 @@ struct CardRowView: View {
                 Spacer()
 
                 Button {
+                    // Haptic feedback for TTS start
+                    HapticService.shared.ttsStarted()
+                    
                     isPlayingTTS = true
                     Task {
                         do {
@@ -96,6 +99,8 @@ struct CardRowView: View {
         .padding(.vertical, 4)
         .swipeActions(edge: .trailing, allowsFullSwipe: false) {
             Button {
+                // Haptic feedback for swipe action
+                HapticService.shared.swipeAction()
                 onDelete()
             } label: {
                 Label(LocalizationKeys.delete.localized, systemImage: "trash")
@@ -104,6 +109,8 @@ struct CardRowView: View {
         }
         .swipeActions(edge: .leading, allowsFullSwipe: false) {
             Button {
+                // Haptic feedback for swipe action
+                HapticService.shared.swipeAction()
                 onEdit()
             } label: {
                 Label(LocalizationKeys.edit.localized, systemImage: "pencil")
@@ -111,6 +118,9 @@ struct CardRowView: View {
             .tint(.blue)
         }
         .onTapGesture {
+            // Haptic feedback for card flip
+            HapticService.shared.cardFlipped()
+            
             withAnimation(.easeInOut(duration: 0.3)) {
                 isFlipped.toggle()
                 

@@ -180,6 +180,7 @@ struct SettingsView: View {
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button(LocalizationKeys.close.localized) {
+                        HapticService.shared.buttonTapped()
                         dismiss()
                     }
                 }
