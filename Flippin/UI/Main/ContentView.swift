@@ -77,6 +77,18 @@ struct ContentView: View {
         .onChange(of: tagManager.currentFilterTag) { _, _ in
             resetShuffle()
         }
+        .onChange(of: tagManager.isFavoriteFilterOn) { _, _ in
+            resetShuffle()
+        }
+        .onChange(of: languageManager.filterByLanguage) { _, _ in
+            resetShuffle()
+        }
+        .onChange(of: languageManager.userLanguage) { _, _ in
+            resetShuffle()
+        }
+        .onChange(of: languageManager.targetLanguage) { _, _ in
+            resetShuffle()
+        }
         .sheet(isPresented: $showWelcomeSheet) {
             WelcomeSheet(
                 onContinue: {
