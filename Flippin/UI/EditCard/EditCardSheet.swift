@@ -31,24 +31,35 @@ struct EditCardSheet: View {
                 }
                 .padding(16)
             }
+            .safeAreaInset(edge: .bottom) {
+                Button {
+                    if let updatedCard = viewModel.updateCard() {
+                        viewModel.onSave(updatedCard)
+                        dismiss()
+                    }
+                } label: {
+                    Text(LocalizationKeys.save.localized)
+                        .font(.headline)
+                        .frame(maxWidth: .infinity)
+                        .padding(vertical: 12, horizontal: 16)
+                }
+                .padding(.horizontal)
+                .padding(.bottom)
+                .buttonStyle(.borderedProminent)
+                .disabled(viewModel.nativeText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || viewModel.targetText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+            }
             .background(Color(.systemGroupedBackground))
             .navigationTitle(LocalizationKeys.editCard.localized)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button(LocalizationKeys.cancel.localized) {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
                         viewModel.cancel()
                         dismiss()
+                    } label: {
+                        Image(systemName: "xmark.circle.fill")
                     }
-                }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(LocalizationKeys.save.localized) {
-                        if let updatedCard = viewModel.updateCard() {
-                            viewModel.onSave(updatedCard)
-                            dismiss()
-                        }
-                    }
-                    .disabled(viewModel.nativeText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || viewModel.targetText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+                    .foregroundStyle(.secondary)
                 }
             }
         }

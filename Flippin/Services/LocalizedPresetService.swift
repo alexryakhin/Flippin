@@ -87,7 +87,7 @@ class LocalizedPresetService: ObservableObject {
                     frontText: targetLanguageText,
                     backText: userLanguageText,
                     notes: notes,
-                    tags: [collection.category.rawValue]
+                    tags: [collection.category.localizedTag(for: userLanguage)]
                 )
             }
             

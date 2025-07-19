@@ -173,3 +173,45 @@
 
 "phrase.likePhotography.text" = "我喜歡攝影";
 "phrase.likePhotography.notes" = "攝影愛好"; 
+
+// MARK: - Tags and Filters
+"tag.basics" = "基礎";
+"tag.travel" = "旅行";
+"tag.entertainment" = "娛樂";
+"tag.food" = "食物";
+"tag.health" = "健康";
+"tag.leisure" = "休閒";
+"tag.medical" = "醫療";
+"tag.hobbies" = "愛好";
+"tag.media" = "媒體";
+"tag.dining" = "用餐";
+"tag.emergency" = "緊急";
+"tag.communication" = "溝通";
+"tag.culture" = "文化";
+"tag.sports" = "運動";
+"tag.music" = "音樂";
+"tag.movies" = "電影";
+"tag.games" = "遊戲";
+"tag.books" = "書籍";
+"tag.art" = "藝術";
+"tag.nature" = "自然";
+"tag.technology" = "科技";
+"tag.business" = "商務";
+"tag.education" = "教育";
+"tag.family" = "家庭";
+"tag.friends" = "朋友";
+"tag.romance" = "浪漫";
+"tag.shopping" = "購物";
+"tag.transportation" = "交通";
+"tag.accommodation" = "住宿";
+"tag.weather" = "天氣";
+"tag.time" = "時間";
+"tag.numbers" = "數字";
+"tag.colors" = "顏色";
+"tag.directions" = "方向";
+"tag.questions" = "問題";
+"tag.answers" = "答案";
+"tag.opinions" = "意見";
+"tag.feelings" = "感受";
+"tag.actions" = "行動";
+"tag.descriptions" = "描述"; 

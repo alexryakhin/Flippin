@@ -8,14 +8,14 @@
 import Foundation
 import SwiftUI
 
-@MainActor
 final class SyncManager: ObservableObject {
     static let shared = SyncManager()
     
     @Published private(set) var syncState: SyncState = .idle
-    @Published private(set) var lastSyncTime: Date?
-    @Published private(set) var pendingOperations: Int = 0
-    
+
+    private var lastSyncTime: Date?
+    private var pendingOperations: Int = 0
+
     private var syncTimer: Timer?
     private var autoHideTimer: Timer?
     
@@ -27,7 +27,7 @@ final class SyncManager: ObservableObject {
     // MARK: - Public Methods
     
     func startSync() {
-        syncState = .syncing
+        setSyncState(.syncing)
         pendingOperations += 1
         
         // Auto-hide synced state after 2 seconds
@@ -35,7 +35,7 @@ final class SyncManager: ObservableObject {
         autoHideTimer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { _ in
             Task { @MainActor in
                 if self.syncState == .synced {
-                    self.syncState = .idle
+                    self.setSyncState(.idle)
                 }
             }
         }
@@ -45,28 +45,28 @@ final class SyncManager: ObservableObject {
         pendingOperations = max(0, pendingOperations - 1)
         
         if pendingOperations == 0 {
-            syncState = .synced
+            setSyncState(.synced)
             lastSyncTime = Date()
         }
     }
     
     func syncFailed() {
         pendingOperations = max(0, pendingOperations - 1)
-        syncState = .error
-        
+        setSyncState(.error)
+
         // Auto-hide error state after 3 seconds
         autoHideTimer?.invalidate()
         autoHideTimer = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { _ in
             Task { @MainActor in
                 if self.syncState == .error {
-                    self.syncState = .idle
+                    self.setSyncState(.idle)
                 }
             }
         }
     }
     
     func resetSyncState() {
-        syncState = .idle
+        setSyncState(.idle)
         pendingOperations = 0
         autoHideTimer?.invalidate()
     }
@@ -78,12 +78,18 @@ final class SyncManager: ObservableObject {
             Task { @MainActor in
                 // Check if there are any pending operations that might need attention
                 if self.pendingOperations > 0 && self.syncState == .idle {
-                    self.syncState = .syncing
+                    self.setSyncState(.syncing)
                 }
             }
         }
     }
-    
+
+    private func setSyncState(_ state: SyncState) {
+        DispatchQueue.main.async { [weak self] in
+            self?.syncState = state
+        }
+    }
+
     deinit {
         syncTimer?.invalidate()
         autoHideTimer?.invalidate()

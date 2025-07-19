@@ -5,6 +5,7 @@
 //  Created by Alexander Riakhin on 7/15/25.
 //
 
+import Foundation
 import CoreData
 import Combine
 
@@ -52,7 +53,6 @@ public class CoreDataService: ObservableObject {
 
     private init() {
         setupBindings()
-        setupRemoteChangeNotification()
     }
 
     public func saveContext() throws {
@@ -68,20 +68,17 @@ public class CoreDataService: ObservableObject {
 
     private func setupBindings() {
         NotificationCenter.default.publisher(for: .NSManagedObjectContextDidSave)
-            .debounce(for: .seconds(0.3), scheduler: DispatchQueue.main)
+            .debounce(for: .seconds(0.3), scheduler: RunLoop.main)
+            .sink { [weak self] _ in
+                self?.dataUpdatedPublisher.send()
+            }
+            .store(in: &cancellables)
+
+        NotificationCenter.default.publisher(for: .NSPersistentStoreRemoteChange)
+            .debounce(for: .seconds(0.3), scheduler: RunLoop.main)
             .sink { [weak self] _ in
                 self?.dataUpdatedPublisher.send()
             }
             .store(in: &cancellables)
     }
-
-    private func setupRemoteChangeNotification() {
-        NotificationCenter.default.addObserver(
-            forName: .NSPersistentStoreRemoteChange,
-            object: persistentContainer.persistentStoreCoordinator,
-            queue: .main
-        ) { [weak self] _ in
-            self?.dataUpdatedPublisher.send()
-        }
-    }
-} 
+}

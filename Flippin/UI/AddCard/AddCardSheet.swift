@@ -36,24 +36,35 @@ struct AddCardSheet: View {
                 }
                 .padding(16)
             }
+            .safeAreaInset(edge: .bottom) {
+                Button {
+                    if let newCard = viewModel.createCard() {
+                        onSave(newCard)
+                        dismiss()
+                    }
+                } label: {
+                    Text(LocalizationKeys.save.localized)
+                        .font(.headline)
+                        .frame(maxWidth: .infinity)
+                        .padding(vertical: 12, horizontal: 16)
+                }
+                .padding(.horizontal)
+                .padding(.bottom)
+                .buttonStyle(.borderedProminent)
+                .disabled(viewModel.nativeText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || viewModel.targetText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+            }
             .background(Color(.systemGroupedBackground))
             .navigationTitle(LocalizationKeys.addNewCard.localized)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button(LocalizationKeys.cancel.localized) {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
                         viewModel.cancel()
                         dismiss()
+                    } label: {
+                        Image(systemName: "xmark.circle.fill")
                     }
-                }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(LocalizationKeys.save.localized) {
-                        if let newCard = viewModel.createCard() {
-                            onSave(newCard)
-                            dismiss()
-                        }
-                    }
-                    .disabled(viewModel.nativeText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || viewModel.targetText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+                    .foregroundStyle(.secondary)
                 }
             }
         }

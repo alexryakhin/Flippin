@@ -173,3 +173,45 @@
 
 "phrase.likePhotography.text" = "Я люблю фотографию";
 "phrase.likePhotography.notes" = "Хобби фотографии"; 
+
+// MARK: - Tags and Filters
+"tag.basics" = "Основы";
+"tag.travel" = "Путешествия";
+"tag.entertainment" = "Развлечения";
+"tag.food" = "Еда";
+"tag.health" = "Здоровье";
+"tag.leisure" = "Досуг";
+"tag.medical" = "Медицина";
+"tag.hobbies" = "Хобби";
+"tag.media" = "Медиа";
+"tag.dining" = "Питание";
+"tag.emergency" = "Экстренная помощь";
+"tag.communication" = "Общение";
+"tag.culture" = "Культура";
+"tag.sports" = "Спорт";
+"tag.music" = "Музыка";
+"tag.movies" = "Фильмы";
+"tag.games" = "Игры";
+"tag.books" = "Книги";
+"tag.art" = "Искусство";
+"tag.nature" = "Природа";
+"tag.technology" = "Технологии";
+"tag.business" = "Бизнес";
+"tag.education" = "Образование";
+"tag.family" = "Семья";
+"tag.friends" = "Друзья";
+"tag.romance" = "Романтика";
+"tag.shopping" = "Покупки";
+"tag.transportation" = "Транспорт";
+"tag.accommodation" = "Жилье";
+"tag.weather" = "Погода";
+"tag.time" = "Время";
+"tag.numbers" = "Числа";
+"tag.colors" = "Цвета";
+"tag.directions" = "Направления";
+"tag.questions" = "Вопросы";
+"tag.answers" = "Ответы";
+"tag.opinions" = "Мнения";
+"tag.feelings" = "Чувства";
+"tag.actions" = "Действия";
+"tag.descriptions" = "Описания"; 

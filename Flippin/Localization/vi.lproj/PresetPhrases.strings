@@ -173,3 +173,45 @@
 
 "phrase.likePhotography.text" = "Tôi thích nhiếp ảnh";
 "phrase.likePhotography.notes" = "Sở thích nhiếp ảnh"; 
+
+// MARK: - Tags and Filters
+"tag.basics" = "Cơ bản";
+"tag.travel" = "Du lịch";
+"tag.entertainment" = "Giải trí";
+"tag.food" = "Thức ăn";
+"tag.health" = "Sức khỏe";
+"tag.leisure" = "Giải trí";
+"tag.medical" = "Y tế";
+"tag.hobbies" = "Sở thích";
+"tag.media" = "Truyền thông";
+"tag.dining" = "Ăn uống";
+"tag.emergency" = "Khẩn cấp";
+"tag.communication" = "Giao tiếp";
+"tag.culture" = "Văn hóa";
+"tag.sports" = "Thể thao";
+"tag.music" = "Âm nhạc";
+"tag.movies" = "Phim";
+"tag.games" = "Trò chơi";
+"tag.books" = "Sách";
+"tag.art" = "Nghệ thuật";
+"tag.nature" = "Thiên nhiên";
+"tag.technology" = "Công nghệ";
+"tag.business" = "Kinh doanh";
+"tag.education" = "Giáo dục";
+"tag.family" = "Gia đình";
+"tag.friends" = "Bạn bè";
+"tag.romance" = "Lãng mạn";
+"tag.shopping" = "Mua sắm";
+"tag.transportation" = "Giao thông";
+"tag.accommodation" = "Chỗ ở";
+"tag.weather" = "Thời tiết";
+"tag.time" = "Thời gian";
+"tag.numbers" = "Số";
+"tag.colors" = "Màu sắc";
+"tag.directions" = "Hướng";
+"tag.questions" = "Câu hỏi";
+"tag.answers" = "Câu trả lời";
+"tag.opinions" = "Ý kiến";
+"tag.feelings" = "Cảm xúc";
+"tag.actions" = "Hành động";
+"tag.descriptions" = "Mô tả"; 

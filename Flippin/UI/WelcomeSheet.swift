@@ -59,7 +59,7 @@ struct WelcomeSheet: View {
                     Text(LocalizationKeys.continueButton.localized)
                         .font(.headline)
                         .frame(maxWidth: .infinity)
-                        .padding(16)
+                        .padding(vertical: 12, horizontal: 16)
                 }
                 .padding(.horizontal)
                 .padding(.bottom)

@@ -173,3 +173,45 @@
 
 "phrase.likePhotography.text" = "أحب التصوير";
 "phrase.likePhotography.notes" = "هواية التصوير"; 
+
+// MARK: - Tags and Filters
+"tag.basics" = "أساسيات";
+"tag.travel" = "سفر";
+"tag.entertainment" = "ترفيه";
+"tag.food" = "طعام";
+"tag.health" = "صحة";
+"tag.leisure" = "ترفيه";
+"tag.medical" = "طبي";
+"tag.hobbies" = "هوايات";
+"tag.media" = "إعلام";
+"tag.dining" = "طعام";
+"tag.emergency" = "طوارئ";
+"tag.communication" = "تواصل";
+"tag.culture" = "ثقافة";
+"tag.sports" = "رياضة";
+"tag.music" = "موسيقى";
+"tag.movies" = "أفلام";
+"tag.games" = "ألعاب";
+"tag.books" = "كتب";
+"tag.art" = "فن";
+"tag.nature" = "طبيعة";
+"tag.technology" = "تقنية";
+"tag.business" = "أعمال";
+"tag.education" = "تعليم";
+"tag.family" = "عائلة";
+"tag.friends" = "أصدقاء";
+"tag.romance" = "رومانسية";
+"tag.shopping" = "تسوق";
+"tag.transportation" = "مواصلات";
+"tag.accommodation" = "إقامة";
+"tag.weather" = "طقس";
+"tag.time" = "وقت";
+"tag.numbers" = "أرقام";
+"tag.colors" = "ألوان";
+"tag.directions" = "اتجاهات";
+"tag.questions" = "أسئلة";
+"tag.answers" = "إجابات";
+"tag.opinions" = "آراء";
+"tag.feelings" = "مشاعر";
+"tag.actions" = "أفعال";
+"tag.descriptions" = "وصف"; 

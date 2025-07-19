@@ -173,3 +173,45 @@
 
 "phrase.likePhotography.text" = "Я люблю фотографію";
 "phrase.likePhotography.notes" = "Хобі фотографії"; 
+
+// MARK: - Tags and Filters
+"tag.basics" = "Основы";
+"tag.travel" = "Подорожі";
+"tag.entertainment" = "Розваги";
+"tag.food" = "Їжа";
+"tag.health" = "Здоров'я";
+"tag.leisure" = "Дозвілля";
+"tag.medical" = "Медицина";
+"tag.hobbies" = "Хобі";
+"tag.media" = "Медіа";
+"tag.dining" = "Харчування";
+"tag.emergency" = "Екстрена допомога";
+"tag.communication" = "Спілкування";
+"tag.culture" = "Культура";
+"tag.sports" = "Спорт";
+"tag.music" = "Музика";
+"tag.movies" = "Фільми";
+"tag.games" = "Ігри";
+"tag.books" = "Книги";
+"tag.art" = "Мистецтво";
+"tag.nature" = "Природа";
+"tag.technology" = "Технології";
+"tag.business" = "Бізнес";
+"tag.education" = "Освіта";
+"tag.family" = "Сім'я";
+"tag.friends" = "Друзі";
+"tag.romance" = "Романтика";
+"tag.shopping" = "Покупки";
+"tag.transportation" = "Транспорт";
+"tag.accommodation" = "Житло";
+"tag.weather" = "Погода";
+"tag.time" = "Час";
+"tag.numbers" = "Числа";
+"tag.colors" = "Кольори";
+"tag.directions" = "Напрямки";
+"tag.questions" = "Питання";
+"tag.answers" = "Відповіді";
+"tag.opinions" = "Думки";
+"tag.feelings" = "Почуття";
+"tag.actions" = "Дії";
+"tag.descriptions" = "Описи"; 

@@ -36,20 +36,7 @@ enum PresetCategory: String, CaseIterable {
     case food = "food"
     case business = "business"
     case education = "education"
-    
-    var displayName: String {
-        switch self {
-        case .basics: return "Basics"
-        case .travel: return "Travel"
-        case .leisure: return "Leisure"
-        case .entertainment: return "Entertainment"
-        case .health: return "Health"
-        case .food: return "Food"
-        case .business: return "Business"
-        case .education: return "Education"
-        }
-    }
-    
+        
     var icon: String {
         switch self {
         case .basics: return "abc"
@@ -61,5 +48,42 @@ enum PresetCategory: String, CaseIterable {
         case .business: return "briefcase"
         case .education: return "book"
         }
+    }
+    
+    // MARK: - Localized Properties
+    
+    func localizedName(for language: Language) -> String {
+        let key = "tag.\(rawValue)"
+        return getLocalizedString(key, language: language)
+    }
+    
+    func localizedTag(for language: Language) -> String {
+        let key = "tag.\(rawValue)"
+        return getLocalizedString(key, language: language)
+    }
+    
+    // For backward compatibility and UI display
+    var displayName: String {
+        // Default to English if no specific language context
+        return localizedName(for: .english)
+    }
+    
+    // MARK: - Private Helper
+    
+    private func getLocalizedString(_ key: String, language: Language) -> String {
+        let bundle = Bundle.main
+        let languageCode = language.localizationCode
+        
+        // Try to load the string from the specific language bundle
+        if let languageBundle = bundle.path(forResource: languageCode, ofType: "lproj"),
+           let bundle = Bundle(path: languageBundle) {
+            let localizedString = NSLocalizedString(key, tableName: "PresetPhrases", bundle: bundle, value: key, comment: "")
+            if localizedString != key {
+                return localizedString
+            }
+        }
+        
+        // Fallback to main bundle
+        return NSLocalizedString(key, tableName: "PresetPhrases", bundle: bundle, value: key, comment: "")
     }
 } 

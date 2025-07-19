@@ -172,4 +172,46 @@
 "phrase.playGuitar.notes" = "Instrumento musical";
 
 "phrase.likePhotography.text" = "Me gusta la fotografía";
-"phrase.likePhotography.notes" = "Pasatiempo de fotografía"; 
+"phrase.likePhotography.notes" = "Hobby de fotografía"; 
+
+// MARK: - Tags and Filters
+"tag.basics" = "Básico";
+"tag.travel" = "Viajes";
+"tag.entertainment" = "Entretenimiento";
+"tag.food" = "Comida";
+"tag.health" = "Salud";
+"tag.leisure" = "Ocio";
+"tag.medical" = "Médico";
+"tag.hobbies" = "Pasatiempos";
+"tag.media" = "Medios";
+"tag.dining" = "Comida";
+"tag.emergency" = "Emergencia";
+"tag.communication" = "Comunicación";
+"tag.culture" = "Cultura";
+"tag.sports" = "Deportes";
+"tag.music" = "Música";
+"tag.movies" = "Películas";
+"tag.games" = "Juegos";
+"tag.books" = "Libros";
+"tag.art" = "Arte";
+"tag.nature" = "Naturaleza";
+"tag.technology" = "Tecnología";
+"tag.business" = "Negocios";
+"tag.education" = "Educación";
+"tag.family" = "Familia";
+"tag.friends" = "Amigos";
+"tag.romance" = "Romance";
+"tag.shopping" = "Compras";
+"tag.transportation" = "Transporte";
+"tag.accommodation" = "Alojamiento";
+"tag.weather" = "Clima";
+"tag.time" = "Tiempo";
+"tag.numbers" = "Números";
+"tag.colors" = "Colores";
+"tag.directions" = "Direcciones";
+"tag.questions" = "Preguntas";
+"tag.answers" = "Respuestas";
+"tag.opinions" = "Opiniones";
+"tag.feelings" = "Sentimientos";
+"tag.actions" = "Acciones";
+"tag.descriptions" = "Descripciones"; 

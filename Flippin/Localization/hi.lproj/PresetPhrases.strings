@@ -173,3 +173,45 @@
 
 "phrase.likePhotography.text" = "मुझे फोटोग्राफी पसंद है";
 "phrase.likePhotography.notes" = "फोटोग्राफी का शौक"; 
+
+// MARK: - Tags and Filters
+"tag.basics" = "मूल बातें";
+"tag.travel" = "यात्रा";
+"tag.entertainment" = "मनोरंजन";
+"tag.food" = "भोजन";
+"tag.health" = "स्वास्थ्य";
+"tag.leisure" = "अवकाश";
+"tag.medical" = "चिकित्सा";
+"tag.hobbies" = "शौक";
+"tag.media" = "मीडिया";
+"tag.dining" = "भोजन";
+"tag.emergency" = "आपातकाल";
+"tag.communication" = "संचार";
+"tag.culture" = "संस्कृति";
+"tag.sports" = "खेल";
+"tag.music" = "संगीत";
+"tag.movies" = "फिल्में";
+"tag.games" = "खेल";
+"tag.books" = "किताबें";
+"tag.art" = "कला";
+"tag.nature" = "प्रकृति";
+"tag.technology" = "तकनीक";
+"tag.business" = "व्यवसाय";
+"tag.education" = "शिक्षा";
+"tag.family" = "परिवार";
+"tag.friends" = "दोस्त";
+"tag.romance" = "रोमांस";
+"tag.shopping" = "खरीदारी";
+"tag.transportation" = "परिवहन";
+"tag.accommodation" = "आवास";
+"tag.weather" = "मौसम";
+"tag.time" = "समय";
+"tag.numbers" = "संख्याएं";
+"tag.colors" = "रंग";
+"tag.directions" = "दिशाएं";
+"tag.questions" = "प्रश्न";
+"tag.answers" = "उत्तर";
+"tag.opinions" = "राय";
+"tag.feelings" = "भावनाएं";
+"tag.actions" = "कार्य";
+"tag.descriptions" = "विवरण"; 

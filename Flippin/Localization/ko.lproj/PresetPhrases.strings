@@ -173,3 +173,45 @@
 
 "phrase.likePhotography.text" = "사진을 좋아합니다";
 "phrase.likePhotography.notes" = "사진 취미"; 
+
+// MARK: - Tags and Filters
+"tag.basics" = "기본";
+"tag.travel" = "여행";
+"tag.entertainment" = "엔터테인먼트";
+"tag.food" = "음식";
+"tag.health" = "건강";
+"tag.leisure" = "여가";
+"tag.medical" = "의료";
+"tag.hobbies" = "취미";
+"tag.media" = "미디어";
+"tag.dining" = "식사";
+"tag.emergency" = "응급";
+"tag.communication" = "의사소통";
+"tag.culture" = "문화";
+"tag.sports" = "스포츠";
+"tag.music" = "음악";
+"tag.movies" = "영화";
+"tag.games" = "게임";
+"tag.books" = "책";
+"tag.art" = "예술";
+"tag.nature" = "자연";
+"tag.technology" = "기술";
+"tag.business" = "비즈니스";
+"tag.education" = "교육";
+"tag.family" = "가족";
+"tag.friends" = "친구";
+"tag.romance" = "로맨스";
+"tag.shopping" = "쇼핑";
+"tag.transportation" = "교통";
+"tag.accommodation" = "숙박";
+"tag.weather" = "날씨";
+"tag.time" = "시간";
+"tag.numbers" = "숫자";
+"tag.colors" = "색상";
+"tag.directions" = "방향";
+"tag.questions" = "질문";
+"tag.answers" = "답변";
+"tag.opinions" = "의견";
+"tag.feelings" = "감정";
+"tag.actions" = "행동";
+"tag.descriptions" = "설명"; 

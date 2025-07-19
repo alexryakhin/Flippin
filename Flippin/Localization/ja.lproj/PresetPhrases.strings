@@ -173,3 +173,45 @@
 
 "phrase.likePhotography.text" = "写真が好きです";
 "phrase.likePhotography.notes" = "写真の趣味"; 
+
+// MARK: - Tags and Filters
+"tag.basics" = "基本";
+"tag.travel" = "旅行";
+"tag.entertainment" = "エンターテイメント";
+"tag.food" = "食べ物";
+"tag.health" = "健康";
+"tag.leisure" = "レジャー";
+"tag.medical" = "医療";
+"tag.hobbies" = "趣味";
+"tag.media" = "メディア";
+"tag.dining" = "食事";
+"tag.emergency" = "緊急";
+"tag.communication" = "コミュニケーション";
+"tag.culture" = "文化";
+"tag.sports" = "スポーツ";
+"tag.music" = "音楽";
+"tag.movies" = "映画";
+"tag.games" = "ゲーム";
+"tag.books" = "本";
+"tag.art" = "アート";
+"tag.nature" = "自然";
+"tag.technology" = "テクノロジー";
+"tag.business" = "ビジネス";
+"tag.education" = "教育";
+"tag.family" = "家族";
+"tag.friends" = "友達";
+"tag.romance" = "ロマンス";
+"tag.shopping" = "ショッピング";
+"tag.transportation" = "交通";
+"tag.accommodation" = "宿泊";
+"tag.weather" = "天気";
+"tag.time" = "時間";
+"tag.numbers" = "数字";
+"tag.colors" = "色";
+"tag.directions" = "方向";
+"tag.questions" = "質問";
+"tag.answers" = "答え";
+"tag.opinions" = "意見";
+"tag.feelings" = "感情";
+"tag.actions" = "行動";
+"tag.descriptions" = "説明"; 

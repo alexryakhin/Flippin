@@ -50,9 +50,9 @@ struct PresetCollectionsView: View {
             VStack(spacing: 0) {
                 ScrollViewWithCustomNavBar {
                     LazyVGrid(columns: [
-                        GridItem(.flexible(), spacing: 16),
-                        GridItem(.flexible(), spacing: 16)
-                    ], spacing: 16) {
+                        GridItem(.flexible(), spacing: 12),
+                        GridItem(.flexible(), spacing: 12)
+                    ], spacing: 12) {
                         ForEach(filteredCollections) { collection in
                             PresetCollectionCard(collection: collection) {
                                 collectionToImport = collection
@@ -62,6 +62,7 @@ struct PresetCollectionsView: View {
                         }
                     }
                     .padding(.horizontal, 16)
+                    .padding(.bottom, 16)
                 } navigationBar: {
                     categoryFilterView
                         .padding(.bottom, 8)
@@ -85,10 +86,13 @@ struct PresetCollectionsView: View {
             .navigationBarTitleDisplayMode(.inline)
             .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: LocalizationKeys.searchCollections.localized)
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button(LocalizationKeys.close.localized) {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
                         dismiss()
+                    } label: {
+                        Image(systemName: "xmark.circle.fill")
                     }
+                    .foregroundStyle(.secondary)
                 }
             }
         }
@@ -128,7 +132,7 @@ struct PresetCollectionsView: View {
                         HStack(spacing: 4) {
                             Image(systemName: category.icon)
                                 .font(.caption)
-                            Text(category.displayName)
+                            Text(category.localizedName(for: Language.fromSystemLocale()))
                                 .font(.caption)
                         }
                         .padding(.horizontal, 12)

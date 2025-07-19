@@ -173,3 +173,45 @@
 
 "phrase.likePhotography.text" = "Ich mag Fotografie";
 "phrase.likePhotography.notes" = "Fotografie-Hobby"; 
+
+// MARK: - Tags and Filters
+"tag.basics" = "Grundlagen";
+"tag.travel" = "Reisen";
+"tag.entertainment" = "Unterhaltung";
+"tag.food" = "Essen";
+"tag.health" = "Gesundheit";
+"tag.leisure" = "Freizeit";
+"tag.medical" = "Medizin";
+"tag.hobbies" = "Hobbys";
+"tag.media" = "Medien";
+"tag.dining" = "Essen";
+"tag.emergency" = "Notfall";
+"tag.communication" = "Kommunikation";
+"tag.culture" = "Kultur";
+"tag.sports" = "Sport";
+"tag.music" = "Musik";
+"tag.movies" = "Filme";
+"tag.games" = "Spiele";
+"tag.books" = "Bücher";
+"tag.art" = "Kunst";
+"tag.nature" = "Natur";
+"tag.technology" = "Technologie";
+"tag.business" = "Geschäft";
+"tag.education" = "Bildung";
+"tag.family" = "Familie";
+"tag.friends" = "Freunde";
+"tag.romance" = "Romantik";
+"tag.shopping" = "Einkaufen";
+"tag.transportation" = "Transport";
+"tag.accommodation" = "Unterkunft";
+"tag.weather" = "Wetter";
+"tag.time" = "Zeit";
+"tag.numbers" = "Zahlen";
+"tag.colors" = "Farben";
+"tag.directions" = "Richtungen";
+"tag.questions" = "Fragen";
+"tag.answers" = "Antworten";
+"tag.opinions" = "Meinungen";
+"tag.feelings" = "Gefühle";
+"tag.actions" = "Aktionen";
+"tag.descriptions" = "Beschreibungen"; 

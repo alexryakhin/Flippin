@@ -40,8 +40,10 @@ final class TagManager: ObservableObject {
         request.sortDescriptors = [NSSortDescriptor(keyPath: \CDTag.name, ascending: true)]
         
         do {
-            let tags = try coreDataService.context.fetch(request)
-            availableTags = tags.compactMap { $0.name }.sorted()
+            try SyncManager.shared.performSyncOperation {
+                let tags = try coreDataService.context.fetch(request)
+                availableTags = tags.compactMap { $0.name }.sorted()
+            }
         } catch {
             print("Error fetching tags: \(error)")
             availableTags = []
@@ -67,73 +69,47 @@ final class TagManager: ObservableObject {
         let trimmedTag = tag.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmedTag.isEmpty else { return }
         
-        Task { @MainActor in
-            SyncManager.shared.startSync()
-        }
-        
-        // Check if tag already exists
-        let request: NSFetchRequest<CDTag> = CDTag.fetchRequest()
-        request.predicate = NSPredicate(format: "name == %@", trimmedTag)
-        
         do {
+            // Check if tag already exists
+            let request: NSFetchRequest<CDTag> = CDTag.fetchRequest()
+            request.predicate = NSPredicate(format: "name == %@", trimmedTag)
+
             let existingTags = try coreDataService.context.fetch(request)
             if existingTags.isEmpty {
                 // Create new tag
                 _ = CDTag(context: coreDataService.context, name: trimmedTag)
                 try coreDataService.saveContext()
                 updateAvailableTags()
-                
+
                 // Haptic feedback for tag addition
                 DispatchQueue.main.async {
                     HapticService.shared.tagAdded()
                 }
-                
-                // Sync completed
-                Task { @MainActor in
-                    SyncManager.shared.syncCompleted()
-                }
             }
         } catch {
-            // Sync failed
-            Task { @MainActor in
-                SyncManager.shared.syncFailed()
-            }
             print("Error adding tag: \(error)")
         }
     }
     
         func removeTag(_ tag: String) {
-        Task { @MainActor in
-            SyncManager.shared.startSync()
-        }
-        
-        let request: NSFetchRequest<CDTag> = CDTag.fetchRequest()
-        request.predicate = NSPredicate(format: "name == %@", tag)
-        
         do {
+            let request: NSFetchRequest<CDTag> = CDTag.fetchRequest()
+            request.predicate = NSPredicate(format: "name == %@", tag)
+
             let tags = try coreDataService.context.fetch(request)
             for tag in tags {
                 coreDataService.context.delete(tag)
             }
             try coreDataService.saveContext()
             updateAvailableTags()
-            
+
             // Haptic feedback for tag deletion
             DispatchQueue.main.async {
                 HapticService.shared.tagDeleted()
             }
-            
-            // Sync completed
-            Task { @MainActor in
-                SyncManager.shared.syncCompleted()
-            }
-            
+
             AnalyticsService.trackTagEvent(.tagDeleted, tagName: tag, tagCount: availableTags.count)
         } catch {
-            // Sync failed
-            Task { @MainActor in
-                SyncManager.shared.syncFailed()
-            }
             print("Error removing tag: \(error)")
         }
     }

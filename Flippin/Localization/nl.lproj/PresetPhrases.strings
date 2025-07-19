@@ -172,4 +172,46 @@
 "phrase.playGuitar.notes" = "Muziekinstrument";
 
 "phrase.likePhotography.text" = "Ik hou van fotografie";
-"phrase.likePhotography.notes" = "Fotografiehobby"; 
+"phrase.likePhotography.notes" = "Fotografie hobby"; 
+
+// MARK: - Tags and Filters
+"tag.basics" = "Basis";
+"tag.travel" = "Reizen";
+"tag.entertainment" = "Entertainment";
+"tag.food" = "Eten";
+"tag.health" = "Gezondheid";
+"tag.leisure" = "Vrije tijd";
+"tag.medical" = "Medisch";
+"tag.hobbies" = "Hobby's";
+"tag.media" = "Media";
+"tag.dining" = "Eten";
+"tag.emergency" = "Noodgeval";
+"tag.communication" = "Communicatie";
+"tag.culture" = "Cultuur";
+"tag.sports" = "Sport";
+"tag.music" = "Muziek";
+"tag.movies" = "Films";
+"tag.games" = "Spellen";
+"tag.books" = "Boeken";
+"tag.art" = "Kunst";
+"tag.nature" = "Natuur";
+"tag.technology" = "Technologie";
+"tag.business" = "Zaken";
+"tag.education" = "Onderwijs";
+"tag.family" = "Familie";
+"tag.friends" = "Vrienden";
+"tag.romance" = "Romantiek";
+"tag.shopping" = "Winkelen";
+"tag.transportation" = "Vervoer";
+"tag.accommodation" = "Accommodatie";
+"tag.weather" = "Weer";
+"tag.time" = "Tijd";
+"tag.numbers" = "Cijfers";
+"tag.colors" = "Kleuren";
+"tag.directions" = "Richtingen";
+"tag.questions" = "Vragen";
+"tag.answers" = "Antwoorden";
+"tag.opinions" = "Meningen";
+"tag.feelings" = "Gevoelens";
+"tag.actions" = "Acties";
+"tag.descriptions" = "Beschrijvingen"; 

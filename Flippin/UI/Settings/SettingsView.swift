@@ -178,11 +178,14 @@ struct SettingsView: View {
             .navigationTitle(LocalizationKeys.settings.localized)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button(LocalizationKeys.close.localized) {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
                         HapticService.shared.buttonTapped()
                         dismiss()
+                    } label: {
+                        Image(systemName: "xmark.circle.fill")
                     }
+                    .foregroundStyle(.secondary)
                 }
             }
             .sheet(isPresented: $showingBackgroundPreview) {

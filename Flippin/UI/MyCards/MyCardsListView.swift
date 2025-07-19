@@ -67,7 +67,7 @@ struct MyCardsListView: View {
         
         // Convert to sorted array of LanguageGroup
         return grouped.map { language, cards in
-            LanguageGroup(language: language, cards: cards.sorted { $0.timestamp > $1.timestamp })
+            LanguageGroup(language: language, cards: cards.sorted { $0.timestamp < $1.timestamp })
         }.sorted { group1, group2 in
             // Sort groups by language display name
             group1.language.displayName < group2.language.displayName
@@ -111,6 +111,7 @@ struct MyCardsListView: View {
                     .listStyle(.insetGrouped)
                 }
             }
+            .background(Color(.systemGroupedBackground))
             .searchable(
                 text: $searchText,
                 prompt: LocalizationKeys.searchCards.localized
@@ -126,13 +127,16 @@ struct MyCardsListView: View {
                     }
                     .animation(.bouncy, value: syncManager.syncState)
                 }
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button(LocalizationKeys.close.localized) {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
                         HapticService.shared.buttonTapped()
                         dismiss()
+                    } label: {
+                        Image(systemName: "xmark.circle.fill")
                     }
+                    .foregroundStyle(.secondary)
                 }
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .navigationBarLeading) {
                     Menu {
                         Section {
                             Picker(LocalizationKeys.filterByFavorites.localized, selection: $tagManager.isFavoriteFilterOn) {
@@ -216,6 +220,7 @@ struct MyCardsListView: View {
                 .environmentObject(languageManager)
                 .environmentObject(cardsProvider)
                 .environmentObject(colorManager)
+                .padding(vertical: 12, horizontal: 16)
         }
     }
 

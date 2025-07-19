@@ -52,17 +52,22 @@ struct FeaturedPresetCollections: View {
                     .frame(maxWidth: .infinity, alignment: .center)
                     .padding(.vertical, 20)
             } else {
-                VStack(spacing: 12) {
-                    ForEach(featuredCollections) { collection in
-                        PresetCollectionCard(collection: collection) {
-                            collectionToImport = collection
-                            showingImportAlert = true
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 12) {
+                        ForEach(featuredCollections) { collection in
+                            PresetCollectionCard(collection: collection) {
+                                collectionToImport = collection
+                                showingImportAlert = true
+                            }
+                            .frame(width: 240)
+                            .clippedWithPaddingAndBackground(
+                                Color(.tertiarySystemGroupedBackground).opacity(0.6)
+                            )
                         }
-                        .clippedWithPaddingAndBackground(
-                            Color(.tertiarySystemGroupedBackground).opacity(0.6)
-                        )
                     }
                 }
+                .scrollTargetBehavior(.paging)
+                .scrollClipDisabled()
             }
         }
         .clippedWithPaddingAndBackground()

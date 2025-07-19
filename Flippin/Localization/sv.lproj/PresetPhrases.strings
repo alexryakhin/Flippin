@@ -172,4 +172,46 @@
 "phrase.playGuitar.notes" = "Musikinstrument";
 
 "phrase.likePhotography.text" = "Jag gillar fotografi";
-"phrase.likePhotography.notes" = "Fotografihobby"; 
+"phrase.likePhotography.notes" = "Fotografi som hobby"; 
+
+// MARK: - Tags and Filters
+"tag.basics" = "Grundläggande";
+"tag.travel" = "Resor";
+"tag.entertainment" = "Underhållning";
+"tag.food" = "Mat";
+"tag.health" = "Hälsa";
+"tag.leisure" = "Fritid";
+"tag.medical" = "Medicinsk";
+"tag.hobbies" = "Hobbyer";
+"tag.media" = "Media";
+"tag.dining" = "Måltid";
+"tag.emergency" = "Akut";
+"tag.communication" = "Kommunikation";
+"tag.culture" = "Kultur";
+"tag.sports" = "Sport";
+"tag.music" = "Musik";
+"tag.movies" = "Filmer";
+"tag.games" = "Spel";
+"tag.books" = "Böcker";
+"tag.art" = "Konst";
+"tag.nature" = "Natur";
+"tag.technology" = "Teknologi";
+"tag.business" = "Affärer";
+"tag.education" = "Utbildning";
+"tag.family" = "Familj";
+"tag.friends" = "Vänner";
+"tag.romance" = "Romantik";
+"tag.shopping" = "Shopping";
+"tag.transportation" = "Transport";
+"tag.accommodation" = "Boende";
+"tag.weather" = "Väder";
+"tag.time" = "Tid";
+"tag.numbers" = "Nummer";
+"tag.colors" = "Färger";
+"tag.directions" = "Riktningar";
+"tag.questions" = "Frågor";
+"tag.answers" = "Svar";
+"tag.opinions" = "Åsikter";
+"tag.feelings" = "Känslor";
+"tag.actions" = "Handlingar";
+"tag.descriptions" = "Beskrivningar"; 
