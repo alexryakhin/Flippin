@@ -1,0 +1,175 @@
+/*
+  PresetPhrases.strings
+  Flippin
+
+  Created by Alexander Riakhin on 12/19/25.
+*/
+
+// MARK: - Collection Names
+"collection.essentialPhrases.name" = "العبارات الأساسية";
+"collection.essentialPhrases.description" = "الكلمات والعبارات الأساسية التي يحتاج الجميع لمعرفتها";
+
+"collection.travelEssentials.name" = "أساسيات السفر";
+"collection.travelEssentials.description" = "العبارات الأساسية للسفر والتنقل";
+
+"collection.entertainmentMedia.name" = "الترفيه والإعلام";
+"collection.entertainmentMedia.description" = "كلمات وعبارات عن الأفلام والموسيقى والألعاب والترفيه";
+
+"collection.foodDining.name" = "الطعام والمطاعم";
+"collection.foodDining.description" = "العبارات الأساسية للمطاعم وتجارب الطعام";
+
+"collection.healthMedical.name" = "الصحة والطب";
+"collection.healthMedical.description" = "عبارات مهمة للحالات الطبية ومشاكل الصحة";
+
+"collection.leisureHobbies.name" = "الترفيه والهوايات";
+"collection.leisureHobbies.description" = "عبارات للحديث عن الهوايات والرياضة وأنشطة وقت الفراغ";
+
+// MARK: - Essential Phrases
+"phrase.hello.text" = "مرحبا";
+"phrase.hello.notes" = "تحية أساسية";
+
+"phrase.thankYou.text" = "شكرا لك";
+"phrase.thankYou.notes" = "التعبير عن الامتنان";
+
+"phrase.please.text" = "من فضلك";
+"phrase.please.notes" = "تقديم طلبات مهذبة";
+
+"phrase.yes.text" = "نعم";
+"phrase.yes.notes" = "إجابة إيجابية";
+
+"phrase.no.text" = "لا";
+"phrase.no.notes" = "إجابة سلبية";
+
+"phrase.goodbye.text" = "وداعا";
+"phrase.goodbye.notes" = "الوداع";
+
+"phrase.excuseMe.text" = "عذرا";
+"phrase.excuseMe.notes" = "جذب الانتباه أو الاعتذار";
+
+"phrase.dontUnderstand.text" = "لا أفهم";
+"phrase.dontUnderstand.notes" = "عندما تحتاج توضيحا";
+
+// MARK: - Travel Phrases
+"phrase.whereBathroom.text" = "أين الحمام؟";
+"phrase.whereBathroom.notes" = "ضروري للمسافرين";
+
+"phrase.howMuchCost.text" = "كم يكلف هذا؟";
+"phrase.howMuchCost.notes" = "التسوق والمقايضة";
+
+"phrase.needHelp.text" = "أحتاج مساعدة";
+"phrase.needHelp.notes" = "عبارة طوارئ";
+
+"phrase.speakEnglish.text" = "هل تتحدث الإنجليزية؟";
+"phrase.speakEnglish.notes" = "كسر حاجز اللغة";
+
+"phrase.imLost.text" = "أنا ضائع";
+"phrase.imLost.notes" = "عندما تحتاج توجيهات";
+
+"phrase.canYouHelp.text" = "هل يمكنك مساعدتي؟";
+"phrase.canYouHelp.notes" = "طلب المساعدة";
+
+"phrase.whatTime.text" = "ما الوقت الآن؟";
+"phrase.whatTime.notes" = "أسئلة متعلقة بالوقت";
+
+"phrase.allergicTo.text" = "أنا أعاني من حساسية تجاه...";
+"phrase.allergicTo.notes" = "مهم للطعام والدواء";
+
+// MARK: - Entertainment Phrases
+"phrase.loveMovie.text" = "أحب هذا الفيلم";
+"phrase.loveMovie.notes" = "التعبير عن المتعة";
+
+"phrase.favoriteMusic.text" = "ما هي موسيقاك المفضلة؟";
+"phrase.favoriteMusic.notes" = "بداية محادثة عن الموسيقى";
+
+"phrase.songAmazing.text" = "هذه الأغنية مذهلة";
+"phrase.songAmazing.notes" = "تقدير الموسيقى";
+
+"phrase.playVideoGames.text" = "ألعب ألعاب الفيديو";
+"phrase.playVideoGames.notes" = "هواية الألعاب";
+
+"phrase.seenShow.text" = "هل شاهدت هذا البرنامج؟";
+"phrase.seenShow.notes" = "مناقشة برامج التلفزيون";
+
+"phrase.readComics.text" = "أقرأ القصص المصورة";
+"phrase.readComics.notes" = "الاهتمام بالقصص المصورة";
+
+"phrase.disneyGreat.text" = "أفلام ديزني رائعة";
+"phrase.disneyGreat.notes" = "تقدير ديزني";
+
+"phrase.whatGenre.text" = "ما النوع الذي تفضله؟";
+"phrase.whatGenre.notes" = "تفضيلات الترفيه";
+
+// MARK: - Food Phrases
+"phrase.imHungry.text" = "أنا جائع";
+"phrase.imHungry.notes" = "الحاجة الأساسية للطعام";
+
+"phrase.delicious.text" = "هذا لذيذ";
+"phrase.delicious.notes" = "تقدير الطعام";
+
+"phrase.vegetarian.text" = "أنا نباتي";
+"phrase.vegetarian.notes" = "قيود غذائية";
+
+"phrase.canHaveMenu.text" = "هل يمكنني الحصول على القائمة؟";
+"phrase.canHaveMenu.notes" = "طلب في المطعم";
+
+"phrase.likeToOrder.text" = "أود أن أطلب";
+"phrase.likeToOrder.notes" = "جاهز للطلب";
+
+"phrase.billPlease.text" = "الفاتورة من فضلك";
+"phrase.billPlease.notes" = "طلب الحساب";
+
+"phrase.allergicNuts.text" = "أنا أعاني من حساسية تجاه المكسرات";
+"phrase.allergicNuts.notes" = "حساسية الطعام";
+
+"phrase.whatRecommend.text" = "ماذا تنصح؟";
+"phrase.whatRecommend.notes" = "طلب التوصيات";
+
+// MARK: - Health Phrases
+"phrase.dontFeelWell.text" = "لا أشعر بحالة جيدة";
+"phrase.dontFeelWell.notes" = "مشكلة صحية عامة";
+
+"phrase.haveHeadache.text" = "أعاني من صداع";
+"phrase.haveHeadache.notes" = "عرض شائع";
+
+"phrase.needDoctor.text" = "أحتاج طبيب";
+"phrase.needDoctor.notes" = "حالة طبية طارئة";
+
+"phrase.whereHospital.text" = "أين المستشفى؟";
+"phrase.whereHospital.notes" = "موقع المنشأة الطبية";
+
+"phrase.haveFever.text" = "أعاني من حمى";
+"phrase.haveFever.notes" = "عرض مرض شائع";
+
+"phrase.takingMedication.text" = "أتناول دواء";
+"phrase.takingMedication.notes" = "معلومات طبية";
+
+"phrase.haveAllergy.text" = "أعاني من حساسية";
+"phrase.haveAllergy.notes" = "معلومات طبية مهمة";
+
+"phrase.callAmbulance.text" = "اتصل بسيارة الإسعاف";
+"phrase.callAmbulance.notes" = "حالة طارئة";
+
+// MARK: - Leisure Phrases
+"phrase.likeToRead.text" = "أحب القراءة";
+"phrase.likeToRead.notes" = "هواية القراءة";
+
+"phrase.playSports.text" = "هل تمارس الرياضة؟";
+"phrase.playSports.notes" = "محادثة عن الرياضة";
+
+"phrase.loveHiking.text" = "أحب المشي لمسافات طويلة";
+"phrase.loveHiking.notes" = "نشاط في الهواء الطلق";
+
+"phrase.whatDoForFun.text" = "ماذا تفعل للترفيه؟";
+"phrase.whatDoForFun.notes" = "بداية محادثة عن الهوايات";
+
+"phrase.enjoyCooking.text" = "أستمتع بالطبخ";
+"phrase.enjoyCooking.notes" = "هواية الطبخ";
+
+"phrase.goForWalk.text" = "دعنا نذهب في نزهة";
+"phrase.goForWalk.notes" = "اقتراح نشاط عادي";
+
+"phrase.playGuitar.text" = "أعزف على الجيتار";
+"phrase.playGuitar.notes" = "آلة موسيقية";
+
+"phrase.likePhotography.text" = "أحب التصوير";
+"phrase.likePhotography.notes" = "هواية التصوير"; 

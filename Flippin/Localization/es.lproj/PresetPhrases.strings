@@ -1,0 +1,175 @@
+/*
+  PresetPhrases.strings
+  Flippin
+
+  Created by Alexander Riakhin on 12/19/25.
+*/
+
+// MARK: - Collection Names
+"collection.essentialPhrases.name" = "Frases Esenciales";
+"collection.essentialPhrases.description" = "Palabras y frases básicas que todos necesitan saber";
+
+"collection.travelEssentials.name" = "Esenciales de Viaje";
+"collection.travelEssentials.description" = "Frases esenciales para viajar y moverse";
+
+"collection.entertainmentMedia.name" = "Entretenimiento y Medios";
+"collection.entertainmentMedia.description" = "Palabras y frases sobre películas, música, juegos y entretenimiento";
+
+"collection.foodDining.name" = "Comida y Restaurantes";
+"collection.foodDining.description" = "Frases esenciales para restaurantes y experiencias gastronómicas";
+
+"collection.healthMedical.name" = "Salud y Médico";
+"collection.healthMedical.description" = "Frases importantes para situaciones médicas y problemas de salud";
+
+"collection.leisureHobbies.name" = "Ocio y Pasatiempos";
+"collection.leisureHobbies.description" = "Frases para hablar sobre pasatiempos, deportes y actividades de tiempo libre";
+
+// MARK: - Essential Phrases
+"phrase.hello.text" = "Hola";
+"phrase.hello.notes" = "Saludo básico";
+
+"phrase.thankYou.text" = "Gracias";
+"phrase.thankYou.notes" = "Expresar gratitud";
+
+"phrase.please.text" = "Por favor";
+"phrase.please.notes" = "Hacer peticiones educadas";
+
+"phrase.yes.text" = "Sí";
+"phrase.yes.notes" = "Respuesta afirmativa";
+
+"phrase.no.text" = "No";
+"phrase.no.notes" = "Respuesta negativa";
+
+"phrase.goodbye.text" = "Adiós";
+"phrase.goodbye.notes" = "Despedida";
+
+"phrase.excuseMe.text" = "Perdón";
+"phrase.excuseMe.notes" = "Llamar la atención o disculparse";
+
+"phrase.dontUnderstand.text" = "No entiendo";
+"phrase.dontUnderstand.notes" = "Cuando necesitas aclaración";
+
+// MARK: - Travel Phrases
+"phrase.whereBathroom.text" = "¿Dónde está el baño?";
+"phrase.whereBathroom.notes" = "Esencial para viajeros";
+
+"phrase.howMuchCost.text" = "¿Cuánto cuesta esto?";
+"phrase.howMuchCost.notes" = "Compras y regateo";
+
+"phrase.needHelp.text" = "Necesito ayuda";
+"phrase.needHelp.notes" = "Frase de emergencia";
+
+"phrase.speakEnglish.text" = "¿Habla inglés?";
+"phrase.speakEnglish.notes" = "Romper barrera del idioma";
+
+"phrase.imLost.text" = "Estoy perdido";
+"phrase.imLost.notes" = "Cuando necesitas direcciones";
+
+"phrase.canYouHelp.text" = "¿Puede ayudarme?";
+"phrase.canYouHelp.notes" = "Pedir asistencia";
+
+"phrase.whatTime.text" = "¿Qué hora es?";
+"phrase.whatTime.notes" = "Preguntas sobre tiempo";
+
+"phrase.allergicTo.text" = "Soy alérgico a...";
+"phrase.allergicTo.notes" = "Importante para comida y medicina";
+
+// MARK: - Entertainment Phrases
+"phrase.loveMovie.text" = "Me encanta esta película";
+"phrase.loveMovie.notes" = "Expresar disfrute";
+
+"phrase.favoriteMusic.text" = "¿Cuál es tu música favorita?";
+"phrase.favoriteMusic.notes" = "Iniciador de conversación sobre música";
+
+"phrase.songAmazing.text" = "Esta canción es increíble";
+"phrase.songAmazing.notes" = "Apreciación musical";
+
+"phrase.playVideoGames.text" = "Juego videojuegos";
+"phrase.playVideoGames.notes" = "Pasatiempo de juegos";
+
+"phrase.seenShow.text" = "¿Has visto este programa?";
+"phrase.seenShow.notes" = "Discusión de programas de TV";
+
+"phrase.readComics.text" = "Leo cómics";
+"phrase.readComics.notes" = "Interés en cómics";
+
+"phrase.disneyGreat.text" = "Las películas de Disney son geniales";
+"phrase.disneyGreat.notes" = "Apreciación de Disney";
+
+"phrase.whatGenre.text" = "¿Qué género te gusta?";
+"phrase.whatGenre.notes" = "Preferencias de entretenimiento";
+
+// MARK: - Food Phrases
+"phrase.imHungry.text" = "Tengo hambre";
+"phrase.imHungry.notes" = "Necesidad básica de comida";
+
+"phrase.delicious.text" = "Esto está delicioso";
+"phrase.delicious.notes" = "Apreciación de comida";
+
+"phrase.vegetarian.text" = "Soy vegetariano";
+"phrase.vegetarian.notes" = "Restricción dietética";
+
+"phrase.canHaveMenu.text" = "¿Puedo tener el menú?";
+"phrase.canHaveMenu.notes" = "Petición en restaurante";
+
+"phrase.likeToOrder.text" = "Me gustaría ordenar";
+"phrase.likeToOrder.notes" = "Listo para ordenar";
+
+"phrase.billPlease.text" = "La cuenta, por favor";
+"phrase.billPlease.notes" = "Pedir la cuenta";
+
+"phrase.allergicNuts.text" = "Soy alérgico a las nueces";
+"phrase.allergicNuts.notes" = "Alergia alimentaria";
+
+"phrase.whatRecommend.text" = "¿Qué recomienda?";
+"phrase.whatRecommend.notes" = "Pedir recomendaciones";
+
+// MARK: - Health Phrases
+"phrase.dontFeelWell.text" = "No me siento bien";
+"phrase.dontFeelWell.notes" = "Problema de salud general";
+
+"phrase.haveHeadache.text" = "Tengo dolor de cabeza";
+"phrase.haveHeadache.notes" = "Síntoma común";
+
+"phrase.needDoctor.text" = "Necesito un médico";
+"phrase.needDoctor.notes" = "Emergencia médica";
+
+"phrase.whereHospital.text" = "¿Dónde está el hospital?";
+"phrase.whereHospital.notes" = "Ubicación de instalación médica";
+
+"phrase.haveFever.text" = "Tengo fiebre";
+"phrase.haveFever.notes" = "Síntoma común de enfermedad";
+
+"phrase.takingMedication.text" = "Estoy tomando medicamentos";
+"phrase.takingMedication.notes" = "Información médica";
+
+"phrase.haveAllergy.text" = "Tengo una alergia";
+"phrase.haveAllergy.notes" = "Información médica importante";
+
+"phrase.callAmbulance.text" = "Llame una ambulancia";
+"phrase.callAmbulance.notes" = "Situación de emergencia";
+
+// MARK: - Leisure Phrases
+"phrase.likeToRead.text" = "Me gusta leer";
+"phrase.likeToRead.notes" = "Pasatiempo de lectura";
+
+"phrase.playSports.text" = "¿Practicas deportes?";
+"phrase.playSports.notes" = "Conversación sobre deportes";
+
+"phrase.loveHiking.text" = "Me encanta hacer senderismo";
+"phrase.loveHiking.notes" = "Actividad al aire libre";
+
+"phrase.whatDoForFun.text" = "¿Qué haces para divertirte?";
+"phrase.whatDoForFun.notes" = "Iniciador de conversación sobre pasatiempos";
+
+"phrase.enjoyCooking.text" = "Disfruto cocinando";
+"phrase.enjoyCooking.notes" = "Pasatiempo de cocina";
+
+"phrase.goForWalk.text" = "Vamos a dar un paseo";
+"phrase.goForWalk.notes" = "Sugerencia de actividad casual";
+
+"phrase.playGuitar.text" = "Toco la guitarra";
+"phrase.playGuitar.notes" = "Instrumento musical";
+
+"phrase.likePhotography.text" = "Me gusta la fotografía";
+"phrase.likePhotography.notes" = "Pasatiempo de fotografía"; 

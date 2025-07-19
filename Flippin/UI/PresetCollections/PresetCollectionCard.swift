@@ -52,7 +52,7 @@ struct PresetCollectionCard: View {
                         Text("•")
                             .foregroundColor(.secondary)
                             .font(.caption)
-                        Text(card.frontText)
+                        Text(card.backText)
                             .font(.caption)
                             .foregroundColor(.secondary)
                             .lineLimit(1)

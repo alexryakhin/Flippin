@@ -1,0 +1,175 @@
+/*
+  PresetPhrases.strings
+  Flippin
+
+  Created by Alexander Riakhin on 12/19/25.
+*/
+
+// MARK: - Collection Names
+"collection.essentialPhrases.name" = "Основные фразы";
+"collection.essentialPhrases.description" = "Основные слова и фразы, которые должен знать каждый";
+
+"collection.travelEssentials.name" = "Необходимое для путешествий";
+"collection.travelEssentials.description" = "Основные фразы для путешествий и передвижения";
+
+"collection.entertainmentMedia.name" = "Развлечения и медиа";
+"collection.entertainmentMedia.description" = "Слова и фразы о фильмах, музыке, играх и развлечениях";
+
+"collection.foodDining.name" = "Еда и рестораны";
+"collection.foodDining.description" = "Основные фразы для ресторанов и гастрономических впечатлений";
+
+"collection.healthMedical.name" = "Здоровье и медицина";
+"collection.healthMedical.description" = "Важные фразы для медицинских ситуаций и проблем со здоровьем";
+
+"collection.leisureHobbies.name" = "Досуг и хобби";
+"collection.leisureHobbies.description" = "Фразы для разговоров о хобби, спорте и досуговых занятиях";
+
+// MARK: - Essential Phrases
+"phrase.hello.text" = "Привет";
+"phrase.hello.notes" = "Основное приветствие";
+
+"phrase.thankYou.text" = "Спасибо";
+"phrase.thankYou.notes" = "Выражение благодарности";
+
+"phrase.please.text" = "Пожалуйста";
+"phrase.please.notes" = "Вежливая просьба";
+
+"phrase.yes.text" = "Да";
+"phrase.yes.notes" = "Утвердительный ответ";
+
+"phrase.no.text" = "Нет";
+"phrase.no.notes" = "Отрицательный ответ";
+
+"phrase.goodbye.text" = "До свидания";
+"phrase.goodbye.notes" = "Прощание";
+
+"phrase.excuseMe.text" = "Извините";
+"phrase.excuseMe.notes" = "Привлечение внимания или извинение";
+
+"phrase.dontUnderstand.text" = "Я не понимаю";
+"phrase.dontUnderstand.notes" = "Когда нужны разъяснения";
+
+// MARK: - Travel Phrases
+"phrase.whereBathroom.text" = "Где туалет?";
+"phrase.whereBathroom.notes" = "Необходимо для путешественников";
+
+"phrase.howMuchCost.text" = "Сколько это стоит?";
+"phrase.howMuchCost.notes" = "Покупки и торг";
+
+"phrase.needHelp.text" = "Мне нужна помощь";
+"phrase.needHelp.notes" = "Экстренная фраза";
+
+"phrase.speakEnglish.text" = "Вы говорите по-английски?";
+"phrase.speakEnglish.notes" = "Преодоление языкового барьера";
+
+"phrase.imLost.text" = "Я заблудился";
+"phrase.imLost.notes" = "Когда нужны указания";
+
+"phrase.canYouHelp.text" = "Можете помочь мне?";
+"phrase.canYouHelp.notes" = "Просьба о помощи";
+
+"phrase.whatTime.text" = "Который час?";
+"phrase.whatTime.notes" = "Вопросы о времени";
+
+"phrase.allergicTo.text" = "У меня аллергия на...";
+"phrase.allergicTo.notes" = "Важно для еды и лекарств";
+
+// MARK: - Entertainment Phrases
+"phrase.loveMovie.text" = "Я люблю этот фильм";
+"phrase.loveMovie.notes" = "Выражение удовольствия";
+
+"phrase.favoriteMusic.text" = "Какая твоя любимая музыка?";
+"phrase.favoriteMusic.notes" = "Начало разговора о музыке";
+
+"phrase.songAmazing.text" = "Эта песня потрясающая";
+"phrase.songAmazing.notes" = "Музыкальное восприятие";
+
+"phrase.playVideoGames.text" = "Я играю в видеоигры";
+"phrase.playVideoGames.notes" = "Хобби игр";
+
+"phrase.seenShow.text" = "Ты видел это шоу?";
+"phrase.seenShow.notes" = "Обсуждение телешоу";
+
+"phrase.readComics.text" = "Я читаю комиксы";
+"phrase.readComics.notes" = "Интерес к комиксам";
+
+"phrase.disneyGreat.text" = "Фильмы Диснея отличные";
+"phrase.disneyGreat.notes" = "Восприятие Диснея";
+
+"phrase.whatGenre.text" = "Какой жанр тебе нравится?";
+"phrase.whatGenre.notes" = "Предпочтения в развлечениях";
+
+// MARK: - Food Phrases
+"phrase.imHungry.text" = "Я голоден";
+"phrase.imHungry.notes" = "Основная потребность в еде";
+
+"phrase.delicious.text" = "Это вкусно";
+"phrase.delicious.notes" = "Восприятие еды";
+
+"phrase.vegetarian.text" = "Я вегетарианец";
+"phrase.vegetarian.notes" = "Диетическое ограничение";
+
+"phrase.canHaveMenu.text" = "Можно меню?";
+"phrase.canHaveMenu.notes" = "Запрос в ресторане";
+
+"phrase.likeToOrder.text" = "Я хотел бы заказать";
+"phrase.likeToOrder.notes" = "Готов заказать";
+
+"phrase.billPlease.text" = "Счет, пожалуйста";
+"phrase.billPlease.notes" = "Просьба о счете";
+
+"phrase.allergicNuts.text" = "У меня аллергия на орехи";
+"phrase.allergicNuts.notes" = "Пищевая аллергия";
+
+"phrase.whatRecommend.text" = "Что вы рекомендуете?";
+"phrase.whatRecommend.notes" = "Просьба о рекомендациях";
+
+// MARK: - Health Phrases
+"phrase.dontFeelWell.text" = "Я плохо себя чувствую";
+"phrase.dontFeelWell.notes" = "Общая проблема со здоровьем";
+
+"phrase.haveHeadache.text" = "У меня болит голова";
+"phrase.haveHeadache.notes" = "Общий симптом";
+
+"phrase.needDoctor.text" = "Мне нужен врач";
+"phrase.needDoctor.notes" = "Медицинская экстренная ситуация";
+
+"phrase.whereHospital.text" = "Где больница?";
+"phrase.whereHospital.notes" = "Местоположение медицинского учреждения";
+
+"phrase.haveFever.text" = "У меня температура";
+"phrase.haveFever.notes" = "Общий симптом болезни";
+
+"phrase.takingMedication.text" = "Я принимаю лекарства";
+"phrase.takingMedication.notes" = "Медицинская информация";
+
+"phrase.haveAllergy.text" = "У меня аллергия";
+"phrase.haveAllergy.notes" = "Важная медицинская информация";
+
+"phrase.callAmbulance.text" = "Вызовите скорую помощь";
+"phrase.callAmbulance.notes" = "Экстренная ситуация";
+
+// MARK: - Leisure Phrases
+"phrase.likeToRead.text" = "Я люблю читать";
+"phrase.likeToRead.notes" = "Хобби чтения";
+
+"phrase.playSports.text" = "Ты занимаешься спортом?";
+"phrase.playSports.notes" = "Разговор о спорте";
+
+"phrase.loveHiking.text" = "Я люблю походы";
+"phrase.loveHiking.notes" = "Активность на свежем воздухе";
+
+"phrase.whatDoForFun.text" = "Что ты делаешь для развлечения?";
+"phrase.whatDoForFun.notes" = "Начало разговора о хобби";
+
+"phrase.enjoyCooking.text" = "Я люблю готовить";
+"phrase.enjoyCooking.notes" = "Хобби готовки";
+
+"phrase.goForWalk.text" = "Давайте прогуляемся";
+"phrase.goForWalk.notes" = "Предложение неформальной активности";
+
+"phrase.playGuitar.text" = "Я играю на гитаре";
+"phrase.playGuitar.notes" = "Музыкальный инструмент";
+
+"phrase.likePhotography.text" = "Я люблю фотографию";
+"phrase.likePhotography.notes" = "Хобби фотографии"; 

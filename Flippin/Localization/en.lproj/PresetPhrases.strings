@@ -1,0 +1,175 @@
+/*
+  PresetPhrases.strings
+  Flippin
+
+  Created by Alexander Riakhin on 12/19/25.
+*/
+
+// MARK: - Collection Names
+"collection.essentialPhrases.name" = "Essential Phrases";
+"collection.essentialPhrases.description" = "Basic words and phrases everyone needs to know";
+
+"collection.travelEssentials.name" = "Travel Essentials";
+"collection.travelEssentials.description" = "Essential phrases for traveling and getting around";
+
+"collection.entertainmentMedia.name" = "Entertainment & Media";
+"collection.entertainmentMedia.description" = "Words and phrases about movies, music, games, and entertainment";
+
+"collection.foodDining.name" = "Food & Dining";
+"collection.foodDining.description" = "Essential phrases for restaurants and food experiences";
+
+"collection.healthMedical.name" = "Health & Medical";
+"collection.healthMedical.description" = "Important phrases for medical situations and health concerns";
+
+"collection.leisureHobbies.name" = "Leisure & Hobbies";
+"collection.leisureHobbies.description" = "Phrases for talking about hobbies, sports, and free time activities";
+
+// MARK: - Essential Phrases
+"phrase.hello.text" = "Hello";
+"phrase.hello.notes" = "Basic greeting";
+
+"phrase.thankYou.text" = "Thank you";
+"phrase.thankYou.notes" = "Expressing gratitude";
+
+"phrase.please.text" = "Please";
+"phrase.please.notes" = "Making polite requests";
+
+"phrase.yes.text" = "Yes";
+"phrase.yes.notes" = "Affirmative response";
+
+"phrase.no.text" = "No";
+"phrase.no.notes" = "Negative response";
+
+"phrase.goodbye.text" = "Goodbye";
+"phrase.goodbye.notes" = "Farewell";
+
+"phrase.excuseMe.text" = "Excuse me";
+"phrase.excuseMe.notes" = "Getting attention or apologizing";
+
+"phrase.dontUnderstand.text" = "I don't understand";
+"phrase.dontUnderstand.notes" = "When you need clarification";
+
+// MARK: - Travel Phrases
+"phrase.whereBathroom.text" = "Where is the bathroom?";
+"phrase.whereBathroom.notes" = "Essential for travelers";
+
+"phrase.howMuchCost.text" = "How much does this cost?";
+"phrase.howMuchCost.notes" = "Shopping and bargaining";
+
+"phrase.needHelp.text" = "I need help";
+"phrase.needHelp.notes" = "Emergency phrase";
+
+"phrase.speakEnglish.text" = "Do you speak English?";
+"phrase.speakEnglish.notes" = "Language barrier breaker";
+
+"phrase.imLost.text" = "I'm lost";
+"phrase.imLost.notes" = "When you need directions";
+
+"phrase.canYouHelp.text" = "Can you help me?";
+"phrase.canYouHelp.notes" = "Asking for assistance";
+
+"phrase.whatTime.text" = "What time is it?";
+"phrase.whatTime.notes" = "Time-related questions";
+
+"phrase.allergicTo.text" = "I'm allergic to...";
+"phrase.allergicTo.notes" = "Important for food and medicine";
+
+// MARK: - Entertainment Phrases
+"phrase.loveMovie.text" = "I love this movie";
+"phrase.loveMovie.notes" = "Expressing enjoyment";
+
+"phrase.favoriteMusic.text" = "What's your favorite music?";
+"phrase.favoriteMusic.notes" = "Music conversation starter";
+
+"phrase.songAmazing.text" = "This song is amazing";
+"phrase.songAmazing.notes" = "Music appreciation";
+
+"phrase.playVideoGames.text" = "I play video games";
+"phrase.playVideoGames.notes" = "Gaming hobby";
+
+"phrase.seenShow.text" = "Have you seen this show?";
+"phrase.seenShow.notes" = "TV show discussion";
+
+"phrase.readComics.text" = "I read comics";
+"phrase.readComics.notes" = "Comic book interest";
+
+"phrase.disneyGreat.text" = "Disney movies are great";
+"phrase.disneyGreat.notes" = "Disney appreciation";
+
+"phrase.whatGenre.text" = "What genre do you like?";
+"phrase.whatGenre.notes" = "Entertainment preferences";
+
+// MARK: - Food Phrases
+"phrase.imHungry.text" = "I'm hungry";
+"phrase.imHungry.notes" = "Basic food need";
+
+"phrase.delicious.text" = "This is delicious";
+"phrase.delicious.notes" = "Food appreciation";
+
+"phrase.vegetarian.text" = "I'm vegetarian";
+"phrase.vegetarian.notes" = "Dietary restriction";
+
+"phrase.canHaveMenu.text" = "Can I have the menu?";
+"phrase.canHaveMenu.notes" = "Restaurant request";
+
+"phrase.likeToOrder.text" = "I'd like to order";
+"phrase.likeToOrder.notes" = "Ready to order";
+
+"phrase.billPlease.text" = "The bill, please";
+"phrase.billPlease.notes" = "Asking for the check";
+
+"phrase.allergicNuts.text" = "I'm allergic to nuts";
+"phrase.allergicNuts.notes" = "Food allergy";
+
+"phrase.whatRecommend.text" = "What do you recommend?";
+"phrase.whatRecommend.notes" = "Asking for recommendations";
+
+// MARK: - Health Phrases
+"phrase.dontFeelWell.text" = "I don't feel well";
+"phrase.dontFeelWell.notes" = "General health concern";
+
+"phrase.haveHeadache.text" = "I have a headache";
+"phrase.haveHeadache.notes" = "Common symptom";
+
+"phrase.needDoctor.text" = "I need a doctor";
+"phrase.needDoctor.notes" = "Medical emergency";
+
+"phrase.whereHospital.text" = "Where is the hospital?";
+"phrase.whereHospital.notes" = "Medical facility location";
+
+"phrase.haveFever.text" = "I have a fever";
+"phrase.haveFever.notes" = "Common illness symptom";
+
+"phrase.takingMedication.text" = "I'm taking medication";
+"phrase.takingMedication.notes" = "Medical information";
+
+"phrase.haveAllergy.text" = "I have an allergy";
+"phrase.haveAllergy.notes" = "Important medical information";
+
+"phrase.callAmbulance.text" = "Call an ambulance";
+"phrase.callAmbulance.notes" = "Emergency situation";
+
+// MARK: - Leisure Phrases
+"phrase.likeToRead.text" = "I like to read";
+"phrase.likeToRead.notes" = "Reading hobby";
+
+"phrase.playSports.text" = "Do you play sports?";
+"phrase.playSports.notes" = "Sports conversation";
+
+"phrase.loveHiking.text" = "I love hiking";
+"phrase.loveHiking.notes" = "Outdoor activity";
+
+"phrase.whatDoForFun.text" = "What do you do for fun?";
+"phrase.whatDoForFun.notes" = "Hobby conversation starter";
+
+"phrase.enjoyCooking.text" = "I enjoy cooking";
+"phrase.enjoyCooking.notes" = "Cooking hobby";
+
+"phrase.goForWalk.text" = "Let's go for a walk";
+"phrase.goForWalk.notes" = "Casual activity suggestion";
+
+"phrase.playGuitar.text" = "I play guitar";
+"phrase.playGuitar.notes" = "Musical instrument";
+
+"phrase.likePhotography.text" = "I like photography";
+"phrase.likePhotography.notes" = "Photography hobby"; 

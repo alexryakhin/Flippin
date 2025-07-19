@@ -1,0 +1,175 @@
+/*
+  PresetPhrases.strings
+  Flippin
+
+  Created by Alexander Riakhin on 12/19/25.
+*/
+
+// MARK: - Collection Names
+"collection.essentialPhrases.name" = "基本的なフレーズ";
+"collection.essentialPhrases.description" = "誰もが知っておくべき基本的な単語とフレーズ";
+
+"collection.travelEssentials.name" = "旅行の必需品";
+"collection.travelEssentials.description" = "旅行や移動に必要な基本的なフレーズ";
+
+"collection.entertainmentMedia.name" = "エンターテイメントとメディア";
+"collection.entertainmentMedia.description" = "映画、音楽、ゲーム、エンターテイメントに関する単語とフレーズ";
+
+"collection.foodDining.name" = "食事とレストラン";
+"collection.foodDining.description" = "レストランや食事体験に必要な基本的なフレーズ";
+
+"collection.healthMedical.name" = "健康と医療";
+"collection.healthMedical.description" = "医療状況や健康問題に重要なフレーズ";
+
+"collection.leisureHobbies.name" = "レジャーと趣味";
+"collection.leisureHobbies.description" = "趣味、スポーツ、余暇活動について話すためのフレーズ";
+
+// MARK: - Essential Phrases
+"phrase.hello.text" = "こんにちは";
+"phrase.hello.notes" = "基本的な挨拶";
+
+"phrase.thankYou.text" = "ありがとうございます";
+"phrase.thankYou.notes" = "感謝を表す";
+
+"phrase.please.text" = "お願いします";
+"phrase.please.notes" = "丁寧な依頼をする";
+
+"phrase.yes.text" = "はい";
+"phrase.yes.notes" = "肯定の返答";
+
+"phrase.no.text" = "いいえ";
+"phrase.no.notes" = "否定の返答";
+
+"phrase.goodbye.text" = "さようなら";
+"phrase.goodbye.notes" = "別れの挨拶";
+
+"phrase.excuseMe.text" = "すみません";
+"phrase.excuseMe.notes" = "注意を引くか謝罪する";
+
+"phrase.dontUnderstand.text" = "わかりません";
+"phrase.dontUnderstand.notes" = "説明が必要な時";
+
+// MARK: - Travel Phrases
+"phrase.whereBathroom.text" = "トイレはどこですか？";
+"phrase.whereBathroom.notes" = "旅行者に必須";
+
+"phrase.howMuchCost.text" = "これはいくらですか？";
+"phrase.howMuchCost.notes" = "買い物と値引き交渉";
+
+"phrase.needHelp.text" = "助けてください";
+"phrase.needHelp.notes" = "緊急時のフレーズ";
+
+"phrase.speakEnglish.text" = "英語を話しますか？";
+"phrase.speakEnglish.notes" = "言語の壁を越える";
+
+"phrase.imLost.text" = "道に迷いました";
+"phrase.imLost.notes" = "道案内が必要な時";
+
+"phrase.canYouHelp.text" = "手伝っていただけますか？";
+"phrase.canYouHelp.notes" = "援助を求める";
+
+"phrase.whatTime.text" = "何時ですか？";
+"phrase.whatTime.notes" = "時間に関する質問";
+
+"phrase.allergicTo.text" = "私は...にアレルギーがあります";
+"phrase.allergicTo.notes" = "食べ物と薬に重要";
+
+// MARK: - Entertainment Phrases
+"phrase.loveMovie.text" = "この映画が大好きです";
+"phrase.loveMovie.notes" = "楽しさを表現する";
+
+"phrase.favoriteMusic.text" = "あなたの好きな音楽は何ですか？";
+"phrase.favoriteMusic.notes" = "音楽の会話のきっかけ";
+
+"phrase.songAmazing.text" = "この曲は素晴らしいです";
+"phrase.songAmazing.notes" = "音楽の鑑賞";
+
+"phrase.playVideoGames.text" = "私はゲームをします";
+"phrase.playVideoGames.notes" = "ゲームの趣味";
+
+"phrase.seenShow.text" = "この番組を見ましたか？";
+"phrase.seenShow.notes" = "テレビ番組の議論";
+
+"phrase.readComics.text" = "私は漫画を読みます";
+"phrase.readComics.notes" = "漫画への興味";
+
+"phrase.disneyGreat.text" = "ディズニーの映画は素晴らしいです";
+"phrase.disneyGreat.notes" = "ディズニーの鑑賞";
+
+"phrase.whatGenre.text" = "どのジャンルが好きですか？";
+"phrase.whatGenre.notes" = "エンターテイメントの好み";
+
+// MARK: - Food Phrases
+"phrase.imHungry.text" = "お腹が空きました";
+"phrase.imHungry.notes" = "基本的な食事の必要性";
+
+"phrase.delicious.text" = "これは美味しいです";
+"phrase.delicious.notes" = "食べ物の鑑賞";
+
+"phrase.vegetarian.text" = "私はベジタリアンです";
+"phrase.vegetarian.notes" = "食事制限";
+
+"phrase.canHaveMenu.text" = "メニューをいただけますか？";
+"phrase.canHaveMenu.notes" = "レストランでの要求";
+
+"phrase.likeToOrder.text" = "注文したいです";
+"phrase.likeToOrder.notes" = "注文の準備完了";
+
+"phrase.billPlease.text" = "お会計をお願いします";
+"phrase.billPlease.notes" = "会計を求める";
+
+"phrase.allergicNuts.text" = "私はナッツにアレルギーがあります";
+"phrase.allergicNuts.notes" = "食物アレルギー";
+
+"phrase.whatRecommend.text" = "何をお勧めしますか？";
+"phrase.whatRecommend.notes" = "お勧めを求める";
+
+// MARK: - Health Phrases
+"phrase.dontFeelWell.text" = "気分が悪いです";
+"phrase.dontFeelWell.notes" = "一般的な健康問題";
+
+"phrase.haveHeadache.text" = "頭痛がします";
+"phrase.haveHeadache.notes" = "一般的な症状";
+
+"phrase.needDoctor.text" = "医者が必要です";
+"phrase.needDoctor.notes" = "医療緊急事態";
+
+"phrase.whereHospital.text" = "病院はどこですか？";
+"phrase.whereHospital.notes" = "医療施設の場所";
+
+"phrase.haveFever.text" = "熱があります";
+"phrase.haveFever.notes" = "一般的な病気の症状";
+
+"phrase.takingMedication.text" = "薬を服用しています";
+"phrase.takingMedication.notes" = "医療情報";
+
+"phrase.haveAllergy.text" = "アレルギーがあります";
+"phrase.haveAllergy.notes" = "重要な医療情報";
+
+"phrase.callAmbulance.text" = "救急車を呼んでください";
+"phrase.callAmbulance.notes" = "緊急事態";
+
+// MARK: - Leisure Phrases
+"phrase.likeToRead.text" = "読書が好きです";
+"phrase.likeToRead.notes" = "読書の趣味";
+
+"phrase.playSports.text" = "スポーツをしますか？";
+"phrase.playSports.notes" = "スポーツの会話";
+
+"phrase.loveHiking.text" = "ハイキングが大好きです";
+"phrase.loveHiking.notes" = "アウトドア活動";
+
+"phrase.whatDoForFun.text" = "楽しみのために何をしますか？";
+"phrase.whatDoForFun.notes" = "趣味の会話のきっかけ";
+
+"phrase.enjoyCooking.text" = "料理を楽しんでいます";
+"phrase.enjoyCooking.notes" = "料理の趣味";
+
+"phrase.goForWalk.text" = "散歩に行きましょう";
+"phrase.goForWalk.notes" = "カジュアルな活動の提案";
+
+"phrase.playGuitar.text" = "ギターを弾きます";
+"phrase.playGuitar.notes" = "楽器";
+
+"phrase.likePhotography.text" = "写真が好きです";
+"phrase.likePhotography.notes" = "写真の趣味"; 

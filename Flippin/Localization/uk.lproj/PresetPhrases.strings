@@ -1,0 +1,175 @@
+/*
+  PresetPhrases.strings
+  Flippin
+
+  Created by Alexander Riakhin on 12/19/25.
+*/
+
+// MARK: - Collection Names
+"collection.essentialPhrases.name" = "Основні фрази";
+"collection.essentialPhrases.description" = "Основні слова та фрази, які повинен знати кожен";
+
+"collection.travelEssentials.name" = "Необхідне для подорожей";
+"collection.travelEssentials.description" = "Основні фрази для подорожей та пересування";
+
+"collection.entertainmentMedia.name" = "Розваги та медіа";
+"collection.entertainmentMedia.description" = "Слова та фрази про фільми, музику, ігри та розваги";
+
+"collection.foodDining.name" = "Їжа та ресторани";
+"collection.foodDining.description" = "Основні фрази для ресторанів та гастрономічних вражень";
+
+"collection.healthMedical.name" = "Здоров'я та медицина";
+"collection.healthMedical.description" = "Важливі фрази для медичних ситуацій та проблем зі здоров'ям";
+
+"collection.leisureHobbies.name" = "Дозвілля та хобі";
+"collection.leisureHobbies.description" = "Фрази для розмов про хобі, спорт та дозвілля";
+
+// MARK: - Essential Phrases
+"phrase.hello.text" = "Привіт";
+"phrase.hello.notes" = "Основне привітання";
+
+"phrase.thankYou.text" = "Дякую";
+"phrase.thankYou.notes" = "Вираження подяки";
+
+"phrase.please.text" = "Будь ласка";
+"phrase.please.notes" = "Ввічливі прохання";
+
+"phrase.yes.text" = "Так";
+"phrase.yes.notes" = "Позитивна відповідь";
+
+"phrase.no.text" = "Ні";
+"phrase.no.notes" = "Негативна відповідь";
+
+"phrase.goodbye.text" = "До побачення";
+"phrase.goodbye.notes" = "Прощання";
+
+"phrase.excuseMe.text" = "Перепрошую";
+"phrase.excuseMe.notes" = "Привернення уваги або вибачення";
+
+"phrase.dontUnderstand.text" = "Я не розумію";
+"phrase.dontUnderstand.notes" = "Коли потрібні пояснення";
+
+// MARK: - Travel Phrases
+"phrase.whereBathroom.text" = "Де туалет?";
+"phrase.whereBathroom.notes" = "Необхідно для мандрівників";
+
+"phrase.howMuchCost.text" = "Скільки це коштує?";
+"phrase.howMuchCost.notes" = "Покупки та торг";
+
+"phrase.needHelp.text" = "Мені потрібна допомога";
+"phrase.needHelp.notes" = "Екстрена фраза";
+
+"phrase.speakEnglish.text" = "Ви говорите англійською?";
+"phrase.speakEnglish.notes" = "Подолання мовного бар'єру";
+
+"phrase.imLost.text" = "Я заблукав";
+"phrase.imLost.notes" = "Коли потрібні вказівки";
+
+"phrase.canYouHelp.text" = "Чи можете ви мені допомогти?";
+"phrase.canYouHelp.notes" = "Прохання про допомогу";
+
+"phrase.whatTime.text" = "Котра година?";
+"phrase.whatTime.notes" = "Питання про час";
+
+"phrase.allergicTo.text" = "У мене алергія на...";
+"phrase.allergicTo.notes" = "Важливо для їжі та ліків";
+
+// MARK: - Entertainment Phrases
+"phrase.loveMovie.text" = "Я люблю цей фільм";
+"phrase.loveMovie.notes" = "Вираження насолоди";
+
+"phrase.favoriteMusic.text" = "Яка твоя улюблена музика?";
+"phrase.favoriteMusic.notes" = "Початок розмови про музику";
+
+"phrase.songAmazing.text" = "Ця пісня дивовижна";
+"phrase.songAmazing.notes" = "Музичне сприйняття";
+
+"phrase.playVideoGames.text" = "Я граю в відеоігри";
+"phrase.playVideoGames.notes" = "Хобі ігор";
+
+"phrase.seenShow.text" = "Ти бачив це шоу?";
+"phrase.seenShow.notes" = "Обговорення телешоу";
+
+"phrase.readComics.text" = "Я читаю комікси";
+"phrase.readComics.notes" = "Інтерес до коміксів";
+
+"phrase.disneyGreat.text" = "Фільми Діснея чудові";
+"phrase.disneyGreat.notes" = "Сприйняття Діснея";
+
+"phrase.whatGenre.text" = "Який жанр тобі подобається?";
+"phrase.whatGenre.notes" = "Вподобання розваг";
+
+// MARK: - Food Phrases
+"phrase.imHungry.text" = "Я голодний";
+"phrase.imHungry.notes" = "Основна потреба в їжі";
+
+"phrase.delicious.text" = "Це смачно";
+"phrase.delicious.notes" = "Сприйняття їжі";
+
+"phrase.vegetarian.text" = "Я вегетаріанець";
+"phrase.vegetarian.notes" = "Дієтичні обмеження";
+
+"phrase.canHaveMenu.text" = "Чи можу я побачити меню?";
+"phrase.canHaveMenu.notes" = "Запит у ресторані";
+
+"phrase.likeToOrder.text" = "Я хотів би замовити";
+"phrase.likeToOrder.notes" = "Готовий замовляти";
+
+"phrase.billPlease.text" = "Рахунок, будь ласка";
+"phrase.billPlease.notes" = "Прохання про рахунок";
+
+"phrase.allergicNuts.text" = "У мене алергія на горіхи";
+"phrase.allergicNuts.notes" = "Харчова алергія";
+
+"phrase.whatRecommend.text" = "Що ви рекомендуєте?";
+"phrase.whatRecommend.notes" = "Прохання про рекомендації";
+
+// MARK: - Health Phrases
+"phrase.dontFeelWell.text" = "Я погано себе почуваю";
+"phrase.dontFeelWell.notes" = "Загальна проблема зі здоров'ям";
+
+"phrase.haveHeadache.text" = "У мене головний біль";
+"phrase.haveHeadache.notes" = "Загальний симптом";
+
+"phrase.needDoctor.text" = "Мені потрібен лікар";
+"phrase.needDoctor.notes" = "Медична екстрена ситуація";
+
+"phrase.whereHospital.text" = "Де лікарня?";
+"phrase.whereHospital.notes" = "Розташування медичної установи";
+
+"phrase.haveFever.text" = "У мене температура";
+"phrase.haveFever.notes" = "Загальний симптом хвороби";
+
+"phrase.takingMedication.text" = "Я приймаю ліки";
+"phrase.takingMedication.notes" = "Медична інформація";
+
+"phrase.haveAllergy.text" = "У мене алергія";
+"phrase.haveAllergy.notes" = "Важлива медична інформація";
+
+"phrase.callAmbulance.text" = "Викличте швидку допомогу";
+"phrase.callAmbulance.notes" = "Екстрена ситуація";
+
+// MARK: - Leisure Phrases
+"phrase.likeToRead.text" = "Я люблю читати";
+"phrase.likeToRead.notes" = "Хобі читання";
+
+"phrase.playSports.text" = "Ти займаєшся спортом?";
+"phrase.playSports.notes" = "Розмова про спорт";
+
+"phrase.loveHiking.text" = "Я люблю походи";
+"phrase.loveHiking.notes" = "Зовнішня активність";
+
+"phrase.whatDoForFun.text" = "Що ти робиш для розваги?";
+"phrase.whatDoForFun.notes" = "Початок розмови про хобі";
+
+"phrase.enjoyCooking.text" = "Я насолоджуюся приготуванням їжі";
+"phrase.enjoyCooking.notes" = "Хобі приготування їжі";
+
+"phrase.goForWalk.text" = "Давайте підемо на прогулянку";
+"phrase.goForWalk.notes" = "Пропозиція звичайної активності";
+
+"phrase.playGuitar.text" = "Я граю на гітарі";
+"phrase.playGuitar.notes" = "Музичний інструмент";
+
+"phrase.likePhotography.text" = "Я люблю фотографію";
+"phrase.likePhotography.notes" = "Хобі фотографії"; 
