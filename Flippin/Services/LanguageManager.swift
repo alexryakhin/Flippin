@@ -56,7 +56,7 @@ final class LanguageManager: ObservableObject {
             self.userLanguage = language
         } else {
             // Detect from system locale
-            let detectedLanguage = Language(rawValue: Locale.current.language.languageCode?.identifier ?? "en") ?? .english
+            let detectedLanguage = Language.fromSystemLocale()
             self.userLanguage = detectedLanguage
             // Save the detected language
             UserDefaults.standard.set(detectedLanguage.rawValue, forKey: UserDefaultsKey.userLanguage)
@@ -96,7 +96,7 @@ final class LanguageManager: ObservableObject {
     }
 
     func resetToSystemLanguage() {
-        let detectedLanguage = Language(rawValue: Locale.current.language.languageCode?.identifier ?? "en") ?? .english
+        let detectedLanguage = Language.fromSystemLocale()
         setUserLanguage(detectedLanguage)
     }
 

@@ -110,7 +110,7 @@ class LocalizedPresetService: ObservableObject {
     
     private func getLocalizedString(_ key: String, language: Language) -> String {
         let bundle = Bundle.main
-        let languageCode = language.rawValue
+        let languageCode = language.localizationCode
         
         // Try to load the string from the specific language bundle
         if let languageBundle = bundle.path(forResource: languageCode, ofType: "lproj"),

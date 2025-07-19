@@ -28,6 +28,14 @@ enum Language: String, Codable, CaseIterable, Identifiable {
     case ukranian = "uk"
 
     var id: String { rawValue }
+    
+    var localizationCode: String {
+        switch self {
+        case .portuguese: return "pt-BR" // Default to Brazilian Portuguese
+        case .chinese: return "zh-Hans" // Default to Simplified Chinese
+        default: return rawValue
+        }
+    }
 
     var voiceOverCode: String {
         switch self {
@@ -70,6 +78,35 @@ enum Language: String, Codable, CaseIterable, Identifiable {
         case .hindi: return LocalizationKeys.hindi.localized
         case .croatian: return LocalizationKeys.croatian.localized
         case .ukranian: return LocalizationKeys.ukrainian.localized
+        }
+    }
+    
+    // MARK: - Static Methods
+    
+    static func fromSystemLocale() -> Language {
+        let locale = Locale.current
+        let languageCode = locale.language.languageCode?.identifier ?? "en"
+        let regionCode = locale.region?.identifier
+        
+        // Handle special cases for languages with regional variants
+        switch languageCode {
+        case "pt":
+            // Portuguese - default to Brazilian Portuguese
+            return .portuguese
+        case "zh":
+            // Chinese - default to Simplified Chinese
+            return .chinese
+        case "uk":
+            // Ukrainian
+            return .ukranian
+        default:
+            // Try to find exact match first
+            if let language = Language(rawValue: languageCode) {
+                return language
+            }
+            
+            // Fallback to English if no match found
+            return .english
         }
     }
 }
