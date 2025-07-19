@@ -13,4 +13,6 @@ enum UserDefaultsKey {
     static let availableTags = "availableTags"
     static let selectedFilterTag = "selectedFilterTag"
     static let filterByLanguage = "filterByLanguage"
+    static let voiceGender = "voiceGender"
+    static let cardDisplayMode = "cardDisplayMode"
 }

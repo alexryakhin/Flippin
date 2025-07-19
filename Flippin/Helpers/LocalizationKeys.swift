@@ -52,6 +52,16 @@ enum LocalizationKeys {
     
     // MARK: - Settings
     static let languages = "languages"
+    static let voiceSettings = "voiceSettings"
+    static let voiceGender = "voiceGender"
+    static let maleVoice = "maleVoice"
+    static let femaleVoice = "femaleVoice"
+    static let cardDisplay = "cardDisplay"
+    static let cardDisplayMode = "cardDisplayMode"
+    static let learningMode = "learningMode"
+    static let travelMode = "travelMode"
+    static let learningModeDescription = "learningModeDescription"
+    static let travelModeDescription = "travelModeDescription"
     
     // MARK: - Preset Collections
     static let presetCollections = "presetCollections"

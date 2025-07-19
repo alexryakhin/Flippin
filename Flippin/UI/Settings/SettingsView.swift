@@ -14,6 +14,7 @@ struct SettingsView: View {
     @EnvironmentObject private var languageManager: LanguageManager
     @EnvironmentObject private var colorManager: ColorManager
     @EnvironmentObject private var tagManager: TagManager
+    @AppStorage(UserDefaultsKey.cardDisplayMode) private var isTravelMode = false
 
     @State private var newTagText = ""
     @State private var showingAddTagAlert = false
@@ -100,6 +101,27 @@ struct SettingsView: View {
                                     AnalyticsService.trackNavigationEvent(.backgroundDemoOpened, screenName: "BackgroundDemo")
                                 }
                                 .buttonStyle(.bordered)
+                            }
+                        }
+                        .clippedWithBackground()
+                    }
+
+                    CustomSectionView(
+                        header: LocalizationKeys.cardDisplay.localized
+                    ) {
+                        FormWithDivider {
+                            CellWrapper {
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text(LocalizationKeys.cardDisplayMode.localized)
+                                        .font(.subheadline)
+                                        .foregroundStyle(.primary)
+                                    Text(isTravelMode ? LocalizationKeys.travelModeDescription.localized : LocalizationKeys.learningModeDescription.localized)
+                                        .font(.caption)
+                                        .foregroundStyle(.secondary)
+                                }
+                            } trailingContent: {
+                                Toggle("", isOn: $isTravelMode)
+                                    .labelsHidden()
                             }
                         }
                         .clippedWithBackground()

@@ -11,12 +11,18 @@ struct CardBackView: View {
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject private var cardsProvider: CardsProvider
     @EnvironmentObject private var colorManager: ColorManager
+    @AppStorage(UserDefaultsKey.cardDisplayMode) private var isTravelMode = false
+    @State private var isPlayingTTS = false
 
     let item: CardItem
+
     var body: some View {
         VStack(spacing: 20) {
+            let text = isTravelMode ? item.frontText : item.backText
+            let language = isTravelMode ? item.frontLanguage : item.backLanguage
+
             HStack {
-                Text(item.backLanguage.displayName)
+                Text(language.displayName)
                     .font(.headline)
                     .foregroundStyle(.secondary)
                 Spacer()
@@ -35,7 +41,7 @@ struct CardBackView: View {
             }
             Spacer()
 
-            Text(item.backText)
+            Text(text)
                 .font(.largeTitle)
                 .foregroundStyle(.primary)
                 .fontWeight(.bold)
@@ -58,9 +64,36 @@ struct CardBackView: View {
 
             Spacer()
 
-            Text(LocalizationKeys.tapToGoBack.localized)
-                .font(.footnote)
-                .foregroundStyle(.secondary)
+            HStack {
+                if isTravelMode {
+                    Button {
+                        // Haptic feedback for TTS start
+                        HapticService.shared.ttsStarted()
+
+                        isPlayingTTS = true
+                        Task {
+                            do {
+                                try await TTSPlayer.shared.play(text, language: language)
+                            } catch {
+                                print("TTS error: \(error)")
+                            }
+                            isPlayingTTS = false
+                        }
+                    } label: {
+                        Image(systemName: isPlayingTTS ? "speaker.wave.2.fill" : "speaker.wave.2")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 24, height: 24)
+                    }
+                    .tint(colorManager.adjustedTintColor(colorScheme))
+                }
+
+                Spacer()
+
+                Text(LocalizationKeys.tapToGoBack.localized)
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+            }
         }
     }
 }

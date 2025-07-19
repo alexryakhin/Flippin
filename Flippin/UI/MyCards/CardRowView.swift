@@ -12,13 +12,15 @@ struct CardRowView: View {
     let onDelete: () -> Void
     let onEdit: () -> Void
     @EnvironmentObject private var cardsProvider: CardsProvider
+    @AppStorage(UserDefaultsKey.cardDisplayMode) private var isTravelMode = false
     
     @State private var isFlipped = false
     @State private var isPlayingTTS = false
     
     var body: some View {
-        let text = isFlipped ? card.backText : card.frontText
-        let language = isFlipped ? card.backLanguage : card.frontLanguage
+        let isTargetLanguage = isTravelMode != isFlipped
+        let text = isTargetLanguage ? card.backText : card.frontText
+        let language = isTargetLanguage ? card.backLanguage : card.frontLanguage
 
         VStack(alignment: .leading, spacing: 8) {
             HStack {

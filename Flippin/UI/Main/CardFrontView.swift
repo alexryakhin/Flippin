@@ -10,6 +10,7 @@ import Flow
 struct CardFrontView: View {
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject private var cardsProvider: CardsProvider
+    @AppStorage(UserDefaultsKey.cardDisplayMode) private var isTravelMode = false
 
     let item: CardItem
     @State private var isPlayingTTS = false
@@ -17,8 +18,11 @@ struct CardFrontView: View {
 
     var body: some View {
         VStack(spacing: 20) {
+            let text = isTravelMode ? item.backText : item.frontText
+            let language = isTravelMode ? item.backLanguage : item.frontLanguage
+
             HStack {
-                Text(item.frontLanguage.displayName)
+                Text(language.displayName)
                     .font(.headline)
                     .foregroundStyle(.secondary)
                 Spacer()
@@ -38,7 +42,7 @@ struct CardFrontView: View {
 
             Spacer()
 
-            Text(item.frontText)
+            Text(text)
                 .font(.largeTitle)
                 .foregroundStyle(.primary)
                 .fontWeight(.bold)
@@ -69,28 +73,28 @@ struct CardFrontView: View {
             Spacer()
 
             HStack {
-                Button {
-                    // Haptic feedback for TTS start
-                    HapticService.shared.ttsStarted()
-                    
-                    isPlayingTTS = true
-                    Task {
-                        do {
-                            let text = item.frontText
-                            let language = item.frontLanguage
-                            try await TTSPlayer.shared.play(text, language: language)
-                        } catch {
-                            print("TTS error: \(error)")
+                if !isTravelMode {
+                    Button {
+                        // Haptic feedback for TTS start
+                        HapticService.shared.ttsStarted()
+
+                        isPlayingTTS = true
+                        Task {
+                            do {
+                                try await TTSPlayer.shared.play(text, language: language)
+                            } catch {
+                                print("TTS error: \(error)")
+                            }
+                            isPlayingTTS = false
                         }
-                        isPlayingTTS = false
+                    } label: {
+                        Image(systemName: isPlayingTTS ? "speaker.wave.2.fill" : "speaker.wave.2")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 24, height: 24)
                     }
-                } label: {
-                    Image(systemName: isPlayingTTS ? "speaker.wave.2.fill" : "speaker.wave.2")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 24, height: 24)
+                    .tint(colorManager.adjustedTintColor(colorScheme))
                 }
-                .tint(colorManager.adjustedTintColor(colorScheme))
 
                 Spacer()
 

@@ -55,6 +55,12 @@
 
 // MARK: - Settings
 "languages" = "Languages";
+"cardDisplay" = "Card Display";
+"cardDisplayMode" = "Card Display Mode";
+"learningMode" = "Learning Mode";
+"travelMode" = "Travel Mode";
+"learningModeDescription" = "Show target language first (for learning)";
+"travelModeDescription" = "Show native language first (for travel)";
 
 // MARK: - Preset Collections
 "presetCollections" = "Preset Collections";
