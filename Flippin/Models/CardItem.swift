@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CardItem: Identifiable {
+struct CardItem: Identifiable, Hashable {
 
     var timestamp: Date
     var frontText: String

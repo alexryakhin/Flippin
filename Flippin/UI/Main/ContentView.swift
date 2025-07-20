@@ -159,7 +159,7 @@ struct ContentView: View {
                 noCardsWithTagsView
             }
         } else {
-            CardStackScrollView(items: displayItems)
+            CardStackContent(items: displayItems)
                 .environmentObject(colorManager)
         }
     }
