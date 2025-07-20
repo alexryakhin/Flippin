@@ -49,6 +49,14 @@ final class CardsProvider: ObservableObject {
 
         // Haptic feedback for card addition
         HapticService.shared.cardAdded()
+        
+        // Analytics tracking for card creation
+        AnalyticsService.trackCardEvent(
+            .cardAdded,
+            cardLanguage: card.frontLanguage?.rawValue,
+            hasTags: !card.tagNames.isEmpty,
+            tagCount: card.tagNames.count
+        )
     }
 
     /// Removes a card from Core Data
@@ -77,6 +85,14 @@ final class CardsProvider: ObservableObject {
         saveContext()
         // Haptic feedback for favorite toggle
         HapticService.shared.favoriteToggled(isFavorite: card.isFavorite)
+        
+        // Analytics tracking for favorite toggle
+        let event: AnalyticsEvent = card.isFavorite ? .cardFavorited : .cardUnfavorited
+        AnalyticsService.trackFavoriteEvent(
+            event,
+            cardLanguage: card.frontLanguage?.rawValue,
+            hasTags: !card.tagNames.isEmpty
+        )
     }
 
     func saveContext() {

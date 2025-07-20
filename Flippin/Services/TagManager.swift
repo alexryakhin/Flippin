@@ -11,7 +11,23 @@ import CoreData
 import Combine
 
 final class TagManager: ObservableObject {
-    @AppStorage(UserDefaultsKey.selectedFilterTag) private var selectedFilterTag: String = ""
+    @Published var selectedFilterTag: Tag? {
+        didSet {
+            // Haptic feedback for filter applied (only if it's a new filter)
+            if oldValue != selectedFilterTag, let selectedFilterTag {
+                DispatchQueue.main.async {
+                    HapticService.shared.filterApplied()
+                }
+
+                // Analytics tracking for tag filter applied
+                AnalyticsService.trackFilterEvent(
+                    .tagFilterApplied,
+                    filterType: "tag",
+                    filterValue: selectedFilterTag.name
+                )
+            }
+        }
+    }
 
     private let coreDataService = CoreDataService.shared
     private var cancellables: Set<AnyCancellable> = []
@@ -31,6 +47,10 @@ final class TagManager: ObservableObject {
                 DispatchQueue.main.async {
                     HapticService.shared.filterApplied()
                 }
+                
+                // Analytics tracking for favorite filter changes
+                let event: AnalyticsEvent = isFavoriteFilterOn ? .favoriteFilterApplied : .favoriteFilterCleared
+                AnalyticsService.trackFilterEvent(event, filterType: "favorite", filterValue: isFavoriteFilterOn ? "true" : "false")
             }
         }
     }
@@ -45,21 +65,6 @@ final class TagManager: ObservableObject {
         } catch {
             print("Error fetching tags: \(error)")
             availableTags = []
-        }
-    }
-
-    var currentFilterTag: String {
-        get { selectedFilterTag }
-        set {
-            let oldValue = selectedFilterTag
-            selectedFilterTag = newValue
-
-            // Haptic feedback for filter applied (only if it's a new filter)
-            if oldValue != newValue && !newValue.isEmpty {
-                DispatchQueue.main.async {
-                    HapticService.shared.filterApplied()
-                }
-            }
         }
     }
 
@@ -83,6 +88,9 @@ final class TagManager: ObservableObject {
                 DispatchQueue.main.async {
                     HapticService.shared.tagAdded()
                 }
+                
+                // Analytics tracking for tag addition
+                AnalyticsService.trackTagEvent(.tagAdded, tagName: trimmedTag, tagCount: availableTags.count)
             }
         } catch {
             print("Error adding tag: \(error)")
@@ -102,10 +110,10 @@ final class TagManager: ObservableObject {
         AnalyticsService.trackTagEvent(.tagDeleted, tagName: tag.name, tagCount: availableTags.count)
     }
 
-    func filterCards(_ cards: [CardItem], by tag: String?) -> [CardItem] {
-        guard let tag, !tag.isEmpty else { return cards }
+    func filterCards(_ cards: [CardItem], by tag: Tag?) -> [CardItem] {
+        guard let tag else { return cards }
         return cards.filter { card in
-            card.tagNames.contains(tag)
+            card.tagArray.contains(tag)
         }
     }
 
@@ -115,12 +123,15 @@ final class TagManager: ObservableObject {
     }
 
     func clearFilter() {
-        currentFilterTag = ""
+        selectedFilterTag = nil
 
         // Haptic feedback for filter cleared
         DispatchQueue.main.async {
             HapticService.shared.filterCleared()
         }
+        
+        // Analytics tracking for tag filter cleared
+        AnalyticsService.trackFilterEvent(.tagFilterCleared, filterType: "tag", filterValue: "")
     }
 
     func getUnusedTags() -> [String] {

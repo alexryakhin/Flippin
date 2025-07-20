@@ -19,6 +19,7 @@ struct PresetCollectionsView: View {
     @State private var selectedCategory: PresetCategory?
     @State private var showingImportAlert = false
     @State private var collectionToImport: PresetCollection?
+    @State private var lastSearchText = ""
     //    @Namespace private var categoryFilterViewNamespace
 
     var filteredCollections: [PresetCollection] {
@@ -36,6 +37,20 @@ struct PresetCollectionsView: View {
                     card.backText.localizedCaseInsensitiveContains(searchText)
                 }
             }
+            
+            // Track search if it's a new search
+            if lastSearchText != searchText {
+                AnalyticsService.trackSearchEvent(.searchPerformed, searchTerm: searchText, resultCount: collections.count)
+                lastSearchText = searchText
+            }
+        } else if !lastSearchText.isEmpty {
+            // Track search cleared
+            let allCollections = presetService.getCollections(
+                for: languageManager.userLanguage,
+                targetLanguage: languageManager.targetLanguage
+            )
+            AnalyticsService.trackSearchEvent(.searchCleared, searchTerm: lastSearchText, resultCount: allCollections.count)
+            lastSearchText = ""
         }
 
         if let selectedCategory = selectedCategory {
@@ -160,5 +175,13 @@ struct PresetCollectionsView: View {
 
         // Show success feedback
         HapticService.shared.success()
+        
+        // Analytics tracking for preset collection import
+        AnalyticsService.trackPresetCollectionEvent(
+            .presetCollectionImported,
+            collectionName: collection.name,
+            cardCount: collection.cardCount,
+            category: collection.category.rawValue
+        )
     }
 }

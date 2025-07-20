@@ -86,7 +86,6 @@ enum Language: String, Codable, CaseIterable, Identifiable {
     static func fromSystemLocale() -> Language {
         let locale = Locale.current
         let languageCode = locale.language.languageCode?.identifier ?? "en"
-        let regionCode = locale.region?.identifier
         
         // Handle special cases for languages with regional variants
         switch languageCode {

@@ -36,6 +36,7 @@ struct FeaturedPresetCollections: View {
                 
                 Button(LocalizationKeys.seeAllCollections.localized) {
                     showingAllCollections = true
+                    AnalyticsService.trackNavigationEvent(.presetCollectionsOpened, screenName: "PresetCollections")
                 }
                 .font(.subheadline)
                 .foregroundColor(colorManager.adjustedTintColor(colorScheme))
@@ -101,5 +102,13 @@ struct FeaturedPresetCollections: View {
         
         // Show success feedback
         HapticService.shared.success()
+        
+        // Analytics tracking for preset collection import
+        AnalyticsService.trackPresetCollectionEvent(
+            .presetCollectionImported,
+            collectionName: collection.name,
+            cardCount: collection.cardCount,
+            category: collection.category.rawValue
+        )
     }
 } 

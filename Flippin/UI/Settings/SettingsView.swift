@@ -122,6 +122,9 @@ struct SettingsView: View {
                             } trailingContent: {
                                 Toggle("", isOn: $isTravelMode)
                                     .labelsHidden()
+                                    .onChange(of: isTravelMode) { _, newValue in
+                                        AnalyticsService.trackSettingsEvent(.travelModeToggled, newValue: newValue ? "travel" : "learning")
+                                    }
                             }
                         }
                         .clippedWithBackground()

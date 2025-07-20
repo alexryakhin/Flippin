@@ -44,24 +44,21 @@ struct ButtonRowView: View {
             Spacer()
 
             Menu {
-                Section {
-                    Picker(LocalizationKeys.filterByFavorites.localized, selection: $tagManager.isFavoriteFilterOn) {
-                        Text(LocalizationKeys.showAllCards.localized).tag(false)
-                        Text(LocalizationKeys.showFavoritesOnly.localized).tag(true)
+                Picker(LocalizationKeys.filterByFavorites.localized, selection: $tagManager.isFavoriteFilterOn) {
+                    Text(LocalizationKeys.showAllCards.localized).tag(false)
+                    Text(LocalizationKeys.showFavoritesOnly.localized).tag(true)
+                }
+                .pickerStyle(.menu)
+                if !tagManager.availableTags.isEmpty {
+                    Picker(LocalizationKeys.filterByTag.localized, selection: $tagManager.selectedFilterTag) {
+                        Text(LocalizationKeys.showAllCards.localized)
+                            .tag(nil as Tag?)
+                        ForEach(tagManager.availableTags, id: \.self) { tag in
+                            Text(tag.name.orEmpty)
+                                .tag(tag)
+                        }
                     }
                     .pickerStyle(.menu)
-                }
-                if !tagManager.availableTags.isEmpty {
-                    Section {
-                        Picker(LocalizationKeys.filterByTag.localized, selection: $tagManager.currentFilterTag) {
-                            Text(LocalizationKeys.showAllCards.localized).tag("")
-                            ForEach(tagManager.availableTags, id: \.self) { tag in
-                                Text(tag.name.orEmpty)
-                                    .tag(tag)
-                            }
-                        }
-                        .pickerStyle(.menu)
-                    }
                 }
             } label: {
                 ActionButtonLabel(LocalizationKeys.filterByTag.localized, systemImage: "line.3.horizontal.decrease.circle")

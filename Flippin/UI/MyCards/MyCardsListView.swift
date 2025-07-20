@@ -26,15 +26,14 @@ struct MyCardsListView: View {
     @StateObject private var tagManager = TagManager.shared
     @State private var showingTagFilter = false
     @State private var showAddCardSheet = false
+    @State private var lastSearchText = ""
 
     let onToSettings: () -> Void
 
     var filteredCards: [CardItem] {
         var filtered = cardsProvider.cards
-        
-        // Apply language filter first
-        filtered = languageManager.filterCards(filtered)
-        
+
+        // Apply search filter
         if !searchText.isEmpty {
             filtered = filtered.filter { card in
                 card.frontText.orEmpty.localizedCaseInsensitiveContains(searchText) ||
@@ -42,28 +41,41 @@ struct MyCardsListView: View {
                 card.notes.orEmpty.localizedCaseInsensitiveContains(searchText) ||
                 card.tagNames.contains { $0.localizedCaseInsensitiveContains(searchText) }
             }
+
+            // Track search if it's a new search
+            if lastSearchText != searchText {
+                AnalyticsService.trackSearchEvent(.searchPerformed, searchTerm: searchText, resultCount: filtered.count)
+                lastSearchText = searchText
+            }
+        } else if !lastSearchText.isEmpty {
+            // Track search cleared
+            AnalyticsService.trackSearchEvent(.searchCleared, searchTerm: lastSearchText, resultCount: cardsProvider.cards.count)
+            lastSearchText = ""
         }
-        
-        if !tagManager.currentFilterTag.isEmpty {
-            filtered = tagManager.filterCards(filtered, by: tagManager.currentFilterTag)
+
+        // Apply language filter first
+        filtered = languageManager.filterCards(filtered)
+
+        if let selectedFilterTag = tagManager.selectedFilterTag {
+            filtered = tagManager.filterCards(filtered, by: selectedFilterTag)
         }
         filtered = tagManager.filterCardsByFavorite(filtered)
-        
+
         return filtered.sorted { $0.timestamp.orNow > $1.timestamp.orNow }
     }
-    
+
     // Group cards by target language when language filter is off
     var groupedCards: [LanguageGroup] {
         guard !languageManager.filterByLanguage else {
             // If language filter is on, return single group
             return [LanguageGroup(language: languageManager.targetLanguage, cards: filteredCards)]
         }
-        
+
         // Group cards by target language
         let grouped = Dictionary(grouping: filteredCards) { card in
             card.frontLanguage
         }
-        
+
         // Convert to sorted array of LanguageGroup
         return grouped.compactMap { language, cards in
             guard let language else { return nil }
@@ -89,7 +101,7 @@ struct MyCardsListView: View {
                         noFavoriteCardsView
                     } else if languageManager.filterByLanguage {
                         filteredByLanguageCardsEmptyView
-                    } else if tagManager.currentFilterTag.isEmpty {
+                    } else if tagManager.selectedFilterTag == nil {
                         noCardsFoundView
                     } else {
                         noCardsWithTagsView
@@ -141,12 +153,10 @@ struct MyCardsListView: View {
                                 Text(LocalizationKeys.showFavoritesOnly.localized).tag(true)
                             }
                             .pickerStyle(.menu)
-                        }
-                        if !tagManager.availableTags.isEmpty {
-                            Section {
-                                Picker(LocalizationKeys.filterByTag.localized, selection: $tagManager.currentFilterTag) {
+                            if !tagManager.availableTags.isEmpty {
+                                Picker(LocalizationKeys.filterByTag.localized, selection: $tagManager.selectedFilterTag) {
                                     Text(LocalizationKeys.showAllCards.localized)
-                                        .tag("")
+                                        .tag(nil as Tag?)
                                     ForEach(tagManager.availableTags, id: \.self) { tag in
                                         Text(tag.name.orEmpty)
                                             .tag(tag)
@@ -206,7 +216,7 @@ struct MyCardsListView: View {
                 Text(LocalizationKeys.tapToAddFirstCard.localized)
                     .foregroundStyle(.secondary)
             }
-            
+
             FeaturedPresetCollections()
                 .padding(vertical: 12, horizontal: 16)
         }
@@ -253,22 +263,26 @@ struct MyCardsListView: View {
         }
     }
 
+    @ViewBuilder
     private var noCardsWithTagsView: some View {
-        ContentUnavailableView {
-            VStack {
-                Image(systemName: "tag")
-                    .font(.largeTitle)
-                Text(LocalizationKeys.noCardsWithSelectedTag.localized)
+        if let selectedFilterTag = tagManager.selectedFilterTag {
+            ContentUnavailableView {
+                VStack {
+                    Image(systemName: "tag")
+                        .font(.largeTitle)
+                    Text(LocalizationKeys.noCardsWithSelectedTag.localized)
+                }
+            } description: {
+                Text(LocalizationKeys.noCardsFoundWithTag.localized(with: selectedFilterTag.name.orEmpty))
+                    .foregroundStyle(.secondary)
+            } actions: {
+                Button(LocalizationKeys.clearFilter.localized) {
+                    HapticService.shared.buttonTapped()
+                    tagManager.clearFilter()
+                    AnalyticsService.trackFilterEvent(.tagFilterCleared, filterType: "tag", filterValue: "")
+                }
+                .buttonStyle(.borderedProminent)
             }
-        } description: {
-            Text(LocalizationKeys.noCardsFoundWithTag.localized(with: tagManager.currentFilterTag))
-                .foregroundStyle(.secondary)
-        } actions: {
-            Button(LocalizationKeys.clearFilter.localized) {
-                HapticService.shared.buttonTapped()
-                tagManager.clearFilter()
-            }
-            .buttonStyle(.borderedProminent)
         }
     }
 
@@ -281,7 +295,7 @@ struct MyCardsListView: View {
         )
         cardsProvider.deleteCard(card)
     }
-    
+
     private func deleteAllCards() {
         AnalyticsService.trackEvent(.allCardsDeleted)
         cardsProvider.deleteAllCards()

@@ -29,8 +29,8 @@ struct ContentView: View {
         filtered = languageManager.filterCards(filtered)
         
         // Then apply tag filter
-        if !tagManager.currentFilterTag.isEmpty {
-            filtered = tagManager.filterCards(filtered, by: tagManager.currentFilterTag)
+        if let selectedFilterTag = tagManager.selectedFilterTag {
+            filtered = tagManager.filterCards(filtered, by: selectedFilterTag)
         }
         filtered = tagManager.filterCardsByFavorite(filtered)
         return filtered
@@ -54,7 +54,7 @@ struct ContentView: View {
                 onShuffle: shuffleCards,
                 onShowSettings: { showSettings = true },
                 onShowMyCards: { showMyCards = true },
-                isFilterActive: !tagManager.currentFilterTag.isEmpty || tagManager.isFavoriteFilterOn
+                isFilterActive: tagManager.selectedFilterTag != nil || tagManager.isFavoriteFilterOn
             )
         }
         .padding(24)
@@ -73,7 +73,7 @@ struct ContentView: View {
         .onChange(of: cardsProvider.cards.count) { _, _ in
             resetShuffle()
         }
-        .onChange(of: tagManager.currentFilterTag) { _, _ in
+        .onChange(of: tagManager.selectedFilterTag) { _, _ in
             resetShuffle()
         }
         .onChange(of: tagManager.isFavoriteFilterOn) { _, _ in
@@ -163,25 +163,28 @@ struct ContentView: View {
         }
     }
 
+    @ViewBuilder
     private var noCardsWithTagsView: some View {
-        ContentUnavailableView {
-            VStack {
-                Image(systemName: "tag")
-                    .font(.largeTitle)
-                Text(LocalizationKeys.noCardsWithSelectedTag.localized)
+        if let selectedFilterTag = tagManager.selectedFilterTag {
+            ContentUnavailableView {
+                VStack {
+                    Image(systemName: "tag")
+                        .font(.largeTitle)
+                    Text(LocalizationKeys.noCardsWithSelectedTag.localized)
+                }
+            } description: {
+                Text(LocalizationKeys.noCardsFoundWithTag.localized(with: selectedFilterTag.name.orEmpty))
+                    .foregroundStyle(.secondary)
+            } actions: {
+                Button(LocalizationKeys.clearFilter.localized) {
+                    HapticService.shared.buttonTapped()
+                    tagManager.clearFilter()
+                }
+                .buttonStyle(.borderedProminent)
+                .tint(colorManager.adjustedTintColor(colorScheme))
             }
-        } description: {
-            Text(LocalizationKeys.noCardsFoundWithTag.localized(with: tagManager.currentFilterTag))
-                .foregroundStyle(.secondary)
-        } actions: {
-            Button(LocalizationKeys.clearFilter.localized) {
-                HapticService.shared.buttonTapped()
-                tagManager.clearFilter()
-            }
-            .buttonStyle(.borderedProminent)
-            .tint(colorManager.adjustedTintColor(colorScheme))
+            .foregroundColor(colorManager.adjustedForegroundColor(colorScheme))
         }
-        .foregroundColor(colorManager.adjustedForegroundColor(colorScheme))
     }
 
     private var filteredByLanguageCardsEmptyView: some View {

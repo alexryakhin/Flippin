@@ -71,6 +71,15 @@ struct PresetCollectionCard: View {
         .frame(maxHeight: .infinity, alignment: .topLeading)
         .onTapGesture {
             HapticService.shared.buttonTapped()
+            
+            // Analytics tracking for preset collection viewed
+            AnalyticsService.trackPresetCollectionEvent(
+                .presetCollectionViewed,
+                collectionName: collection.name,
+                cardCount: collection.cardCount,
+                category: collection.category.rawValue
+            )
+            
             onTap()
         }
     }
