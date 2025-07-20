@@ -134,7 +134,7 @@ class LocalizedPresetService: ObservableObject {
                 frontLanguage: targetLanguage,
                 backLanguage: userLanguage,
                 notes: presetCard.notes,
-                tags: presetCard.tags,
+//                tags: presetCard.tags,
                 isFavorite: false,
                 id: UUID().uuidString
             )

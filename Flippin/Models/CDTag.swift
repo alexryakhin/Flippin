@@ -1,5 +1,5 @@
 //
-//  CDTag.swift
+//  Tag.swift
 //  Flippin
 //
 //  Created by Alexander Riakhin on 7/16/25.
@@ -8,44 +8,40 @@
 import Foundation
 import CoreData
 
-@objc(CDTag)
-public final class CDTag: NSManagedObject {
+@objc(Tag)
+public final class Tag: NSManagedObject {
     @NSManaged public var id: String?
     @NSManaged public var name: String?
     @NSManaged public var cards: NSSet?
     
-    var cardArray: [CDCardItem] {
-        let set = cards as? Set<CDCardItem> ?? []
+    var cardArray: [CardItem] {
+        let set = cards as? Set<CardItem> ?? []
         return Array(set)
     }
 }
 
-extension CDTag {
-    convenience init(
-        context: NSManagedObjectContext,
-        name: String,
-        id: String = UUID().uuidString
-    ) {
-        self.init(context: context)
+extension Tag {
+    convenience init(_ name: String) {
+        self.init(context: CoreDataService.shared.context)
         self.name = name
-        self.id = id
+        self.id = UUID().uuidString
     }
 }
 
 // MARK: - Fetch Request
-extension CDTag {
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<CDTag> {
-        return NSFetchRequest<CDTag>(entityName: "Tag")
+extension Tag {
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<Tag> {
+        return NSFetchRequest<Tag>(entityName: "Tag")
     }
 }
 
 // MARK: - Generated accessors for cards
-extension CDTag {
+extension Tag {
     @objc(addCardsObject:)
-    @NSManaged public func addToCards(_ value: CDCardItem)
+    @NSManaged public func addToCards(_ value: CardItem)
     
     @objc(removeCardsObject:)
-    @NSManaged public func removeFromCards(_ value: CDCardItem)
+    @NSManaged public func removeFromCards(_ value: CardItem)
     
     @objc(addCards:)
     @NSManaged public func addToCards(_ values: NSSet)

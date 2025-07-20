@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct WelcomeSheet: View {
-    @EnvironmentObject private var languageManager: LanguageManager
+    @StateObject private var languageManager = LanguageManager.shared
     var onContinue: () -> Void
     
     var body: some View {

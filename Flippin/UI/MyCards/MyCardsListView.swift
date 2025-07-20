@@ -14,17 +14,16 @@ struct LanguageGroup: Identifiable {
 }
 
 struct MyCardsListView: View {
-    @StateObject private var syncManager = SyncManager.shared
     @Environment(\.dismiss) var dismiss
-    @EnvironmentObject private var cardsProvider: CardsProvider
-    @EnvironmentObject private var languageManager: LanguageManager
-    @EnvironmentObject private var colorManager: ColorManager
-    
+    @StateObject private var cardsProvider = CardsProvider.shared
+    @StateObject private var languageManager = LanguageManager.shared
+    @StateObject private var colorManager = ColorManager.shared
+
     @State private var searchText = ""
     @State private var showingDeleteAlert = false
     @State private var cardToDelete: CardItem?
     @State private var cardToEdit: CardItem?
-    @EnvironmentObject private var tagManager: TagManager
+    @StateObject private var tagManager = TagManager.shared
     @State private var showingTagFilter = false
     @State private var showAddCardSheet = false
 
@@ -38,10 +37,10 @@ struct MyCardsListView: View {
         
         if !searchText.isEmpty {
             filtered = filtered.filter { card in
-                card.frontText.localizedCaseInsensitiveContains(searchText) ||
-                card.backText.localizedCaseInsensitiveContains(searchText) ||
-                card.notes.localizedCaseInsensitiveContains(searchText) ||
-                card.tags.contains { $0.localizedCaseInsensitiveContains(searchText) }
+                card.frontText.orEmpty.localizedCaseInsensitiveContains(searchText) ||
+                card.backText.orEmpty.localizedCaseInsensitiveContains(searchText) ||
+                card.notes.orEmpty.localizedCaseInsensitiveContains(searchText) ||
+                card.tagNames.contains { $0.localizedCaseInsensitiveContains(searchText) }
             }
         }
         
@@ -50,7 +49,7 @@ struct MyCardsListView: View {
         }
         filtered = tagManager.filterCardsByFavorite(filtered)
         
-        return filtered.sorted { $0.timestamp > $1.timestamp }
+        return filtered.sorted { $0.timestamp.orNow > $1.timestamp.orNow }
     }
     
     // Group cards by target language when language filter is off
@@ -66,8 +65,14 @@ struct MyCardsListView: View {
         }
         
         // Convert to sorted array of LanguageGroup
-        return grouped.map { language, cards in
-            LanguageGroup(language: language, cards: cards.sorted { $0.timestamp < $1.timestamp })
+        return grouped.compactMap { language, cards in
+            guard let language else { return nil }
+            return LanguageGroup(
+                language: language,
+                cards: cards.sorted {
+                    $0.timestamp.orNow < $1.timestamp.orNow
+                }
+            )
         }.sorted { group1, group2 in
             // Sort groups by language display name
             group1.language.displayName < group2.language.displayName
@@ -116,17 +121,9 @@ struct MyCardsListView: View {
                 text: $searchText,
                 prompt: LocalizationKeys.searchCards.localized
             )
+            .navigationTitle(LocalizationKeys.myCards.localized)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .principal) {
-                    HStack {
-                        SyncIndicator(state: syncManager.syncState)
-                            .transition(.scale)
-                        Text(LocalizationKeys.myCards.localized)
-                            .font(.headline)
-                    }
-                    .animation(.bouncy, value: syncManager.syncState)
-                }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         HapticService.shared.buttonTapped()
@@ -173,20 +170,10 @@ struct MyCardsListView: View {
             }
         }
         .sheet(isPresented: $showAddCardSheet) {
-            AddCardSheet { newCard in
-                cardsProvider.addCard(newCard)
-            }
+            AddCardSheet()
         }
         .sheet(item: $cardToEdit) { card in
-            EditCardSheet(card: card) { updatedCard in
-                cardsProvider.updateCard(updatedCard)
-                AnalyticsService.trackCardEvent(
-                    .cardEdited,
-                    cardLanguage: updatedCard.frontLanguage.rawValue,
-                    hasTags: !updatedCard.tags.isEmpty,
-                    tagCount: updatedCard.tags.count
-                )
-            }
+            EditCardSheet(card: card)
         }
         .alert(cardToDelete == nil ? LocalizationKeys.deleteAllCards.localized : LocalizationKeys.deleteCard.localized, isPresented: $showingDeleteAlert) {
             Button(LocalizationKeys.delete.localized, role: .destructive) {
@@ -217,9 +204,6 @@ struct MyCardsListView: View {
             }
             
             FeaturedPresetCollections()
-                .environmentObject(languageManager)
-                .environmentObject(cardsProvider)
-                .environmentObject(colorManager)
                 .padding(vertical: 12, horizontal: 16)
         }
     }
@@ -287,11 +271,11 @@ struct MyCardsListView: View {
     private func deleteCard(_ card: CardItem) {
         AnalyticsService.trackCardEvent(
             .cardDeleted,
-            cardLanguage: card.frontLanguage.rawValue,
-            hasTags: !card.tags.isEmpty,
-            tagCount: card.tags.count
+            cardLanguage: card.frontLanguage?.rawValue,
+            hasTags: !card.tagNames.isEmpty,
+            tagCount: card.tagNames.count
         )
-        cardsProvider.deleteCard(with: card.id)
+        cardsProvider.deleteCard(card)
     }
     
     private func deleteAllCards() {

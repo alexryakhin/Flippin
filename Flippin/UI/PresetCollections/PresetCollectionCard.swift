@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PresetCollectionCard: View {
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject private var colorManager: ColorManager
+    @StateObject private var colorManager = ColorManager.shared
 
     let collection: PresetCollection
     let onTap: () -> Void

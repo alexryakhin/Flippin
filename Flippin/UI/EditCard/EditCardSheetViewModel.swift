@@ -21,23 +21,21 @@ final class EditCardSheetViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     private let tagManager = TagManager.shared
     private let languageManager = LanguageManager.shared
-    private let originalCard: CardItem
-    let onSave: (CardItem) -> Void
+    private let card: CardItem
 
     var availableTags: [String] {
         tagManager.availableTags
     }
     
-    init(card: CardItem, onSave: @escaping (CardItem) -> Void) {
-        self.originalCard = card
-        self.onSave = onSave
-        
+    init(card: CardItem) {
+        self.card = card
+
         // Initialize with existing card data
-        self.nativeText = card.backText
-        self.targetText = card.frontText
-        self.notes = card.notes
-        self.selectedTags = Set(card.tags)
-        
+        self.nativeText = card.backText.orEmpty
+        self.targetText = card.frontText.orEmpty
+        self.notes = card.notes.orEmpty
+        self.selectedTags = Set(card.tagNames)
+
         setupTranslationPipeline()
     }
 
@@ -94,26 +92,27 @@ final class EditCardSheetViewModel: ObservableObject {
         newTagText = ""
     }
     
-    func updateCard() -> CardItem? {
+    func updateCard() {
         let trimmedNative = nativeText.trimmingCharacters(in: .whitespacesAndNewlines)
         let trimmedTarget = targetText.trimmingCharacters(in: .whitespacesAndNewlines)
         let trimmedNotes = notes.trimmingCharacters(in: .whitespacesAndNewlines)
         
         guard !trimmedNative.isEmpty && !trimmedTarget.isEmpty else {
-            return nil
+            return
         }
-        
-        return CardItem(
-            timestamp: originalCard.timestamp, // Keep original timestamp
-            frontText: trimmedTarget,
-            backText: trimmedNative,
-            frontLanguage: languageManager.targetLanguage,
-            backLanguage: languageManager.userLanguage,
-            notes: trimmedNotes.isEmpty ? "" : trimmedNotes,
-            tags: selectedTags.isEmpty ? [] : Array(selectedTags),
-            isFavorite: originalCard.isFavorite, // Keep original favorite status
-            id: originalCard.id // Keep original ID
+
+        card.frontText = trimmedTarget
+        card.backText = trimmedNative
+        card.notes = trimmedNotes
+
+        AnalyticsService.trackCardEvent(
+            .cardEdited,
+            cardLanguage: card.frontLanguage?.rawValue,
+            hasTags: !card.tagNames.isEmpty,
+            tagCount: card.tagNames.count
         )
+
+        try? CoreDataService.shared.saveContext()
     }
     
     func cancel() {

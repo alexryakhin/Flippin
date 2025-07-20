@@ -10,9 +10,9 @@ import SwiftUI
 struct PresetCollectionsView: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject private var languageManager: LanguageManager
-    @EnvironmentObject private var cardsProvider: CardsProvider
-    @EnvironmentObject private var colorManager: ColorManager
+    @StateObject private var languageManager = LanguageManager.shared
+    @StateObject private var cardsProvider = CardsProvider.shared
+    @StateObject private var colorManager = ColorManager.shared
 
     @StateObject private var presetService = PresetCollectionService.shared
     @State private var searchText = ""

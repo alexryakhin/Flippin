@@ -11,164 +11,80 @@ import CoreData
 
 @MainActor
 final class CardsProvider: ObservableObject {
+
+    static let shared = CardsProvider()
+
     @Published private(set) var cards: [CardItem] = []
-    let cardsErrorPublisher = PassthroughSubject<Error, Never>()
+    let errorPublisher = PassthroughSubject<Error, Never>()
 
     private let coreDataService = CoreDataService.shared
     private let tagManager = TagManager.shared
     private var cancellables = Set<AnyCancellable>()
 
-    init() {
-        setupBindings()
+    private init() {
         fetchCards()
     }
 
     /// Fetches latest data from Core Data
     func fetchCards() {
         do {
-            try SyncManager.shared.performSyncOperation {
-                let request = CDCardItem.fetchRequest()
-                request.sortDescriptors = [NSSortDescriptor(keyPath: \CDCardItem.timestamp, ascending: true)]
-
-                let cards = try coreDataService.context.fetch(request)
-                self.cards = cards.compactMap(\.coreModel)
-            }
+            let request = CardItem.fetchRequest()
+            request.sortDescriptors = [NSSortDescriptor(keyPath: \CardItem.timestamp, ascending: true)]
+            self.cards = try coreDataService.context.fetch(request)
         } catch {
-            cardsErrorPublisher.send(error)
+            errorPublisher.send(error)
         }
     }
 
     /// Adds a new card to Core Data
     func addCard(_ card: CardItem) {
-        do {
-            let cdCard = CDCardItem(
-                context: coreDataService.context,
-                timestamp: card.timestamp,
-                frontText: card.frontText,
-                backText: card.backText,
-                frontLanguage: card.frontLanguage,
-                backLanguage: card.backLanguage,
-                notes: card.notes.isEmpty ? nil : card.notes,
-                tagNames: nil, // We'll handle tags separately
-                isFavorite: card.isFavorite,
-                id: card.id
-            )
-
-            // Add tags using TagManager
-            for tagName in card.tags {
-                if let tag = tagManager.findOrCreateTag(withName: tagName) {
-                    cdCard.addToTags(tag)
-                }
+        // Add tags using TagManager
+        for tagName in card.tagNames {
+            if let tag = tagManager.findOrCreateTag(withName: tagName) {
+                card.addToTags(tag)
             }
-
-            try coreDataService.saveContext()
-
-            // Haptic feedback for card addition
-            HapticService.shared.cardAdded()
-        } catch {
-            cardsErrorPublisher.send(error)
         }
+        saveContext()
+        fetchCards()
+
+        // Haptic feedback for card addition
+        HapticService.shared.cardAdded()
     }
 
     /// Removes a card from Core Data
-    func deleteCard(with id: String) {
-        do {
-            let fetchRequest = CDCardItem.fetchRequest()
-            fetchRequest.predicate = NSPredicate(format: "id == %@", id)
-
-            if let object = try coreDataService.context.fetch(fetchRequest).first {
-                coreDataService.context.delete(object)
-                try coreDataService.saveContext()
-
-                // Haptic feedback for card deletion
-                HapticService.shared.cardDeleted()
-            }
-        } catch {
-            cardsErrorPublisher.send(error)
+    func deleteCard(_ card: CardItem) {
+        coreDataService.context.delete(card)
+        if let index = cards.firstIndex(of: card) {
+            cards.remove(at: index)
         }
+        saveContext()
+        // Haptic feedback for card deletion
+        HapticService.shared.cardDeleted()
     }
     
     /// Removes all cards from Core Data
     func deleteAllCards() {
-        do {
-            let fetchRequest: NSFetchRequest<CDCardItem> = CDCardItem.fetchRequest()
-
-            let allCards = try coreDataService.context.fetch(fetchRequest)
-            for card in allCards {
-                coreDataService.context.delete(card)
-            }
-            try coreDataService.saveContext()
-        } catch {
-            cardsErrorPublisher.send(error)
+        for card in cards {
+            coreDataService.context.delete(card)
         }
+        saveContext()
+        fetchCards()
     }
 
     /// Toggles the favorite status of a card
-    func toggleFavorite(for cardId: String) {
-        do {
-            let fetchRequest: NSFetchRequest<CDCardItem> = CDCardItem.fetchRequest()
-            fetchRequest.predicate = NSPredicate(format: "id == %@", cardId)
-
-            if let cdCard = try coreDataService.context.fetch(fetchRequest).first {
-                let wasFavorite = cdCard.isFavorite
-                cdCard.isFavorite.toggle()
-                try coreDataService.saveContext()
-
-                // Haptic feedback for favorite toggle
-                HapticService.shared.favoriteToggled(isFavorite: cdCard.isFavorite)
-            }
-        } catch {
-            cardsErrorPublisher.send(error)
-        }
-    }
-    
-    /// Updates an existing card in Core Data
-    func updateCard(_ card: CardItem) {
-        do {
-            let fetchRequest: NSFetchRequest<CDCardItem> = CDCardItem.fetchRequest()
-            fetchRequest.predicate = NSPredicate(format: "id == %@", card.id)
-
-            if let cdCard = try coreDataService.context.fetch(fetchRequest).first {
-                cdCard.timestamp = card.timestamp
-                cdCard.frontText = card.frontText
-                cdCard.backText = card.backText
-                cdCard.frontLanguage = card.frontLanguage
-                cdCard.backLanguage = card.backLanguage
-                cdCard.notes = card.notes.isEmpty ? nil : card.notes
-                cdCard.isFavorite = card.isFavorite
-
-                // Update tags
-                let existingTags = cdCard.tagArray
-                for tag in existingTags {
-                    cdCard.removeFromTags(tag)
-                }
-
-                for tagName in card.tags {
-                    if let tag = tagManager.findOrCreateTag(withName: tagName) {
-                        cdCard.addToTags(tag)
-                    }
-                }
-
-                try coreDataService.saveContext()
-
-                // Haptic feedback for card editing
-                HapticService.shared.cardEdited()
-            }
-        } catch {
-            // Sync failed
-            Task { @MainActor in
-                SyncManager.shared.syncFailed()
-            }
-            cardsErrorPublisher.send(error)
-        }
+    func toggleFavorite(_ card: CardItem) {
+        card.isFavorite.toggle()
+        saveContext()
+        // Haptic feedback for favorite toggle
+        HapticService.shared.favoriteToggled(isFavorite: card.isFavorite)
     }
 
-    private func setupBindings() {
-        coreDataService.dataUpdatedPublisher
-            .receive(on: RunLoop.main)
-            .sink { [weak self] _ in
-                self?.fetchCards()
-            }
-            .store(in: &cancellables)
+    func saveContext() {
+        do {
+            try coreDataService.saveContext()
+            objectWillChange.send()
+        } catch {
+            errorPublisher.send(error)
+        }
     }
 }

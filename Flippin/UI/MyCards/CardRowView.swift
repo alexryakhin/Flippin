@@ -11,7 +11,8 @@ struct CardRowView: View {
     let card: CardItem
     let onDelete: () -> Void
     let onEdit: () -> Void
-    @EnvironmentObject private var cardsProvider: CardsProvider
+
+    @StateObject private var cardsProvider = CardsProvider.shared
     @AppStorage(UserDefaultsKey.cardDisplayMode) private var isTravelMode = false
     
     @State private var isFlipped = false
@@ -24,14 +25,15 @@ struct CardRowView: View {
 
         VStack(alignment: .leading, spacing: 8) {
             HStack {
-                Text(language.displayName)
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-
+                if let language {
+                    Text(language.displayName)
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
                 Spacer()
                 
                 Button {
-                    cardsProvider.toggleFavorite(for: card.id)
+                    cardsProvider.toggleFavorite(card)
                 } label: {
                     Image(systemName: card.isFavorite ? "heart.fill" : "heart")
                         .foregroundStyle(card.isFavorite ? .red : .secondary)
@@ -39,13 +41,13 @@ struct CardRowView: View {
                 }
                 .buttonStyle(.plain)
 
-                Text(card.timestamp, format: Date.FormatStyle(date: .abbreviated, time: .shortened))
+                Text(card.timestamp.orNow, format: Date.FormatStyle(date: .abbreviated, time: .shortened))
                     .font(.caption2)
                     .foregroundStyle(.secondary)
             }
 
             HStack {
-                Text(text)
+                Text(text.orEmpty)
                     .font(.headline)
                     .multilineTextAlignment(.leading)
                     .lineLimit(2)
@@ -59,6 +61,7 @@ struct CardRowView: View {
                     isPlayingTTS = true
                     Task {
                         do {
+                            guard let text, let language else { return }
                             try await TTSPlayer.shared.play(text, language: language)
                             AnalyticsService.trackEvent(.cardPlayed)
                         } catch {
@@ -75,17 +78,17 @@ struct CardRowView: View {
                 .buttonStyle(.plain)
             }
 
-            if !card.notes.isEmpty {
-                Text(card.notes)
+            if !card.notes.orEmpty.isEmpty {
+                Text(card.notes.orEmpty)
                     .font(.caption)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.leading)
                     .lineLimit(1)
             }
 
-            if !card.tags.isEmpty {
+            if !card.tagNames.isEmpty {
                 HFlow(spacing: 4) {
-                    ForEach(card.tags, id: \.self) { tag in
+                    ForEach(card.tagNames, id: \.self) { tag in
                         Text(tag)
                             .font(.caption2)
                             .padding(.horizontal, 6)
@@ -130,8 +133,8 @@ struct CardRowView: View {
                 AnalyticsService.trackCardEvent(
                     .cardFlipped,
                     cardLanguage: card.frontText,
-                    hasTags: !card.tags.isEmpty,
-                    tagCount: card.tags.count
+                    hasTags: !card.tagArray.isEmpty,
+                    tagCount: card.tagArray.count
                 )
             }
         }

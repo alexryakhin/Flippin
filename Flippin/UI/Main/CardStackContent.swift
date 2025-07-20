@@ -7,8 +7,9 @@
 import SwiftUI
 
 struct CardStackContent: View {
-    let items: [CardItem]
-    @State private var cards: [CardItem] = []
+    let cards: [CardItem]
+
+    @State private var cardsInternal: [CardItem] = []
     @State private var dragOffset: CGFloat = 0
     @State private var isAnimatingCardRemoval = false
     @State private var cardToRemove: CardItem?
@@ -21,28 +22,28 @@ struct CardStackContent: View {
             Button("Back") {
                 goBack()
             }
-            .disabled(cards.count <= 1 || isAnimatingCardRemoval || isAnimatingCardAddition)
-            .opacity(cards.count <= 1 ? 0.5 : 1.0)
+            .disabled(cardsInternal.count <= 1 || isAnimatingCardRemoval || isAnimatingCardAddition)
+            .opacity(cardsInternal.count <= 1 ? 0.5 : 1.0)
 
             ZStack(alignment: .bottomTrailing) {
                 // Back card (slides in from the side)
                 if isAnimatingCardAddition, let backCard = getBackCard() {
-                    CardView(item: backCard)
+                    CardView(card: backCard)
                         .offset(x: backCardOffset, y: 0)
                         .scaleEffect(0.85 + (backAnimationProgress * 0.15)) // Start at 85% and grow to 100%
-                        .zIndex(Double(cards.count + 1))
+                        .zIndex(Double(cardsInternal.count + 1))
                         .animation(.spring(response: 0.6, dampingFraction: 0.8), value: backCardOffset)
                         .animation(.spring(response: 0.6, dampingFraction: 0.8), value: backAnimationProgress)
                 }
                 
-                ForEach(Array(cards.enumerated().prefix(3)), id: \.element.id) { index, item in
-                    CardView(item: item)
+                ForEach(Array(cardsInternal.enumerated().prefix(3)), id: \.element.id) { index, card in
+                    CardView(card: card)
                         .offset(
                             x: offsetForIndex(index),
                             y: CGFloat(index) * 10
                         )
                         .scaleEffect(scaleForIndex(index))
-                        .zIndex(Double(cards.count - index))
+                        .zIndex(Double(cardsInternal.count - index))
                         .animation(.spring(response: 0.4, dampingFraction: 0.8), value: dragOffset)
                         .animation(.spring(response: 0.6, dampingFraction: 0.8), value: backAnimationProgress)
                         .gesture(
@@ -60,21 +61,21 @@ struct CardStackContent: View {
             }
         }
         .onAppear {
-            cards = items
+            cardsInternal = cards
         }
-        .onChange(of: items) { newItems in
+        .onChange(of: cards) { newCards in
             withAnimation {
-                cards = newItems
+                cardsInternal = newCards
             }
         }
     }
 
     private func handleDragEnd(_ value: DragGesture.Value) {
         let threshold: CGFloat = 100
-        if abs(value.translation.width) > threshold && cards.count > 1 {
+        if abs(value.translation.width) > threshold && cardsInternal.count > 1 {
             isAnimatingCardRemoval = true
-            cardToRemove = cards.first
-            
+            cardToRemove = cardsInternal.first
+
             // Animate the card going off-screen
             withAnimation(.easeOut(duration: 0.2)) {
                 dragOffset = value.translation.width > 0 ? 500 : -500 // Move card off-screen
@@ -83,8 +84,8 @@ struct CardStackContent: View {
             // After the card is off-screen, remove it and reset
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
-                    let first = cards.removeFirst()
-                    cards.append(first)
+                    let first = cardsInternal.removeFirst()
+                    cardsInternal.append(first)
                 }
                 
                 // Reset states
@@ -101,8 +102,8 @@ struct CardStackContent: View {
     }
     
     private func goBack() {
-        guard cards.count > 1 && !isAnimatingCardRemoval && !isAnimatingCardAddition else { return }
-        
+        guard cardsInternal.count > 1 && !isAnimatingCardRemoval && !isAnimatingCardAddition else { return }
+
         isAnimatingCardAddition = true
         backAnimationProgress = 0
         
@@ -118,9 +119,9 @@ struct CardStackContent: View {
         // After the back card is in position, update the stack
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
             // Update the stack without animation to avoid blinking
-            let last = cards.removeLast()
-            cards.insert(last, at: 0)
-            
+            let last = cardsInternal.removeLast()
+            cardsInternal.insert(last, at: 0)
+
             // Reset states
             isAnimatingCardAddition = false
             backCardOffset = 0
@@ -131,7 +132,7 @@ struct CardStackContent: View {
     private func getBackCard() -> CardItem? {
         // Get the card that was most recently moved to the back
         // This is the last card in the array
-        return cards.last
+        return cardsInternal.last
     }
     
     // Scale cards based on their position in the stack, with reverse effect for back animation

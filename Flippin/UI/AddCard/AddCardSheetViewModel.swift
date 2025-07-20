@@ -86,26 +86,27 @@ final class AddCardSheetViewModel: ObservableObject {
         newTagText = ""
     }
 
-    func createCard() -> CardItem? {
+    func createCard() {
         let trimmedNative = nativeText.trimmingCharacters(in: .whitespacesAndNewlines)
         let trimmedTarget = targetText.trimmingCharacters(in: .whitespacesAndNewlines)
         let trimmedNotes = notes.trimmingCharacters(in: .whitespacesAndNewlines)
 
         guard !trimmedNative.isEmpty && !trimmedTarget.isEmpty else {
-            return nil
+            return
         }
 
-        return CardItem(
+        let card = CardItem(
             timestamp: Date(),
             frontText: trimmedTarget,
             backText: trimmedNative,
             frontLanguage: languageManager.targetLanguage,
             backLanguage: languageManager.userLanguage,
             notes: trimmedNotes.isEmpty ? "" : trimmedNotes,
-            tags: selectedTags.isEmpty ? [] : Array(selectedTags),
             isFavorite: false,
             id: UUID().uuidString
         )
+
+        CardsProvider.shared.addCard(card)
     }
 
     func cancel() {

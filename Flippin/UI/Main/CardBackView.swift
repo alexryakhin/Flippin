@@ -9,47 +9,49 @@ import Flow
 
 struct CardBackView: View {
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject private var cardsProvider: CardsProvider
-    @EnvironmentObject private var colorManager: ColorManager
+    @StateObject private var cardsProvider = CardsProvider.shared
+    @StateObject private var colorManager = ColorManager.shared
     @AppStorage(UserDefaultsKey.cardDisplayMode) private var isTravelMode = false
     @State private var isPlayingTTS = false
 
-    let item: CardItem
+    let card: CardItem
 
     var body: some View {
         VStack(spacing: 20) {
-            let text = isTravelMode ? item.frontText : item.backText
-            let language = isTravelMode ? item.frontLanguage : item.backLanguage
+            let text = isTravelMode ? card.frontText : card.backText
+            let language = isTravelMode ? card.frontLanguage : card.backLanguage
 
             HStack {
-                Text(language.displayName)
-                    .font(.headline)
-                    .foregroundStyle(.secondary)
+                if let language {
+                    Text(language.displayName)
+                        .font(.headline)
+                        .foregroundStyle(.secondary)
+                }
                 Spacer()
                 
                 Button {
-                    cardsProvider.toggleFavorite(for: item.id)
+                    cardsProvider.toggleFavorite(card)
                 } label: {
-                    Image(systemName: item.isFavorite ? "heart.fill" : "heart")
+                    Image(systemName: card.isFavorite ? "heart.fill" : "heart")
                         .font(.title3)
                 }
                 .tint(colorManager.adjustedTintColor(colorScheme))
 
-                Text(item.timestamp, format: Date.FormatStyle(date: .abbreviated, time: .shortened))
+                Text(card.timestamp.orNow, format: Date.FormatStyle(date: .abbreviated, time: .shortened))
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
             Spacer()
 
-            Text(text)
+            Text(text.orEmpty)
                 .font(.largeTitle)
                 .foregroundStyle(.primary)
                 .fontWeight(.bold)
                 .multilineTextAlignment(.center)
 
-            if !item.tags.isEmpty {
+            if !card.tagNames.isEmpty {
                 HFlow(spacing: 6) {
-                    ForEach(item.tags, id: \.self) { tag in
+                    ForEach(card.tagNames, id: \.self) { tag in
                         Text(tag)
                             .font(.caption)
                             .padding(.horizontal, 6)
@@ -73,6 +75,7 @@ struct CardBackView: View {
                         isPlayingTTS = true
                         Task {
                             do {
+                                guard let text, let language else { return }
                                 try await TTSPlayer.shared.play(text, language: language)
                             } catch {
                                 print("TTS error: \(error)")

@@ -9,15 +9,15 @@ import Flow
 
 struct EditCardSheet: View {
     @Environment(\.dismiss) var dismiss
-    @EnvironmentObject private var languageManager: LanguageManager
+    @StateObject private var languageManager = LanguageManager.shared
     @StateObject private var viewModel: EditCardSheetViewModel
     
     @FocusState private var isUserLanguageTextFieldFocused: Bool
     @FocusState private var isTargetLanguageTextFieldFocused: Bool
     @FocusState private var isNotesTextFieldFocused: Bool
 
-    init(card: CardItem, onSave: @escaping (CardItem) -> Void) {
-        self._viewModel = StateObject(wrappedValue: EditCardSheetViewModel(card: card, onSave: onSave))
+    init(card: CardItem) {
+        self._viewModel = StateObject(wrappedValue: EditCardSheetViewModel(card: card))
     }
 
     var body: some View {
@@ -33,10 +33,8 @@ struct EditCardSheet: View {
             }
             .safeAreaInset(edge: .bottom) {
                 Button {
-                    if let updatedCard = viewModel.updateCard() {
-                        viewModel.onSave(updatedCard)
-                        dismiss()
-                    }
+                    viewModel.updateCard()
+                    dismiss()
                 } label: {
                     Text(LocalizationKeys.save.localized)
                         .font(.headline)
@@ -69,10 +67,14 @@ struct EditCardSheet: View {
         CustomSectionView(
             header: languageManager.userLanguage.displayName
         ) {
-            TextField(LocalizationKeys.enterTextInYourLanguage.localized, text: $viewModel.nativeText, axis: .vertical)
-                .autocapitalization(.sentences)
-                .focused($isUserLanguageTextFieldFocused)
-                .clippedWithPaddingAndBackground()
+            TextField(
+                LocalizationKeys.enterTextInYourLanguage.localized,
+                text: $viewModel.nativeText,
+                axis: .vertical
+            )
+            .autocapitalization(.sentences)
+            .focused($isUserLanguageTextFieldFocused)
+            .clippedWithPaddingAndBackground()
         } headerTrailingContent: {
             if isUserLanguageTextFieldFocused {
                 SectionHeaderButton(LocalizationKeys.done.localized) {
@@ -140,10 +142,14 @@ struct EditCardSheet: View {
         CustomSectionView(
             header: LocalizationKeys.notes.localized
         ) {
-            TextField(LocalizationKeys.addNotesOptional.localized, text: $viewModel.notes, axis: .vertical)
-                .autocapitalization(.sentences)
-                .focused($isNotesTextFieldFocused)
-                .clippedWithPaddingAndBackground()
+            TextField(
+                LocalizationKeys.addNotesOptional.localized,
+                text: $viewModel.notes,
+                axis: .vertical
+            )
+            .autocapitalization(.sentences)
+            .focused($isNotesTextFieldFocused)
+            .clippedWithPaddingAndBackground()
         } headerTrailingContent: {
             if isNotesTextFieldFocused {
                 SectionHeaderButton(LocalizationKeys.done.localized) {

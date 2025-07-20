@@ -9,10 +9,10 @@ import SwiftUI
 
 struct FeaturedPresetCollections: View {
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject private var languageManager: LanguageManager
-    @EnvironmentObject private var cardsProvider: CardsProvider
-    @EnvironmentObject private var colorManager: ColorManager
-    
+    @StateObject private var languageManager = LanguageManager.shared
+    @StateObject private var cardsProvider = CardsProvider.shared
+    @StateObject private var colorManager = ColorManager.shared
+
     @StateObject private var presetService = PresetCollectionService.shared
     @State private var showingAllCollections = false
     @State private var showingImportAlert = false
@@ -73,9 +73,6 @@ struct FeaturedPresetCollections: View {
         .clippedWithPaddingAndBackground()
         .sheet(isPresented: $showingAllCollections) {
             PresetCollectionsView()
-                .environmentObject(languageManager)
-                .environmentObject(cardsProvider)
-                .environmentObject(colorManager)
         }
         .alert(LocalizationKeys.importCollection.localized, isPresented: $showingImportAlert) {
             Button(LocalizationKeys.cancel.localized, role: .cancel) { }

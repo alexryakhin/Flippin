@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23788.4" systemVersion="24F74" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="CardItem" representedClassName="CDCardItem" syncable="YES">
+    <entity name="CardItem" representedClassName="CardItem" syncable="YES">
         <attribute name="backLanguageRaw" optional="YES" attributeType="String"/>
         <attribute name="backText" optional="YES" attributeType="String"/>
         <attribute name="frontLanguageRaw" optional="YES" attributeType="String"/>
@@ -11,7 +11,7 @@
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="cards" inverseEntity="Tag"/>
     </entity>
-    <entity name="Tag" representedClassName="CDTag" syncable="YES">
+    <entity name="Tag" representedClassName="Tag" syncable="YES">
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="cards" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CardItem" inverseName="tags" inverseEntity="CardItem"/>

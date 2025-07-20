@@ -7,18 +7,18 @@
 import SwiftUI
 
 struct CardView: View {
-    @EnvironmentObject private var cardsProvider: CardsProvider
-    @EnvironmentObject private var colorManager: ColorManager
+    @StateObject private var cardsProvider = CardsProvider.shared
+    @StateObject private var colorManager = ColorManager.shared
 
     @State private var isFlipped = false
     @State private var animationStart: Date? = nil
     @State private var animationDirection: CGFloat = 1 // 1 for forward, -1 for backward
 
     private let animationDuration: Double = 0.5 // seconds
-    private let item: CardItem
+    private let card: CardItem
 
-    init(item: CardItem) {
-        self.item = item
+    init(card: CardItem) {
+        self.card = card
     }
 
     var body: some View {
@@ -38,11 +38,9 @@ struct CardView: View {
 
             ZStack {
                 if animatedAngle <= 90 {
-                    CardFrontView(item: item)
-                        .environmentObject(colorManager)
+                    CardFrontView(card: card)
                 } else {
-                    CardBackView(item: item)
-                        .environmentObject(colorManager)
+                    CardBackView(card: card)
                         .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
                 }
             }
@@ -63,9 +61,9 @@ struct CardView: View {
                     // Track card flip event
                     AnalyticsService.trackCardEvent(
                         .cardFlipped,
-                        cardLanguage: item.frontLanguage.rawValue,
-                        hasTags: !item.tags.isEmpty,
-                        tagCount: item.tags.count
+                        cardLanguage: card.frontLanguage?.rawValue,
+                        hasTags: !card.tagNames.isEmpty,
+                        tagCount: card.tagNames.count
                     )
                 }
             }

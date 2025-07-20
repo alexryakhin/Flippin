@@ -12,7 +12,7 @@ import FirebaseAnalytics
 
 @main
 struct FlippinApp: App {
-    @StateObject private var cardsProvider = CardsProvider()
+    @StateObject private var cardsProvider = CardsProvider.shared
     @StateObject private var languageManager = LanguageManager.shared
     @StateObject private var tagManager = TagManager.shared
     @StateObject private var colorManager = ColorManager.shared
@@ -25,10 +25,6 @@ struct FlippinApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(cardsProvider)
-                .environmentObject(languageManager)
-                .environmentObject(tagManager)
-                .environmentObject(colorManager)
         }
     }
 }

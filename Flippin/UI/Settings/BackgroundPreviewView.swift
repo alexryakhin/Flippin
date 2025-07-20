@@ -3,7 +3,7 @@ import SwiftUI
 struct BackgroundPreviewView: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject private var colorManager: ColorManager
+    @StateObject private var colorManager = ColorManager.shared
 
     var body: some View {
         NavigationView {

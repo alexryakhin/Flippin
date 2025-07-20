@@ -17,9 +17,9 @@ final class TagManager: ObservableObject {
     private var cancellables: Set<AnyCancellable> = []
 
     static let shared = TagManager()
+    let errorPublisher = PassthroughSubject<Error, Never>()
 
     private init() {
-        setupBindings()
         updateAvailableTags()
     }
     
@@ -36,14 +36,12 @@ final class TagManager: ObservableObject {
     }
     
     private func updateAvailableTags() {
-        let request: NSFetchRequest<CDTag> = CDTag.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(keyPath: \CDTag.name, ascending: true)]
+        let request: NSFetchRequest<Tag> = Tag.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \Tag.name, ascending: true)]
         
         do {
-            try SyncManager.shared.performSyncOperation {
-                let tags = try coreDataService.context.fetch(request)
-                availableTags = tags.compactMap { $0.name }.sorted()
-            }
+            let tags = try coreDataService.context.fetch(request)
+            availableTags = tags.compactMap { $0.name }.sorted()
         } catch {
             print("Error fetching tags: \(error)")
             availableTags = []
@@ -71,14 +69,14 @@ final class TagManager: ObservableObject {
         
         do {
             // Check if tag already exists
-            let request: NSFetchRequest<CDTag> = CDTag.fetchRequest()
+            let request: NSFetchRequest<Tag> = Tag.fetchRequest()
             request.predicate = NSPredicate(format: "name == %@", trimmedTag)
 
             let existingTags = try coreDataService.context.fetch(request)
             if existingTags.isEmpty {
                 // Create new tag
-                _ = CDTag(context: coreDataService.context, name: trimmedTag)
-                try coreDataService.saveContext()
+                _ = Tag(trimmedTag)
+                saveContext()
                 updateAvailableTags()
 
                 // Haptic feedback for tag addition
@@ -93,14 +91,14 @@ final class TagManager: ObservableObject {
     
         func removeTag(_ tag: String) {
         do {
-            let request: NSFetchRequest<CDTag> = CDTag.fetchRequest()
+            let request: NSFetchRequest<Tag> = Tag.fetchRequest()
             request.predicate = NSPredicate(format: "name == %@", tag)
 
             let tags = try coreDataService.context.fetch(request)
             for tag in tags {
                 coreDataService.context.delete(tag)
             }
-            try coreDataService.saveContext()
+            saveContext()
             updateAvailableTags()
 
             // Haptic feedback for tag deletion
@@ -115,9 +113,9 @@ final class TagManager: ObservableObject {
     }
     
     func filterCards(_ cards: [CardItem], by tag: String?) -> [CardItem] {
-        guard let tag = tag, !tag.isEmpty else { return cards }
+        guard let tag, !tag.isEmpty else { return cards }
         return cards.filter { card in
-            card.tags.contains(tag)
+            card.tagNames.contains(tag)
         }
     }
     
@@ -136,7 +134,7 @@ final class TagManager: ObservableObject {
     }
     
     func getUnusedTags() -> [String] {
-        let request: NSFetchRequest<CDTag> = CDTag.fetchRequest()
+        let request: NSFetchRequest<Tag> = Tag.fetchRequest()
         
         do {
             let tags = try coreDataService.context.fetch(request)
@@ -153,11 +151,11 @@ final class TagManager: ObservableObject {
         }
     }
     
-    func findOrCreateTag(withName name: String) -> CDTag? {
+    func findOrCreateTag(withName name: String) -> Tag? {
         let trimmedName = name.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmedName.isEmpty else { return nil }
         
-        let request: NSFetchRequest<CDTag> = CDTag.fetchRequest()
+        let request: NSFetchRequest<Tag> = Tag.fetchRequest()
         request.predicate = NSPredicate(format: "name == %@", trimmedName)
         
         do {
@@ -166,8 +164,8 @@ final class TagManager: ObservableObject {
                 return existingTag
             } else {
                 // Create new tag
-                let newTag = CDTag(context: coreDataService.context, name: trimmedName)
-                try coreDataService.saveContext()
+                let newTag = Tag(trimmedName)
+                saveContext()
                 updateAvailableTags()
                 return newTag
             }
@@ -177,12 +175,13 @@ final class TagManager: ObservableObject {
         }
     }
 
-    private func setupBindings() {
-        coreDataService.dataUpdatedPublisher
-            .receive(on: RunLoop.main)
-            .sink { [weak self] in
-                self?.updateAvailableTags()
-            }
-            .store(in: &cancellables)
+
+    func saveContext() {
+        do {
+            try coreDataService.saveContext()
+            objectWillChange.send()
+        } catch {
+            errorPublisher.send(error)
+        }
     }
 }

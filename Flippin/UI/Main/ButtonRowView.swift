@@ -8,8 +8,8 @@ import SwiftUI
 
 struct ButtonRowView: View {
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject private var colorManager: ColorManager
-    @EnvironmentObject private var tagManager: TagManager
+    @StateObject private var colorManager = ColorManager.shared
+    @StateObject private var tagManager = TagManager.shared
 
     let onAddItem: () -> Void
     let onShuffle: () -> Void

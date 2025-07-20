@@ -12,7 +12,6 @@ import Combine
 public class CoreDataService: ObservableObject {
 
     public static let shared = CoreDataService()
-    public let dataUpdatedPublisher = PassthroughSubject<Void, Never>()
 
     public var context: NSManagedObjectContext {
         return persistentContainer.viewContext
@@ -51,9 +50,7 @@ public class CoreDataService: ObservableObject {
 
     private var cancellables: Set<AnyCancellable> = []
 
-    private init() {
-        setupBindings()
-    }
+    private init() {}
 
     public func saveContext() throws {
         let context = persistentContainer.viewContext
@@ -64,21 +61,5 @@ public class CoreDataService: ObservableObject {
                 throw error
             }
         }
-    }
-
-    private func setupBindings() {
-        NotificationCenter.default.publisher(for: .NSManagedObjectContextDidSave)
-            .debounce(for: .seconds(0.3), scheduler: RunLoop.main)
-            .sink { [weak self] _ in
-                self?.dataUpdatedPublisher.send()
-            }
-            .store(in: &cancellables)
-
-        NotificationCenter.default.publisher(for: .NSPersistentStoreRemoteChange)
-            .debounce(for: .seconds(0.3), scheduler: RunLoop.main)
-            .sink { [weak self] _ in
-                self?.dataUpdatedPublisher.send()
-            }
-            .store(in: &cancellables)
     }
 }

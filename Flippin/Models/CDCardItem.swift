@@ -1,5 +1,5 @@
 //
-//  CDCardItem.swift
+//  CardItem.swift
 //  Flippin
 //
 //  Created by Alexander Riakhin on 7/15/25.
@@ -8,8 +8,8 @@
 import Foundation
 import CoreData
 
-@objc(CDCardItem)
-public final class CDCardItem: NSManagedObject {
+@objc(CardItem)
+public final class CardItem: NSManagedObject, Identifiable {
     @NSManaged public var timestamp: Date?
     @NSManaged public var frontText: String?
     @NSManaged public var backText: String?
@@ -40,8 +40,8 @@ public final class CDCardItem: NSManagedObject {
         }
     }
 
-    var tagArray: [CDTag] {
-        let set = tags as? Set<CDTag> ?? []
+    var tagArray: [Tag] {
+        let set = tags as? Set<Tag> ?? []
         return Array(set)
     }
 
@@ -50,9 +50,8 @@ public final class CDCardItem: NSManagedObject {
     }
 }
 
-extension CDCardItem {
+extension CardItem {
     convenience init(
-        context: NSManagedObjectContext,
         timestamp: Date = Date(),
         frontText: String = "",
         backText: String = "",
@@ -63,7 +62,7 @@ extension CDCardItem {
         isFavorite: Bool = false,
         id: String = UUID().uuidString
     ) {
-        self.init(context: context)
+        self.init(context: CoreDataService.shared.context)
         self.timestamp = timestamp
         self.frontText = frontText
         self.backText = backText
@@ -72,49 +71,23 @@ extension CDCardItem {
         self.notes = notes
         self.isFavorite = isFavorite
         self.id = id
-
-        // Tags will be handled separately by the CardsProvider
-        // This is to avoid creating duplicate tags
-    }
-
-    var coreModel: CardItem? {
-        guard let timestamp = timestamp,
-              let frontText = frontText,
-              let backText = backText,
-              let frontLanguage = frontLanguage,
-              let backLanguage = backLanguage,
-              let id = id else {
-            return nil
-        }
-
-        return CardItem(
-            timestamp: timestamp,
-            frontText: frontText,
-            backText: backText,
-            frontLanguage: frontLanguage,
-            backLanguage: backLanguage,
-            notes: notes ?? "",
-            tags: tagNames.sorted(),
-            isFavorite: isFavorite,
-            id: id
-        )
     }
 }
 
 // MARK: - Fetch Request
-extension CDCardItem {
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<CDCardItem> {
-        return NSFetchRequest<CDCardItem>(entityName: "CardItem")
+extension CardItem {
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<CardItem> {
+        return NSFetchRequest<CardItem>(entityName: "CardItem")
     }
 }
 
 // MARK: - Generated accessors for tags
-extension CDCardItem {
+extension CardItem {
     @objc(addTagsObject:)
-    @NSManaged public func addToTags(_ value: CDTag)
+    @NSManaged public func addToTags(_ value: Tag)
 
     @objc(removeTagsObject:)
-    @NSManaged public func removeFromTags(_ value: CDTag)
+    @NSManaged public func removeFromTags(_ value: Tag)
 
     @objc(addTags:)
     @NSManaged public func addToTags(_ values: NSSet)

@@ -11,9 +11,9 @@ struct SettingsView: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.colorScheme) var colorScheme
 
-    @EnvironmentObject private var languageManager: LanguageManager
-    @EnvironmentObject private var colorManager: ColorManager
-    @EnvironmentObject private var tagManager: TagManager
+    @StateObject private var languageManager = LanguageManager.shared
+    @StateObject private var colorManager =  ColorManager.shared
+    @StateObject private var tagManager = TagManager.shared
     @AppStorage(UserDefaultsKey.cardDisplayMode) private var isTravelMode = false
 
     @State private var newTagText = ""
@@ -212,14 +212,12 @@ struct SettingsView: View {
             }
             .sheet(isPresented: $showingBackgroundPreview) {
                 BackgroundPreviewView()
-                    .environmentObject(colorManager)
             }
             .sheet(isPresented: $showingPurchaseTest) {
                 NavigationView {
                     PurchaseTestView()
                 }
             }
-
         }
     }
 }

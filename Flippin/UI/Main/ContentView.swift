@@ -9,11 +9,10 @@ import SwiftUI
 
 struct ContentView: View {
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject private var cardsProvider: CardsProvider
-    @EnvironmentObject private var languageManager: LanguageManager
-    @EnvironmentObject private var tagManager: TagManager
-    @EnvironmentObject private var colorManager: ColorManager
-    @StateObject private var syncManager = SyncManager.shared
+    @StateObject private var cardsProvider = CardsProvider.shared
+    @StateObject private var languageManager = LanguageManager.shared
+    @StateObject private var tagManager = TagManager.shared
+    @StateObject private var colorManager = ColorManager.shared
 
     @AppStorage(UserDefaultsKey.didShowWelcomeSheet) private var didShowWelcomeSheet: Bool = false
 
@@ -57,7 +56,6 @@ struct ContentView: View {
                 onShowMyCards: { showMyCards = true },
                 isFilterActive: !tagManager.currentFilterTag.isEmpty || tagManager.isFavoriteFilterOn
             )
-            .environmentObject(colorManager)
         }
         .padding(24)
         .background {
@@ -65,12 +63,6 @@ struct ContentView: View {
                 style: colorManager.backgroundStyle,
                 baseColor: colorManager.userGradientColor
             )
-        }
-        .overlay(alignment: .topTrailing) {
-            SyncIndicator(state: syncManager.syncState)
-                .transition(.scale)
-                .animation(.bouncy, value: syncManager.syncState)
-                .padding(.horizontal, 8)
         }
         .onAppear {
             if !didShowWelcomeSheet {
@@ -103,13 +95,10 @@ struct ContentView: View {
                     showWelcomeSheet = false
                 }
             )
-            .environmentObject(languageManager)
             .interactiveDismissDisabled()
         }
         .sheet(isPresented: $showSettings) {
             SettingsView()
-                .environmentObject(languageManager)
-                .environmentObject(colorManager)
         }
         .onChange(of: showSettings) { _, isPresented in
             if isPresented {
@@ -122,9 +111,6 @@ struct ContentView: View {
                     showSettings = true
                 }
             )
-            .environmentObject(cardsProvider)
-            .environmentObject(languageManager)
-            .environmentObject(tagManager)
         }
         .onChange(of: showMyCards) { _, isPresented in
             if isPresented {
@@ -132,12 +118,7 @@ struct ContentView: View {
             }
         }
         .sheet(isPresented: $showAddCardSheet) {
-            AddCardSheet { newCard in
-                cardsProvider.addCard(newCard)
-            }
-            .environmentObject(languageManager)
-            .environmentObject(cardsProvider)
-            .environmentObject(colorManager)
+            AddCardSheet()
         }
         .onChange(of: showAddCardSheet) { _, isPresented in
             if isPresented {
@@ -159,8 +140,7 @@ struct ContentView: View {
                 noCardsWithTagsView
             }
         } else {
-            CardStackContent(items: displayItems)
-                .environmentObject(colorManager)
+            CardStackContent(cards: displayItems)
         }
     }
 
@@ -180,9 +160,6 @@ struct ContentView: View {
             .foregroundColor(colorManager.adjustedForegroundColor(colorScheme))
             
             FeaturedPresetCollections()
-                .environmentObject(languageManager)
-                .environmentObject(cardsProvider)
-                .environmentObject(colorManager)
         }
     }
 

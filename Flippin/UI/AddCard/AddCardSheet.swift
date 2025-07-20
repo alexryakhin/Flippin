@@ -9,20 +9,13 @@ import Flow
 
 struct AddCardSheet: View {
     @Environment(\.dismiss) var dismiss
-    @EnvironmentObject private var languageManager: LanguageManager
-    @EnvironmentObject private var cardsProvider: CardsProvider
-    @EnvironmentObject private var colorManager: ColorManager
+    @StateObject private var languageManager = LanguageManager.shared
+    @StateObject private var colorManager = ColorManager.shared
     @StateObject private var viewModel = AddCardSheetViewModel()
-    
-    let onSave: (CardItem) -> Void
 
     @FocusState private var isUserLanguageTextFieldFocused: Bool
     @FocusState private var isTargetLanguageTextFieldFocused: Bool
     @FocusState private var isNotesTextFieldFocused: Bool
-
-    init(onSave: @escaping (CardItem) -> Void) {
-        self.onSave = onSave
-    }
 
     var body: some View {
         NavigationView {
@@ -38,10 +31,8 @@ struct AddCardSheet: View {
             }
             .safeAreaInset(edge: .bottom) {
                 Button {
-                    if let newCard = viewModel.createCard() {
-                        onSave(newCard)
-                        dismiss()
-                    }
+                    viewModel.createCard()
+                    dismiss()
                 } label: {
                     Text(LocalizationKeys.save.localized)
                         .font(.headline)
@@ -163,9 +154,6 @@ struct AddCardSheet: View {
             header: LocalizationKeys.presetCollections.localized
         ) {
             FeaturedPresetCollections()
-                .environmentObject(languageManager)
-                .environmentObject(cardsProvider)
-                .environmentObject(colorManager)
         }
     }
 }
