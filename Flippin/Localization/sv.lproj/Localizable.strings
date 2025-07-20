@@ -55,6 +55,12 @@
 
 // MARK: - Settings
 "languages" = "Språk";
+"cardDisplay" = "Kortvisning";
+"cardDisplayMode" = "Kortvisningsläge";
+"learningMode" = "Lärläge";
+"travelMode" = "Reseläge";
+"learningModeDescription" = "Visa målspråk först (för lärande)";
+"travelModeDescription" = "Visa modersmål först (för resor)";
 
 // MARK: - Preset Collections
 "presetCollections" = "Fördefinierade Samlingar";

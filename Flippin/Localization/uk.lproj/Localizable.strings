@@ -55,6 +55,12 @@
 
 // MARK: - Settings
 "languages" = "Мови";
+"cardDisplay" = "Відображення Карток";
+"cardDisplayMode" = "Режим Відображення Карток";
+"learningMode" = "Режим Навчання";
+"travelMode" = "Режим Подорожі";
+"learningModeDescription" = "Показувати цільову мову спочатку (для навчання)";
+"travelModeDescription" = "Показувати рідну мову спочатку (для подорожей)";
 
 // MARK: - Preset Collections
 "presetCollections" = "Попередньо Визначені Колекції";

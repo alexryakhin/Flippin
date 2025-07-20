@@ -55,6 +55,12 @@
 
 // MARK: - Settings
 "languages" = "Langues";
+"cardDisplay" = "Affichage des Cartes";
+"cardDisplayMode" = "Mode d'Affichage des Cartes";
+"learningMode" = "Mode d'Apprentissage";
+"travelMode" = "Mode Voyage";
+"learningModeDescription" = "Afficher la langue cible en premier (pour apprendre)";
+"travelModeDescription" = "Afficher la langue native en premier (pour voyager)";
 
 // MARK: - Preset Collections
 "presetCollections" = "Collections Prédéfinies";

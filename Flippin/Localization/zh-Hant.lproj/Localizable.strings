@@ -55,6 +55,12 @@
 
 // MARK: - Settings
 "languages" = "語言";
+"cardDisplay" = "卡片顯示";
+"cardDisplayMode" = "卡片顯示模式";
+"learningMode" = "學習模式";
+"travelMode" = "旅行模式";
+"learningModeDescription" = "首先顯示目標語言（用於學習）";
+"travelModeDescription" = "首先顯示母語（用於旅行）";
 
 // MARK: - Preset Collections
 "presetCollections" = "預設集合";

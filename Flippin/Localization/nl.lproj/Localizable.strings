@@ -55,6 +55,12 @@
 
 // MARK: - Settings
 "languages" = "Talen";
+"cardDisplay" = "Kaartweergave";
+"cardDisplayMode" = "Kaartweergavemodus";
+"learningMode" = "Leermodus";
+"travelMode" = "Reismodus";
+"learningModeDescription" = "Toon doeltaal eerst (voor leren)";
+"travelModeDescription" = "Toon moedertaal eerst (voor reizen)";
 
 // MARK: - Preset Collections
 "presetCollections" = "Vooraf Gedefinieerde Collecties";

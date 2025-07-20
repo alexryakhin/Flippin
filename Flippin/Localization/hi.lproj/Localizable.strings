@@ -55,6 +55,12 @@
 
 // MARK: - Settings
 "languages" = "भाषाएं";
+"cardDisplay" = "कार्ड प्रदर्शन";
+"cardDisplayMode" = "कार्ड प्रदर्शन मोड";
+"learningMode" = "सीखने का मोड";
+"travelMode" = "यात्रा मोड";
+"learningModeDescription" = "लक्ष्य भाषा पहले दिखाएं (सीखने के लिए)";
+"travelModeDescription" = "मातृभाषा पहले दिखाएं (यात्रा के लिए)";
 
 // MARK: - Preset Collections
 "presetCollections" = "पूर्व-निर्धारित संग्रह";

@@ -55,6 +55,12 @@
 
 // MARK: - Settings
 "languages" = "Jezici";
+"cardDisplay" = "Prikaz Kartica";
+"cardDisplayMode" = "Način Prikaza Kartica";
+"learningMode" = "Način Učenja";
+"travelMode" = "Način Putovanja";
+"learningModeDescription" = "Prikaži ciljni jezik prvo (za učenje)";
+"travelModeDescription" = "Prikaži materinski jezik prvo (za putovanje)";
 
 // MARK: - Preset Collections
 "presetCollections" = "Unaprijed Definirane Kolekcije";

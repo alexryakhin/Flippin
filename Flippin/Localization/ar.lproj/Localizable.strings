@@ -55,6 +55,12 @@
 
 // MARK: - Settings
 "languages" = "اللغات";
+"cardDisplay" = "عرض البطاقة";
+"cardDisplayMode" = "وضع عرض البطاقة";
+"learningMode" = "وضع التعلم";
+"travelMode" = "وضع السفر";
+"learningModeDescription" = "عرض اللغة المستهدفة أولاً (للتعلم)";
+"travelModeDescription" = "عرض اللغة الأصلية أولاً (للسفر)";
 
 // MARK: - Preset Collections
 "presetCollections" = "المجموعات المحددة مسبقاً";
