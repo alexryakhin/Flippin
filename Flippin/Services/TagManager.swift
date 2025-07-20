@@ -31,12 +31,34 @@ final class TagManager: ObservableObject {
 
     private let coreDataService = CoreDataService.shared
     private var cancellables: Set<AnyCancellable> = []
+    private var hasCheckedInitialSync = false
 
     static let shared = TagManager()
     let errorPublisher = PassthroughSubject<Error, Never>()
 
     private init() {
         updateAvailableTags()
+        
+        // Check for CloudKit sync if tags are empty after initial load
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) { [weak self] in
+            if self?.availableTags.isEmpty == true && !(self?.hasCheckedInitialSync ?? false) {
+                self?.hasCheckedInitialSync = true
+                self?.checkForCloudKitData()
+            }
+        }
+    }
+    
+    private func checkForCloudKitData() {
+        // Only check once if tags are empty at startup
+        if availableTags.isEmpty {
+            print("🏷️ No tags found at startup, checking CloudKit sync...")
+            coreDataService.checkCloudKitSync()
+            
+            // Try fetching again after a delay
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [weak self] in
+                self?.updateAvailableTags()
+            }
+        }
     }
 
     @Published private(set) var availableTags: [Tag] = []
@@ -62,6 +84,7 @@ final class TagManager: ObservableObject {
         do {
             let tags = try coreDataService.context.fetch(request)
             availableTags = tags.sorted()
+            print("🏷️ Fetched \(tags.count) tags from Core Data")
         } catch {
             print("Error fetching tags: \(error)")
             availableTags = []

@@ -12,6 +12,7 @@ import FirebaseAnalytics
 
 @main
 struct FlippinApp: App {
+    @StateObject private var coreDataService = CoreDataService.shared
     @StateObject private var cardsProvider = CardsProvider.shared
     @StateObject private var languageManager = LanguageManager.shared
     @StateObject private var tagManager = TagManager.shared

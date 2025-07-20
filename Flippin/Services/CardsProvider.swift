@@ -15,24 +15,59 @@ final class CardsProvider: ObservableObject {
     static let shared = CardsProvider()
 
     @Published private(set) var cards: [CardItem] = []
+    @Published private(set) var isLoading = false
     let errorPublisher = PassthroughSubject<Error, Never>()
 
     private let coreDataService = CoreDataService.shared
     private let tagManager = TagManager.shared
     private var cancellables = Set<AnyCancellable>()
+    private var hasCheckedInitialSync = false
 
     private init() {
         fetchCards()
+        
+        // Only check for CloudKit sync if cards are empty after initial load
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) { [weak self] in
+            if self?.cards.isEmpty == true && !(self?.hasCheckedInitialSync ?? false) {
+                self?.hasCheckedInitialSync = true
+                self?.checkForCloudKitData()
+            }
+        }
+    }
+    
+    private func checkForCloudKitData() {
+        // Only check once if cards are empty at startup
+        if cards.isEmpty {
+            print("🔄 No cards found at startup, checking CloudKit sync...")
+            coreDataService.checkCloudKitSync()
+            
+            // Try fetching again after a delay
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [weak self] in
+                self?.fetchCards()
+            }
+        }
     }
 
     /// Fetches latest data from Core Data
     func fetchCards() {
-        do {
-            let request = CardItem.fetchRequest()
-            request.sortDescriptors = [NSSortDescriptor(keyPath: \CardItem.timestamp, ascending: true)]
-            self.cards = try coreDataService.context.fetch(request)
-        } catch {
-            errorPublisher.send(error)
+        isLoading = true
+        
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            defer { self?.isLoading = false }
+            do {
+                let request = CardItem.fetchRequest()
+                request.sortDescriptors = [NSSortDescriptor(keyPath: \CardItem.timestamp, ascending: true)]
+                let fetchedCards = try self?.coreDataService.context.fetch(request) ?? []
+                
+                DispatchQueue.main.async {
+                    self?.cards = fetchedCards
+                    print("📱 Fetched \(fetchedCards.count) cards from Core Data")
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    self?.errorPublisher.send(error)
+                }
+            }
         }
     }
 
@@ -96,11 +131,17 @@ final class CardsProvider: ObservableObject {
     }
 
     func saveContext() {
-        do {
-            try coreDataService.saveContext()
-            objectWillChange.send()
-        } catch {
-            errorPublisher.send(error)
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            do {
+                try self?.coreDataService.saveContext()
+                DispatchQueue.main.async {
+                    self?.objectWillChange.send()
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    self?.errorPublisher.send(error)
+                }
+            }
         }
     }
 }

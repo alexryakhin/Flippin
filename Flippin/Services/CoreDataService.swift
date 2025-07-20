@@ -8,6 +8,7 @@
 import Foundation
 import CoreData
 import Combine
+import CloudKit
 
 public class CoreDataService: ObservableObject {
 
@@ -48,9 +49,20 @@ public class CoreDataService: ObservableObject {
         return container
     }()
 
-    private var cancellables: Set<AnyCancellable> = []
-
     private init() {}
+    
+    /// Force a CloudKit sync check (only used for initial empty cards check)
+    public func checkCloudKitSync() {
+        // Trigger a sync check by saving context on background queue
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            do {
+                try self?.saveContext()
+                print("☁️ Triggered CloudKit sync check")
+            } catch {
+                print("❌ Failed to trigger CloudKit sync: \(error)")
+            }
+        }
+    }
 
     public func saveContext() throws {
         let context = persistentContainer.viewContext

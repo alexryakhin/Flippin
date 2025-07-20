@@ -129,7 +129,10 @@ struct ContentView: View {
 
     @ViewBuilder
     private var cardsStackView: some View {
-        if cardsProvider.cards.isEmpty {
+        if cardsProvider.isLoading {
+            ProgressView()
+                .tint(colorManager.adjustedTintColor(colorScheme))
+        } else if cardsProvider.cards.isEmpty {
             noCardsView
         } else if displayItems.isEmpty {
             if tagManager.isFavoriteFilterOn {
