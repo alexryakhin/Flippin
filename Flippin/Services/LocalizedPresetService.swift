@@ -86,8 +86,7 @@ class LocalizedPresetService: ObservableObject {
                 return PresetCard(
                     frontText: targetLanguageText,
                     backText: userLanguageText,
-                    notes: notes,
-                    tags: [collection.category.localizedTag(for: userLanguage)]
+                    notes: notes
                 )
             }
             
@@ -96,7 +95,8 @@ class LocalizedPresetService: ObservableObject {
                 description: localizedDescription,
                 icon: collection.category.icon,
                 category: collection.category,
-                cards: cards
+                cards: cards,
+                tags: [collection.category.localizedTag(for: userLanguage)]
             )
         }
     }
@@ -134,7 +134,6 @@ class LocalizedPresetService: ObservableObject {
                 frontLanguage: targetLanguage,
                 backLanguage: userLanguage,
                 notes: presetCard.notes,
-//                tags: presetCard.tags,
                 isFavorite: false,
                 id: UUID().uuidString
             )

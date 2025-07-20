@@ -56,7 +56,8 @@ struct ButtonRowView: View {
                         Picker(LocalizationKeys.filterByTag.localized, selection: $tagManager.currentFilterTag) {
                             Text(LocalizationKeys.showAllCards.localized).tag("")
                             ForEach(tagManager.availableTags, id: \.self) { tag in
-                                Text(tag).tag(tag)
+                                Text(tag.name.orEmpty)
+                                    .tag(tag)
                             }
                         }
                         .pickerStyle(.menu)

@@ -12,7 +12,7 @@ import Combine
 
 final class TagManager: ObservableObject {
     @AppStorage(UserDefaultsKey.selectedFilterTag) private var selectedFilterTag: String = ""
-    
+
     private let coreDataService = CoreDataService.shared
     private var cancellables: Set<AnyCancellable> = []
 
@@ -22,8 +22,8 @@ final class TagManager: ObservableObject {
     private init() {
         updateAvailableTags()
     }
-    
-    @Published private(set) var availableTags: [String] = []
+
+    @Published private(set) var availableTags: [Tag] = []
     @Published var isFavoriteFilterOn: Bool = false {
         didSet {
             // Haptic feedback for favorite filter toggle
@@ -34,26 +34,26 @@ final class TagManager: ObservableObject {
             }
         }
     }
-    
+
     private func updateAvailableTags() {
-        let request: NSFetchRequest<Tag> = Tag.fetchRequest()
+        let request = Tag.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(keyPath: \Tag.name, ascending: true)]
-        
+
         do {
             let tags = try coreDataService.context.fetch(request)
-            availableTags = tags.compactMap { $0.name }.sorted()
+            availableTags = tags.sorted()
         } catch {
             print("Error fetching tags: \(error)")
             availableTags = []
         }
     }
-    
+
     var currentFilterTag: String {
         get { selectedFilterTag }
-        set { 
+        set {
             let oldValue = selectedFilterTag
             selectedFilterTag = newValue
-            
+
             // Haptic feedback for filter applied (only if it's a new filter)
             if oldValue != newValue && !newValue.isEmpty {
                 DispatchQueue.main.async {
@@ -62,11 +62,11 @@ final class TagManager: ObservableObject {
             }
         }
     }
-    
+
     func addTag(_ tag: String) {
         let trimmedTag = tag.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmedTag.isEmpty else { return }
-        
+
         do {
             // Check if tag already exists
             let request: NSFetchRequest<Tag> = Tag.fetchRequest()
@@ -88,54 +88,44 @@ final class TagManager: ObservableObject {
             print("Error adding tag: \(error)")
         }
     }
-    
-        func removeTag(_ tag: String) {
-        do {
-            let request: NSFetchRequest<Tag> = Tag.fetchRequest()
-            request.predicate = NSPredicate(format: "name == %@", tag)
 
-            let tags = try coreDataService.context.fetch(request)
-            for tag in tags {
-                coreDataService.context.delete(tag)
-            }
-            saveContext()
-            updateAvailableTags()
+    func removeTag(_ tag: Tag) {
+        coreDataService.context.delete(tag)
+        saveContext()
+        updateAvailableTags()
 
-            // Haptic feedback for tag deletion
-            DispatchQueue.main.async {
-                HapticService.shared.tagDeleted()
-            }
-
-            AnalyticsService.trackTagEvent(.tagDeleted, tagName: tag, tagCount: availableTags.count)
-        } catch {
-            print("Error removing tag: \(error)")
+        // Haptic feedback for tag deletion
+        DispatchQueue.main.async {
+            HapticService.shared.tagDeleted()
         }
+
+        AnalyticsService.trackTagEvent(.tagDeleted, tagName: tag.name, tagCount: availableTags.count)
     }
-    
+
     func filterCards(_ cards: [CardItem], by tag: String?) -> [CardItem] {
         guard let tag, !tag.isEmpty else { return cards }
         return cards.filter { card in
             card.tagNames.contains(tag)
         }
     }
-    
+
     func filterCardsByFavorite(_ cards: [CardItem]) -> [CardItem] {
         guard isFavoriteFilterOn else { return cards }
         return cards.filter { $0.isFavorite }
     }
-    
+
     func clearFilter() {
         currentFilterTag = ""
-        
+
         // Haptic feedback for filter cleared
         DispatchQueue.main.async {
             HapticService.shared.filterCleared()
         }
     }
-    
+
     func getUnusedTags() -> [String] {
         let request: NSFetchRequest<Tag> = Tag.fetchRequest()
-        
+
         do {
             let tags = try coreDataService.context.fetch(request)
             return tags.compactMap { tag in
@@ -150,14 +140,14 @@ final class TagManager: ObservableObject {
             return []
         }
     }
-    
+
     func findOrCreateTag(withName name: String) -> Tag? {
         let trimmedName = name.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmedName.isEmpty else { return nil }
-        
+
         let request: NSFetchRequest<Tag> = Tag.fetchRequest()
         request.predicate = NSPredicate(format: "name == %@", trimmedName)
-        
+
         do {
             let existingTags = try coreDataService.context.fetch(request)
             if let existingTag = existingTags.first {
@@ -174,7 +164,6 @@ final class TagManager: ObservableObject {
             return nil
         }
     }
-
 
     func saveContext() {
         do {

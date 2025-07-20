@@ -145,9 +145,11 @@ struct MyCardsListView: View {
                         if !tagManager.availableTags.isEmpty {
                             Section {
                                 Picker(LocalizationKeys.filterByTag.localized, selection: $tagManager.currentFilterTag) {
-                                    Text(LocalizationKeys.showAllCards.localized).tag("")
+                                    Text(LocalizationKeys.showAllCards.localized)
+                                        .tag("")
                                     ForEach(tagManager.availableTags, id: \.self) { tag in
-                                        Text(tag).tag(tag)
+                                        Text(tag.name.orEmpty)
+                                            .tag(tag)
                                     }
                                 }
                                 .pickerStyle(.menu)
@@ -172,7 +174,9 @@ struct MyCardsListView: View {
         .sheet(isPresented: $showAddCardSheet) {
             AddCardSheet()
         }
-        .sheet(item: $cardToEdit) { card in
+        .sheet(item: $cardToEdit) {
+            cardsProvider.objectWillChange.send()
+        } content: { card in
             EditCardSheet(card: card)
         }
         .alert(cardToDelete == nil ? LocalizationKeys.deleteAllCards.localized : LocalizationKeys.deleteCard.localized, isPresented: $showingDeleteAlert) {

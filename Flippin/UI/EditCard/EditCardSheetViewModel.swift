@@ -14,16 +14,16 @@ final class EditCardSheetViewModel: ObservableObject {
     @Published var nativeText: String = ""
     @Published var targetText: String = ""
     @Published var isTranslating: Bool = false
-    @Published var selectedTags: Set<String> = []
     @Published var newTagText: String = ""
     @Published var notes: String = ""
     
     private var cancellables = Set<AnyCancellable>()
     private let tagManager = TagManager.shared
     private let languageManager = LanguageManager.shared
-    private let card: CardItem
 
-    var availableTags: [String] {
+    @Published private(set) var card: CardItem
+
+    var availableTags: [Tag] {
         tagManager.availableTags
     }
     
@@ -34,7 +34,6 @@ final class EditCardSheetViewModel: ObservableObject {
         self.nativeText = card.backText.orEmpty
         self.targetText = card.frontText.orEmpty
         self.notes = card.notes.orEmpty
-        self.selectedTags = Set(card.tagNames)
 
         setupTranslationPipeline()
     }
@@ -73,25 +72,18 @@ final class EditCardSheetViewModel: ObservableObject {
         isTranslating = false
     }
     
-    func addTag(_ tag: String) {
-        let trimmedTag = tag.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !trimmedTag.isEmpty else { return }
-        
-        if selectedTags.count < 5 {
-            selectedTags.insert(trimmedTag)
-            tagManager.addTag(trimmedTag)
+    func addTag(_ tag: Tag) {
+        if card.tagArray.count < 5 {
+            card.addToTags(tag)
         }
+        objectWillChange.send()
     }
     
-    func removeTag(_ tag: String) {
-        selectedTags.remove(tag)
+    func removeTag(_ tag: Tag) {
+        card.removeFromTags(tag)
+        objectWillChange.send()
     }
-    
-    func addNewTag() {
-        addTag(newTagText)
-        newTagText = ""
-    }
-    
+
     func updateCard() {
         let trimmedNative = nativeText.trimmingCharacters(in: .whitespacesAndNewlines)
         let trimmedTarget = targetText.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -113,6 +105,7 @@ final class EditCardSheetViewModel: ObservableObject {
         )
 
         try? CoreDataService.shared.saveContext()
+        objectWillChange.send()
     }
     
     func cancel() {

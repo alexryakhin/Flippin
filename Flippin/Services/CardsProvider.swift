@@ -37,9 +37,9 @@ final class CardsProvider: ObservableObject {
     }
 
     /// Adds a new card to Core Data
-    func addCard(_ card: CardItem) {
+    func addCard(_ card: CardItem, tags: [String] = []) {
         // Add tags using TagManager
-        for tagName in card.tagNames {
+        for tagName in tags {
             if let tag = tagManager.findOrCreateTag(withName: tagName) {
                 card.addToTags(tag)
             }

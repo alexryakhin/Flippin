@@ -108,17 +108,17 @@ struct EditCardSheet: View {
 
     private var tagsSection: some View {
         CustomSectionView(
-            header: LocalizationKeys.tagsCount.localized(with: viewModel.selectedTags.count)
+            header: LocalizationKeys.tagsCount.localized(with: viewModel.card.tagArray.count)
         ) {
             if !viewModel.availableTags.isEmpty {
                 HFlow(spacing: 6) {
                     ForEach(viewModel.availableTags, id: \.self) { tag in
                         TagButton(
-                            title: tag,
-                            isSelected: viewModel.selectedTags.contains(tag),
-                            isDisabled: viewModel.selectedTags.count >= 5
+                            title: tag.name.orEmpty,
+                            isSelected: viewModel.card.tagArray.contains(tag),
+                            isDisabled: viewModel.card.tagArray.count >= 5
                         ) {
-                            if viewModel.selectedTags.contains(tag) {
+                            if viewModel.card.tagArray.contains(tag) {
                                 viewModel.removeTag(tag)
                             } else {
                                 viewModel.addTag(tag)

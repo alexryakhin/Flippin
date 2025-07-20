@@ -96,7 +96,7 @@ struct FeaturedPresetCollections: View {
         )
         
         for card in cardItems {
-            cardsProvider.addCard(card)
+            cardsProvider.addCard(card, tags: collection.tags)
         }
         
         // Show success feedback

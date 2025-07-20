@@ -14,7 +14,8 @@ struct PresetCollection: Identifiable {
     let icon: String
     let category: PresetCategory
     let cards: [PresetCard]
-    
+    let tags: [String]
+
     var cardCount: Int {
         cards.count
     }
@@ -24,7 +25,6 @@ struct PresetCard {
     let frontText: String
     let backText: String
     let notes: String
-    let tags: [String]
 }
 
 enum PresetCategory: String, CaseIterable {

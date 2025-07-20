@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 
 @objc(Tag)
-public final class Tag: NSManagedObject {
+public final class Tag: NSManagedObject, Identifiable {
     @NSManaged public var id: String?
     @NSManaged public var name: String?
     @NSManaged public var cards: NSSet?
@@ -49,3 +49,9 @@ extension Tag {
     @objc(removeCards:)
     @NSManaged public func removeFromCards(_ values: NSSet)
 } 
+
+extension Tag: Comparable {
+    public static func < (lhs: Tag, rhs: Tag) -> Bool {
+        lhs.name.orEmpty < rhs.name.orEmpty
+    }
+}

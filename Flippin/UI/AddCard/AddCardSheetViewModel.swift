@@ -14,7 +14,7 @@ final class AddCardSheetViewModel: ObservableObject {
     @Published var nativeText: String = ""
     @Published var targetText: String = ""
     @Published var isTranslating: Bool = false
-    @Published var selectedTags: Set<String> = []
+    @Published var selectedTags: Set<Tag> = []
     @Published var newTagText: String = ""
     @Published var notes: String = ""
 
@@ -22,7 +22,7 @@ final class AddCardSheetViewModel: ObservableObject {
     private let tagManager = TagManager.shared
     private let languageManager = LanguageManager.shared
 
-    var availableTags: [String] {
+    var availableTags: [Tag] {
         tagManager.availableTags
     }
 
@@ -67,23 +67,14 @@ final class AddCardSheetViewModel: ObservableObject {
         isTranslating = false
     }
 
-    func addTag(_ tag: String) {
-        let trimmedTag = tag.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !trimmedTag.isEmpty else { return }
-
+    func addTag(_ tag: Tag) {
         if selectedTags.count < 5 {
-            selectedTags.insert(trimmedTag)
-            tagManager.addTag(trimmedTag)
+            selectedTags.insert(tag)
         }
     }
 
-    func removeTag(_ tag: String) {
+    func removeTag(_ tag: Tag) {
         selectedTags.remove(tag)
-    }
-
-    func addNewTag() {
-        addTag(newTagText)
-        newTagText = ""
     }
 
     func createCard() {
@@ -106,7 +97,7 @@ final class AddCardSheetViewModel: ObservableObject {
             id: UUID().uuidString
         )
 
-        CardsProvider.shared.addCard(card)
+        CardsProvider.shared.addCard(card, tags: selectedTags.compactMap(\.name))
     }
 
     func cancel() {

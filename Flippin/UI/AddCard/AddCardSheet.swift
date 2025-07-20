@@ -108,7 +108,7 @@ struct AddCardSheet: View {
                 HFlow(spacing: 6) {
                     ForEach(viewModel.availableTags, id: \.self) { tag in
                         TagButton(
-                            title: tag,
+                            title: tag.name.orEmpty,
                             isSelected: viewModel.selectedTags.contains(tag),
                             isDisabled: viewModel.selectedTags.count >= 5
                         ) {

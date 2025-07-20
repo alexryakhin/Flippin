@@ -142,7 +142,11 @@ struct SettingsView: View {
                                 Button(LocalizationKeys.add.localized) {
                                     if !newTagText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
                                         tagManager.addTag(newTagText)
-                                        AnalyticsService.trackTagEvent(.tagAdded, tagName: newTagText, tagCount: tagManager.availableTags.count)
+                                        AnalyticsService.trackTagEvent(
+                                            .tagAdded,
+                                            tagName: newTagText,
+                                            tagCount: tagManager.availableTags.count
+                                        )
                                         newTagText = ""
                                     }
                                 }
@@ -158,7 +162,7 @@ struct SettingsView: View {
                                     HFlow(spacing: 6) {
                                         ForEach(tagManager.availableTags, id: \.self) { tag in
                                             SettingsTagButton(
-                                                title: tag,
+                                                title: tag.name.orEmpty,
                                                 onDelete: {
                                                     tagManager.removeTag(tag)
                                                 }
