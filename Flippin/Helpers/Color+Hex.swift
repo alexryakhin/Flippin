@@ -28,7 +28,7 @@ extension Color {
         let brightness = (0.299 * red + 0.587 * green + 0.114 * blue)
         return brightness > 0.5
     }
-    
+
     var contrastColor: Color {
         return isLight ? .black : .white
     }

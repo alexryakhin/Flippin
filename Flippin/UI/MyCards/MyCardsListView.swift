@@ -18,12 +18,12 @@ struct MyCardsListView: View {
     @StateObject private var cardsProvider = CardsProvider.shared
     @StateObject private var languageManager = LanguageManager.shared
     @StateObject private var colorManager = ColorManager.shared
+    @StateObject private var tagManager = TagManager.shared
 
     @State private var searchText = ""
     @State private var showingDeleteAlert = false
     @State private var cardToDelete: CardItem?
     @State private var cardToEdit: CardItem?
-    @StateObject private var tagManager = TagManager.shared
     @State private var showingTagFilter = false
     @State private var showAddCardSheet = false
     @State private var lastSearchText = ""
@@ -128,6 +128,15 @@ struct MyCardsListView: View {
                     .listStyle(.insetGrouped)
                 }
             }
+            .safeAreaInset(edge: .top) {
+                VStack(spacing: 0) {
+                    FiltersScrollView()
+                        .padding(.horizontal, 16)
+                        .padding(.bottom, 12)
+                    Divider()
+                }
+                .background(.ultraThinMaterial)
+            }
             .background(Color(.systemGroupedBackground))
             .searchable(
                 text: $searchText,
@@ -145,38 +154,18 @@ struct MyCardsListView: View {
                     }
                     .foregroundStyle(.secondary)
                 }
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Menu {
-                        Section {
-                            Picker(LocalizationKeys.filterByFavorites.localized, selection: $tagManager.isFavoriteFilterOn) {
-                                Text(LocalizationKeys.showAllCards.localized).tag(false)
-                                Text(LocalizationKeys.showFavoritesOnly.localized).tag(true)
+                if !cardsProvider.cards.isEmpty {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Menu {
+                            Button(role: .destructive) {
+                                cardToDelete = nil
+                                showingDeleteAlert = true
+                            } label: {
+                                Label(LocalizationKeys.deleteAllCards.localized, systemImage: "trash")
                             }
-                            .pickerStyle(.menu)
-                            if !tagManager.availableTags.isEmpty {
-                                Picker(LocalizationKeys.filterByTag.localized, selection: $tagManager.selectedFilterTag) {
-                                    Text(LocalizationKeys.showAllCards.localized)
-                                        .tag(nil as Tag?)
-                                    ForEach(tagManager.availableTags, id: \.self) { tag in
-                                        Text(tag.name.orEmpty)
-                                            .tag(tag)
-                                    }
-                                }
-                                .pickerStyle(.menu)
-                            }
+                        } label: {
+                            Image(systemName: "ellipsis.circle")
                         }
-                        if !groupedCards.isEmpty {
-                            Section {
-                                Button(role: .destructive) {
-                                    cardToDelete = nil
-                                    showingDeleteAlert = true
-                                } label: {
-                                    Label(LocalizationKeys.deleteAllCards.localized, systemImage: "trash")
-                                }
-                            }
-                        }
-                    } label: {
-                        Image(systemName: "ellipsis.circle")
                     }
                 }
             }
@@ -218,6 +207,7 @@ struct MyCardsListView: View {
             }
 
             FeaturedPresetCollections()
+                .clippedWithPaddingAndBackground()
                 .padding(vertical: 12, horizontal: 16)
         }
     }
@@ -254,7 +244,6 @@ struct MyCardsListView: View {
             VStack {
                 Image(systemName: "heart")
                     .font(.largeTitle)
-                    .foregroundStyle(.red)
                 Text(LocalizationKeys.noFavoriteCards.localized)
             }
         } description: {

@@ -66,12 +66,12 @@ struct FeaturedPresetCollections: View {
                             )
                         }
                     }
+                    .scrollTargetLayout()
                 }
-                .scrollTargetBehavior(.paging)
+                .scrollTargetBehavior(.viewAligned)
                 .scrollClipDisabled()
             }
         }
-        .clippedWithPaddingAndBackground()
         .sheet(isPresented: $showingAllCollections) {
             PresetCollectionsView()
         }
@@ -96,10 +96,8 @@ struct FeaturedPresetCollections: View {
             targetLanguage: languageManager.targetLanguage
         )
         
-        for card in cardItems {
-            cardsProvider.addCard(card, tags: collection.tags)
-        }
-        
+        cardsProvider.addCards(cardItems, tags: collection.tags)
+
         // Show success feedback
         HapticService.shared.success()
         

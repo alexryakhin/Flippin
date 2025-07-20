@@ -154,6 +154,7 @@ struct AddCardSheet: View {
             header: LocalizationKeys.presetCollections.localized
         ) {
             FeaturedPresetCollections()
+                .clippedWithPaddingAndBackground()
         }
     }
 }

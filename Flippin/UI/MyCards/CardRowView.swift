@@ -12,6 +12,8 @@ struct CardRowView: View {
     let onDelete: () -> Void
     let onEdit: () -> Void
 
+    @Environment(\.colorScheme) var colorScheme
+    @StateObject private var colorManager = ColorManager.shared
     @StateObject private var cardsProvider = CardsProvider.shared
     @AppStorage(UserDefaultsKey.cardDisplayMode) private var isTravelMode = false
     
@@ -36,7 +38,7 @@ struct CardRowView: View {
                     cardsProvider.toggleFavorite(card)
                 } label: {
                     Image(systemName: card.isFavorite ? "heart.fill" : "heart")
-                        .foregroundStyle(card.isFavorite ? .red : .secondary)
+                        .foregroundStyle(colorManager.adjustedTintColor(colorScheme))
                         .font(.caption)
                 }
                 .buttonStyle(.plain)
@@ -90,17 +92,18 @@ struct CardRowView: View {
                 HFlow(spacing: 4) {
                     ForEach(card.tagNames, id: \.self) { tag in
                         Text(tag)
-                            .font(.caption2)
+                            .font(.caption)
                             .padding(.horizontal, 6)
-                            .padding(.vertical, 2)
-                            .background(.accent.opacity(0.1))
-                            .foregroundStyle(.accent)
+                            .padding(.vertical, 4)
+                            .background(colorManager.adjustedTintColor(colorScheme).opacity(0.1))
+                            .foregroundStyle(colorManager.adjustedTintColor(colorScheme))
                             .clipShape(Capsule())
                     }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
         }
+        .contentShape(.rect)
         .padding(.vertical, 4)
         .swipeActions(edge: .trailing, allowsFullSwipe: false) {
             Button {
@@ -120,7 +123,7 @@ struct CardRowView: View {
             } label: {
                 Label(LocalizationKeys.edit.localized, systemImage: "pencil")
             }
-            .tint(.blue)
+            .tint(colorManager.adjustedTintColor(colorScheme))
         }
         .onTapGesture {
             // Haptic feedback for card flip
@@ -137,6 +140,22 @@ struct CardRowView: View {
                     tagCount: card.tagArray.count
                 )
             }
+        }
+        .contextMenu {
+            Button {
+                HapticService.shared.buttonTapped()
+                onEdit()
+            } label: {
+                Label(LocalizationKeys.edit.localized, systemImage: "pencil")
+            }
+            .tint(colorManager.adjustedTintColor(colorScheme))
+            Button {
+                HapticService.shared.buttonTapped()
+                onDelete()
+            } label: {
+                Label(LocalizationKeys.delete.localized, systemImage: "trash")
+            }
+            .tint(.red)
         }
     }
 }

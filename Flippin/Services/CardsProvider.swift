@@ -15,7 +15,6 @@ final class CardsProvider: ObservableObject {
     static let shared = CardsProvider()
 
     @Published private(set) var cards: [CardItem] = []
-    @Published private(set) var isLoading = false
     let errorPublisher = PassthroughSubject<Error, Never>()
 
     private let coreDataService = CoreDataService.shared
@@ -50,14 +49,7 @@ final class CardsProvider: ObservableObject {
 
     /// Fetches latest data from Core Data
     func fetchCards() {
-        isLoading = true
-        
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-            defer {
-                DispatchQueue.main.async { [weak self] in
-                    self?.isLoading = false
-                }
-            }
             do {
                 let request = CardItem.fetchRequest()
                 request.sortDescriptors = [NSSortDescriptor(keyPath: \CardItem.timestamp, ascending: true)]
@@ -98,6 +90,20 @@ final class CardsProvider: ObservableObject {
         )
     }
 
+    /// Adds a new card to Core Data
+    func addCards(_ cards: [CardItem], tags: [String] = []) {
+        // Add tags using TagManager
+        for tagName in tags {
+            if let tag = tagManager.findOrCreateTag(withName: tagName) {
+                cards.forEach {
+                    $0.addToTags(tag)
+                }
+            }
+        }
+        saveContext()
+        fetchCards()
+    }
+
     /// Removes a card from Core Data
     func deleteCard(_ card: CardItem) {
         coreDataService.context.delete(card)
@@ -115,7 +121,8 @@ final class CardsProvider: ObservableObject {
             coreDataService.context.delete(card)
         }
         saveContext()
-        fetchCards()
+        cards.removeAll()
+        objectWillChange.send()
     }
 
     /// Toggles the favorite status of a card

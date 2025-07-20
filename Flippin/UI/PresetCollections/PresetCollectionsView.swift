@@ -20,7 +20,6 @@ struct PresetCollectionsView: View {
     @State private var showingImportAlert = false
     @State private var collectionToImport: PresetCollection?
     @State private var lastSearchText = ""
-    //    @Namespace private var categoryFilterViewNamespace
 
     var filteredCollections: [PresetCollection] {
         var collections = presetService.getCollections(
@@ -63,7 +62,7 @@ struct PresetCollectionsView: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
-                ScrollViewWithCustomNavBar {
+                ScrollView {
                     LazyVGrid(columns: [
                         GridItem(.flexible(), spacing: 12),
                         GridItem(.flexible(), spacing: 12)
@@ -77,10 +76,16 @@ struct PresetCollectionsView: View {
                         }
                     }
                     .padding(.horizontal, 16)
-                    .padding(.bottom, 16)
-                } navigationBar: {
-                    categoryFilterView
-                        .padding(.bottom, 8)
+                    .padding(.vertical, 12)
+                }
+                .background(Color(.systemGroupedBackground))
+                .safeAreaInset(edge: .top) {
+                    VStack(spacing: 0) {
+                        categoryFilterView
+                            .padding(.bottom, 12)
+                        Divider()
+                    }
+                    .background(.ultraThinMaterial)
                 }
                 .overlay {
                     if filteredCollections.isEmpty {
@@ -127,6 +132,7 @@ struct PresetCollectionsView: View {
 
     private var categoryFilterView: some View {
         ScrollView(.horizontal, showsIndicators: false) {
+            let isBlackForeground: Bool = colorScheme == .dark && colorManager.userGradientColor.isLight
             HStack(spacing: 8) {
                 Button {
                     selectedCategory = nil
@@ -135,8 +141,12 @@ struct PresetCollectionsView: View {
                         .font(.caption)
                         .padding(.horizontal, 12)
                         .padding(.vertical, 6)
-                        .background(selectedCategory == nil ? colorManager.adjustedTintColor(colorScheme) : Color(.systemGray5))
-                        .foregroundColor(selectedCategory == nil ? .white : .primary)
+                        .background(selectedCategory == nil ? colorManager.adjustedTintColor(colorScheme) : Color(.systemGray4))
+                        .foregroundColor(
+                            selectedCategory == nil
+                            ? isBlackForeground ? .black : .white
+                            : .primary
+                        )
                         .clipShape(Capsule())
                 }
 
@@ -152,8 +162,12 @@ struct PresetCollectionsView: View {
                         }
                         .padding(.horizontal, 12)
                         .padding(.vertical, 6)
-                        .background(selectedCategory == category ? colorManager.adjustedTintColor(colorScheme) : Color(.systemGray5))
-                        .foregroundColor(selectedCategory == category ? .white : .primary)
+                        .background(selectedCategory == category ? colorManager.adjustedTintColor(colorScheme) : Color(.systemGray4))
+                        .foregroundColor(
+                            selectedCategory == category
+                            ? isBlackForeground ? .black : .white
+                            : .primary
+                        )
                         .clipShape(Capsule())
                     }
                 }
@@ -169,9 +183,7 @@ struct PresetCollectionsView: View {
             targetLanguage: languageManager.targetLanguage
         )
 
-        for card in cardItems {
-            cardsProvider.addCard(card, tags: collection.tags)
-        }
+        cardsProvider.addCards(cardItems, tags: collection.tags)
 
         // Show success feedback
         HapticService.shared.success()

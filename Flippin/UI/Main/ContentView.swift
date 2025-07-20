@@ -43,7 +43,10 @@ struct ContentView: View {
     }
 
     var body: some View {
-        VStack(spacing: 24) {
+        VStack(spacing: 16) {
+
+            FiltersScrollView()
+
             cardsStackView
                 .if(isPad) { view in
                     view
@@ -55,11 +58,10 @@ struct ContentView: View {
                 onSeePreviousCard: { triggerGoBack = true },
                 onShuffle: shuffleCards,
                 onShowSettings: { showSettings = true },
-                onShowMyCards: { showMyCards = true },
-                isFilterActive: tagManager.selectedFilterTag != nil || tagManager.isFavoriteFilterOn
+                onShowMyCards: { showMyCards = true }
             )
         }
-        .padding(24)
+        .padding(16)
         .background {
             AnimatedBackground(
                 style: colorManager.backgroundStyle,
@@ -131,10 +133,7 @@ struct ContentView: View {
 
     @ViewBuilder
     private var cardsStackView: some View {
-        if cardsProvider.isLoading {
-            ProgressView()
-                .tint(colorManager.adjustedTintColor(colorScheme))
-        } else if cardsProvider.cards.isEmpty {
+        if cardsProvider.cards.isEmpty {
             noCardsView
         } else if displayItems.isEmpty {
             if tagManager.isFavoriteFilterOn {
@@ -161,7 +160,7 @@ struct ContentView: View {
     }
 
     private var noCardsView: some View {
-        VStack(spacing: 24) {
+        VStack(spacing: 16) {
             ContentUnavailableView {
                 VStack {
                     Image(systemName: "rectangle.stack.fill")
@@ -176,6 +175,7 @@ struct ContentView: View {
             .foregroundColor(colorManager.adjustedForegroundColor(colorScheme))
             
             FeaturedPresetCollections()
+                .clippedWithPaddingAndBackgroundMaterial()
         }
     }
 

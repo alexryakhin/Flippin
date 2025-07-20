@@ -7,6 +7,10 @@
 import SwiftUI
 
 struct TagButton: View {
+    @Environment(\.colorScheme) var colorScheme
+    @StateObject private var tagManager = TagManager.shared
+    @StateObject private var colorManager = ColorManager.shared
+
     let title: String
     let isSelected: Bool
     let isDisabled: Bool
@@ -15,7 +19,7 @@ struct TagButton: View {
     init(title: String, isSelected: Bool, isDisabled: Bool = false, action: @escaping () -> Void) {
         self.title = title
         self.isSelected = isSelected
-        self.isDisabled = isDisabled
+        self.isDisabled = isDisabled && !isSelected
         self.action = action
     }
     
@@ -23,39 +27,32 @@ struct TagButton: View {
         Button(action: action) {
             Text(title)
                 .font(.subheadline)
-                .padding(.horizontal, 12)
-                .padding(.vertical, 6)
-                .background(
-                    Capsule()
-                        .fill(backgroundColor)
-                )
                 .foregroundStyle(foregroundColor)
-                .overlay(
-                    Capsule()
-                        .stroke(borderColor, lineWidth: 1)
-                )
         }
-        .buttonStyle(.plain)
+        .buttonStyle(.borderedProminent)
+        .tint(tintColor)
+        .clipShape(Capsule())
         .disabled(isDisabled)
-        .scaleEffect(isSelected ? 1.05 : 1.0)
         .animation(.easeInOut(duration: 0.2), value: isSelected)
     }
     
-    private var backgroundColor: Color {
+    private var tintColor: Color {
         if isDisabled {
-            return Color.gray.opacity(0.05)
+            return Color(.systemGray4).opacity(0.5)
         } else if isSelected {
-            return Color.accentColor
+            return colorManager.adjustedTintColor(colorScheme)
         } else {
-            return Color.gray.opacity(0.1)
+            return Color(.systemGray4).opacity(0.8)
         }
     }
     
     private var foregroundColor: Color {
+        let isBlackForeground: Bool = colorScheme == .dark && colorManager.userGradientColor.isLight
+
         if isDisabled {
             return Color.gray
         } else if isSelected {
-            return Color.white
+            return isBlackForeground ? .black : .white
         } else {
             return Color.primary
         }

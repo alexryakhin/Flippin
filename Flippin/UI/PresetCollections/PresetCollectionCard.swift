@@ -68,6 +68,7 @@ struct PresetCollectionCard: View {
                 }
             }
         }
+        .contentShape(.rect)
         .frame(maxHeight: .infinity, alignment: .topLeading)
         .onTapGesture {
             HapticService.shared.buttonTapped()
