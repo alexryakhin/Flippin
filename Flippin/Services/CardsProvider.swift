@@ -53,7 +53,11 @@ final class CardsProvider: ObservableObject {
         isLoading = true
         
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-            defer { self?.isLoading = false }
+            defer {
+                DispatchQueue.main.async { [weak self] in
+                    self?.isLoading = false
+                }
+            }
             do {
                 let request = CardItem.fetchRequest()
                 request.sortDescriptors = [NSSortDescriptor(keyPath: \CardItem.timestamp, ascending: true)]

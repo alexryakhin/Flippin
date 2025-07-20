@@ -128,9 +128,9 @@ struct PresetCollectionsView: View {
     private var categoryFilterView: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 8) {
-                Button(action: {
+                Button {
                     selectedCategory = nil
-                }) {
+                } label: {
                     Text(LocalizationKeys.allCategories.localized)
                         .font(.caption)
                         .padding(.horizontal, 12)
@@ -141,9 +141,9 @@ struct PresetCollectionsView: View {
                 }
 
                 ForEach(PresetCategory.allCases, id: \.self) { category in
-                    Button(action: {
+                    Button {
                         selectedCategory = selectedCategory == category ? nil : category
-                    }) {
+                    } label: {
                         HStack(spacing: 4) {
                             Image(systemName: category.icon)
                                 .font(.caption)

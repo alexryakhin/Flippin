@@ -8,6 +8,7 @@ import SwiftUI
 
 struct CardStackContent: View {
     let cards: [CardItem]
+    let triggerGoBack: Bool
 
     @State private var cardsInternal: [CardItem] = []
     @State private var dragOffset: CGFloat = 0
@@ -16,48 +17,41 @@ struct CardStackContent: View {
     @State private var isAnimatingCardAddition = false
     @State private var backCardOffset: CGFloat = 0
     @State private var backAnimationProgress: CGFloat = 0
+    @State private var lastTriggerValue = false
 
     var body: some View {
-        VStack {
-            Button("Back") {
-                goBack()
+        ZStack(alignment: .bottomTrailing) {
+            // Back card (slides in from the side)
+            if isAnimatingCardAddition, let backCard = getBackCard() {
+                CardView(card: backCard)
+                    .offset(x: backCardOffset, y: 0)
+                    .scaleEffect(0.85 + (backAnimationProgress * 0.15)) // Start at 85% and grow to 100%
+                    .zIndex(Double(cardsInternal.count + 1))
+                    .animation(.spring(response: 0.6, dampingFraction: 0.8), value: backCardOffset)
+                    .animation(.spring(response: 0.6, dampingFraction: 0.8), value: backAnimationProgress)
             }
-            .disabled(cardsInternal.count <= 1 || isAnimatingCardRemoval || isAnimatingCardAddition)
-            .opacity(cardsInternal.count <= 1 ? 0.5 : 1.0)
 
-            ZStack(alignment: .bottomTrailing) {
-                // Back card (slides in from the side)
-                if isAnimatingCardAddition, let backCard = getBackCard() {
-                    CardView(card: backCard)
-                        .offset(x: backCardOffset, y: 0)
-                        .scaleEffect(0.85 + (backAnimationProgress * 0.15)) // Start at 85% and grow to 100%
-                        .zIndex(Double(cardsInternal.count + 1))
-                        .animation(.spring(response: 0.6, dampingFraction: 0.8), value: backCardOffset)
-                        .animation(.spring(response: 0.6, dampingFraction: 0.8), value: backAnimationProgress)
-                }
-                
-                ForEach(Array(cardsInternal.enumerated().prefix(3)), id: \.element.id) { index, card in
-                    CardView(card: card)
-                        .offset(
-                            x: offsetForIndex(index),
-                            y: CGFloat(index) * 10
-                        )
-                        .scaleEffect(scaleForIndex(index))
-                        .zIndex(Double(cardsInternal.count - index))
-                        .animation(.spring(response: 0.4, dampingFraction: 0.8), value: dragOffset)
-                        .animation(.spring(response: 0.6, dampingFraction: 0.8), value: backAnimationProgress)
-                        .gesture(
-                            index == 0 && !isAnimatingCardRemoval && !isAnimatingCardAddition ?
-                                DragGesture()
-                                    .onChanged { value in
-                                        dragOffset = value.translation.width
-                                    }
-                                    .onEnded { value in
-                                        handleDragEnd(value)
-                                    }
-                                : nil
-                        )
-                }
+            ForEach(Array(cardsInternal.enumerated().prefix(3)), id: \.element.id) { index, card in
+                CardView(card: card)
+                    .offset(
+                        x: offsetForIndex(index),
+                        y: CGFloat(index) * 10
+                    )
+                    .scaleEffect(scaleForIndex(index))
+                    .zIndex(Double(cardsInternal.count - index))
+                    .animation(.spring(response: 0.4, dampingFraction: 0.8), value: dragOffset)
+                    .animation(.spring(response: 0.6, dampingFraction: 0.8), value: backAnimationProgress)
+                    .gesture(
+                        index == 0 && !isAnimatingCardRemoval && !isAnimatingCardAddition ?
+                            DragGesture()
+                                .onChanged { value in
+                                    dragOffset = value.translation.width
+                                }
+                                .onEnded { value in
+                                    handleDragEnd(value)
+                                }
+                            : nil
+                    )
             }
         }
         .onAppear {
@@ -66,6 +60,15 @@ struct CardStackContent: View {
         .onChange(of: cards) { newCards in
             withAnimation {
                 cardsInternal = newCards
+            }
+        }
+        .onChange(of: triggerGoBack) { newValue, _ in
+            // Check if trigger changed from false to true
+            if newValue && !lastTriggerValue {
+                lastTriggerValue = newValue
+                goBack()
+            } else if !newValue {
+                lastTriggerValue = newValue
             }
         }
     }

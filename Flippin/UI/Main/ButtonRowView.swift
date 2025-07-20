@@ -12,6 +12,7 @@ struct ButtonRowView: View {
     @StateObject private var tagManager = TagManager.shared
 
     let onAddItem: () -> Void
+    let onSeePreviousCard: () -> Void
     let onShuffle: () -> Void
     let onShowSettings: () -> Void
     let onShowMyCards: () -> Void
@@ -20,20 +21,40 @@ struct ButtonRowView: View {
     var body: some View {
         HStack {
             Menu {
-                Button(action: {
-                    HapticService.shared.menuOpened()
-                    onShowSettings()
-                }) {
-                    Label(LocalizationKeys.settingsLabel.localized, systemImage: "gear")
+                Section {
+                    Button {
+                        HapticService.shared.menuOpened()
+                        onShowSettings()
+                    } label: {
+                        Label(LocalizationKeys.settingsLabel.localized, systemImage: "gear")
+                    }
+                    Button {
+                        HapticService.shared.menuOpened()
+                        onShowMyCards()
+                    } label: {
+                        Label {
+                            Text(LocalizationKeys.myCards.localized)
+                        } icon: {
+                            Image(.stackCards)
+                        }
+                    }
                 }
-                Button(action: {
-                    HapticService.shared.menuOpened()
-                    onShowMyCards()
-                }) {
-                    Label {
-                        Text(LocalizationKeys.myCards.localized)
-                    } icon: {
-                        Image(.stackCards)
+                Section {
+                    Picker(LocalizationKeys.filterByFavorites.localized, selection: $tagManager.isFavoriteFilterOn) {
+                        Text(LocalizationKeys.showAllCards.localized).tag(false)
+                        Text(LocalizationKeys.showFavoritesOnly.localized).tag(true)
+                    }
+                    .pickerStyle(.menu)
+                    if !tagManager.availableTags.isEmpty {
+                        Picker(LocalizationKeys.filterByTag.localized, selection: $tagManager.selectedFilterTag) {
+                            Text(LocalizationKeys.showAllCards.localized)
+                                .tag(nil as Tag?)
+                            ForEach(tagManager.availableTags, id: \.self) { tag in
+                                Text(tag.name.orEmpty)
+                                    .tag(tag)
+                            }
+                        }
+                        .pickerStyle(.menu)
                     }
                 }
             } label: {
@@ -43,50 +64,30 @@ struct ButtonRowView: View {
 
             Spacer()
 
-            Menu {
-                Picker(LocalizationKeys.filterByFavorites.localized, selection: $tagManager.isFavoriteFilterOn) {
-                    Text(LocalizationKeys.showAllCards.localized).tag(false)
-                    Text(LocalizationKeys.showFavoritesOnly.localized).tag(true)
-                }
-                .pickerStyle(.menu)
-                if !tagManager.availableTags.isEmpty {
-                    Picker(LocalizationKeys.filterByTag.localized, selection: $tagManager.selectedFilterTag) {
-                        Text(LocalizationKeys.showAllCards.localized)
-                            .tag(nil as Tag?)
-                        ForEach(tagManager.availableTags, id: \.self) { tag in
-                            Text(tag.name.orEmpty)
-                                .tag(tag)
-                        }
-                    }
-                    .pickerStyle(.menu)
-                }
-            } label: {
-                ActionButtonLabel(LocalizationKeys.filterByTag.localized, systemImage: "line.3.horizontal.decrease.circle")
-            }
-            .buttonStyle(
-                ActionButtonStyle(
-                    tintColor: isFilterActive
-                    ? colorManager.adjustedTintColor(colorScheme)
-                    : Color(.label)
-                )
-            )
-
-            Spacer()
-
-            Button(action: {
+            Button {
                 HapticService.shared.buttonTapped()
                 onShuffle()
-            }) {
+            } label: {
                 ActionButtonLabel(LocalizationKeys.shuffle.localized, systemImage: "shuffle")
             }
             .buttonStyle(ActionButtonStyle())
 
             Spacer()
 
-            Button(action: {
+            Button {
+                HapticService.shared.buttonTapped()
+                onSeePreviousCard()
+            } label: {
+                ActionButtonLabel(LocalizationKeys.tapToGoBack.localized, systemImage: "arrowshape.turn.up.backward.fill")
+            }
+            .buttonStyle(ActionButtonStyle())
+
+            Spacer()
+
+            Button {
                 HapticService.shared.buttonTapped()
                 onAddItem()
-            }) {
+            } label: {
                 ActionButtonLabel(LocalizationKeys.addCardLabel.localized, systemImage: "plus")
             }
             .buttonStyle(ActionButtonStyle())
