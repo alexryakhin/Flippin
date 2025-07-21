@@ -123,7 +123,6 @@ struct CardRowView: View {
             } label: {
                 Label(LocalizationKeys.edit.localized, systemImage: "pencil")
             }
-            .tint(colorManager.adjustedTintColor(colorScheme))
         }
         .onTapGesture {
             // Haptic feedback for card flip
@@ -148,7 +147,6 @@ struct CardRowView: View {
             } label: {
                 Label(LocalizationKeys.edit.localized, systemImage: "pencil")
             }
-            .tint(colorManager.adjustedTintColor(colorScheme))
             Button {
                 HapticService.shared.buttonTapped()
                 onDelete()

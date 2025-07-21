@@ -40,7 +40,7 @@ struct SettingsView: View {
                                     }
                                 }
                                 .pickerStyle(.menu)
-                            }
+                                    }
 
                             CellWrapper {
                                 Text(LocalizationKeys.targetLanguage.localized)
@@ -53,7 +53,7 @@ struct SettingsView: View {
                                     }
                                 }
                                 .pickerStyle(.menu)
-                            }
+                                    }
 
                             CellWrapper {
                                 VStack(alignment: .leading, spacing: 4) {
@@ -73,11 +73,11 @@ struct SettingsView: View {
                     }
 
                     CustomSectionView(
-                        header: LocalizationKeys.background.localized
+                        header: LocalizationKeys.theme.localized
                     ) {
                         FormWithDivider {
                             CellWrapper {
-                                Text(LocalizationKeys.backgroundColor.localized)
+                                Text(LocalizationKeys.color.localized)
                                     .font(.subheadline)
                                     .foregroundStyle(.primary)
                             } trailingContent: {
@@ -101,7 +101,7 @@ struct SettingsView: View {
                                     AnalyticsService.trackNavigationEvent(.backgroundDemoOpened, screenName: "BackgroundDemo")
                                 }
                                 .buttonStyle(.bordered)
-                            }
+                                    }
                         }
                         .clippedWithBackground()
                     }

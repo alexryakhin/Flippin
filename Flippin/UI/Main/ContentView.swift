@@ -197,7 +197,6 @@ struct ContentView: View {
                     tagManager.clearFilter()
                 }
                 .buttonStyle(.borderedProminent)
-                .tint(colorManager.adjustedTintColor(colorScheme))
             }
             .foregroundColor(colorManager.adjustedForegroundColor(colorScheme))
         }

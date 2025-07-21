@@ -75,8 +75,8 @@
 "allCategories" = "الكل";
 "myLanguageSettings" = "لغتي";
 "targetLanguage" = "اللغة المستهدفة";
-"background" = "الخلفية";
-"backgroundColor" = "لون الخلفية";
+"theme" = "المظهر";
+"color" = "اللون";
 "backgroundStyle" = "نمط الخلفية";
 "tapToSeeFullScreen" = "انقر لرؤية الشاشة الكاملة";
 

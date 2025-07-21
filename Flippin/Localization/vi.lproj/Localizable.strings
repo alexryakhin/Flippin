@@ -75,8 +75,8 @@
 "allCategories" = "Tất Cả";
 "myLanguageSettings" = "Ngôn Ngữ Của Tôi";
 "targetLanguage" = "Ngôn Ngữ Mục Tiêu";
-"background" = "Nền";
-"backgroundColor" = "Màu Nền";
+"theme" = "Chủ đề";
+"color" = "Màu sắc";
 "backgroundStyle" = "Kiểu Nền";
 "tapToSeeFullScreen" = "Nhấn để xem toàn màn hình";
 

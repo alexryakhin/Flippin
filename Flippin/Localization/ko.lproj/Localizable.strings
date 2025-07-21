@@ -75,8 +75,8 @@
 "allCategories" = "모두";
 "myLanguageSettings" = "내 언어";
 "targetLanguage" = "목표 언어";
-"background" = "배경";
-"backgroundColor" = "배경색";
+"theme" = "테마";
+"color" = "색상";
 "backgroundStyle" = "배경 스타일";
 "tapToSeeFullScreen" = "전체 화면을 보려면 탭하세요";
 

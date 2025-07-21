@@ -75,8 +75,8 @@
 "allCategories" = "Alle";
 "myLanguageSettings" = "Mijn Taal";
 "targetLanguage" = "Doeltaal";
-"background" = "Achtergrond";
-"backgroundColor" = "Achtergrondkleur";
+"theme" = "Thema";
+"color" = "Kleur";
 "backgroundStyle" = "Achtergrondstijl";
 "tapToSeeFullScreen" = "Tik om volledig scherm te zien";
 

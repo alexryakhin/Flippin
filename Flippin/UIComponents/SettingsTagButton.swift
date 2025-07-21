@@ -11,27 +11,15 @@ struct SettingsTagButton: View {
     let onDelete: () -> Void
     
     var body: some View {
-        HStack(spacing: 6) {
+        Menu {
+            Button(role: .destructive, action: onDelete) {
+                Label(LocalizationKeys.delete.localized, systemImage: "trash")
+            }
+        } label: {
             Text(title)
                 .font(.subheadline)
-            
-            Button(action: onDelete) {
-                Image(systemName: "xmark.circle.fill")
-                    .font(.caption)
-                    .foregroundStyle(.red)
-            }
-            .buttonStyle(.plain)
         }
-        .padding(.horizontal, 10)
-        .padding(.vertical, 4)
-        .background(
-            Capsule()
-                .fill(Color.gray.opacity(0.1))
-        )
-        .foregroundStyle(.primary)
-        .overlay(
-            Capsule()
-                .stroke(Color.gray.opacity(0.3), lineWidth: 1)
-        )
+        .buttonStyle(.bordered)
+        .clipShape(Capsule())
     }
 }

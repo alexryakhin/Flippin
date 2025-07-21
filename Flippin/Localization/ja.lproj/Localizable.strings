@@ -75,8 +75,8 @@
 "allCategories" = "すべて";
 "myLanguageSettings" = "私の言語";
 "targetLanguage" = "目標言語";
-"background" = "背景";
-"backgroundColor" = "背景色";
+"theme" = "テーマ";
+"color" = "色";
 "backgroundStyle" = "背景スタイル";
 "tapToSeeFullScreen" = "タップしてフルスクリーン表示";
 

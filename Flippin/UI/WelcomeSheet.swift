@@ -7,6 +7,8 @@
 import SwiftUI
 
 struct WelcomeSheet: View {
+    @Environment(\.colorScheme) var colorScheme
+    @StateObject private var colorManager = ColorManager.shared
     @StateObject private var languageManager = LanguageManager.shared
     var onContinue: () -> Void
     
@@ -33,7 +35,7 @@ struct WelcomeSheet: View {
                                 }
                             }
                             .pickerStyle(.menu)
-                        }
+                            }
                         HStack {
                             Text(LocalizationKeys.imLearning.localized)
                                 .font(.headline)
@@ -44,7 +46,7 @@ struct WelcomeSheet: View {
                                 }
                             }
                             .pickerStyle(.menu)
-                        }
+                            }
                     }
                 }
                 .navigationBarHidden(true)

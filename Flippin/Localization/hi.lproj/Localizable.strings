@@ -75,8 +75,8 @@
 "allCategories" = "सभी";
 "myLanguageSettings" = "मेरी भाषा";
 "targetLanguage" = "लक्ष्य भाषा";
-"background" = "पृष्ठभूमि";
-"backgroundColor" = "पृष्ठभूमि रंग";
+"theme" = "थीम";
+"color" = "रंग";
 "backgroundStyle" = "पृष्ठभूमि शैली";
 "tapToSeeFullScreen" = "पूर्ण स्क्रीन देखने के लिए टैप करें";
 

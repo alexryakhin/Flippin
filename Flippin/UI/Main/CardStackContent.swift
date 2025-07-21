@@ -57,7 +57,7 @@ struct CardStackContent: View {
         .onAppear {
             cardsInternal = cards
         }
-        .onChange(of: cards) { newCards in
+        .onChange(of: cards) { _, newCards in
             withAnimation {
                 cardsInternal = newCards
             }

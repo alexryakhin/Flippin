@@ -29,6 +29,9 @@ struct GalaxyBackground: View {
         .onAppear {
             createGalaxy()
         }
+        .onChange(of: baseColor) {
+            createGalaxy()
+        }
     }
     
     private func createGalaxy() {

@@ -11,13 +11,35 @@ struct TagButton: View {
     @StateObject private var tagManager = TagManager.shared
     @StateObject private var colorManager = ColorManager.shared
 
-    let title: String
+    let title: LocalizedStringKey
+    let imageSystemName: String
     let isSelected: Bool
     let isDisabled: Bool
     let action: () -> Void
     
-    init(title: String, isSelected: Bool, isDisabled: Bool = false, action: @escaping () -> Void) {
+    init(
+        title: String,
+        imageSystemName: String = "",
+        isSelected: Bool,
+        isDisabled: Bool = false,
+        action: @escaping () -> Void
+    ) {
+        self.title = LocalizedStringKey(title)
+        self.imageSystemName = imageSystemName
+        self.isSelected = isSelected
+        self.isDisabled = isDisabled && !isSelected
+        self.action = action
+    }
+    
+    init(
+        title: LocalizedStringKey,
+        imageSystemName: String = "",
+        isSelected: Bool,
+        isDisabled: Bool = false,
+        action: @escaping () -> Void
+    ) {
         self.title = title
+        self.imageSystemName = imageSystemName
         self.isSelected = isSelected
         self.isDisabled = isDisabled && !isSelected
         self.action = action
@@ -25,24 +47,39 @@ struct TagButton: View {
     
     var body: some View {
         Button(action: action) {
-            Text(title)
-                .font(.subheadline)
-                .foregroundStyle(foregroundColor)
+            if imageSystemName.isEmpty {
+                Text(title)
+                    .font(.subheadline)
+                    .foregroundStyle(foregroundColor)
+            } else {
+                Label(title, systemImage: imageSystemName)
+                    .font(.subheadline)
+                    .foregroundStyle(foregroundColor)
+            }
         }
-        .buttonStyle(.borderedProminent)
-        .tint(tintColor)
+        .buttonStyle(.plain)
+        .padding(vertical: 6, horizontal: 12)
+        .background(backgroundColor)
+        .background(.thinMaterial)
         .clipShape(Capsule())
+        .overlay {
+            if isSelected {
+                Capsule()
+                    .stroke(lineWidth: .onePixel)
+                    .foregroundColor(colorManager.adjustedTintColor(colorScheme).darker())
+            }
+        }
         .disabled(isDisabled)
         .animation(.easeInOut(duration: 0.2), value: isSelected)
     }
     
-    private var tintColor: Color {
+    private var backgroundColor: Color {
         if isDisabled {
             return Color(.systemGray4).opacity(0.5)
         } else if isSelected {
             return colorManager.adjustedTintColor(colorScheme)
         } else {
-            return Color(.systemGray4).opacity(0.8)
+            return colorManager.adjustedTintColor(colorScheme).opacity(0.1)
         }
     }
     
@@ -54,17 +91,7 @@ struct TagButton: View {
         } else if isSelected {
             return isBlackForeground ? .black : .white
         } else {
-            return Color.primary
-        }
-    }
-    
-    private var borderColor: Color {
-        if isDisabled {
-            return Color.gray.opacity(0.2)
-        } else if isSelected {
-            return Color.accentColor
-        } else {
-            return Color.gray.opacity(0.3)
+            return colorManager.adjustedTintColor(colorScheme)
         }
     }
 }

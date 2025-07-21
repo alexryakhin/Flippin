@@ -75,8 +75,8 @@
 "allCategories" = "Sve";
 "myLanguageSettings" = "Moj Jezik";
 "targetLanguage" = "Ciljni Jezik";
-"background" = "Pozadina";
-"backgroundColor" = "Boja Pozadine";
+"theme" = "Tema";
+"color" = "Boja";
 "backgroundStyle" = "Stil Pozadine";
 "tapToSeeFullScreen" = "Dodirnite za prikaz punog zaslona";
 

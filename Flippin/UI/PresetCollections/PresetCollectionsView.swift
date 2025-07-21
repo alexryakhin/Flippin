@@ -132,43 +132,18 @@ struct PresetCollectionsView: View {
 
     private var categoryFilterView: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            let isBlackForeground: Bool = colorScheme == .dark && colorManager.userGradientColor.isLight
             HStack(spacing: 8) {
-                Button {
+                TagButton(title: LocalizationKeys.allCategories, isSelected: selectedCategory == nil) {
                     selectedCategory = nil
-                } label: {
-                    Text(LocalizationKeys.allCategories.localized)
-                        .font(.caption)
-                        .padding(.horizontal, 12)
-                        .padding(.vertical, 6)
-                        .background(selectedCategory == nil ? colorManager.adjustedTintColor(colorScheme) : Color(.systemGray4))
-                        .foregroundColor(
-                            selectedCategory == nil
-                            ? isBlackForeground ? .black : .white
-                            : .primary
-                        )
-                        .clipShape(Capsule())
                 }
 
                 ForEach(PresetCategory.allCases, id: \.self) { category in
-                    Button {
+                    TagButton(
+                        title: category.localizedName(for: Language.fromSystemLocale()),
+                        imageSystemName: category.icon,
+                        isSelected: selectedCategory == category
+                    ) {
                         selectedCategory = selectedCategory == category ? nil : category
-                    } label: {
-                        HStack(spacing: 4) {
-                            Image(systemName: category.icon)
-                                .font(.caption)
-                            Text(category.localizedName(for: Language.fromSystemLocale()))
-                                .font(.caption)
-                        }
-                        .padding(.horizontal, 12)
-                        .padding(.vertical, 6)
-                        .background(selectedCategory == category ? colorManager.adjustedTintColor(colorScheme) : Color(.systemGray4))
-                        .foregroundColor(
-                            selectedCategory == category
-                            ? isBlackForeground ? .black : .white
-                            : .primary
-                        )
-                        .clipShape(Capsule())
                     }
                 }
             }

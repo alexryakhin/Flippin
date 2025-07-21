@@ -75,8 +75,8 @@
 "allCategories" = "全部";
 "myLanguageSettings" = "我的語言";
 "targetLanguage" = "目標語言";
-"background" = "背景";
-"backgroundColor" = "背景顏色";
+"theme" = "主題";
+"color" = "顏色";
 "backgroundStyle" = "背景樣式";
 "tapToSeeFullScreen" = "點擊查看全螢幕";
 

@@ -12,6 +12,8 @@ import FirebaseAnalytics
 
 @main
 struct FlippinApp: App {
+    @Environment(\.colorScheme) var colorScheme
+
     @StateObject private var coreDataService = CoreDataService.shared
     @StateObject private var cardsProvider = CardsProvider.shared
     @StateObject private var languageManager = LanguageManager.shared
@@ -26,6 +28,7 @@ struct FlippinApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .tint(colorManager.adjustedTintColor(colorScheme))
         }
     }
 }

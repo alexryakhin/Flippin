@@ -15,6 +15,7 @@ struct LanguageGroup: Identifiable {
 
 struct MyCardsListView: View {
     @Environment(\.dismiss) var dismiss
+    @Environment(\.colorScheme) var colorScheme
     @StateObject private var cardsProvider = CardsProvider.shared
     @StateObject private var languageManager = LanguageManager.shared
     @StateObject private var colorManager = ColorManager.shared

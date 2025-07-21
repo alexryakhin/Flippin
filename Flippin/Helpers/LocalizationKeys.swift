@@ -1,4 +1,5 @@
 import Foundation
+import SwiftUI
 
 enum LocalizationKeys {
     
@@ -76,8 +77,8 @@ enum LocalizationKeys {
     static let allCategories = "allCategories"
     static let myLanguageSettings = "myLanguageSettings"
     static let targetLanguage = "targetLanguage"
-    static let background = "background"
-    static let backgroundColor = "backgroundColor"
+    static let theme = "theme"
+    static let color = "color"
     static let backgroundStyle = "backgroundStyle"
     static let tapToSeeFullScreen = "tapToSeeFullScreen"
     
@@ -160,6 +161,10 @@ enum LocalizationKeys {
 extension String {
     var localized: String {
         return NSLocalizedString(self, comment: "")
+    }
+
+    var localizedKey: LocalizedStringKey {
+        return LocalizedStringKey(self)
     }
     
     func localized(with arguments: CVarArg...) -> String {

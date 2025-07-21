@@ -25,7 +25,6 @@ struct ButtonRowView: View {
                 } label: {
                     Label(LocalizationKeys.settingsLabel.localized, systemImage: "gear")
                 }
-                .tint(colorManager.adjustedTintColor(colorScheme))
                 Button {
                     HapticService.shared.menuOpened()
                     onShowMyCards()
@@ -36,7 +35,6 @@ struct ButtonRowView: View {
                         Image(.stackCardsRotated)
                     }
                 }
-                .tint(colorManager.adjustedTintColor(colorScheme))
             } label: {
                 ActionButtonLabel(LocalizationKeys.menu.localized, systemImage: "line.3.horizontal")
             }

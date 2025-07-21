@@ -17,75 +17,34 @@ struct FiltersScrollView: View {
             HStack(spacing: 8) {
                 let isBlackForeground: Bool = colorScheme == .dark && colorManager.userGradientColor.isLight
                 // Show All Cards button
-                Button {
+
+                TagButton(
+                    title: LocalizationKeys.showAllCards,
+                    isSelected: tagManager.selectedFilterTag == nil && !tagManager.isFavoriteFilterOn
+                ) {
                     tagManager.selectedFilterTag = nil
                     tagManager.isFavoriteFilterOn = false
-                } label: {
-                    Text(LocalizationKeys.showAllCards.localized)
-                        .font(.caption)
-                        .foregroundStyle(
-                            tagManager.selectedFilterTag == nil && !tagManager.isFavoriteFilterOn
-                            ? isBlackForeground ? .black : .white
-                            : .primary
-                        )
                 }
-                .buttonStyle(.borderedProminent)
-                .tint(
-                    tagManager.selectedFilterTag == nil && !tagManager.isFavoriteFilterOn
-                    ? colorManager.adjustedTintColor(colorScheme)
-                    : Color(.systemGray4).opacity(0.8)
-                )
-                .clipShape(Capsule())
 
                 // Favorite filter button
-                Button {
+                TagButton(
+                    title: LocalizationKeys.showFavoritesOnly,
+                    imageSystemName: "heart.fill",
+                    isSelected: tagManager.isFavoriteFilterOn
+                ) {
                     tagManager.isFavoriteFilterOn.toggle()
-                } label: {
-                    HStack(spacing: 4) {
-                        Image(systemName: "heart.fill")
-                            .font(.caption)
-                        Text(LocalizationKeys.showFavoritesOnly.localized)
-                            .font(.caption)
-                    }
-                    .foregroundStyle(
-                        tagManager.isFavoriteFilterOn
-                        ? isBlackForeground ? .black : .white
-                        : .primary
-                    )
                 }
-                .buttonStyle(.borderedProminent)
-                .tint(
-                    tagManager.isFavoriteFilterOn
-                    ? colorManager.adjustedTintColor(colorScheme)
-                    : Color(.systemGray4).opacity(0.8)
-                )
-                .clipShape(Capsule())
 
                 // Tag filter buttons
                 ForEach(tagManager.availableTags, id: \.self) { tag in
                     let isSelected = tagManager.selectedFilterTag == tag
-                    Button {
+                    TagButton(
+                        title: tag.name.orEmpty,
+                        imageSystemName: "tag.fill",
+                        isSelected: isSelected
+                    ) {
                         tagManager.selectedFilterTag = isSelected ? nil : tag
-                    } label: {
-                        HStack(spacing: 4) {
-                            Image(systemName: "tag.fill")
-                                .font(.caption)
-                            Text(tag.name.orEmpty)
-                                .font(.caption)
-                        }
-                        .foregroundStyle(
-                            isSelected
-                            ? isBlackForeground ? .black : .white
-                            : .primary
-                        )
                     }
-                    .buttonStyle(.borderedProminent)
-                    .tint(
-                        isSelected
-                        ? colorManager.adjustedTintColor(colorScheme)
-                        : Color(.systemGray4).opacity(0.8)
-                    )
-                    .clipShape(Capsule())
                 }
             }
             .scrollTargetLayout()

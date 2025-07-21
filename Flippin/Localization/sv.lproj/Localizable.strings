@@ -75,8 +75,8 @@
 "allCategories" = "Alla";
 "myLanguageSettings" = "Mitt Språk";
 "targetLanguage" = "Målspråk";
-"background" = "Bakgrund";
-"backgroundColor" = "Bakgrundsfärg";
+"theme" = "Tema";
+"color" = "Färg";
 "backgroundStyle" = "Bakgrundsstil";
 "tapToSeeFullScreen" = "Tryck för att se helskärm";
 

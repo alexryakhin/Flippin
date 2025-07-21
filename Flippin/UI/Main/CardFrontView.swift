@@ -36,11 +36,6 @@ struct CardFrontView: View {
                     Image(systemName: card.isFavorite ? "heart.fill" : "heart")
                         .font(.title3)
                 }
-                .tint(colorManager.adjustedTintColor(colorScheme))
-
-                Text(card.timestamp.orNow, format: Date.FormatStyle(date: .abbreviated, time: .shortened))
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
             }
 
             Spacer()
@@ -97,7 +92,6 @@ struct CardFrontView: View {
                             .scaledToFit()
                             .frame(width: 24, height: 24)
                     }
-                    .tint(colorManager.adjustedTintColor(colorScheme))
                 }
 
                 Spacer()

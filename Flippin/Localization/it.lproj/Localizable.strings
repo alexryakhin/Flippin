@@ -75,8 +75,8 @@
 "allCategories" = "Tutte";
 "myLanguageSettings" = "La Mia Lingua";
 "targetLanguage" = "Lingua Obiettivo";
-"background" = "Sfondo";
-"backgroundColor" = "Colore Sfondo";
+"theme" = "Tema";
+"color" = "Colore";
 "backgroundStyle" = "Stile Sfondo";
 "tapToSeeFullScreen" = "Tocca per vedere a schermo intero";
 

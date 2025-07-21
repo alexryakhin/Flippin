@@ -75,8 +75,8 @@
 "allCategories" = "Все";
 "myLanguageSettings" = "Мой Язык";
 "targetLanguage" = "Целевой Язык";
-"background" = "Фон";
-"backgroundColor" = "Цвет Фона";
+"theme" = "Тема";
+"color" = "Цвет";
 "backgroundStyle" = "Стиль Фона";
 "tapToSeeFullScreen" = "Нажмите, чтобы увидеть полноэкранный режим";
 

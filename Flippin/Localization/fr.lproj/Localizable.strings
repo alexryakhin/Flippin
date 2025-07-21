@@ -75,8 +75,8 @@
 "allCategories" = "Toutes";
 "myLanguageSettings" = "Ma Langue";
 "targetLanguage" = "Langue Cible";
-"background" = "Arrière-plan";
-"backgroundColor" = "Couleur d'Arrière-plan";
+"theme" = "Thème";
+"color" = "Couleur";
 "backgroundStyle" = "Style d'Arrière-plan";
 "tapToSeeFullScreen" = "Appuyez pour voir en plein écran";
 
