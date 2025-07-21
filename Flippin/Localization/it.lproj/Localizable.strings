@@ -15,10 +15,27 @@
 
 // MARK: - Welcome Screen
 "welcomeScreenTitle" = "Benvenuto su Flippin!";
-"welcomeScreenMessage" = "Flippin ti aiuta ad imparare e praticare nuove lingue usando le carte di memoria. Seleziona la tua lingua madre e la lingua che vuoi imparare.";
+"welcomeScreenMessage" = "Flippin ti aiuta ad imparare lingue per viaggi, studio o conversazione quotidiana usando carte intelligenti. Seleziona la tua lingua madre e la lingua che vuoi padroneggiare.";
 "myLanguage" = "La mia lingua";
+"myLanguageDesc" = "La tua lingua madre";
 "imLearning" = "Sto imparando";
+"imLearningDesc" = "La lingua che vuoi imparare";
 "continueButton" = "Continua";
+"back" = "Indietro";
+"getStarted" = "Inizia";
+"chooseLanguages" = "Scegli le Tue Lingue";
+"chooseLanguagesDesc" = "Seleziona la tua lingua madre e la lingua che vuoi imparare";
+"readyToStart" = "Tutto Pronto!";
+"readyToStartDesc" = "Il tuo viaggio di apprendimento inizia ora";
+"featureLearning" = "Traduzione Automatica";
+"featureLearningDesc" = "Traduzione in tempo reale mentre scrivi";
+"featureLanguages" = "18 Lingue";
+"featureLanguagesDesc" = "Supporto per le principali lingue del mondo";
+"featureSmart" = "Sintesi Vocale";
+"featureSmartDesc" = "Ascolta la pronuncia con tecnologia TTS";
+"finalFeatureAdd" = "Crea carte personalizzate";
+"finalFeaturePractice" = "Pratica con pronuncia audio";
+"finalFeatureProgress" = "Organizza con tag e preferiti";
 
 // MARK: - Content Views
 "noCardsYet" = "Nessuna carta ancora";

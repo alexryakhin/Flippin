@@ -15,10 +15,27 @@
 
 // MARK: - Welcome Screen
 "welcomeScreenTitle" = "歡迎使用Flippin！";
-"welcomeScreenMessage" = "Flippin幫助您使用閃卡學習和練習新語言。選擇您的母語和您想學習的語言。";
+"welcomeScreenMessage" = "Flippin幫助您學習語言用於旅行、學習或日常對話，使用智能閃卡。選擇您的母語和您想掌握的語言。";
 "myLanguage" = "我的語言";
+"myLanguageDesc" = "您的母語";
 "imLearning" = "我正在學習";
+"imLearningDesc" = "您想學習的語言";
 "continueButton" = "繼續";
+"back" = "返回";
+"getStarted" = "開始使用";
+"chooseLanguages" = "選擇您的語言";
+"chooseLanguagesDesc" = "選擇您的母語和您想學習的語言";
+"readyToStart" = "一切就緒！";
+"readyToStartDesc" = "您的語言學習之旅現在開始";
+"featureLearning" = "自動翻譯";
+"featureLearningDesc" = "輸入時即時翻譯";
+"featureLanguages" = "18種語言";
+"featureLanguagesDesc" = "支援世界主要語言";
+"featureSmart" = "文字轉語音";
+"featureSmartDesc" = "使用TTS技術聽發音";
+"finalFeatureAdd" = "建立自訂閃卡";
+"finalFeaturePractice" = "練習音訊發音";
+"finalFeatureProgress" = "使用標籤和收藏整理";
 
 // MARK: - Content Views
 "noCardsYet" = "還沒有卡片";

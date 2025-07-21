@@ -15,10 +15,27 @@
 
 // MARK: - Welcome Screen
 "welcomeScreenTitle" = "Chào mừng đến với Flippin!";
-"welcomeScreenMessage" = "Flippin giúp bạn học và thực hành ngôn ngữ mới bằng cách sử dụng thẻ ghi nhớ. Chọn ngôn ngữ mẹ đẻ và ngôn ngữ bạn muốn học.";
+"welcomeScreenMessage" = "Flippin giúp bạn học ngôn ngữ cho du lịch, học tập hoặc trò chuyện hàng ngày bằng cách sử dụng thẻ thông minh. Chọn ngôn ngữ mẹ đẻ và ngôn ngữ bạn muốn thành thạo.";
 "myLanguage" = "Ngôn ngữ của tôi";
+"myLanguageDesc" = "Ngôn ngữ mẹ đẻ của bạn";
 "imLearning" = "Tôi đang học";
+"imLearningDesc" = "Ngôn ngữ bạn muốn học";
 "continueButton" = "Tiếp tục";
+"back" = "Quay lại";
+"getStarted" = "Bắt đầu";
+"chooseLanguages" = "Chọn Ngôn Ngữ Của Bạn";
+"chooseLanguagesDesc" = "Chọn ngôn ngữ mẹ đẻ và ngôn ngữ bạn muốn học";
+"readyToStart" = "Tất Cả Sẵn Sàng!";
+"readyToStartDesc" = "Hành trình học ngôn ngữ của bạn bắt đầu ngay bây giờ";
+"featureLearning" = "Dịch Tự Động";
+"featureLearningDesc" = "Dịch thời gian thực khi bạn nhập";
+"featureLanguages" = "18 Ngôn Ngữ";
+"featureLanguagesDesc" = "Hỗ trợ các ngôn ngữ chính của thế giới";
+"featureSmart" = "Chuyển Văn Bản Thành Giọng Nói";
+"featureSmartDesc" = "Nghe phát âm với công nghệ TTS";
+"finalFeatureAdd" = "Tạo thẻ ghi nhớ tùy chỉnh";
+"finalFeaturePractice" = "Thực hành với phát âm âm thanh";
+"finalFeatureProgress" = "Tổ chức với nhãn và yêu thích";
 
 // MARK: - Content Views
 "noCardsYet" = "Chưa có thẻ nào";

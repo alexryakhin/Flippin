@@ -15,10 +15,27 @@
 
 // MARK: - Welcome Screen
 "welcomeScreenTitle" = "مرحباً بك في Flippin!";
-"welcomeScreenMessage" = "يساعدك Flippin على تعلم وممارسة لغات جديدة باستخدام بطاقات الذاكرة. اختر لغتك الأم واللغة التي تريد تعلمها.";
+"welcomeScreenMessage" = "يساعدك Flippin على تعلم اللغات للسفر أو الدراسة أو المحادثة اليومية باستخدام بطاقات ذكية. اختر لغتك الأم واللغة التي تريد إتقانها.";
 "myLanguage" = "لغتي";
+"myLanguageDesc" = "لغتك الأم";
 "imLearning" = "أنا أتعلم";
+"imLearningDesc" = "اللغة التي تريد تعلمها";
 "continueButton" = "متابعة";
+"back" = "رجوع";
+"getStarted" = "ابدأ";
+"chooseLanguages" = "اختر لغاتك";
+"chooseLanguagesDesc" = "اختر لغتك الأم واللغة التي تريد تعلمها";
+"readyToStart" = "كل شيء جاهز!";
+"readyToStartDesc" = "رحلة تعلم اللغة تبدأ الآن";
+"featureLearning" = "ترجمة تلقائية";
+"featureLearningDesc" = "ترجمة فورية أثناء الكتابة";
+"featureLanguages" = "18 لغة";
+"featureLanguagesDesc" = "دعم للغات العالم الرئيسية";
+"featureSmart" = "تحويل النص إلى كلام";
+"featureSmartDesc" = "استمع للنطق بتقنية TTS";
+"finalFeatureAdd" = "أنشئ بطاقات مخصصة";
+"finalFeaturePractice" = "تدرب مع نطق صوتي";
+"finalFeatureProgress" = "نظم بالوسوم والمفضلة";
 
 // MARK: - Content Views
 "noCardsYet" = "لا توجد بطاقات بعد";

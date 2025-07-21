@@ -15,10 +15,27 @@
 
 // MARK: - Welcome Screen
 "welcomeScreenTitle" = "Flippin에 오신 것을 환영합니다!";
-"welcomeScreenMessage" = "Flippin은 플래시카드를 사용하여 새로운 언어를 학습하고 연습하는 데 도움이 됩니다. 모국어와 학습하고 싶은 언어를 선택하세요.";
+"welcomeScreenMessage" = "Flippin은 여행, 공부, 일상 대화를 위해 스마트 플래시카드를 사용하여 언어를 학습하는 데 도움이 됩니다. 모국어와 숙달하고 싶은 언어를 선택하세요.";
 "myLanguage" = "내 언어";
+"myLanguageDesc" = "당신의 모국어";
 "imLearning" = "학습 중";
+"imLearningDesc" = "학습하고 싶은 언어";
 "continueButton" = "계속";
+"back" = "뒤로";
+"getStarted" = "시작하기";
+"chooseLanguages" = "언어 선택";
+"chooseLanguagesDesc" = "모국어와 학습하고 싶은 언어를 선택하세요";
+"readyToStart" = "준비 완료!";
+"readyToStartDesc" = "언어 학습 여정이 지금 시작됩니다";
+"featureLearning" = "자동 번역";
+"featureLearningDesc" = "입력 시 실시간 번역";
+"featureLanguages" = "18개 언어";
+"featureLanguagesDesc" = "세계 주요 언어 지원";
+"featureSmart" = "텍스트 음성 변환";
+"featureSmartDesc" = "TTS 기술로 발음 듣기";
+"finalFeatureAdd" = "맞춤형 플래시카드 만들기";
+"finalFeaturePractice" = "음성 발음으로 연습";
+"finalFeatureProgress" = "태그와 즐겨찾기로 정리";
 
 // MARK: - Content Views
 "noCardsYet" = "아직 카드가 없습니다";

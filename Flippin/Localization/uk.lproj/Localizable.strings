@@ -15,10 +15,27 @@
 
 // MARK: - Welcome Screen
 "welcomeScreenTitle" = "Ласкаво просимо до Flippin!";
-"welcomeScreenMessage" = "Flippin допомагає вам вивчати та практикувати нові мови за допомогою карток для запам'ятовування. Виберіть свою рідну мову та мову, яку ви хочете вивчити.";
+"welcomeScreenMessage" = "Flippin допомагає вам вивчати мови для подорожей, навчання або щоденних розмов за допомогою розумних карток. Виберіть свою рідну мову та мову, яку ви хочете оволодіти.";
 "myLanguage" = "Моя мова";
+"myLanguageDesc" = "Ваша рідна мова";
 "imLearning" = "Я вивчаю";
+"imLearningDesc" = "Мова, яку ви хочете вивчити";
 "continueButton" = "Продовжити";
+"back" = "Назад";
+"getStarted" = "Почати";
+"chooseLanguages" = "Виберіть Ваші Мови";
+"chooseLanguagesDesc" = "Виберіть свою рідну мову та мову, яку ви хочете вивчити";
+"readyToStart" = "Все Готово!";
+"readyToStartDesc" = "Ваша подорож вивчення мови починається зараз";
+"featureLearning" = "Автоматичний Переклад";
+"featureLearningDesc" = "Переклад у реальному часі під час введення";
+"featureLanguages" = "18 Мов";
+"featureLanguagesDesc" = "Підтримка основних мов світу";
+"featureSmart" = "Перетворення Тексту в Мовлення";
+"featureSmartDesc" = "Слухайте вимову з технологією TTS";
+"finalFeatureAdd" = "Створюйте власні картки";
+"finalFeaturePractice" = "Практикуйтеся з аудіо вимовою";
+"finalFeatureProgress" = "Організовуйте за допомогою тегів та улюблених";
 
 // MARK: - Content Views
 "noCardsYet" = "Поки що немає карток";

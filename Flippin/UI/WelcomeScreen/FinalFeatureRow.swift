@@ -1,0 +1,32 @@
+//
+//  FinalFeatureRow.swift
+//  Flippin
+//
+//  Created by Alexander Riakhin on 7/21/25.
+//
+import SwiftUI
+
+struct FinalFeatureRow: View {
+    let icon: String
+    let text: String
+    let animateContent: Bool
+    let delay: Double
+    
+    var body: some View {
+        HStack(spacing: 16) {
+            Image(systemName: icon)
+                .font(.title2)
+                .foregroundColor(.accentColor)
+                .scaleEffect(animateContent ? 1 : 0.5)
+                .opacity(animateContent ? 1 : 0)
+            
+            Text(text)
+                .font(.body)
+                .offset(x: animateContent ? 0 : -20)
+                .opacity(animateContent ? 1 : 0)
+            
+            Spacer()
+        }
+        .animation(.easeInOut(duration: 0.4).delay(delay), value: animateContent)
+    }
+}
