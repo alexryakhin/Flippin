@@ -14,27 +14,13 @@
 
   ],
   "products" : [
-    {
-      "displayPrice" : "0.99",
-      "familyShareable" : false,
-      "internalID" : "6748602880",
-      "localizations" : [
-        {
-          "description" : "Unlimited Cards Description",
-          "displayName" : "Unlimited Cards",
-          "locale" : "en_US"
-        }
-      ],
-      "productID" : "com.dor.flippin.unlimited_cards",
-      "referenceName" : "Unlimited Cards",
-      "type" : "NonConsumable"
-    }
+
   ],
   "settings" : {
     "_applicationInternalID" : "6748499528",
     "_developerTeamID" : "69S862NXBP",
     "_failTransactionsEnabled" : false,
-    "_lastSynchronizedDate" : 774182203.85316205,
+    "_lastSynchronizedDate" : 774895319.22643995,
     "_locale" : "en_US",
     "_storefront" : "USA",
     "_storeKitErrors" : [
@@ -100,7 +86,7 @@
           "codeOffers" : [
 
           ],
-          "displayPrice" : "1.99",
+          "displayPrice" : "4.99",
           "familyShareable" : true,
           "groupNumber" : 1,
           "internalID" : "6748603046",
@@ -128,7 +114,7 @@
           "codeOffers" : [
 
           ],
-          "displayPrice" : "19.99",
+          "displayPrice" : "39.99",
           "familyShareable" : true,
           "groupNumber" : 2,
           "internalID" : "6748603055",

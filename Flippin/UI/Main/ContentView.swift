@@ -95,7 +95,7 @@ struct ContentView: View {
             resetShuffle()
         }
         .sheet(isPresented: $showWelcomeSheet) {
-            WelcomeSheet(
+            WelcomeSheet.ContentView(
                 onContinue: {
                     didShowWelcomeSheet = true
                     showWelcomeSheet = false
