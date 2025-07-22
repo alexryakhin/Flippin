@@ -158,7 +158,7 @@ struct PresetCollectionsView: View {
             targetLanguage: languageManager.targetLanguage
         )
 
-        cardsProvider.addCards(cardItems, tags: collection.tags)
+        try? cardsProvider.addCards(cardItems, tags: collection.tags)
 
         // Show success feedback
         HapticService.shared.success()

@@ -17,6 +17,8 @@ struct FeaturedPresetCollections: View {
     @State private var showingAllCollections = false
     @State private var showingImportAlert = false
     @State private var collectionToImport: PresetCollection?
+    @State private var showingLimitAlert = false
+    @State private var limitAlertMessage = ""
     
     var featuredCollections: [PresetCollection] {
         presetService.getFeaturedCollections(
@@ -87,6 +89,11 @@ struct FeaturedPresetCollections: View {
                 Text(LocalizationKeys.importCollectionMessage.localized(with: collection.name, collection.cardCount))
             }
         }
+        .alert(LocalizationKeys.cardLimitExceeded.localized, isPresented: $showingLimitAlert) {
+            Button(LocalizationKeys.ok.localized, role: .cancel) { }
+        } message: {
+            Text(limitAlertMessage)
+        }
     }
     
     private func importCollection(_ collection: PresetCollection) {
@@ -96,17 +103,25 @@ struct FeaturedPresetCollections: View {
             targetLanguage: languageManager.targetLanguage
         )
         
-        cardsProvider.addCards(cardItems, tags: collection.tags)
+        do {
+            try cardsProvider.addCards(cardItems, tags: collection.tags)
 
-        // Show success feedback
-        HapticService.shared.success()
-        
-        // Analytics tracking for preset collection import
-        AnalyticsService.trackPresetCollectionEvent(
-            .presetCollectionImported,
-            collectionName: collection.name,
-            cardCount: collection.cardCount,
-            category: collection.category.rawValue
-        )
+            // Show success feedback
+            HapticService.shared.success()
+            
+            // Analytics tracking for preset collection import
+            AnalyticsService.trackPresetCollectionEvent(
+                .presetCollectionImported,
+                collectionName: collection.name,
+                cardCount: collection.cardCount,
+                category: collection.category.rawValue
+            )
+        } catch let error as CardLimitError {
+            limitAlertMessage = error.localizedDescription
+            showingLimitAlert = true
+        } catch {
+            limitAlertMessage = "Failed to import collection: \(error.localizedDescription)"
+            showingLimitAlert = true
+        }
     }
 } 

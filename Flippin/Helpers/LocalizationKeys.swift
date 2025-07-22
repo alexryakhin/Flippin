@@ -126,6 +126,13 @@ enum LocalizationKeys {
     static let deleteAll = "deleteAll"
     static let deleteAllCards = "deleteAllCards"
     static let deleteAllCardsConfirmation = "deleteAllCardsConfirmation"
+    static let ok = "ok"
+    
+    // MARK: - Card Limits
+    static let cardLimitExceeded = "cardLimitExceeded"
+    static let upgradeToPremium = "upgradeToPremium"
+    static let cardsRemaining = "cardsRemaining"
+    static let unlimitedCards = "unlimitedCards"
     
     // MARK: - Labels
     static let settingsLabel = "settingsLabel"

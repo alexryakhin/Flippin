@@ -124,6 +124,7 @@
 "deleteAll" = "Delete All";
 "deleteAllCards" = "Delete All Cards";
 "deleteAllCardsConfirmation" = "Are you sure you want to delete all cards? This action cannot be undone.";
+"ok" = "OK";
 
 // MARK: - Labels
 "settingsLabel" = "Settings";
@@ -170,3 +171,9 @@
 "fireflies" = "Fireflies";
 "ocean" = "Ocean";
 "galaxy" = "Galaxy";
+
+// MARK: - Card Limits
+"cardLimitExceeded" = "Card Limit Reached";
+"upgradeToPremium" = "Upgrade to Premium";
+"cardsRemaining" = "Cards Remaining";
+"unlimitedCards" = "Unlimited Cards";

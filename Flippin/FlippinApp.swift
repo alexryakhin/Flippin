@@ -17,6 +17,7 @@ struct FlippinApp: App {
     @StateObject private var languageManager = LanguageManager.shared
     @StateObject private var tagManager = TagManager.shared
     @StateObject private var colorManager = ColorManager.shared
+    @StateObject private var purchaseService = PurchaseService.shared
 
     init() {
         FirebaseApp.configure()
@@ -28,6 +29,36 @@ struct FlippinApp: App {
             ContentView()
                 .tint(colorManager.tintColor)
                 .observeColorScheme()
+                .task {
+                    // Ensure purchase status is properly loaded at startup
+                    await ensurePurchaseStatusLoaded()
+                }
         }
+    }
+    
+    private func ensurePurchaseStatusLoaded() async {
+        print("🚀 App startup: Ensuring purchase status is loaded...")
+        
+        // Ensure purchase status is properly loaded
+        await purchaseService.loadProducts()
+        await purchaseService.reloadPurchaseStatus()
+        
+        // Log current status
+        let purchasedProducts = purchaseService.getPurchasedProducts()
+        print("📦 Startup: Found \(purchasedProducts.count) purchased products: \(purchasedProducts)")
+        
+        // Check card limit status
+        let cardLimit = cardsProvider.cardLimit
+        let currentCards = cardsProvider.cards.count
+        let hasUnlimited = cardsProvider.hasUnlimitedCards
+        
+        print("🎯 Startup: Card limit status - Limit: \(cardLimit), Current: \(currentCards), Unlimited: \(hasUnlimited)")
+        
+        AnalyticsService.trackEvent(.appLaunched, parameters: [
+            "purchased_products_count": purchasedProducts.count,
+            "card_limit": cardLimit,
+            "current_cards": currentCards,
+            "has_unlimited": hasUnlimited
+        ])
     }
 }

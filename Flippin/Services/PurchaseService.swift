@@ -267,6 +267,13 @@ final class PurchaseService: ObservableObject {
             return false
         }
     }
+    
+    // MARK: - Public Purchase Status Management
+    func reloadPurchaseStatus() async {
+        print("🔄 Reloading purchase status...")
+        await loadPurchasedProducts()
+        print("✅ Purchase status reloaded")
+    }
 }
 
 // MARK: - Purchase Errors

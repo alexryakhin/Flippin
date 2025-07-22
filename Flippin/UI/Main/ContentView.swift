@@ -13,6 +13,7 @@ struct ContentView: View {
     @StateObject private var languageManager = LanguageManager.shared
     @StateObject private var tagManager = TagManager.shared
     @StateObject private var colorManager = ColorManager.shared
+    @StateObject private var purchaseService = PurchaseService.shared
 
     @AppStorage(UserDefaultsKey.didShowWelcomeSheet) private var didShowWelcomeSheet: Bool = false
 
@@ -21,6 +22,7 @@ struct ContentView: View {
     @State private var showMyCards = false
     @State private var showAddCardSheet = false
     @State private var shuffledItems: [CardItem] = []
+    @State private var showUpgradeAlert = false
 
     var filteredItems: [CardItem] {
         var filtered = cardsProvider.cards
@@ -45,6 +47,11 @@ struct ContentView: View {
         VStack(spacing: 16) {
 
             FiltersScrollView()
+            
+            // Card Limit Indicator for Free Users
+            if !cardsProvider.hasUnlimitedCards {
+                cardLimitIndicator
+            }
 
             cardsStackView
                 .if(isPad) { view in
@@ -124,6 +131,14 @@ struct ContentView: View {
                 AnalyticsService.trackNavigationEvent(.addCardScreenOpened, screenName: "AddCard")
             }
         }
+        .alert("Upgrade to Premium", isPresented: $showUpgradeAlert) {
+            Button("Cancel", role: .cancel) { }
+            Button("View Options") {
+                showSettings = true
+            }
+        } message: {
+            Text("Upgrade to premium to create unlimited cards and unlock all features!")
+        }
     }
 
     @ViewBuilder
@@ -149,6 +164,38 @@ struct ContentView: View {
                 }
             }
         }
+    }
+    
+    @ViewBuilder
+    private var cardLimitIndicator: some View {
+        HStack {
+            VStack(alignment: .leading, spacing: 4) {
+                Text("\(cardsProvider.cards.count) of \(cardsProvider.cardLimit) cards")
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+                
+                ProgressView(value: Double(cardsProvider.cards.count), total: Double(cardsProvider.cardLimit))
+                    .progressViewStyle(LinearProgressViewStyle(tint: colorManager.tintColor))
+                    .frame(height: 4)
+            }
+            
+            Spacer()
+            
+            Button("Upgrade") {
+                showUpgradeAlert = true
+            }
+            .font(.caption)
+            .padding(.horizontal, 12)
+            .padding(.vertical, 6)
+            .background(colorManager.tintColor)
+            .foregroundColor(.white)
+            .clipShape(Capsule())
+        }
+        .padding(.horizontal, 16)
+        .padding(.vertical, 8)
+        .background(Color(.tertiarySystemGroupedBackground))
+        .clipShape(RoundedRectangle(cornerRadius: 12))
+        .padding(.horizontal, 16)
     }
 
     private var noCardsView: some View {

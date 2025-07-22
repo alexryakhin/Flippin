@@ -22,6 +22,39 @@ final class CardsProvider: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     private var hasCheckedInitialSync = false
 
+    // MARK: - Card Limit Configuration
+    private let freeUserCardLimit = 10
+    
+    /// Returns the maximum number of cards allowed for the current user
+    var cardLimit: Int {
+        if PurchaseService.shared.isProductPurchased("com.dor.flippin.unlimited_cards") ||
+           PurchaseService.shared.isProductPurchased("com.dor.flippin.premium_monthly") ||
+           PurchaseService.shared.isProductPurchased("com.dor.flippin.premium_yearly") {
+            return .max
+        } else {
+            return freeUserCardLimit
+        }
+    }
+    
+    /// Returns true if the user has unlimited cards
+    var hasUnlimitedCards: Bool {
+        return cardLimit == .max
+    }
+    
+    /// Returns true if adding a card would exceed the limit
+    var wouldExceedLimit: Bool {
+        return !hasUnlimitedCards && cards.count >= cardLimit
+    }
+    
+    /// Returns the number of cards remaining for free users
+    var remainingCards: Int {
+        if hasUnlimitedCards {
+            return .max
+        } else {
+            return max(0, cardLimit - cards.count)
+        }
+    }
+
     private init() {
         fetchCards()
         
@@ -60,8 +93,17 @@ final class CardsProvider: ObservableObject {
         }
     }
 
-    /// Adds a new card to Core Data
-    func addCard(_ card: CardItem, tags: [String] = []) {
+    /// Adds a new card to Core Data with limit checking
+    func addCard(_ card: CardItem, tags: [String] = []) throws {
+        // Check if adding this card would exceed the limit
+        if wouldExceedLimit {
+            throw CardLimitError.limitExceeded(
+                currentCount: cards.count,
+                limit: cardLimit,
+                remainingCards: remainingCards
+            )
+        }
+        
         // Add tags using TagManager
         for tagName in tags {
             if let tag = tagManager.findOrCreateTag(withName: tagName) {
@@ -83,8 +125,17 @@ final class CardsProvider: ObservableObject {
         )
     }
 
-    /// Adds a new card to Core Data
-    func addCards(_ cards: [CardItem], tags: [String] = []) {
+    /// Adds multiple cards to Core Data with limit checking
+    func addCards(_ cards: [CardItem], tags: [String] = []) throws {
+        // Check if adding these cards would exceed the limit
+        if !hasUnlimitedCards && (self.cards.count + cards.count) > cardLimit {
+            throw CardLimitError.limitExceeded(
+                currentCount: self.cards.count,
+                limit: cardLimit,
+                remainingCards: remainingCards
+            )
+        }
+        
         // Add tags using TagManager
         for tagName in tags {
             if let tag = tagManager.findOrCreateTag(withName: tagName) {
@@ -140,6 +191,32 @@ final class CardsProvider: ObservableObject {
             objectWillChange.send()
         } catch {
             errorPublisher.send(error)
+        }
+    }
+}
+
+// MARK: - Card Limit Error
+enum CardLimitError: LocalizedError {
+    case limitExceeded(currentCount: Int, limit: Int, remainingCards: Int)
+    
+    var errorDescription: String? {
+        switch self {
+        case .limitExceeded(let currentCount, let limit, let remainingCards):
+            return "Card limit exceeded. You have \(currentCount) cards out of \(limit) allowed. Upgrade to premium for unlimited cards."
+        }
+    }
+    
+    var failureReason: String? {
+        switch self {
+        case .limitExceeded(_, let limit, _):
+            return "Free users are limited to \(limit) cards"
+        }
+    }
+    
+    var recoverySuggestion: String? {
+        switch self {
+        case .limitExceeded:
+            return "Purchase unlimited cards to add more cards to your collection"
         }
     }
 }

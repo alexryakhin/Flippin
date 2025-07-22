@@ -34,10 +34,17 @@ struct AddCardSheet: View {
                     viewModel.createCard()
                     dismiss()
                 } label: {
-                    Text(LocalizationKeys.save.localized)
-                        .font(.headline)
-                        .frame(maxWidth: .infinity)
-                        .padding(vertical: 12, horizontal: 16)
+                    HStack {
+                        Text(LocalizationKeys.save.localized)
+                        if !viewModel.hasUnlimitedCards {
+                            Text("(\(viewModel.remainingCards) left)")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                    }
+                    .font(.headline)
+                    .frame(maxWidth: .infinity)
+                    .padding(vertical: 12, horizontal: 16)
                 }
                 .padding(.horizontal)
                 .padding(.bottom)
@@ -48,6 +55,11 @@ struct AddCardSheet: View {
             .background(Color(.systemGroupedBackground))
             .navigationTitle(LocalizationKeys.addNewCard.localized)
             .navigationBarTitleDisplayMode(.inline)
+            .alert("Card Limit Reached", isPresented: $viewModel.showingLimitAlert) {
+                Button("OK") { }
+            } message: {
+                Text(viewModel.limitAlertMessage)
+            }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {

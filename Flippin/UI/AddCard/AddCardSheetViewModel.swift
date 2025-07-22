@@ -17,13 +17,24 @@ final class AddCardSheetViewModel: ObservableObject {
     @Published var selectedTags: Set<Tag> = []
     @Published var newTagText: String = ""
     @Published var notes: String = ""
+    @Published var showingLimitAlert = false
+    @Published var limitAlertMessage = ""
 
     private var cancellables = Set<AnyCancellable>()
     private let tagManager = TagManager.shared
     private let languageManager = LanguageManager.shared
+    private let cardsProvider = CardsProvider.shared
 
     var availableTags: [Tag] {
         tagManager.availableTags
+    }
+    
+    var remainingCards: Int {
+        cardsProvider.remainingCards
+    }
+    
+    var hasUnlimitedCards: Bool {
+        cardsProvider.hasUnlimitedCards
     }
 
     init() {
@@ -97,7 +108,15 @@ final class AddCardSheetViewModel: ObservableObject {
             id: UUID().uuidString
         )
 
-        CardsProvider.shared.addCard(card, tags: selectedTags.compactMap(\.name))
+        do {
+            try cardsProvider.addCard(card, tags: selectedTags.compactMap(\.name))
+        } catch let error as CardLimitError {
+            limitAlertMessage = error.localizedDescription
+            showingLimitAlert = true
+        } catch {
+            limitAlertMessage = "Failed to create card: \(error.localizedDescription)"
+            showingLimitAlert = true
+        }
     }
 
     func cancel() {
