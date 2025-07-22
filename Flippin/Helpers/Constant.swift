@@ -6,5 +6,5 @@
 //
 
 enum Constant {
-    static let defaultColorHex: String = "#4B9FF8" // Blue
+    static let defaultColor: RGBAColor = .blue // Blue
 }

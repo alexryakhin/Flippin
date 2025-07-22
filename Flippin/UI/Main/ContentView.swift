@@ -63,10 +63,7 @@ struct ContentView: View {
         }
         .padding(16)
         .background {
-            AnimatedBackground(
-                style: colorManager.backgroundStyle,
-                baseColor: colorManager.userGradientColor
-            )
+            AnimatedBackground(style: colorManager.backgroundStyle)
         }
         .onAppear {
             if !didShowWelcomeSheet {
@@ -172,8 +169,8 @@ struct ContentView: View {
                 Text(LocalizationKeys.tapToAddFirstCard.localized)
                     .foregroundStyle(.secondary)
             }
-            .foregroundColor(colorManager.adjustedForegroundColor(colorScheme))
-            
+            .foregroundColor(colorManager.foregroundColor)
+
             FeaturedPresetCollections()
                 .clippedWithPaddingAndBackgroundMaterial()
         }
@@ -198,7 +195,7 @@ struct ContentView: View {
                 }
                 .buttonStyle(.borderedProminent)
             }
-            .foregroundColor(colorManager.adjustedForegroundColor(colorScheme))
+            .foregroundColor(colorManager.foregroundColor)
         }
     }
 
@@ -214,7 +211,7 @@ struct ContentView: View {
             Text(LocalizationKeys.noCardsForLanguagePair.localized)
                 .foregroundStyle(.secondary)
         }
-        .foregroundColor(colorManager.adjustedForegroundColor(colorScheme))
+        .foregroundColor(colorManager.foregroundColor)
     }
 
     private var noFavoriteCardsView: some View {
@@ -228,7 +225,7 @@ struct ContentView: View {
             Text(LocalizationKeys.noFavoriteCardsDescription.localized)
                 .foregroundStyle(.secondary)
         }
-        .foregroundColor(colorManager.adjustedForegroundColor(colorScheme))
+        .foregroundColor(colorManager.foregroundColor)
     }
 
     private func shuffleCards() {

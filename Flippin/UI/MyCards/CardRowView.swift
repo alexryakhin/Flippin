@@ -38,7 +38,7 @@ struct CardRowView: View {
                     cardsProvider.toggleFavorite(card)
                 } label: {
                     Image(systemName: card.isFavorite ? "heart.fill" : "heart")
-                        .foregroundStyle(colorManager.adjustedTintColor(colorScheme))
+                        .foregroundStyle(colorManager.tintColor)
                         .font(.caption)
                 }
                 .buttonStyle(.plain)
@@ -95,8 +95,8 @@ struct CardRowView: View {
                             .font(.caption)
                             .padding(.horizontal, 6)
                             .padding(.vertical, 4)
-                            .background(colorManager.adjustedTintColor(colorScheme).opacity(0.1))
-                            .foregroundStyle(colorManager.adjustedTintColor(colorScheme))
+                            .background(colorManager.tintColor.opacity(0.1))
+                            .foregroundStyle(colorManager.tintColor)
                             .clipShape(Capsule())
                     }
                 }

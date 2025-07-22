@@ -7,7 +7,6 @@
 import SwiftUI
 
 struct StarsBackground: View {
-    let baseColor: Color
     @State private var stars: [StarView.Star] = []
 
     var body: some View {

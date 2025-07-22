@@ -7,8 +7,8 @@
 import SwiftUI
 
 struct AuroraBackground: View {
-    let baseColor: Color
-    
+    @StateObject private var colorManager = ColorManager.shared
+
     var body: some View {
         TimelineView(.animation) { timeline in
             Canvas { context, size in
@@ -30,7 +30,7 @@ struct AuroraBackground: View {
                         }
                     }
                     
-                    let color = baseColor.opacity(0.3 - Double(i) * 0.05)
+                    let color = colorManager.userColor.opacity(0.3 - Double(i) * 0.05)
                     context.stroke(path, with: .color(color), lineWidth: size.height * 0.1)
                 }
             }
@@ -39,7 +39,7 @@ struct AuroraBackground: View {
             LinearGradient(
                 colors: [
                     Color.black,
-                    baseColor.darker(by: 60)
+                    colorManager.userColor.darker(by: 60)
                 ],
                 startPoint: .top,
                 endPoint: .bottom

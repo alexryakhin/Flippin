@@ -65,7 +65,6 @@ public class CoreDataService: ObservableObject {
     }
 
     public func saveContext() throws {
-        let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
                 try context.save()

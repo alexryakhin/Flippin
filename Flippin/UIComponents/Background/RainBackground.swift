@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct RainBackground: View {
-    let baseColor: Color
+    @StateObject private var colorManager = ColorManager.shared
     @State private var raindrops: [RaindropView.Raindrop] = []
 
     var body: some View {
@@ -15,8 +15,8 @@ struct RainBackground: View {
             // Background gradient
             LinearGradient(
                 colors: [
-                    baseColor.darker(by: 20),
-                    baseColor.darker(by: 40)
+                    colorManager.userColor.darker(by: 20),
+                    colorManager.userColor.darker(by: 40)
                 ],
                 startPoint: .top,
                 endPoint: .bottom

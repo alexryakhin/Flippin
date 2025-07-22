@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct ParticlesBackground: View {
-    let baseColor: Color
+    @StateObject private var colorManager = ColorManager.shared
     @State private var particles: [ParticleView.Particle] = []
 
     var body: some View {
@@ -15,8 +15,8 @@ struct ParticlesBackground: View {
             // Background gradient
             LinearGradient(
                 colors: [
-                    baseColor.darker(by: 10),
-                    baseColor.darker(by: 30)
+                    colorManager.userColor.darker(by: 10),
+                    colorManager.userColor.darker(by: 30)
                 ],
                 startPoint: .top,
                 endPoint: .bottom

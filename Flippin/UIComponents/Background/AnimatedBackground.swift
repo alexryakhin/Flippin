@@ -7,38 +7,37 @@
 import SwiftUI
 
 struct AnimatedBackground: View {
+
     let style: BackgroundStyle
-    let baseColor: Color
-    @Environment(\.colorScheme) private var colorScheme
-    
+
     var body: some View {
         ZStack {
             switch style {
             case .gradient:
-                GradientBackground(baseColor: baseColor)
+                GradientBackground()
             case .lavaLamp:
-                LavaLampBackground(baseColor: baseColor)
+                LavaLampBackground()
             case .snow:
-                SnowBackground(baseColor: baseColor)
+                SnowBackground()
             case .rain:
-                RainBackground(baseColor: baseColor)
+                RainBackground()
             case .stars:
-                StarsBackground(baseColor: baseColor)
+                StarsBackground()
             case .bubbles:
-                BubblesBackground(baseColor: baseColor)
+                BubblesBackground()
             case .waves:
-                WavesBackground(baseColor: baseColor)
-                        case .particles:
-                ParticlesBackground(baseColor: baseColor)
+                WavesBackground()
+            case .particles:
+                ParticlesBackground()
             case .aurora:
-                AuroraBackground(baseColor: baseColor)
+                AuroraBackground()
             case .fireflies:
-                FirefliesBackground(baseColor: baseColor)
+                FirefliesBackground()
             case .ocean:
-                OceanBackground(baseColor: baseColor)
+                OceanBackground()
             case .galaxy:
-                GalaxyBackground(baseColor: baseColor)
-        }
+                GalaxyBackground()
+            }
         }
         .ignoresSafeArea()
     }

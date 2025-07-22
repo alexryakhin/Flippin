@@ -7,21 +7,13 @@
 import SwiftUI
 
 struct SnowBackground: View {
-    let baseColor: Color
     @State private var snowflakes: [SnowflakeView.Snowflake] = []
 
     var body: some View {
         ZStack {
             // Background gradient
-            LinearGradient(
-                colors: [
-                    baseColor.lighter(by: 30),
-                    baseColor.lighter(by: 10)
-                ],
-                startPoint: .top,
-                endPoint: .bottom
-            )
-            
+            GradientBackground()
+
             // Snowflakes
             ForEach(snowflakes) { snowflake in
                 SnowflakeView(snowflake: snowflake)

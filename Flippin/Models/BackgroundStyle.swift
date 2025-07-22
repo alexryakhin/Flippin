@@ -1,6 +1,6 @@
 import SwiftUI
 
-enum BackgroundStyle: String, CaseIterable {
+enum BackgroundStyle: String, CaseIterable, Codable {
     case gradient = "Gradient"
     case lavaLamp = "Lava Lamp"
     case snow = "Snow"

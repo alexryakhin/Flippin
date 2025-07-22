@@ -7,21 +7,13 @@
 import SwiftUI
 
 struct BubblesBackground: View {
-    let baseColor: Color
     @State private var bubbles: [BubbleView.Bubble] = []
     
     var body: some View {
         ZStack {
             // Background gradient
-            LinearGradient(
-                colors: [
-                    baseColor.lighter(by: 40),
-                    baseColor.lighter(by: 20)
-                ],
-                startPoint: .top,
-                endPoint: .bottom
-            )
-            
+            GradientBackground()
+
             // Bubbles
             ForEach(bubbles) { bubble in
                 BubbleView(bubble: bubble)

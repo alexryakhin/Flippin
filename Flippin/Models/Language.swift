@@ -109,3 +109,30 @@ enum Language: String, Codable, CaseIterable, Identifiable {
         }
     }
 }
+
+// MARK: - Sorted Languages Extension
+
+extension Language {
+    /// Returns all languages sorted alphabetically by their display name
+    static var sortedByDisplayName: [Language] {
+        return Language.allCases.sorted { $0.displayName < $1.displayName }
+    }
+    
+    /// Returns all languages sorted alphabetically by their display name, with a specific language at the top
+    /// - Parameter priorityLanguage: The language to place at the top of the list
+    /// - Returns: Array of languages with the priority language first, followed by others sorted alphabetically
+    static func sortedByDisplayName(withPriority priorityLanguage: Language) -> [Language] {
+        let allLanguages = Language.allCases
+        let priorityLanguages = [priorityLanguage]
+        let otherLanguages = allLanguages.filter { $0 != priorityLanguage }.sorted { $0.displayName < $1.displayName }
+        
+        return priorityLanguages + otherLanguages
+    }
+    
+    /// Returns all languages sorted alphabetically by their display name, with system language at the top
+    /// - Returns: Array of languages with the system language first, followed by others sorted alphabetically
+    static var sortedByDisplayNameWithSystemFirst: [Language] {
+        let systemLanguage = Language.fromSystemLocale()
+        return sortedByDisplayName(withPriority: systemLanguage)
+    }
+}

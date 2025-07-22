@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct WavesBackground: View {
-    let baseColor: Color
+    @StateObject private var colorManager = ColorManager.shared
     @State private var animationPhase: CGFloat = 0
     
     var body: some View {
@@ -34,20 +34,11 @@ struct WavesBackground: View {
                         path.closeSubpath()
                     }
                     
-                    let color = baseColor.opacity(0.2 - Double(i) * 0.05)
+                    let color = colorManager.userColor.opacity(0.2 - Double(i) * 0.05)
                     context.fill(path, with: .color(color))
                 }
             }
         }
-        .background(
-            LinearGradient(
-                colors: [
-                    baseColor.lighter(by: 20),
-                    baseColor
-                ],
-                startPoint: .top,
-                endPoint: .bottom
-            )
-        )
+        .background(GradientBackground())
     }
 }

@@ -7,8 +7,8 @@
 import SwiftUI
 
 struct OceanBackground: View {
-    let baseColor: Color
-    
+    @StateObject private var colorManager = ColorManager.shared
+
     var body: some View {
         TimelineView(.animation) { timeline in
             Canvas { context, size in
@@ -33,21 +33,11 @@ struct OceanBackground: View {
                         path.closeSubpath()
                     }
                     
-                    let color = baseColor.opacity(0.3 - Double(i) * 0.05)
+                    let color = colorManager.userColor.opacity(0.3 - Double(i) * 0.05)
                     context.fill(path, with: .color(color))
                 }
             }
         }
-        .background(
-            LinearGradient(
-                colors: [
-                    baseColor.lighter(by: 30),
-                    baseColor,
-                    baseColor.darker(by: 30)
-                ],
-                startPoint: .top,
-                endPoint: .bottom
-            )
-        )
+        .background(GradientBackground())
     }
 }

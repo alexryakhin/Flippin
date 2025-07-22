@@ -35,7 +35,7 @@ struct SettingsView: View {
                                     .foregroundStyle(.primary)
                             } trailingContent: {
                                 Picker(LocalizationKeys.myLanguageSettings.localized, selection: $languageManager.userLanguageRaw) {
-                                    ForEach(Language.allCases) { lang in
+                                    ForEach(Language.sortedByDisplayNameWithSystemFirst) { lang in
                                         Text(lang.displayName).tag(lang.rawValue)
                                     }
                                 }
@@ -48,7 +48,7 @@ struct SettingsView: View {
                                     .foregroundStyle(.primary)
                             } trailingContent: {
                                 Picker(LocalizationKeys.targetLanguage.localized, selection: $languageManager.targetLanguageRaw) {
-                                    ForEach(Language.allCases) { lang in
+                                    ForEach(Language.sortedByDisplayNameWithSystemFirst) { lang in
                                         Text(lang.displayName).tag(lang.rawValue)
                                     }
                                 }
@@ -81,14 +81,8 @@ struct SettingsView: View {
                                     .font(.subheadline)
                                     .foregroundStyle(.primary)
                             } trailingContent: {
-                                ColorPicker("", selection: Binding(
-                                    get: { colorManager.userGradientColor },
-                                    set: { newColor in
-                                        colorManager.setUserGradientColor(newColor)
-                                        AnalyticsService.trackSettingsEvent(.backgroundColorChanged, newValue: newColor.description)
-                                    }
-                                ))
-                                .labelsHidden()
+                                ColorPicker("", selection: $colorManager.userColor)
+                                    .labelsHidden()
                             }
 
                             CellWrapper {

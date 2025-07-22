@@ -15,10 +15,9 @@ struct BackgroundPreviewView: View {
                     ForEach(BackgroundStyle.allCases, id: \.self) { style in
                         BackgroundPreviewCard(
                             style: style,
-                            baseColor: colorManager.userGradientColor,
                             isSelected: colorManager.backgroundStyle == style
                         ) {
-                            colorManager.setBackgroundStyle(style)
+                            colorManager.backgroundStyle = style
                             AnalyticsService.trackSettingsEvent(.backgroundStyleChanged, newValue: style.rawValue)
                         }
                     }
@@ -47,40 +46,41 @@ struct BackgroundPreviewView: View {
 }
 
 struct BackgroundPreviewCard: View {
+    @StateObject private var colorManager = ColorManager.shared
+
     let style: BackgroundStyle
-    let baseColor: Color
     let isSelected: Bool
     let onTap: () -> Void
 
-    var foreGroundColor: Color {
+    var foregroundColor: Color {
         guard !style.isAlwaysDark else { return .white }
-        return baseColor.isLight ? .black : .white
+        return colorManager.userColor.isLight ? .black : .white
     }
 
     var body: some View {
         VStack {
             ZStack {
-                AnimatedBackground(style: style, baseColor: baseColor)
+                AnimatedBackground(style: style)
                     .frame(height: 120)
                     .clipShape(RoundedRectangle(cornerRadius: 12))
                 
                 VStack {
                     Image(systemName: style.icon)
                         .font(.title2)
-                        .foregroundColor(foreGroundColor)
+                        .foregroundColor(foregroundColor)
                     Text(style.displayName)
                         .font(.caption)
-                        .foregroundColor(foreGroundColor)
+                        .foregroundColor(foregroundColor)
                         .fontWeight(.medium)
                 }
 
                 if isSelected {
                     RoundedRectangle(cornerRadius: 12)
                         .stroke(style: StrokeStyle(lineWidth: 4))
-                        .foregroundStyle(.accent)
+                        .foregroundStyle(foregroundColor)
                         .overlay(alignment: .topTrailing) {
                             Image(systemName: "checkmark.circle.fill")
-                                .foregroundStyle(.accent)
+                                .foregroundStyle(foregroundColor)
                                 .font(.title3)
                                 .background(Color.white)
                                 .clipShape(Circle())

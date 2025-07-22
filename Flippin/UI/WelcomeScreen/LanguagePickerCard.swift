@@ -31,7 +31,7 @@ struct LanguagePickerCard: View {
             Spacer()
 
             Picker(title, selection: $selection) {
-                ForEach(Language.allCases) { lang in
+                ForEach(Language.sortedByDisplayNameWithSystemFirst) { lang in
                     Text(lang.displayName).tag(lang.rawValue)
                 }
             }

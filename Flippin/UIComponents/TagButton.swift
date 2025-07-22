@@ -66,7 +66,7 @@ struct TagButton: View {
             if isSelected {
                 Capsule()
                     .stroke(lineWidth: .onePixel)
-                    .foregroundColor(colorManager.adjustedTintColor(colorScheme).darker())
+                    .foregroundColor(colorManager.tintColor.darker())
             }
         }
         .disabled(isDisabled)
@@ -77,21 +77,21 @@ struct TagButton: View {
         if isDisabled {
             return Color(.systemGray4).opacity(0.5)
         } else if isSelected {
-            return colorManager.adjustedTintColor(colorScheme)
+            return colorManager.tintColor
         } else {
-            return colorManager.adjustedTintColor(colorScheme).opacity(0.1)
+            return colorManager.tintColor.opacity(0.1)
         }
     }
     
     private var foregroundColor: Color {
-        let isBlackForeground: Bool = colorScheme == .dark && colorManager.userGradientColor.isLight
+        let isBlackForeground: Bool = colorScheme == .dark && colorManager.userColor.isLight
 
         if isDisabled {
             return Color.gray
         } else if isSelected {
             return isBlackForeground ? .black : .white
         } else {
-            return colorManager.adjustedTintColor(colorScheme)
+            return colorManager.tintColor
         }
     }
 }

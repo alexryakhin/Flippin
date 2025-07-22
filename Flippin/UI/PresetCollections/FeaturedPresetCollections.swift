@@ -39,7 +39,7 @@ struct FeaturedPresetCollections: View {
                     AnalyticsService.trackNavigationEvent(.presetCollectionsOpened, screenName: "PresetCollections")
                 }
                 .font(.subheadline)
-                .foregroundColor(colorManager.adjustedTintColor(colorScheme))
+                .foregroundColor(colorManager.tintColor)
             }
             
             Text(LocalizationKeys.getStartedWithCollections.localized)

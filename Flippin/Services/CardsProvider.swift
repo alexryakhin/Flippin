@@ -49,21 +49,14 @@ final class CardsProvider: ObservableObject {
 
     /// Fetches latest data from Core Data
     func fetchCards() {
-        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-            do {
-                let request = CardItem.fetchRequest()
-                request.sortDescriptors = [NSSortDescriptor(keyPath: \CardItem.timestamp, ascending: true)]
-                let fetchedCards = try self?.coreDataService.context.fetch(request) ?? []
-                
-                DispatchQueue.main.async {
-                    self?.cards = fetchedCards
-                    print("📱 Fetched \(fetchedCards.count) cards from Core Data")
-                }
-            } catch {
-                DispatchQueue.main.async {
-                    self?.errorPublisher.send(error)
-                }
-            }
+        do {
+            let request = CardItem.fetchRequest()
+            request.sortDescriptors = [NSSortDescriptor(keyPath: \CardItem.timestamp, ascending: true)]
+            let fetchedCards = try coreDataService.context.fetch(request)
+            cards = fetchedCards
+            print("📱 Fetched \(fetchedCards.count) cards from Core Data")
+        } catch {
+            errorPublisher.send(error)
         }
     }
 
@@ -142,17 +135,11 @@ final class CardsProvider: ObservableObject {
     }
 
     func saveContext() {
-        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-            do {
-                try self?.coreDataService.saveContext()
-                DispatchQueue.main.async {
-                    self?.objectWillChange.send()
-                }
-            } catch {
-                DispatchQueue.main.async {
-                    self?.errorPublisher.send(error)
-                }
-            }
+        do {
+            try coreDataService.saveContext()
+            objectWillChange.send()
+        } catch {
+            errorPublisher.send(error)
         }
     }
 }

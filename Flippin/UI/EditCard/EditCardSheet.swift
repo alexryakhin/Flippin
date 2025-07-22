@@ -45,6 +45,7 @@ struct EditCardSheet: View {
                 .padding(.bottom)
                 .buttonStyle(.borderedProminent)
                 .disabled(viewModel.nativeText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || viewModel.targetText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+                .gradientStyle(.bottomButtonOnList)
             }
             .background(Color(.systemGroupedBackground))
             .navigationTitle(LocalizationKeys.editCard.localized)

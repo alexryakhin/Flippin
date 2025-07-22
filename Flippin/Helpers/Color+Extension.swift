@@ -2,11 +2,6 @@ import SwiftUI
 import UIKit
 
 extension Color {
-    init?(hexString: String) {
-        guard let uiColor = try? UIColor(hexString: hexString) else { return nil }
-        self.init(uiColor)
-    }
-    
     var uiColor: UIColor {
         UIColor(self)
     }
@@ -26,7 +21,7 @@ extension Color {
         // Calculate perceived brightness using the formula:
         // (0.299 * R + 0.587 * G + 0.114 * B)
         let brightness = (0.299 * red + 0.587 * green + 0.114 * blue)
-        return brightness > 0.5
+        return brightness > 0.6
     }
 
     var contrastColor: Color {

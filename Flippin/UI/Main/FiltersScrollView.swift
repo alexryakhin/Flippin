@@ -15,7 +15,7 @@ struct FiltersScrollView: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 8) {
-                let isBlackForeground: Bool = colorScheme == .dark && colorManager.userGradientColor.isLight
+                let isBlackForeground: Bool = colorScheme == .dark && colorManager.userColor.isLight
                 // Show All Cards button
 
                 TagButton(

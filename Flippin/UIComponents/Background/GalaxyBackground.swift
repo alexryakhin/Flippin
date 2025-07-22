@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct GalaxyBackground: View {
-    let baseColor: Color
+    @StateObject private var colorManager = ColorManager.shared
     @State private var stars: [StarView.Star] = []
     @State private var nebulae: [NebulaView.Nebula] = []
 
@@ -29,7 +29,7 @@ struct GalaxyBackground: View {
         .onAppear {
             createGalaxy()
         }
-        .onChange(of: baseColor) {
+        .onChange(of: colorManager.userColor) {
             createGalaxy()
         }
     }
@@ -51,7 +51,7 @@ struct GalaxyBackground: View {
                 y: CGFloat.random(in: 0...1),
                 size: CGFloat.random(in: 100...300),
                 opacity: Double.random(in: 0.1...0.3),
-                color: baseColor
+                color: colorManager.userColor
             )
         }
     }

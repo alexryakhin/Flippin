@@ -14,7 +14,7 @@ struct BackgroundDemoView: View {
                     ForEach(BackgroundStyle.allCases, id: \.self) { style in
                         VStack {
                             ZStack {
-                                AnimatedBackground(style: style, baseColor: colorManager.userGradientColor)
+                                AnimatedBackground(style: style)
                                     .frame(height: 200)
                                     .clipShape(RoundedRectangle(cornerRadius: 16))
                                 

@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct LavaLampBackground: View {
-    let baseColor: Color
+    @StateObject private var colorManager = ColorManager.shared
     @State private var animationPhase: CGFloat = 0
     
     var body: some View {
@@ -27,7 +27,7 @@ struct LavaLampBackground: View {
                         path.addEllipse(in: CGRect(x: x - radius, y: y - radius, width: radius * 2, height: radius * 2))
                     }
                     
-                    let color = baseColor.opacity(0.3 + 0.2 * sin(blobPhase * 2 * .pi))
+                    let color = colorManager.userColor.opacity(0.3 + 0.2 * sin(blobPhase * 2 * .pi))
                     context.fill(path, with: .color(color))
                 }
             }
@@ -35,8 +35,8 @@ struct LavaLampBackground: View {
         .background(
             LinearGradient(
                 colors: [
-                    baseColor.darker(by: 30),
-                    baseColor.darker(by: 50)
+                    colorManager.userColor.darker(by: 30),
+                    colorManager.userColor.darker(by: 50)
                 ],
                 startPoint: .top,
                 endPoint: .bottom

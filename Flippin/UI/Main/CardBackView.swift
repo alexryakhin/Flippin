@@ -51,8 +51,8 @@ struct CardBackView: View {
                             .font(.caption)
                             .padding(.horizontal, 6)
                             .padding(.vertical, 4)
-                            .background(colorManager.adjustedTintColor(colorScheme).opacity(0.1))
-                            .foregroundStyle(colorManager.adjustedTintColor(colorScheme))
+                            .background(colorManager.tintColor.opacity(0.1))
+                            .foregroundStyle(colorManager.tintColor)
                             .clipShape(Capsule())
                     }
                 }
@@ -62,27 +62,25 @@ struct CardBackView: View {
             Spacer()
 
             HStack {
-                if isTravelMode {
-                    Button {
-                        // Haptic feedback for TTS start
-                        HapticService.shared.ttsStarted()
+                Button {
+                    // Haptic feedback for TTS start
+                    HapticService.shared.ttsStarted()
 
-                        isPlayingTTS = true
-                        Task {
-                            do {
-                                guard let text, let language else { return }
-                                try await TTSPlayer.shared.play(text, language: language)
-                            } catch {
-                                print("TTS error: \(error)")
-                            }
-                            isPlayingTTS = false
+                    isPlayingTTS = true
+                    Task {
+                        do {
+                            guard let text, let language else { return }
+                            try await TTSPlayer.shared.play(text, language: language)
+                        } catch {
+                            print("TTS error: \(error)")
                         }
-                    } label: {
-                        Image(systemName: isPlayingTTS ? "speaker.wave.2.fill" : "speaker.wave.2")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 24, height: 24)
+                        isPlayingTTS = false
                     }
+                } label: {
+                    Image(systemName: isPlayingTTS ? "speaker.wave.2.fill" : "speaker.wave.2")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 24, height: 24)
                 }
 
                 Spacer()

@@ -7,9 +7,8 @@
 import SwiftUI
 
 struct GradientBackground: View {
-    let baseColor: Color
-    @Environment(\.colorScheme) private var colorScheme
-    
+    @StateObject private var colorManager = ColorManager.shared
+
     var body: some View {
         LinearGradient(
             colors: adjustedGradientColors,
@@ -19,16 +18,20 @@ struct GradientBackground: View {
     }
     
     private var adjustedGradientColors: [Color] {
-        if colorScheme == .dark && baseColor.isLight {
-            return [
-                baseColor.darker(by: 40),
-                baseColor.darker(by: 60)
-            ]
-        } else {
-            return [
-                baseColor.lighter(by: 20),
-                baseColor.darker(by: 20)
-            ]
+        let colorScheme = colorManager.colorScheme
+        let baseColor = colorManager.userColor
+
+        switch (colorScheme, baseColor.isLight) {
+        case (.dark, true):
+            return [baseColor.darker(by: 40), baseColor.darker(by: 60)]
+        case (.dark, false):
+            return [baseColor.lighter(by: 30), baseColor.darker(by: 20)]
+        case (.light, true):
+            return [baseColor.lighter(by: 30), baseColor.darker(by: 20)]
+        case (.light, false):
+            return [baseColor.lighter(by: 30), baseColor.darker(by: 20)]
+        default:
+            return [baseColor.lighter(by: 20), baseColor.darker(by: 20)]
         }
     }
 }

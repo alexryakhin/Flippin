@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct FirefliesBackground: View {
-    let baseColor: Color
+    @StateObject private var colorManager = ColorManager.shared
     @State private var fireflies: [FireflyView.Firefly] = []
 
     var body: some View {
@@ -16,7 +16,7 @@ struct FirefliesBackground: View {
             LinearGradient(
                 colors: [
                     Color.black,
-                    baseColor.darker(by: 70)
+                    colorManager.userColor.darker(by: 70)
                 ],
                 startPoint: .top,
                 endPoint: .bottom

@@ -19,7 +19,7 @@ struct PresetCollectionCard: View {
             HStack {
                 Image(systemName: collection.icon)
                     .font(.title2)
-                    .foregroundColor(colorManager.adjustedTintColor(colorScheme))
+                    .foregroundColor(colorManager.tintColor)
 
                 Spacer()
 
