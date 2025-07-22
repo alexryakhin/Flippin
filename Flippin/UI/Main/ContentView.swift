@@ -21,7 +21,6 @@ struct ContentView: View {
     @State private var showMyCards = false
     @State private var showAddCardSheet = false
     @State private var shuffledItems: [CardItem] = []
-    @State private var triggerGoBack = false
 
     var filteredItems: [CardItem] {
         var filtered = cardsProvider.cards
@@ -55,7 +54,6 @@ struct ContentView: View {
                 }
             ButtonRowView(
                 onAddItem: { showAddCardSheet = true },
-                onSeePreviousCard: { triggerGoBack = true },
                 onShuffle: shuffleCards,
                 onShowSettings: { showSettings = true },
                 onShowMyCards: { showMyCards = true }
@@ -141,16 +139,13 @@ struct ContentView: View {
                 noCardsWithTagsView
             }
         } else {
-            CardStackContent(
-                cards: displayItems,
-                triggerGoBack: triggerGoBack
-            )
-            .onChange(of: triggerGoBack) { _, newValue in
-                // Reset the trigger after it's been used
-                if newValue {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                        triggerGoBack = false
-                    }
+            if displayItems.count > 4 {
+                InfiniteCardStack(displayItems) {
+                    CardView(card: $0)
+                }
+            } else {
+                CardStack(displayItems) {
+                    CardView(card: $0)
                 }
             }
         }

@@ -11,13 +11,14 @@ struct ButtonRowView: View {
     @StateObject private var colorManager = ColorManager.shared
 
     let onAddItem: () -> Void
-    let onSeePreviousCard: () -> Void
     let onShuffle: () -> Void
     let onShowSettings: () -> Void
     let onShowMyCards: () -> Void
 
     var body: some View {
         HStack {
+            Spacer()
+
             Menu {
                 Button {
                     HapticService.shared.menuOpened()
@@ -54,21 +55,13 @@ struct ButtonRowView: View {
 
             Button {
                 HapticService.shared.buttonTapped()
-                onSeePreviousCard()
-            } label: {
-                ActionButtonLabel(LocalizationKeys.tapToGoBack.localized, systemImage: "arrowshape.turn.up.backward.fill")
-            }
-            .buttonStyle(ActionButtonStyle())
-
-            Spacer()
-
-            Button {
-                HapticService.shared.buttonTapped()
                 onAddItem()
             } label: {
                 ActionButtonLabel(LocalizationKeys.addCardLabel.localized, systemImage: "plus")
             }
             .buttonStyle(ActionButtonStyle())
+
+            Spacer()
         }
     }
 }
