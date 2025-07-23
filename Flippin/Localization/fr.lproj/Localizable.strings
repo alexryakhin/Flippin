@@ -170,3 +170,16 @@
 "fireflies" = "Lucioles";
 "ocean" = "Océan";
 "galaxy" = "Galaxie";
+
+// MARK: - Categories
+"categoryBasics" = "Bases";
+"categoryTravel" = "Voyage";
+"categoryEntertainment" = "Divertissement";
+"categoryFood" = "Nourriture";
+"categoryShopping" = "Shopping";
+"categorySocial" = "Social";
+"categoryWeather" = "Météo";
+"categoryTechnology" = "Technologie";
+"categoryLifestyle" = "Mode de Vie";
+"categoryProfessional" = "Professionnel";
+"categoryEmergency" = "Urgence";

@@ -170,3 +170,16 @@
 "fireflies" = "Krijesnice";
 "ocean" = "Ocean";
 "galaxy" = "Galaksija";
+
+// MARK: - Categories
+"categoryBasics" = "Osnove";
+"categoryTravel" = "Putovanje";
+"categoryEntertainment" = "Zabava";
+"categoryFood" = "Hrana";
+"categoryShopping" = "Kupovina";
+"categorySocial" = "Društveno";
+"categoryWeather" = "Vrijeme";
+"categoryTechnology" = "Tehnologija";
+"categoryLifestyle" = "Način Života";
+"categoryProfessional" = "Profesionalno";
+"categoryEmergency" = "Hitno";

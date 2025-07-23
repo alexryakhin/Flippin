@@ -170,3 +170,16 @@
 "fireflies" = "Светлячки";
 "ocean" = "Океан";
 "galaxy" = "Галактика";
+
+// MARK: - Categories
+"categoryBasics" = "Основы";
+"categoryTravel" = "Путешествия";
+"categoryEntertainment" = "Развлечения";
+"categoryFood" = "Еда";
+"categoryShopping" = "Покупки";
+"categorySocial" = "Общение";
+"categoryWeather" = "Погода";
+"categoryTechnology" = "Технологии";
+"categoryLifestyle" = "Образ Жизни";
+"categoryProfessional" = "Профессиональное";
+"categoryEmergency" = "Чрезвычайная Ситуация";

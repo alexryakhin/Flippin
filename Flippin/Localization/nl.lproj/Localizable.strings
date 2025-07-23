@@ -170,3 +170,16 @@
 "fireflies" = "Glimwormen";
 "ocean" = "Oceaan";
 "galaxy" = "Melkweg";
+
+// MARK: - Categories
+"categoryBasics" = "Basis";
+"categoryTravel" = "Reizen";
+"categoryEntertainment" = "Vermakelijkheden";
+"categoryFood" = "Eten";
+"categoryShopping" = "Winkelen";
+"categorySocial" = "Sociaal";
+"categoryWeather" = "Weer";
+"categoryTechnology" = "Technologie";
+"categoryLifestyle" = "Levensstijl";
+"categoryProfessional" = "Professioneel";
+"categoryEmergency" = "Noodgeval";

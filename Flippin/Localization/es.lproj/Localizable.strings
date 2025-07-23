@@ -170,3 +170,16 @@
 "fireflies" = "Luciérnagas";
 "ocean" = "Océano";
 "galaxy" = "Galaxia";
+
+// MARK: - Categories
+"categoryBasics" = "Básicos";
+"categoryTravel" = "Viajes";
+"categoryEntertainment" = "Entretenimiento";
+"categoryFood" = "Comida";
+"categoryShopping" = "Compras";
+"categorySocial" = "Social";
+"categoryWeather" = "Clima";
+"categoryTechnology" = "Tecnología";
+"categoryLifestyle" = "Estilo de Vida";
+"categoryProfessional" = "Profesional";
+"categoryEmergency" = "Emergencia";

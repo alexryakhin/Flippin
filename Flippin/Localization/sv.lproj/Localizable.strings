@@ -170,3 +170,16 @@
 "fireflies" = "Lysmaskar";
 "ocean" = "Ocean";
 "galaxy" = "Galax";
+
+// MARK: - Categories
+"categoryBasics" = "Grundläggande";
+"categoryTravel" = "Resor";
+"categoryEntertainment" = "Underhållning";
+"categoryFood" = "Mat";
+"categoryShopping" = "Shopping";
+"categorySocial" = "Socialt";
+"categoryWeather" = "Väder";
+"categoryTechnology" = "Teknologi";
+"categoryLifestyle" = "Livsstil";
+"categoryProfessional" = "Professionellt";
+"categoryEmergency" = "Nödsituation";

@@ -170,3 +170,16 @@
 "fireflies" = "Glühwürmchen";
 "ocean" = "Ozean";
 "galaxy" = "Galaxie";
+
+// MARK: - Categories
+"categoryBasics" = "Grundlagen";
+"categoryTravel" = "Reisen";
+"categoryEntertainment" = "Unterhaltung";
+"categoryFood" = "Essen";
+"categoryShopping" = "Einkaufen";
+"categorySocial" = "Soziales";
+"categoryWeather" = "Wetter";
+"categoryTechnology" = "Technologie";
+"categoryLifestyle" = "Lifestyle";
+"categoryProfessional" = "Beruflich";
+"categoryEmergency" = "Notfall";

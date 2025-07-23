@@ -170,3 +170,16 @@
 "fireflies" = "Đom đóm";
 "ocean" = "Đại dương";
 "galaxy" = "Thiên hà";
+
+// MARK: - Categories
+"categoryBasics" = "Cơ Bản";
+"categoryTravel" = "Du Lịch";
+"categoryEntertainment" = "Giải Trí";
+"categoryFood" = "Thức Ăn";
+"categoryShopping" = "Mua Sắm";
+"categorySocial" = "Xã Hội";
+"categoryWeather" = "Thời Tiết";
+"categoryTechnology" = "Công Nghệ";
+"categoryLifestyle" = "Lối Sống";
+"categoryProfessional" = "Chuyên Nghiệp";
+"categoryEmergency" = "Khẩn Cấp";

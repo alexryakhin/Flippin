@@ -170,3 +170,16 @@
 "fireflies" = "जुगनू";
 "ocean" = "समुद्र";
 "galaxy" = "आकाशगंगा";
+
+// MARK: - Categories
+"categoryBasics" = "मूल बातें";
+"categoryTravel" = "यात्रा";
+"categoryEntertainment" = "मनोरंजन";
+"categoryFood" = "भोजन";
+"categoryShopping" = "खरीदारी";
+"categorySocial" = "सामाजिक";
+"categoryWeather" = "मौसम";
+"categoryTechnology" = "प्रौद्योगिकी";
+"categoryLifestyle" = "जीवनशैली";
+"categoryProfessional" = "पेशेवर";
+"categoryEmergency" = "आपातकाल";
