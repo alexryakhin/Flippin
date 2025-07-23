@@ -16,7 +16,7 @@ extension WelcomeSheet {
         var body: some View {
             ZStack {
                 // Animated background
-                AnimatedWelcomeBackground()
+                AnimatedBackground()
                     .ignoresSafeArea()
 
                 VStack(spacing: 0) {

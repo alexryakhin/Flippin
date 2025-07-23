@@ -21,8 +21,7 @@ final class PurchaseService: ObservableObject {
     
     private var productIds = [
         "com.dor.flippin.premium_monthly",
-        "com.dor.flippin.premium_yearly",
-        "com.dor.flippin.unlimited_cards"
+        "com.dor.flippin.premium_yearly"
     ]
     
     private init() {

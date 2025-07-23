@@ -16,6 +16,7 @@ struct AddCardSheet: View {
     @FocusState private var isUserLanguageTextFieldFocused: Bool
     @FocusState private var isTargetLanguageTextFieldFocused: Bool
     @FocusState private var isNotesTextFieldFocused: Bool
+    @State private var showPaywall = false
 
     var body: some View {
         NavigationView {
@@ -57,8 +58,17 @@ struct AddCardSheet: View {
             .navigationBarTitleDisplayMode(.inline)
             .alert("Card Limit Reached", isPresented: $viewModel.showingLimitAlert) {
                 Button("OK") { }
+                Button("Upgrade to Premium") {
+                    showPaywall = true
+                }
             } message: {
                 Text(viewModel.limitAlertMessage)
+            }
+            .sheet(isPresented: $showPaywall) {
+                SimplePaywallView(
+                    currentCardCount: CardsProvider.shared.cards.count,
+                    cardLimit: CardsProvider.shared.cardLimit
+                )
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {

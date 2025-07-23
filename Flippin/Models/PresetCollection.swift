@@ -36,6 +36,13 @@ enum PresetCategory: String, CaseIterable {
     case food = "food"
     case business = "business"
     case education = "education"
+    case shopping = "shopping"
+    case transportation = "transportation"
+    case accommodation = "accommodation"
+    case social = "social"
+    case weather = "weather"
+    case numbers = "numbers"
+    case technology = "technology"
         
     var icon: String {
         switch self {
@@ -47,6 +54,13 @@ enum PresetCategory: String, CaseIterable {
         case .food: return "fork.knife"
         case .business: return "briefcase"
         case .education: return "book"
+        case .shopping: return "bag"
+        case .transportation: return "car"
+        case .accommodation: return "house"
+        case .social: return "person.2"
+        case .weather: return "cloud.sun"
+        case .numbers: return "number"
+        case .technology: return "laptopcomputer"
         }
     }
     

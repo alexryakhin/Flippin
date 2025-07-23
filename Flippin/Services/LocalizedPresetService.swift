@@ -68,6 +68,55 @@ class LocalizedPresetService: ObservableObject {
                 "likeToRead", "playSports", "loveHiking", "whatDoForFun",
                 "enjoyCooking", "goForWalk", "playGuitar", "likePhotography"
             ]
+        ),
+        LocalizedPresetCollection(
+            id: "shoppingBargaining",
+            category: .shopping,
+            phraseKeys: [
+                "canTryOn", "lowerPrice", "acceptCreditCard", "whereFittingRoom", "sizeSmall"
+            ]
+        ),
+        LocalizedPresetCollection(
+            id: "transportationNavigation",
+            category: .transportation,
+            phraseKeys: [
+                "busStation", "taxiHere", "nextTrain", "goToAirport", "isItFar"
+            ]
+        ),
+        LocalizedPresetCollection(
+            id: "accommodationLodging",
+            category: .accommodation,
+            phraseKeys: [
+                "bookRoom", "checkIn", "roomClean", "wifiPassword", "lateCheckout"
+            ]
+        ),
+        LocalizedPresetCollection(
+            id: "socialCultural",
+            category: .social,
+            phraseKeys: [
+                "niceToMeet", "localCustoms", "congratulations", "happyBirthday", "sorryLate"
+            ]
+        ),
+        LocalizedPresetCollection(
+            id: "weatherEnvironment",
+            category: .weather,
+            phraseKeys: [
+                "weatherToday", "isItCold", "rainLater", "tooHot", "whereBeach"
+            ]
+        ),
+        LocalizedPresetCollection(
+            id: "numbersTime",
+            category: .numbers,
+            phraseKeys: [
+                "oneToTen", "whatDay", "openAt", "howMany", "waitMinute"
+            ]
+        ),
+        LocalizedPresetCollection(
+            id: "techCommunication",
+            category: .technology,
+            phraseKeys: [
+                "chargePhone", "wifiAvailable", "takePhoto", "socialMedia", "noSignal"
+            ]
         )
     ]
     

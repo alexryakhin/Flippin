@@ -27,8 +27,7 @@ final class CardsProvider: ObservableObject {
     
     /// Returns the maximum number of cards allowed for the current user
     var cardLimit: Int {
-        if PurchaseService.shared.isProductPurchased("com.dor.flippin.unlimited_cards") ||
-           PurchaseService.shared.isProductPurchased("com.dor.flippin.premium_monthly") ||
+        if PurchaseService.shared.isProductPurchased("com.dor.flippin.premium_monthly") ||
            PurchaseService.shared.isProductPurchased("com.dor.flippin.premium_yearly") {
             return .max
         } else {

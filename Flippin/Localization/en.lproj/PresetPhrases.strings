@@ -24,6 +24,27 @@
 "collection.leisureHobbies.name" = "Leisure & Hobbies";
 "collection.leisureHobbies.description" = "Phrases for talking about hobbies, sports, and free time activities";
 
+"collection.shoppingBargaining.name" = "Shopping & Bargaining";
+"collection.shoppingBargaining.description" = "Phrases for shopping, negotiating prices, and handling transactions";
+
+"collection.transportationNavigation.name" = "Transportation & Navigation";
+"collection.transportationNavigation.description" = "Phrases for using public transport, taxis, and finding directions";
+
+"collection.accommodationLodging.name" = "Accommodation & Lodging";
+"collection.accommodationLodging.description" = "Phrases for booking hotels, hostels, or dealing with accommodation issues";
+
+"collection.socialCultural.name" = "Social & Cultural Etiquette";
+"collection.socialCultural.description" = "Phrases for polite interactions and understanding cultural norms";
+
+"collection.weatherEnvironment.name" = "Weather & Environment";
+"collection.weatherEnvironment.description" = "Phrases for discussing weather and environmental conditions";
+
+"collection.numbersTime.name" = "Numbers & Time";
+"collection.numbersTime.description" = "Phrases for counting, telling time, and scheduling";
+
+"collection.techCommunication.name" = "Technology & Communication";
+"collection.techCommunication.description" = "Phrases for using technology and staying connected";
+
 // MARK: - Essential Phrases
 "phrase.hello.text" = "Hello";
 "phrase.hello.notes" = "Basic greeting";
@@ -172,7 +193,119 @@
 "phrase.playGuitar.notes" = "Musical instrument";
 
 "phrase.likePhotography.text" = "I like photography";
-"phrase.likePhotography.notes" = "Photography hobby"; 
+"phrase.likePhotography.notes" = "Photography hobby";
+
+// MARK: - Shopping & Bargaining
+"phrase.canTryOn.text" = "Can I try this on?";
+"phrase.canTryOn.notes" = "For clothing or accessories";
+
+"phrase.lowerPrice.text" = "Can you lower the price?";
+"phrase.lowerPrice.notes" = "For bargaining in markets";
+
+"phrase.acceptCreditCard.text" = "Do you accept credit cards?";
+"phrase.acceptCreditCard.notes" = "Payment inquiry";
+
+"phrase.whereFittingRoom.text" = "Where is the fitting room?";
+"phrase.whereFittingRoom.notes" = "For clothing stores";
+
+"phrase.sizeSmall.text" = "Do you have this in a smaller size?";
+"phrase.sizeSmall.notes" = "Asking for different sizes";
+
+// MARK: - Transportation & Navigation
+"phrase.busStation.text" = "Where is the bus station?";
+"phrase.busStation.notes" = "Finding transportation hubs";
+
+"phrase.taxiHere.text" = "Can you call a taxi?";
+"phrase.taxiHere.notes" = "Requesting a taxi";
+
+"phrase.nextTrain.text" = "When is the next train?";
+"phrase.nextTrain.notes" = "Public transport schedules";
+
+"phrase.goToAirport.text" = "How do I get to the airport?";
+"phrase.goToAirport.notes" = "Navigating to key locations";
+
+"phrase.isItFar.text" = "Is it far from here?";
+"phrase.isItFar.notes" = "Checking distance";
+
+// MARK: - Accommodation & Lodging
+"phrase.bookRoom.text" = "I'd like to book a room";
+"phrase.bookRoom.notes" = "Hotel or hostel booking";
+
+"phrase.checkIn.text" = "I'm here to check in";
+"phrase.checkIn.notes" = "Arriving at accommodation";
+
+"phrase.roomClean.text" = "Can you clean the room?";
+"phrase.roomClean.notes" = "Requesting housekeeping";
+
+"phrase.wifiPassword.text" = "What's the Wi-Fi password?";
+"phrase.wifiPassword.notes" = "Common accommodation inquiry";
+
+"phrase.lateCheckout.text" = "Is late checkout available?";
+"phrase.lateCheckout.notes" = "Extending stay";
+
+// MARK: - Social & Cultural Etiquette
+"phrase.niceToMeet.text" = "Nice to meet you";
+"phrase.niceToMeet.notes" = "Polite introduction";
+
+"phrase.localCustoms.text" = "What are the local customs?";
+"phrase.localCustoms.notes" = "Learning cultural norms";
+
+"phrase.congratulations.text" = "Congratulations!";
+"phrase.congratulations.notes" = "Celebrating achievements";
+
+"phrase.happyBirthday.text" = "Happy birthday!";
+"phrase.happyBirthday.notes" = "Celebratory greeting";
+
+"phrase.sorryLate.text" = "Sorry, I'm late";
+"phrase.sorryLate.notes" = "Polite apology";
+
+// MARK: - Weather & Environment
+"phrase.weatherToday.text" = "What's the weather like today?";
+"phrase.weatherToday.notes" = "Checking daily forecast";
+
+"phrase.isItCold.text" = "Is it cold outside?";
+"phrase.isItCold.notes" = "Weather inquiry";
+
+"phrase.rainLater.text" = "Will it rain later?";
+"phrase.rainLater.notes" = "Planning activities";
+
+"phrase.tooHot.text" = "It's too hot";
+"phrase.tooHot.notes" = "Expressing discomfort";
+
+"phrase.whereBeach.text" = "Where is the nearest beach?";
+"phrase.whereBeach.notes" = "Finding natural attractions";
+
+// MARK: - Numbers & Time
+"phrase.oneToTen.text" = "One, two, three...";
+"phrase.oneToTen.notes" = "Basic counting";
+
+"phrase.whatDay.text" = "What day is it?";
+"phrase.whatDay.notes" = "Checking the day of the week";
+
+"phrase.openAt.text" = "What time does it open?";
+"phrase.openAt.notes" = "Business or attraction hours";
+
+"phrase.howMany.text" = "How many are there?";
+"phrase.howMany.notes" = "Asking about quantities";
+
+"phrase.waitMinute.text" = "Wait a minute";
+"phrase.waitMinute.notes" = "Requesting a pause";
+
+// MARK: - Technology & Communication
+"phrase.chargePhone.text" = "Can I charge my phone?";
+"phrase.chargePhone.notes" = "Requesting a charger";
+
+"phrase.wifiAvailable.text" = "Is Wi-Fi available?";
+"phrase.wifiAvailable.notes" = "Internet access inquiry";
+
+"phrase.takePhoto.text" = "Can you take a photo?";
+"phrase.takePhoto.notes" = "Requesting a picture";
+
+"phrase.socialMedia.text" = "Are you on social media?";
+"phrase.socialMedia.notes" = "Connecting online";
+
+"phrase.noSignal.text" = "I have no signal";
+"phrase.noSignal.notes" = "Phone connectivity issue";
 
 // MARK: - Tags and Filters
 "tag.basics" = "Basics";
@@ -214,4 +347,5 @@
 "tag.opinions" = "Opinions";
 "tag.feelings" = "Feelings";
 "tag.actions" = "Actions";
-"tag.descriptions" = "Descriptions"; 
+"tag.descriptions" = "Descriptions";
+"tag.social" = "Social"; 

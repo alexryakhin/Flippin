@@ -13,9 +13,8 @@ This document explains how the card limit system has been implemented in the Fli
 
 ### Premium Users: Unlimited cards
 - Any user with one of these purchases gets unlimited cards:
-  - `com.dor.flippin.unlimited_cards` (Non-Consumable, $0.99)
-  - `com.dor.flippin.premium_monthly` (Auto-Renewable, $1.99)
-  - `com.dor.flippin.premium_yearly` (Auto-Renewable, $19.99)
+  - `com.dor.flippin.premium_monthly` (Auto-Renewable, $4.99)
+  - `com.dor.flippin.premium_yearly` (Auto-Renewable, $39.99)
 
 ## Implementation Details
 

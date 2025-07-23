@@ -23,6 +23,7 @@ struct ContentView: View {
     @State private var showAddCardSheet = false
     @State private var shuffledItems: [CardItem] = []
     @State private var showUpgradeAlert = false
+    @State private var showPaywall = false
 
     var filteredItems: [CardItem] {
         var filtered = cardsProvider.cards
@@ -131,6 +132,17 @@ struct ContentView: View {
                 AnalyticsService.trackNavigationEvent(.addCardScreenOpened, screenName: "AddCard")
             }
         }
+        .sheet(isPresented: $showPaywall) {
+            SimplePaywallView(
+                currentCardCount: cardsProvider.cards.count,
+                cardLimit: cardsProvider.cardLimit
+            )
+        }
+        .onChange(of: showPaywall) { _, isPresented in
+            if isPresented {
+                AnalyticsService.trackEvent(.paywallOpened)
+            }
+        }
         .alert("Upgrade to Premium", isPresented: $showUpgradeAlert) {
             Button("Cancel", role: .cancel) { }
             Button("View Options") {
@@ -182,7 +194,7 @@ struct ContentView: View {
             Spacer()
             
             Button("Upgrade") {
-                showUpgradeAlert = true
+                showPaywall = true
             }
             .font(.caption)
             .padding(.horizontal, 12)

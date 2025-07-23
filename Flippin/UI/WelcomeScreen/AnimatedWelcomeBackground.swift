@@ -1,5 +1,5 @@
 //
-//  AnimatedWelcomeBackground.swift
+//  AnimatedBackground.swift
 //  Flippin
 //
 //  Created by Alexander Riakhin on 7/21/25.
@@ -7,7 +7,7 @@
 import SwiftUI
 
 extension WelcomeSheet {
-    struct AnimatedWelcomeBackground: View {
+    struct AnimatedBackground: View {
         @State private var animate = false
 
         var body: some View {

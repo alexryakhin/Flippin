@@ -20,7 +20,7 @@ enum WelcomeSheet {
             NavigationView {
                 ZStack {
                     // Animated background
-                    AnimatedWelcomeBackground()
+                    AnimatedBackground()
                         .ignoresSafeArea()
 
                     WelcomeStepView(
