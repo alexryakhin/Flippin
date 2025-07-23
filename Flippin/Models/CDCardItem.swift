@@ -42,11 +42,11 @@ public final class CardItem: NSManagedObject, Identifiable {
 
     var tagArray: [Tag] {
         let set = tags as? Set<Tag> ?? []
-        return Array(set)
+        return Array(set).sorted()
     }
 
     var tagNames: [String] {
-        return tagArray.compactMap { $0.name }
+        return tagArray.compactMap { $0.name }.sorted()
     }
 }
 
@@ -58,7 +58,6 @@ extension CardItem {
         frontLanguage: Language = .english,
         backLanguage: Language = .spanish,
         notes: String? = nil,
-        tagNames: [String]? = nil,
         isFavorite: Bool = false,
         id: String = UUID().uuidString
     ) {

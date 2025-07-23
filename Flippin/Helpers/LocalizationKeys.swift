@@ -98,7 +98,20 @@ enum LocalizationKeys {
     static let color = "color"
     static let backgroundStyle = "backgroundStyle"
     static let tapToSeeFullScreen = "tapToSeeFullScreen"
-    
+
+    // MARK: - Categories
+    static let categoryBasics = "categoryBasics"
+    static let categoryTravel = "categoryTravel"
+    static let categorySocial = "categorySocial"
+    static let categoryLifestyle = "categoryLifestyle"
+    static let categoryProfessional = "categoryProfessional"
+    static let categoryEmergency = "categoryEmergency"
+    static let categoryFood = "categoryFood"
+    static let categoryShopping = "categoryShopping"
+    static let categoryTechnology = "categoryTechnology"
+    static let categoryWeather = "categoryWeather"
+    static let categoryEntertainment = "categoryEntertainment"
+
     // MARK: - Add Card
     static let enterTextInYourLanguage = "enterTextInYourLanguage"
     static let enterTextInTargetLanguage = "enterTextInTargetLanguage"

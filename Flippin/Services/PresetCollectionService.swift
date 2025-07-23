@@ -6,32 +6,90 @@
 //
 
 import Foundation
+import Combine
 
-class PresetCollectionService: ObservableObject {
+struct PresetCollection: Identifiable {
+    let id: Int
+    let name: String
+    let description: String
+    let category: PresetModel.Category
+    let systemImageName: String
+    let cards: [PresetCard]
+
+    var cardCount: Int {
+        cards.count
+    }
+}
+
+struct PresetCard {
+    let frontText: String
+    let backText: String
+    let notes: String
+    let tags: [String]
+}
+
+@MainActor
+final class PresetCollectionService: ObservableObject {
+
     static let shared = PresetCollectionService()
     
     @Published var collections: [PresetCollection] = []
-    
-    private let localizedService = LocalizedPresetService.shared
-    
+
+    private let languageManager = LanguageManager.shared
+    private var cancellables: Set<AnyCancellable> = []
+
     private init() {
         loadCollections()
+        setupBindings()
     }
-    
-    func loadCollections() {
-        // This will be called with specific languages when needed
-        collections = []
+
+    func getFeaturedCollections() -> [PresetCollection] {
+        Array(collections.prefix(2))
     }
-    
-    func getCollections(for userLanguage: Language, targetLanguage: Language) -> [PresetCollection] {
-        return localizedService.getLocalizedCollections(for: userLanguage, targetLanguage: targetLanguage)
+
+    private func setupBindings() {
+        languageManager.$userLanguage.removeDuplicates()
+            .combineLatest(languageManager.$targetLanguage.removeDuplicates())
+            .receive(on: RunLoop.main)
+            .sink { [weak self] _ in
+                self?.loadCollections()
+            }
+            .store(in: &cancellables)
     }
-    
-    func getFeaturedCollections(for userLanguage: Language, targetLanguage: Language) -> [PresetCollection] {
-        return localizedService.getFeaturedCollections(for: userLanguage, targetLanguage: targetLanguage)
+
+    private func loadPresetCollection(for language: Language) throws -> PresetModel.Data {
+        let fileName = "presets_\(language.rawValue).json"
+        return try Bundle.main.decode(fileName)
     }
-    
-    func convertPresetCardsToCardItems(_ presetCards: [PresetCard], userLanguage: Language, targetLanguage: Language) -> [CardItem] {
-        return localizedService.convertPresetCardsToCardItems(presetCards, userLanguage: userLanguage, targetLanguage: targetLanguage)
+
+    private func loadCollections() {
+        do {
+            let userLanguageData = try loadPresetCollection(for: languageManager.userLanguage)
+            let targetLanguageData = try loadPresetCollection(for: languageManager.targetLanguage)
+
+            guard targetLanguageData.presets.count == userLanguageData.presets.count else {
+                throw AppError.invalidJSONData
+            }
+
+            collections = zip(userLanguageData.presets, targetLanguageData.presets).map { userData, targetData in
+                PresetCollection(
+                    id: userData.id,
+                    name: userData.name,
+                    description: userData.description,
+                    category: userData.category,
+                    systemImageName: userData.systemImageName,
+                    cards: zip(userData.phrases, targetData.phrases).map { userPhrases, targetPhrases in
+                        PresetCard(
+                            frontText: targetPhrases.text,
+                            backText: userPhrases.text,
+                            notes: userPhrases.notes,
+                            tags: userPhrases.tags
+                        )
+                    }
+                )
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
     }
-} 
+}

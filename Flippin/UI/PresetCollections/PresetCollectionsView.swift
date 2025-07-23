@@ -13,47 +13,41 @@ struct PresetCollectionsView: View {
     @StateObject private var languageManager = LanguageManager.shared
     @StateObject private var cardsProvider = CardsProvider.shared
     @StateObject private var colorManager = ColorManager.shared
-
     @StateObject private var presetService = PresetCollectionService.shared
+
     @State private var searchText = ""
-    @State private var selectedCategory: PresetCategory?
+    @State private var selectedCategory: PresetModel.Category?
     @State private var showingImportAlert = false
     @State private var collectionToImport: PresetCollection?
     @State private var lastSearchText = ""
 
     var filteredCollections: [PresetCollection] {
-        var collections = presetService.getCollections(
-            for: languageManager.userLanguage,
-            targetLanguage: languageManager.targetLanguage
-        )
+        var collections: [PresetCollection] = presetService.collections
 
         if !searchText.isEmpty {
             collections = collections.filter { collection in
                 collection.name.localizedCaseInsensitiveContains(searchText) ||
                 collection.description.localizedCaseInsensitiveContains(searchText) ||
                 collection.cards.contains { card in
-                    card.frontText.localizedCaseInsensitiveContains(searchText) ||
                     card.backText.localizedCaseInsensitiveContains(searchText)
                 }
             }
-            
             // Track search if it's a new search
             if lastSearchText != searchText {
                 AnalyticsService.trackSearchEvent(.searchPerformed, searchTerm: searchText, resultCount: collections.count)
                 lastSearchText = searchText
             }
         } else if !lastSearchText.isEmpty {
-            // Track search cleared
-            let allCollections = presetService.getCollections(
-                for: languageManager.userLanguage,
-                targetLanguage: languageManager.targetLanguage
+            AnalyticsService.trackSearchEvent(
+                .searchCleared,
+                searchTerm: lastSearchText,
+                resultCount: collections.count
             )
-            AnalyticsService.trackSearchEvent(.searchCleared, searchTerm: lastSearchText, resultCount: allCollections.count)
             lastSearchText = ""
         }
 
-        if let selectedCategory = selectedCategory {
-            collections = collections.filter { $0.category == selectedCategory }
+        if let selectedCategory {
+            collections = collections.filter { $0.category.rawValue == selectedCategory.rawValue }
         }
 
         return collections
@@ -104,7 +98,11 @@ struct PresetCollectionsView: View {
             }
             .navigationTitle(LocalizationKeys.presetCollections.localized)
             .navigationBarTitleDisplayMode(.inline)
-            .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: LocalizationKeys.searchCollections.localized)
+            .searchable(
+                text: $searchText,
+                placement: .navigationBarDrawer(displayMode: .always),
+                prompt: LocalizationKeys.searchCollections.localized
+            )
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
@@ -133,17 +131,17 @@ struct PresetCollectionsView: View {
     private var categoryFilterView: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 8) {
-                TagButton(title: LocalizationKeys.allCategories, isSelected: selectedCategory == nil) {
+                TagButton(title: LocalizationKeys.allCategories.localized, isSelected: selectedCategory == nil) {
                     selectedCategory = nil
                 }
 
-                ForEach(PresetCategory.allCases, id: \.self) { category in
+                ForEach(PresetModel.Category.allCases, id: \.self) { category in
                     TagButton(
-                        title: category.localizedName(for: Language.fromSystemLocale()),
+                        title: category.displayTitle,
                         imageSystemName: category.icon,
-                        isSelected: selectedCategory == category
+                        isSelected: selectedCategory?.rawValue == category.rawValue
                     ) {
-                        selectedCategory = selectedCategory == category ? nil : category
+                        selectedCategory = selectedCategory?.rawValue == category.rawValue ? nil : category
                     }
                 }
             }
@@ -152,17 +150,11 @@ struct PresetCollectionsView: View {
     }
 
     private func importCollection(_ collection: PresetCollection) {
-        let cardItems = presetService.convertPresetCardsToCardItems(
-            collection.cards,
-            userLanguage: languageManager.userLanguage,
-            targetLanguage: languageManager.targetLanguage
-        )
-
-        try? cardsProvider.addCards(cardItems, tags: collection.tags)
+        try? cardsProvider.addPresetCards(collection.cards)
 
         // Show success feedback
         HapticService.shared.success()
-        
+
         // Analytics tracking for preset collection import
         AnalyticsService.trackPresetCollectionEvent(
             .presetCollectionImported,

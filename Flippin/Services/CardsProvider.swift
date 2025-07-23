@@ -18,6 +18,7 @@ final class CardsProvider: ObservableObject {
     let errorPublisher = PassthroughSubject<Error, Never>()
 
     private let coreDataService = CoreDataService.shared
+    private let languageManager = LanguageManager.shared
     private let tagManager = TagManager.shared
     private var cancellables = Set<AnyCancellable>()
     private var hasCheckedInitialSync = false
@@ -93,7 +94,7 @@ final class CardsProvider: ObservableObject {
     }
 
     /// Adds a new card to Core Data with limit checking
-    func addCard(_ card: CardItem, tags: [String] = []) throws {
+    func addCard(frontText: String, backText: String, notes: String, tags: [String] = []) throws {
         // Check if adding this card would exceed the limit
         if wouldExceedLimit {
             throw CardLimitError.limitExceeded(
@@ -102,7 +103,15 @@ final class CardsProvider: ObservableObject {
                 remainingCards: remainingCards
             )
         }
-        
+
+        let card = CardItem(
+            frontText: frontText,
+            backText: backText,
+            frontLanguage: languageManager.targetLanguage,
+            backLanguage: languageManager.userLanguage,
+            notes: notes
+        )
+
         // Add tags using TagManager
         for tagName in tags {
             if let tag = tagManager.findOrCreateTag(withName: tagName) {
@@ -124,8 +133,8 @@ final class CardsProvider: ObservableObject {
         )
     }
 
-    /// Adds multiple cards to Core Data with limit checking
-    func addCards(_ cards: [CardItem], tags: [String] = []) throws {
+    /// Adds preset cards to Core Data with limit checking
+    func addPresetCards(_ cards: [PresetCard]) throws {
         // Check if adding these cards would exceed the limit
         if !hasUnlimitedCards && (self.cards.count + cards.count) > cardLimit {
             throw CardLimitError.limitExceeded(
@@ -134,15 +143,7 @@ final class CardsProvider: ObservableObject {
                 remainingCards: remainingCards
             )
         }
-        
-        // Add tags using TagManager
-        for tagName in tags {
-            if let tag = tagManager.findOrCreateTag(withName: tagName) {
-                cards.forEach {
-                    $0.addToTags(tag)
-                }
-            }
-        }
+        let items = convertPresetCardsToCardItems(cards)
         saveContext()
         fetchCards()
     }
@@ -190,6 +191,25 @@ final class CardsProvider: ObservableObject {
             objectWillChange.send()
         } catch {
             errorPublisher.send(error)
+        }
+    }
+
+    private func convertPresetCardsToCardItems(_ presetCards: [PresetCard]) -> [CardItem] {
+        return presetCards.map { card in
+            let item = CardItem(
+                frontText: card.frontText,
+                backText: card.backText,
+                frontLanguage: languageManager.targetLanguage,
+                backLanguage: languageManager.userLanguage,
+                notes: card.notes
+            )
+            for tagName in card.tags {
+                if let tag = tagManager.findOrCreateTag(withName: tagName) {
+                    item.addToTags(tag)
+                }
+            }
+
+            return item
         }
     }
 }

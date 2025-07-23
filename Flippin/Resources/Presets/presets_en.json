@@ -1,0 +1,1284 @@
+{
+  "languageName": "English",
+  "languageCode": "en",
+  "presets": [
+    {
+      "id": 1,
+      "name": "Essential Phrases",
+      "description": "Basic words and phrases everyone needs to know",
+      "category": "basics",
+      "systemImageName": "characters.uppercase",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Hello",
+          "notes": "Basic greeting",
+          "tags": ["basics", "communication"]
+        },
+        {
+          "id": 2,
+          "text": "Thank you",
+          "notes": "Expressing gratitude",
+          "tags": ["basics", "communication"]
+        },
+        {
+          "id": 3,
+          "text": "Please",
+          "notes": "Making polite requests",
+          "tags": ["basics", "communication"]
+        },
+        {
+          "id": 4,
+          "text": "Yes",
+          "notes": "Affirmative response",
+          "tags": ["basics", "answers"]
+        },
+        {
+          "id": 5,
+          "text": "No",
+          "notes": "Negative response",
+          "tags": ["basics", "answers"]
+        },
+        {
+          "id": 6,
+          "text": "Goodbye",
+          "notes": "Farewell",
+          "tags": ["basics", "communication"]
+        },
+        {
+          "id": 7,
+          "text": "Excuse me",
+          "notes": "Getting attention or apologizing",
+          "tags": ["basics", "communication"]
+        },
+        {
+          "id": 8,
+          "text": "I don't understand",
+          "notes": "When you need clarification",
+          "tags": ["basics", "communication", "questions"]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Travel Essentials",
+      "description": "Essential phrases for traveling and getting around",
+      "category": "travel",
+      "systemImageName": "airplane",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Where is the bathroom?",
+          "notes": "Essential for travelers",
+          "tags": ["travel", "questions"]
+        },
+        {
+          "id": 2,
+          "text": "How much does this cost?",
+          "notes": "Shopping and bargaining",
+          "tags": ["travel", "shopping", "questions"]
+        },
+        {
+          "id": 3,
+          "text": "I need help",
+          "notes": "Emergency phrase",
+          "tags": ["travel", "emergency", "communication"]
+        },
+        {
+          "id": 4,
+          "text": "Do you speak English?",
+          "notes": "Language barrier breaker",
+          "tags": ["travel", "communication", "questions"]
+        },
+        {
+          "id": 5,
+          "text": "I'm lost",
+          "notes": "When you need directions",
+          "tags": ["travel", "directions", "emergency"]
+        },
+        {
+          "id": 6,
+          "text": "Can you help me?",
+          "notes": "Asking for assistance",
+          "tags": ["travel", "communication", "questions"]
+        },
+        {
+          "id": 7,
+          "text": "What time is it?",
+          "notes": "Time-related questions",
+          "tags": ["travel", "time", "questions"]
+        },
+        {
+          "id": 8,
+          "text": "I'm allergic to...",
+          "notes": "Important for food and medicine",
+          "tags": ["travel", "health", "food"]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Entertainment & Media",
+      "description": "Words and phrases about movies, music, games, and entertainment",
+      "category": "entertainment",
+      "systemImageName": "play.circle.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "I love this movie",
+          "notes": "Expressing enjoyment",
+          "tags": ["entertainment", "movies", "feelings"]
+        },
+        {
+          "id": 2,
+          "text": "What's your favorite music?",
+          "notes": "Music conversation starter",
+          "tags": ["entertainment", "music", "questions"]
+        },
+        {
+          "id": 3,
+          "text": "This song is amazing",
+          "notes": "Music appreciation",
+          "tags": ["entertainment", "music", "feelings"]
+        },
+        {
+          "id": 4,
+          "text": "I play video games",
+          "notes": "Gaming hobby",
+          "tags": ["entertainment", "games", "hobbies"]
+        },
+        {
+          "id": 5,
+          "text": "Have you seen this show?",
+          "notes": "TV show discussion",
+          "tags": ["entertainment", "media", "questions"]
+        },
+        {
+          "id": 6,
+          "text": "I read comics",
+          "notes": "Comic book interest",
+          "tags": ["entertainment", "books", "hobbies"]
+        },
+        {
+          "id": 7,
+          "text": "Disney movies are great",
+          "notes": "Disney appreciation",
+          "tags": ["entertainment", "movies", "feelings"]
+        },
+        {
+          "id": 8,
+          "text": "What genre do you like?",
+          "notes": "Entertainment preferences",
+          "tags": ["entertainment", "media", "questions"]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Food & Dining",
+      "description": "Essential phrases for restaurants and food experiences",
+      "category": "food",
+      "systemImageName": "fork.knife.circle",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "I'm hungry",
+          "notes": "Basic food need",
+          "tags": ["food", "dining", "feelings"]
+        },
+        {
+          "id": 2,
+          "text": "This is delicious",
+          "notes": "Food appreciation",
+          "tags": ["food", "dining", "feelings"]
+        },
+        {
+          "id": 3,
+          "text": "I'm vegetarian",
+          "notes": "Dietary restriction",
+          "tags": ["food", "dining", "health"]
+        },
+        {
+          "id": 4,
+          "text": "Can I have the menu?",
+          "notes": "Restaurant request",
+          "tags": ["food", "dining", "questions"]
+        },
+        {
+          "id": 5,
+          "text": "I'd like to order",
+          "notes": "Ready to order",
+          "tags": ["food", "dining", "communication"]
+        },
+        {
+          "id": 6,
+          "text": "The bill, please",
+          "notes": "Asking for the check",
+          "tags": ["food", "dining", "communication"]
+        },
+        {
+          "id": 7,
+          "text": "I'm allergic to nuts",
+          "notes": "Food allergy",
+          "tags": ["food", "dining", "health"]
+        },
+        {
+          "id": 8,
+          "text": "What do you recommend?",
+          "notes": "Asking for recommendations",
+          "tags": ["food", "dining", "questions"]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Health & Medical",
+      "description": "Important phrases for medical situations and health concerns",
+      "category": "emergency",
+      "systemImageName": "cross.circle.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "I don't feel well",
+          "notes": "General health concern",
+          "tags": ["health", "medical", "emergency"]
+        },
+        {
+          "id": 2,
+          "text": "I have a headache",
+          "notes": "Common symptom",
+          "tags": ["health", "medical"]
+        },
+        {
+          "id": 3,
+          "text": "I need a doctor",
+          "notes": "Medical emergency",
+          "tags": ["health", "medical", "emergency"]
+        },
+        {
+          "id": 4,
+          "text": "Where is the hospital?",
+          "notes": "Medical facility location",
+          "tags": ["health", "medical", "questions"]
+        },
+        {
+          "id": 5,
+          "text": "I have a fever",
+          "notes": "Common illness symptom",
+          "tags": ["health", "medical"]
+        },
+        {
+          "id": 6,
+          "text": "I'm taking medication",
+          "notes": "Medical information",
+          "tags": ["health", "medical"]
+        },
+        {
+          "id": 7,
+          "text": "I have an allergy",
+          "notes": "Important medical information",
+          "tags": ["health", "medical"]
+        },
+        {
+          "id": 8,
+          "text": "Call an ambulance",
+          "notes": "Emergency situation",
+          "tags": ["health", "medical", "emergency"]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Leisure & Hobbies",
+      "description": "Phrases for talking about hobbies, sports, and free time activities",
+      "category": "lifestyle",
+      "systemImageName": "gamecontroller",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "I like to read",
+          "notes": "Reading hobby",
+          "tags": ["leisure", "hobbies", "books"]
+        },
+        {
+          "id": 2,
+          "text": "Do you play sports?",
+          "notes": "Sports conversation",
+          "tags": ["leisure", "sports", "questions"]
+        },
+        {
+          "id": 3,
+          "text": "I love hiking",
+          "notes": "Outdoor activity",
+          "tags": ["leisure", "hobbies", "nature"]
+        },
+        {
+          "id": 4,
+          "text": "What do you do for fun?",
+          "notes": "Hobby conversation starter",
+          "tags": ["leisure", "hobbies", "questions"]
+        },
+        {
+          "id": 5,
+          "text": "I enjoy cooking",
+          "notes": "Cooking hobby",
+          "tags": ["leisure", "hobbies", "food"]
+        },
+        {
+          "id": 6,
+          "text": "Let's go for a walk",
+          "notes": "Casual activity suggestion",
+          "tags": ["leisure", "hobbies", "actions"]
+        },
+        {
+          "id": 7,
+          "text": "I play guitar",
+          "notes": "Musical instrument",
+          "tags": ["leisure", "hobbies", "music"]
+        },
+        {
+          "id": 8,
+          "text": "I like photography",
+          "notes": "Photography hobby",
+          "tags": ["leisure", "hobbies", "art"]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Shopping & Bargaining",
+      "description": "Phrases for shopping, negotiating prices, and handling transactions",
+      "category": "shopping",
+      "systemImageName": "cart.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Can I try this on?",
+          "notes": "For clothing or accessories",
+          "tags": ["shopping", "questions"]
+        },
+        {
+          "id": 2,
+          "text": "Can you lower the price?",
+          "notes": "For bargaining in markets",
+          "tags": ["shopping", "business", "questions"]
+        },
+        {
+          "id": 3,
+          "text": "Do you accept credit cards?",
+          "notes": "Payment inquiry",
+          "tags": ["shopping", "business", "questions"]
+        },
+        {
+          "id": 4,
+          "text": "Where is the fitting room?",
+          "notes": "For clothing stores",
+          "tags": ["shopping", "questions"]
+        },
+        {
+          "id": 5,
+          "text": "Do you have this in a smaller size?",
+          "notes": "Asking for different sizes",
+          "tags": ["shopping", "questions"]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Transportation & Navigation",
+      "description": "Phrases for using public transport, taxis, and finding directions",
+      "category": "travel",
+      "systemImageName": "tram.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Where is the bus station?",
+          "notes": "Finding transportation hubs",
+          "tags": ["transportation", "directions", "questions"]
+        },
+        {
+          "id": 2,
+          "text": "Can you call a taxi?",
+          "notes": "Requesting a taxi",
+          "tags": ["transportation", "communication"]
+        },
+        {
+          "id": 3,
+          "text": "When is the next train?",
+          "notes": "Public transport schedules",
+          "tags": ["transportation", "time", "questions"]
+        },
+        {
+          "id": 4,
+          "text": "How do I get to the airport?",
+          "notes": "Navigating to key locations",
+          "tags": ["transportation", "directions", "questions"]
+        },
+        {
+          "id": 5,
+          "text": "Is it far from here?",
+          "notes": "Checking distance",
+          "tags": ["transportation", "directions", "questions"]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Accommodation & Lodging",
+      "description": "Phrases for booking hotels, hostels, or dealing with accommodation issues",
+      "category": "travel",
+      "systemImageName": "house.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "I’d like to book a room",
+          "notes": "Hotel or hostel booking",
+          "tags": ["accommodation", "travel", "communication"]
+        },
+        {
+          "id": 2,
+          "text": "I’m here to check in",
+          "notes": "Arriving at accommodation",
+          "tags": ["accommodation", "travel", "communication"]
+        },
+        {
+          "id": 3,
+          "text": "Can you clean the room?",
+          "notes": "Requesting housekeeping",
+          "tags": ["accommodation", "communication"]
+        },
+        {
+          "id": 4,
+          "text": "What’s the Wi-Fi password?",
+          "notes": "Common accommodation inquiry",
+          "tags": ["accommodation", "technology", "questions"]
+        },
+        {
+          "id": 5,
+          "text": "Is late checkout available?",
+          "notes": "Extending stay",
+          "tags": ["accommodation", "questions"]
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Social & Cultural Etiquette",
+      "description": "Phrases for polite interactions and understanding cultural norms",
+      "category": "social",
+      "systemImageName": "person.3.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Nice to meet you",
+          "notes": "Polite introduction",
+          "tags": ["culture", "communication", "friends"]
+        },
+        {
+          "id": 2,
+          "text": "What are the local customs?",
+          "notes": "Learning cultural norms",
+          "tags": ["culture", "questions"]
+        },
+        {
+          "id": 3,
+          "text": "Congratulations!",
+          "notes": "Celebrating achievements",
+          "tags": ["culture", "communication"]
+        },
+        {
+          "id": 4,
+          "text": "Happy birthday!",
+          "notes": "Celebratory greeting",
+          "tags": ["culture", "communication"]
+        },
+        {
+          "id": 5,
+          "text": "Sorry, I’m late",
+          "notes": "Polite apology",
+          "tags": ["culture", "communication"]
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Weather & Environment",
+      "description": "Phrases for discussing weather and environmental conditions",
+      "category": "weather",
+      "systemImageName": "cloud.sun.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "What’s the weather like today?",
+          "notes": "Checking daily forecast",
+          "tags": ["weather", "questions"]
+        },
+        {
+          "id": 2,
+          "text": "Is it cold outside?",
+          "notes": "Weather inquiry",
+          "tags": ["weather", "questions"]
+        },
+        {
+          "id": 3,
+          "text": "Will it rain later?",
+          "notes": "Planning activities",
+          "tags": ["weather", "questions"]
+        },
+        {
+          "id": 4,
+          "text": "It’s too hot",
+          "notes": "Expressing discomfort",
+          "tags": ["weather", "feelings"]
+        },
+        {
+          "id": 5,
+          "text": "Where is the nearest beach?",
+          "notes": "Finding natural attractions",
+          "tags": ["weather", "nature", "questions"]
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Numbers & Time",
+      "description": "Phrases for counting, telling time, and scheduling",
+      "category": "basics",
+      "systemImageName": "clock.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "One, two, three...",
+          "notes": "Basic counting",
+          "tags": ["numbers", "basics"]
+        },
+        {
+          "id": 2,
+          "text": "What day is it?",
+          "notes": "Checking the day of the week",
+          "tags": ["time", "questions"]
+        },
+        {
+          "id": 3,
+          "text": "What time does it open?",
+          "notes": "Business or attraction hours",
+          "tags": ["time", "questions"]
+        },
+        {
+          "id": 4,
+          "text": "How many are there?",
+          "notes": "Asking about quantities",
+          "tags": ["numbers", "questions"]
+        },
+        {
+          "id": 5,
+          "text": "Wait a minute",
+          "notes": "Requesting a pause",
+          "tags": ["time", "communication"]
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Technology & Communication",
+      "description": "Phrases for using technology and staying connected",
+      "category": "technology",
+      "systemImageName": "wifi",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Can I charge my phone?",
+          "notes": "Requesting a charger",
+          "tags": ["technology", "communication"]
+        },
+        {
+          "id": 2,
+          "text": "Is Wi-Fi available?",
+          "notes": "Internet access inquiry",
+          "tags": ["technology", "questions"]
+        },
+        {
+          "id": 3,
+          "text": "Can you take a photo?",
+          "notes": "Requesting a picture",
+          "tags": ["technology", "communication"]
+        },
+        {
+          "id": 4,
+          "text": "Are you on social media?",
+          "notes": "Connecting online",
+          "tags": ["technology", "communication", "questions"]
+        },
+        {
+          "id": 5,
+          "text": "I have no signal",
+          "notes": "Phone connectivity issue",
+          "tags": ["technology", "communication"]
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Greetings & Introductions",
+      "description": "Phrases for starting conversations and introducing oneself",
+      "category": "basics",
+      "systemImageName": "person.wave.2.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "How are you?",
+          "notes": "Common greeting to show interest",
+          "tags": ["basics", "communication", "questions"]
+        },
+        {
+          "id": 2,
+          "text": "My name is...",
+          "notes": "Introducing oneself",
+          "tags": ["basics", "communication"]
+        },
+        {
+          "id": 3,
+          "text": "Where are you from?",
+          "notes": "Conversation starter",
+          "tags": ["communication", "questions"]
+        },
+        {
+          "id": 4,
+          "text": "Pleased to meet you",
+          "notes": "Polite introduction",
+          "tags": ["basics", "communication"]
+        },
+        {
+          "id": 5,
+          "text": "How’s your day going?",
+          "notes": "Casual greeting",
+          "tags": ["communication", "questions"]
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Daily Routines",
+      "description": "Phrases for discussing everyday activities and schedules",
+      "category": "lifestyle",
+      "systemImageName": "sunrise.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "I wake up early",
+          "notes": "Describing morning routine",
+          "tags": ["basics", "descriptions"]
+        },
+        {
+          "id": 2,
+          "text": "What do you do every day?",
+          "notes": "Asking about routines",
+          "tags": ["questions", "communication"]
+        },
+        {
+          "id": 3,
+          "text": "I work in the morning",
+          "notes": "Sharing work schedule",
+          "tags": ["descriptions", "business"]
+        },
+        {
+          "id": 4,
+          "text": "I go to bed late",
+          "notes": "Describing evening habits",
+          "tags": ["descriptions"]
+        },
+        {
+          "id": 5,
+          "text": "Do you have free time?",
+          "notes": "Asking about availability",
+          "tags": ["questions", "leisure"]
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Family & Relationships",
+      "description": "Phrases for talking about family members and relationships",
+      "category": "social",
+      "systemImageName": "person.2.circle.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "I have a brother",
+          "notes": "Describing family",
+          "tags": ["family", "descriptions"]
+        },
+        {
+          "id": 2,
+          "text": "Are you married?",
+          "notes": "Asking about relationship status",
+          "tags": ["family", "questions"]
+        },
+        {
+          "id": 3,
+          "text": "My parents live far away",
+          "notes": "Sharing family details",
+          "tags": ["family", "descriptions"]
+        },
+        {
+          "id": 4,
+          "text": "Do you have children?",
+          "notes": "Conversation about family",
+          "tags": ["family", "questions"]
+        },
+        {
+          "id": 5,
+          "text": "I’m single",
+          "notes": "Describing relationship status",
+          "tags": ["family", "descriptions"]
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "name": "Work & Business",
+      "description": "Phrases for professional interactions and workplace discussions",
+      "category": "professional",
+      "systemImageName": "briefcase.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "What is your job?",
+          "notes": "Asking about profession",
+          "tags": ["business", "questions"]
+        },
+        {
+          "id": 2,
+          "text": "I work as a...",
+          "notes": "Describing your job",
+          "tags": ["business", "descriptions"]
+        },
+        {
+          "id": 3,
+          "text": "Can we schedule a meeting?",
+          "notes": "Arranging business meetings",
+          "tags": ["business", "communication"]
+        },
+        {
+          "id": 4,
+          "text": "Where is your office?",
+          "notes": "Locating workplace",
+          "tags": ["business", "questions"]
+        },
+        {
+          "id": 5,
+          "text": "I need a business card",
+          "notes": "Networking request",
+          "tags": ["business", "communication"]
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "name": "Education & Learning",
+      "description": "Phrases for discussing studies, learning, and education",
+      "category": "professional",
+      "systemImageName": "book.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "I’m a student",
+          "notes": "Describing student status",
+          "tags": ["education", "descriptions"]
+        },
+        {
+          "id": 2,
+          "text": "What do you study?",
+          "notes": "Asking about academic focus",
+          "tags": ["education", "questions"]
+        },
+        {
+          "id": 3,
+          "text": "I need a book",
+          "notes": "Requesting study materials",
+          "tags": ["education", "communication"]
+        },
+        {
+          "id": 4,
+          "text": "Where is the library?",
+          "notes": "Finding study spaces",
+          "tags": ["education", "questions"]
+        },
+        {
+          "id": 5,
+          "text": "I’m learning the language",
+          "notes": "Sharing learning goals",
+          "tags": ["education", "communication"]
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "name": "Asking for Directions",
+      "description": "Phrases for navigating and finding locations",
+      "category": "travel",
+      "systemImageName": "map.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Turn left",
+          "notes": "Giving or receiving directions",
+          "tags": ["directions", "communication"]
+        },
+        {
+          "id": 2,
+          "text": "Is this the right way?",
+          "notes": "Confirming directions",
+          "tags": ["directions", "questions"]
+        },
+        {
+          "id": 3,
+          "text": "How far is it?",
+          "notes": "Asking about distance",
+          "tags": ["directions", "questions"]
+        },
+        {
+          "id": 4,
+          "text": "Go straight ahead",
+          "notes": "Providing directions",
+          "tags": ["directions", "communication"]
+        },
+        {
+          "id": 5,
+          "text": "Where is the map?",
+          "notes": "Requesting navigation tools",
+          "tags": ["directions", "questions"]
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "name": "Shopping for Groceries",
+      "description": "Phrases for buying food and household items",
+      "category": "food",
+      "systemImageName": "basket.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Where are the fruits?",
+          "notes": "Finding grocery items",
+          "tags": ["shopping", "food", "questions"]
+        },
+        {
+          "id": 2,
+          "text": "Is this fresh?",
+          "notes": "Checking food quality",
+          "tags": ["shopping", "food", "questions"]
+        },
+        {
+          "id": 3,
+          "text": "I need a bag",
+          "notes": "Requesting a shopping bag",
+          "tags": ["shopping", "communication"]
+        },
+        {
+          "id": 4,
+          "text": "Do you have milk?",
+          "notes": "Asking for specific items",
+          "tags": ["shopping", "food", "questions"]
+        },
+        {
+          "id": 5,
+          "text": "How much is this?",
+          "notes": "Checking grocery prices",
+          "tags": ["shopping", "questions"]
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "name": "Emergencies & Safety",
+      "description": "Phrases for handling emergencies beyond medical situations",
+      "category": "emergency",
+      "systemImageName": "exclamationmark.triangle.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Help, it’s an emergency!",
+          "notes": "Urgent call for help",
+          "tags": ["emergency", "communication"]
+        },
+        {
+          "id": 2,
+          "text": "Where is the police station?",
+          "notes": "Finding authorities",
+          "tags": ["emergency", "questions"]
+        },
+        {
+          "id": 3,
+          "text": "I lost my passport",
+          "notes": "Reporting lost documents",
+          "tags": ["emergency", "travel"]
+        },
+        {
+          "id": 4,
+          "text": "Is it safe here?",
+          "notes": "Checking safety",
+          "tags": ["emergency", "questions"]
+        },
+        {
+          "id": 5,
+          "text": "Call the police",
+          "notes": "Requesting law enforcement",
+          "tags": ["emergency", "communication"]
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "name": "Romance & Socializing",
+      "description": "Phrases for romantic and friendly interactions",
+      "category": "social",
+      "systemImageName": "heart.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "You look nice",
+          "notes": "Giving a compliment",
+          "tags": ["romance", "communication"]
+        },
+        {
+          "id": 2,
+          "text": "Can I buy you a drink?",
+          "notes": "Social invitation",
+          "tags": ["romance", "communication"]
+        },
+        {
+          "id": 3,
+          "text": "Would you like to dance?",
+          "notes": "Inviting to dance",
+          "tags": ["romance", "actions"]
+        },
+        {
+          "id": 4,
+          "text": "I like your smile",
+          "notes": "Romantic compliment",
+          "tags": ["romance", "communication"]
+        },
+        {
+          "id": 5,
+          "text": "Let’s stay in touch",
+          "notes": "Maintaining contact",
+          "tags": ["romance", "friends", "communication"]
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "name": "Local Culture & Traditions",
+      "description": "Phrases for engaging with local traditions and events",
+      "category": "social",
+      "systemImageName": "flag.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "What’s this festival?",
+          "notes": "Asking about local events",
+          "tags": ["culture", "questions"]
+        },
+        {
+          "id": 2,
+          "text": "Can I join the celebration?",
+          "notes": "Participating in events",
+          "tags": ["culture", "communication"]
+        },
+        {
+          "id": 3,
+          "text": "What does this mean?",
+          "notes": "Understanding traditions",
+          "tags": ["culture", "questions"]
+        },
+        {
+          "id": 4,
+          "text": "Is this a local tradition?",
+          "notes": "Learning about customs",
+          "tags": ["culture", "questions"]
+        },
+        {
+          "id": 5,
+          "text": "I love this culture",
+          "notes": "Expressing appreciation",
+          "tags": ["culture", "feelings"]
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "name": "Colors & Descriptions",
+      "description": "Phrases for describing objects, colors, and appearances",
+      "category": "shopping",
+      "systemImageName": "paintpalette.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "It’s red",
+          "notes": "Describing color",
+          "tags": ["colors", "descriptions"]
+        },
+        {
+          "id": 2,
+          "text": "What color is this?",
+          "notes": "Asking about colors",
+          "tags": ["colors", "questions"]
+        },
+        {
+          "id": 3,
+          "text": "It looks beautiful",
+          "notes": "Describing appearance",
+          "tags": ["descriptions", "feelings"]
+        },
+        {
+          "id": 4,
+          "text": "Is it big or small?",
+          "notes": "Asking about size",
+          "tags": ["descriptions", "questions"]
+        },
+        {
+          "id": 5,
+          "text": "I want something blue",
+          "notes": "Requesting specific color",
+          "tags": ["colors", "shopping"]
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "name": "Time Expressions",
+      "description": "Phrases for discussing time beyond basic questions",
+      "category": "weather",
+      "systemImageName": "timer",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "It’s too early",
+          "notes": "Expressing time preference",
+          "tags": ["time", "feelings"]
+        },
+        {
+          "id": 2,
+          "text": "See you tomorrow",
+          "notes": "Planning future meetings",
+          "tags": ["time", "communication"]
+        },
+        {
+          "id": 3,
+          "text": "How long does it take?",
+          "notes": "Asking about duration",
+          "tags": ["time", "questions"]
+        },
+        {
+          "id": 4,
+          "text": "I’m running late",
+          "notes": "Explaining delay",
+          "tags": ["time", "communication"]
+        },
+        {
+          "id": 5,
+          "text": "What’s the date today?",
+          "notes": "Asking about the date",
+          "tags": ["time", "questions"]
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "name": "Weather Activities",
+      "description": "Phrases for planning activities based on weather conditions",
+      "category": "lifestyle",
+      "systemImageName": "sun.max.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Let’s go to the park",
+          "notes": "Suggesting outdoor activity",
+          "tags": ["weather", "actions"]
+        },
+        {
+          "id": 2,
+          "text": "Is it good for swimming?",
+          "notes": "Checking weather for activities",
+          "tags": ["weather", "questions"]
+        },
+        {
+          "id": 3,
+          "text": "It’s perfect for a picnic",
+          "notes": "Describing ideal weather",
+          "tags": ["weather", "descriptions"]
+        },
+        {
+          "id": 4,
+          "text": "Should we stay inside?",
+          "notes": "Planning for bad weather",
+          "tags": ["weather", "questions"]
+        },
+        {
+          "id": 5,
+          "text": "It’s sunny today",
+          "notes": "Describing weather",
+          "tags": ["weather", "descriptions"]
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "name": "Technology Troubleshooting",
+      "description": "Phrases for handling technology issues beyond basic communication",
+      "category": "technology",
+      "systemImageName": "wrench.and.screwdriver.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "My phone isn’t working",
+          "notes": "Reporting device issues",
+          "tags": ["technology", "communication"]
+        },
+        {
+          "id": 2,
+          "text": "Can you fix this?",
+          "notes": "Requesting tech help",
+          "tags": ["technology", "questions"]
+        },
+        {
+          "id": 3,
+          "text": "Is the internet slow?",
+          "notes": "Checking connection issues",
+          "tags": ["technology", "questions"]
+        },
+        {
+          "id": 4,
+          "text": "I need a charger",
+          "notes": "Requesting charging equipment",
+          "tags": ["technology", "communication"]
+        },
+        {
+          "id": 5,
+          "text": "It’s not connecting",
+          "notes": "Describing connectivity issues",
+          "tags": ["technology", "descriptions"]
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "name": "Art & Creativity",
+      "description": "Phrases for discussing art, creativity, and cultural activities",
+      "category": "lifestyle",
+      "systemImageName": "paintbrush.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "I love painting",
+          "notes": "Expressing art interest",
+          "tags": ["art", "hobbies"]
+        },
+        {
+          "id": 2,
+          "text": "Where is the museum?",
+          "notes": "Finding cultural sites",
+          "tags": ["art", "questions"]
+        },
+        {
+          "id": 3,
+          "text": "This art is beautiful",
+          "notes": "Appreciating art",
+          "tags": ["art", "feelings"]
+        },
+        {
+          "id": 4,
+          "text": "Do you like to draw?",
+          "notes": "Art conversation starter",
+          "tags": ["art", "questions"]
+        },
+        {
+          "id": 5,
+          "text": "What’s this sculpture?",
+          "notes": "Asking about art pieces",
+          "tags": ["art", "questions"]
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "name": "Sports & Fitness",
+      "description": "Phrases for discussing sports and physical activities",
+      "category": "lifestyle",
+      "systemImageName": "sportscourt.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "I like to run",
+          "notes": "Describing fitness routine",
+          "tags": ["sports", "hobbies"]
+        },
+        {
+          "id": 2,
+          "text": "Where can I play soccer?",
+          "notes": "Finding sports facilities",
+          "tags": ["sports", "questions"]
+        },
+        {
+          "id": 3,
+          "text": "Do you like yoga?",
+          "notes": "Starting sports conversation",
+          "tags": ["sports", "questions"]
+        },
+        {
+          "id": 4,
+          "text": "I go to the gym",
+          "notes": "Sharing fitness habits",
+          "tags": ["sports", "descriptions"]
+        },
+        {
+          "id": 5,
+          "text": "Let’s play a game",
+          "notes": "Suggesting sports activity",
+          "tags": ["sports", "actions"]
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "name": "Travel Planning",
+      "description": "Phrases for organizing and planning travel activities",
+      "category": "travel",
+      "systemImageName": "suitcase.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "What’s a good place to visit?",
+          "notes": "Asking for travel recommendations",
+          "tags": ["travel", "questions"]
+        },
+        {
+          "id": 2,
+          "text": "How much is a ticket?",
+          "notes": "Checking travel costs",
+          "tags": ["travel", "questions"]
+        },
+        {
+          "id": 3,
+          "text": "I need a travel guide",
+          "notes": "Requesting travel resources",
+          "tags": ["travel", "communication"]
+        },
+        {
+          "id": 4,
+          "text": "Is there a tour available?",
+          "notes": "Inquiring about guided tours",
+          "tags": ["travel", "questions"]
+        },
+        {
+          "id": 5,
+          "text": "I’m traveling tomorrow",
+          "notes": "Sharing travel plans",
+          "tags": ["travel", "descriptions"]
+        }
+      ]
+    }
+  ]
+}

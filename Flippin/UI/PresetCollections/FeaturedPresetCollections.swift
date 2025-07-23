@@ -12,8 +12,8 @@ struct FeaturedPresetCollections: View {
     @StateObject private var languageManager = LanguageManager.shared
     @StateObject private var cardsProvider = CardsProvider.shared
     @StateObject private var colorManager = ColorManager.shared
-
     @StateObject private var presetService = PresetCollectionService.shared
+
     @State private var showingAllCollections = false
     @State private var showingImportAlert = false
     @State private var collectionToImport: PresetCollection?
@@ -21,40 +21,31 @@ struct FeaturedPresetCollections: View {
     @State private var limitAlertMessage = ""
     
     var featuredCollections: [PresetCollection] {
-        presetService.getFeaturedCollections(
-            for: languageManager.userLanguage,
-            targetLanguage: languageManager.targetLanguage
-        )
+        presetService.getFeaturedCollections()
     }
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            HStack {
-                Text(LocalizationKeys.presetCollections.localized)
-                    .font(.headline)
-                    .foregroundStyle(.primary)
+        if !featuredCollections.isEmpty {
+            VStack(alignment: .leading, spacing: 16) {
+                HStack {
+                    Text(LocalizationKeys.presetCollections.localized)
+                        .font(.headline)
+                        .foregroundStyle(.primary)
 
-                Spacer()
-                
-                Button(LocalizationKeys.seeAllCollections.localized) {
-                    showingAllCollections = true
-                    AnalyticsService.trackNavigationEvent(.presetCollectionsOpened, screenName: "PresetCollections")
+                    Spacer()
+
+                    Button(LocalizationKeys.seeAllCollections.localized) {
+                        showingAllCollections = true
+                        AnalyticsService.trackNavigationEvent(.presetCollectionsOpened, screenName: "PresetCollections")
+                    }
+                    .font(.subheadline)
+                    .foregroundColor(colorManager.tintColor)
                 }
-                .font(.subheadline)
-                .foregroundColor(colorManager.tintColor)
-            }
-            
-            Text(LocalizationKeys.getStartedWithCollections.localized)
-                .font(.caption)
-                .foregroundColor(.secondary)
-            
-            if featuredCollections.isEmpty {
-                Text(LocalizationKeys.noCollectionsFound.localized)
+
+                Text(LocalizationKeys.getStartedWithCollections.localized)
                     .font(.caption)
                     .foregroundColor(.secondary)
-                    .frame(maxWidth: .infinity, alignment: .center)
-                    .padding(.vertical, 20)
-            } else {
+
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 12) {
                         ForEach(featuredCollections) { collection in
@@ -73,38 +64,32 @@ struct FeaturedPresetCollections: View {
                 .scrollTargetBehavior(.viewAligned)
                 .scrollClipDisabled()
             }
-        }
-        .sheet(isPresented: $showingAllCollections) {
-            PresetCollectionsView()
-        }
-        .alert(LocalizationKeys.importCollection.localized, isPresented: $showingImportAlert) {
-            Button(LocalizationKeys.cancel.localized, role: .cancel) { }
-            Button(LocalizationKeys.importButton.localized) {
+            .sheet(isPresented: $showingAllCollections) {
+                PresetCollectionsView()
+            }
+            .alert(LocalizationKeys.importCollection.localized, isPresented: $showingImportAlert) {
+                Button(LocalizationKeys.cancel.localized, role: .cancel) { }
+                Button(LocalizationKeys.importButton.localized) {
+                    if let collection = collectionToImport {
+                        importCollection(collection)
+                    }
+                }
+            } message: {
                 if let collection = collectionToImport {
-                    importCollection(collection)
+                    Text(LocalizationKeys.importCollectionMessage.localized(with: collection.name, collection.cardCount))
                 }
             }
-        } message: {
-            if let collection = collectionToImport {
-                Text(LocalizationKeys.importCollectionMessage.localized(with: collection.name, collection.cardCount))
+            .alert(LocalizationKeys.cardLimitExceeded.localized, isPresented: $showingLimitAlert) {
+                Button(LocalizationKeys.ok.localized, role: .cancel) { }
+            } message: {
+                Text(limitAlertMessage)
             }
-        }
-        .alert(LocalizationKeys.cardLimitExceeded.localized, isPresented: $showingLimitAlert) {
-            Button(LocalizationKeys.ok.localized, role: .cancel) { }
-        } message: {
-            Text(limitAlertMessage)
         }
     }
     
     private func importCollection(_ collection: PresetCollection) {
-        let cardItems = presetService.convertPresetCardsToCardItems(
-            collection.cards,
-            userLanguage: languageManager.userLanguage,
-            targetLanguage: languageManager.targetLanguage
-        )
-        
         do {
-            try cardsProvider.addCards(cardItems, tags: collection.tags)
+            try cardsProvider.addPresetCards(collection.cards)
 
             // Show success feedback
             HapticService.shared.success()

@@ -109,7 +109,12 @@ final class AddCardSheetViewModel: ObservableObject {
         )
 
         do {
-            try cardsProvider.addCard(card, tags: selectedTags.compactMap(\.name))
+            try cardsProvider.addCard(
+                frontText: trimmedTarget,
+                backText: trimmedNative,
+                notes: trimmedNotes.isEmpty ? "" : trimmedNotes,
+                tags: selectedTags.map(\.name.orEmpty)
+            )
         } catch let error as CardLimitError {
             limitAlertMessage = error.localizedDescription
             showingLimitAlert = true

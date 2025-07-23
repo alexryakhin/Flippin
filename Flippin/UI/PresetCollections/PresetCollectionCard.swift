@@ -17,7 +17,7 @@ struct PresetCollectionCard: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack {
-                Image(systemName: collection.icon)
+                Image(systemName: collection.systemImageName)
                     .font(.title2)
                     .foregroundColor(colorManager.tintColor)
 
@@ -42,7 +42,7 @@ struct PresetCollectionCard: View {
                     .font(.caption)
                     .foregroundColor(.secondary)
                     .multilineTextAlignment(.leading)
-                    .lineLimit(2)
+                    .lineLimit(3)
             }
 
             // Preview of first few cards
