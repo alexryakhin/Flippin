@@ -124,6 +124,15 @@
 "deleteAll" = "全部删除";
 "deleteAllCards" = "删除所有卡片";
 "deleteAllCardsConfirmation" = "您确定要删除所有卡片吗？此操作无法撤销。";
+"ok" = "确定";
+
+// MARK: - Premium Features
+"premiumFeature" = "高级功能";
+"premiumRequired" = "需要高级版";
+"upgradeToPremium" = "升级到高级版";
+"premiumFeatureDescription" = "访问所有预设集合并解锁语言学习的无限潜力";
+"previewBackgrounds" = "预览背景";
+"premium" = "高级版";
 
 // MARK: - Labels
 "settingsLabel" = "设置";
@@ -170,6 +179,11 @@
 "fireflies" = "萤火虫";
 "ocean" = "海洋";
 "galaxy" = "银河";
+
+// MARK: - Card Limits
+"cardLimitExceeded" = "卡片限制已达";
+"cardsRemaining" = "剩余卡片";
+"unlimitedCards" = "无限卡片";
 
 // MARK: - Categories
 "categoryBasics" = "基础";

@@ -149,7 +149,7 @@ struct SettingsView: View {
                                     }
                                     .buttonStyle(.bordered)
                                 } else {
-                                    Button("Preview Backgrounds") {
+                                    Button(LocalizationKeys.previewBackgrounds.localized) {
                                         showingBackgroundDemo = true
                                         AnalyticsService.trackNavigationEvent(.backgroundDemoOpened, screenName: "BackgroundDemo")
                                     }
@@ -242,7 +242,7 @@ struct SettingsView: View {
                         }
                         .clippedWithPaddingAndBackground()
                     }
-
+                    #if DEBUG
                     CustomSectionView(
                         header: "Purchase Testing"
                     ) {
@@ -260,6 +260,7 @@ struct SettingsView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .clippedWithPaddingAndBackground()
                     }
+                    #endif
                 }
                 .padding(16)
             }

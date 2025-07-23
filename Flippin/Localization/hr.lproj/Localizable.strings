@@ -124,6 +124,15 @@
 "deleteAll" = "Obriši Sve";
 "deleteAllCards" = "Obriši Sve Kartice";
 "deleteAllCardsConfirmation" = "Jeste li sigurni da želite obrisati sve kartice? Ova radnja se ne može poništiti.";
+"ok" = "U redu";
+
+// MARK: - Premium Features
+"premiumFeature" = "Premium Funkcija";
+"premiumRequired" = "Premium Potreban";
+"upgradeToPremium" = "Nadogradi na Premium";
+"premiumFeatureDescription" = "Pristupite svim unaprijed definiranim kolekcijama i otključajte neograničeni potencijal za učenje jezika";
+"previewBackgrounds" = "Pregled Pozadina";
+"premium" = "Premium";
 
 // MARK: - Labels
 "settingsLabel" = "Postavke";
@@ -170,6 +179,11 @@
 "fireflies" = "Krijesnice";
 "ocean" = "Ocean";
 "galaxy" = "Galaksija";
+
+// MARK: - Card Limits
+"cardLimitExceeded" = "Dostignuta Granica Kartica";
+"cardsRemaining" = "Preostale Kartice";
+"unlimitedCards" = "Neograničene Kartice";
 
 // MARK: - Categories
 "categoryBasics" = "Osnove";

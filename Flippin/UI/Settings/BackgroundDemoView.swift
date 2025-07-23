@@ -45,7 +45,7 @@ struct BackgroundDemoView: View {
                                                 Image(systemName: "crown.fill")
                                                     .font(.title2)
                                                     .foregroundColor(.yellow)
-                                                Text("Premium")
+                                                Text(LocalizationKeys.premium.localized)
                                                     .font(.caption)
                                                     .fontWeight(.semibold)
                                                     .foregroundColor(.white)

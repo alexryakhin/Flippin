@@ -124,6 +124,15 @@
 "deleteAll" = "Alles Verwijderen";
 "deleteAllCards" = "Alle Kaarten Verwijderen";
 "deleteAllCardsConfirmation" = "Weet je zeker dat je alle kaarten wilt verwijderen? Deze actie kan niet ongedaan worden gemaakt.";
+"ok" = "OK";
+
+// MARK: - Premium Features
+"premiumFeature" = "Premium Functie";
+"premiumRequired" = "Premium Vereist";
+"upgradeToPremium" = "Upgraden naar Premium";
+"premiumFeatureDescription" = "Krijg toegang tot alle vooraf gedefinieerde collecties en ontgrendel het onbeperkte potentieel voor taalverwerving";
+"previewBackgrounds" = "Achtergronden Voorvertoning";
+"premium" = "Premium";
 
 // MARK: - Labels
 "settingsLabel" = "Instellingen";
@@ -170,6 +179,11 @@
 "fireflies" = "Glimwormen";
 "ocean" = "Oceaan";
 "galaxy" = "Melkweg";
+
+// MARK: - Card Limits
+"cardLimitExceeded" = "Kaartlimiet Bereikt";
+"cardsRemaining" = "Resterende Kaarten";
+"unlimitedCards" = "Onbeperkte Kaarten";
 
 // MARK: - Categories
 "categoryBasics" = "Basis";

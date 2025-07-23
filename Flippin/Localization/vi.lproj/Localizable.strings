@@ -124,6 +124,15 @@
 "deleteAll" = "Xóa Tất Cả";
 "deleteAllCards" = "Xóa Tất Cả Thẻ";
 "deleteAllCardsConfirmation" = "Bạn có chắc chắn muốn xóa tất cả thẻ không? Hành động này không thể hoàn tác.";
+"ok" = "OK";
+
+// MARK: - Premium Features
+"premiumFeature" = "Tính Năng Premium";
+"premiumRequired" = "Yêu Cầu Premium";
+"upgradeToPremium" = "Nâng Cấp Lên Premium";
+"premiumFeatureDescription" = "Truy cập tất cả các bộ sưu tập được định sẵn và mở khóa tiềm năng vô hạn cho việc học ngôn ngữ";
+"previewBackgrounds" = "Xem Trước Nền";
+"premium" = "Premium";
 
 // MARK: - Labels
 "settingsLabel" = "Cài đặt";
@@ -170,6 +179,11 @@
 "fireflies" = "Đom đóm";
 "ocean" = "Đại dương";
 "galaxy" = "Thiên hà";
+
+// MARK: - Card Limits
+"cardLimitExceeded" = "Đã Đạt Giới Hạn Thẻ";
+"cardsRemaining" = "Thẻ Còn Lại";
+"unlimitedCards" = "Thẻ Không Giới Hạn";
 
 // MARK: - Categories
 "categoryBasics" = "Cơ Bản";

@@ -124,6 +124,15 @@
 "deleteAll" = "Excluir Tudo";
 "deleteAllCards" = "Excluir Todos os Cartões";
 "deleteAllCardsConfirmation" = "Tem certeza de que deseja excluir todos os cartões? Esta ação não pode ser desfeita.";
+"ok" = "OK";
+
+// MARK: - Premium Features
+"premiumFeature" = "Recurso Premium";
+"premiumRequired" = "Premium Necessário";
+"upgradeToPremium" = "Fazer Upgrade para Premium";
+"premiumFeatureDescription" = "Acesse todas as coleções predefinidas e desbloqueie o potencial ilimitado para aprender idiomas";
+"previewBackgrounds" = "Visualizar Fundos";
+"premium" = "Premium";
 
 // MARK: - Labels
 "settingsLabel" = "Configurações";
@@ -170,6 +179,11 @@
 "fireflies" = "Vaga-lumes";
 "ocean" = "Oceano";
 "galaxy" = "Galáxia";
+
+// MARK: - Card Limits
+"cardLimitExceeded" = "Limite de Cartões Atingido";
+"cardsRemaining" = "Cartões Restantes";
+"unlimitedCards" = "Cartões Ilimitados";
 
 // MARK: - Categories
 "categoryBasics" = "Básicos";

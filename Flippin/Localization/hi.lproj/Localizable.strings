@@ -124,6 +124,15 @@
 "deleteAll" = "सभी हटाएं";
 "deleteAllCards" = "सभी कार्ड हटाएं";
 "deleteAllCardsConfirmation" = "क्या आप वाकई सभी कार्ड हटाना चाहते हैं? यह क्रिया पूर्ववत नहीं की जा सकती।";
+"ok" = "ठीक है";
+
+// MARK: - Premium Features
+"premiumFeature" = "प्रीमियम सुविधा";
+"premiumRequired" = "प्रीमियम आवश्यक";
+"upgradeToPremium" = "प्रीमियम में अपग्रेड करें";
+"premiumFeatureDescription" = "सभी पूर्व-परिभाषित संग्रहों तक पहुंच प्राप्त करें और भाषा सीखने की असीमित क्षमता को अनलॉक करें";
+"previewBackgrounds" = "पृष्ठभूमि पूर्वावलोकन";
+"premium" = "प्रीमियम";
 
 // MARK: - Labels
 "settingsLabel" = "सेटिंग्स";
@@ -170,6 +179,11 @@
 "fireflies" = "जुगनू";
 "ocean" = "समुद्र";
 "galaxy" = "आकाशगंगा";
+
+// MARK: - Card Limits
+"cardLimitExceeded" = "कार्ड सीमा पार";
+"cardsRemaining" = "शेष कार्ड";
+"unlimitedCards" = "असीमित कार्ड";
 
 // MARK: - Categories
 "categoryBasics" = "मूल बातें";

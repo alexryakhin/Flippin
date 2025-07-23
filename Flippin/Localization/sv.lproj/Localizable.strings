@@ -124,6 +124,15 @@
 "deleteAll" = "Radera Allt";
 "deleteAllCards" = "Radera Alla Kort";
 "deleteAllCardsConfirmation" = "Är du säker på att du vill radera alla kort? Denna åtgärd kan inte ångras.";
+"ok" = "OK";
+
+// MARK: - Premium Features
+"premiumFeature" = "Premium Funktion";
+"premiumRequired" = "Premium Krävs";
+"upgradeToPremium" = "Uppgradera till Premium";
+"premiumFeatureDescription" = "Få tillgång till alla fördefinierade samlingar och lås upp det obegränsade potentialet för språkinlärning";
+"previewBackgrounds" = "Förhandsgranska Bakgrunder";
+"premium" = "Premium";
 
 // MARK: - Labels
 "settingsLabel" = "Inställningar";
@@ -170,6 +179,11 @@
 "fireflies" = "Lysmaskar";
 "ocean" = "Ocean";
 "galaxy" = "Galax";
+
+// MARK: - Card Limits
+"cardLimitExceeded" = "Kortgräns Uppnådd";
+"cardsRemaining" = "Återstående Kort";
+"unlimitedCards" = "Obegränsade Kort";
 
 // MARK: - Categories
 "categoryBasics" = "Grundläggande";

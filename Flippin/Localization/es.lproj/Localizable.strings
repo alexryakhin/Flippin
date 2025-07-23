@@ -124,6 +124,15 @@
 "deleteAll" = "Eliminar Todo";
 "deleteAllCards" = "Eliminar Todas las Tarjetas";
 "deleteAllCardsConfirmation" = "¿Estás seguro de que quieres eliminar todas las tarjetas? Esta acción no se puede deshacer.";
+"ok" = "OK";
+
+// MARK: - Premium Features
+"premiumFeature" = "Función Premium";
+"premiumRequired" = "Premium Requerido";
+"upgradeToPremium" = "Actualizar a Premium";
+"premiumFeatureDescription" = "Accede a todas las colecciones preestablecidas y desbloquea el potencial ilimitado de aprendizaje de idiomas";
+"previewBackgrounds" = "Vista Previa de Fondos";
+"premium" = "Premium";
 
 // MARK: - Labels
 "settingsLabel" = "Configuración";
@@ -170,6 +179,11 @@
 "fireflies" = "Luciérnagas";
 "ocean" = "Océano";
 "galaxy" = "Galaxia";
+
+// MARK: - Card Limits
+"cardLimitExceeded" = "Límite de Tarjetas Alcanzado";
+"cardsRemaining" = "Tarjetas Restantes";
+"unlimitedCards" = "Tarjetas Ilimitadas";
 
 // MARK: - Categories
 "categoryBasics" = "Básicos";

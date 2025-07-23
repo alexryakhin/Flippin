@@ -124,6 +124,15 @@
 "deleteAll" = "حذف الكل";
 "deleteAllCards" = "حذف جميع البطاقات";
 "deleteAllCardsConfirmation" = "هل أنت متأكد من أنك تريد حذف جميع البطاقات؟ لا يمكن التراجع عن هذا الإجراء.";
+"ok" = "موافق";
+
+// MARK: - Premium Features
+"premiumFeature" = "ميزة بريميوم";
+"premiumRequired" = "مطلوب بريميوم";
+"upgradeToPremium" = "الترقية إلى بريميوم";
+"premiumFeatureDescription" = "احصل على الوصول إلى جميع المجموعات المعرفة مسبقاً وافتح الإمكانيات غير المحدودة لتعلم اللغات";
+"previewBackgrounds" = "معاينة الخلفيات";
+"premium" = "بريميوم";
 
 // MARK: - Labels
 "settingsLabel" = "الإعدادات";
@@ -170,6 +179,11 @@
 "fireflies" = "اليراعات";
 "ocean" = "المحيط";
 "galaxy" = "المجرة";
+
+// MARK: - Card Limits
+"cardLimitExceeded" = "تم الوصول إلى حد البطاقات";
+"cardsRemaining" = "البطاقات المتبقية";
+"unlimitedCards" = "بطاقات غير محدودة";
 
 // MARK: - Categories
 "categoryBasics" = "الأساسيات";

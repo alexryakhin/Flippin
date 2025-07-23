@@ -124,6 +124,15 @@
 "deleteAll" = "すべて削除";
 "deleteAllCards" = "すべてのカードを削除";
 "deleteAllCardsConfirmation" = "すべてのカードを削除してもよろしいですか？この操作は元に戻せません。";
+"ok" = "OK";
+
+// MARK: - Premium Features
+"premiumFeature" = "プレミアム機能";
+"premiumRequired" = "プレミアムが必要";
+"upgradeToPremium" = "プレミアムにアップグレード";
+"premiumFeatureDescription" = "すべてのプリセットコレクションにアクセスし、言語学習の無限の可能性を開放";
+"previewBackgrounds" = "背景をプレビュー";
+"premium" = "プレミアム";
 
 // MARK: - Labels
 "settingsLabel" = "設定";
@@ -170,6 +179,11 @@
 "fireflies" = "蛍";
 "ocean" = "海";
 "galaxy" = "銀河";
+
+// MARK: - Card Limits
+"cardLimitExceeded" = "カード制限に達しました";
+"cardsRemaining" = "残りのカード";
+"unlimitedCards" = "無制限のカード";
 
 // MARK: - Categories
 "categoryBasics" = "基本";

@@ -140,6 +140,8 @@ enum LocalizationKeys {
     static let premiumFeature = "premiumFeature"
     static let premiumRequired = "premiumRequired"
     static let premiumFeatureDescription = "premiumFeatureDescription"
+    static let previewBackgrounds = "previewBackgrounds"
+    static let premium = "premium"
     static let deleteCardConfirmation = "deleteCardConfirmation"
     static let deleteAll = "deleteAll"
     static let deleteAllCards = "deleteAllCards"

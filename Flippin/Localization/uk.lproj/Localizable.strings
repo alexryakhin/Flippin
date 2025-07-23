@@ -124,6 +124,15 @@
 "deleteAll" = "Видалити Все";
 "deleteAllCards" = "Видалити Всі Картки";
 "deleteAllCardsConfirmation" = "Ви впевнені, що хочете видалити всі картки? Цю дію неможливо скасувати.";
+"ok" = "OK";
+
+// MARK: - Premium Features
+"premiumFeature" = "Преміум Функція";
+"premiumRequired" = "Потрібен Преміум";
+"upgradeToPremium" = "Перейти на Преміум";
+"premiumFeatureDescription" = "Отримайте доступ до всіх попередньо визначених колекцій та розблокуйте необмежений потенціал для вивчення мов";
+"previewBackgrounds" = "Попередній Перегляд Фонів";
+"premium" = "Преміум";
 
 // MARK: - Labels
 "settingsLabel" = "Налаштування";
@@ -170,6 +179,11 @@
 "fireflies" = "Світлячки";
 "ocean" = "Океан";
 "galaxy" = "Галактика";
+
+// MARK: - Card Limits
+"cardLimitExceeded" = "Ліміт Карток Досягнуто";
+"cardsRemaining" = "Картки, що Залишилися";
+"unlimitedCards" = "Необмежені Картки";
 
 // MARK: - Categories
 "categoryBasics" = "Основы";

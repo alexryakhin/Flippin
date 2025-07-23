@@ -124,6 +124,7 @@
 "deleteAll" = "모두 삭제";
 "deleteAllCards" = "모든 카드 삭제";
 "deleteAllCardsConfirmation" = "모든 카드를 삭제하시겠습니까? 이 작업은 취소할 수 없습니다.";
+"ok" = "확인";
 
 // MARK: - Labels
 "settingsLabel" = "설정";
@@ -171,6 +172,11 @@
 "ocean" = "바다";
 "galaxy" = "은하";
 
+// MARK: - Card Limits
+"cardLimitExceeded" = "카드 한도 초과";
+"cardsRemaining" = "남은 카드";
+"unlimitedCards" = "무제한 카드";
+
 // MARK: - Categories
 "categoryBasics" = "기본";
 "categoryTravel" = "여행";
@@ -183,3 +189,11 @@
 "categoryLifestyle" = "라이프스타일";
 "categoryProfessional" = "전문";
 "categoryEmergency" = "비상";
+
+// MARK: - Premium Features
+"premiumFeature" = "프리미엄 기능";
+"premiumRequired" = "프리미엄 필요";
+"upgradeToPremium" = "프리미엄으로 업그레이드";
+"premiumFeatureDescription" = "모든 프리셋 컬렉션에 접근하고 언어 학습의 무한한 잠재력을 해제하세요";
+"previewBackgrounds" = "배경 미리보기";
+"premium" = "프리미엄";

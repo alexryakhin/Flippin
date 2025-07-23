@@ -144,6 +144,8 @@
 "premiumRequired" = "Premium Required";
 "upgradeToPremium" = "Upgrade to Premium";
 "premiumFeatureDescription" = "Access all preset collections and unlock unlimited language learning potential";
+"previewBackgrounds" = "Preview Backgrounds";
+"premium" = "Premium";
 
 // MARK: - Labels
 "settingsLabel" = "Settings";
