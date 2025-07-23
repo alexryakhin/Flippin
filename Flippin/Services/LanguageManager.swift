@@ -101,7 +101,8 @@ final class LanguageManager: ObservableObject {
     }
 
     func filterCards(_ cards: [CardItem]) -> [CardItem] {
-        guard filterByLanguage else { return cards }
+        // Disable language filtering for free users
+        guard PurchaseService.shared.hasPremiumAccess && filterByLanguage else { return cards }
         
         return cards.filter { card in
             card.frontLanguage == targetLanguage && card.backLanguage == userLanguage

@@ -56,4 +56,13 @@ enum BackgroundStyle: String, CaseIterable, Codable {
             return false
         }
     }
+
+    var isFree: Bool {
+        switch self {
+        case .gradient:
+            return true
+        default:
+            return false
+        }
+    }
 }

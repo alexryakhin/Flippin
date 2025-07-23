@@ -14,12 +14,15 @@ struct SettingsView: View {
     @StateObject private var languageManager = LanguageManager.shared
     @StateObject private var colorManager =  ColorManager.shared
     @StateObject private var tagManager = TagManager.shared
+    @StateObject private var purchaseService = PurchaseService.shared
     @AppStorage(UserDefaultsKey.cardDisplayMode) private var isTravelMode = false
 
     @State private var newTagText = ""
     @State private var showingAddTagAlert = false
     @State private var showingBackgroundPreview = false
+    @State private var showingBackgroundDemo = false
     @State private var showingPurchaseTest = false
+    @State private var showPaywall = false
 
     var body: some View {
         NavigationView {
@@ -34,39 +37,72 @@ struct SettingsView: View {
                                     .font(.subheadline)
                                     .foregroundStyle(.primary)
                             } trailingContent: {
-                                Picker(LocalizationKeys.myLanguageSettings.localized, selection: $languageManager.userLanguageRaw) {
-                                    ForEach(Language.sortedByDisplayNameWithSystemFirst) { lang in
-                                        Text(lang.displayName).tag(lang.rawValue)
+                                if purchaseService.hasPremiumAccess {
+                                    Picker(LocalizationKeys.myLanguageSettings.localized, selection: $languageManager.userLanguageRaw) {
+                                        ForEach(Language.sortedByDisplayNameWithSystemFirst) { lang in
+                                            Text(lang.displayName).tag(lang.rawValue)
+                                        }
+                                    }
+                                    .pickerStyle(.menu)
+                                } else {
+                                    HStack {
+                                        Text(languageManager.userLanguage.displayName)
+                                            .foregroundStyle(.secondary)
+                                        Image(systemName: "crown.fill")
+                                            .foregroundStyle(.yellow)
+                                            .font(.caption)
                                     }
                                 }
-                                .pickerStyle(.menu)
-                                    }
+                            }
+                            .onTapGesture {
+                                if !purchaseService.hasPremiumAccess {
+                                    showPaywall = true
+                                }
+                            }
 
                             CellWrapper {
                                 Text(LocalizationKeys.targetLanguage.localized)
                                     .font(.subheadline)
                                     .foregroundStyle(.primary)
                             } trailingContent: {
-                                Picker(LocalizationKeys.targetLanguage.localized, selection: $languageManager.targetLanguageRaw) {
-                                    ForEach(Language.sortedByDisplayNameWithSystemFirst) { lang in
-                                        Text(lang.displayName).tag(lang.rawValue)
+                                if purchaseService.hasPremiumAccess {
+                                    Picker(LocalizationKeys.targetLanguage.localized, selection: $languageManager.targetLanguageRaw) {
+                                        ForEach(Language.sortedByDisplayNameWithSystemFirst) { lang in
+                                            Text(lang.displayName).tag(lang.rawValue)
+                                        }
+                                    }
+                                    .pickerStyle(.menu)
+                                } else {
+                                    HStack {
+                                        Text(languageManager.targetLanguage.displayName)
+                                            .foregroundStyle(.secondary)
+                                        Image(systemName: "crown.fill")
+                                            .foregroundStyle(.yellow)
+                                            .font(.caption)
                                     }
                                 }
-                                .pickerStyle(.menu)
-                                    }
+                            }
+                            .onTapGesture {
+                                if !purchaseService.hasPremiumAccess {
+                                    showPaywall = true
+                                }
+                            }
 
-                            CellWrapper {
-                                VStack(alignment: .leading, spacing: 4) {
-                                    Text(LocalizationKeys.filterByLanguage.localized)
-                                        .font(.subheadline)
-                                        .foregroundStyle(.primary)
-                                    Text(LocalizationKeys.filterByLanguageDescription.localized)
-                                        .font(.caption)
-                                        .foregroundStyle(.secondary)
+                            // Only show filter by language for premium users
+                            if purchaseService.hasPremiumAccess {
+                                CellWrapper {
+                                    VStack(alignment: .leading, spacing: 4) {
+                                        Text(LocalizationKeys.filterByLanguage.localized)
+                                            .font(.subheadline)
+                                            .foregroundStyle(.primary)
+                                        Text(LocalizationKeys.filterByLanguageDescription.localized)
+                                            .font(.caption)
+                                            .foregroundStyle(.secondary)
+                                    }
+                                } trailingContent: {
+                                    Toggle("", isOn: $languageManager.filterByLanguage)
+                                        .labelsHidden()
                                 }
-                            } trailingContent: {
-                                Toggle("", isOn: $languageManager.filterByLanguage)
-                                    .labelsHidden()
                             }
                         }
                         .clippedWithBackground()
@@ -81,8 +117,24 @@ struct SettingsView: View {
                                     .font(.subheadline)
                                     .foregroundStyle(.primary)
                             } trailingContent: {
-                                ColorPicker("", selection: $colorManager.userColor)
-                                    .labelsHidden()
+                                if purchaseService.hasPremiumAccess {
+                                    ColorPicker("", selection: $colorManager.userColor)
+                                        .labelsHidden()
+                                } else {
+                                    HStack {
+                                        Circle()
+                                            .fill(colorManager.userColor)
+                                            .frame(width: 20, height: 20)
+                                        Image(systemName: "crown.fill")
+                                            .foregroundStyle(.yellow)
+                                            .font(.caption)
+                                    }
+                                }
+                            }
+                            .onTapGesture {
+                                if !purchaseService.hasPremiumAccess {
+                                    showPaywall = true
+                                }
                             }
 
                             CellWrapper {
@@ -90,12 +142,26 @@ struct SettingsView: View {
                                     .font(.subheadline)
                                     .foregroundStyle(.primary)
                             } trailingContent: {
-                                Button(colorManager.backgroundStyle.displayName) {
-                                    showingBackgroundPreview = true
-                                    AnalyticsService.trackNavigationEvent(.backgroundDemoOpened, screenName: "BackgroundDemo")
-                                }
-                                .buttonStyle(.bordered)
+                                if purchaseService.hasPremiumAccess {
+                                    Button(colorManager.backgroundStyle.displayName) {
+                                        showingBackgroundPreview = true
+                                        AnalyticsService.trackNavigationEvent(.backgroundDemoOpened, screenName: "BackgroundDemo")
                                     }
+                                    .buttonStyle(.bordered)
+                                } else {
+                                    Button("Preview Backgrounds") {
+                                        showingBackgroundDemo = true
+                                        AnalyticsService.trackNavigationEvent(.backgroundDemoOpened, screenName: "BackgroundDemo")
+                                    }
+                                    .buttonStyle(.bordered)
+                                    .foregroundStyle(.secondary)
+                                }
+                            }
+                            .onTapGesture {
+                                if !purchaseService.hasPremiumAccess {
+                                    showPaywall = true
+                                }
+                            }
                         }
                         .clippedWithBackground()
                     }
@@ -214,10 +280,16 @@ struct SettingsView: View {
             .sheet(isPresented: $showingBackgroundPreview) {
                 BackgroundPreviewView()
             }
+            .sheet(isPresented: $showingBackgroundDemo) {
+                BackgroundDemoView()
+            }
             .sheet(isPresented: $showingPurchaseTest) {
                 NavigationView {
                     PurchaseTestView()
                 }
+            }
+            .sheet(isPresented: $showPaywall) {
+                Paywall.ContentView()
             }
         }
     }

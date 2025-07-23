@@ -9,9 +9,11 @@ import SwiftUI
 import CoreData
 import Firebase
 import FirebaseAnalytics
+import TipKit
 
 @main
 struct FlippinApp: App {
+    @Environment(\.colorScheme) var colorScheme
     @StateObject private var coreDataService = CoreDataService.shared
     @StateObject private var cardsProvider = CardsProvider.shared
     @StateObject private var languageManager = LanguageManager.shared
@@ -22,13 +24,19 @@ struct FlippinApp: App {
     init() {
         FirebaseApp.configure()
         AnalyticsService.trackEvent(.appLaunched)
+        
+        // Configure TipKit
+        try? Tips.configure([
+            .displayFrequency(.immediate),
+            .datastoreLocation(.applicationDefault)
+        ])
     }
 
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .tint(colorManager.tintColor)
                 .observeColorScheme()
+                .tint(colorManager.tintColor)
                 .task {
                     // Ensure purchase status is properly loaded at startup
                     await ensurePurchaseStatusLoaded()

@@ -2,7 +2,10 @@ import SwiftUI
 
 struct BackgroundDemoView: View {
     @Environment(\.colorScheme) var colorScheme
+    @Environment(\.dismiss) var dismiss
     @StateObject private var colorManager = ColorManager.shared
+    @StateObject private var purchaseService = PurchaseService.shared
+    @State private var showPaywall = false
 
     var body: some View {
         NavigationView {
@@ -17,25 +20,51 @@ struct BackgroundDemoView: View {
                                 AnimatedBackground(style: style)
                                     .frame(height: 200)
                                     .clipShape(RoundedRectangle(cornerRadius: 16))
-                                
+
+                                var foregroundColor: Color {
+                                    guard !style.isAlwaysDark else { return .white }
+                                    return colorManager.userColor.isLight ? .black : .white
+                                }
+
                                 VStack {
                                     Image(systemName: style.icon)
-                                        .font(.largeTitle)
-                                        .foregroundColor(.white)
+                                        .font(.title2)
+                                        .foregroundColor(foregroundColor)
                                     Text(style.displayName)
-                                        .font(.headline)
-                                        .foregroundColor(.white)
-                                        .fontWeight(.bold)
+                                        .font(.caption)
+                                        .foregroundColor(foregroundColor)
+                                        .fontWeight(.medium)
+                                }
+
+                                // Premium overlay for free users
+                                if !purchaseService.hasPremiumAccess && !style.isFree {
+                                    RoundedRectangle(cornerRadius: 16)
+                                        .fill(.clear)
+                                        .overlay(alignment: .bottomTrailing) {
+                                            VStack(spacing: 8) {
+                                                Image(systemName: "crown.fill")
+                                                    .font(.title2)
+                                                    .foregroundColor(.yellow)
+                                                Text("Premium")
+                                                    .font(.caption)
+                                                    .fontWeight(.semibold)
+                                                    .foregroundColor(.white)
+                                            }
+                                            .padding(8)
+                                            .background(.thinMaterial)
+                                            .clipShape(RoundedRectangle(cornerRadius: 8))
+                                            .padding(8)
+                                        }
                                 }
                             }
-                            
-                            Text(LocalizationKeys.tapToSeeFullScreen.localized)
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
                         }
                         .onTapGesture {
-                            // This would show the full background in a sheet
-                            print("Selected: \(style.displayName)")
+                            if purchaseService.hasPremiumAccess || style.isFree {
+                                // This would show the full background in a sheet
+                                print("Selected: \(style.displayName)")
+                            } else {
+                                showPaywall = true
+                            }
                         }
                     }
                 }
@@ -44,6 +73,16 @@ struct BackgroundDemoView: View {
             .background(Color(.systemGroupedBackground))
             .navigationTitle(LocalizationKeys.backgroundDemo.localized)
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(LocalizationKeys.done.localized) {
+                        dismiss()
+                    }
+                }
+            }
+            .sheet(isPresented: $showPaywall) {
+                Paywall.ContentView()
+            }
         }
     }
 }

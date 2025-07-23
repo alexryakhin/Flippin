@@ -13,12 +13,14 @@ struct FeaturedPresetCollections: View {
     @StateObject private var cardsProvider = CardsProvider.shared
     @StateObject private var colorManager = ColorManager.shared
     @StateObject private var presetService = PresetCollectionService.shared
+    @StateObject private var purchaseService = PurchaseService.shared
 
     @State private var showingAllCollections = false
     @State private var showingImportAlert = false
     @State private var collectionToImport: PresetCollection?
     @State private var showingLimitAlert = false
     @State private var limitAlertMessage = ""
+    @State private var showPaywall = false
     
     var featuredCollections: [PresetCollection] {
         presetService.getFeaturedCollections()
@@ -35,8 +37,13 @@ struct FeaturedPresetCollections: View {
                     Spacer()
 
                     Button(LocalizationKeys.seeAllCollections.localized) {
-                        showingAllCollections = true
-                        AnalyticsService.trackNavigationEvent(.presetCollectionsOpened, screenName: "PresetCollections")
+                        if purchaseService.hasPremiumAccess {
+                            showingAllCollections = true
+                            AnalyticsService.trackNavigationEvent(.presetCollectionsOpened, screenName: "PresetCollections")
+                        } else {
+                            // Donate tip event and show paywall for free users
+                            showPaywall = true
+                        }
                     }
                     .font(.subheadline)
                     .foregroundColor(colorManager.tintColor)
@@ -66,6 +73,9 @@ struct FeaturedPresetCollections: View {
             }
             .sheet(isPresented: $showingAllCollections) {
                 PresetCollectionsView()
+            }
+            .sheet(isPresented: $showPaywall) {
+                Paywall.ContentView()
             }
             .alert(LocalizationKeys.importCollection.localized, isPresented: $showingImportAlert) {
                 Button(LocalizationKeys.cancel.localized, role: .cancel) { }

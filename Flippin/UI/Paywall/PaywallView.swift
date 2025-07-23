@@ -1,256 +1,208 @@
 import SwiftUI
 import StoreKit
 
-struct PaywallView: View {
-    @Environment(\.dismiss) var dismiss
-    @Environment(\.colorScheme) var colorScheme
-    @StateObject private var purchaseService = PurchaseService.shared
-    @StateObject private var colorManager = ColorManager.shared
-    
-    @State private var isPurchasing = false
-    @State private var showingAlert = false
-    @State private var alertMessage = ""
-    @State private var alertTitle = ""
-    
-    private let currentCardCount: Int
-    private let cardLimit: Int
-    
-    init(currentCardCount: Int, cardLimit: Int) {
-        self.currentCardCount = currentCardCount
-        self.cardLimit = cardLimit
-    }
-    
-    var body: some View {
-        ScrollView {
-            VStack(spacing: 32) {
-                headerSection
-                featuresSection
-                subscriptionSection
-                footerSection
-            }
-            .padding(.horizontal, 24)
-            .padding(.vertical, 32)
-        }
-        .background(WelcomeSheet.AnimatedBackground().ignoresSafeArea())
-        .navigationBarHidden(true)
-        .alert(alertTitle, isPresented: $showingAlert) {
-            Button("OK") { }
-        } message: {
-            Text(alertMessage)
-        }
-        .onAppear {
-            Task {
-                await purchaseService.loadProducts()
-            }
-        }
-    }
-    
-    // MARK: - Header Section
-    @ViewBuilder
-    private var headerSection: some View {
-        VStack(spacing: 16) {
-            // Close button
-            HStack {
-                Spacer()
-                Button {
-                    dismiss()
-                } label: {
-                    Image(systemName: "xmark.circle.fill")
-                        .font(.title2)
-                        .foregroundColor(.white.opacity(0.8))
+enum Paywall {
+    struct ContentView: View {
+        @Environment(\.dismiss) var dismiss
+        @StateObject private var purchaseService = PurchaseService.shared
+        @StateObject private var colorManager = ColorManager.shared
+        @StateObject private var cardsProvider = CardsProvider.shared
+        @State private var isAnimating = false
+
+        var body: some View {
+            NavigationView {
+                ScrollView {
+                    VStack(spacing: 32) {
+                        // Header with subtle animation
+                        VStack(spacing: 12) {
+                            Text("Unlock Premium")
+                                .font(.system(size: 34, weight: .bold, design: .rounded))
+                                .foregroundColor(.primary)
+                                .scaleEffect(isAnimating ? 1.0 : 0.95)
+                                .animation(.easeOut(duration: 0.6), value: isAnimating)
+
+                            Text("Master your language learning with exclusive features")
+                                .font(.system(size: 18, weight: .medium, design: .rounded))
+                                .foregroundColor(.secondary)
+                                .multilineTextAlignment(.center)
+                                .padding(.horizontal, 40)
+
+                            // Progress indicator with gradient
+                            VStack(spacing: 10) {
+                                Text("You've used \(cardsProvider.cards.count) of \(cardsProvider.cardLimit) free cards")
+                                    .font(.system(size: 14, weight: .medium, design: .rounded))
+                                    .foregroundColor(.secondary)
+
+                                ProgressView(value: Double(cardsProvider.cards.count), total: Double(cardsProvider.cardLimit))
+                                    .progressViewStyle(.linear)
+                                    .tint(LinearGradient(
+                                        gradient: Gradient(colors: [colorManager.tintColor, colorManager.tintColor.opacity(0.7)]),
+                                        startPoint: .leading,
+                                        endPoint: .trailing
+                                    ))
+                                    .scaleEffect(x: 1, y: 2, anchor: .center)
+                                    .padding(.horizontal, 40)
+                            }
+                            .padding(.top, 8)
+                        }
+                        .padding(.top, 20)
+
+                        // Features with glassmorphism cards
+                        VStack(spacing: 12) {
+                            Text("What You Get with Premium")
+                                .font(.system(size: 24, weight: .semibold, design: .rounded))
+                                .foregroundColor(.primary)
+
+                            ForEach(features, id: \.title) { feature in
+                                FeatureRow(
+                                    icon: feature.icon,
+                                    title: feature.title,
+                                    description: feature.description
+                                )
+                                .padding(.horizontal, 20)
+                                .padding(.vertical, 12)
+                                .background(.thinMaterial)
+                                .clipShape(RoundedRectangle(cornerRadius: 16))
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 16)
+                                        .strokeBorder(Color(.systemGray5), lineWidth: 1)
+                                )
+                                .shadow(color: .black.opacity(0.05), radius: 10, x: 0, y: 5)
+                                .scaleEffect(isAnimating ? 1.0 : 0.98)
+                                .animation(.spring(response: 0.4, dampingFraction: 0.8).delay(Double(features.firstIndex(where: { $0.title == feature.title }) ?? 0) * 0.1), value: isAnimating)
+                            }
+                        }
+                        .padding(.horizontal, 16)
+
+                        // Subscription Store with polished styling
+                        SubscriptionStoreView(groupID: "21731755")
+                            .subscriptionStoreControlStyle(.prominentPicker)
+                            .subscriptionStoreButtonLabel(.action)
+                            .onInAppPurchaseCompletion { product, result in
+                                handlePurchaseResult(product: product, result: result)
+                            }
+
+                        // Restore Purchases button with modern styling
+                        Button(action: {
+                            Task {
+                                await restorePurchases()
+                            }
+                        }) {
+                            Text("Restore Purchases")
+                                .font(.system(size: 14, weight: .medium, design: .rounded))
+                                .foregroundColor(.secondary)
+                                .padding(.vertical, 8)
+                                .padding(.horizontal, 16)
+                                .background(.ultraThinMaterial)
+                                .clipShape(Capsule())
+                                .overlay(
+                                    Capsule()
+                                        .strokeBorder(.white.opacity(0.2), lineWidth: 1)
+                                )
+                        }
+
+                        // Footer with links
+                        VStack(spacing: 8) {
+                            Text("Cancel anytime • No commitment")
+                                .font(.system(size: 12, weight: .regular, design: .rounded))
+                                .foregroundColor(.secondary)
+
+                            HStack(spacing: 20) {
+                                Link("Terms", destination: URL(string: "https://example.com/terms")!)
+                                Link("Privacy", destination: URL(string: "https://example.com/privacy")!)
+                            }
+                            .font(.system(size: 12, weight: .regular, design: .rounded))
+                            .foregroundColor(.secondary.opacity(0.8))
+                        }
+                        .padding(.bottom, 20)
+                    }
+                    .padding(.horizontal, 16)
                 }
-            }
-            
-            // Main title
-            VStack(spacing: 12) {
-                Text("Unlock Premium")
-                    .font(.system(size: 32, weight: .bold, design: .rounded))
-                    .foregroundColor(.white)
-                
-                Text("Take your language learning to the next level")
-                    .font(.title3)
-                    .foregroundColor(.white.opacity(0.9))
-                    .multilineTextAlignment(.center)
-            }
-            
-            // Card limit indicator
-            VStack(spacing: 8) {
-                Text("You've used \(currentCardCount) of \(cardLimit) free cards")
-                    .font(.subheadline)
-                    .foregroundColor(.white.opacity(0.8))
-                
-                ProgressView(value: Double(currentCardCount), total: Double(cardLimit))
-                    .progressViewStyle(LinearProgressViewStyle(tint: .white))
-                    .frame(height: 6)
-            }
-            .padding(.horizontal, 32)
-        }
-    }
-    
-    // MARK: - Features Section
-    @ViewBuilder
-    private var featuresSection: some View {
-        VStack(spacing: 20) {
-            Text("Premium Features")
-                .font(.title2)
-                .fontWeight(.semibold)
-                .foregroundColor(.white)
-            
-            VStack(spacing: 16) {
-                FeatureRow(
-                    icon: "infinity",
-                    title: "Unlimited Cards",
-                    description: "Create as many flashcards as you want"
+                .background(
+                    WelcomeSheet.AnimatedBackground()
                 )
-                
-                FeatureRow(
-                    icon: "folder.fill",
-                    title: "50+ Collections",
-                    description: "Access all preset vocabulary collections"
-                )
-                
-                FeatureRow(
-                    icon: "sparkles",
-                    title: "Premium Backgrounds",
-                    description: "Beautiful animated backgrounds"
-                )
-                
-                FeatureRow(
-                    icon: "chart.line.uptrend.xyaxis",
-                    title: "Progress Analytics",
-                    description: "Track your learning progress"
-                )
-                
-                FeatureRow(
-                    icon: "square.and.arrow.up",
-                    title: "Export & Backup",
-                    description: "Backup and share your cards"
-                )
-            }
-        }
-    }
-    
-    // MARK: - Subscription Section with Native StoreKit Views
-    @ViewBuilder
-    private var subscriptionSection: some View {
-        VStack(spacing: 20) {
-            Text("Choose Your Plan")
-                .font(.title2)
-                .fontWeight(.semibold)
-                .foregroundColor(.white)
-            
-            // Native StoreKit Subscription Store View
-            if #available(iOS 17.0, *) {
-                SubscriptionStoreView(groupID: "21731755")
-                    .subscriptionStoreControlStyle(.prominentPicker)
-                    .subscriptionStorePickerItemBackground(.ultraThinMaterial)
-                    .subscriptionStoreControlBackground(.ultraThinMaterial)
-                    .onInAppPurchaseCompletion { product, result in
-                        switch result {
-                        case .success(let purchaseResult):
-                            print("Purchase successful: \(purchaseResult)")
-                            dismiss()
-                        case .failure(let error):
-                            print("Purchase failed: \(error)")
-                            alertTitle = "Purchase Failed"
-                            alertMessage = error.localizedDescription
-                            showingAlert = true
+                .navigationTitle("Go Premium")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button(action: { dismiss() }) {
+                            Image(systemName: "xmark.circle.fill")
+                                .foregroundColor(.secondary)
+                                .font(.system(size: 20))
                         }
                     }
-            } else {
-                // Fallback for older iOS versions (shouldn't happen since app targets iOS 17+)
-                Text("Subscription Store requires iOS 17+")
-                    .foregroundColor(.white)
-            }
-            
-            Button("Restore Purchases") {
-                Task {
-                    await restorePurchases()
                 }
             }
-            .font(.subheadline)
-            .foregroundColor(.white.opacity(0.8))
-        }
-    }
-    
-    // MARK: - Footer Section
-    @ViewBuilder
-    private var footerSection: some View {
-        VStack(spacing: 12) {
-            Text("Cancel anytime • No commitment")
-                .font(.caption)
-                .foregroundColor(.white.opacity(0.6))
-                .multilineTextAlignment(.center)
-            
-            HStack(spacing: 20) {
-                Link("Terms of Service", destination: URL(string: "https://example.com/terms")!)
-                Link("Privacy Policy", destination: URL(string: "https://example.com/privacy")!)
+            .onAppear {
+                isAnimating = true
+                Task {
+                    await purchaseService.loadProducts()
+                }
             }
-            .font(.caption)
-            .foregroundColor(.white.opacity(0.6))
         }
-    }
-    
-    // MARK: - Actions
-    private func handlePurchaseResult(product: Product, result: Result<Void, Error>) {
-        switch result {
-        case .success:
-            dismiss()
-        case .failure(let error):
-            alertTitle = "Purchase Failed"
-            alertMessage = error.localizedDescription
-            showingAlert = true
+
+        private func handlePurchaseResult(product: Product, result: Result<Product.PurchaseResult, Error>) {
+            switch result {
+            case .success:
+                dismiss()
+            case .failure(let error):
+                print("Purchase failed: \(error.localizedDescription)")
+            }
         }
+
+        private func restorePurchases() async {
+            let success = await purchaseService.restorePurchases()
+            if success {
+                dismiss()
+            }
+        }
+
+        // Feature data
+        private let features = [
+            FeatureModel(icon: "infinity", title: "Unlimited Cards", description: "Create as many flashcards as you want"),
+            FeatureModel(icon: "folder.fill", title: "30+ Collections", description: "Access all preset vocabulary collections"),
+            FeatureModel(icon: "sparkles", title: "Premium Backgrounds", description: "Beautiful animated backgrounds"),
+            FeatureModel(icon: "globe", title: "Change Languages", description: "Switch between different language pairs anytime")
+        ]
     }
-    
-    private func restorePurchases() async {
-        let success = await purchaseService.restorePurchases()
-        
-        if success {
-            dismiss()
-        } else {
-            alertTitle = "Restore Failed"
-            alertMessage = "No purchases found to restore"
-            showingAlert = true
+
+    // MARK: - Feature Model
+    struct FeatureModel: Identifiable {
+        let id = UUID()
+        let icon: String
+        let title: String
+        let description: String
+    }
+
+    // MARK: - Feature Row
+    struct FeatureRow: View {
+        let icon: String
+        let title: String
+        let description: String
+
+        var body: some View {
+            HStack(spacing: 16) {
+                Image(systemName: icon)
+                    .font(.system(size: 24))
+                    .foregroundColor(.accentColor)
+                    .frame(width: 40, alignment: .center)
+
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(title)
+                        .font(.system(size: 16, weight: .semibold, design: .rounded))
+                        .foregroundColor(.primary)
+
+                    Text(description)
+                        .font(.system(size: 14, weight: .regular, design: .rounded))
+                        .foregroundColor(.secondary)
+                }
+
+                Spacer()
+            }
         }
     }
 }
 
-// MARK: - Supporting Views
-struct FeatureRow: View {
-    @StateObject private var colorManager = ColorManager.shared
-
-    let icon: String
-    let title: String
-    let description: String
-    
-    var body: some View {
-        HStack(spacing: 16) {
-            Image(systemName: icon)
-                .font(.title2)
-                .foregroundStyle(colorManager.tintColor)
-                .frame(width: 32)
-            
-            VStack(alignment: .leading, spacing: 4) {
-                Text(title)
-                    .font(.headline)
-                    .foregroundStyle(.primary)
-
-                Text(description)
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
-            }
-            
-            Spacer()
-        }
-        .padding(.horizontal, 20)
-        .padding(.vertical, 16)
-        .background(.thinMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: 12))
-    }
-}
-
-// MARK: - Preview
 #Preview {
-    PaywallView(currentCardCount: 8, cardLimit: 10)
-} 
+    Paywall.ContentView()
+}

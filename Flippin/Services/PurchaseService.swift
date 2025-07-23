@@ -273,6 +273,13 @@ final class PurchaseService: ObservableObject {
         await loadPurchasedProducts()
         print("✅ Purchase status reloaded")
     }
+    
+    // MARK: - Premium Access Helper
+    /// Returns true if the user has any premium subscription
+    var hasPremiumAccess: Bool {
+        return isProductPurchased("com.dor.flippin.premium_monthly") ||
+               isProductPurchased("com.dor.flippin.premium_yearly")
+    }
 }
 
 // MARK: - Purchase Errors

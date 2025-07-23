@@ -135,6 +135,11 @@ enum LocalizationKeys {
     static let editCard = "editCard"
     static let delete = "delete"
     static let deleteCard = "deleteCard"
+    
+    // MARK: - Premium Features
+    static let premiumFeature = "premiumFeature"
+    static let premiumRequired = "premiumRequired"
+    static let premiumFeatureDescription = "premiumFeatureDescription"
     static let deleteCardConfirmation = "deleteCardConfirmation"
     static let deleteAll = "deleteAll"
     static let deleteAllCards = "deleteAllCards"

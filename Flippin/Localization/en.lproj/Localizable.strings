@@ -139,6 +139,12 @@
 "deleteAllCardsConfirmation" = "Are you sure you want to delete all cards? This action cannot be undone.";
 "ok" = "OK";
 
+// MARK: - Premium Features
+"premiumFeature" = "Premium Feature";
+"premiumRequired" = "Premium Required";
+"upgradeToPremium" = "Upgrade to Premium";
+"premiumFeatureDescription" = "Access all preset collections and unlock unlimited language learning potential";
+
 // MARK: - Labels
 "settingsLabel" = "Settings";
 "menu" = "Menu";

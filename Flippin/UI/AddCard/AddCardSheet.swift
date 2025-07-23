@@ -65,10 +65,7 @@ struct AddCardSheet: View {
                 Text(viewModel.limitAlertMessage)
             }
             .sheet(isPresented: $showPaywall) {
-                SimplePaywallView(
-                    currentCardCount: CardsProvider.shared.cards.count,
-                    cardLimit: CardsProvider.shared.cardLimit
-                )
+                Paywall.ContentView()
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {

@@ -133,10 +133,7 @@ struct ContentView: View {
             }
         }
         .sheet(isPresented: $showPaywall) {
-            SimplePaywallView(
-                currentCardCount: cardsProvider.cards.count,
-                cardLimit: cardsProvider.cardLimit
-            )
+            Paywall.ContentView()
         }
         .onChange(of: showPaywall) { _, isPresented in
             if isPresented {
@@ -184,8 +181,8 @@ struct ContentView: View {
             VStack(alignment: .leading, spacing: 4) {
                 Text("\(cardsProvider.cards.count) of \(cardsProvider.cardLimit) cards")
                     .font(.subheadline)
-                    .foregroundColor(.secondary)
-                
+                    .foregroundStyle(.secondary)
+
                 ProgressView(value: Double(cardsProvider.cards.count), total: Double(cardsProvider.cardLimit))
                     .progressViewStyle(LinearProgressViewStyle(tint: colorManager.tintColor))
                     .frame(height: 4)
@@ -197,17 +194,10 @@ struct ContentView: View {
                 showPaywall = true
             }
             .font(.caption)
-            .padding(.horizontal, 12)
-            .padding(.vertical, 6)
-            .background(colorManager.tintColor)
-            .foregroundColor(.white)
+            .buttonStyle(.borderedProminent)
             .clipShape(Capsule())
         }
-        .padding(.horizontal, 16)
-        .padding(.vertical, 8)
-        .background(Color(.tertiarySystemGroupedBackground))
-        .clipShape(RoundedRectangle(cornerRadius: 12))
-        .padding(.horizontal, 16)
+        .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
     }
 
     private var noCardsView: some View {
