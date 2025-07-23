@@ -1,0 +1,1284 @@
+{
+  "languageName": "Dutch",
+  "languageCode": "nl",
+  "presets": [
+    {
+      "id": 1,
+      "name": "Basisuitdrukkingen",
+      "description": "Basiswoorden en -frases die iedereen zou moeten kennen",
+      "category": "basics",
+      "systemImageName": "characters.uppercase",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Hallo",
+          "notes": "Basale groet",
+          "tags": ["basis", "communicatie"]
+        },
+        {
+          "id": 2,
+          "text": "Dank je",
+          "notes": "Dankbaarheid uitdrukken",
+          "tags": ["basis", "communicatie"]
+        },
+        {
+          "id": 3,
+          "text": "Alsjeblieft",
+          "notes": "Beleefde verzoeken doen",
+          "tags": ["basis", "communicatie"]
+        },
+        {
+          "id": 4,
+          "text": "Ja",
+          "notes": "Bevestigende reactie",
+          "tags": ["basis", "antwoorden"]
+        },
+        {
+          "id": 5,
+          "text": "Nee",
+          "notes": "Ontkennende reactie",
+          "tags": ["basis", "antwoorden"]
+        },
+        {
+          "id": 6,
+          "text": "Tot ziens",
+          "notes": "Afscheid",
+          "tags": ["basis", "communicatie"]
+        },
+        {
+          "id": 7,
+          "text": "Sorry",
+          "notes": "Aandacht vragen of excuses aanbieden",
+          "tags": ["basis", "communicatie"]
+        },
+        {
+          "id": 8,
+          "text": "Ik begrijp het niet",
+          "notes": "Wanneer je verduidelijking nodig hebt",
+          "tags": ["basis", "communicatie", "vragen"]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Reisbenodigdheden",
+      "description": "Essentiële frases voor reizen en verplaatsen",
+      "category": "travel",
+      "systemImageName": "airplane",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Waar is het toilet?",
+          "notes": "Belangrijk voor reizigers",
+          "tags": ["reizen", "vragen"]
+        },
+        {
+          "id": 2,
+          "text": "Hoeveel kost dit?",
+          "notes": "Winkelen en onderhandelen",
+          "tags": ["reizen", "winkelen", "vragen"]
+        },
+        {
+          "id": 3,
+          "text": "Ik heb hulp nodig",
+          "notes": "Noodfrase",
+          "tags": ["reizen", "noodgeval", "communicatie"]
+        },
+        {
+          "id": 4,
+          "text": "Spreek je Engels?",
+          "notes": "Taalbarrière overwinnen",
+          "tags": ["reizen", "communicatie", "vragen"]
+        },
+        {
+          "id": 5,
+          "text": "Ik ben verdwaald",
+          "notes": "Wanneer je een routebeschrijving nodig hebt",
+          "tags": ["reizen", "richtingen", "noodgeval"]
+        },
+        {
+          "id": 6,
+          "text": "Kun je me helpen?",
+          "notes": "Hulp vragen",
+          "tags": ["reizen", "communicatie", "vragen"]
+        },
+        {
+          "id": 7,
+          "text": "Hoe laat is het?",
+          "notes": "Vragen over tijd",
+          "tags": ["reizen", "tijd", "vragen"]
+        },
+        {
+          "id": 8,
+          "text": "Ik ben allergisch voor...",
+          "notes": "Belangrijk voor eten en medicijnen",
+          "tags": ["reizen", "gezondheid", "eten"]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Entertainment en Media",
+      "description": "Woorden en frases over films, muziek, spellen en entertainment",
+      "category": "entertainment",
+      "systemImageName": "play.circle.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Ik hou van deze film",
+          "notes": "Plezier uitdrukken",
+          "tags": ["entertainment", "films", "gevoelens"]
+        },
+        {
+          "id": 2,
+          "text": "Welke muziek vind je het leukst?",
+          "notes": "Gespreksstarter over muziek",
+          "tags": ["entertainment", "muziek", "vragen"]
+        },
+        {
+          "id": 3,
+          "text": "Dit lied is geweldig",
+          "notes": "Muziekwaardering",
+          "tags": ["entertainment", "muziek", "gevoelens"]
+        },
+        {
+          "id": 4,
+          "text": "Ik speel videogames",
+          "notes": "Hobby spellen",
+          "tags": ["entertainment", "spellen", "hobbies"]
+        },
+        {
+          "id": 5,
+          "text": "Heb je deze serie gezien?",
+          "notes": "Discussie over tv-series",
+          "tags": ["entertainment", "media", "vragen"]
+        },
+        {
+          "id": 6,
+          "text": "Ik lees stripboeken",
+          "notes": "Interesse in strips",
+          "tags": ["entertainment", "boeken", "hobbies"]
+        },
+        {
+          "id": 7,
+          "text": "Disney-films zijn fantastisch",
+          "notes": "Waardering voor Disney",
+          "tags": ["entertainment", "films", "gevoelens"]
+        },
+        {
+          "id": 8,
+          "text": "Welk genre vind je leuk?",
+          "notes": "Voorkeuren voor entertainment",
+          "tags": ["entertainment", "media", "vragen"]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Eten en Dineren",
+      "description": "Essentiële frases voor restaurants en culinaire ervaringen",
+      "category": "food",
+      "systemImageName": "fork.knife.circle",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Ik heb honger",
+          "notes": "Basale voedselbehoefte",
+          "tags": ["eten", "dineren", "gevoelens"]
+        },
+        {
+          "id": 2,
+          "text": "Dit is lekker",
+          "notes": "Waardering voor eten",
+          "tags": ["eten", "dineren", "gevoelens"]
+        },
+        {
+          "id": 3,
+          "text": "Ik ben vegetariër",
+          "notes": "Dieetbeperking",
+          "tags": ["eten", "dineren", "gezondheid"]
+        },
+        {
+          "id": 4,
+          "text": "Mag ik de menukaart?",
+          "notes": "Verzoek in restaurant",
+          "tags": ["eten", "dineren", "vragen"]
+        },
+        {
+          "id": 5,
+          "text": "Ik wil bestellen",
+          "notes": "Klaar om te bestellen",
+          "tags": ["eten", "dineren", "communicatie"]
+        },
+        {
+          "id": 6,
+          "text": "De rekening, alstublieft",
+          "notes": "Vragen om de rekening",
+          "tags": ["eten", "dineren", "communicatie"]
+        },
+        {
+          "id": 7,
+          "text": "Ik ben allergisch voor noten",
+          "notes": "Voedselallergie",
+          "tags": ["eten", "dineren", "gezondheid"]
+        },
+        {
+          "id": 8,
+          "text": "Wat raadt u aan?",
+          "notes": "Aanbevelingen vragen",
+          "tags": ["eten", "dineren", "vragen"]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Gezondheid en Medisch",
+      "description": "Belangrijke frases voor medische situaties en gezondheidszorgen",
+      "category": "emergency",
+      "systemImageName": "cross.circle.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Ik voel me niet goed",
+          "notes": "Algemene gezondheidszorgen",
+          "tags": ["gezondheid", "medisch", "noodgeval"]
+        },
+        {
+          "id": 2,
+          "text": "Ik heb hoofdpijn",
+          "notes": "Veelvoorkomend symptoom",
+          "tags": ["gezondheid", "medisch"]
+        },
+        {
+          "id": 3,
+          "text": "Ik heb een dokter nodig",
+          "notes": "Medische noodsituatie",
+          "tags": ["gezondheid", "medisch", "noodgeval"]
+        },
+        {
+          "id": 4,
+          "text": "Waar is het ziekenhuis?",
+          "notes": "Locatie van medische faciliteit",
+          "tags": ["gezondheid", "medisch", "vragen"]
+        },
+        {
+          "id": 5,
+          "text": "Ik heb koorts",
+          "notes": "Veelvoorkomend ziektesymptoom",
+          "tags": ["gezondheid", "medisch"]
+        },
+        {
+          "id": 6,
+          "text": "Ik gebruik medicijnen",
+          "notes": "Medische informatie",
+          "tags": ["gezondheid", "medisch"]
+        },
+        {
+          "id": 7,
+          "text": "Ik heb een allergie",
+          "notes": "Belangrijke medische informatie",
+          "tags": ["gezondheid", "medisch"]
+        },
+        {
+          "id": 8,
+          "text": "Bel een ambulance",
+          "notes": "Noodsituatie",
+          "tags": ["gezondheid", "medisch", "noodgeval"]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Vrije Tijd en Hobby's",
+      "description": "Frases over hobby's, sport en vrijetijdsactiviteiten",
+      "category": "lifestyle",
+      "systemImageName": "gamecontroller",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Ik lees graag",
+          "notes": "Lees-hobby",
+          "tags": ["vrije tijd", "hobby's", "boeken"]
+        },
+        {
+          "id": 2,
+          "text": "Doe je aan sport?",
+          "notes": "Gesprek over sport",
+          "tags": ["vrije tijd", "sport", "vragen"]
+        },
+        {
+          "id": 3,
+          "text": "Ik hou van wandelen",
+          "notes": "Buitenactiviteit",
+          "tags": ["vrije tijd", "hobby's", "natuur"]
+        },
+        {
+          "id": 4,
+          "text": "Wat doe je voor de lol?",
+          "notes": "Gespreksstarter over hobby's",
+          "tags": ["vrije tijd", "hobby's", "vragen"]
+        },
+        {
+          "id": 5,
+          "text": "Ik kook graag",
+          "notes": "Kook-hobby",
+          "tags": ["vrije tijd", "hobby's", "eten"]
+        },
+        {
+          "id": 6,
+          "text": "Laten we gaan wandelen",
+          "notes": "Voorstel voor een ontspannen activiteit",
+          "tags": ["vrije tijd", "hobby's", "acties"]
+        },
+        {
+          "id": 7,
+          "text": "Ik speel gitaar",
+          "notes": "Muziekinstrument",
+          "tags": ["vrije tijd", "hobby's", "muziek"]
+        },
+        {
+          "id": 8,
+          "text": "Ik hou van fotografie",
+          "notes": "Fotografie-hobby",
+          "tags": ["vrije tijd", "hobby's", "kunst"]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Winkelen en Onderhandelen",
+      "description": "Frases voor aankopen, prijsonderhandelingen en transacties",
+      "category": "shopping",
+      "systemImageName": "cart.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Mag ik dit passen?",
+          "notes": "Voor kleding of accessoires",
+          "tags": ["winkelen", "vragen"]
+        },
+        {
+          "id": 2,
+          "text": "Kun je de prijs verlagen?",
+          "notes": "Voor onderhandelen op markten",
+          "tags": ["winkelen", "zaken", "vragen"]
+        },
+        {
+          "id": 3,
+          "text": "Accepteer je creditcards?",
+          "notes": "Vraag over betaling",
+          "tags": ["winkelen", "zaken", "vragen"]
+        },
+        {
+          "id": 4,
+          "text": "Waar is de paskamer?",
+          "notes": "Voor kledingwinkels",
+          "tags": ["winkelen", "vragen"]
+        },
+        {
+          "id": 5,
+          "text": "Heb je dit in een kleinere maat?",
+          "notes": "Vragen naar verschillende maten",
+          "tags": ["winkelen", "vragen"]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Vervoer en Navigatie",
+      "description": "Frases voor het gebruik van openbaar vervoer, taxi's en het vinden van routes",
+      "category": "travel",
+      "systemImageName": "tram.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Waar is het busstation?",
+          "notes": "Vervoersknooppunten vinden",
+          "tags": ["vervoer", "richtingen", "vragen"]
+        },
+        {
+          "id": 2,
+          "text": "Kun je een taxi bellen?",
+          "notes": "Een taxi aanvragen",
+          "tags": ["vervoer", "communicatie"]
+        },
+        {
+          "id": 3,
+          "text": "Wanneer gaat de volgende trein?",
+          "notes": "Dienstregelingen openbaar vervoer",
+          "tags": ["vervoer", "tijd", "vragen"]
+        },
+        {
+          "id": 4,
+          "text": "Hoe kom ik bij het vliegveld?",
+          "notes": "Navigeren naar belangrijke plaatsen",
+          "tags": ["vervoer", "richtingen", "vragen"]
+        },
+        {
+          "id": 5,
+          "text": "Is het ver van hier?",
+          "notes": "Afstand controleren",
+          "tags": ["vervoer", "richtingen", "vragen"]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Accommodatie",
+      "description": "Frases voor het boeken van hotels, hostels of het omgaan met accommodatieproblemen",
+      "category": "travel",
+      "systemImageName": "house.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Ik wil een kamer boeken",
+          "notes": "Boeking van hotel of hostel",
+          "tags": ["accommodatie", "reizen", "communicatie"]
+        },
+        {
+          "id": 2,
+          "text": "Ik ben hier om in te checken",
+          "notes": "Aankomst bij accommodatie",
+          "tags": ["accommodatie", "reizen", "communicatie"]
+        },
+        {
+          "id": 3,
+          "text": "Kun je de kamer schoonmaken?",
+          "notes": "Huishoudelijke dienst aanvragen",
+          "tags": ["accommodatie", "communicatie"]
+        },
+        {
+          "id": 4,
+          "text": "Wat is het wifi-wachtwoord?",
+          "notes": "Veelgestelde vraag in accommodaties",
+          "tags": ["accommodatie", "technologie", "vragen"]
+        },
+        {
+          "id": 5,
+          "text": "Is laat uitchecken mogelijk?",
+          "notes": "Verblijf verlengen",
+          "tags": ["accommodatie", "vragen"]
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Sociale en Culturele Etiquette",
+      "description": "Frases voor beleefde interacties en het begrijpen van culturele normen",
+      "category": "social",
+      "systemImageName": "person.3.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Aangenaam kennis te maken",
+          "notes": "Beleefde introductie",
+          "tags": ["cultuur", "communicatie", "vrienden"]
+        },
+        {
+          "id": 2,
+          "text": "Wat zijn de lokale gewoonten?",
+          "notes": "Culturele normen leren",
+          "tags": ["cultuur", "vragen"]
+        },
+        {
+          "id": 3,
+          "text": "Gefeliciteerd!",
+          "notes": "Successen vieren",
+          "tags": ["cultuur", "communicatie"]
+        },
+        {
+          "id": 4,
+          "text": "Fijne verjaardag!",
+          "notes": "Feestelijke groet",
+          "tags": ["cultuur", "communicatie"]
+        },
+        {
+          "id": 5,
+          "text": "Sorry, ik ben te laat",
+          "notes": "Beleefde verontschuldiging",
+          "tags": ["cultuur", "communicatie"]
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Weer en Milieu",
+      "description": "Frases over het weer en milieuomstandigheden",
+      "category": "weather",
+      "systemImageName": "cloud.sun.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Hoe is het weer vandaag?",
+          "notes": "Dagelijkse weersvoorspelling controleren",
+          "tags": ["weer", "vragen"]
+        },
+        {
+          "id": 2,
+          "text": "Is het koud buiten?",
+          "notes": "Vraag over het weer",
+          "tags": ["weer", "vragen"]
+        },
+        {
+          "id": 3,
+          "text": "Gaat het later regenen?",
+          "notes": "Activiteiten plannen",
+          "tags": ["weer", "vragen"]
+        },
+        {
+          "id": 4,
+          "text": "Het is te warm",
+          "notes": "Ongemak uitdrukken",
+          "tags": ["weer", "gevoelens"]
+        },
+        {
+          "id": 5,
+          "text": "Waar is het dichtstbijzijnde strand?",
+          "notes": "Natuurlijke attracties vinden",
+          "tags": ["weer", "natuur", "vragen"]
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Getallen en Tijd",
+      "description": "Frases voor tellen, tijd aangeven en plannen",
+      "category": "basics",
+      "systemImageName": "clock.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Eén, twee, drie...",
+          "notes": "Basale telling",
+          "tags": ["getallen", "basis"]
+        },
+        {
+          "id": 2,
+          "text": "Welke dag is het vandaag?",
+          "notes": "Weekdag controleren",
+          "tags": ["tijd", "vragen"]
+        },
+        {
+          "id": 3,
+          "text": "Hoe laat gaat het open?",
+          "notes": "Openingstijden van winkels of attracties",
+          "tags": ["tijd", "vragen"]
+        },
+        {
+          "id": 4,
+          "text": "Hoeveel zijn er?",
+          "notes": "Vragen naar hoeveelheden",
+          "tags": ["getallen", "vragen"]
+        },
+        {
+          "id": 5,
+          "text": "Wacht even",
+          "notes": "Een pauze vragen",
+          "tags": ["tijd", "communicatie"]
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Technologie en Communicatie",
+      "description": "Frases voor het gebruik van technologie en verbonden blijven",
+      "category": "technology",
+      "systemImageName": "wifi",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Kan ik mijn telefoon opladen?",
+          "notes": "Oplader aanvragen",
+          "tags": ["technologie", "communicatie"]
+        },
+        {
+          "id": 2,
+          "text": "Is er wifi beschikbaar?",
+          "notes": "Vraag naar internettoegang",
+          "tags": ["technologie", "vragen"]
+        },
+        {
+          "id": 3,
+          "text": "Kun je een foto maken?",
+          "notes": "Een foto aanvragen",
+          "tags": ["technologie", "communicatie"]
+        },
+        {
+          "id": 4,
+          "text": "Ben je actief op sociale media?",
+          "notes": "Online verbinding maken",
+          "tags": ["technologie", "communicatie", "vragen"]
+        },
+        {
+          "id": 5,
+          "text": "Ik heb geen signaal",
+          "notes": "Probleem met telefoonverbinding",
+          "tags": ["technologie", "communicatie"]
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Groeten en Voorstellen",
+      "description": "Frases om gesprekken te beginnen en jezelf voor te stellen",
+      "category": "basics",
+      "systemImageName": "person.wave.2.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Hoe gaat het met je?",
+          "notes": "Veelgebruikte groet om interesse te tonen",
+          "tags": ["basis", "communicatie", "vragen"]
+        },
+        {
+          "id": 2,
+          "text": "Mijn naam is...",
+          "notes": "Jezelf voorstellen",
+          "tags": ["basis", "communicatie"]
+        },
+        {
+          "id": 3,
+          "text": "Waar kom je vandaan?",
+          "notes": "Gespreksstarter",
+          "tags": ["communicatie", "vragen"]
+        },
+        {
+          "id": 4,
+          "text": "Aangenaam kennis te maken",
+          "notes": "Beleefde introductie",
+          "tags": ["basis", "communicatie"]
+        },
+        {
+          "id": 5,
+          "text": "Hoe gaat je dag?",
+          "notes": "Ontspannen groet",
+          "tags": ["communicatie", "vragen"]
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Dagelijkse Routines",
+      "description": "Frases over dagelijkse activiteiten en schema's",
+      "category": "lifestyle",
+      "systemImageName": "sunrise.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Ik word vroeg wakker",
+          "notes": "Ochtendroutine beschrijven",
+          "tags": ["basis", "beschrijvingen"]
+        },
+        {
+          "id": 2,
+          "text": "Wat doe je elke dag?",
+          "notes": "Vragen naar routines",
+          "tags": ["vragen", "communicatie"]
+        },
+        {
+          "id": 3,
+          "text": "Ik werk 's ochtends",
+          "notes": "Werkrooster delen",
+          "tags": ["beschrijvingen", "zaken"]
+        },
+        {
+          "id": 4,
+          "text": "Ik ga laat naar bed",
+          "notes": "Avondgewoonten beschrijven",
+          "tags": ["beschrijvingen"]
+        },
+        {
+          "id": 5,
+          "text": "Heb je vrije tijd?",
+          "notes": "Vragen naar beschikbaarheid",
+          "tags": ["vragen", "vrije tijd"]
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Familie en Relaties",
+      "description": "Frases over familieleden en relaties",
+      "category": "social",
+      "systemImageName": "person.2.circle.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Ik heb een broer",
+          "notes": "Familie beschrijven",
+          "tags": ["familie", "beschrijvingen"]
+        },
+        {
+          "id": 2,
+          "text": "Ben je getrouwd?",
+          "notes": "Vragen naar relatiestatus",
+          "tags": ["familie", "vragen"]
+        },
+        {
+          "id": 3,
+          "text": "Mijn ouders wonen ver weg",
+          "notes": "Familiedetails delen",
+          "tags": ["familie", "beschrijvingen"]
+        },
+        {
+          "id": 4,
+          "text": "Heb je kinderen?",
+          "notes": "Gesprek over familie",
+          "tags": ["familie", "vragen"]
+        },
+        {
+          "id": 5,
+          "text": "Ik ben single",
+          "notes": "Relatiestatus beschrijven",
+          "tags": ["familie", "beschrijvingen"]
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "name": "Werk en Zaken",
+      "description": "Frases voor professionele interacties en werkplekgesprekken",
+      "category": "professional",
+      "systemImageName": "briefcase.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Wat is je beroep?",
+          "notes": "Vragen naar beroep",
+          "tags": ["zaken", "vragen"]
+        },
+        {
+          "id": 2,
+          "text": "Ik werk als...",
+          "notes": "Je beroep beschrijven",
+          "tags": ["zaken", "beschrijvingen"]
+        },
+        {
+          "id": 3,
+          "text": "Kunnen we een vergadering plannen?",
+          "notes": "Zakelijke vergadering organiseren",
+          "tags": ["zaken", "communicatie"]
+        },
+        {
+          "id": 4,
+          "text": "Waar is je kantoor?",
+          "notes": "Werkplek lokaliseren",
+          "tags": ["zaken", "vragen"]
+        },
+        {
+          "id": 5,
+          "text": "Ik heb een visitekaartje nodig",
+          "notes": "Netwerkverzoek",
+          "tags": ["zaken", "communicatie"]
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "name": "Onderwijs en Leren",
+      "description": "Frases over studeren, leren en onderwijs",
+      "category": "professional",
+      "systemImageName": "book.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Ik ben student",
+          "notes": "Studentstatus beschrijven",
+          "tags": ["onderwijs", "beschrijvingen"]
+        },
+        {
+          "id": 2,
+          "text": "Wat studeer je?",
+          "notes": "Vragen naar academische focus",
+          "tags": ["onderwijs", "vragen"]
+        },
+        {
+          "id": 3,
+          "text": "Ik heb een boek nodig",
+          "notes": "Leermateriaal aanvragen",
+          "tags": ["onderwijs", "communicatie"]
+        },
+        {
+          "id": 4,
+          "text": "Waar is de bibliotheek?",
+          "notes": "Leerplekken vinden",
+          "tags": ["onderwijs", "vragen"]
+        },
+        {
+          "id": 5,
+          "text": "Ik ben de taal aan het leren",
+          "notes": "Leerdoelen delen",
+          "tags": ["onderwijs", "communicatie"]
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "name": "Routebeschrijving Vragen",
+      "description": "Frases voor navigatie en het vinden van plaatsen",
+      "category": "travel",
+      "systemImageName": "map.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Linksaf",
+          "notes": "Routebeschrijving geven of ontvangen",
+          "tags": ["richtingen", "communicatie"]
+        },
+        {
+          "id": 2,
+          "text": "Is dit de juiste weg?",
+          "notes": "Routebeschrijving bevestigen",
+          "tags": ["richtingen", "vragen"]
+        },
+        {
+          "id": 3,
+          "text": "Hoe ver is het?",
+          "notes": "Vragen naar afstand",
+          "tags": ["richtingen", "vragen"]
+        },
+        {
+          "id": 4,
+          "text": "Ga rechtdoor",
+          "notes": "Routebeschrijving geven",
+          "tags": ["richtingen", "communicatie"]
+        },
+        {
+          "id": 5,
+          "text": "Waar is de kaart?",
+          "notes": "Navigatiemiddelen aanvragen",
+          "tags": ["richtingen", "vragen"]
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "name": "Boodschappen Doen",
+      "description": "Frases voor het kopen van voedsel en huishoudelijke artikelen",
+      "category": "food",
+      "systemImageName": "basket.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Waar is het fruit?",
+          "notes": "Artikelen vinden in de supermarkt",
+          "tags": ["winkelen", "eten", "vragen"]
+        },
+        {
+          "id": 2,
+          "text": "Is dit vers?",
+          "notes": "Voedselkwaliteit controleren",
+          "tags": ["winkelen", "eten", "vragen"]
+        },
+        {
+          "id": 3,
+          "text": "Ik heb een tas nodig",
+          "notes": "Winkeltas aanvragen",
+          "tags": ["winkelen", "communicatie"]
+        },
+        {
+          "id": 4,
+          "text": "Heb je melk?",
+          "notes": "Vragen naar specifieke artikelen",
+          "tags": ["winkelen", "eten", "vragen"]
+        },
+        {
+          "id": 5,
+          "text": "Hoeveel kost dit?",
+          "notes": "Prijzen van boodschappen controleren",
+          "tags": ["winkelen", "vragen"]
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "name": "Noodsituaties en Veiligheid",
+      "description": "Frases voor het omgaan met noodsituaties buiten medische situaties",
+      "category": "emergency",
+      "systemImageName": "exclamationmark.triangle.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Help, het is een noodgeval!",
+          "notes": "Dringende hulpkreet",
+          "tags": ["noodgeval", "communicatie"]
+        },
+        {
+          "id": 2,
+          "text": "Waar is het politiebureau?",
+          "notes": "Autoriteiten vinden",
+          "tags": ["noodgeval", "vragen"]
+        },
+        {
+          "id": 3,
+          "text": "Ik ben mijn paspoort kwijt",
+          "notes": "Verloren documenten melden",
+          "tags": ["noodgeval", "reizen"]
+        },
+        {
+          "id": 4,
+          "text": "Is het hier veilig?",
+          "notes": "Veiligheid controleren",
+          "tags": ["noodgeval", "vragen"]
+        },
+        {
+          "id": 5,
+          "text": "Bel de politie",
+          "notes": "Autoriteiten aanvragen",
+          "tags": ["noodgeval", "communicatie"]
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "name": "Romantiek en Sociaal",
+      "description": "Frases voor romantische en vriendschappelijke interacties",
+      "category": "social",
+      "systemImageName": "heart.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Je ziet er goed uit",
+          "notes": "Een compliment geven",
+          "tags": ["romantiek", "communicatie"]
+        },
+        {
+          "id": 2,
+          "text": "Mag ik je een drankje aanbieden?",
+          "notes": "Sociaal voorstel",
+          "tags": ["romantiek", "communicatie"]
+        },
+        {
+          "id": 3,
+          "text": "Wil je dansen?",
+          "notes": "Uitnodiging om te dansen",
+          "tags": ["romantiek", "acties"]
+        },
+        {
+          "id": 4,
+          "text": "Ik vind je glimlach mooi",
+          "notes": "Romantisch compliment",
+          "tags": ["romantiek", "communicatie"]
+        },
+        {
+          "id": 5,
+          "text": "Laten we contact houden",
+          "notes": "Contact onderhouden",
+          "tags": ["romantiek", "vrienden", "communicatie"]
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "name": "Lokale Cultuur en Tradities",
+      "description": "Frases om te interageren met lokale tradities en evenementen",
+      "category": "social",
+      "systemImageName": "flag.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Wat is dit festival?",
+          "notes": "Vragen naar lokale evenementen",
+          "tags": ["cultuur", "vragen"]
+        },
+        {
+          "id": 2,
+          "text": "Kan ik meedoen aan de viering?",
+          "notes": "Deelnemen aan evenementen",
+          "tags": ["cultuur", "communicatie"]
+        },
+        {
+          "id": 3,
+          "text": "Wat betekent dit?",
+          "notes": "Tradities begrijpen",
+          "tags": ["cultuur", "vragen"]
+        },
+        {
+          "id": 4,
+          "text": "Is dit een lokale traditie?",
+          "notes": "Leren over gebruiken",
+          "tags": ["cultuur", "vragen"]
+        },
+        {
+          "id": 5,
+          "text": "Ik hou van deze cultuur",
+          "notes": "Waardering uitdrukken",
+          "tags": ["cultuur", "gevoelens"]
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "name": "Kleuren en Beschrijvingen",
+      "description": "Frases om objecten, kleuren en uiterlijk te beschrijven",
+      "category": "shopping",
+      "systemImageName": "paintpalette.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Het is rood",
+          "notes": "Kleur beschrijven",
+          "tags": ["kleuren", "beschrijvingen"]
+        },
+        {
+          "id": 2,
+          "text": "Welke kleur is het?",
+          "notes": "Vragen naar kleuren",
+          "tags": ["kleuren", "vragen"]
+        },
+        {
+          "id": 3,
+          "text": "Het ziet er mooi uit",
+          "notes": "Uiterlijk beschrijven",
+          "tags": ["beschrijvingen", "gevoelens"]
+        },
+        {
+          "id": 4,
+          "text": "Is het groot of klein?",
+          "notes": "Vragen naar grootte",
+          "tags": ["beschrijvingen", "vragen"]
+        },
+        {
+          "id": 5,
+          "text": "Ik wil iets blauws",
+          "notes": "Specifieke kleur aanvragen",
+          "tags": ["kleuren", "winkelen"]
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "name": "Tijdsuitdrukkingen",
+      "description": "Frases over tijd buiten basale vragen",
+      "category": "weather",
+      "systemImageName": "timer",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Het is te vroeg",
+          "notes": "Tijdvoorkeur uitdrukken",
+          "tags": ["tijd", "gevoelens"]
+        },
+        {
+          "id": 2,
+          "text": "Tot morgen",
+          "notes": "Toekomstige afspraken plannen",
+          "tags": ["tijd", "communicatie"]
+        },
+        {
+          "id": 3,
+          "text": "Hoe lang duurt het?",
+          "notes": "Vragen naar duur",
+          "tags": ["tijd", "vragen"]
+        },
+        {
+          "id": 4,
+          "text": "Ik ben te laat",
+          "notes": "Vertraging uitleggen",
+          "tags": ["tijd", "communicatie"]
+        },
+        {
+          "id": 5,
+          "text": "Welke datum is het vandaag?",
+          "notes": "Vragen naar de datum",
+          "tags": ["tijd", "vragen"]
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "name": "Weergerelateerde Activiteiten",
+      "description": "Frases voor het plannen van activiteiten op basis van weersomstandigheden",
+      "category": "lifestyle",
+      "systemImageName": "sun.max.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Laten we naar het park gaan",
+          "notes": "Buitenactiviteit voorstellen",
+          "tags": ["weer", "acties"]
+        },
+        {
+          "id": 2,
+          "text": "Is het goed om te zwemmen?",
+          "notes": "Weer controleren voor activiteiten",
+          "tags": ["weer", "vragen"]
+        },
+        {
+          "id": 3,
+          "text": "Het is perfect voor een picknick",
+          "notes": "Ideaal weer beschrijven",
+          "tags": ["weer", "beschrijvingen"]
+        },
+        {
+          "id": 4,
+          "text": "Moeten we binnen blijven?",
+          "notes": "Plannen bij slecht weer",
+          "tags": ["weer", "vragen"]
+        },
+        {
+          "id": 5,
+          "text": "Vandaag is het zonnig",
+          "notes": "Weer beschrijven",
+          "tags": ["weer", "beschrijvingen"]
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "name": "Technologie Probleemoplossing",
+      "description": "Frases voor het omgaan met technologieproblemen buiten basale communicatie",
+      "category": "technology",
+      "systemImageName": "wrench.and.screwdriver.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Mijn telefoon werkt niet",
+          "notes": "Problemen met apparaat melden",
+          "tags": ["technologie", "communicatie"]
+        },
+        {
+          "id": 2,
+          "text": "Kun je dit repareren?",
+          "notes": "Technische hulp aanvragen",
+          "tags": ["technologie", "vragen"]
+        },
+        {
+          "id": 3,
+          "text": "Is het internet langzaam?",
+          "notes": "Verbindingsproblemen controleren",
+          "tags": ["technologie", "vragen"]
+        },
+        {
+          "id": 4,
+          "text": "Ik heb een oplader nodig",
+          "notes": "Oplaadapparatuur aanvragen",
+          "tags": ["technologie", "communicatie"]
+        },
+        {
+          "id": 5,
+          "text": "Het maakt geen verbinding",
+          "notes": "Verbindingsproblemen beschrijven",
+          "tags": ["technologie", "beschrijvingen"]
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "name": "Kunst en Creativiteit",
+      "description": "Frases over kunst, creativiteit en culturele activiteiten",
+      "category": "lifestyle",
+      "systemImageName": "paintbrush.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Ik hou van schilderen",
+          "notes": "Interesse in kunst uitdrukken",
+          "tags": ["kunst", "hobby's"]
+        },
+        {
+          "id": 2,
+          "text": "Waar is het museum?",
+          "notes": "Culturele locaties vinden",
+          "tags": ["kunst", "vragen"]
+        },
+        {
+          "id": 3,
+          "text": "Deze kunst is prachtig",
+          "notes": "Kunst waarderen",
+          "tags": ["kunst", "gevoelens"]
+        },
+        {
+          "id": 4,
+          "text": "Vind je tekenen leuk?",
+          "notes": "Gespreksstarter over kunst",
+          "tags": ["kunst", "vragen"]
+        },
+        {
+          "id": 5,
+          "text": "Wat is dit beeld?",
+          "notes": "Vragen naar kunstwerken",
+          "tags": ["kunst", "vragen"]
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "name": "Sport en Fitness",
+      "description": "Frases over sport en fysieke activiteiten",
+      "category": "lifestyle",
+      "systemImageName": "sportscourt.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Ik hou van hardlopen",
+          "notes": "Fitnessroutine beschrijven",
+          "tags": ["sport", "hobby's"]
+        },
+        {
+          "id": 2,
+          "text": "Waar kan ik voetballen?",
+          "notes": "Sportfaciliteiten vinden",
+          "tags": ["sport", "vragen"]
+        },
+        {
+          "id": 3,
+          "text": "Vind je yoga leuk?",
+          "notes": "Gesprek over sport starten",
+          "tags": ["sport", "vragen"]
+        },
+        {
+          "id": 4,
+          "text": "Ik ga naar de sportschool",
+          "notes": "Fitnessgewoonten delen",
+          "tags": ["sport", "beschrijvingen"]
+        },
+        {
+          "id": 5,
+          "text": "Laten we een spel spelen",
+          "notes": "Sportactiviteit voorstellen",
+          "tags": ["sport", "acties"]
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "name": "Reisplanning",
+      "description": "Frases voor het organiseren en plannen van reisactiviteiten",
+      "category": "travel",
+      "systemImageName": "suitcase.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Wat is een goede plek om te bezoeken?",
+          "notes": "Reisaanbevelingen vragen",
+          "tags": ["reizen", "vragen"]
+        },
+        {
+          "id": 2,
+          "text": "Hoeveel kost een kaartje?",
+          "notes": "Reiskosten controleren",
+          "tags": ["reizen", "vragen"]
+        },
+        {
+          "id": 3,
+          "text": "Ik heb een reisgids nodig",
+          "notes": "Reisbronnen aanvragen",
+          "tags": ["reizen", "communicatie"]
+        },
+        {
+          "id": 4,
+          "text": "Is er een rondleiding beschikbaar?",
+          "notes": "Informeren naar rondleidingen",
+          "tags": ["reizen", "vragen"]
+        },
+        {
+          "id": 5,
+          "text": "Ik reis morgen",
+          "notes": "Reisplannen delen",
+          "tags": ["reizen", "beschrijvingen"]
+        }
+      ]
+    }
+  ]
+}

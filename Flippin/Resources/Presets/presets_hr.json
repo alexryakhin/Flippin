@@ -1,0 +1,1284 @@
+{
+  "languageName": "Croatian",
+  "languageCode": "hr",
+  "presets": [
+    {
+      "id": 1,
+      "name": "Osnovne fraze",
+      "description": "Osnovne riječi i fraze koje svatko treba znati",
+      "category": "basics",
+      "systemImageName": "characters.uppercase",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Zdravo",
+          "notes": "Osnovni pozdrav",
+          "tags": ["osnove", "komunikacija"]
+        },
+        {
+          "id": 2,
+          "text": "Hvala",
+          "notes": "Izražavanje zahvalnosti",
+          "tags": ["osnove", "komunikacija"]
+        },
+        {
+          "id": 3,
+          "text": "Molim",
+          "notes": "Učtiv zahtjev",
+          "tags": ["osnove", "komunikacija"]
+        },
+        {
+          "id": 4,
+          "text": "Da",
+          "notes": "Potvrdan odgovor",
+          "tags": ["osnove", "odgovor"]
+        },
+        {
+          "id": 5,
+          "text": "Ne",
+          "notes": "Negativan odgovor",
+          "tags": ["osnove", "odgovor"]
+        },
+        {
+          "id": 6,
+          "text": "Doviđenja",
+          "notes": "Oproštaj",
+          "tags": ["osnove", "komunikacija"]
+        },
+        {
+          "id": 7,
+          "text": "Oprostite",
+          "notes": "Privlačenje pažnje ili isprika",
+          "tags": ["osnove", "komunikacija"]
+        },
+        {
+          "id": 8,
+          "text": "Ne razumijem",
+          "notes": "Kada je potrebno pojašnjenje",
+          "tags": ["osnove", "komunikacija", "pitanje"]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Potrebno za putovanja",
+      "description": "Fraze potrebne za putovanja i kretanje",
+      "category": "travel",
+      "systemImageName": "airplane",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Gdje je zahod?",
+          "notes": "Važno za putnike",
+          "tags": ["putovanje", "pitanje"]
+        },
+        {
+          "id": 2,
+          "text": "Koliko košta?",
+          "notes": "Kupnja ili pregovaranje",
+          "tags": ["putovanje", "kupnja", "pitanje"]
+        },
+        {
+          "id": 3,
+          "text": "Trebam pomoć",
+          "notes": "Fraza za hitne situacije",
+          "tags": ["putovanje", "hitno", "komunikacija"]
+        },
+        {
+          "id": 4,
+          "text": "Govorite li engleski?",
+          "notes": "Prevladavanje jezične barijere",
+          "tags": ["putovanje", "komunikacija", "pitanje"]
+        },
+        {
+          "id": 5,
+          "text": "Izgubio sam se",
+          "notes": "Kada je potrebna pomoć s pravcem",
+          "tags": ["putovanje", "smjer", "hitno"]
+        },
+        {
+          "id": 6,
+          "text": "Možete li mi pomoći?",
+          "notes": "Zahtjev za pomoć",
+          "tags": ["putovanje", "komunikacija", "pitanje"]
+        },
+        {
+          "id": 7,
+          "text": "Koliko je sati?",
+          "notes": "Pitanje o vremenu",
+          "tags": ["putovanje", "vrijeme", "pitanje"]
+        },
+        {
+          "id": 8,
+          "text": "Imam alergiju na...",
+          "notes": "Važno za hranu ili lijekove",
+          "tags": ["putovanje", "zdravlje", "hrana"]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Zabava i mediji",
+      "description": "Riječi i fraze povezane s filmovima, glazbom, igrama i zabavom",
+      "category": "entertainment",
+      "systemImageName": "play.circle.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Volim ovaj film",
+          "notes": "Izražavanje zadovoljstva",
+          "tags": ["zabava", "filmovi", "emocije"]
+        },
+        {
+          "id": 2,
+          "text": "Koju glazbu volite?",
+          "notes": "Početak razgovora o glazbi",
+          "tags": ["zabava", "glazba", "pitanje"]
+        },
+        {
+          "id": 3,
+          "text": "Ova pjesma je sjajna",
+          "notes": "Uživanje u glazbi",
+          "tags": ["zabava", "glazba", "emocije"]
+        },
+        {
+          "id": 4,
+          "text": "Igram videoigre",
+          "notes": "Hobi povezan s igrama",
+          "tags": ["zabava", "igre", "hobi"]
+        },
+        {
+          "id": 5,
+          "text": "Jeste li gledali ovu emisiju?",
+          "notes": "Rasprava o TV emisijama",
+          "tags": ["zabava", "mediji", "pitanje"]
+        },
+        {
+          "id": 6,
+          "text": "Čitam stripove",
+          "notes": "Interes za stripove",
+          "tags": ["zabava", "knjige", "hobi"]
+        },
+        {
+          "id": 7,
+          "text": "Disney filmovi su sjajni",
+          "notes": "Ljubav prema Disney filmovima",
+          "tags": ["zabava", "filmovi", "emocije"]
+        },
+        {
+          "id": 8,
+          "text": "Koji žanr volite?",
+          "notes": "Preferencije u zabavi",
+          "tags": ["zabava", "mediji", "pitanje"]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Hrana i restorani",
+      "description": "Fraze potrebne za posjet restoranima i kulinarska iskustva",
+      "category": "food",
+      "systemImageName": "fork.knife.circle",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Gladan sam",
+          "notes": "Osnovna potreba za hranom",
+          "tags": ["hrana", "restorani", "emocije"]
+        },
+        {
+          "id": 2,
+          "text": "Ovo je ukusno",
+          "notes": "Izražavanje zadovoljstva hranom",
+          "tags": ["hrana", "restorani", "emocije"]
+        },
+        {
+          "id": 3,
+          "text": "Ja sam vegetarijanac",
+          "notes": "Prehrambena ograničenja",
+          "tags": ["hrana", "restorani", "zdravlje"]
+        },
+        {
+          "id": 4,
+          "text": "Mogu li vidjeti jelovnik?",
+          "notes": "Zahtjev u restoranu",
+          "tags": ["hrana", "restorani", "pitanje"]
+        },
+        {
+          "id": 5,
+          "text": "Želim naručiti",
+          "notes": "Priprema za narudžbu",
+          "tags": ["hrana", "restorani", "komunikacija"]
+        },
+        {
+          "id": 6,
+          "text": "Račun, molim",
+          "notes": "Zahtjev za račun",
+          "tags": ["hrana", "restorani", "komunikacija"]
+        },
+        {
+          "id": 7,
+          "text": "Imam alergiju na orašaste plodove",
+          "notes": "Alergija na hranu",
+          "tags": ["hrana", "restorani", "zdravlje"]
+        },
+        {
+          "id": 8,
+          "text": "Što preporučujete?",
+          "notes": "Zahtjev za preporuku",
+          "tags": ["hrana", "restorani", "pitanje"]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Zdravlje i medicina",
+      "description": "Važne fraze za medicinske situacije i zdravstvene probleme",
+      "category": "emergency",
+      "systemImageName": "cross.circle.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Osjećam se loše",
+          "notes": "Opći zdravstveni problem",
+          "tags": ["zdravlje", "medicina", "hitno"]
+        },
+        {
+          "id": 2,
+          "text": "Boli me glava",
+          "notes": "Uobičajeni simptom",
+          "tags": ["zdravlje", "medicina"]
+        },
+        {
+          "id": 3,
+          "text": "Trebam liječnika",
+          "notes": "Medicinska hitna situacija",
+          "tags": ["zdravlje", "medicina", "hitno"]
+        },
+        {
+          "id": 4,
+          "text": "Gdje je bolnica?",
+          "notes": "Traženje zdravstvene ustanove",
+          "tags": ["zdravlje", "medicina", "pitanje"]
+        },
+        {
+          "id": 5,
+          "text": "Imam groznicu",
+          "notes": "Simptom uobičajene bolesti",
+          "tags": ["zdravlje", "medicina"]
+        },
+        {
+          "id": 6,
+          "text": "Uzimam lijekove",
+          "notes": "Medicinske informacije",
+          "tags": ["zdravlje", "medicina"]
+        },
+        {
+          "id": 7,
+          "text": "Imam alergiju",
+          "notes": "Važna medicinska informacija",
+          "tags": ["zdravlje", "medicina"]
+        },
+        {
+          "id": 8,
+          "text": "Pozovite hitnu pomoć",
+          "notes": "Hitna situacija",
+          "tags": ["zdravlje", "medicina", "hitno"]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Slobodno vrijeme i hobiji",
+      "description": "Fraze o hobijima, sportu i slobodnom vremenu",
+      "category": "lifestyle",
+      "systemImageName": "gamecontroller",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Volim čitati",
+          "notes": "Hobi povezan s čitanjem",
+          "tags": ["slobodno vrijeme", "hobi", "knjige"]
+        },
+        {
+          "id": 2,
+          "text": "Bavite li se sportom?",
+          "notes": "Razgovor o sportu",
+          "tags": ["slobodno vrijeme", "sport", "pitanje"]
+        },
+        {
+          "id": 3,
+          "text": "Volim planinariti",
+          "notes": "Aktivnost na otvorenom",
+          "tags": ["slobodno vrijeme", "hobi", "priroda"]
+        },
+        {
+          "id": 4,
+          "text": "Što radite za zabavu?",
+          "notes": "Početak razgovora o hobijima",
+          "tags": ["slobodno vrijeme", "hobi", "pitanje"]
+        },
+        {
+          "id": 5,
+          "text": "Volim kuhati",
+          "notes": "Hobi povezan s kuhanjem",
+          "tags": ["slobodno vrijeme", "hobi", "hrana"]
+        },
+        {
+          "id": 6,
+          "text": "Idemo u šetnju",
+          "notes": "Prijedlog opuštajuće aktivnosti",
+          "tags": ["slobodno vrijeme", "hobi", "aktivnost"]
+        },
+        {
+          "id": 7,
+          "text": "Sviram gitaru",
+          "notes": "Glazbeni instrument",
+          "tags": ["slobodno vrijeme", "hobi", "glazba"]
+        },
+        {
+          "id": 8,
+          "text": "Volim fotografirati",
+          "notes": "Hobi povezan s fotografijom",
+          "tags": ["slobodno vrijeme", "hobi", "umjetnost"]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Kupnja i cjenkanje",
+      "description": "Fraze za kupnju, pregovaranje o cijeni i dogovore",
+      "category": "shopping",
+      "systemImageName": "cart.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Mogu li isprobati?",
+          "notes": "Za odjeću ili dodatke",
+          "tags": ["kupnja", "pitanje"]
+        },
+        {
+          "id": 2,
+          "text": "Može li cijena biti niža?",
+          "notes": "Cjenkanje na tržnici",
+          "tags": ["kupnja", "posao", "pitanje"]
+        },
+        {
+          "id": 3,
+          "text": "Prihvaćate li kreditne kartice?",
+          "notes": "Pitanje o plaćanju",
+          "tags": ["kupnja", "posao", "pitanje"]
+        },
+        {
+          "id": 4,
+          "text": "Gdje je kabina za probavanje?",
+          "notes": "Za trgovine odjećom",
+          "tags": ["kupnja", "pitanje"]
+        },
+        {
+          "id": 5,
+          "text": "Imate li manju veličinu?",
+          "notes": "Zahtjev za drugom veličinom",
+          "tags": ["kupnja", "pitanje"]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Prijevoz i navigacija",
+      "description": "Fraze za javni prijevoz, taksi i orijentaciju",
+      "category": "travel",
+      "systemImageName": "tram.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Gdje je autobusna stanica?",
+          "notes": "Traženje prometnog čvorišta",
+          "tags": ["prijevoz", "smjer", "pitanje"]
+        },
+        {
+          "id": 2,
+          "text": "Možete li pozvati taksi?",
+          "notes": "Zahtjev za taksi",
+          "tags": ["prijevoz", "komunikacija"]
+        },
+        {
+          "id": 3,
+          "text": "Kada je sljedeći vlak?",
+          "notes": "Raspored javnog prijevoza",
+          "tags": ["prijevoz", "vrijeme", "pitanje"]
+        },
+        {
+          "id": 4,
+          "text": "Kako doći do zračne luke?",
+          "notes": "Navigacija do važnog mjesta",
+          "tags": ["prijevoz", "smjer", "pitanje"]
+        },
+        {
+          "id": 5,
+          "text": "Je li to daleko odavde?",
+          "notes": "Provjera udaljenosti",
+          "tags": ["prijevoz", "smjer", "pitanje"]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Smještaj",
+      "description": "Fraze za rezervaciju hotela, hostela i rješavanje problema sa smještajem",
+      "category": "travel",
+      "systemImageName": "house.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Želim rezervirati sobu",
+          "notes": "Rezervacija hotela ili hostela",
+          "tags": ["smještaj", "putovanje", "komunikacija"]
+        },
+        {
+          "id": 2,
+          "text": "Došao sam na check-in",
+          "notes": "Dolazak na mjesto smještaja",
+          "tags": ["smještaj", "putovanje", "komunikacija"]
+        },
+        {
+          "id": 3,
+          "text": "Može li se soba očistiti?",
+          "notes": "Zahtjev za čišćenje",
+          "tags": ["smještaj", "komunikacija"]
+        },
+        {
+          "id": 4,
+          "text": "Koja je lozinka za Wi-Fi?",
+          "notes": "Često pitanje u smještajnim objektima",
+          "tags": ["smještaj", "tehnologija", "pitanje"]
+        },
+        {
+          "id": 5,
+          "text": "Je li moguć kasni odlazak?",
+          "notes": "Produženje boravka",
+          "tags": ["smještaj", "pitanje"]
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Društvene vještine i bonton",
+      "description": "Fraze za učtivu komunikaciju i razumijevanje kulturnih normi",
+      "category": "social",
+      "systemImageName": "person.3.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Drago mi je upoznati vas",
+          "notes": "Učtivo upoznavanje",
+          "tags": ["kultura", "komunikacija", "prijatelji"]
+        },
+        {
+          "id": 2,
+          "text": "Koji su lokalni običaji?",
+          "notes": "Učenje o kulturnim normama",
+          "tags": ["kultura", "pitanje"]
+        },
+        {
+          "id": 3,
+          "text": "Čestitam!",
+          "notes": "Slavlje uspjeha",
+          "tags": ["kultura", "komunikacija"]
+        },
+        {
+          "id": 4,
+          "text": "Sretan rođendan!",
+          "notes": "Praznična čestitka",
+          "tags": ["kultura", "komunikacija"]
+        },
+        {
+          "id": 5,
+          "text": "Oprostite što kasnim",
+          "notes": "Učtiva isprika",
+          "tags": ["kultura", "komunikacija"]
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Vrijeme i okoliš",
+      "description": "Fraze za raspravu o vremenu i uvjetima okoliša",
+      "category": "weather",
+      "systemImageName": "cloud.sun.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Kakvo je vrijeme danas?",
+          "notes": "Provjera vremenske prognoze",
+          "tags": ["vrijeme", "pitanje"]
+        },
+        {
+          "id": 2,
+          "text": "Je li vani hladno?",
+          "notes": "Pitanje o vremenu",
+          "tags": ["vrijeme", "pitanje"]
+        },
+        {
+          "id": 3,
+          "text": "Hoće li kasnije kišiti?",
+          "notes": "Planiranje aktivnosti",
+          "tags": ["vrijeme", "pitanje"]
+        },
+        {
+          "id": 4,
+          "text": "Previše je vruće",
+          "notes": "Izražavanje nelagode",
+          "tags": ["vrijeme", "emocije"]
+        },
+        {
+          "id": 5,
+          "text": "Gdje je najbliža plaža?",
+          "notes": "Traženje prirodnih znamenitosti",
+          "tags": ["vrijeme", "priroda", "pitanje"]
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Brojevi i vrijeme",
+      "description": "Fraze za brojanje, raspravu o vremenu i planiranje",
+      "category": "basics",
+      "systemImageName": "clock.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Jedan, dva, tri…",
+          "notes": "Osnovno brojanje",
+          "tags": ["brojevi", "osnove"]
+        },
+        {
+          "id": 2,
+          "text": "Koji je dan danas?",
+          "notes": "Provjera dana u tjednu",
+          "tags": ["vrijeme", "pitanje"]
+        },
+        {
+          "id": 3,
+          "text": "Kada se otvara?",
+          "notes": "Vrijeme rada trgovina ili znamenitosti",
+          "tags": ["vrijeme", "pitanje"]
+        },
+        {
+          "id": 4,
+          "text": "Koliko ih je?",
+          "notes": "Pitanje o količini",
+          "tags": ["brojevi", "pitanje"]
+        },
+        {
+          "id": 5,
+          "text": "Pričekajte trenutak",
+          "notes": "Zahtjev za pauzu",
+          "tags": ["vrijeme", "komunikacija"]
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Tehnologija i komunikacija",
+      "description": "Fraze za korištenje tehnologije i održavanje kontakta",
+      "category": "technology",
+      "systemImageName": "wifi",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Mogu li napuniti telefon?",
+          "notes": "Zahtjev za punjenje",
+          "tags": ["tehnologija", "komunikacija"]
+        },
+        {
+          "id": 2,
+          "text": "Ima li Wi-Fi?",
+          "notes": "Pitanje o internetskoj vezi",
+          "tags": ["tehnologija", "pitanje"]
+        },
+        {
+          "id": 3,
+          "text": "Možete li fotografirati?",
+          "notes": "Zahtjev za fotografiju",
+          "tags": ["tehnologija", "komunikacija"]
+        },
+        {
+          "id": 4,
+          "text": "Koristite li društvene mreže?",
+          "notes": "Održavanje kontakta online",
+          "tags": ["tehnologija", "komunikacija", "pitanje"]
+        },
+        {
+          "id": 5,
+          "text": "Nema signala",
+          "notes": "Problem s telefonskim povezivanjem",
+          "tags": ["tehnologija", "komunikacija"]
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Pozdravi i upoznavanje",
+      "description": "Fraze za započinjanje razgovora i predstavljanje",
+      "category": "basics",
+      "systemImageName": "person.wave.2.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Kako ste?",
+          "notes": "Pozdrav koji izražava interes",
+          "tags": ["osnove", "komunikacija", "pitanje"]
+        },
+        {
+          "id": 2,
+          "text": "Zovem se…",
+          "notes": "Predstavljanje",
+          "tags": ["osnove", "komunikacija"]
+        },
+        {
+          "id": 3,
+          "text": "Odakle ste?",
+          "notes": "Početak razgovora",
+          "tags": ["komunikacija", "pitanje"]
+        },
+        {
+          "id": 4,
+          "text": "Drago mi je upoznati vas",
+          "notes": "Učtivo predstavljanje",
+          "tags": ["osnove", "komunikacija"]
+        },
+        {
+          "id": 5,
+          "text": "Kako vam je prošao dan?",
+          "notes": "Neformalni pozdrav",
+          "tags": ["komunikacija", "pitanje"]
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Dnevna rutina",
+      "description": "Fraze za raspravu o svakodnevnim aktivnostima i rasporedu",
+      "category": "lifestyle",
+      "systemImageName": "sunrise.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Ustajem rano ujutro",
+          "notes": "Opis jutarnje rutine",
+          "tags": ["osnove", "opis"]
+        },
+        {
+          "id": 2,
+          "text": "Što radite svaki dan?",
+          "notes": "Pitanje o rutini",
+          "tags": ["pitanje", "komunikacija"]
+        },
+        {
+          "id": 3,
+          "text": "Radim ujutro",
+          "notes": "Dijeljenje informacija o rasporedu",
+          "tags": ["opis", "posao"]
+        },
+        {
+          "id": 4,
+          "text": "Legnem kasno",
+          "notes": "Opis večernjih navika",
+          "tags": ["opis"]
+        },
+        {
+          "id": 5,
+          "text": "Imate li slobodnog vremena?",
+          "notes": "Pitanje o dostupnosti",
+          "tags": ["pitanje", "slobodno vrijeme"]
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Obitelj i odnosi",
+      "description": "Fraze o članovima obitelji i odnosima",
+      "category": "social",
+      "systemImageName": "person.2.circle.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Imam brata",
+          "notes": "Opis obitelji",
+          "tags": ["obitelj", "opis"]
+        },
+        {
+          "id": 2,
+          "text": "Jeste li oženjeni?",
+          "notes": "Pitanje o bračnom statusu",
+          "tags": ["obitelj", "pitanje"]
+        },
+        {
+          "id": 3,
+          "text": "Moji roditelji žive daleko",
+          "notes": "Dijeljenje informacija o obitelji",
+          "tags": ["obitelj", "opis"]
+        },
+        {
+          "id": 4,
+          "text": "Imate li djecu?",
+          "notes": "Razgovor o obitelji",
+          "tags": ["obitelj", "pitanje"]
+        },
+        {
+          "id": 5,
+          "text": "Ja sam samac",
+          "notes": "Opis bračnog statusa",
+          "tags": ["obitelj", "opis"]
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "name": "Posao i biznis",
+      "description": "Fraze za profesionalnu komunikaciju i razgovore na radnom mjestu",
+      "category": "professional",
+      "systemImageName": "briefcase.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Čime se bavite?",
+          "notes": "Pitanje o profesiji",
+          "tags": ["posao", "pitanje"]
+        },
+        {
+          "id": 2,
+          "text": "Radim kao…",
+          "notes": "Opis profesije",
+          "tags": ["posao", "opis"]
+        },
+        {
+          "id": 3,
+          "text": "Možemo li dogovoriti sastanak?",
+          "notes": "Organizacija poslovnog sastanka",
+          "tags": ["posao", "komunikacija"]
+        },
+        {
+          "id": 4,
+          "text": "Gdje je vaš ured?",
+          "notes": "Lokacija radnog mjesta",
+          "tags": ["posao", "pitanje"]
+        },
+        {
+          "id": 5,
+          "text": "Trebam posjetnicu",
+          "notes": "Zahtjev za umrežavanje",
+          "tags": ["posao", "komunikacija"]
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "name": "Obrazovanje i učenje",
+      "description": "Fraze o učenju, obrazovanju i studiranju",
+      "category": "professional",
+      "systemImageName": "book.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Ja sam student",
+          "notes": "Opis studentskog statusa",
+          "tags": ["obrazovanje", "opis"]
+        },
+        {
+          "id": 2,
+          "text": "Što studirate?",
+          "notes": "Pitanje o predmetu studija",
+          "tags": ["obrazovanje", "pitanje"]
+        },
+        {
+          "id": 3,
+          "text": "Trebam knjigu",
+          "notes": "Zahtjev za obrazovnim materijalima",
+          "tags": ["obrazovanje", "komunikacija"]
+        },
+        {
+          "id": 4,
+          "text": "Gdje je knjižnica?",
+          "notes": "Traženje mjesta za učenje",
+          "tags": ["obrazovanje", "pitanje"]
+        },
+        {
+          "id": 5,
+          "text": "Učim ovaj jezik",
+          "notes": "Dijeljenje ciljeva učenja",
+          "tags": ["obrazovanje", "komunikacija"]
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "name": "Orijentacija",
+      "description": "Fraze za navigaciju i traženje mjesta",
+      "category": "travel",
+      "systemImageName": "map.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Skrrenite lijevo",
+          "notes": "Davanje ili primanje uputa",
+          "tags": ["smjer", "komunikacija"]
+        },
+        {
+          "id": 2,
+          "text": "Je li ovo pravi put?",
+          "notes": "Provjera smjera",
+          "tags": ["smjer", "pitanje"]
+        },
+        {
+          "id": 3,
+          "text": "Je li to daleko odavde?",
+          "notes": "Pitanje o udaljenosti",
+          "tags": ["smjer", "pitanje"]
+        },
+        {
+          "id": 4,
+          "text": "Idite ravno",
+          "notes": "Pružanje uputa",
+          "tags": ["smjer", "komunikacija"]
+        },
+        {
+          "id": 5,
+          "text": "Gdje je karta?",
+          "notes": "Zahtjev za navigacijskim alatom",
+          "tags": ["smjer", "pitanje"]
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "name": "Kupnja namirnica",
+      "description": "Fraze za kupnju hrane i kućanskih potrepština",
+      "category": "food",
+      "systemImageName": "basket.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Gdje je voće?",
+          "notes": "Traženje robe u supermarketu",
+          "tags": ["kupnja", "hrana", "pitanje"]
+        },
+        {
+          "id": 2,
+          "text": "Je li ovo svježe?",
+          "notes": "Provjera kvalitete hrane",
+          "tags": ["kupnja", "hrana", "pitanje"]
+        },
+        {
+          "id": 3,
+          "text": "Trebam vrećicu",
+          "notes": "Zahtjev za vrećicom za kupnju",
+          "tags": ["kupnja", "komunikacija"]
+        },
+        {
+          "id": 4,
+          "text": "Imate li mlijeko?",
+          "notes": "Pitanje o specifičnoj robi",
+          "tags": ["kupnja", "hrana", "pitanje"]
+        },
+        {
+          "id": 5,
+          "text": "Koliko košta?",
+          "notes": "Provjera cijene namirnica",
+          "tags": ["kupnja", "pitanje"]
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "name": "Hitne situacije i sigurnost",
+      "description": "Fraze za nemedicinske hitne situacije",
+      "category": "emergency",
+      "systemImageName": "exclamationmark.triangle.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Pomozite, ovo je hitno!",
+          "notes": "Poziv za pomoć u hitnoj situaciji",
+          "tags": ["hitno", "komunikacija"]
+        },
+        {
+          "id": 2,
+          "text": "Gdje je policijska postaja?",
+          "notes": "Traženje vlasti",
+          "tags": ["hitno", "pitanje"]
+        },
+        {
+          "id": 3,
+          "text": "Izgubio sam putovnicu",
+          "notes": "Prijavljivanje gubitka dokumenata",
+          "tags": ["hitno", "putovanje"]
+        },
+        {
+          "id": 4,
+          "text": "Je li ovo mjesto sigurno?",
+          "notes": "Provjera sigurnosti",
+          "tags": ["hitno", "pitanje"]
+        },
+        {
+          "id": 5,
+          "text": "Pozovite policiju",
+          "notes": "Zahtjev za poziv vlasti",
+          "tags": ["hitno", "komunikacija"]
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "name": "Romantika i društveni razgovor",
+      "description": "Fraze za romantične i prijateljske interakcije",
+      "category": "social",
+      "systemImageName": "heart.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Lijepi ste",
+          "notes": "Kompliment",
+          "tags": ["romantika", "komunikacija"]
+        },
+        {
+          "id": 2,
+          "text": "Mogu li vas častiti pićem?",
+          "notes": "Društveni prijedlog",
+          "tags": ["romantika", "komunikacija"]
+        },
+        {
+          "id": 3,
+          "text": "Želite li plesati?",
+          "notes": "Poziv na ples",
+          "tags": ["romantika", "aktivnost"]
+        },
+        {
+          "id": 4,
+          "text": "Sviđa mi se vaš osmijeh",
+          "notes": "Romantični kompliment",
+          "tags": ["romantika", "komunikacija"]
+        },
+        {
+          "id": 5,
+          "text": "Ostanimo u kontaktu",
+          "notes": "Održavanje kontakta",
+          "tags": ["romantika", "prijatelji", "komunikacija"]
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "name": "Lokalna kultura i tradicija",
+      "description": "Fraze za interakciju s lokalnim tradicijama i događajima",
+      "category": "social",
+      "systemImageName": "flag.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Koji je ovo festival?",
+          "notes": "Pitanje o lokalnim događajima",
+          "tags": ["kultura", "pitanje"]
+        },
+        {
+          "id": 2,
+          "text": "Mogu li se pridružiti proslavi?",
+          "notes": "Sudjelovanje u događaju",
+          "tags": ["kultura", "komunikacija"]
+        },
+        {
+          "id": 3,
+          "text": "Što to znači?",
+          "notes": "Razumijevanje tradicija",
+          "tags": ["kultura", "pitanje"]
+        },
+        {
+          "id": 4,
+          "text": "Je li ovo lokalna tradicija?",
+          "notes": "Učenje o običajima",
+          "tags": ["kultura", "pitanje"]
+        },
+        {
+          "id": 5,
+          "text": "Volim ovu kulturu",
+          "notes": "Izražavanje zahvalnosti",
+          "tags": ["kultura", "emocije"]
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "name": "Boje i opisi",
+      "description": "Fraze za opisivanje predmeta, boja i izgleda",
+      "category": "shopping",
+      "systemImageName": "paintpalette.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Ovo je crveno",
+          "notes": "Opis boje",
+          "tags": ["boje", "opis"]
+        },
+        {
+          "id": 2,
+          "text": "Koja je ovo boja?",
+          "notes": "Pitanje o boji",
+          "tags": ["boje", "pitanje"]
+        },
+        {
+          "id": 3,
+          "text": "Ovo je lijepo",
+          "notes": "Opis izgleda",
+          "tags": ["opis", "emocije"]
+        },
+        {
+          "id": 4,
+          "text": "Veliko ili malo?",
+          "notes": "Pitanje o veličini",
+          "tags": ["opis", "pitanje"]
+        },
+        {
+          "id": 5,
+          "text": "Želim plavo",
+          "notes": "Zahtjev za specifičnom bojom",
+          "tags": ["boje", "kupnja"]
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "name": "Izrazi vremena",
+      "description": "Fraze o vremenu, osim osnovnih pitanja",
+      "category": "weather",
+      "systemImageName": "timer",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Previše rano",
+          "notes": "Izražavanje preferencije za vrijeme",
+          "tags": ["vrijeme", "emocije"]
+        },
+        {
+          "id": 2,
+          "text": "Do sutra",
+          "notes": "Planiranje budućeg susreta",
+          "tags": ["vrijeme", "komunikacija"]
+        },
+        {
+          "id": 3,
+          "text": "Koliko traje?",
+          "notes": "Pitanje o trajanju",
+          "tags": ["vrijeme", "pitanje"]
+        },
+        {
+          "id": 4,
+          "text": "Kasnim",
+          "notes": "Objašnjenje kašnjenja",
+          "tags": ["vrijeme", "komunikacija"]
+        },
+        {
+          "id": 5,
+          "text": "Koji je dan danas?",
+          "notes": "Pitanje o danu u tjednu",
+          "tags": ["vrijeme", "pitanje"]
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "name": "Aktivnosti povezane s vremenom",
+      "description": "Fraze za planiranje aktivnosti ovisno o vremenskim uvjetima",
+      "category": "lifestyle",
+      "systemImageName": "sun.max.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Idemo u park",
+          "notes": "Prijedlog aktivnosti na otvorenom",
+          "tags": ["vrijeme", "aktivnost"]
+        },
+        {
+          "id": 2,
+          "text": "Je li pogodno za plivanje?",
+          "notes": "Provjera vremena za aktivnost",
+          "tags": ["vrijeme", "pitanje"]
+        },
+        {
+          "id": 3,
+          "text": "Idealno za piknik",
+          "notes": "Opis idealnog vremena",
+          "tags": ["vrijeme", "opis"]
+        },
+        {
+          "id": 4,
+          "text": "Ostati kod kuće?",
+          "notes": "Planiranje za loše vrijeme",
+          "tags": ["vrijeme", "pitanje"]
+        },
+        {
+          "id": 5,
+          "text": "Danas je sunčano",
+          "notes": "Opis vremena",
+          "tags": ["vrijeme", "opis"]
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "name": "Rješavanje tehničkih problema",
+      "description": "Fraze za rješavanje tehničkih problema, osim osnovne komunikacije",
+      "category": "technology",
+      "systemImageName": "wrench.and.screwdriver.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Moj telefon ne radi",
+          "notes": "Prijavljivanje problema s uređajem",
+          "tags": ["tehnologija", "komunikacija"]
+        },
+        {
+          "id": 2,
+          "text": "Možete li popraviti?",
+          "notes": "Zahtjev za tehničkom pomoći",
+          "tags": ["tehnologija", "pitanje"]
+        },
+        {
+          "id": 3,
+          "text": "Je li internet spor?",
+          "notes": "Provjera problema s povezivanjem",
+          "tags": ["tehnologija", "pitanje"]
+        },
+        {
+          "id": 4,
+          "text": "Trebam punjač",
+          "notes": "Zahtjev za punjačem",
+          "tags": ["tehnologija", "komunikacija"]
+        },
+        {
+          "id": 5,
+          "text": "Ne mogu se povezati",
+          "notes": "Opis problema s povezivanjem",
+          "tags": ["tehnologija", "opis"]
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "name": "Umjetnost i kreativnost",
+      "description": "Fraze o umjetnosti, kreativnosti i kulturnim aktivnostima",
+      "category": "lifestyle",
+      "systemImageName": "paintbrush.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Volim crtati",
+          "notes": "Izražavanje interesa za umjetnost",
+          "tags": ["umjetnost", "hobi"]
+        },
+        {
+          "id": 2,
+          "text": "Gdje je muzej?",
+          "notes": "Traženje kulturnog mjesta",
+          "tags": ["umjetnost", "pitanje"]
+        },
+        {
+          "id": 3,
+          "text": "Ovo umjetničko djelo je lijepo",
+          "notes": "Cijenjenje umjetnosti",
+          "tags": ["umjetnost", "emocije"]
+        },
+        {
+          "id": 4,
+          "text": "Volite li crtati?",
+          "notes": "Početak razgovora o umjetnosti",
+          "tags": ["umjetnost", "pitanje"]
+        },
+        {
+          "id": 5,
+          "text": "Što je ova skulptura?",
+          "notes": "Pitanje o umjetničkom djelu",
+          "tags": ["umjetnost", "pitanje"]
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "name": "Sport i fitness",
+      "description": "Fraze o sportu i fizičkoj aktivnosti",
+      "category": "lifestyle",
+      "systemImageName": "sportscourt.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Volim trčati",
+          "notes": "Opis navike fitnessa",
+          "tags": ["sport", "hobi"]
+        },
+        {
+          "id": 2,
+          "text": "Gdje mogu igrati nogomet?",
+          "notes": "Traženje sportske infrastrukture",
+          "tags": ["sport", "pitanje"]
+        },
+        {
+          "id": 3,
+          "text": "Volite li jogu?",
+          "notes": "Početak razgovora o sportu",
+          "tags": ["sport", "pitanje"]
+        },
+        {
+          "id": 4,
+          "text": "Idem u teretanu",
+          "notes": "Dijeljenje informacija o fitness navikama",
+          "tags": ["sport", "opis"]
+        },
+        {
+          "id": 5,
+          "text": "Igrajmo utakmicu",
+          "notes": "Prijedlog sportske aktivnosti",
+          "tags": ["sport", "aktivnost"]
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "name": "Planiranje putovanja",
+      "description": "Fraze za organizaciju i planiranje putovanja",
+      "category": "travel",
+      "systemImageName": "suitcase.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Kamo vrijedi otići?",
+          "notes": "Zahtjev za preporukama za putovanja",
+          "tags": ["putovanje", "pitanje"]
+        },
+        {
+          "id": 2,
+          "text": "Koliko košta karta?",
+          "notes": "Provjera troškova putovanja",
+          "tags": ["putovanje", "pitanje"]
+        },
+        {
+          "id": 3,
+          "text": "Trebam vodiča",
+          "notes": "Zahtjev za turističkim resursima",
+          "tags": ["putovanje", "komunikacija"]
+        },
+        {
+          "id": 4,
+          "text": "Ima li vođenih tura?",
+          "notes": "Pitanje o turama s vodičem",
+          "tags": ["putovanje", "pitanje"]
+        },
+        {
+          "id": 5,
+          "text": "Putujem sutra",
+          "notes": "Dijeljenje planova putovanja",
+          "tags": ["putovanje", "opis"]
+        }
+      ]
+    }
+  ]
+}

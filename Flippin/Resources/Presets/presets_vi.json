@@ -1,0 +1,1284 @@
+{
+  "languageName": "Vietnamese",
+  "languageCode": "vi",
+  "presets": [
+    {
+      "id": 1,
+      "name": "Cụm từ cơ bản",
+      "description": "Những từ và cụm từ cơ bản mà mọi người nên biết",
+      "category": "basics",
+      "systemImageName": "characters.uppercase",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Xin chào",
+          "notes": "Lời chào cơ bản",
+          "tags": ["cơ bản", "giao tiếp"]
+        },
+        {
+          "id": 2,
+          "text": "Cảm ơn",
+          "notes": "Bày tỏ sự cảm ơn",
+          "tags": ["cơ bản", "giao tiếp"]
+        },
+        {
+          "id": 3,
+          "text": "Làm ơn",
+          "notes": "Yêu cầu lịch sự",
+          "tags": ["cơ bản", "giao tiếp"]
+        },
+        {
+          "id": 4,
+          "text": "Vâng",
+          "notes": "Câu trả lời khẳng định",
+          "tags": ["cơ bản", "trả lời"]
+        },
+        {
+          "id": 5,
+          "text": "Không",
+          "notes": "Câu trả lời phủ định",
+          "tags": ["cơ bản", "trả lời"]
+        },
+        {
+          "id": 6,
+          "text": "Tạm biệt",
+          "notes": "Lời chia tay",
+          "tags": ["cơ bản", "giao tiếp"]
+        },
+        {
+          "id": 7,
+          "text": "Xin lỗi",
+          "notes": "Thu hút sự chú ý hoặc xin lỗi",
+          "tags": ["cơ bản", "giao tiếp"]
+        },
+        {
+          "id": 8,
+          "text": "Tôi không hiểu",
+          "notes": "Dùng khi cần làm rõ",
+          "tags": ["cơ bản", "giao tiếp", "câu hỏi"]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Cần thiết cho du lịch",
+      "description": "Những cụm từ cần thiết khi đi du lịch và di chuyển",
+      "category": "travel",
+      "systemImageName": "airplane",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Nhà vệ sinh ở đâu?",
+          "notes": "Quan trọng đối với khách du lịch",
+          "tags": ["du lịch", "câu hỏi"]
+        },
+        {
+          "id": 2,
+          "text": "Cái này bao nhiêu tiền?",
+          "notes": "Mua sắm và thương lượng",
+          "tags": ["du lịch", "mua sắm", "câu hỏi"]
+        },
+        {
+          "id": 3,
+          "text": "Tôi cần giúp đỡ",
+          "notes": "Cụm từ khẩn cấp",
+          "tags": ["du lịch", "khẩn cấp", "giao tiếp"]
+        },
+        {
+          "id": 4,
+          "text": "Bạn nói được tiếng Anh không?",
+          "notes": "Vượt qua rào cản ngôn ngữ",
+          "tags": ["du lịch", "giao tiếp", "câu hỏi"]
+        },
+        {
+          "id": 5,
+          "text": "Tôi bị lạc đường",
+          "notes": "Khi cần chỉ đường",
+          "tags": ["du lịch", "hướng dẫn", "khẩn cấp"]
+        },
+        {
+          "id": 6,
+          "text": "Bạn có thể giúp tôi không?",
+          "notes": "Yêu cầu sự hỗ trợ",
+          "tags": ["du lịch", "giao tiếp", "câu hỏi"]
+        },
+        {
+          "id": 7,
+          "text": "Hôm nay là thứ mấy?",
+          "notes": "Câu hỏi liên quan đến thời gian",
+          "tags": ["du lịch", "thời gian", "câu hỏi"]
+        },
+        {
+          "id": 8,
+          "text": "Tôi bị dị ứng với...",
+          "notes": "Quan trọng đối với thực phẩm và thuốc",
+          "tags": ["du lịch", "sức khỏe", "thực phẩm"]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Giải trí và truyền thông",
+      "description": "Các từ và cụm từ liên quan đến phim, âm nhạc, trò chơi và giải trí",
+      "category": "entertainment",
+      "systemImageName": "play.circle.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Tôi yêu bộ phim này",
+          "notes": "Bày tỏ sự thích thú",
+          "tags": ["giải trí", "phim", "cảm xúc"]
+        },
+        {
+          "id": 2,
+          "text": "Bạn thích loại nhạc nào?",
+          "notes": "Mở đầu cuộc trò chuyện về âm nhạc",
+          "tags": ["giải trí", "âm nhạc", "câu hỏi"]
+        },
+        {
+          "id": 3,
+          "text": "Bài hát này rất hay",
+          "notes": "Thưởng thức âm nhạc",
+          "tags": ["giải trí", "âm nhạc", "cảm xúc"]
+        },
+        {
+          "id": 4,
+          "text": "Tôi chơi trò chơi điện tử",
+          "notes": "Sở thích chơi game",
+          "tags": ["giải trí", "trò chơi", "sở thích"]
+        },
+        {
+          "id": 5,
+          "text": "Bạn đã xem chương trình này chưa?",
+          "notes": "Thảo luận về chương trình truyền hình",
+          "tags": ["giải trí", "truyền thông", "câu hỏi"]
+        },
+        {
+          "id": 6,
+          "text": "Tôi đọc truyện tranh",
+          "notes": "Quan tâm đến truyện tranh",
+          "tags": ["giải trí", "sách", "sở thích"]
+        },
+        {
+          "id": 7,
+          "text": "Phim Disney rất tuyệt",
+          "notes": "Thích phim Disney",
+          "tags": ["giải trí", "phim", "cảm xúc"]
+        },
+        {
+          "id": 8,
+          "text": "Bạn thích thể loại nào?",
+          "notes": "Sở thích giải trí",
+          "tags": ["giải trí", "truyền thông", "câu hỏi"]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Ẩm thực và ăn uống",
+      "description": "Những cụm từ cần thiết cho nhà hàng và trải nghiệm ẩm thực",
+      "category": "food",
+      "systemImageName": "fork.knife.circle",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Tôi đói",
+          "notes": "Nhu cầu ăn uống cơ bản",
+          "tags": ["thực phẩm", "ăn uống", "cảm xúc"]
+        },
+        {
+          "id": 2,
+          "text": "Món này ngon lắm",
+          "notes": "Thích món ăn",
+          "tags": ["thực phẩm", "ăn uống", "cảm xúc"]
+        },
+        {
+          "id": 3,
+          "text": "Tôi ăn chay",
+          "notes": "Hạn chế về chế độ ăn",
+          "tags": ["thực phẩm", "ăn uống", "sức khỏe"]
+        },
+        {
+          "id": 4,
+          "text": "Cho tôi xem thực đơn được không?",
+          "notes": "Yêu cầu tại nhà hàng",
+          "tags": ["thực phẩm", "ăn uống", "câu hỏi"]
+        },
+        {
+          "id": 5,
+          "text": "Tôi muốn gọi món",
+          "notes": "Chuẩn bị gọi món",
+          "tags": ["thực phẩm", "ăn uống", "giao tiếp"]
+        },
+        {
+          "id": 6,
+          "text": "Cho tôi hóa đơn",
+          "notes": "Yêu cầu hóa đơn",
+          "tags": ["thực phẩm", "ăn uống", "giao tiếp"]
+        },
+        {
+          "id": 7,
+          "text": "Tôi bị dị ứng với hạt",
+          "notes": "Dị ứng thực phẩm",
+          "tags": ["thực phẩm", "ăn uống", "sức khỏe"]
+        },
+        {
+          "id": 8,
+          "text": "Bạn khuyên dùng món gì?",
+          "notes": "Yêu cầu gợi ý",
+          "tags": ["thực phẩm", "ăn uống", "câu hỏi"]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Sức khỏe và y tế",
+      "description": "Những cụm từ quan trọng cho tình huống y tế và vấn đề sức khỏe",
+      "category": "emergency",
+      "systemImageName": "cross.circle.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Tôi cảm thấy không khỏe",
+          "notes": "Vấn đề sức khỏe chung",
+          "tags": ["sức khỏe", "y tế", "khẩn cấp"]
+        },
+        {
+          "id": 2,
+          "text": "Tôi đau đầu",
+          "notes": "Triệu chứng phổ biến",
+          "tags": ["sức khỏe", "y tế"]
+        },
+        {
+          "id": 3,
+          "text": "Tôi cần bác sĩ",
+          "notes": "Tình huống y tế khẩn cấp",
+          "tags": ["sức khỏe", "y tế", "khẩn cấp"]
+        },
+        {
+          "id": 4,
+          "text": "Bệnh viện ở đâu?",
+          "notes": "Tìm cơ sở y tế",
+          "tags": ["sức khỏe", "y tế", "câu hỏi"]
+        },
+        {
+          "id": 5,
+          "text": "Tôi bị sốt",
+          "notes": "Triệu chứng bệnh thường gặp",
+          "tags": ["sức khỏe", "y tế"]
+        },
+        {
+          "id": 6,
+          "text": "Tôi đang dùng thuốc",
+          "notes": "Thông tin y tế",
+          "tags": ["sức khỏe", "y tế"]
+        },
+        {
+          "id": 7,
+          "text": "Tôi bị dị ứng",
+          "notes": "Thông tin y tế quan trọng",
+          "tags": ["sức khỏe", "y tế"]
+        },
+        {
+          "id": 8,
+          "text": "Gọi xe cứu thương",
+          "notes": "Tình huống khẩn cấp",
+          "tags": ["sức khỏe", "y tế", "khẩn cấp"]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Giải trí và sở thích",
+      "description": "Những cụm từ về sở thích, thể thao và hoạt động giải trí",
+      "category": "lifestyle",
+      "systemImageName": "gamecontroller",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Tôi thích đọc sách",
+          "notes": "Sở thích đọc sách",
+          "tags": ["giải trí", "sở thích", "sách"]
+        },
+        {
+          "id": 2,
+          "text": "Bạn có chơi thể thao không?",
+          "notes": "Cuộc trò chuyện về thể thao",
+          "tags": ["giải trí", "thể thao", "câu hỏi"]
+        },
+        {
+          "id": 3,
+          "text": "Tôi yêu đi bộ đường dài",
+          "notes": "Hoạt động ngoài trời",
+          "tags": ["giải trí", "sở thích", "tự nhiên"]
+        },
+        {
+          "id": 4,
+          "text": "Bạn làm gì để giải trí?",
+          "notes": "Mở đầu cuộc trò chuyện về sở thích",
+          "tags": ["giải trí", "sở thích", "câu hỏi"]
+        },
+        {
+          "id": 5,
+          "text": "Tôi thích nấu ăn",
+          "notes": "Sở thích nấu ăn",
+          "tags": ["giải trí", "sở thích", "thực phẩm"]
+        },
+        {
+          "id": 6,
+          "text": "Chúng ta đi dạo nhé",
+          "notes": "Đề xuất hoạt động thư giãn",
+          "tags": ["giải trí", "sở thích", "hành động"]
+        },
+        {
+          "id": 7,
+          "text": "Tôi chơi guitar",
+          "notes": "Nhạc cụ",
+          "tags": ["giải trí", "sở thích", "âm nhạc"]
+        },
+        {
+          "id": 8,
+          "text": "Tôi thích chụp ảnh",
+          "notes": "Sở thích nhiếp ảnh",
+          "tags": ["giải trí", "sở thích", "nghệ thuật"]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Mua sắm và thương lượng",
+      "description": "Những cụm từ cho việc mua sắm, thương lượng giá và giao dịch",
+      "category": "shopping",
+      "systemImageName": "cart.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Tôi thử cái này được không?",
+          "notes": "Dùng cho quần áo hoặc phụ kiện",
+          "tags": ["mua sắm", "câu hỏi"]
+        },
+        {
+          "id": 2,
+          "text": "Có thể giảm giá không?",
+          "notes": "Thương lượng tại chợ",
+          "tags": ["mua sắm", "kinh doanh", "câu hỏi"]
+        },
+        {
+          "id": 3,
+          "text": "Các bạn chấp nhận thẻ tín dụng chứ?",
+          "notes": "Câu hỏi về thanh toán",
+          "tags": ["mua sắm", "kinh doanh", "câu hỏi"]
+        },
+        {
+          "id": 4,
+          "text": "Phòng thử đồ ở đâu?",
+          "notes": "Dùng trong cửa hàng quần áo",
+          "tags": ["mua sắm", "câu hỏi"]
+        },
+        {
+          "id": 5,
+          "text": "Có cỡ nhỏ hơn không?",
+          "notes": "Yêu cầu kích cỡ khác",
+          "tags": ["mua sắm", "câu hỏi"]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Giao thông và định hướng",
+      "description": "Những cụm từ cho giao thông công cộng, taxi và tìm đường",
+      "category": "travel",
+      "systemImageName": "tram.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Bến xe buýt ở đâu?",
+          "notes": "Tìm điểm giao thông",
+          "tags": ["giao thông", "hướng dẫn", "câu hỏi"]
+        },
+        {
+          "id": 2,
+          "text": "Có thể gọi taxi được không?",
+          "notes": "Yêu cầu taxi",
+          "tags": ["giao thông", "giao tiếp"]
+        },
+        {
+          "id": 3,
+          "text": "Chuyến tàu tiếp theo là khi nào?",
+          "notes": "Thời gian biểu giao thông công cộng",
+          "tags": ["giao thông", "thời gian", "câu hỏi"]
+        },
+        {
+          "id": 4,
+          "text": "Đi sân bay thế nào?",
+          "notes": "Định hướng đến địa điểm quan trọng",
+          "tags": ["giao thông", "hướng dẫn", "câu hỏi"]
+        },
+        {
+          "id": 5,
+          "text": "Từ đây có xa không?",
+          "notes": "Kiểm tra khoảng cách",
+          "tags": ["giao thông", "hướng dẫn", "câu hỏi"]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Chỗ ở",
+      "description": "Những cụm từ để đặt phòng khách sạn, nhà nghỉ hoặc xử lý vấn đề chỗ ở",
+      "category": "travel",
+      "systemImageName": "house.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Tôi muốn đặt một phòng",
+          "notes": "Đặt khách sạn hoặc nhà nghỉ",
+          "tags": ["chỗ ở", "du lịch", "giao tiếp"]
+        },
+        {
+          "id": 2,
+          "text": "Tôi đến để check-in",
+          "notes": "Đến chỗ ở",
+          "tags": ["chỗ ở", "du lịch", "giao tiếp"]
+        },
+        {
+          "id": 3,
+          "text": "Có thể dọn phòng được không?",
+          "notes": "Yêu cầu dọn dẹp",
+          "tags": ["chỗ ở", "giao tiếp"]
+        },
+        {
+          "id": 4,
+          "text": "Mật khẩu Wi-Fi là gì?",
+          "notes": "Câu hỏi thường gặp tại chỗ ở",
+          "tags": ["chỗ ở", "công nghệ", "câu hỏi"]
+        },
+        {
+          "id": 5,
+          "text": "Có thể check-out muộn được không?",
+          "notes": "Gia hạn thời gian ở",
+          "tags": ["chỗ ở", "câu hỏi"]
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Giao tiếp xã hội và phép lịch sự",
+      "description": "Những cụm từ để giao tiếp lịch sự và hiểu các quy tắc văn hóa",
+      "category": "social",
+      "systemImageName": "person.3.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Rất vui được gặp bạn",
+          "notes": "Giới thiệu lịch sự",
+          "tags": ["văn hóa", "giao tiếp", "bạn bè"]
+        },
+        {
+          "id": 2,
+          "text": "Phong tục địa phương là gì?",
+          "notes": "Tìm hiểu quy tắc văn hóa",
+          "tags": ["văn hóa", "câu hỏi"]
+        },
+        {
+          "id": 3,
+          "text": "Chúc mừng!",
+          "notes": "Chúc mừng thành công",
+          "tags": ["văn hóa", "giao tiếp"]
+        },
+        {
+          "id": 4,
+          "text": "Chúc mừng sinh nhật!",
+          "notes": "Lời chào lễ hội",
+          "tags": ["văn hóa", "giao tiếp"]
+        },
+        {
+          "id": 5,
+          "text": "Xin lỗi, tôi đến muộn",
+          "notes": "Lời xin lỗi lịch sự",
+          "tags": ["văn hóa", "giao tiếp"]
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Thời tiết và môi trường",
+      "description": "Những cụm từ để thảo luận về thời tiết và điều kiện môi trường",
+      "category": "weather",
+      "systemImageName": "cloud.sun.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Hôm nay thời tiết thế nào?",
+          "notes": "Kiểm tra dự báo thời tiết hàng ngày",
+          "tags": ["thời tiết", "câu hỏi"]
+        },
+        {
+          "id": 2,
+          "text": "Bên ngoài có lạnh không?",
+          "notes": "Câu hỏi liên quan đến thời tiết",
+          "tags": ["thời tiết", "câu hỏi"]
+        },
+        {
+          "id": 3,
+          "text": "Lát nữa có mưa không?",
+          "notes": "Lên kế hoạch hoạt động",
+          "tags": ["thời tiết", "câu hỏi"]
+        },
+        {
+          "id": 4,
+          "text": "Nóng quá",
+          "notes": "Bày tỏ sự khó chịu",
+          "tags": ["thời tiết", "cảm xúc"]
+        },
+        {
+          "id": 5,
+          "text": "Bãi biển gần nhất ở đâu?",
+          "notes": "Tìm danh lam thắng cảnh tự nhiên",
+          "tags": ["thời tiết", "tự nhiên", "câu hỏi"]
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Số và thời gian",
+      "description": "Những cụm từ để đếm, nói về thời gian và lập kế hoạch",
+      "category": "basics",
+      "systemImageName": "clock.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Một, hai, ba…",
+          "notes": "Đếm cơ bản",
+          "tags": ["số", "cơ bản"]
+        },
+        {
+          "id": 2,
+          "text": "Hôm nay là thứ mấy?",
+          "notes": "Kiểm tra ngày trong tuần",
+          "tags": ["thời gian", "câu hỏi"]
+        },
+        {
+          "id": 3,
+          "text": "Mấy giờ mở cửa?",
+          "notes": "Giờ mở cửa của cửa hàng hoặc điểm tham quan",
+          "tags": ["thời gian", "câu hỏi"]
+        },
+        {
+          "id": 4,
+          "text": "Bao nhiêu?",
+          "notes": "Hỏi về số lượng",
+          "tags": ["số", "câu hỏi"]
+        },
+        {
+          "id": 5,
+          "text": "Đợi một chút",
+          "notes": "Yêu cầu tạm dừng",
+          "tags": ["thời gian", "giao tiếp"]
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Công nghệ và giao tiếp",
+      "description": "Những cụm từ để sử dụng công nghệ và giữ liên lạc",
+      "category": "technology",
+      "systemImageName": "wifi",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Tôi có thể sạc điện thoại không?",
+          "notes": "Yêu cầu bộ sạc",
+          "tags": ["công nghệ", "giao tiếp"]
+        },
+        {
+          "id": 2,
+          "text": "Có Wi-Fi không?",
+          "notes": "Hỏi về truy cập mạng",
+          "tags": ["công nghệ", "câu hỏi"]
+        },
+        {
+          "id": 3,
+          "text": "Bạn có thể chụp ảnh cho tôi không?",
+          "notes": "Yêu cầu chụp ảnh",
+          "tags": ["công nghệ", "giao tiếp"]
+        },
+        {
+          "id": 4,
+          "text": "Bạn có dùng mạng xã hội không?",
+          "notes": "Kết nối trực tuyến",
+          "tags": ["công nghệ", "giao tiếp", "câu hỏi"]
+        },
+        {
+          "id": 5,
+          "text": "Tôi không có tín hiệu",
+          "notes": "Vấn đề kết nối điện thoại",
+          "tags": ["công nghệ", "giao tiếp"]
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Chào hỏi và giới thiệu",
+      "description": "Những cụm từ để bắt đầu cuộc trò chuyện và giới thiệu bản thân",
+      "category": "basics",
+      "systemImageName": "person.wave.2.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Bạn khỏe không?",
+          "notes": "Lời chào thể hiện sự quan tâm",
+          "tags": ["cơ bản", "giao tiếp", "câu hỏi"]
+        },
+        {
+          "id": 2,
+          "text": "Tên tôi là…",
+          "notes": "Giới thiệu bản thân",
+          "tags": ["cơ bản", "giao tiếp"]
+        },
+        {
+          "id": 3,
+          "text": "Bạn đến từ đâu?",
+          "notes": "Mở đầu cuộc trò chuyện",
+          "tags": ["giao tiếp", "câu hỏi"]
+        },
+        {
+          "id": 4,
+          "text": "Rất vui được gặp bạn",
+          "notes": "Giới thiệu lịch sự",
+          "tags": ["cơ bản", "giao tiếp"]
+        },
+        {
+          "id": 5,
+          "text": "Hôm nay của bạn thế nào?",
+          "notes": "Lời chào thân mật",
+          "tags": ["giao tiếp", "câu hỏi"]
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Hoạt động hàng ngày",
+      "description": "Những cụm từ để thảo luận về hoạt động hàng ngày và lịch trình",
+      "category": "lifestyle",
+      "systemImageName": "sunrise.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Tôi dậy sớm",
+          "notes": "Mô tả thói quen buổi sáng",
+          "tags": ["cơ bản", "mô tả"]
+        },
+        {
+          "id": 2,
+          "text": "Bạn làm gì mỗi ngày?",
+          "notes": "Hỏi về thói quen hàng ngày",
+          "tags": ["câu hỏi", "giao tiếp"]
+        },
+        {
+          "id": 3,
+          "text": "Tôi làm việc vào buổi sáng",
+          "notes": "Chia sẻ lịch trình công việc",
+          "tags": ["mô tả", "kinh doanh"]
+        },
+        {
+          "id": 4,
+          "text": "Tôi ngủ muộn",
+          "notes": "Mô tả thói quen buổi tối",
+          "tags": ["mô tả"]
+        },
+        {
+          "id": 5,
+          "text": "Bạn có thời gian rảnh không?",
+          "notes": "Hỏi về thời gian rảnh",
+          "tags": ["câu hỏi", "giải trí"]
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Gia đình và mối quan hệ",
+      "description": "Những cụm từ về thành viên gia đình và mối quan hệ",
+      "category": "social",
+      "systemImageName": "person.2.circle.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Tôi có một anh trai",
+          "notes": "Mô tả gia đình",
+          "tags": ["gia đình", "mô tả"]
+        },
+        {
+          "id": 2,
+          "text": "Bạn đã kết hôn chưa?",
+          "notes": "Hỏi về tình trạng hôn nhân",
+          "tags": ["gia đình", "câu hỏi"]
+        },
+        {
+          "id": 3,
+          "text": "Bố mẹ tôi sống xa",
+          "notes": "Chia sẻ chi tiết về gia đình",
+          "tags": ["gia đình", "mô tả"]
+        },
+        {
+          "id": 4,
+          "text": "Bạn có con không?",
+          "notes": "Cuộc trò chuyện về gia đình",
+          "tags": ["gia đình", "câu hỏi"]
+        },
+        {
+          "id": 5,
+          "text": "Tôi độc thân",
+          "notes": "Mô tả tình trạng hôn nhân",
+          "tags": ["gia đình", "mô tả"]
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "name": "Công việc và kinh doanh",
+      "description": "Những cụm từ cho tương tác chuyên nghiệp và trò chuyện nơi làm việc",
+      "category": "professional",
+      "systemImageName": "briefcase.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Nghề nghiệp của bạn là gì?",
+          "notes": "Hỏi về nghề nghiệp",
+          "tags": ["kinh doanh", "câu hỏi"]
+        },
+        {
+          "id": 2,
+          "text": "Tôi làm việc trong lĩnh vực…",
+          "notes": "Mô tả công việc của bạn",
+          "tags": ["kinh doanh", "mô tả"]
+        },
+        {
+          "id": 3,
+          "text": "Chúng ta có thể sắp xếp một cuộc họp không?",
+          "notes": "Tổ chức cuộc họp kinh doanh",
+          "tags": ["kinh doanh", "giao tiếp"]
+        },
+        {
+          "id": 4,
+          "text": "Văn phòng của bạn ở đâu?",
+          "notes": "Xác định vị trí nơi làm việc",
+          "tags": ["kinh doanh", "câu hỏi"]
+        },
+        {
+          "id": 5,
+          "text": "Tôi cần một danh thiếp",
+          "notes": "Yêu cầu kết nối mạng",
+          "tags": ["kinh doanh", "giao tiếp"]
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "name": "Giáo dục và học tập",
+      "description": "Những cụm từ về học tập, nghiên cứu và giáo dục",
+      "category": "professional",
+      "systemImageName": "book.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Tôi là sinh viên",
+          "notes": "Mô tả thân phận sinh viên",
+          "tags": ["giáo dục", "mô tả"]
+        },
+        {
+          "id": 2,
+          "text": "Bạn học gì?",
+          "notes": "Hỏi về trọng tâm học thuật",
+          "tags": ["giáo dục", "câu hỏi"]
+        },
+        {
+          "id": 3,
+          "text": "Tôi cần một cuốn sách",
+          "notes": "Yêu cầu tài liệu học tập",
+          "tags": ["giáo dục", "giao tiếp"]
+        },
+        {
+          "id": 4,
+          "text": "Thư viện ở đâu?",
+          "notes": "Tìm nơi học tập",
+          "tags": ["giáo dục", "câu hỏi"]
+        },
+        {
+          "id": 5,
+          "text": "Tôi đang học ngôn ngữ này",
+          "notes": "Chia sẻ mục tiêu học tập",
+          "tags": ["giáo dục", "giao tiếp"]
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "name": "Hỏi đường",
+      "description": "Những cụm từ để định hướng và tìm địa điểm",
+      "category": "travel",
+      "systemImageName": "map.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Rẽ trái",
+          "notes": "Chỉ đường hoặc nhận chỉ dẫn",
+          "tags": ["hướng dẫn", "giao tiếp"]
+        },
+        {
+          "id": 2,
+          "text": "Con đường này đúng không?",
+          "notes": "Xác nhận hướng đi",
+          "tags": ["hướng dẫn", "câu hỏi"]
+        },
+        {
+          "id": 3,
+          "text": "Từ đây có xa không?",
+          "notes": "Hỏi về khoảng cách",
+          "tags": ["hướng dẫn", "câu hỏi"]
+        },
+        {
+          "id": 4,
+          "text": "Đi thẳng",
+          "notes": "Cung cấp hướng dẫn",
+          "tags": ["hướng dẫn", "giao tiếp"]
+        },
+        {
+          "id": 5,
+          "text": "Bản đồ ở đâu?",
+          "notes": "Yêu cầu công cụ định hướng",
+          "tags": ["hướng dẫn", "câu hỏi"]
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "name": "Mua sắm thực phẩm",
+      "description": "Những cụm từ để mua thực phẩm và đồ gia dụng",
+      "category": "food",
+      "systemImageName": "basket.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Trái cây ở đâu?",
+          "notes": "Tìm hàng hóa trong siêu thị",
+          "tags": ["mua sắm", "thực phẩm", "câu hỏi"]
+        },
+        {
+          "id": 2,
+          "text": "Cái này có tươi không?",
+          "notes": "Kiểm tra chất lượng thực phẩm",
+          "tags": ["mua sắm", "thực phẩm", "câu hỏi"]
+        },
+        {
+          "id": 3,
+          "text": "Tôi cần một cái túi",
+          "notes": "Yêu cầu túi mua sắm",
+          "tags": ["mua sắm", "giao tiếp"]
+        },
+        {
+          "id": 4,
+          "text": "Có sữa không?",
+          "notes": "Hỏi về mặt hàng cụ thể",
+          "tags": ["mua sắm", "thực phẩm", "câu hỏi"]
+        },
+        {
+          "id": 5,
+          "text": "Bao nhiêu tiền?",
+          "notes": "Kiểm tra giá thực phẩm",
+          "tags": ["mua sắm", "câu hỏi"]
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "name": "Tình huống khẩn cấp và an toàn",
+      "description": "Những cụm từ để xử lý các tình huống khẩn cấp không liên quan đến y tế",
+      "category": "emergency",
+      "systemImageName": "exclamationmark.triangle.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Cứu với, đây là tình huống khẩn cấp!",
+          "notes": "Yêu cầu giúp đỡ khẩn cấp",
+          "tags": ["khẩn cấp", "giao tiếp"]
+        },
+        {
+          "id": 2,
+          "text": "Đồn cảnh sát ở đâu?",
+          "notes": "Tìm cơ quan chức năng",
+          "tags": ["khẩn cấp", "câu hỏi"]
+        },
+        {
+          "id": 3,
+          "text": "Tôi làm mất hộ chiếu",
+          "notes": "Báo cáo tài liệu bị mất",
+          "tags": ["khẩn cấp", "du lịch"]
+        },
+        {
+          "id": 4,
+          "text": "Nơi này có an toàn không?",
+          "notes": "Kiểm tra an toàn",
+          "tags": ["khẩn cấp", "câu hỏi"]
+        },
+        {
+          "id": 5,
+          "text": "Gọi cảnh sát",
+          "notes": "Yêu cầu cơ quan chức năng",
+          "tags": ["khẩn cấp", "giao tiếp"]
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "name": "Lãng mạn và giao tiếp xã hội",
+      "description": "Những cụm từ cho các tương tác lãng mạn và thân thiện",
+      "category": "social",
+      "systemImageName": "heart.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Bạn thật xinh đẹp",
+          "notes": "Khen ngợi",
+          "tags": ["lãng mạn", "giao tiếp"]
+        },
+        {
+          "id": 2,
+          "text": "Tôi mời bạn một ly được không?",
+          "notes": "Lời mời giao tiếp",
+          "tags": ["lãng mạn", "giao tiếp"]
+        },
+        {
+          "id": 3,
+          "text": "Bạn muốn nhảy không?",
+          "notes": "Mời nhảy",
+          "tags": ["lãng mạn", "hành động"]
+        },
+        {
+          "id": 4,
+          "text": "Tôi thích nụ cười của bạn",
+          "notes": "Lời khen lãng mạn",
+          "tags": ["lãng mạn", "giao tiếp"]
+        },
+        {
+          "id": 5,
+          "text": "Hãy giữ liên lạc nhé",
+          "notes": "Giữ kết nối",
+          "tags": ["lãng mạn", "bạn bè", "giao tiếp"]
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "name": "Văn hóa và truyền thống địa phương",
+      "description": "Những cụm từ để tương tác với các truyền thống và sự kiện địa phương",
+      "category": "social",
+      "systemImageName": "flag.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Lễ hội này là gì?",
+          "notes": "Hỏi về sự kiện địa phương",
+          "tags": ["văn hóa", "câu hỏi"]
+        },
+        {
+          "id": 2,
+          "text": "Tôi có thể tham gia lễ hội không?",
+          "notes": "Tham gia sự kiện",
+          "tags": ["văn hóa", "giao tiếp"]
+        },
+        {
+          "id": 3,
+          "text": "Cái này có ý nghĩa gì?",
+          "notes": "Hiểu truyền thống",
+          "tags": ["văn hóa", "câu hỏi"]
+        },
+        {
+          "id": 4,
+          "text": "Đây là truyền thống địa phương à?",
+          "notes": "Tìm hiểu phong tục",
+          "tags": ["văn hóa", "câu hỏi"]
+        },
+        {
+          "id": 5,
+          "text": "Tôi yêu văn hóa này",
+          "notes": "Bày tỏ sự trân trọng",
+          "tags": ["văn hóa", "cảm xúc"]
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "name": "Màu sắc và mô tả",
+      "description": "Những cụm từ để mô tả đồ vật, màu sắc và ngoại hình",
+      "category": "shopping",
+      "systemImageName": "paintpalette.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Cái này màu đỏ",
+          "notes": "Mô tả màu sắc",
+          "tags": ["màu sắc", "mô tả"]
+        },
+        {
+          "id": 2,
+          "text": "Đây là màu gì?",
+          "notes": "Hỏi về màu sắc",
+          "tags": ["màu sắc", "câu hỏi"]
+        },
+        {
+          "id": 3,
+          "text": "Cái này đẹp lắm",
+          "notes": "Mô tả ngoại hình",
+          "tags": ["mô tả", "cảm xúc"]
+        },
+        {
+          "id": 4,
+          "text": "To hay nhỏ?",
+          "notes": "Hỏi về kích thước",
+          "tags": ["mô tả", "câu hỏi"]
+        },
+        {
+          "id": 5,
+          "text": "Tôi muốn màu xanh",
+          "notes": "Yêu cầu màu sắc cụ thể",
+          "tags": ["màu sắc", "mua sắm"]
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "name": "Biểu đạt thời gian",
+      "description": "Những cụm từ về thời gian ngoài các câu hỏi cơ bản",
+      "category": "weather",
+      "systemImageName": "timer",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Sớm quá",
+          "notes": "Bày tỏ sở thích thời gian",
+          "tags": ["thời gian", "cảm xúc"]
+        },
+        {
+          "id": 2,
+          "text": "Hẹn gặp ngày mai",
+          "notes": "Lên kế hoạch gặp trong tương lai",
+          "tags": ["thời gian", "giao tiếp"]
+        },
+        {
+          "id": 3,
+          "text": "Mất bao lâu?",
+          "notes": "Hỏi về thời lượng",
+          "tags": ["thời gian", "câu hỏi"]
+        },
+        {
+          "id": 4,
+          "text": "Tôi đến muộn",
+          "notes": "Giải thích sự chậm trễ",
+          "tags": ["thời gian", "giao tiếp"]
+        },
+        {
+          "id": 5,
+          "text": "Hôm nay là thứ mấy?",
+          "notes": "Hỏi về ngày",
+          "tags": ["thời gian", "câu hỏi"]
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "name": "Hoạt động liên quan đến thời tiết",
+      "description": "Những cụm từ để lập kế hoạch hoạt động dựa trên điều kiện thời tiết",
+      "category": "lifestyle",
+      "systemImageName": "sun.max.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Đi công viên nhé",
+          "notes": "Đề xuất hoạt động ngoài trời",
+          "tags": ["thời tiết", "hành động"]
+        },
+        {
+          "id": 2,
+          "text": "Có thích hợp để bơi không?",
+          "notes": "Kiểm tra thời tiết cho hoạt động",
+          "tags": ["thời tiết", "câu hỏi"]
+        },
+        {
+          "id": 3,
+          "text": "Thật tuyệt để đi picnic",
+          "notes": "Mô tả thời tiết lý tưởng",
+          "tags": ["thời tiết", "mô tả"]
+        },
+        {
+          "id": 4,
+          "text": "Có nên ở trong nhà không?",
+          "notes": "Lên kế hoạch cho thời tiết xấu",
+          "tags": ["thời tiết", "câu hỏi"]
+        },
+        {
+          "id": 5,
+          "text": "Hôm nay trời nắng",
+          "notes": "Mô tả thời tiết",
+          "tags": ["thời tiết", "mô tả"]
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "name": "Khắc phục sự cố công nghệ",
+      "description": "Những cụm từ để xử lý vấn đề công nghệ ngoài giao tiếp cơ bản",
+      "category": "technology",
+      "systemImageName": "wrench.and.screwdriver.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Điện thoại của tôi bị hỏng",
+          "notes": "Báo cáo vấn đề thiết bị",
+          "tags": ["công nghệ", "giao tiếp"]
+        },
+        {
+          "id": 2,
+          "text": "Bạn có thể sửa nó không?",
+          "notes": "Yêu cầu hỗ trợ kỹ thuật",
+          "tags": ["công nghệ", "câu hỏi"]
+        },
+        {
+          "id": 3,
+          "text": "Mạng có chậm không?",
+          "notes": "Kiểm tra vấn đề kết nối",
+          "tags": ["công nghệ", "câu hỏi"]
+        },
+        {
+          "id": 4,
+          "text": "Tôi cần bộ sạc",
+          "notes": "Yêu cầu thiết bị sạc",
+          "tags": ["công nghệ", "giao tiếp"]
+        },
+        {
+          "id": 5,
+          "text": "Tôi không kết nối được",
+          "notes": "Mô tả vấn đề kết nối",
+          "tags": ["công nghệ", "mô tả"]
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "name": "Nghệ thuật và sáng tạo",
+      "description": "Những cụm từ về nghệ thuật, sáng tạo và hoạt động văn hóa",
+      "category": "lifestyle",
+      "systemImageName": "paintbrush.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Tôi thích vẽ tranh",
+          "notes": "Bày tỏ sự quan tâm đến nghệ thuật",
+          "tags": ["nghệ thuật", "sở thích"]
+        },
+        {
+          "id": 2,
+          "text": "Bảo tàng ở đâu?",
+          "notes": "Tìm địa điểm văn hóa",
+          "tags": ["nghệ thuật", "câu hỏi"]
+        },
+        {
+          "id": 3,
+          "text": "Tác phẩm nghệ thuật này rất đẹp",
+          "notes": "Thưởng thức nghệ thuật",
+          "tags": ["nghệ thuật", "cảm xúc"]
+        },
+        {
+          "id": 4,
+          "text": "Bạn có thích vẽ tranh không?",
+          "notes": "Mở đầu cuộc trò chuyện về nghệ thuật",
+          "tags": ["nghệ thuật", "câu hỏi"]
+        },
+        {
+          "id": 5,
+          "text": "Tượng này là gì?",
+          "notes": "Hỏi về tác phẩm nghệ thuật",
+          "tags": ["nghệ thuật", "câu hỏi"]
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "name": "Thể thao và thể dục",
+      "description": "Những cụm từ về thể thao và hoạt động thể chất",
+      "category": "lifestyle",
+      "systemImageName": "sportscourt.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Tôi thích chạy bộ",
+          "notes": "Mô tả thói quen thể dục",
+          "tags": ["thể thao", "sở thích"]
+        },
+        {
+          "id": 2,
+          "text": "Chỗ nào chơi bóng đá được?",
+          "notes": "Tìm cơ sở thể thao",
+          "tags": ["thể thao", "câu hỏi"]
+        },
+        {
+          "id": 3,
+          "text": "Bạn có thích yoga không?",
+          "notes": "Mở đầu cuộc trò chuyện về thể thao",
+          "tags": ["thể thao", "câu hỏi"]
+        },
+        {
+          "id": 4,
+          "text": "Tôi đi phòng gym",
+          "notes": "Chia sẻ thói quen thể dục",
+          "tags": ["thể thao", "mô tả"]
+        },
+        {
+          "id": 5,
+          "text": "Chơi một trận nhé",
+          "notes": "Đề xuất hoạt động thể thao",
+          "tags": ["thể thao", "hành động"]
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "name": "Lên kế hoạch du lịch",
+      "description": "Những cụm từ để tổ chức và lên kế hoạch cho các hoạt động du lịch",
+      "category": "travel",
+      "systemImageName": "suitcase.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Có nơi nào đẹp để tham quan không?",
+          "notes": "Yêu cầu gợi ý du lịch",
+          "tags": ["du lịch", "câu hỏi"]
+        },
+        {
+          "id": 2,
+          "text": "Vé bao nhiêu tiền?",
+          "notes": "Kiểm tra chi phí du lịch",
+          "tags": ["du lịch", "câu hỏi"]
+        },
+        {
+          "id": 3,
+          "text": "Tôi cần một hướng dẫn viên",
+          "notes": "Yêu cầu tài nguyên du lịch",
+          "tags": ["du lịch", "giao tiếp"]
+        },
+        {
+          "id": 4,
+          "text": "Có tour hướng dẫn không?",
+          "notes": "Hỏi về các hoạt động có hướng dẫn",
+          "tags": ["du lịch", "câu hỏi"]
+        },
+        {
+          "id": 5,
+          "text": "Mai tôi sẽ đi du lịch",
+          "notes": "Chia sẻ kế hoạch du lịch",
+          "tags": ["du lịch", "mô tả"]
+        }
+      ]
+    }
+  ]
+}

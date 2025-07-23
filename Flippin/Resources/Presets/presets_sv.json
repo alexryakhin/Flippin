@@ -1,0 +1,1284 @@
+{
+  "languageName": "Swedish",
+  "languageCode": "sv",
+  "presets": [
+    {
+      "id": 1,
+      "name": "Grundläggande Fraser",
+      "description": "Grundläggande ord och fraser som alla bör kunna",
+      "category": "basics",
+      "systemImageName": "characters.uppercase",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Hej",
+          "notes": "Grundläggande hälsning",
+          "tags": ["grundläggande", "kommunikation"]
+        },
+        {
+          "id": 2,
+          "text": "Tack",
+          "notes": "Uttrycka tacksamhet",
+          "tags": ["grundläggande", "kommunikation"]
+        },
+        {
+          "id": 3,
+          "text": "Snälla",
+          "notes": "Göra artiga förfrågningar",
+          "tags": ["grundläggande", "kommunikation"]
+        },
+        {
+          "id": 4,
+          "text": "Ja",
+          "notes": "Bekräftande svar",
+          "tags": ["grundläggande", "svar"]
+        },
+        {
+          "id": 5,
+          "text": "Nej",
+          "notes": "Nekande svar",
+          "tags": ["grundläggande", "svar"]
+        },
+        {
+          "id": 6,
+          "text": "Hejdå",
+          "notes": "Avsked",
+          "tags": ["grundläggande", "kommunikation"]
+        },
+        {
+          "id": 7,
+          "text": "Ursäkta",
+          "notes": "Få uppmärksamhet eller be om ursäkt",
+          "tags": ["grundläggande", "kommunikation"]
+        },
+        {
+          "id": 8,
+          "text": "Jag förstår inte",
+          "notes": "När du behöver förtydligande",
+          "tags": ["grundläggande", "kommunikation", "frågor"]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Resenödvändigheter",
+      "description": "Viktiga fraser för att resa och ta sig runt",
+      "category": "travel",
+      "systemImageName": "airplane",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Var är toaletten?",
+          "notes": "Viktigt för resenärer",
+          "tags": ["resa", "frågor"]
+        },
+        {
+          "id": 2,
+          "text": "Hur mycket kostar detta?",
+          "notes": "Shopping och förhandling",
+          "tags": ["resa", "shopping", "frågor"]
+        },
+        {
+          "id": 3,
+          "text": "Jag behöver hjälp",
+          "notes": "Nödfras",
+          "tags": ["resa", "nödsituation", "kommunikation"]
+        },
+        {
+          "id": 4,
+          "text": "Talar du engelska?",
+          "notes": "Övervinna språkbarriärer",
+          "tags": ["resa", "kommunikation", "frågor"]
+        },
+        {
+          "id": 5,
+          "text": "Jag har gått vilse",
+          "notes": "När du behöver vägbeskrivning",
+          "tags": ["resa", "vägbeskrivningar", "nödsituation"]
+        },
+        {
+          "id": 6,
+          "text": "Kan du hjälpa mig?",
+          "notes": "Be om hjälp",
+          "tags": ["resa", "kommunikation", "frågor"]
+        },
+        {
+          "id": 7,
+          "text": "Vad är klockan?",
+          "notes": "Frågor om tid",
+          "tags": ["resa", "tid", "frågor"]
+        },
+        {
+          "id": 8,
+          "text": "Jag är allergisk mot...",
+          "notes": "Viktigt för mat och mediciner",
+          "tags": ["resa", "hälsa", "mat"]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Underhållning och Media",
+      "description": "Ord och fraser om filmer, musik, spel och underhållning",
+      "category": "entertainment",
+      "systemImageName": "play.circle.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Jag älskar den här filmen",
+          "notes": "Uttrycka uppskattning",
+          "tags": ["underhållning", "filmer", "känslor"]
+        },
+        {
+          "id": 2,
+          "text": "Vilken är din favoritmusik?",
+          "notes": "Starta ett samtal om musik",
+          "tags": ["underhållning", "musik", "frågor"]
+        },
+        {
+          "id": 3,
+          "text": "Den här låten är fantastisk",
+          "notes": "Musikuppskattning",
+          "tags": ["underhållning", "musik", "känslor"]
+        },
+        {
+          "id": 4,
+          "text": "Jag spelar videospel",
+          "notes": "Spelhobby",
+          "tags": ["underhållning", "spel", "hobbys"]
+        },
+        {
+          "id": 5,
+          "text": "Har du sett det här programmet?",
+          "notes": "Diskussion om TV-program",
+          "tags": ["underhållning", "media", "frågor"]
+        },
+        {
+          "id": 6,
+          "text": "Jag läser serietidningar",
+          "notes": "Intresse för serier",
+          "tags": ["underhållning", "böcker", "hobbys"]
+        },
+        {
+          "id": 7,
+          "text": "Disneyfilmer är fantastiska",
+          "notes": "Uppskattning för Disney",
+          "tags": ["underhållning", "filmer", "känslor"]
+        },
+        {
+          "id": 8,
+          "text": "Vilken genre gillar du?",
+          "notes": "Underhållningspreferenser",
+          "tags": ["underhållning", "media", "frågor"]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Mat och Restaurang",
+      "description": "Viktiga fraser för restauranger och kulinariska upplevelser",
+      "category": "food",
+      "systemImageName": "fork.knife.circle",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Jag är hungrig",
+          "notes": "Grundläggande matbehov",
+          "tags": ["mat", "restaurang", "känslor"]
+        },
+        {
+          "id": 2,
+          "text": "Det här är gott",
+          "notes": "Uppskattning av mat",
+          "tags": ["mat", "restaurang", "känslor"]
+        },
+        {
+          "id": 3,
+          "text": "Jag är vegetarian",
+          "notes": "Kostrestriktion",
+          "tags": ["mat", "restaurang", "hälsa"]
+        },
+        {
+          "id": 4,
+          "text": "Kan jag få menyn?",
+          "notes": "Förfrågan på restaurang",
+          "tags": ["mat", "restaurang", "frågor"]
+        },
+        {
+          "id": 5,
+          "text": "Jag vill beställa",
+          "notes": "Redo att beställa",
+          "tags": ["mat", "restaurang", "kommunikation"]
+        },
+        {
+          "id": 6,
+          "text": "Notan, tack",
+          "notes": "Be om räkningen",
+          "tags": ["mat", "restaurang", "kommunikation"]
+        },
+        {
+          "id": 7,
+          "text": "Jag är allergisk mot nötter",
+          "notes": "Matallergi",
+          "tags": ["mat", "restaurang", "hälsa"]
+        },
+        {
+          "id": 8,
+          "text": "Vad rekommenderar du?",
+          "notes": "Be om rekommendationer",
+          "tags": ["mat", "restaurang", "frågor"]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Hälsa och Medicin",
+      "description": "Viktiga fraser för medicinska situationer och hälsoproblem",
+      "category": "emergency",
+      "systemImageName": "cross.circle.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Jag mår inte bra",
+          "notes": "Allmänt hälsoproblem",
+          "tags": ["hälsa", "medicin", "nödsituation"]
+        },
+        {
+          "id": 2,
+          "text": "Jag har huvudvärk",
+          "notes": "Vanligt symptom",
+          "tags": ["hälsa", "medicin"]
+        },
+        {
+          "id": 3,
+          "text": "Jag behöver en läkare",
+          "notes": "Medicinsk nödsituation",
+          "tags": ["hälsa", "medicin", "nödsituation"]
+        },
+        {
+          "id": 4,
+          "text": "Var är sjukhuset?",
+          "notes": "Hitta medicinsk anläggning",
+          "tags": ["hälsa", "medicin", "frågor"]
+        },
+        {
+          "id": 5,
+          "text": "Jag har feber",
+          "notes": "Vanligt sjukdomssymptom",
+          "tags": ["hälsa", "medicin"]
+        },
+        {
+          "id": 6,
+          "text": "Jag tar mediciner",
+          "notes": "Medicinsk information",
+          "tags": ["hälsa", "medicin"]
+        },
+        {
+          "id": 7,
+          "text": "Jag har en allergi",
+          "notes": "Viktig medicinsk information",
+          "tags": ["hälsa", "medicin"]
+        },
+        {
+          "id": 8,
+          "text": "Ring en ambulans",
+          "notes": "Nödsituation",
+          "tags": ["hälsa", "medicin", "nödsituation"]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Fritid och Hobbies",
+      "description": "Fraser om hobbies, sport och fritidsaktiviteter",
+      "category": "lifestyle",
+      "systemImageName": "gamecontroller",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Jag gillar att läsa",
+          "notes": "Läs-hobby",
+          "tags": ["fritid", "hobbys", "böcker"]
+        },
+        {
+          "id": 2,
+          "text": "Sportar du?",
+          "notes": "Samtal om sport",
+          "tags": ["fritid", "sport", "frågor"]
+        },
+        {
+          "id": 3,
+          "text": "Jag älskar att vandra",
+          "notes": "Utomhusaktivitet",
+          "tags": ["fritid", "hobbys", "natur"]
+        },
+        {
+          "id": 4,
+          "text": "Vad gör du för skojs skull?",
+          "notes": "Starta ett samtal om hobbies",
+          "tags": ["fritid", "hobbys", "frågor"]
+        },
+        {
+          "id": 5,
+          "text": "Jag gillar att laga mat",
+          "notes": "Matlagning-hobby",
+          "tags": ["fritid", "hobbys", "mat"]
+        },
+        {
+          "id": 6,
+          "text": "Låt oss gå en promenad",
+          "notes": "Förslag på avslappnad aktivitet",
+          "tags": ["fritid", "hobbys", "aktioner"]
+        },
+        {
+          "id": 7,
+          "text": "Jag spelar gitarr",
+          "notes": "Musikinstrument",
+          "tags": ["fritid", "hobbys", "musik"]
+        },
+        {
+          "id": 8,
+          "text": "Jag gillar fotografi",
+          "notes": "Fotografi-hobby",
+          "tags": ["fritid", "hobbys", "konst"]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Shopping och Förhandling",
+      "description": "Fraser för inköp, prisförhandling och transaktioner",
+      "category": "shopping",
+      "systemImageName": "cart.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Kan jag prova detta?",
+          "notes": "För kläder eller accessoarer",
+          "tags": ["shopping", "frågor"]
+        },
+        {
+          "id": 2,
+          "text": "Kan du sänka priset?",
+          "notes": "För förhandling på marknader",
+          "tags": ["shopping", "affärer", "frågor"]
+        },
+        {
+          "id": 3,
+          "text": "Accepterar du kreditkort?",
+          "notes": "Fråga om betalning",
+          "tags": ["shopping", "affärer", "frågor"]
+        },
+        {
+          "id": 4,
+          "text": "Var är provrummet?",
+          "notes": "För klädbutiker",
+          "tags": ["shopping", "frågor"]
+        },
+        {
+          "id": 5,
+          "text": "Har du detta i en mindre storlek?",
+          "notes": "Fråga om olika storlekar",
+          "tags": ["shopping", "frågor"]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Transport och Navigering",
+      "description": "Fraser för att använda kollektivtrafik, taxi och hitta vägbeskrivningar",
+      "category": "travel",
+      "systemImageName": "tram.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Var är busstationen?",
+          "notes": "Hitta transportknutpunkter",
+          "tags": ["transport", "vägbeskrivningar", "frågor"]
+        },
+        {
+          "id": 2,
+          "text": "Kan du ringa en taxi?",
+          "notes": "Beställa en taxi",
+          "tags": ["transport", "kommunikation"]
+        },
+        {
+          "id": 3,
+          "text": "När går nästa tåg?",
+          "notes": "Tidsplaner för kollektivtrafik",
+          "tags": ["transport", "tid", "frågor"]
+        },
+        {
+          "id": 4,
+          "text": "Hur kommer jag till flygplatsen?",
+          "notes": "Navigera till viktiga platser",
+          "tags": ["transport", "vägbeskrivningar", "frågor"]
+        },
+        {
+          "id": 5,
+          "text": "Är det långt härifrån?",
+          "notes": "Kontrollera avstånd",
+          "tags": ["transport", "vägbeskrivningar", "frågor"]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Boende",
+      "description": "Fraser för att boka hotell, vandrarhem eller hantera boendeproblem",
+      "category": "travel",
+      "systemImageName": "house.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Jag vill boka ett rum",
+          "notes": "Bokning av hotell eller vandrarhem",
+          "tags": ["boende", "resa", "kommunikation"]
+        },
+        {
+          "id": 2,
+          "text": "Jag är här för att checka in",
+          "notes": "Ankomst till boende",
+          "tags": ["boende", "resa", "kommunikation"]
+        },
+        {
+          "id": 3,
+          "text": "Kan du städa rummet?",
+          "notes": "Begära städning",
+          "tags": ["boende", "kommunikation"]
+        },
+        {
+          "id": 4,
+          "text": "Vad är wifi-lösenordet?",
+          "notes": "Vanlig fråga på boenden",
+          "tags": ["boende", "teknologi", "frågor"]
+        },
+        {
+          "id": 5,
+          "text": "Är sen utcheckning möjlig?",
+          "notes": "Förlänga vistelsen",
+          "tags": ["boende", "frågor"]
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Social och Kulturell Etikett",
+      "description": "Fraser för artiga interaktioner och förståelse av kulturella normer",
+      "category": "social",
+      "systemImageName": "person.3.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Trevligt att träffas",
+          "notes": "Artig introduktion",
+          "tags": ["kultur", "kommunikation", "vänner"]
+        },
+        {
+          "id": 2,
+          "text": "Vad är de lokala sederna?",
+          "notes": "Lära sig kulturella normer",
+          "tags": ["kultur", "frågor"]
+        },
+        {
+          "id": 3,
+          "text": "Grattis!",
+          "notes": "Fira framgångar",
+          "tags": ["kultur", "kommunikation"]
+        },
+        {
+          "id": 4,
+          "text": "Grattis på födelsedagen!",
+          "notes": "Festlig hälsning",
+          "tags": ["kultur", "kommunikation"]
+        },
+        {
+          "id": 5,
+          "text": "Ursäkta, jag är sen",
+          "notes": "Artig ursäkt",
+          "tags": ["kultur", "kommunikation"]
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Väder och Miljö",
+      "description": "Fraser om väder och miljöförhållanden",
+      "category": "weather",
+      "systemImageName": "cloud.sun.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Hur är vädret idag?",
+          "notes": "Kontrollera dagliga väderprognoser",
+          "tags": ["väder", "frågor"]
+        },
+        {
+          "id": 2,
+          "text": "Är det kallt ute?",
+          "notes": "Fråga om vädret",
+          "tags": ["väder", "frågor"]
+        },
+        {
+          "id": 3,
+          "text": "Kommer det att regna senare?",
+          "notes": "Planera aktiviteter",
+          "tags": ["väder", "frågor"]
+        },
+        {
+          "id": 4,
+          "text": "Det är för varmt",
+          "notes": "Uttrycka obehag",
+          "tags": ["väder", "känslor"]
+        },
+        {
+          "id": 5,
+          "text": "Var är närmaste strand?",
+          "notes": "Hitta naturliga sevärdheter",
+          "tags": ["väder", "natur", "frågor"]
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Siffror och Tid",
+      "description": "Fraser för att räkna, ange tid och planera",
+      "category": "basics",
+      "systemImageName": "clock.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Ett, två, tre...",
+          "notes": "Grundläggande räkning",
+          "tags": ["siffror", "grundläggande"]
+        },
+        {
+          "id": 2,
+          "text": "Vilken dag är det idag?",
+          "notes": "Kontrollera veckodag",
+          "tags": ["tid", "frågor"]
+        },
+        {
+          "id": 3,
+          "text": "När öppnar det?",
+          "notes": "Öppettider för butiker eller sevärdheter",
+          "tags": ["tid", "frågor"]
+        },
+        {
+          "id": 4,
+          "text": "Hur många är det?",
+          "notes": "Fråga om mängder",
+          "tags": ["siffror", "frågor"]
+        },
+        {
+          "id": 5,
+          "text": "Vänta en minut",
+          "notes": "Be om en paus",
+          "tags": ["tid", "kommunikation"]
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Teknologi och Kommunikation",
+      "description": "Fraser för att använda teknologi och hålla kontakten",
+      "category": "technology",
+      "systemImageName": "wifi",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Kan jag ladda min telefon?",
+          "notes": "Be om en laddare",
+          "tags": ["teknologi", "kommunikation"]
+        },
+        {
+          "id": 2,
+          "text": "Finns det wifi tillgängligt?",
+          "notes": "Fråga om internetåtkomst",
+          "tags": ["teknologi", "frågor"]
+        },
+        {
+          "id": 3,
+          "text": "Kan du ta ett foto?",
+          "notes": "Be om ett fotografi",
+          "tags": ["teknologi", "kommunikation"]
+        },
+        {
+          "id": 4,
+          "text": "Är du på sociala medier?",
+          "notes": "Ansluta online",
+          "tags": ["teknologi", "kommunikation", "frågor"]
+        },
+        {
+          "id": 5,
+          "text": "Jag har ingen signal",
+          "notes": "Problem med telefonanslutning",
+          "tags": ["teknologi", "kommunikation"]
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Hälsningar och Presentationer",
+      "description": "Fraser för att starta samtal och presentera sig",
+      "category": "basics",
+      "systemImageName": "person.wave.2.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Hur mår du?",
+          "notes": "Vanlig hälsning för att visa intresse",
+          "tags": ["grundläggande", "kommunikation", "frågor"]
+        },
+        {
+          "id": 2,
+          "text": "Mitt namn är...",
+          "notes": "Presentera sig",
+          "tags": ["grundläggande", "kommunikation"]
+        },
+        {
+          "id": 3,
+          "text": "Var kommer du ifrån?",
+          "notes": "Starta ett samtal",
+          "tags": ["kommunikation", "frågor"]
+        },
+        {
+          "id": 4,
+          "text": "Trevligt att träffas",
+          "notes": "Artig introduktion",
+          "tags": ["grundläggande", "kommunikation"]
+        },
+        {
+          "id": 5,
+          "text": "Hur har din dag varit?",
+          "notes": "Avslappnad hälsning",
+          "tags": ["kommunikation", "frågor"]
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Dagliga Rutiner",
+      "description": "Fraser om dagliga aktiviteter och scheman",
+      "category": "lifestyle",
+      "systemImageName": "sunrise.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Jag vaknar tidigt",
+          "notes": "Beskriva morgonrutin",
+          "tags": ["grundläggande", "beskrivningar"]
+        },
+        {
+          "id": 2,
+          "text": "Vad gör du varje dag?",
+          "notes": "Fråga om rutiner",
+          "tags": ["frågor", "kommunikation"]
+        },
+        {
+          "id": 3,
+          "text": "Jag arbetar på morgonen",
+          "notes": "Dela arbetsschema",
+          "tags": ["beskrivningar", "affärer"]
+        },
+        {
+          "id": 4,
+          "text": "Jag går och lägger mig sent",
+          "notes": "Beskriva kvällsvanor",
+          "tags": ["beskrivningar"]
+        },
+        {
+          "id": 5,
+          "text": "Har du fritid?",
+          "notes": "Fråga om tillgänglighet",
+          "tags": ["frågor", "fritid"]
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Familj och Relationer",
+      "description": "Fraser om familjemedlemmar och relationer",
+      "category": "social",
+      "systemImageName": "person.2.circle.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Jag har en bror",
+          "notes": "Beskriva familjen",
+          "tags": ["familj", "beskrivningar"]
+        },
+        {
+          "id": 2,
+          "text": "Är du gift?",
+          "notes": "Fråga om relationsstatus",
+          "tags": ["familj", "frågor"]
+        },
+        {
+          "id": 3,
+          "text": "Mina föräldrar bor långt borta",
+          "notes": "Dela familjedetaljer",
+          "tags": ["familj", "beskrivningar"]
+        },
+        {
+          "id": 4,
+          "text": "Har du barn?",
+          "notes": "Samtal om familj",
+          "tags": ["familj", "frågor"]
+        },
+        {
+          "id": 5,
+          "text": "Jag är singel",
+          "notes": "Beskriva relationsstatus",
+          "tags": ["familj", "beskrivningar"]
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "name": "Arbete och Affärer",
+      "description": "Fraser för professionella interaktioner och arbetsplatssamtal",
+      "category": "professional",
+      "systemImageName": "briefcase.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Vad är ditt yrke?",
+          "notes": "Fråga om yrke",
+          "tags": ["affärer", "frågor"]
+        },
+        {
+          "id": 2,
+          "text": "Jag arbetar som...",
+          "notes": "Beskriva ditt yrke",
+          "tags": ["affärer", "beskrivningar"]
+        },
+        {
+          "id": 3,
+          "text": "Kan vi boka ett möte?",
+          "notes": "Organisera affärsmöten",
+          "tags": ["affärer", "kommunikation"]
+        },
+        {
+          "id": 4,
+          "text": "Var är ditt kontor?",
+          "notes": "Lokalisera arbetsplatsen",
+          "tags": ["affärer", "frågor"]
+        },
+        {
+          "id": 5,
+          "text": "Jag behöver ett visitkort",
+          "notes": "Förfrågan för nätverkande",
+          "tags": ["affärer", "kommunikation"]
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "name": "Utbildning och Lärande",
+      "description": "Fraser om studier, lärande och utbildning",
+      "category": "professional",
+      "systemImageName": "book.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Jag är student",
+          "notes": "Beskriva studentstatus",
+          "tags": ["utbildning", "beskrivningar"]
+        },
+        {
+          "id": 2,
+          "text": "Vad studerar du?",
+          "notes": "Fråga om akademiskt fokus",
+          "tags": ["utbildning", "frågor"]
+        },
+        {
+          "id": 3,
+          "text": "Jag behöver en bok",
+          "notes": "Be om studiematerial",
+          "tags": ["utbildning", "kommunikation"]
+        },
+        {
+          "id": 4,
+          "text": "Var är biblioteket?",
+          "notes": "Hitta studieplatser",
+          "tags": ["utbildning", "frågor"]
+        },
+        {
+          "id": 5,
+          "text": "Jag lär mig språket",
+          "notes": "Dela lärandemål",
+          "tags": ["utbildning", "kommunikation"]
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "name": "Fråga efter Vägbeskrivning",
+      "description": "Fraser för navigering och att hitta platser",
+      "category": "travel",
+      "systemImageName": "map.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Sväng vänster",
+          "notes": "Ge eller ta emot vägbeskrivning",
+          "tags": ["vägbeskrivningar", "kommunikation"]
+        },
+        {
+          "id": 2,
+          "text": "Är detta rätt väg?",
+          "notes": "Bekräfta vägbeskrivning",
+          "tags": ["vägbeskrivningar", "frågor"]
+        },
+        {
+          "id": 3,
+          "text": "Hur långt är det?",
+          "notes": "Fråga om avstånd",
+          "tags": ["vägbeskrivningar", "frågor"]
+        },
+        {
+          "id": 4,
+          "text": "Gå rakt fram",
+          "notes": "Ge vägbeskrivning",
+          "tags": ["vägbeskrivningar", "kommunikation"]
+        },
+        {
+          "id": 5,
+          "text": "Var är kartan?",
+          "notes": "Be om navigationsverktyg",
+          "tags": ["vägbeskrivningar", "frågor"]
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "name": "Livsmedelsinköp",
+      "description": "Fraser för att köpa mat och hushållsartiklar",
+      "category": "food",
+      "systemImageName": "basket.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Var är frukten?",
+          "notes": "Hitta varor i mataffären",
+          "tags": ["shopping", "mat", "frågor"]
+        },
+        {
+          "id": 2,
+          "text": "Är detta färskt?",
+          "notes": "Kontrollera matens kvalitet",
+          "tags": ["shopping", "mat", "frågor"]
+        },
+        {
+          "id": 3,
+          "text": "Jag behöver en påse",
+          "notes": "Be om en shoppingpåse",
+          "tags": ["shopping", "kommunikation"]
+        },
+        {
+          "id": 4,
+          "text": "Har du mjölk?",
+          "notes": "Fråga efter specifika varor",
+          "tags": ["shopping", "mat", "frågor"]
+        },
+        {
+          "id": 5,
+          "text": "Hur mycket kostar det?",
+          "notes": "Kontrollera priser på livsmedel",
+          "tags": ["shopping", "frågor"]
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "name": "Nödsituationer och Säkerhet",
+      "description": "Fraser för att hantera nödsituationer utöver medicinska situationer",
+      "category": "emergency",
+      "systemImageName": "exclamationmark.triangle.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Hjälp, det är en nödsituation!",
+          "notes": "Brådskande rop på hjälp",
+          "tags": ["nödsituation", "kommunikation"]
+        },
+        {
+          "id": 2,
+          "text": "Var är polisstationen?",
+          "notes": "Hitta myndigheter",
+          "tags": ["nödsituation", "frågor"]
+        },
+        {
+          "id": 3,
+          "text": "Jag har tappat mitt pass",
+          "notes": "Rapportera förlorade dokument",
+          "tags": ["nödsituation", "resa"]
+        },
+        {
+          "id": 4,
+          "text": "Är det säkert här?",
+          "notes": "Kontrollera säkerhet",
+          "tags": ["nödsituation", "frågor"]
+        },
+        {
+          "id": 5,
+          "text": "Ring polisen",
+          "notes": "Be om myndigheter",
+          "tags": ["nödsituation", "kommunikation"]
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "name": "Romantik och Socialt",
+      "description": "Fraser för romantiska och vänskapliga interaktioner",
+      "category": "social",
+      "systemImageName": "heart.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Du är väldigt snygg",
+          "notes": "Ge en komplimang",
+          "tags": ["romantik", "kommunikation"]
+        },
+        {
+          "id": 2,
+          "text": "Får jag bjuda på en drink?",
+          "notes": "Socialt erbjudande",
+          "tags": ["romantik", "kommunikation"]
+        },
+        {
+          "id": 3,
+          "text": "Vill du dansa?",
+          "notes": "Inbjudan att dansa",
+          "tags": ["romantik", "aktioner"]
+        },
+        {
+          "id": 4,
+          "text": "Jag gillar ditt leende",
+          "notes": "Romantisk komplimang",
+          "tags": ["romantik", "kommunikation"]
+        },
+        {
+          "id": 5,
+          "text": "Låt oss hålla kontakten",
+          "notes": "Underhålla kontakt",
+          "tags": ["romantik", "vänner", "kommunikation"]
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "name": "Lokal Kultur och Traditioner",
+      "description": "Fraser för att interagera med lokala traditioner och evenemang",
+      "category": "social",
+      "systemImageName": "flag.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Vad är det här för festival?",
+          "notes": "Fråga om lokala evenemang",
+          "tags": ["kultur", "frågor"]
+        },
+        {
+          "id": 2,
+          "text": "Kan jag delta i firandet?",
+          "notes": "Delta i evenemang",
+          "tags": ["kultur", "kommunikation"]
+        },
+        {
+          "id": 3,
+          "text": "Vad betyder detta?",
+          "notes": "Förstå traditioner",
+          "tags": ["kultur", "frågor"]
+        },
+        {
+          "id": 4,
+          "text": "Är det en lokal tradition?",
+          "notes": "Lära sig om seder",
+          "tags": ["kultur", "frågor"]
+        },
+        {
+          "id": 5,
+          "text": "Jag älskar denna kultur",
+          "notes": "Uttrycka uppskattning",
+          "tags": ["kultur", "känslor"]
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "name": "Färger och Beskrivningar",
+      "description": "Fraser för att beskriva föremål, färger och utseende",
+      "category": "shopping",
+      "systemImageName": "paintpalette.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Det är rött",
+          "notes": "Beskriva färg",
+          "tags": ["färger", "beskrivningar"]
+        },
+        {
+          "id": 2,
+          "text": "Vilken färg är det?",
+          "notes": "Fråga om färger",
+          "tags": ["färger", "frågor"]
+        },
+        {
+          "id": 3,
+          "text": "Det är vackert",
+          "notes": "Beskriva utseende",
+          "tags": ["beskrivningar", "känslor"]
+        },
+        {
+          "id": 4,
+          "text": "Är det stort eller litet?",
+          "notes": "Fråga om storlek",
+          "tags": ["beskrivningar", "frågor"]
+        },
+        {
+          "id": 5,
+          "text": "Jag vill ha något blått",
+          "notes": "Be om en specifik färg",
+          "tags": ["färger", "shopping"]
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "name": "Tidsuttryck",
+      "description": "Fraser om tid utöver grundläggande frågor",
+      "category": "weather",
+      "systemImageName": "timer",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Det är för tidigt",
+          "notes": "Uttrycka tidspreferens",
+          "tags": ["tid", "känslor"]
+        },
+        {
+          "id": 2,
+          "text": "Vi ses imorgon",
+          "notes": "Planera framtida möten",
+          "tags": ["tid", "kommunikation"]
+        },
+        {
+          "id": 3,
+          "text": "Hur lång tid tar det?",
+          "notes": "Fråga om varaktighet",
+          "tags": ["tid", "frågor"]
+        },
+        {
+          "id": 4,
+          "text": "Jag är sen",
+          "notes": "Förklara en försening",
+          "tags": ["tid", "kommunikation"]
+        },
+        {
+          "id": 5,
+          "text": "Vilket datum är det idag?",
+          "notes": "Fråga om datum",
+          "tags": ["tid", "frågor"]
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "name": "Väderrelaterade Aktiviteter",
+      "description": "Fraser för att planera aktiviteter baserat på väderförhållanden",
+      "category": "lifestyle",
+      "systemImageName": "sun.max.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Låt oss gå till parken",
+          "notes": "Föreslå en utomhusaktivitet",
+          "tags": ["väder", "aktioner"]
+        },
+        {
+          "id": 2,
+          "text": "Är det bra att simma?",
+          "notes": "Kontrollera vädret för aktiviteter",
+          "tags": ["väder", "frågor"]
+        },
+        {
+          "id": 3,
+          "text": "Det är perfekt för en picknick",
+          "notes": "Beskriva idealiskt väder",
+          "tags": ["väder", "beskrivningar"]
+        },
+        {
+          "id": 4,
+          "text": "Bör vi stanna inne?",
+          "notes": "Planera för dåligt väder",
+          "tags": ["väder", "frågor"]
+        },
+        {
+          "id": 5,
+          "text": "Idag är det soligt",
+          "notes": "Beskriva vädret",
+          "tags": ["väder", "beskrivningar"]
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "name": "Felsökning av Teknik",
+      "description": "Fraser för att hantera tekniska problem utöver grundläggande kommunikation",
+      "category": "technology",
+      "systemImageName": "wrench.and.screwdriver.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Min telefon fungerar inte",
+          "notes": "Rapportera problem med enheten",
+          "tags": ["teknologi", "kommunikation"]
+        },
+        {
+          "id": 2,
+          "text": "Kan du fixa det?",
+          "notes": "Be om teknisk hjälp",
+          "tags": ["teknologi", "frågor"]
+        },
+        {
+          "id": 3,
+          "text": "Är internet långsamt?",
+          "notes": "Kontrollera anslutningsproblem",
+          "tags": ["teknologi", "frågor"]
+        },
+        {
+          "id": 4,
+          "text": "Jag behöver en laddare",
+          "notes": "Be om laddningsutrustning",
+          "tags": ["teknologi", "kommunikation"]
+        },
+        {
+          "id": 5,
+          "text": "Det kopplar inte upp",
+          "notes": "Beskriva anslutningsproblem",
+          "tags": ["teknologi", "beskrivningar"]
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "name": "Konst och Kreativitet",
+      "description": "Fraser om konst, kreativitet och kulturella aktiviteter",
+      "category": "lifestyle",
+      "systemImageName": "paintbrush.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Jag älskar att måla",
+          "notes": "Uttrycka intresse för konst",
+          "tags": ["konst", "hobbys"]
+        },
+        {
+          "id": 2,
+          "text": "Var är museet?",
+          "notes": "Hitta kulturella platser",
+          "tags": ["konst", "frågor"]
+        },
+        {
+          "id": 3,
+          "text": "Den här konsten är vacker",
+          "notes": "Uppskatta konst",
+          "tags": ["konst", "känslor"]
+        },
+        {
+          "id": 4,
+          "text": "Gillar du att rita?",
+          "notes": "Starta ett samtal om konst",
+          "tags": ["konst", "frågor"]
+        },
+        {
+          "id": 5,
+          "text": "Vad är denna skulptur?",
+          "notes": "Fråga om konstverk",
+          "tags": ["konst", "frågor"]
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "name": "Sport och Fitness",
+      "description": "Fraser om sport och fysiska aktiviteter",
+      "category": "lifestyle",
+      "systemImageName": "sportscourt.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Jag gillar att springa",
+          "notes": "Beskriva fitnessrutin",
+          "tags": ["sport", "hobbys"]
+        },
+        {
+          "id": 2,
+          "text": "Var kan jag spela fotboll?",
+          "notes": "Hitta idrottsanläggningar",
+          "tags": ["sport", "frågor"]
+        },
+        {
+          "id": 3,
+          "text": "Gillar du yoga?",
+          "notes": "Starta samtal om sport",
+          "tags": ["sport", "frågor"]
+        },
+        {
+          "id": 4,
+          "text": "Jag går till gymmet",
+          "notes": "Dela fitnessvanor",
+          "tags": ["sport", "beskrivningar"]
+        },
+        {
+          "id": 5,
+          "text": "Låt oss spela en match",
+          "notes": "Föreslå en sportaktivitet",
+          "tags": ["sport", "aktioner"]
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "name": "Reseplanering",
+      "description": "Fraser för att organisera och planera reseaktiviteter",
+      "category": "travel",
+      "systemImageName": "suitcase.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Vad är en bra plats att besöka?",
+          "notes": "Be om reserekommendationer",
+          "tags": ["resa", "frågor"]
+        },
+        {
+          "id": 2,
+          "text": "Hur mycket kostar en biljett?",
+          "notes": "Kontrollera resekostnader",
+          "tags": ["resa", "frågor"]
+        },
+        {
+          "id": 3,
+          "text": "Jag behöver en reseguide",
+          "notes": "Be om reseresurser",
+          "tags": ["resa", "kommunikation"]
+        },
+        {
+          "id": 4,
+          "text": "Finns det en guidad tur tillgänglig?",
+          "notes": "Fråga om guidade turer",
+          "tags": ["resa", "frågor"]
+        },
+        {
+          "id": 5,
+          "text": "Jag reser imorgon",
+          "notes": "Dela reseplaner",
+          "tags": ["resa", "beskrivningar"]
+        }
+      ]
+    }
+  ]
+}

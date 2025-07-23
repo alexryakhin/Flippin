@@ -1,0 +1,1284 @@
+{
+  "languageName": "Spanish",
+  "languageCode": "es",
+  "presets": [
+    {
+      "id": 1,
+      "name": "Frases Esenciales",
+      "description": "Palabras y frases básicas que todos necesitan saber",
+      "category": "basics",
+      "systemImageName": "characters.uppercase",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Hola",
+          "notes": "Saludo básico",
+          "tags": ["básicos", "comunicación"]
+        },
+        {
+          "id": 2,
+          "text": "Gracias",
+          "notes": "Expresar gratitud",
+          "tags": ["básicos", "comunicación"]
+        },
+        {
+          "id": 3,
+          "text": "Por favor",
+          "notes": "Hacer peticiones corteses",
+          "tags": ["básicos", "comunicación"]
+        },
+        {
+          "id": 4,
+          "text": "Sí",
+          "notes": "Respuesta afirmativa",
+          "tags": ["básicos", "respuestas"]
+        },
+        {
+          "id": 5,
+          "text": "No",
+          "notes": "Respuesta negativa",
+          "tags": ["básicos", "respuestas"]
+        },
+        {
+          "id": 6,
+          "text": "Adiós",
+          "notes": "Despedida",
+          "tags": ["básicos", "comunicación"]
+        },
+        {
+          "id": 7,
+          "text": "Disculpe",
+          "notes": "Llamar la atención o disculparse",
+          "tags": ["básicos", "comunicación"]
+        },
+        {
+          "id": 8,
+          "text": "No entiendo",
+          "notes": "Cuando necesitas aclaración",
+          "tags": ["básicos", "comunicación", "preguntas"]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Esenciales para Viajar",
+      "description": "Frases esenciales para viajar y moverse",
+      "category": "travel",
+      "systemImageName": "airplane",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "¿Dónde está el baño?",
+          "notes": "Esencial para viajeros",
+          "tags": ["viaje", "preguntas"]
+        },
+        {
+          "id": 2,
+          "text": "¿Cuánto cuesta esto?",
+          "notes": "Compras y regateo",
+          "tags": ["viaje", "compras", "preguntas"]
+        },
+        {
+          "id": 3,
+          "text": "Necesito ayuda",
+          "notes": "Frase de emergencia",
+          "tags": ["viaje", "emergencia", "comunicación"]
+        },
+        {
+          "id": 4,
+          "text": "¿Hablas inglés?",
+          "notes": "Romper la barrera del idioma",
+          "tags": ["viaje", "comunicación", "preguntas"]
+        },
+        {
+          "id": 5,
+          "text": "Estoy perdido",
+          "notes": "Cuando necesitas direcciones",
+          "tags": ["viaje", "direcciones", "emergencia"]
+        },
+        {
+          "id": 6,
+          "text": "¿Me puedes ayudar?",
+          "notes": "Pedir asistencia",
+          "tags": ["viaje", "comunicación", "preguntas"]
+        },
+        {
+          "id": 7,
+          "text": "¿Qué hora es?",
+          "notes": "Preguntas relacionadas con el tiempo",
+          "tags": ["viaje", "tiempo", "preguntas"]
+        },
+        {
+          "id": 8,
+          "text": "Soy alérgico a...",
+          "notes": "Importante para comida y medicamentos",
+          "tags": ["viaje", "salud", "comida"]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Entretenimiento y Medios",
+      "description": "Palabras y frases sobre películas, música, juegos y entretenimiento",
+      "category": "entertainment",
+      "systemImageName": "play.circle.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Me encanta esta película",
+          "notes": "Expresar disfrute",
+          "tags": ["entretenimiento", "películas", "sentimientos"]
+        },
+        {
+          "id": 2,
+          "text": "¿Cuál es tu música favorita?",
+          "notes": "Iniciador de conversación sobre música",
+          "tags": ["entretenimiento", "música", "preguntas"]
+        },
+        {
+          "id": 3,
+          "text": "Esta canción es increíble",
+          "notes": "Apreciación musical",
+          "tags": ["entretenimiento", "música", "sentimientos"]
+        },
+        {
+          "id": 4,
+          "text": "Juego videojuegos",
+          "notes": "Pasatiempo de juegos",
+          "tags": ["entretenimiento", "juegos", "pasatiempos"]
+        },
+        {
+          "id": 5,
+          "text": "¿Has visto este programa?",
+          "notes": "Discusión sobre programas de TV",
+          "tags": ["entretenimiento", "medios", "preguntas"]
+        },
+        {
+          "id": 6,
+          "text": "Leo cómics",
+          "notes": "Interés en cómics",
+          "tags": ["entretenimiento", "libros", "pasatiempos"]
+        },
+        {
+          "id": 7,
+          "text": "Las películas de Disney son geniales",
+          "notes": "Apreciación de Disney",
+          "tags": ["entretenimiento", "películas", "sentimientos"]
+        },
+        {
+          "id": 8,
+          "text": "¿Qué género te gusta?",
+          "notes": "Preferencias de entretenimiento",
+          "tags": ["entretenimiento", "medios", "preguntas"]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Comida y Restaurantes",
+      "description": "Frases esenciales para restaurantes y experiencias culinarias",
+      "category": "food",
+      "systemImageName": "fork.knife.circle",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Tengo hambre",
+          "notes": "Necesidad básica de comida",
+          "tags": ["comida", "restaurantes", "sentimientos"]
+        },
+        {
+          "id": 2,
+          "text": "Esto está delicioso",
+          "notes": "Apreciación de la comida",
+          "tags": ["comida", "restaurantes", "sentimientos"]
+        },
+        {
+          "id": 3,
+          "text": "Soy vegetariano",
+          "notes": "Restricción dietética",
+          "tags": ["comida", "restaurantes", "salud"]
+        },
+        {
+          "id": 4,
+          "text": "¿Puedo ver el menú?",
+          "notes": "Solicitud en restaurante",
+          "tags": ["comida", "restaurantes", "preguntas"]
+        },
+        {
+          "id": 5,
+          "text": "Quiero pedir",
+          "notes": "Listo para ordenar",
+          "tags": ["comida", "restaurantes", "comunicación"]
+        },
+        {
+          "id": 6,
+          "text": "La cuenta, por favor",
+          "notes": "Pedir la cuenta",
+          "tags": ["comida", "restaurantes", "comunicación"]
+        },
+        {
+          "id": 7,
+          "text": "Soy alérgico a los frutos secos",
+          "notes": "Alergia alimentaria",
+          "tags": ["comida", "restaurantes", "salud"]
+        },
+        {
+          "id": 8,
+          "text": "¿Qué recomiendas?",
+          "notes": "Pedir recomendaciones",
+          "tags": ["comida", "restaurantes", "preguntas"]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Salud y Medicina",
+      "description": "Frases importantes para situaciones médicas y preocupaciones de salud",
+      "category": "emergency",
+      "systemImageName": "cross.circle.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "No me siento bien",
+          "notes": "Preocupación general de salud",
+          "tags": ["salud", "médico", "emergencia"]
+        },
+        {
+          "id": 2,
+          "text": "Tengo dolor de cabeza",
+          "notes": "Síntoma común",
+          "tags": ["salud", "médico"]
+        },
+        {
+          "id": 3,
+          "text": "Necesito un médico",
+          "notes": "Emergencia médica",
+          "tags": ["salud", "médico", "emergencia"]
+        },
+        {
+          "id": 4,
+          "text": "¿Dónde está el hospital?",
+          "notes": "Ubicación de centro médico",
+          "tags": ["salud", "médico", "preguntas"]
+        },
+        {
+          "id": 5,
+          "text": "Tengo fiebre",
+          "notes": "Síntoma común de enfermedad",
+          "tags": ["salud", "médico"]
+        },
+        {
+          "id": 6,
+          "text": "Estoy tomando medicación",
+          "notes": "Información médica",
+          "tags": ["salud", "médico"]
+        },
+        {
+          "id": 7,
+          "text": "Tengo una alergia",
+          "notes": "Información médica importante",
+          "tags": ["salud", "médico"]
+        },
+        {
+          "id": 8,
+          "text": "Llama a una ambulancia",
+          "notes": "Situación de emergencia",
+          "tags": ["salud", "médico", "emergencia"]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Ocio y Pasatiempos",
+      "description": "Frases para hablar sobre pasatiempos, deportes y actividades de tiempo libre",
+      "category": "lifestyle",
+      "systemImageName": "gamecontroller",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Me gusta leer",
+          "notes": "Pasatiempo de lectura",
+          "tags": ["ocio", "pasatiempos", "libros"]
+        },
+        {
+          "id": 2,
+          "text": "¿Juegas deportes?",
+          "notes": "Conversación sobre deportes",
+          "tags": ["ocio", "deportes", "preguntas"]
+        },
+        {
+          "id": 3,
+          "text": "Me encanta hacer senderismo",
+          "notes": "Actividad al aire libre",
+          "tags": ["ocio", "pasatiempos", "naturaleza"]
+        },
+        {
+          "id": 4,
+          "text": "¿Qué haces para divertirte?",
+          "notes": "Iniciador de conversación sobre pasatiempos",
+          "tags": ["ocio", "pasatiempos", "preguntas"]
+        },
+        {
+          "id": 5,
+          "text": "Disfruto cocinar",
+          "notes": "Pasatiempo de cocina",
+          "tags": ["ocio", "pasatiempos", "comida"]
+        },
+        {
+          "id": 6,
+          "text": "Vamos a dar un paseo",
+          "notes": "Sugerencia de actividad casual",
+          "tags": ["ocio", "pasatiempos", "acciones"]
+        },
+        {
+          "id": 7,
+          "text": "Toco la guitarra",
+          "notes": "Instrumento musical",
+          "tags": ["ocio", "pasatiempos", "música"]
+        },
+        {
+          "id": 8,
+          "text": "Me gusta la fotografía",
+          "notes": "Pasatiempo de fotografía",
+          "tags": ["ocio", "pasatiempos", "arte"]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Compras y Regateo",
+      "description": "Frases para comprar, negociar precios y manejar transacciones",
+      "category": "shopping",
+      "systemImageName": "cart.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "¿Puedo probármelo?",
+          "notes": "Para ropa o accesorios",
+          "tags": ["compras", "preguntas"]
+        },
+        {
+          "id": 2,
+          "text": "¿Puedes bajar el precio?",
+          "notes": "Para regatear en mercados",
+          "tags": ["compras", "negocios", "preguntas"]
+        },
+        {
+          "id": 3,
+          "text": "¿Aceptan tarjetas de crédito?",
+          "notes": "Consulta sobre pago",
+          "tags": ["compras", "negocios", "preguntas"]
+        },
+        {
+          "id": 4,
+          "text": "¿Dónde está el probador?",
+          "notes": "Para tiendas de ropa",
+          "tags": ["compras", "preguntas"]
+        },
+        {
+          "id": 5,
+          "text": "¿Tienes esto en una talla más pequeña?",
+          "notes": "Pedir tallas diferentes",
+          "tags": ["compras", "preguntas"]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Transporte y Navegación",
+      "description": "Frases para usar transporte público, taxis y encontrar direcciones",
+      "category": "travel",
+      "systemImageName": "tram.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "¿Dónde está la estación de autobuses?",
+          "notes": "Encontrar centros de transporte",
+          "tags": ["transporte", "direcciones", "preguntas"]
+        },
+        {
+          "id": 2,
+          "text": "¿Puedes llamar a un taxi?",
+          "notes": "Solicitar un taxi",
+          "tags": ["transporte", "comunicación"]
+        },
+        {
+          "id": 3,
+          "text": "¿Cuándo es el próximo tren?",
+          "notes": "Horarios de transporte público",
+          "tags": ["transporte", "tiempo", "preguntas"]
+        },
+        {
+          "id": 4,
+          "text": "¿Cómo llego al aeropuerto?",
+          "notes": "Navegar a lugares clave",
+          "tags": ["transporte", "direcciones", "preguntas"]
+        },
+        {
+          "id": 5,
+          "text": "¿Está lejos de aquí?",
+          "notes": "Verificar distancia",
+          "tags": ["transporte", "direcciones", "preguntas"]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Alojamiento",
+      "description": "Frases para reservar hoteles, hostales o manejar problemas de alojamiento",
+      "category": "travel",
+      "systemImageName": "house.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Quiero reservar una habitación",
+          "notes": "Reserva de hotel o hostal",
+          "tags": ["alojamiento", "viaje", "comunicación"]
+        },
+        {
+          "id": 2,
+          "text": "Estoy aquí para hacer el check-in",
+          "notes": "Llegada al alojamiento",
+          "tags": ["alojamiento", "viaje", "comunicación"]
+        },
+        {
+          "id": 3,
+          "text": "¿Pueden limpiar la habitación?",
+          "notes": "Solicitar limpieza",
+          "tags": ["alojamiento", "comunicación"]
+        },
+        {
+          "id": 4,
+          "text": "¿Cuál es la contraseña del Wi-Fi?",
+          "notes": "Consulta común en alojamientos",
+          "tags": ["alojamiento", "tecnología", "preguntas"]
+        },
+        {
+          "id": 5,
+          "text": "¿Es posible hacer check-out tarde?",
+          "notes": "Extender la estancia",
+          "tags": ["alojamiento", "preguntas"]
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Etiqueta Social y Cultural",
+      "description": "Frases para interacciones corteses y comprensión de normas culturales",
+      "category": "social",
+      "systemImageName": "person.3.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Encantado de conocerte",
+          "notes": "Presentación cortés",
+          "tags": ["cultura", "comunicación", "amigos"]
+        },
+        {
+          "id": 2,
+          "text": "¿Cuáles son las costumbres locales?",
+          "notes": "Aprender normas culturales",
+          "tags": ["cultura", "preguntas"]
+        },
+        {
+          "id": 3,
+          "text": "¡Felicidades!",
+          "notes": "Celebrar logros",
+          "tags": ["cultura", "comunicación"]
+        },
+        {
+          "id": 4,
+          "text": "¡Feliz cumpleaños!",
+          "notes": "Saludo de celebración",
+          "tags": ["cultura", "comunicación"]
+        },
+        {
+          "id": 5,
+          "text": "Lo siento, llego tarde",
+          "notes": "Disculpa cortés",
+          "tags": ["cultura", "comunicación"]
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Clima y Medio Ambiente",
+      "description": "Frases para discutir el clima y condiciones ambientales",
+      "category": "weather",
+      "systemImageName": "cloud.sun.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "¿Cómo está el clima hoy?",
+          "notes": "Verificar el pronóstico diario",
+          "tags": ["clima", "preguntas"]
+        },
+        {
+          "id": 2,
+          "text": "¿Hace frío afuera?",
+          "notes": "Consulta sobre el clima",
+          "tags": ["clima", "preguntas"]
+        },
+        {
+          "id": 3,
+          "text": "¿Lloverá más tarde?",
+          "notes": "Planificar actividades",
+          "tags": ["clima", "preguntas"]
+        },
+        {
+          "id": 4,
+          "text": "Hace demasiado calor",
+          "notes": "Expresar incomodidad",
+          "tags": ["clima", "sentimientos"]
+        },
+        {
+          "id": 5,
+          "text": "¿Dónde está la playa más cercana?",
+          "notes": "Encontrar atracciones naturales",
+          "tags": ["clima", "naturaleza", "preguntas"]
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Números y Tiempo",
+      "description": "Frases para contar, decir la hora y programar",
+      "category": "basics",
+      "systemImageName": "clock.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Uno, dos, tres...",
+          "notes": "Conteo básico",
+          "tags": ["números", "básicos"]
+        },
+        {
+          "id": 2,
+          "text": "¿Qué día es hoy?",
+          "notes": "Verificar el día de la semana",
+          "tags": ["tiempo", "preguntas"]
+        },
+        {
+          "id": 3,
+          "text": "¿A qué hora abre?",
+          "notes": "Horarios de negocios o atracciones",
+          "tags": ["tiempo", "preguntas"]
+        },
+        {
+          "id": 4,
+          "text": "¿Cuántos hay?",
+          "notes": "Preguntar sobre cantidades",
+          "tags": ["números", "preguntas"]
+        },
+        {
+          "id": 5,
+          "text": "Espera un minuto",
+          "notes": "Solicitar una pausa",
+          "tags": ["tiempo", "comunicación"]
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Tecnología y Comunicación",
+      "description": "Frases para usar tecnología y mantenerse conectado",
+      "category": "technology",
+      "systemImageName": "wifi",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "¿Puedo cargar mi teléfono?",
+          "notes": "Solicitar un cargador",
+          "tags": ["tecnología", "comunicación"]
+        },
+        {
+          "id": 2,
+          "text": "¿Hay Wi-Fi disponible?",
+          "notes": "Consulta sobre acceso a internet",
+          "tags": ["tecnología", "preguntas"]
+        },
+        {
+          "id": 3,
+          "text": "¿Puedes tomar una foto?",
+          "notes": "Solicitar una fotografía",
+          "tags": ["tecnología", "comunicación"]
+        },
+        {
+          "id": 4,
+          "text": "¿Estás en redes sociales?",
+          "notes": "Conectar en línea",
+          "tags": ["tecnología", "comunicación", "preguntas"]
+        },
+        {
+          "id": 5,
+          "text": "No tengo señal",
+          "notes": "Problema de conectividad telefónica",
+          "tags": ["tecnología", "comunicación"]
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Saludos e Presentaciones",
+      "description": "Frases para iniciar conversaciones y presentarse",
+      "category": "basics",
+      "systemImageName": "person.wave.2.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "¿Cómo estás?",
+          "notes": "Saludo común para mostrar interés",
+          "tags": ["básicos", "comunicación", "preguntas"]
+        },
+        {
+          "id": 2,
+          "text": "Mi nombre es...",
+          "notes": "Presentarse",
+          "tags": ["básicos", "comunicación"]
+        },
+        {
+          "id": 3,
+          "text": "¿De dónde eres?",
+          "notes": "Iniciador de conversación",
+          "tags": ["comunicación", "preguntas"]
+        },
+        {
+          "id": 4,
+          "text": "Encantado de conocerte",
+          "notes": "Presentación cortés",
+          "tags": ["básicos", "comunicación"]
+        },
+        {
+          "id": 5,
+          "text": "¿Cómo va tu día?",
+          "notes": "Saludo casual",
+          "tags": ["comunicación", "preguntas"]
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Rutinas Diarias",
+      "description": "Frases para discutir actividades diarias y horarios",
+      "category": "lifestyle",
+      "systemImageName": "sunrise.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Me despierto temprano",
+          "notes": "Describir la rutina matutina",
+          "tags": ["básicos", "descripciones"]
+        },
+        {
+          "id": 2,
+          "text": "¿Qué haces todos los días?",
+          "notes": "Preguntar sobre rutinas",
+          "tags": ["preguntas", "comunicación"]
+        },
+        {
+          "id": 3,
+          "text": "Trabajo por la mañana",
+          "notes": "Compartir horario de trabajo",
+          "tags": ["descripciones", "negocios"]
+        },
+        {
+          "id": 4,
+          "text": "Me acuesto tarde",
+          "notes": "Describir hábitos nocturnos",
+          "tags": ["descripciones"]
+        },
+        {
+          "id": 5,
+          "text": "¿Tienes tiempo libre?",
+          "notes": "Preguntar sobre disponibilidad",
+          "tags": ["preguntas", "ocio"]
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Familia y Relaciones",
+      "description": "Frases para hablar sobre miembros de la familia y relaciones",
+      "category": "social",
+      "systemImageName": "person.2.circle.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Tengo un hermano",
+          "notes": "Describir la familia",
+          "tags": ["familia", "descripciones"]
+        },
+        {
+          "id": 2,
+          "text": "¿Estás casado?",
+          "notes": "Preguntar sobre estado civil",
+          "tags": ["familia", "preguntas"]
+        },
+        {
+          "id": 3,
+          "text": "Mis padres viven lejos",
+          "notes": "Compartir detalles familiares",
+          "tags": ["familia", "descripciones"]
+        },
+        {
+          "id": 4,
+          "text": "¿Tienes hijos?",
+          "notes": "Conversación sobre familia",
+          "tags": ["familia", "preguntas"]
+        },
+        {
+          "id": 5,
+          "text": "Estoy soltero",
+          "notes": "Describir estado civil",
+          "tags": ["familia", "descripciones"]
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "name": "Trabajo y Negocios",
+      "description": "Frases para interacciones profesionales y discusiones laborales",
+      "category": "professional",
+      "systemImageName": "briefcase.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "¿Cuál es tu trabajo?",
+          "notes": "Preguntar sobre profesión",
+          "tags": ["negocios", "preguntas"]
+        },
+        {
+          "id": 2,
+          "text": "Trabajo como...",
+          "notes": "Describir tu trabajo",
+          "tags": ["negocios", "descripciones"]
+        },
+        {
+          "id": 3,
+          "text": "¿Podemos programar una reunión?",
+          "notes": "Organizar reuniones de negocios",
+          "tags": ["negocios", "comunicación"]
+        },
+        {
+          "id": 4,
+          "text": "¿Dónde está tu oficina?",
+          "notes": "Ubicar el lugar de trabajo",
+          "tags": ["negocios", "preguntas"]
+        },
+        {
+          "id": 5,
+          "text": "Necesito una tarjeta de presentación",
+          "notes": "Solicitud de networking",
+          "tags": ["negocios", "comunicación"]
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "name": "Educación y Aprendizaje",
+      "description": "Frases para discutir estudios, aprendizaje y educación",
+      "category": "professional",
+      "systemImageName": "book.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Soy estudiante",
+          "notes": "Describir estado de estudiante",
+          "tags": ["educación", "descripciones"]
+        },
+        {
+          "id": 2,
+          "text": "¿Qué estudias?",
+          "notes": "Preguntar sobre enfoque académico",
+          "tags": ["educación", "preguntas"]
+        },
+        {
+          "id": 3,
+          "text": "Necesito un libro",
+          "notes": "Solicitar materiales de estudio",
+          "tags": ["educación", "comunicación"]
+        },
+        {
+          "id": 4,
+          "text": "¿Dónde está la biblioteca?",
+          "notes": "Encontrar espacios de estudio",
+          "tags": ["educación", "preguntas"]
+        },
+        {
+          "id": 5,
+          "text": "Estoy aprendiendo el idioma",
+          "notes": "Compartir metas de aprendizaje",
+          "tags": ["educación", "comunicación"]
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "name": "Pedir Direcciones",
+      "description": "Frases para navegar y encontrar ubicaciones",
+      "category": "travel",
+      "systemImageName": "map.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Gira a la izquierda",
+          "notes": "Dar o recibir direcciones",
+          "tags": ["direcciones", "comunicación"]
+        },
+        {
+          "id": 2,
+          "text": "¿Es este el camino correcto?",
+          "notes": "Confirmar direcciones",
+          "tags": ["direcciones", "preguntas"]
+        },
+        {
+          "id": 3,
+          "text": "¿A qué distancia está?",
+          "notes": "Preguntar sobre distancia",
+          "tags": ["direcciones", "preguntas"]
+        },
+        {
+          "id": 4,
+          "text": "Sigue recto",
+          "notes": "Proporcionar direcciones",
+          "tags": ["direcciones", "comunicación"]
+        },
+        {
+          "id": 5,
+          "text": "¿Dónde está el mapa?",
+          "notes": "Solicitar herramientas de navegación",
+          "tags": ["direcciones", "preguntas"]
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "name": "Comprar Comestibles",
+      "description": "Frases para comprar comida y artículos del hogar",
+      "category": "food",
+      "systemImageName": "basket.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "¿Dónde están las frutas?",
+          "notes": "Encontrar artículos de supermercado",
+          "tags": ["compras", "comida", "preguntas"]
+        },
+        {
+          "id": 2,
+          "text": "¿Es esto fresco?",
+          "notes": "Verificar calidad de comida",
+          "tags": ["compras", "comida", "preguntas"]
+        },
+        {
+          "id": 3,
+          "text": "Necesito una bolsa",
+          "notes": "Solicitar una bolsa de compras",
+          "tags": ["compras", "comunicación"]
+        },
+        {
+          "id": 4,
+          "text": "¿Tienes leche?",
+          "notes": "Preguntar por artículos específicos",
+          "tags": ["compras", "comida", "preguntas"]
+        },
+        {
+          "id": 5,
+          "text": "¿Cuánto cuesta esto?",
+          "notes": "Verificar precios de comestibles",
+          "tags": ["compras", "preguntas"]
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "name": "Emergencias y Seguridad",
+      "description": "Frases para manejar emergencias más allá de situaciones médicas",
+      "category": "emergency",
+      "systemImageName": "exclamationmark.triangle.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "¡Ayuda, es una emergencia!",
+          "notes": "Llamado urgente de ayuda",
+          "tags": ["emergencia", "comunicación"]
+        },
+        {
+          "id": 2,
+          "text": "¿Dónde está la comisaría?",
+          "notes": "Encontrar autoridades",
+          "tags": ["emergencia", "preguntas"]
+        },
+        {
+          "id": 3,
+          "text": "Perdí mi pasaporte",
+          "notes": "Reportar documentos perdidos",
+          "tags": ["emergencia", "viaje"]
+        },
+        {
+          "id": 4,
+          "text": "¿Es seguro aquí?",
+          "notes": "Verificar seguridad",
+          "tags": ["emergencia", "preguntas"]
+        },
+        {
+          "id": 5,
+          "text": "Llama a la policía",
+          "notes": "Solicitar fuerzas del orden",
+          "tags": ["emergencia", "comunicación"]
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "name": "Romance y Socialización",
+      "description": "Frases para interacciones románticas y amigables",
+      "category": "social",
+      "systemImageName": "heart.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Te ves bien",
+          "notes": "Dar un cumplido",
+          "tags": ["romance", "comunicación"]
+        },
+        {
+          "id": 2,
+          "text": "¿Te puedo invitar a una bebida?",
+          "notes": "Invitación social",
+          "tags": ["romance", "comunicación"]
+        },
+        {
+          "id": 3,
+          "text": "¿Quieres bailar?",
+          "notes": "Invitar a bailar",
+          "tags": ["romance", "acciones"]
+        },
+        {
+          "id": 4,
+          "text": "Me gusta tu sonrisa",
+          "notes": "Cumplido romántico",
+          "tags": ["romance", "comunicación"]
+        },
+        {
+          "id": 5,
+          "text": "Mantengámonos en contacto",
+          "notes": "Mantener contacto",
+          "tags": ["romance", "amigos", "comunicación"]
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "name": "Cultura y Tradiciones Locales",
+      "description": "Frases para interactuar con tradiciones y eventos locales",
+      "category": "social",
+      "systemImageName": "flag.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "¿Qué es este festival?",
+          "notes": "Preguntar sobre eventos locales",
+          "tags": ["cultura", "preguntas"]
+        },
+        {
+          "id": 2,
+          "text": "¿Puedo unirme a la celebración?",
+          "notes": "Participar en eventos",
+          "tags": ["cultura", "comunicación"]
+        },
+        {
+          "id": 3,
+          "text": "¿Qué significa esto?",
+          "notes": "Entender tradiciones",
+          "tags": ["cultura", "preguntas"]
+        },
+        {
+          "id": 4,
+          "text": "¿Es esto una tradición local?",
+          "notes": "Aprender sobre costumbres",
+          "tags": ["cultura", "preguntas"]
+        },
+        {
+          "id": 5,
+          "text": "Me encanta esta cultura",
+          "notes": "Expresar aprecio",
+          "tags": ["cultura", "sentimientos"]
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "name": "Colores y Descripciones",
+      "description": "Frases para describir objetos, colores y apariencias",
+      "category": "shopping",
+      "systemImageName": "paintpalette.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Es rojo",
+          "notes": "Describir color",
+          "tags": ["colores", "descripciones"]
+        },
+        {
+          "id": 2,
+          "text": "¿De qué color es esto?",
+          "notes": "Preguntar sobre colores",
+          "tags": ["colores", "preguntas"]
+        },
+        {
+          "id": 3,
+          "text": "Se ve hermoso",
+          "notes": "Describir apariencia",
+          "tags": ["descripciones", "sentimientos"]
+        },
+        {
+          "id": 4,
+          "text": "¿Es grande o pequeño?",
+          "notes": "Preguntar sobre tamaño",
+          "tags": ["descripciones", "preguntas"]
+        },
+        {
+          "id": 5,
+          "text": "Quiero algo azul",
+          "notes": "Solicitar un color específico",
+          "tags": ["colores", "compras"]
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "name": "Expresiones de Tiempo",
+      "description": "Frases para discutir el tiempo más allá de preguntas básicas",
+      "category": "weather",
+      "systemImageName": "timer",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Es demasiado temprano",
+          "notes": "Expresar preferencia de tiempo",
+          "tags": ["tiempo", "sentimientos"]
+        },
+        {
+          "id": 2,
+          "text": "Nos vemos mañana",
+          "notes": "Planificar reuniones futuras",
+          "tags": ["tiempo", "comunicación"]
+        },
+        {
+          "id": 3,
+          "text": "¿Cuánto tiempo toma?",
+          "notes": "Preguntar sobre duración",
+          "tags": ["tiempo", "preguntas"]
+        },
+        {
+          "id": 4,
+          "text": "Llego tarde",
+          "notes": "Explicar retraso",
+          "tags": ["tiempo", "comunicación"]
+        },
+        {
+          "id": 5,
+          "text": "¿Qué fecha es hoy?",
+          "notes": "Preguntar sobre la fecha",
+          "tags": ["tiempo", "preguntas"]
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "name": "Actividades según el Clima",
+      "description": "Frases para planificar actividades basadas en las condiciones climáticas",
+      "category": "lifestyle",
+      "systemImageName": "sun.max.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Vamos al parque",
+          "notes": "Sugerir actividad al aire libre",
+          "tags": ["clima", "acciones"]
+        },
+        {
+          "id": 2,
+          "text": "¿Es bueno para nadar?",
+          "notes": "Verificar clima para actividades",
+          "tags": ["clima", "preguntas"]
+        },
+        {
+          "id": 3,
+          "text": "Es perfecto para un picnic",
+          "notes": "Describir clima ideal",
+          "tags": ["clima", "descripciones"]
+        },
+        {
+          "id": 4,
+          "text": "¿Deberíamos quedarnos dentro?",
+          "notes": "Planificar para mal clima",
+          "tags": ["clima", "preguntas"]
+        },
+        {
+          "id": 5,
+          "text": "Hoy está soleado",
+          "notes": "Describir el clima",
+          "tags": ["clima", "descripciones"]
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "name": "Solución de Problemas Tecnológicos",
+      "description": "Frases para manejar problemas tecnológicos más allá de la comunicación básica",
+      "category": "technology",
+      "systemImageName": "wrench.and.screwdriver.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Mi teléfono no funciona",
+          "notes": "Reportar problemas con el dispositivo",
+          "tags": ["tecnología", "comunicación"]
+        },
+        {
+          "id": 2,
+          "text": "¿Puedes arreglar esto?",
+          "notes": "Solicitar ayuda técnica",
+          "tags": ["tecnología", "preguntas"]
+        },
+        {
+          "id": 3,
+          "text": "¿El internet está lento?",
+          "notes": "Verificar problemas de conexión",
+          "tags": ["tecnología", "preguntas"]
+        },
+        {
+          "id": 4,
+          "text": "Necesito un cargador",
+          "notes": "Solicitar equipo de carga",
+          "tags": ["tecnología", "comunicación"]
+        },
+        {
+          "id": 5,
+          "text": "No se conecta",
+          "notes": "Describir problemas de conectividad",
+          "tags": ["tecnología", "descripciones"]
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "name": "Arte y Creatividad",
+      "description": "Frases para discutir arte, creatividad y actividades culturales",
+      "category": "lifestyle",
+      "systemImageName": "paintbrush.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Me encanta pintar",
+          "notes": "Expresar interés en el arte",
+          "tags": ["arte", "pasatiempos"]
+        },
+        {
+          "id": 2,
+          "text": "¿Dónde está el museo?",
+          "notes": "Encontrar sitios culturales",
+          "tags": ["arte", "preguntas"]
+        },
+        {
+          "id": 3,
+          "text": "Este arte es hermoso",
+          "notes": "Apreciar el arte",
+          "tags": ["arte", "sentimientos"]
+        },
+        {
+          "id": 4,
+          "text": "¿Te gusta dibujar?",
+          "notes": "Iniciador de conversación sobre arte",
+          "tags": ["arte", "preguntas"]
+        },
+        {
+          "id": 5,
+          "text": "¿Qué es esta escultura?",
+          "notes": "Preguntar sobre piezas de arte",
+          "tags": ["arte", "preguntas"]
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "name": "Deportes y Fitness",
+      "description": "Frases para discutir deportes y actividades físicas",
+      "category": "lifestyle",
+      "systemImageName": "sportscourt.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Me gusta correr",
+          "notes": "Describir rutina de ejercicio",
+          "tags": ["deportes", "pasatiempos"]
+        },
+        {
+          "id": 2,
+          "text": "¿Dónde puedo jugar fútbol?",
+          "notes": "Encontrar instalaciones deportivas",
+          "tags": ["deportes", "preguntas"]
+        },
+        {
+          "id": 3,
+          "text": "¿Te gusta el yoga?",
+          "notes": "Iniciar conversación sobre deportes",
+          "tags": ["deportes", "preguntas"]
+        },
+        {
+          "id": 4,
+          "text": "Voy al gimnasio",
+          "notes": "Compartir hábitos de ejercicio",
+          "tags": ["deportes", "descripciones"]
+        },
+        {
+          "id": 5,
+          "text": "Juguemos un partido",
+          "notes": "Sugerir actividad deportiva",
+          "tags": ["deportes", "acciones"]
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "name": "Planificación de Viajes",
+      "description": "Frases para organizar y planificar actividades de viaje",
+      "category": "travel",
+      "systemImageName": "suitcase.fill",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "¿Qué lugar es bueno para visitar?",
+          "notes": "Pedir recomendaciones de viaje",
+          "tags": ["viaje", "preguntas"]
+        },
+        {
+          "id": 2,
+          "text": "¿Cuánto cuesta un boleto?",
+          "notes": "Verificar costos de viaje",
+          "tags": ["viaje", "preguntas"]
+        },
+        {
+          "id": 3,
+          "text": "Necesito una guía de viaje",
+          "notes": "Solicitar recursos de viaje",
+          "tags": ["viaje", "comunicación"]
+        },
+        {
+          "id": 4,
+          "text": "¿Hay un tour disponible?",
+          "notes": "Preguntar por tours guiados",
+          "tags": ["viaje", "preguntas"]
+        },
+        {
+          "id": 5,
+          "text": "Viajo mañana",
+          "notes": "Compartir planes de viaje",
+          "tags": ["viaje", "descripciones"]
+        }
+      ]
+    }
+  ]
+}
