@@ -20,7 +20,7 @@
     "_applicationInternalID" : "6748499528",
     "_developerTeamID" : "69S862NXBP",
     "_failTransactionsEnabled" : false,
-    "_lastSynchronizedDate" : 774979895.54172802,
+    "_lastSynchronizedDate" : 775036110.23469698,
     "_locale" : "en_US",
     "_storefront" : "USA",
     "_storeKitErrors" : [
@@ -86,7 +86,7 @@
           "codeOffers" : [
 
           ],
-          "displayPrice" : "4.99",
+          "displayPrice" : "3.99",
           "familyShareable" : true,
           "groupNumber" : 1,
           "internalID" : "6748603046",
@@ -114,7 +114,7 @@
           "codeOffers" : [
 
           ],
-          "displayPrice" : "39.99",
+          "displayPrice" : "29.99",
           "familyShareable" : true,
           "groupNumber" : 2,
           "internalID" : "6748603055",
