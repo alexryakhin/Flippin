@@ -18,13 +18,20 @@ final class PurchaseService: ObservableObject {
     @Published var lastTransactionId: String?
     @Published var isListeningForUpdates = false
     @Published var purchasedProductIds: Set<String> = []
+    @Published var hasPremiumAccess: Bool = false
     
     private var productIds = [
         "com.dor.flippin.premium_monthly",
         "com.dor.flippin.premium_yearly"
     ]
     
+    // Cached purchase state for faster loading at app launch
+    private var cachedPurchasedProductIds: Set<String> = []
+    
     private init() {
+        // Load cached purchase state immediately for faster access
+        loadCachedPurchaseState()
+        
         Task {
             await loadProducts()
             await listenForTransactionUpdates()
@@ -236,12 +243,19 @@ final class PurchaseService: ObservableObject {
             }
         }
         
+        // Save the final state after loading from StoreKit
+        await MainActor.run {
+            saveCachedPurchaseState()
+        }
+        
         print("✅ Loaded \(purchasedProductIds.count) purchased products")
     }
     
     private func addToPurchasedProducts(_ productId: String) async {
         await MainActor.run {
             purchasedProductIds.insert(productId)
+            updatePremiumAccessStatus()
+            saveCachedPurchaseState()
             print("✅ Added \(productId) to purchased products")
         }
     }
@@ -267,6 +281,22 @@ final class PurchaseService: ObservableObject {
         }
     }
     
+    // MARK: - Cached Purchase State Management
+    private func loadCachedPurchaseState() {
+        if let cachedIds = UserDefaults.standard.array(forKey: UserDefaultsKey.cachedPurchasedProducts) as? [String] {
+            cachedPurchasedProductIds = Set(cachedIds)
+            purchasedProductIds = cachedPurchasedProductIds
+            updatePremiumAccessStatus()
+            print("📦 Loaded cached purchase state: \(cachedPurchasedProductIds)")
+        }
+    }
+    
+    private func saveCachedPurchaseState() {
+        let idsArray = Array(purchasedProductIds)
+        UserDefaults.standard.set(idsArray, forKey: UserDefaultsKey.cachedPurchasedProducts)
+        print("💾 Saved cached purchase state: \(purchasedProductIds)")
+    }
+    
     // MARK: - Public Purchase Status Management
     func reloadPurchaseStatus() async {
         print("🔄 Reloading purchase status...")
@@ -275,10 +305,10 @@ final class PurchaseService: ObservableObject {
     }
     
     // MARK: - Premium Access Helper
-    /// Returns true if the user has any premium subscription
-    var hasPremiumAccess: Bool {
-        return isProductPurchased("com.dor.flippin.premium_monthly") ||
-               isProductPurchased("com.dor.flippin.premium_yearly")
+    /// Updates the premium access status based on current purchased products
+    private func updatePremiumAccessStatus() {
+        hasPremiumAccess = isProductPurchased("com.dor.flippin.premium_monthly") ||
+                          isProductPurchased("com.dor.flippin.premium_yearly")
     }
 }
 

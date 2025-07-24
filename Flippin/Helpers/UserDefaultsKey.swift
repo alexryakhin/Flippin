@@ -14,4 +14,5 @@ enum UserDefaultsKey {
     static let voiceGender = "voiceGender"
     static let cardDisplayMode = "cardDisplayMode"
     static let colorSchemePreference = "colorSchemePreference"
+    static let cachedPurchasedProducts = "cachedPurchasedProducts"
 }
