@@ -136,6 +136,22 @@
 "colorSchemeSystem" = "System";
 "colorSchemeLight" = "Ljus";
 "colorSchemeDark" = "Mörk";
+"unlockPremium" = "Lås upp Premium";
+"masterLanguageLearning" = "Behärska ditt språkinlärning med exklusiva funktioner";
+"usedCardsOfLimit" = "Du har använt %d av %d gratis kort";
+"whatYouGetWithPremium" = "Vad du får med Premium";
+"unlimitedCardsDescription" = "Skapa så många flashcards du vill";
+"collections" = "30+ Samlingar";
+"collectionsDescription" = "Tillgång till alla fördefinierade vokabulärsamlingar";
+"premiumBackgrounds" = "Premium Bakgrunder";
+"premiumBackgroundsDescription" = "Vackra animerade bakgrunder";
+"changeLanguages" = "Ändra Språk";
+"changeLanguagesDescription" = "Byt mellan olika språkpar när som helst";
+"restorePurchases" = "Återställ Köp";
+"cancelAnytime" = "Avbryt när som helst • Inget åtagande";
+"terms" = "Villkor";
+"privacy" = "Integritet";
+"goPremium" = "Gå till Premium";
 "premium" = "Premium";
 
 // MARK: - Labels
@@ -187,6 +203,8 @@
 // MARK: - Card Limits
 "cardLimitExceeded" = "Kortgräns Uppnådd";
 "cardsRemaining" = "Återstående Kort";
+"cardsUsedOfLimit" = "%d av %d kort";
+"upgrade" = "Uppgradera";
 "unlimitedCards" = "Obegränsade Kort";
 
 // MARK: - Categories

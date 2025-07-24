@@ -15,13 +15,13 @@ enum Paywall {
                     VStack(spacing: 32) {
                         // Header with subtle animation
                         VStack(spacing: 12) {
-                            Text("Unlock Premium")
+                            Text(LocalizationKeys.unlockPremium.localized)
                                 .font(.system(size: 34, weight: .bold, design: .rounded))
                                 .foregroundColor(.primary)
                                 .scaleEffect(isAnimating ? 1.0 : 0.95)
                                 .animation(.easeOut(duration: 0.6), value: isAnimating)
 
-                            Text("Master your language learning with exclusive features")
+                            Text(LocalizationKeys.masterLanguageLearning.localized)
                                 .font(.system(size: 18, weight: .medium, design: .rounded))
                                 .foregroundColor(.secondary)
                                 .multilineTextAlignment(.center)
@@ -29,7 +29,7 @@ enum Paywall {
 
                             // Progress indicator with gradient
                             VStack(spacing: 10) {
-                                Text("You've used \(cardsProvider.cards.count) of \(cardsProvider.cardLimit) free cards")
+                                Text(LocalizationKeys.usedCardsOfLimit.localized(with: cardsProvider.cards.count, cardsProvider.cardLimit))
                                     .font(.system(size: 14, weight: .medium, design: .rounded))
                                     .foregroundColor(.secondary)
 
@@ -49,7 +49,7 @@ enum Paywall {
 
                         // Features with glassmorphism cards
                         VStack(spacing: 12) {
-                            Text("What You Get with Premium")
+                            Text(LocalizationKeys.whatYouGetWithPremium.localized)
                                 .font(.system(size: 24, weight: .semibold, design: .rounded))
                                 .foregroundColor(.primary)
 
@@ -88,7 +88,7 @@ enum Paywall {
                                 await restorePurchases()
                             }
                         }) {
-                            Text("Restore Purchases")
+                            Text(LocalizationKeys.restorePurchases.localized)
                                 .font(.system(size: 14, weight: .medium, design: .rounded))
                                 .foregroundColor(.secondary)
                                 .padding(.vertical, 8)
@@ -103,25 +103,26 @@ enum Paywall {
 
                         // Footer with links
                         VStack(spacing: 8) {
-                            Text("Cancel anytime • No commitment")
+                            Text(LocalizationKeys.cancelAnytime.localized)
                                 .font(.system(size: 12, weight: .regular, design: .rounded))
                                 .foregroundColor(.secondary)
 
                             HStack(spacing: 20) {
-                                Link("Terms", destination: URL(string: "https://example.com/terms")!)
-                                Link("Privacy", destination: URL(string: "https://example.com/privacy")!)
+                                Link(LocalizationKeys.terms.localized, destination: URL(string: "https://example.com/terms")!)
+                                Link(LocalizationKeys.privacy.localized, destination: URL(string: "https://example.com/privacy")!)
                             }
                             .font(.system(size: 12, weight: .regular, design: .rounded))
                             .foregroundColor(.secondary.opacity(0.8))
                         }
                         .padding(.bottom, 20)
                     }
+                    .multilineTextAlignment(.center)
                     .padding(.horizontal, 16)
                 }
                 .background(
                     WelcomeSheet.AnimatedBackground()
                 )
-                .navigationTitle("Go Premium")
+                .navigationTitle(LocalizationKeys.goPremium.localized)
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
@@ -161,12 +162,14 @@ enum Paywall {
         }
 
         // Feature data
-        private let features = [
-            FeatureModel(icon: "infinity", title: "Unlimited Cards", description: "Create as many flashcards as you want"),
-            FeatureModel(icon: "folder.fill", title: "30+ Collections", description: "Access all preset vocabulary collections"),
-            FeatureModel(icon: "sparkles", title: "Premium Backgrounds", description: "Beautiful animated backgrounds"),
-            FeatureModel(icon: "globe", title: "Change Languages", description: "Switch between different language pairs anytime")
-        ]
+        private var features: [FeatureModel] {
+            [
+                FeatureModel(icon: "infinity", title: LocalizationKeys.unlimitedCards.localized, description: LocalizationKeys.unlimitedCardsDescription.localized),
+                FeatureModel(icon: "folder.fill", title: LocalizationKeys.collections.localized, description: LocalizationKeys.collectionsDescription.localized),
+                FeatureModel(icon: "sparkles", title: LocalizationKeys.premiumBackgrounds.localized, description: LocalizationKeys.premiumBackgroundsDescription.localized),
+                FeatureModel(icon: "globe", title: LocalizationKeys.changeLanguages.localized, description: LocalizationKeys.changeLanguagesDescription.localized)
+            ]
+        }
     }
 
     // MARK: - Feature Model
@@ -199,6 +202,7 @@ enum Paywall {
                         .font(.system(size: 14, weight: .regular, design: .rounded))
                         .foregroundColor(.secondary)
                 }
+                .multilineTextAlignment(.leading)
 
                 Spacer()
             }

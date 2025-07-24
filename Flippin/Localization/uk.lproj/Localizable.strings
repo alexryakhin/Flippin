@@ -136,6 +136,22 @@
 "colorSchemeSystem" = "Система";
 "colorSchemeLight" = "Світла";
 "colorSchemeDark" = "Темна";
+"unlockPremium" = "Розблокувати Преміум";
+"masterLanguageLearning" = "Опануйте вивчення мов з ексклюзивними функціями";
+"usedCardsOfLimit" = "Ви використали %d з %d безкоштовних карток";
+"whatYouGetWithPremium" = "Що ви отримуєте з Преміум";
+"unlimitedCardsDescription" = "Створюйте скільки карток для вивчення, скільки хочете";
+"collections" = "30+ Колекцій";
+"collectionsDescription" = "Доступ до всіх попередньо визначених колекцій словника";
+"premiumBackgrounds" = "Преміум Фони";
+"premiumBackgroundsDescription" = "Красиві анімовані фони";
+"changeLanguages" = "Змінити Мови";
+"changeLanguagesDescription" = "Перемикайтеся між різними мовними парами в будь-який час";
+"restorePurchases" = "Відновити Покупки";
+"cancelAnytime" = "Скасувати в будь-який час • Без зобов'язань";
+"terms" = "Умови";
+"privacy" = "Конфіденційність";
+"goPremium" = "Перейти на Преміум";
 "premium" = "Преміум";
 
 // MARK: - Labels
@@ -187,6 +203,8 @@
 // MARK: - Card Limits
 "cardLimitExceeded" = "Ліміт Карток Досягнуто";
 "cardsRemaining" = "Картки, що Залишилися";
+"cardsUsedOfLimit" = "%d з %d карток";
+"upgrade" = "Оновити";
 "unlimitedCards" = "Необмежені Картки";
 
 // MARK: - Categories

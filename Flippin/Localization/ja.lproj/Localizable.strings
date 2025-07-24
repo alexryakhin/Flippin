@@ -136,6 +136,22 @@
 "colorSchemeSystem" = "システム";
 "colorSchemeLight" = "ライト";
 "colorSchemeDark" = "ダーク";
+"unlockPremium" = "プレミアムをアンロック";
+"masterLanguageLearning" = "専用機能で言語学習をマスター";
+"usedCardsOfLimit" = "無料カード %d 枚中 %d 枚を使用済み";
+"whatYouGetWithPremium" = "プレミアムで得られるもの";
+"unlimitedCardsDescription" = "好きなだけフラッシュカードを作成";
+"collections" = "30+ コレクション";
+"collectionsDescription" = "すべてのプリセット語彙コレクションにアクセス";
+"premiumBackgrounds" = "プレミアム背景";
+"premiumBackgroundsDescription" = "美しいアニメーション背景";
+"changeLanguages" = "言語変更";
+"changeLanguagesDescription" = "いつでも異なる言語ペアを切り替え";
+"restorePurchases" = "購入を復元";
+"cancelAnytime" = "いつでもキャンセル可能 • 契約なし";
+"terms" = "利用規約";
+"privacy" = "プライバシー";
+"goPremium" = "プレミアムに進む";
 "premium" = "プレミアム";
 
 // MARK: - Labels
@@ -187,6 +203,8 @@
 // MARK: - Card Limits
 "cardLimitExceeded" = "カード制限に達しました";
 "cardsRemaining" = "残りのカード";
+"cardsUsedOfLimit" = "%d 枚中 %d 枚";
+"upgrade" = "アップグレード";
 "unlimitedCards" = "無制限のカード";
 
 // MARK: - Categories

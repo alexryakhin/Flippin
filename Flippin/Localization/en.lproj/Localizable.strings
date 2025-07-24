@@ -149,6 +149,22 @@
 "colorSchemeSystem" = "System";
 "colorSchemeLight" = "Light";
 "colorSchemeDark" = "Dark";
+"unlockPremium" = "Unlock Premium";
+"masterLanguageLearning" = "Master your language learning with exclusive features";
+"usedCardsOfLimit" = "You've used %d of %d free cards";
+"whatYouGetWithPremium" = "What You Get with Premium";
+"unlimitedCardsDescription" = "Create as many flashcards as you want";
+"collections" = "30+ Collections";
+"collectionsDescription" = "Access all preset vocabulary collections";
+"premiumBackgrounds" = "Premium Backgrounds";
+"premiumBackgroundsDescription" = "Beautiful animated backgrounds";
+"changeLanguages" = "Change Languages";
+"changeLanguagesDescription" = "Switch between different language pairs anytime";
+"restorePurchases" = "Restore Purchases";
+"cancelAnytime" = "Cancel anytime • No commitment";
+"terms" = "Terms";
+"privacy" = "Privacy";
+"goPremium" = "Go Premium";
 "premium" = "Premium";
 
 // MARK: - Labels
@@ -201,4 +217,6 @@
 "cardLimitExceeded" = "Card Limit Reached";
 "upgradeToPremium" = "Upgrade to Premium";
 "cardsRemaining" = "Cards Remaining";
+"cardsUsedOfLimit" = "%d of %d cards";
+"upgrade" = "Upgrade";
 "unlimitedCards" = "Unlimited Cards";

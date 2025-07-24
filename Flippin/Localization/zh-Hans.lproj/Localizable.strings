@@ -136,6 +136,22 @@
 "colorSchemeSystem" = "系统";
 "colorSchemeLight" = "浅色";
 "colorSchemeDark" = "深色";
+"unlockPremium" = "解锁高级版";
+"masterLanguageLearning" = "通过专属功能掌握语言学习";
+"usedCardsOfLimit" = "您已使用 %d 张免费卡片中的 %d 张";
+"whatYouGetWithPremium" = "高级版包含的内容";
+"unlimitedCardsDescription" = "创建任意数量的学习卡片";
+"collections" = "30+ 合集";
+"collectionsDescription" = "访问所有预设词汇合集";
+"premiumBackgrounds" = "高级背景";
+"premiumBackgroundsDescription" = "精美的动画背景";
+"changeLanguages" = "更改语言";
+"changeLanguagesDescription" = "随时在不同语言对之间切换";
+"restorePurchases" = "恢复购买";
+"cancelAnytime" = "随时取消 • 无承诺";
+"terms" = "条款";
+"privacy" = "隐私";
+"goPremium" = "升级到高级版";
 "premium" = "高级版";
 
 // MARK: - Labels
@@ -187,6 +203,8 @@
 // MARK: - Card Limits
 "cardLimitExceeded" = "卡片限制已达";
 "cardsRemaining" = "剩余卡片";
+"cardsUsedOfLimit" = "%d 张卡片中的 %d 张";
+"upgrade" = "升级";
 "unlimitedCards" = "无限卡片";
 
 // MARK: - Categories

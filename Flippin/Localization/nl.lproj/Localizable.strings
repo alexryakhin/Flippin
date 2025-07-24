@@ -136,6 +136,22 @@
 "colorSchemeSystem" = "Systeem";
 "colorSchemeLight" = "Licht";
 "colorSchemeDark" = "Donker";
+"unlockPremium" = "Premium ontgrendelen";
+"masterLanguageLearning" = "Beheers je taalverwerving met exclusieve functies";
+"usedCardsOfLimit" = "Je hebt %d van %d gratis kaarten gebruikt";
+"whatYouGetWithPremium" = "Wat je krijgt met Premium";
+"unlimitedCardsDescription" = "Maak zoveel flashcards als je wilt";
+"collections" = "30+ Collecties";
+"collectionsDescription" = "Toegang tot alle vooraf gedefinieerde vocabulaire collecties";
+"premiumBackgrounds" = "Premium Achtergronden";
+"premiumBackgroundsDescription" = "Prachtige geanimeerde achtergronden";
+"changeLanguages" = "Talen Wijzigen";
+"changeLanguagesDescription" = "Wissel op elk moment tussen verschillende taalparen";
+"restorePurchases" = "Aankopen Herstellen";
+"cancelAnytime" = "Op elk moment annuleren • Geen verplichting";
+"terms" = "Voorwaarden";
+"privacy" = "Privacy";
+"goPremium" = "Ga naar Premium";
 "premium" = "Premium";
 
 // MARK: - Labels
@@ -187,6 +203,8 @@
 // MARK: - Card Limits
 "cardLimitExceeded" = "Kaartlimiet Bereikt";
 "cardsRemaining" = "Resterende Kaarten";
+"cardsUsedOfLimit" = "%d van %d kaarten";
+"upgrade" = "Upgraden";
 "unlimitedCards" = "Onbeperkte Kaarten";
 
 // MARK: - Categories

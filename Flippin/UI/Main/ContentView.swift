@@ -181,7 +181,7 @@ struct ContentView: View {
     private var cardLimitIndicator: some View {
         HStack {
             VStack(alignment: .leading, spacing: 4) {
-                Text("\(cardsProvider.cards.count) of \(cardsProvider.cardLimit) cards")
+                Text(LocalizationKeys.cardsUsedOfLimit.localized(with: cardsProvider.cards.count, cardsProvider.cardLimit))
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
 
@@ -192,7 +192,7 @@ struct ContentView: View {
             
             Spacer()
             
-            Button("Upgrade") {
+            Button(LocalizationKeys.upgrade.localized) {
                 showPaywall = true
             }
             .font(.caption)

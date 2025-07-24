@@ -101,6 +101,26 @@ enum LocalizationKeys {
     static let colorSchemeSystem = "colorSchemeSystem"
     static let colorSchemeLight = "colorSchemeLight"
     static let colorSchemeDark = "colorSchemeDark"
+    
+    // MARK: - Paywall
+    static let unlockPremium = "unlockPremium"
+    static let masterLanguageLearning = "masterLanguageLearning"
+    static let usedCardsOfLimit = "usedCardsOfLimit"
+    static let whatYouGetWithPremium = "whatYouGetWithPremium"
+    static let unlimitedCards = "unlimitedCards"
+    static let unlimitedCardsDescription = "unlimitedCardsDescription"
+    static let collections = "collections"
+    static let collectionsDescription = "collectionsDescription"
+    static let premiumBackgrounds = "premiumBackgrounds"
+    static let premiumBackgroundsDescription = "premiumBackgroundsDescription"
+    static let changeLanguages = "changeLanguages"
+    static let changeLanguagesDescription = "changeLanguagesDescription"
+    static let restorePurchases = "restorePurchases"
+    static let cancelAnytime = "cancelAnytime"
+    static let terms = "terms"
+    static let privacy = "privacy"
+    static let goPremium = "goPremium"
+    
     static let tapToSeeFullScreen = "tapToSeeFullScreen"
 
     // MARK: - Categories
@@ -156,7 +176,8 @@ enum LocalizationKeys {
     static let cardLimitExceeded = "cardLimitExceeded"
     static let upgradeToPremium = "upgradeToPremium"
     static let cardsRemaining = "cardsRemaining"
-    static let unlimitedCards = "unlimitedCards"
+    static let cardsUsedOfLimit = "cardsUsedOfLimit"
+    static let upgrade = "upgrade"
     
     // MARK: - Labels
     static let settingsLabel = "settingsLabel"

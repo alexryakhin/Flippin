@@ -136,6 +136,22 @@
 "colorSchemeSystem" = "Sistema";
 "colorSchemeLight" = "Chiaro";
 "colorSchemeDark" = "Scuro";
+"unlockPremium" = "Sblocca Premium";
+"masterLanguageLearning" = "Padroneggia il tuo apprendimento delle lingue con funzionalità esclusive";
+"usedCardsOfLimit" = "Hai usato %d di %d carte gratuite";
+"whatYouGetWithPremium" = "Cosa ottieni con Premium";
+"unlimitedCardsDescription" = "Crea tutte le flashcard che vuoi";
+"collections" = "30+ Collezioni";
+"collectionsDescription" = "Accedi a tutte le collezioni di vocabolario predefinite";
+"premiumBackgrounds" = "Sfondi Premium";
+"premiumBackgroundsDescription" = "Bellissimi sfondi animati";
+"changeLanguages" = "Cambia Lingue";
+"changeLanguagesDescription" = "Passa tra diverse coppie di lingue in qualsiasi momento";
+"restorePurchases" = "Ripristina Acquisti";
+"cancelAnytime" = "Cancella in qualsiasi momento • Nessun impegno";
+"terms" = "Termini";
+"privacy" = "Privacy";
+"goPremium" = "Vai a Premium";
 "premium" = "Premium";
 
 // MARK: - Labels
@@ -187,6 +203,8 @@
 // MARK: - Card Limits
 "cardLimitExceeded" = "Limite Carte Raggiunto";
 "cardsRemaining" = "Carte Rimanenti";
+"cardsUsedOfLimit" = "%d di %d carte";
+"upgrade" = "Aggiorna";
 "unlimitedCards" = "Carte Illimitate";
 
 // MARK: - Categories

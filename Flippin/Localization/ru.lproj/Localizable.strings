@@ -6,12 +6,12 @@
 */
 
 // MARK: - Navigation Titles
-"addCard" = "Добавить Карточку";
-"addNewCard" = "Добавить Новую Карточку";
+"addCard" = "Добавить карточку";
+"addNewCard" = "Добавить новую карточку";
 "settings" = "Настройки";
-"myCards" = "Мои Карточки";
-"backgroundStyles" = "Стили Фона";
-"backgroundDemo" = "Демо Фона";
+"myCards" = "Мои карточки";
+"backgroundStyles" = "Стили фона";
+"backgroundDemo" = "Демо просмотр фонов";
 
 // MARK: - Welcome Screen
 "welcomeScreenTitle" = "Добро пожаловать в Flippin!";
@@ -23,15 +23,15 @@
 "continueButton" = "Продолжить";
 "back" = "Назад";
 "getStarted" = "Начать";
-"chooseLanguages" = "Выберите Ваши Языки";
+"chooseLanguages" = "Выберите ваши языки";
 "chooseLanguagesDesc" = "Выберите свой родной язык и язык, который вы хотите изучить";
-"readyToStart" = "Все Готово!";
+"readyToStart" = "Все готово!";
 "readyToStartDesc" = "Ваше путешествие в изучении языков начинается сейчас";
-"featureLearning" = "Автоматический Перевод";
+"featureLearning" = "Автоматический перевод";
 "featureLearningDesc" = "Перевод в реальном времени при вводе";
-"featureLanguages" = "18 Языков";
+"featureLanguages" = "18 языков";
 "featureLanguagesDesc" = "Поддержка основных языков мира";
-"featureSmart" = "Преобразование Текста в Речь";
+"featureSmart" = "Преобразование текста в речь";
 "featureSmartDesc" = "Слушайте произношение с технологией TTS";
 "finalFeatureAdd" = "Создавайте пользовательские карточки";
 "finalFeaturePractice" = "Практикуйтесь с аудио произношением";
@@ -59,10 +59,10 @@
 "toSettings" = "В настройки";
 "newTagName" = "Название нового тега";
 "add" = "Добавить";
-"addTag" = "Добавить Тег";
-"tagsManagement" = "Управление Тегами";
-"filterByTag" = "Фильтровать по Тегу";
-"filterByLanguage" = "Фильтровать по Языку";
+"addTag" = "Добавить тег";
+"tagsManagement" = "Управление тегами";
+"filterByTag" = "Фильтровать по тегу";
+"filterByLanguage" = "Фильтровать по языку";
 "filterByLanguageDescription" = "Показывать только карточки, соответствующие вашим выбранным языкам";
 "filterByFavorites" = "Фильтровать по избранному";
 "showAllCards" = "Показать все карточки";
@@ -72,17 +72,17 @@
 
 // MARK: - Settings
 "languages" = "Языки";
-"cardDisplay" = "Отображение Карточек";
-"cardDisplayMode" = "Режим Отображения Карточек";
-"learningMode" = "Режим Обучения";
-"travelMode" = "Режим Путешествия";
+"cardDisplay" = "Отображение карточек";
+"cardDisplayMode" = "Режим Отображения карточек";
+"learningMode" = "Режим обучения";
+"travelMode" = "Режим путешествия";
 "learningModeDescription" = "Показывать целевой язык первым (для обучения)";
 "travelModeDescription" = "Показывать родной язык первым (для путешествий)";
 
 // MARK: - Preset Collections
-"presetCollections" = "Предустановленные Коллекции";
-"seeAllCollections" = "Посмотреть Все";
-"importCollection" = "Импортировать Коллекцию";
+"presetCollections" = "Предустановленные коллекции";
+"seeAllCollections" = "Посмотреть все";
+"importCollection" = "Импортировать коллекцию";
 "importButton" = "Импортировать";
 "importCollectionMessage" = "Импортировать %@ с %d карточками в вашу коллекцию?";
 "noCollectionsFound" = "Коллекции не найдены";
@@ -90,8 +90,8 @@
 "getStartedWithCollections" = "Начните с курированных наборов карточек для общих тем и ситуаций";
 "searchCollections" = "Поиск коллекций...";
 "allCategories" = "Все";
-"myLanguageSettings" = "Мой Язык";
-"targetLanguage" = "Целевой Язык";
+"myLanguageSettings" = "Мой язык";
+"targetLanguage" = "Целевой язык";
 "theme" = "Тема";
 "color" = "Цвет";
 "backgroundStyle" = "Стиль Фона";
@@ -103,7 +103,7 @@
 "addNotesOptional" = "Добавить заметки (необязательно)";
 "notes" = "Заметки";
 "tagsCount" = "Теги (%d/5)";
-"noTagsAvailableAddInSettings" = "Нет доступных тегов. Добавьте несколько тегов в Настройки.";
+"noTagsAvailableAddInSettings" = "Нет доступных тегов. Добавьте несколько тегов в настройках.";
 "translating" = "Перевод...";
 "translationWillAppearHere" = "Перевод появится здесь";
 
@@ -113,16 +113,16 @@
 "save" = "Сохранить";
 "close" = "Закрыть";
 "clear" = "Очистить";
-"clearFilter" = "Очистить Фильтр";
-"clearSearch" = "Очистить Поиск";
-"addCardButton" = "Добавить Карточку";
+"clearFilter" = "Очистить фильтр";
+"clearSearch" = "Очистить поиск";
+"addCardButton" = "Добавить карточку";
 "edit" = "Редактировать";
-"editCard" = "Редактировать Карточку";
+"editCard" = "Редактировать карточку";
 "delete" = "Удалить";
-"deleteCard" = "Удалить Карточку";
+"deleteCard" = "Удалить карточку";
 "deleteCardConfirmation" = "Вы уверены, что хотите удалить эту карточку? Это действие нельзя отменить.";
-"deleteAll" = "Удалить Все";
-"deleteAllCards" = "Удалить Все Карточки";
+"deleteAll" = "Удалить все";
+"deleteAllCards" = "Удалить все карточки";
 "deleteAllCardsConfirmation" = "Вы уверены, что хотите удалить все карточки? Это действие нельзя отменить.";
 "ok" = "OK";
 
@@ -131,11 +131,27 @@
 "premiumRequired" = "Требуется Премиум";
 "upgradeToPremium" = "Перейти на Премиум";
 "premiumFeatureDescription" = "Получите доступ ко всем предустановленным коллекциям и разблокируйте неограниченный потенциал для изучения языков";
-"previewBackgrounds" = "Предварительный Просмотр";
-"colorScheme" = "Цветовая Схема";
+"previewBackgrounds" = "Предварительный просмотр";
+"colorScheme" = "Цветовая схема";
 "colorSchemeSystem" = "Система";
 "colorSchemeLight" = "Светлая";
 "colorSchemeDark" = "Темная";
+"unlockPremium" = "Разблокируйте Премиум";
+"masterLanguageLearning" = "Освойте изучение языков с эксклюзивными функциями";
+"usedCardsOfLimit" = "Вы использовали %d из %d бесплатных карточек";
+"whatYouGetWithPremium" = "Что вы получаете с Премиум";
+"unlimitedCardsDescription" = "Создавайте столько карточек для изучения, сколько хотите";
+"collections" = "30+ Коллекций";
+"collectionsDescription" = "Доступ ко всем предустановленным коллекциям словаря";
+"premiumBackgrounds" = "Премиум фоны";
+"premiumBackgroundsDescription" = "Красивые анимированные фоны";
+"changeLanguages" = "Изменить языки";
+"changeLanguagesDescription" = "Переключайтесь между различными языковыми парами в любое время";
+"restorePurchases" = "Восстановить Покупки";
+"cancelAnytime" = "Отменить в любое время • Без обязательств";
+"terms" = "Условия";
+"privacy" = "Конфиденциальность";
+"goPremium" = "Перейти на Премиум";
 "premium" = "Премиум";
 
 // MARK: - Labels
@@ -185,9 +201,11 @@
 "galaxy" = "Галактика";
 
 // MARK: - Card Limits
-"cardLimitExceeded" = "Лимит Карточек Достигнут";
-"cardsRemaining" = "Оставшиеся Карточки";
-"unlimitedCards" = "Неограниченные Карточки";
+"cardLimitExceeded" = "Лимит карточек достигнут";
+"cardsRemaining" = "Оставшиеся карточки";
+"cardsUsedOfLimit" = "%d из %d карточек";
+"upgrade" = "Убрать лимит";
+"unlimitedCards" = "Неограниченные карточки";
 
 // MARK: - Categories
 "categoryBasics" = "Основы";
@@ -198,6 +216,6 @@
 "categorySocial" = "Общение";
 "categoryWeather" = "Погода";
 "categoryTechnology" = "Технологии";
-"categoryLifestyle" = "Образ Жизни";
+"categoryLifestyle" = "Образ жизни";
 "categoryProfessional" = "Профессиональное";
-"categoryEmergency" = "Чрезвычайная Ситуация";
+"categoryEmergency" = "Чрезвычайная ситуация";

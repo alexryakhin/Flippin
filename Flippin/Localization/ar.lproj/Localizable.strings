@@ -136,6 +136,22 @@
 "colorSchemeSystem" = "النظام";
 "colorSchemeLight" = "فاتح";
 "colorSchemeDark" = "داكن";
+"unlockPremium" = "افتح بريميوم";
+"masterLanguageLearning" = "أتقن تعلم لغتك بميزات حصرية";
+"usedCardsOfLimit" = "لقد استخدمت %d من %d بطاقة مجانية";
+"whatYouGetWithPremium" = "ما تحصل عليه مع بريميوم";
+"unlimitedCardsDescription" = "أنشئ أكبر عدد تريده من البطاقات التعليمية";
+"collections" = "+30 مجموعة";
+"collectionsDescription" = "احصل على جميع مجموعات المفردات المعرفة مسبقاً";
+"premiumBackgrounds" = "خلفيات بريميوم";
+"premiumBackgroundsDescription" = "خلفيات متحركة جميلة";
+"changeLanguages" = "تغيير اللغات";
+"changeLanguagesDescription" = "تبديل بين أزواج اللغات المختلفة في أي وقت";
+"restorePurchases" = "استعادة المشتريات";
+"cancelAnytime" = "إلغاء في أي وقت • بدون التزام";
+"terms" = "الشروط";
+"privacy" = "الخصوصية";
+"goPremium" = "اذهب إلى بريميوم";
 "premium" = "بريميوم";
 
 // MARK: - Labels
@@ -187,6 +203,8 @@
 // MARK: - Card Limits
 "cardLimitExceeded" = "تم الوصول إلى حد البطاقات";
 "cardsRemaining" = "البطاقات المتبقية";
+"cardsUsedOfLimit" = "%d من %d بطاقة";
+"upgrade" = "ترقية";
 "unlimitedCards" = "بطاقات غير محدودة";
 
 // MARK: - Categories

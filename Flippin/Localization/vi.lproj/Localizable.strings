@@ -136,6 +136,22 @@
 "colorSchemeSystem" = "Hệ Thống";
 "colorSchemeLight" = "Sáng";
 "colorSchemeDark" = "Tối";
+"unlockPremium" = "Mở khóa Premium";
+"masterLanguageLearning" = "Làm chủ việc học ngôn ngữ với các tính năng độc quyền";
+"usedCardsOfLimit" = "Bạn đã sử dụng %d trong số %d thẻ miễn phí";
+"whatYouGetWithPremium" = "Những gì bạn nhận được với Premium";
+"unlimitedCardsDescription" = "Tạo bao nhiêu thẻ học tùy ý";
+"collections" = "30+ Bộ Sưu Tập";
+"collectionsDescription" = "Truy cập tất cả các bộ sưu tập từ vựng được định sẵn";
+"premiumBackgrounds" = "Nền Premium";
+"premiumBackgroundsDescription" = "Nền hoạt ảnh đẹp mắt";
+"changeLanguages" = "Thay Đổi Ngôn Ngữ";
+"changeLanguagesDescription" = "Chuyển đổi giữa các cặp ngôn ngữ khác nhau bất cứ lúc nào";
+"restorePurchases" = "Khôi Phục Mua Hàng";
+"cancelAnytime" = "Hủy bất cứ lúc nào • Không cam kết";
+"terms" = "Điều khoản";
+"privacy" = "Quyền riêng tư";
+"goPremium" = "Chuyển sang Premium";
 "premium" = "Premium";
 
 // MARK: - Labels
@@ -187,6 +203,8 @@
 // MARK: - Card Limits
 "cardLimitExceeded" = "Đã Đạt Giới Hạn Thẻ";
 "cardsRemaining" = "Thẻ Còn Lại";
+"cardsUsedOfLimit" = "%d trong số %d thẻ";
+"upgrade" = "Nâng cấp";
 "unlimitedCards" = "Thẻ Không Giới Hạn";
 
 // MARK: - Categories
