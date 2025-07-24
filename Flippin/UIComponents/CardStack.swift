@@ -13,6 +13,7 @@ import SwiftUI
 public struct CardStack<Data, Content>: View where Data: RandomAccessCollection & Hashable, Data.Element: Identifiable & Hashable, Content: View {
     @State private var currentIndex: Double = 0.0
     @State private var previousIndex: Double = 0.0
+    @Environment(\.layoutDirection) private var layoutDirection
 
     private let data: Data
     @ViewBuilder private let content: (Data.Element) -> Content
@@ -65,7 +66,9 @@ public struct CardStack<Data, Content>: View where Data: RandomAccessCollection 
         DragGesture()
             .onChanged { value in
                 withAnimation(.interactiveSpring()) {
-                    let x = (value.translation.width / 300) - previousIndex
+                    let translation = value.translation.width
+                    let rtlMultiplier = layoutDirection == .rightToLeft ? -1.0 : 1.0
+                    let x = (translation * rtlMultiplier / 300) - previousIndex
                     self.currentIndex = -x
                 }
             }
@@ -78,8 +81,10 @@ public struct CardStack<Data, Content>: View where Data: RandomAccessCollection 
     private func snapToNearestAbsoluteIndex(_ predictedEndTranslation: CGSize) {
         withAnimation(.interpolatingSpring(stiffness: 300, damping: 40)) {
             let translation = predictedEndTranslation.width
-            if abs(translation) > 200 {
-                if translation > 0 {
+            let rtlMultiplier = layoutDirection == .rightToLeft ? -1.0 : 1.0
+            let adjustedTranslation = translation * rtlMultiplier
+            if abs(adjustedTranslation) > 200 {
+                if adjustedTranslation > 0 {
                     self.goTo(round(self.previousIndex) - 1)
                 } else {
                     self.goTo(round(self.previousIndex) + 1)

@@ -14,6 +14,7 @@ public struct InfiniteCardStack<Data, Content>: View where Data: RandomAccessCol
     @State private var currentIndex: Double = 0.0
     @State private var previousIndex: Double = 0.0
     @State private var visibleCards: [VisibleCard] = []
+    @Environment(\.layoutDirection) private var layoutDirection
 
     private let data: [Data.Element] // Convert to array for easier indexing
     private let cardCount: Int
@@ -73,7 +74,9 @@ public struct InfiniteCardStack<Data, Content>: View where Data: RandomAccessCol
             .onChanged { value in
                 withAnimation(.interactiveSpring()) {
                     let screenWidth = UIScreen.main.bounds.width
-                    let x = (value.translation.width / (screenWidth * 0.5)) - previousIndex
+                    let translation = value.translation.width
+                    let rtlMultiplier = layoutDirection == .rightToLeft ? -1.0 : 1.0
+                    let x = (translation * rtlMultiplier / (screenWidth * 0.5)) - previousIndex
                     self.currentIndex = -x
                 }
             }
@@ -113,8 +116,10 @@ public struct InfiniteCardStack<Data, Content>: View where Data: RandomAccessCol
         withAnimation(.interpolatingSpring(stiffness: 300, damping: 40)) {
             let translation = predictedEndTranslation.width
             let screenWidth = UIScreen.main.bounds.width
-            if abs(translation) > screenWidth * 0.3 {
-                if translation > 0 {
+            let rtlMultiplier = layoutDirection == .rightToLeft ? -1.0 : 1.0
+            let adjustedTranslation = translation * rtlMultiplier
+            if abs(adjustedTranslation) > screenWidth * 0.3 {
+                if adjustedTranslation > 0 {
                     self.currentIndex = round(self.previousIndex) - 1
                 } else {
                     self.currentIndex = round(self.previousIndex) + 1
