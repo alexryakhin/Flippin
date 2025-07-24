@@ -1,243 +1,296 @@
-# Flippin Purchase System
+# Flippin - Smart Language Learning Flashcards
 
-A complete in-app purchase system for iOS apps using StoreKit 2, featuring automatic transaction listening, purchase status tracking, and comprehensive testing tools.
+A beautiful, intelligent flashcard app for learning languages with automatic translation, text-to-speech, and personalized learning features.
 
-## 🚀 Features
+## 🌟 Features
 
-- **StoreKit 2 Integration**: Modern, secure in-app purchase handling
-- **Automatic Transaction Listening**: Prevents loss of purchases
-- **Purchase Status Tracking**: Real-time UI updates for purchased products
-- **Test Purchase System**: Complete testing environment
-- **Transaction History**: Full purchase history with transaction IDs
-- **Purchase Restoration**: Support for restoring purchases
-- **Analytics Integration**: Automatic event tracking
-- **StoreKit Configuration Sync**: Automatic sync with App Store Connect
+### 🎯 **Smart Learning**
+- **Automatic Translation**: Real-time translation as you type
+- **18 Languages Supported**: English, Spanish, French, German, Italian, Portuguese, Dutch, Swedish, Chinese, Japanese, Korean, Vietnamese, Russian, Arabic, Hindi, Croatian, Ukrainian
+- **Text-to-Speech**: Hear pronunciation with TTS technology
+- **Travel Mode**: Reverse language display for practice
 
-## 📱 Quick Start
+### 🎨 **Beautiful UI**
+- **Animated Backgrounds**: 12 stunning animated backgrounds (Gradient, Lava Lamp, Snow, Rain, Stars, Bubbles, Waves, Particles, Aurora, Fireflies, Ocean, Galaxy)
+- **3D Card Animations**: Smooth flip animations with physics
+- **Dark/Light Mode**: Automatic theme switching
+- **RTL Support**: Full right-to-left language support
+- **Customizable Colors**: Personalize your learning experience
+
+### 📚 **Learning Tools**
+- **Infinite Card Stack**: Smooth scrolling through large collections
+- **Smart Filtering**: Filter by tags, favorites, and language pairs
+- **Preset Collections**: Ready-to-use phrase collections
+- **Tag System**: Organize cards with custom tags
+- **Progress Tracking**: Visual progress indicators
+
+### 🔧 **Advanced Features**
+- **Core Data Integration**: Persistent storage with offline support
+- **Purchase System**: Premium features with StoreKit 2
+- **Analytics**: Comprehensive learning analytics
+- **Haptic Feedback**: Immersive tactile responses
+- **Accessibility**: Full VoiceOver support
+
+## 📱 Screenshots
+
+*[Screenshots would be added here]*
+
+## 🚀 Quick Start
 
 ### 1. Setup Project
 ```bash
-# Check current status
-./Flippin/Scripts/check_storekit_sync.sh
+# Clone the repository
+git clone https://github.com/yourusername/SpeakCards.git
+cd SpeakCards
+
+# Open in Xcode
+open Flippin.xcodeproj
 ```
 
-### 2. Configure in App Store Connect
-1. Open [App Store Connect](https://appstoreconnect.apple.com/)
-2. Select your app
-3. Go to **Features** → **In-App Purchases**
-4. Create products with these IDs:
-   - `com.dor.flippin.unlimited_cards` (Non-Consumable, $0.99)
-   - `com.dor.flippin.premium_monthly` (Auto-Renewable, $4.99)
-   - `com.dor.flippin.premium_yearly` (Auto-Renewable, $39.99)
+### 2. Configure Languages
+1. Launch the app
+2. Select your native language
+3. Choose the language you want to learn
+4. Start creating your first cards!
 
-### 3. Sync in Xcode
-1. Open project in Xcode
-2. **Product** → **StoreKit** → **Manage StoreKit Configuration**
-3. Click **"Sync with App Store Connect"**
-4. Sign in and sync
-
-### 4. Test Purchases
-1. Run the app
-2. Go to **Settings** → **Purchase Testing**
-3. Tap **"Start Test Purchase"**
+### 3. Create Your First Card
+1. Tap the **+** button
+2. Type text in your language
+3. Get automatic translation
+4. Add optional notes and tags
+5. Save and start learning!
 
 ## 🏗️ Architecture
 
-### Core Components
+### Core Services
 
-#### PurchaseService
-Main service managing all purchase operations:
+#### CardsProvider
+Manages card data and operations:
 ```swift
-class PurchaseService: ObservableObject {
-    @Published var products: [Product] = []
-    @Published var purchasedProductIds: Set<String> = []
-    @Published var isListeningForUpdates = false
+class CardsProvider: ObservableObject {
+    @Published var cards: [CardItem] = []
     
-    func performTestPurchase() async -> PurchaseResult
-    func purchaseProduct(_ productId: String) async -> PurchaseResult
-    func isProductPurchased(_ productId: String) -> Bool
-    func getPurchasedProducts() -> [String]
+    func addCard(_ card: CardItem)
+    func deleteCard(_ card: CardItem)
+    func toggleFavorite(_ card: CardItem)
+    func shuffleCards()
 }
 ```
 
-#### PurchaseTestView
-Complete UI for testing purchases with real-time status updates.
+#### LanguageManager
+Handles language selection and filtering:
+```swift
+class LanguageManager: ObservableObject {
+    @Published var userLanguage: Language
+    @Published var targetLanguage: Language
+    @Published var filterByLanguage: Bool
+    
+    func filterCards(_ cards: [CardItem]) -> [CardItem]
+}
+```
 
-#### StoreKit Configuration
-Automatically synced configuration file for test products.
+#### TTSPlayer
+Text-to-speech functionality:
+```swift
+class TTSPlayer {
+    func play(_ text: String, language: Language) async throws
+}
+```
+
+### UI Components
+
+#### CardStack & InfiniteCardStack
+Interactive card displays with RTL support:
+```swift
+// For small collections
+CardStack(cards) { card in
+    CardView(card: card)
+}
+
+// For large collections
+InfiniteCardStack(cards) { card in
+    CardView(card: card)
+}
+```
+
+#### AnimatedBackground
+Beautiful animated backgrounds:
+```swift
+AnimatedBackground(style: .gradient)
+AnimatedBackground(style: .lavaLamp)
+AnimatedBackground(style: .stars)
+```
 
 ## 💻 Usage Examples
 
-### Basic Purchase
+### Create a Card
 ```swift
-let result = await PurchaseService.shared.performTestPurchase()
-if result.success {
-    print("Transaction ID: \(result.transactionId ?? "Unknown")")
-}
+let card = CardItem(
+    frontText: "Hello",
+    backText: "Hola",
+    frontLanguage: .english,
+    backLanguage: .spanish,
+    notes: "Greeting",
+    tags: ["basics", "greetings"]
+)
+CardsProvider.shared.addCard(card)
 ```
 
-### Check Purchase Status
+### Filter Cards
 ```swift
-let unlimitedCardsId = "com.dor.flippin.unlimited_cards"
-if PurchaseService.shared.isProductPurchased(unlimitedCardsId) {
-    // Show premium features
-    cardLimit = .max
-} else {
-    // Show limited features
-    cardLimit = 10
-}
+let filteredCards = languageManager.filterCards(cards)
+let favoriteCards = cards.filter { $0.isFavorite }
+let taggedCards = cards.filter { $0.tagNames.contains("basics") }
 ```
 
-### Get All Purchased Products
+### Play TTS
 ```swift
-let purchasedProducts = PurchaseService.shared.getPurchasedProducts()
-print("Purchased: \(purchasedProducts)")
-```
-
-### Purchase Specific Product
-```swift
-let result = await PurchaseService.shared.purchaseProduct("com.dor.flippin.unlimited_cards")
-if result.success {
-    print("Purchase successful!")
-}
+try await TTSPlayer.shared.play("Hello", language: .english)
 ```
 
 ## 🎨 UI Features
 
-### Visual Indicators
-- ✅ Green checkmark for purchased products
-- 💰 Price hidden for purchased products
-- 🛒 "Purchase" button replaced with "Already Purchased"
+### Card Interface
+- **3D Flip Animation**: Smooth card flipping with physics
+- **TTS Controls**: Tap to hear pronunciation
+- **Favorite Toggle**: Heart button for quick favoriting
+- **Tag Display**: Visual tag indicators
+- **Language Labels**: Clear language identification
 
-### Sections
-- **Test Purchase**: Quick test purchase button
-- **Last Transaction ID**: Copyable transaction identifier
-- **Available Products**: Products with purchase status
-- **Purchased Products**: List of all purchased products
-- **Transaction History**: Complete purchase history
-- **Restore Purchases**: Restore functionality
+### Navigation
+- **Filter Bar**: Horizontal scrolling filter buttons
+- **Action Buttons**: Menu, shuffle, and add card buttons
+- **Settings Access**: Quick access to app settings
+- **My Cards**: View and manage all cards
 
-## 🔄 Automatic Updates
+### Visual Design
+- **Material Design**: Modern iOS design language
+- **Custom Colors**: Dynamic color theming
+- **Smooth Animations**: Spring-based animations
+- **Responsive Layout**: Adapts to different screen sizes
 
-### Transaction Listening
-The system automatically listens for transaction updates:
-```swift
-private func listenForTransactionUpdates() async {
-    for await result in Transaction.updates {
-        let transaction = try checkVerified(result)
-        await addToPurchasedProducts(transaction.productID)
-        await transaction.finish()
-    }
-}
-```
+## 🌍 Language Support
 
-### Real-time UI Updates
-- Products automatically update status after purchase
-- Transaction listener status shown in UI
-- Purchase history updates automatically
+### Supported Languages
+- **Western**: English, Spanish, French, German, Italian, Portuguese, Dutch, Swedish
+- **Asian**: Chinese (Simplified/Traditional), Japanese, Korean, Vietnamese
+- **Other**: Russian, Arabic, Hindi, Croatian, Ukrainian
 
-## 🧪 Testing
+### RTL Support
+- **Arabic**: Full right-to-left interface support
+- **Gesture Direction**: Automatic gesture direction adjustment
+- **Layout Direction**: Proper text and layout direction
 
-### Test Scenarios
-1. **Basic Test Purchase**: Tap "Start Test Purchase"
-2. **Specific Product**: Purchase individual products
-3. **Purchase Status**: Observe UI changes after purchase
-4. **Transaction History**: View all transactions
-5. **Purchase Restoration**: Test restore functionality
+## 📊 Learning Features
 
-### Debug Tools
-- **StoreKit Transaction Manager**: Built into Xcode
-- **Sync Status Check**: `./Flippin/Scripts/check_storekit_sync.sh`
-- **Console Logs**: Detailed logging with emojis
-- **UI Status Indicators**: Visual feedback in app
+### Smart Filtering
+- **Language Pairs**: Filter by specific language combinations
+- **Tag System**: Organize with custom tags
+- **Favorites**: Quick access to favorite cards
+- **Search**: Find cards by content
 
-## 📊 Analytics
+### Progress Tracking
+- **Card Count**: Track total cards created
+- **Learning Stats**: Monitor learning progress
+- **Usage Analytics**: Understand learning patterns
 
-Automatic event tracking:
-- `purchase_completed` - Successful purchases
-- `purchase_failed` - Failed purchases
-- `purchase_restored` - Purchase restoration
-- `purchase_test_opened` - Testing interface opened
-- `transaction_updated` - Transaction updates
-- `transaction_verification_failed` - Verification errors
+### Preset Collections
+- **Essential Phrases**: Common expressions
+- **Travel Phrases**: Useful travel vocabulary
+- **Business Phrases**: Professional communication
+- **Custom Collections**: Create your own
 
 ## 🔧 Configuration
 
-### StoreKit Configuration
-```json
-{
-  "identifier": "FlippinTestConfiguration",
-  "products": [
-    {
-      "productID": "com.dor.flippin.unlimited_cards",
-      "type": "NonConsumable",
-      "displayPrice": "0.99"
-    }
-  ],
-  "subscriptionGroups": [
-    {
-      "id": "21482456",
-      "subscriptions": [
-        {
-          "productID": "com.dor.flippin.premium_monthly",
-          "displayPrice": "4.99"
-        }
-      ]
-    }
-  ]
-}
+### App Settings
+- **Language Selection**: Choose native and target languages
+- **Background Style**: Select from 12 animated backgrounds
+- **Color Theme**: Customize app colors
+- **TTS Settings**: Configure text-to-speech options
+
+### Premium Features
+- **Unlimited Cards**: Remove card creation limits
+- **Advanced Analytics**: Detailed learning insights
+- **Premium Backgrounds**: Exclusive background styles
+- **Priority Support**: Enhanced customer support
+
+## 🧪 Testing
+
+### Development Testing
+```bash
+# Check StoreKit sync status
+./Flippin/Scripts/check_storekit_sync.sh
+
+# Run in simulator
+xcodebuild -scheme Flippin -destination 'platform=iOS Simulator,name=iPhone 15'
 ```
 
-### Sync Settings
-- Automatic sync enabled
-- 1-hour sync interval
-- Real-time price updates
-- Product metadata sync
-
-## 🛡️ Security
-
-- **Transaction Verification**: All transactions verified through StoreKit
-- **Unique Transaction IDs**: Generated by Apple
-- **Automatic Listening**: Prevents purchase loss
-- **Purchase Restoration**: Official Apple restoration
-- **Error Handling**: Comprehensive error management
+### User Testing
+- **Card Creation**: Test translation and TTS
+- **Navigation**: Verify all UI interactions
+- **Language Switching**: Test RTL and LTR languages
+- **Purchase Flow**: Test premium features
 
 ## 📚 Documentation
 
-- **[Purchase System](Flippin/Documentation/PurchaseSystem.md)**: Complete system documentation
-- **[StoreKit Sync Setup](Flippin/Documentation/StoreKitSyncSetup.md)**: Sync configuration guide
-- **[Purchase Status Demo](PURCHASE_STATUS_DEMO.md)**: UI demonstration
-- **[Quick Sync Setup](QUICK_SYNC_SETUP.md)**: Fast setup guide
+- **[Purchase System](Flippin/Documentation/PurchaseSystem.md)**: In-app purchase documentation
+- **[Preset Localization](Flippin/Documentation/PresetLocalization.md)**: Localized phrase system
+- **[StoreKit Setup](Flippin/Documentation/StoreKitSyncSetup.md)**: StoreKit configuration
+- **[Card Limit Implementation](CARD_LIMIT_IMPLEMENTATION.md)**: Free user limitations
 
 ## 🚀 Getting Started
 
-1. **Clone/Download** the project
-2. **Run the check script**: `./Flippin/Scripts/check_storekit_sync.sh`
-3. **Setup App Store Connect** products
-4. **Sync in Xcode** with App Store Connect
-5. **Test purchases** in the app
+1. **Clone the repository**
+2. **Open in Xcode**: `open Flippin.xcodeproj`
+3. **Select target device**: iPhone or iPad
+4. **Build and run**: `⌘+R`
+5. **Configure languages**: Select your learning languages
+6. **Create your first card**: Start learning!
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
+We welcome contributions! Please:
+
+1. **Fork the repository**
+2. **Create a feature branch**: `git checkout -b feature/amazing-feature`
+3. **Make your changes**: Follow the existing code style
+4. **Test thoroughly**: Ensure all features work correctly
+5. **Submit a pull request**: Include detailed description
+
+### Development Guidelines
+- Follow SwiftUI best practices
+- Add proper documentation
+- Include accessibility features
+- Test on multiple devices
+- Maintain consistent code style
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🆘 Support
 
-If you encounter issues:
-1. Check StoreKit Configuration settings
-2. Verify products in App Store Connect
-3. Check Xcode logs for diagnostics
-4. Use StoreKit Transaction Manager
-5. Review the documentation
+### Getting Help
+- **Documentation**: Check the documentation files
+- **Issues**: Report bugs on GitHub Issues
+- **Discussions**: Join GitHub Discussions
+- **Email**: Contact support@flippin.app
+
+### Common Issues
+- **Translation not working**: Check internet connection
+- **TTS not playing**: Verify device volume and permissions
+- **Cards not saving**: Check Core Data permissions
+- **Purchase issues**: Verify StoreKit configuration
+
+## 🙏 Acknowledgments
+
+- **Apple**: For SwiftUI and StoreKit frameworks
+- **Google Translate**: For translation services
+- **Open Source Community**: For inspiration and tools
+- **Beta Testers**: For valuable feedback and testing
 
 ---
 
-**Built with ❤️ for iOS developers** 
+**Built with ❤️ for language learners worldwide**
+
+*Flippin - Making language learning beautiful and effective* 

@@ -7,13 +7,23 @@
 
 import SwiftUI
 
+/**
+ Horizontal scrollable filter buttons for card filtering.
+ Displays "Show All", "Favorites", and tag-specific filter options.
+ Supports smooth scrolling with view-aligned behavior.
+ */
 struct FiltersScrollView: View {
+    // MARK: - State Objects
+    
     @StateObject private var tagManager = TagManager.shared
     @StateObject private var colorManager = ColorManager.shared
 
+    // MARK: - Body
+    
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 8) {
+                // Show all cards filter
                 TagButton(
                     title: LocalizationKeys.showAllCards,
                     isSelected: tagManager.selectedFilterTag == nil && !tagManager.isFavoriteFilterOn

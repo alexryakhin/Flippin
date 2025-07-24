@@ -4,17 +4,29 @@
 //
 //  Created by Alexander Riakhin on 7/13/25.
 //
+
 import SwiftUI
 
+/**
+ Interactive tag button with selection state and optional icon.
+ Supports both string and LocalizedStringKey titles with consistent styling.
+ Provides visual feedback for selected, disabled, and normal states.
+ */
 struct TagButton: View {
+    // MARK: - State Objects
+    
     @StateObject private var tagManager = TagManager.shared
     @StateObject private var colorManager = ColorManager.shared
 
+    // MARK: - Properties
+    
     let title: LocalizedStringKey
     let imageSystemName: String
     let isSelected: Bool
     let isDisabled: Bool
     let action: () -> Void
+    
+    // MARK: - Initialization
     
     init(
         title: String,
@@ -44,6 +56,8 @@ struct TagButton: View {
         self.action = action
     }
     
+    // MARK: - Body
+    
     var body: some View {
         Button(action: action) {
             if imageSystemName.isEmpty {
@@ -71,6 +85,8 @@ struct TagButton: View {
         .disabled(isDisabled)
         .animation(.easeInOut(duration: 0.2), value: isSelected)
     }
+    
+    // MARK: - Computed Properties
     
     private var backgroundColor: Color {
         if isDisabled {

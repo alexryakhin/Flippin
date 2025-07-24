@@ -7,15 +7,26 @@
 
 import SwiftUI
 
+/**
+ Main content view for the Flippin app.
+ Displays the card stack, filters, and navigation controls.
+ Supports both finite and infinite card stacks based on card count.
+ */
 struct ContentView: View {
+    // MARK: - State Objects
+    
     @StateObject private var cardsProvider = CardsProvider.shared
     @StateObject private var languageManager = LanguageManager.shared
     @StateObject private var tagManager = TagManager.shared
     @StateObject private var colorManager = ColorManager.shared
     @StateObject private var purchaseService = PurchaseService.shared
 
+    // MARK: - App Storage
+    
     @AppStorage(UserDefaultsKey.didShowWelcomeSheet) private var didShowWelcomeSheet: Bool = false
 
+    // MARK: - State Variables
+    
     @State private var showWelcomeSheet = false
     @State private var showSettings = false
     @State private var showMyCards = false
@@ -24,6 +35,8 @@ struct ContentView: View {
     @State private var showUpgradeAlert = false
     @State private var showPaywall = false
 
+    // MARK: - Computed Properties
+    
     var filteredItems: [CardItem] {
         var filtered = cardsProvider.cards
         
@@ -43,14 +56,20 @@ struct ContentView: View {
         return itemsToUse
     }
 
+    // MARK: - Body
+    
     var body: some View {
         VStack(spacing: 16) {
-
             FiltersScrollView()
             
             // Card Limit Indicator for Free Users
             if !cardsProvider.hasUnlimitedCards {
                 cardLimitIndicator
+                    .if(isPad) { view in
+                        view
+                            .frame(maxWidth: 500, alignment: .center)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                    }
             }
 
             cardsStackView
@@ -59,6 +78,7 @@ struct ContentView: View {
                         .frame(maxWidth: 500, maxHeight: 850, alignment: .center)
                         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                 }
+            
             ButtonRowView(
                 onAddItem: { showAddCardSheet = true },
                 onShuffle: shuffleCards,
@@ -152,6 +172,8 @@ struct ContentView: View {
         }
     }
 
+    // MARK: - Card Stack Views
+    
     @ViewBuilder
     private var cardsStackView: some View {
         if cardsProvider.cards.isEmpty {
@@ -176,6 +198,8 @@ struct ContentView: View {
             }
         }
     }
+    
+    // MARK: - UI Components
     
     @ViewBuilder
     private var cardLimitIndicator: some View {
@@ -276,6 +300,8 @@ struct ContentView: View {
         .foregroundColor(colorManager.foregroundColor)
     }
 
+    // MARK: - Actions
+    
     private func shuffleCards() {
         withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
             if shuffledItems.isEmpty {

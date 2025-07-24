@@ -9,6 +9,7 @@ import SwiftUI
 
 /**
  A SwiftUI view that arranges its children in an infinite, interactive deck of cards, rendering only 5 cards at a time.
+ Supports right-to-left (RTL) languages with automatic gesture direction adjustment.
  */
 public struct InfiniteCardStack<Data, Content>: View where Data: RandomAccessCollection, Data.Element: Identifiable & Hashable, Content: View {
     @State private var currentIndex: Double = 0.0
@@ -51,7 +52,7 @@ public struct InfiniteCardStack<Data, Content>: View where Data: RandomAccessCol
                             .zIndex(zIndex(for: card.virtualIndex))
                             .offset(x: xOffset(for: card.virtualIndex), y: 0)
                             .scaleEffect(scale(for: card.virtualIndex), anchor: .center)
-                            .accessibilityLabel("Card \(finalCurrentIndex % cardCount + 1) of \(cardCount)")
+                            .accessibilityLabel("Card \(modulo(Int(currentIndex), cardCount) + 1) of \(cardCount)")
                             .accessibilityAddTraits(card.virtualIndex == Int(currentIndex) ? .isSelected : [])
                     }
                 }
@@ -69,6 +70,8 @@ public struct InfiniteCardStack<Data, Content>: View where Data: RandomAccessCol
         }
     }
 
+    // MARK: - Gesture Handling
+
     private var dragGesture: some Gesture {
         DragGesture()
             .onChanged { value in
@@ -76,7 +79,8 @@ public struct InfiniteCardStack<Data, Content>: View where Data: RandomAccessCol
                     let screenWidth = UIScreen.main.bounds.width
                     let translation = value.translation.width
                     let rtlMultiplier = layoutDirection == .rightToLeft ? -1.0 : 1.0
-                    let x = (translation * rtlMultiplier / (screenWidth * 0.5)) - previousIndex
+                    let adjustedTranslation = translation * rtlMultiplier
+                    let x = (adjustedTranslation / (screenWidth * 0.5)) - previousIndex
                     self.currentIndex = -x
                 }
             }
@@ -87,6 +91,8 @@ public struct InfiniteCardStack<Data, Content>: View where Data: RandomAccessCol
                 UIImpactFeedbackGenerator(style: .medium).impactOccurred()
             }
     }
+
+    // MARK: - Card Management
 
     private func initializeVisibleCards() {
         visibleCards = []
@@ -118,6 +124,7 @@ public struct InfiniteCardStack<Data, Content>: View where Data: RandomAccessCol
             let screenWidth = UIScreen.main.bounds.width
             let rtlMultiplier = layoutDirection == .rightToLeft ? -1.0 : 1.0
             let adjustedTranslation = translation * rtlMultiplier
+            
             if abs(adjustedTranslation) > screenWidth * 0.3 {
                 if adjustedTranslation > 0 {
                     self.currentIndex = round(self.previousIndex) - 1
@@ -130,6 +137,8 @@ public struct InfiniteCardStack<Data, Content>: View where Data: RandomAccessCol
         }
     }
 
+    // MARK: - Visual Effects
+
     private func zIndex(for virtualIndex: Int) -> Double {
         // Compute zIndex based on distance from currentIndex
         let distance = abs(Double(virtualIndex) - currentIndex)
@@ -140,6 +149,7 @@ public struct InfiniteCardStack<Data, Content>: View where Data: RandomAccessCol
         let topCardProgress = currentPosition(for: virtualIndex)
         let padding: CGFloat = 35.0
         let x = ((CGFloat(virtualIndex) - currentIndex) * padding)
+        
         if topCardProgress > 0 && topCardProgress < 0.99 {
             return x * swingOutMultiplier(topCardProgress)
         }
@@ -157,6 +167,8 @@ public struct InfiniteCardStack<Data, Content>: View where Data: RandomAccessCol
     private func swingOutMultiplier(_ progress: Double) -> Double {
         return sin(Double.pi * progress) * 15
     }
+
+    // MARK: - Utilities
 
     private func modulo(_ a: Int, _ n: Int) -> Int {
         let r = a % n

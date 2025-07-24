@@ -4,25 +4,50 @@
 //
 //  Created by Alexander Riakhin on 6/30/25.
 //
+
 import SwiftUI
 import Flow
 
+/**
+ Front view of a card displaying the main text content.
+ Shows language name, main text, notes, tags, and TTS controls.
+ Supports travel mode for reversed language display.
+ */
 struct CardFrontView: View {
+    // MARK: - State Objects
+    
     @StateObject private var cardsProvider = CardsProvider.shared
-    @AppStorage(UserDefaultsKey.cardDisplayMode) private var isTravelMode = false
-
-    let card: CardItem
-
-    @State private var isPlayingTTS = false
     @StateObject private var colorManager = ColorManager.shared
 
+    // MARK: - App Storage
+    
+    @AppStorage(UserDefaultsKey.cardDisplayMode) private var isTravelMode = false
+
+    // MARK: - State Variables
+    
+    @State private var isPlayingTTS = false
+
+    // MARK: - Properties
+    
+    let card: CardItem
+
+    // MARK: - Computed Properties
+    
+    private var displayText: String {
+        isTravelMode ? card.backText.orEmpty : card.frontText.orEmpty
+    }
+    
+    private var displayLanguage: Language? {
+        isTravelMode ? card.backLanguage : card.frontLanguage
+    }
+
+    // MARK: - Body
+    
     var body: some View {
         VStack(spacing: 20) {
-            let text = isTravelMode ? card.backText : card.frontText
-            let language = isTravelMode ? card.backLanguage : card.frontLanguage
-
+            // Header with language and favorite button
             HStack {
-                if let language {
+                if let language = displayLanguage {
                     Text(language.displayName)
                         .font(.headline)
                         .foregroundStyle(.secondary)
@@ -39,12 +64,14 @@ struct CardFrontView: View {
 
             Spacer()
 
-            Text(text.orEmpty)
+            // Main text content
+            Text(displayText)
                 .font(.largeTitle)
                 .foregroundStyle(.primary)
                 .fontWeight(.bold)
                 .multilineTextAlignment(.center)
 
+            // Notes section
             if !card.notes.orEmpty.isEmpty {
                 Text(card.notes.orEmpty)
                     .font(.body)
@@ -52,6 +79,7 @@ struct CardFrontView: View {
                     .multilineTextAlignment(.center)
             }
             
+            // Tags section
             if !card.tagNames.isEmpty {
                 HFlow(spacing: 6) {
                     ForEach(card.tagNames, id: \.self) { tag in
@@ -69,21 +97,10 @@ struct CardFrontView: View {
             
             Spacer()
 
+            // Footer with TTS and hint
             HStack {
                 Button {
-                    // Haptic feedback for TTS start
-                    HapticService.shared.ttsStarted()
-
-                    isPlayingTTS = true
-                    Task {
-                        do {
-                            guard let text, let language else { return }
-                            try await TTSPlayer.shared.play(text, language: language)
-                        } catch {
-                            print("TTS error: \(error)")
-                        }
-                        isPlayingTTS = false
-                    }
+                    playTTS()
                 } label: {
                     Image(systemName: isPlayingTTS ? "speaker.wave.2.fill" : "speaker.wave.2")
                         .resizable()
@@ -97,6 +114,25 @@ struct CardFrontView: View {
                     .font(.footnote)
                     .foregroundStyle(.secondary)
             }
+        }
+    }
+
+    // MARK: - Actions
+    
+    private func playTTS() {
+        // Haptic feedback for TTS start
+        HapticService.shared.ttsStarted()
+
+        isPlayingTTS = true
+        Task {
+            do {
+                guard let text = displayText.isEmpty ? nil : displayText,
+                      let language = displayLanguage else { return }
+                try await TTSPlayer.shared.play(text, language: language)
+            } catch {
+                print("TTS error: \(error)")
+            }
+            isPlayingTTS = false
         }
     }
 }

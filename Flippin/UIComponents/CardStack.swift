@@ -9,6 +9,7 @@ import SwiftUI
 
 /**
  A SwiftUI view that arranges its children in an interactive deck of cards.
+ Supports right-to-left (RTL) languages with automatic gesture direction adjustment.
  */
 public struct CardStack<Data, Content>: View where Data: RandomAccessCollection & Hashable, Data.Element: Identifiable & Hashable, Content: View {
     @State private var currentIndex: Double = 0.0
@@ -62,13 +63,16 @@ public struct CardStack<Data, Content>: View where Data: RandomAccessCollection 
         }
     }
 
+    // MARK: - Gesture Handling
+
     private var dragGesture: some Gesture {
         DragGesture()
             .onChanged { value in
                 withAnimation(.interactiveSpring()) {
                     let translation = value.translation.width
                     let rtlMultiplier = layoutDirection == .rightToLeft ? -1.0 : 1.0
-                    let x = (translation * rtlMultiplier / 300) - previousIndex
+                    let adjustedTranslation = translation * rtlMultiplier
+                    let x = (adjustedTranslation / 300) - previousIndex
                     self.currentIndex = -x
                 }
             }
@@ -83,6 +87,7 @@ public struct CardStack<Data, Content>: View where Data: RandomAccessCollection 
             let translation = predictedEndTranslation.width
             let rtlMultiplier = layoutDirection == .rightToLeft ? -1.0 : 1.0
             let adjustedTranslation = translation * rtlMultiplier
+            
             if abs(adjustedTranslation) > 200 {
                 if adjustedTranslation > 0 {
                     self.goTo(round(self.previousIndex) - 1)
@@ -94,6 +99,8 @@ public struct CardStack<Data, Content>: View where Data: RandomAccessCollection 
             }
         }
     }
+
+    // MARK: - Navigation
 
     private func goTo(_ index: Double) {
         let maxIndex = Double(data.count - 1)
@@ -107,6 +114,8 @@ public struct CardStack<Data, Content>: View where Data: RandomAccessCollection 
         self.finalCurrentIndex = Int(self.currentIndex)
     }
 
+    // MARK: - Visual Effects
+
     private func zIndex(for index: Int) -> Double {
         if (Double(index) + 0.5) < currentIndex {
             return -Double(data.count - index)
@@ -117,8 +126,9 @@ public struct CardStack<Data, Content>: View where Data: RandomAccessCollection 
 
     private func xOffset(for index: Int) -> CGFloat {
         let topCardProgress = currentPosition(for: index)
-        let padding = 35.0
+        let padding: CGFloat = 35.0
         let x = ((CGFloat(index) - currentIndex) * padding)
+        
         if topCardProgress > 0 && topCardProgress < 0.99 && index < (data.count - 1) {
             return x * swingOutMultiplier(topCardProgress)
         }

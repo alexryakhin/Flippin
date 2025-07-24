@@ -4,20 +4,38 @@
 //
 //  Created by Alexander Riakhin on 6/30/25.
 //
+
 import SwiftUI
 import Flow
 
+/**
+ Sheet for adding new flashcards with automatic translation.
+ Supports text input in user's language with real-time translation to target language.
+ Includes tag selection, notes, and preset collection integration.
+ */
 struct AddCardSheet: View {
+    // MARK: - Environment
+    
     @Environment(\.dismiss) var dismiss
+    
+    // MARK: - State Objects
+    
     @StateObject private var languageManager = LanguageManager.shared
     @StateObject private var colorManager = ColorManager.shared
     @StateObject private var viewModel = AddCardSheetViewModel()
 
+    // MARK: - Focus State
+    
     @FocusState private var isUserLanguageTextFieldFocused: Bool
     @FocusState private var isTargetLanguageTextFieldFocused: Bool
     @FocusState private var isNotesTextFieldFocused: Bool
+    
+    // MARK: - State Variables
+    
     @State private var showPaywall = false
 
+    // MARK: - Body
+    
     var body: some View {
         NavigationView {
             ScrollView {
@@ -31,20 +49,7 @@ struct AddCardSheet: View {
                 .padding(16)
             }
             .safeAreaInset(edge: .bottom) {
-                Button {
-                    viewModel.createCard()
-                    dismiss()
-                } label: {
-                    Text(LocalizationKeys.save.localized)
-                        .font(.headline)
-                        .frame(maxWidth: .infinity)
-                        .padding(vertical: 12, horizontal: 16)
-                }
-                .padding(.horizontal)
-                .padding(.bottom)
-                .buttonStyle(.borderedProminent)
-                .disabled(viewModel.nativeText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || viewModel.targetText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
-                .gradientStyle(.bottomButtonOnList)
+                saveButton
             }
             .background(Color(.systemGroupedBackground))
             .navigationTitle(LocalizationKeys.addNewCard.localized)
@@ -75,6 +80,26 @@ struct AddCardSheet: View {
         .ifLet(colorManager.colorScheme) { view, scheme in
             view.colorScheme(scheme)
         }
+    }
+
+    // MARK: - UI Components
+    
+    private var saveButton: some View {
+        Button {
+            viewModel.createCard()
+            dismiss()
+        } label: {
+            Text(LocalizationKeys.save.localized)
+                .font(.headline)
+                .frame(maxWidth: .infinity)
+                .padding(vertical: 12, horizontal: 16)
+        }
+        .padding(.horizontal)
+        .padding(.bottom)
+        .buttonStyle(.borderedProminent)
+        .disabled(viewModel.nativeText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || 
+                 viewModel.targetText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+        .gradientStyle(.bottomButtonOnList)
     }
 
     private var languageSelectionSection: some View {

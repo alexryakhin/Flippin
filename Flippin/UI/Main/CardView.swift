@@ -4,23 +4,42 @@
 //
 //  Created by Alexander Riakhin on 6/30/25.
 //
+
 import SwiftUI
 
+/**
+ Interactive card view with 3D flip animation.
+ Displays card content on front and back with smooth rotation animation.
+ Supports tap gesture to flip between front and back views.
+ */
 struct CardView: View {
+    // MARK: - State Objects
+    
     @StateObject private var cardsProvider = CardsProvider.shared
     @StateObject private var colorManager = ColorManager.shared
 
+    // MARK: - State Variables
+    
     @State private var isFlipped = false
     @State private var animationStart: Date? = nil
     @State private var animationDirection: CGFloat = 1 // 1 for forward, -1 for backward
 
+    // MARK: - Constants
+    
     private let animationDuration: Double = 0.5 // seconds
+    
+    // MARK: - Properties
+    
     private let card: CardItem
 
+    // MARK: - Initialization
+    
     init(card: CardItem) {
         self.card = card
     }
 
+    // MARK: - Body
+    
     var body: some View {
         TimelineView(.animation) { context in
             let now = context.date
@@ -28,6 +47,7 @@ struct CardView: View {
             let progress = min(max(now.timeIntervalSince(start) / animationDuration, 0), 1)
             let baseAngle: CGFloat = isFlipped ? 180 : 0
             let direction = animationDirection
+            
             var animatedAngle: CGFloat {
                 if animationStart != nil && progress < 1 {
                     baseAngle + direction * 180 * CGFloat(progress)
