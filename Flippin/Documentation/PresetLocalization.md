@@ -1,161 +1,304 @@
-# Preset Localization System
+# Preset Collections System
 
-This document explains how the new localized preset phrase system works in Flippin.
+This document explains how the preset collections system works in Flippin, providing curated vocabulary sets for language learners.
 
 ## Overview
 
-The preset localization system allows users to import preset card collections that are automatically translated based on their selected language pair. When a user selects their native language and target language, the system pulls the appropriate translations from separate localization files.
+The preset collections system provides ready-to-use vocabulary sets organized by categories. Each collection contains phrases with translations, notes, and tags, making it easy for users to quickly add relevant vocabulary to their learning deck.
 
 ## Architecture
 
-### 1. Localization Files
+### 1. JSON Data Files
 
-Each supported language has a `PresetPhrases.strings` file in its `.lproj` directory:
+Each supported language has a `presets_{languageCode}.json` file in the `Resources/Presets/` directory:
 
 ```
-Flippin/Localization/
-├── en.lproj/
-│   └── PresetPhrases.strings
-├── es.lproj/
-│   └── PresetPhrases.strings
-├── fr.lproj/
-│   └── PresetPhrases.strings
-├── de.lproj/
-│   └── PresetPhrases.strings
-└── ... (other languages)
+Flippin/Resources/Presets/
+├── presets_en.json
+├── presets_es.json
+├── presets_fr.json
+├── presets_de.json
+├── presets_it.json
+├── presets_pt.json
+├── presets_nl.json
+├── presets_sv.json
+├── presets_zh.json
+├── presets_ja.json
+├── presets_ko.json
+├── presets_vi.json
+├── presets_ru.json
+├── presets_ar.json
+├── presets_hi.json
+├── presets_hr.json
+└── presets_uk.json
 ```
 
-### 2. Key Structure
+### 2. Data Structure
 
-Each phrase uses a consistent key structure:
+Each JSON file follows this structure:
 
-- **Collection names**: `collection.{collectionId}.name` and `collection.{collectionId}.description`
-- **Phrase text**: `phrase.{phraseKey}.text`
-- **Phrase notes**: `phrase.{phraseKey}.notes`
+```json
+{
+  "languageName": "English",
+  "languageCode": "en",
+  "presets": [
+    {
+      "id": 1,
+      "name": "Essential Phrases",
+      "description": "Basic words and phrases everyone needs to know",
+      "category": "basics",
+      "systemImageName": "characters.uppercase",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Hello",
+          "notes": "Basic greeting",
+          "tags": ["basics", "communication"]
+        }
+      ]
+    }
+  ]
+}
+```
 
-### 3. Services
+### 3. Core Services
 
-- **`LocalizedPresetService`**: Core service that manages localized preset collections
-- **`PresetCollectionService`**: Updated to use the localized service
+- **`PresetCollectionService`**: Main service that loads and manages preset collections
+- **`PresetModel`**: Data models for parsing JSON files
+- **`CardsProvider`**: Handles importing preset cards into user's collection
 
 ## How It Works
 
-### 1. Collection Definition
+### 1. Collection Loading
 
-Collections are defined in `LocalizedPresetService` with their phrase keys:
+When the app starts or language settings change, the system:
 
-```swift
-LocalizedPresetCollection(
-    id: "essentialPhrases",
-    category: .basics,
-    phraseKeys: ["hello", "thankYou", "please", "yes", "no", ...]
-)
-```
+1. Loads the JSON file for the user's native language
+2. Loads the JSON file for the target language
+3. Matches collections by ID and creates `PresetCollection` objects
+4. Combines phrases from both languages to create bilingual cards
 
-### 2. Translation Loading
+### 2. Card Creation
 
-When a user selects languages, the system:
+For each collection, cards are created with:
 
-1. Loads collection names and descriptions in the user's language
-2. Loads phrase text in the target language for the front of cards (for practice)
-3. Loads phrase text in the user's language for the back of cards (for reference)
-4. Loads notes in the user's language
+- **Front text**: Target language phrase (for practice)
+- **Back text**: User's native language phrase (for reference)
+- **Notes**: Notes in the user's native language
+- **Tags**: Tags from the source collection
 
-### 3. Card Creation
+### 3. Language Pair Support
 
-When importing a collection, cards are created with:
-
-- **Front text**: Target language translation (for practice)
-- **Back text**: User language translation (for reference)
-- **Notes**: User language notes
-- **Tags**: Based on collection category
-
-## Usage Example
+The system automatically handles any language pair combination:
 
 ```swift
-// Get collections for English user learning Spanish
-let collections = LocalizedPresetService.shared.getLocalizedCollections(
-    for: .english, 
-    targetLanguage: .spanish
-)
+// For English user learning Spanish
+let userLanguageData = try loadPresetCollection(for: .english)
+let targetLanguageData = try loadPresetCollection(for: .spanish)
 
-// Import a collection
-let cardItems = LocalizedPresetService.shared.convertPresetCardsToCardItems(
-    collections[0].cards,
-    userLanguage: .english,
-    targetLanguage: .spanish
-)
+// Cards are created with Spanish front, English back
 ```
+
+## Usage Examples
+
+### Get Featured Collections
+```swift
+let featuredCollections = PresetCollectionService.shared.getFeaturedCollections()
+```
+
+### Import a Collection
+```swift
+let collection = presetService.collections[0]
+try cardsProvider.addPresetCards(collection.cards)
+```
+
+### Filter by Category
+```swift
+let travelCollections = collections.filter { $0.category == .travel }
+```
+
+## Collection Categories
+
+The system supports 11 categories:
+
+- **Basics** (`basics`): Essential phrases and greetings
+- **Travel** (`travel`): Travel-related vocabulary
+- **Social** (`social`): Social interactions and conversations
+- **Lifestyle** (`lifestyle`): Daily life and personal topics
+- **Professional** (`professional`): Work and business vocabulary
+- **Emergency** (`emergency`): Emergency and urgent situations
+- **Food** (`food`): Food, dining, and culinary terms
+- **Shopping** (`shopping`): Shopping and commerce vocabulary
+- **Technology** (`technology`): Tech and digital terms
+- **Weather** (`weather`): Weather and climate vocabulary
+- **Entertainment** (`entertainment`): Entertainment and leisure
 
 ## Adding New Languages
 
-### 1. Create Translation File
+### 1. Create JSON File
 
-Run the generation script:
+Create a new `presets_{languageCode}.json` file in `Resources/Presets/`:
 
-```bash
-cd Flippin/Scripts
-python3 generate_preset_translations.py
+```json
+{
+  "languageName": "Language Name",
+  "languageCode": "xx",
+  "presets": [
+    {
+      "id": 1,
+      "name": "Collection Name",
+      "description": "Collection description",
+      "category": "basics",
+      "systemImageName": "icon.name",
+      "phrases": [
+        {
+          "id": 1,
+          "text": "Phrase text",
+          "notes": "Phrase notes",
+          "tags": ["tag1", "tag2"]
+        }
+      ]
+    }
+  ]
+}
 ```
 
-### 2. Translate Content
+### 2. Add Language Support
 
-Edit the generated `PresetPhrases.strings` file in each language directory and translate:
+Add the language to the `Language` enum in `Models/Language.swift`:
 
-- Collection names and descriptions
-- All phrase text
-- All phrase notes
+```swift
+case newLanguage = "xx"
+```
 
 ### 3. Test
 
-Test the localization by:
+Test the new language by:
 
-1. Setting different language pairs in the app
-2. Importing preset collections
-3. Verifying correct translations appear
+1. Setting the new language as target language
+2. Checking preset collections load correctly
+3. Verifying translations appear properly
 
-## Supported Languages
+## Adding New Collections
 
-Currently supported languages:
+### 1. Add to All Language Files
 
-- English (en)
-- Spanish (es)
-- French (fr)
-- German (de)
-- Italian (it)
-- Portuguese (pt-BR, pt-PT)
-- Dutch (nl)
-- Swedish (sv)
-- Chinese (zh-Hans, zh-Hant)
-- Japanese (ja)
-- Korean (ko)
-- Vietnamese (vi)
-- Russian (ru)
-- Arabic (ar)
-- Hindi (hi)
-- Croatian (hr)
-- Ukrainian (uk)
+Add the new collection to all `presets_*.json` files with the same ID:
+
+```json
+{
+  "id": 12,
+  "name": "New Collection",
+  "description": "New collection description",
+  "category": "lifestyle",
+  "systemImageName": "star",
+  "phrases": [...]
+}
+```
+
+### 2. Add Category (if needed)
+
+If adding a new category, update `PresetModel.Category`:
+
+```swift
+enum Category: String, Codable, CaseIterable {
+    // ... existing categories
+    case newCategory = "newCategory"
+}
+```
+
+### 3. Add Localization
+
+Add category name to localization files:
+
+```swift
+// In LocalizationKeys.swift
+static let categoryNewCategory = "categoryNewCategory"
+
+// In Localizable.strings files
+"categoryNewCategory" = "New Category";
+```
 
 ## Adding New Phrases
 
-To add new phrases:
+### 1. Add to All Collections
 
-1. **Add to English file**: Add the new phrase key and text to `en.lproj/PresetPhrases.strings`
-2. **Add to collection**: Add the phrase key to the appropriate collection in `LocalizedPresetService`
-3. **Translate**: Add translations to all other language files
-4. **Test**: Verify the new phrase appears correctly in all language combinations
+Add the new phrase to the appropriate collection in all language files:
+
+```json
+{
+  "id": 25,
+  "text": "New phrase",
+  "notes": "Phrase explanation",
+  "tags": ["relevant", "tags"]
+}
+```
+
+### 2. Maintain Consistency
+
+Ensure:
+- Same ID across all language files
+- Consistent tags and categories
+- Appropriate notes for each language
+
+## UI Integration
+
+### Featured Collections
+
+The `FeaturedPresetCollections` view displays the first 2 collections:
+
+```swift
+var featuredCollections: [PresetCollection] {
+    presetService.getFeaturedCollections()
+}
+```
+
+### Full Collections View
+
+The `PresetCollectionsView` shows all collections with:
+
+- Search functionality
+- Category filtering
+- Import confirmation
+- Premium access control
+
+### Collection Cards
+
+Each collection is displayed as a `PresetCollectionCard` with:
+
+- Collection name and description
+- Card count
+- Category icon
+- Preview of first 3 phrases
 
 ## Benefits
 
-1. **Automatic Translation**: No need to manually create translations for each language pair
-2. **Consistent Quality**: All translations are professionally curated
-3. **Scalable**: Easy to add new languages and phrases
-4. **User-Friendly**: Users see content in their preferred language
-5. **Maintainable**: Centralized translation management
+1. **Ready-to-Use Content**: Pre-curated vocabulary sets
+2. **Consistent Quality**: Professionally translated content
+3. **Easy Import**: One-tap collection import
+4. **Organized Learning**: Categorized by topics and situations
+5. **Scalable**: Easy to add new languages and collections
+6. **Offline Support**: All content bundled with the app
+
+## Premium Features
+
+- **Free Users**: Limited to featured collections
+- **Premium Users**: Access to all collections
+- **Import Limits**: Free users have card creation limits
+
+## Analytics
+
+The system tracks:
+
+- Collection views
+- Collection imports
+- Search usage
+- Category preferences
 
 ## Future Enhancements
 
-- Integration with translation services for automatic translation
-- User-contributed translations
-- Context-aware translations based on region/culture
-- Audio pronunciation files for each phrase 
+- **Dynamic Content**: Server-side collection updates
+- **User Contributions**: Community-created collections
+- **Audio Integration**: Pronunciation files for phrases
+- **Progress Tracking**: Track learning progress per collection
+- **Spaced Repetition**: Intelligent review scheduling 

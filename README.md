@@ -233,10 +233,14 @@ xcodebuild -scheme Flippin -destination 'platform=iOS Simulator,name=iPhone 15'
 
 ## 📚 Documentation
 
-- **[Purchase System](Flippin/Documentation/PurchaseSystem.md)**: In-app purchase documentation
-- **[Preset Localization](Flippin/Documentation/PresetLocalization.md)**: Localized phrase system
-- **[StoreKit Setup](Flippin/Documentation/StoreKitSyncSetup.md)**: StoreKit configuration
-- **[Card Limit Implementation](CARD_LIMIT_IMPLEMENTATION.md)**: Free user limitations
+### Core Systems
+- **[Core Data & CloudKit Sync](Flippin/Documentation/CoreDataAndCloudKit.md)**: Data persistence and synchronization
+- **[Card Management](Flippin/Documentation/CardManagement.md)**: Card operations and limit management
+- **[Translation & TTS](Flippin/Documentation/TranslationAndTTS.md)**: Translation and text-to-speech functionality
+
+### Features
+- **[Purchase System](Flippin/Documentation/PurchaseSystem.md)**: In-app purchase and subscription management
+- **[Preset Collections](Flippin/Documentation/PresetLocalization.md)**: Localized phrase collections system
 
 ## 🚀 Getting Started
 
@@ -274,7 +278,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Documentation**: Check the documentation files
 - **Issues**: Report bugs on GitHub Issues
 - **Discussions**: Join GitHub Discussions
-- **Email**: Contact support@flippin.app
+- **Email**: Contact bonney977@gmail.com
 
 ### Common Issues
 - **Translation not working**: Check internet connection
