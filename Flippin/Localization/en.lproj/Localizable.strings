@@ -144,7 +144,11 @@
 "premiumRequired" = "Premium Required";
 "upgradeToPremium" = "Upgrade to Premium";
 "premiumFeatureDescription" = "Access all preset collections and unlock unlimited language learning potential";
-"previewBackgrounds" = "Preview Backgrounds";
+"previewBackgrounds" = "Preview";
+"colorScheme" = "Color Scheme";
+"colorSchemeSystem" = "System";
+"colorSchemeLight" = "Light";
+"colorSchemeDark" = "Dark";
 "premium" = "Premium";
 
 // MARK: - Labels

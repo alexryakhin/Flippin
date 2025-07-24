@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct SectionHeaderButton: View {
-    @Environment(\.colorScheme) var colorScheme
     @StateObject private var colorManager = ColorManager.shared
 
     private let titleKey: LocalizedStringKey

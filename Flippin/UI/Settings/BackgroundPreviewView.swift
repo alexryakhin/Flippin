@@ -2,7 +2,6 @@ import SwiftUI
 
 struct BackgroundPreviewView: View {
     @Environment(\.dismiss) var dismiss
-    @Environment(\.colorScheme) var colorScheme
     @StateObject private var colorManager = ColorManager.shared
 
     var body: some View {
@@ -77,10 +76,10 @@ struct BackgroundPreviewCard: View {
                 if isSelected {
                     RoundedRectangle(cornerRadius: 12)
                         .stroke(style: StrokeStyle(lineWidth: 4))
-                        .foregroundStyle(foregroundColor)
+                        .foregroundStyle(colorManager.tintColor)
                         .overlay(alignment: .topTrailing) {
                             Image(systemName: "checkmark.circle.fill")
-                                .foregroundStyle(foregroundColor)
+                                .foregroundStyle(colorManager.tintColor)
                                 .font(.title3)
                                 .background(Color.white)
                                 .clipShape(Circle())

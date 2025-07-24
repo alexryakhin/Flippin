@@ -131,7 +131,11 @@
 "premiumRequired" = "Потрібен Преміум";
 "upgradeToPremium" = "Перейти на Преміум";
 "premiumFeatureDescription" = "Отримайте доступ до всіх попередньо визначених колекцій та розблокуйте необмежений потенціал для вивчення мов";
-"previewBackgrounds" = "Попередній Перегляд Фонів";
+"previewBackgrounds" = "Попередній Перегляд";
+"colorScheme" = "Кольорова Схема";
+"colorSchemeSystem" = "Система";
+"colorSchemeLight" = "Світла";
+"colorSchemeDark" = "Темна";
 "premium" = "Преміум";
 
 // MARK: - Labels

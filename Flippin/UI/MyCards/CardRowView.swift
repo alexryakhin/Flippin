@@ -12,7 +12,6 @@ struct CardRowView: View {
     let onDelete: () -> Void
     let onEdit: () -> Void
 
-    @Environment(\.colorScheme) var colorScheme
     @StateObject private var colorManager = ColorManager.shared
     @StateObject private var cardsProvider = CardsProvider.shared
     @AppStorage(UserDefaultsKey.cardDisplayMode) private var isTravelMode = false

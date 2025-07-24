@@ -131,7 +131,11 @@
 "premiumRequired" = "प्रीमियम आवश्यक";
 "upgradeToPremium" = "प्रीमियम में अपग्रेड करें";
 "premiumFeatureDescription" = "सभी पूर्व-परिभाषित संग्रहों तक पहुंच प्राप्त करें और भाषा सीखने की असीमित क्षमता को अनलॉक करें";
-"previewBackgrounds" = "पृष्ठभूमि पूर्वावलोकन";
+"previewBackgrounds" = "पूर्वावलोकन";
+"colorScheme" = "रंग योजना";
+"colorSchemeSystem" = "सिस्टम";
+"colorSchemeLight" = "हल्का";
+"colorSchemeDark" = "गहरा";
 "premium" = "प्रीमियम";
 
 // MARK: - Labels

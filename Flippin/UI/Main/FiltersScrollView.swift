@@ -8,16 +8,12 @@
 import SwiftUI
 
 struct FiltersScrollView: View {
-    @Environment(\.colorScheme) var colorScheme
     @StateObject private var tagManager = TagManager.shared
     @StateObject private var colorManager = ColorManager.shared
 
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 8) {
-                let isBlackForeground: Bool = colorScheme == .dark && colorManager.userColor.isLight
-                // Show All Cards button
-
                 TagButton(
                     title: LocalizationKeys.showAllCards,
                     isSelected: tagManager.selectedFilterTag == nil && !tagManager.isFavoriteFilterOn

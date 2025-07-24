@@ -17,11 +17,18 @@ struct ColorSchemeObserver: ViewModifier {
         content
             .onAppear {
                 // Update colors when view appears
+                guard colorManager.userColorSchemePreference == .system else { return }
                 colorManager.updateColorsForColorScheme(colorScheme)
             }
             .onChange(of: colorScheme) { _, newColorScheme in
                 // Update colors when color scheme changes
+                guard colorManager.userColorSchemePreference == .system else { return }
                 colorManager.updateColorsForColorScheme(newColorScheme)
+            }
+            .onChange(of: colorManager.userColorSchemePreference) { _, newColorScheme in
+                if newColorScheme == .system {
+                    colorManager.updateColorsForColorScheme(nil)
+                }
             }
     }
 }

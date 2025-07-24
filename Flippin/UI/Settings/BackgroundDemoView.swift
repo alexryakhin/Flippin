@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct BackgroundDemoView: View {
-    @Environment(\.colorScheme) var colorScheme
     @Environment(\.dismiss) var dismiss
     @StateObject private var colorManager = ColorManager.shared
     @StateObject private var purchaseService = PurchaseService.shared
@@ -41,19 +40,14 @@ struct BackgroundDemoView: View {
                                     RoundedRectangle(cornerRadius: 16)
                                         .fill(.clear)
                                         .overlay(alignment: .bottomTrailing) {
-                                            VStack(spacing: 8) {
-                                                Image(systemName: "crown.fill")
-                                                    .font(.title2)
-                                                    .foregroundColor(.yellow)
-                                                Text(LocalizationKeys.premium.localized)
-                                                    .font(.caption)
-                                                    .fontWeight(.semibold)
-                                                    .foregroundColor(.white)
-                                            }
-                                            .padding(8)
-                                            .background(.thinMaterial)
-                                            .clipShape(RoundedRectangle(cornerRadius: 8))
-                                            .padding(8)
+                                            Text(LocalizationKeys.premium.localized)
+                                                .font(.caption)
+                                                .fontWeight(.semibold)
+                                                .foregroundColor(.white)
+                                                .padding(8)
+                                                .background(.thinMaterial)
+                                                .clipShape(RoundedRectangle(cornerRadius: 8))
+                                                .padding(8)
                                         }
                                 }
                             }

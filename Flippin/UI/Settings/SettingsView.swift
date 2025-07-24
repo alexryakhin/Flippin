@@ -9,7 +9,6 @@ import Flow
 
 struct SettingsView: View {
     @Environment(\.dismiss) var dismiss
-    @Environment(\.colorScheme) var colorScheme
 
     @StateObject private var languageManager = LanguageManager.shared
     @StateObject private var colorManager =  ColorManager.shared
@@ -162,6 +161,20 @@ struct SettingsView: View {
                                     showPaywall = true
                                 }
                             }
+
+                            CellWrapper {
+                                Text(LocalizationKeys.colorScheme.localized)
+                                    .font(.subheadline)
+                                    .foregroundStyle(.primary)
+                            } trailingContent: {
+                                Picker(LocalizationKeys.colorScheme.localized, selection: $colorManager.userColorSchemePreference) {
+                                    ForEach(ColorSchemeInternal.allCases, id: \.self) { scheme in
+                                        Text(scheme.localizedName)
+                                            .tag(scheme)
+                                    }
+                                }
+                                .pickerStyle(.menu)
+                            }
                         }
                         .clippedWithBackground()
                     }
@@ -292,6 +305,9 @@ struct SettingsView: View {
             .sheet(isPresented: $showPaywall) {
                 Paywall.ContentView()
             }
+        }
+        .ifLet(colorManager.colorScheme) { view, scheme in
+            view.colorScheme(scheme)
         }
     }
 }

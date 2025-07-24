@@ -195,5 +195,9 @@
 "premiumRequired" = "프리미엄 필요";
 "upgradeToPremium" = "프리미엄으로 업그레이드";
 "premiumFeatureDescription" = "모든 프리셋 컬렉션에 접근하고 언어 학습의 무한한 잠재력을 해제하세요";
-"previewBackgrounds" = "배경 미리보기";
+"previewBackgrounds" = "미리보기";
+"colorScheme" = "색상 구성표";
+"colorSchemeSystem" = "시스템";
+"colorSchemeLight" = "밝게";
+"colorSchemeDark" = "어둡게";
 "premium" = "프리미엄";

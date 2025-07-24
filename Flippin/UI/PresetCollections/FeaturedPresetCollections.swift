@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct FeaturedPresetCollections: View {
-    @Environment(\.colorScheme) var colorScheme
     @StateObject private var languageManager = LanguageManager.shared
     @StateObject private var cardsProvider = CardsProvider.shared
     @StateObject private var colorManager = ColorManager.shared

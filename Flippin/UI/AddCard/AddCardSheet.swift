@@ -35,17 +35,10 @@ struct AddCardSheet: View {
                     viewModel.createCard()
                     dismiss()
                 } label: {
-                    HStack {
-                        Text(LocalizationKeys.save.localized)
-                        if !viewModel.hasUnlimitedCards {
-                            Text("(\(viewModel.remainingCards) left)")
-                                .font(.caption)
-                                .foregroundColor(.secondary)
-                        }
-                    }
-                    .font(.headline)
-                    .frame(maxWidth: .infinity)
-                    .padding(vertical: 12, horizontal: 16)
+                    Text(LocalizationKeys.save.localized)
+                        .font(.headline)
+                        .frame(maxWidth: .infinity)
+                        .padding(vertical: 12, horizontal: 16)
                 }
                 .padding(.horizontal)
                 .padding(.bottom)
@@ -78,6 +71,9 @@ struct AddCardSheet: View {
                     .foregroundStyle(.secondary)
                 }
             }
+        }
+        .ifLet(colorManager.colorScheme) { view, scheme in
+            view.colorScheme(scheme)
         }
     }
 

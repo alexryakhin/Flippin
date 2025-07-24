@@ -21,26 +21,14 @@ extension WelcomeSheet {
                 // App icon and title
                 VStack(spacing: 24) {
                     // Animated app icon
-                    ZStack {
-                        Circle()
-                            .fill(
-                                LinearGradient(
-                                    colors: [.blue, .purple],
-                                    startPoint: .topLeading,
-                                    endPoint: .bottomTrailing
-                                )
-                            )
-                            .frame(width: 120, height: 120)
-                            .scaleEffect(animateContent ? 1 : 0.5)
-                            .opacity(animateContent ? 1 : 0)
-
-                        Image(systemName: "rectangle.stack.fill")
-                            .font(.system(size: 50, weight: .medium))
-                            .foregroundColor(.white)
-                            .scaleEffect(animateContent ? 1 : 0.8)
-                            .opacity(animateContent ? 1 : 0)
-                    }
-                    .animation(.easeInOut(duration: 0.5).delay(0.2), value: animateContent)
+                    Image(.iconRounded)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 144, height: 144)
+                        .foregroundColor(.white)
+                        .scaleEffect(animateContent ? 1 : 0.8)
+                        .opacity(animateContent ? 1 : 0)
+                        .animation(.easeInOut(duration: 0.5).delay(0.2), value: animateContent)
 
                     VStack(spacing: 16) {
                         Text(title)

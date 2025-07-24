@@ -15,7 +15,6 @@ struct LanguageGroup: Identifiable {
 
 struct MyCardsListView: View {
     @Environment(\.dismiss) var dismiss
-    @Environment(\.colorScheme) var colorScheme
     @StateObject private var cardsProvider = CardsProvider.shared
     @StateObject private var languageManager = LanguageManager.shared
     @StateObject private var colorManager = ColorManager.shared
@@ -171,6 +170,9 @@ struct MyCardsListView: View {
                 }
             }
         }
+        .ifLet(colorManager.colorScheme) { view, scheme in
+            view.colorScheme(scheme)
+        }
         .sheet(isPresented: $showAddCardSheet) {
             AddCardSheet()
         }
@@ -197,9 +199,10 @@ struct MyCardsListView: View {
         VStack(spacing: 24) {
             ContentUnavailableView {
                 VStack {
-                    Image(systemName: "rectangle.stack.fill")
-                        .font(.largeTitle)
-                        .rotationEffect(.init(degrees: 90))
+                    Image(.stackCards)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 60, height: 60)
                     Text(LocalizationKeys.noCardsYet.localized)
                 }
             } description: {
@@ -216,9 +219,10 @@ struct MyCardsListView: View {
     private var filteredByLanguageCardsEmptyView: some View {
         ContentUnavailableView {
             VStack {
-                Image(systemName: "rectangle.stack.fill")
-                    .font(.largeTitle)
-                    .rotationEffect(.init(degrees: 90))
+                Image(.stackCards)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 60, height: 60)
                 Text(LocalizationKeys.noCardsYet.localized)
             }
         } description: {

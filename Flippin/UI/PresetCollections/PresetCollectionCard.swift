@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct PresetCollectionCard: View {
-    @Environment(\.colorScheme) var colorScheme
     @StateObject private var colorManager = ColorManager.shared
 
     let collection: PresetCollection

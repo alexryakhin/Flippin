@@ -131,7 +131,11 @@
 "premiumRequired" = "Premium Vereist";
 "upgradeToPremium" = "Upgraden naar Premium";
 "premiumFeatureDescription" = "Krijg toegang tot alle vooraf gedefinieerde collecties en ontgrendel het onbeperkte potentieel voor taalverwerving";
-"previewBackgrounds" = "Achtergronden Voorvertoning";
+"previewBackgrounds" = "Voorvertoning";
+"colorScheme" = "Kleurenschema";
+"colorSchemeSystem" = "Systeem";
+"colorSchemeLight" = "Licht";
+"colorSchemeDark" = "Donker";
 "premium" = "Premium";
 
 // MARK: - Labels

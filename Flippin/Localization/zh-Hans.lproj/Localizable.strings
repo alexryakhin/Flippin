@@ -131,7 +131,11 @@
 "premiumRequired" = "需要高级版";
 "upgradeToPremium" = "升级到高级版";
 "premiumFeatureDescription" = "访问所有预设集合并解锁语言学习的无限潜力";
-"previewBackgrounds" = "预览背景";
+"previewBackgrounds" = "预览";
+"colorScheme" = "颜色方案";
+"colorSchemeSystem" = "系统";
+"colorSchemeLight" = "浅色";
+"colorSchemeDark" = "深色";
 "premium" = "高级版";
 
 // MARK: - Labels

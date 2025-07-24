@@ -8,7 +8,6 @@ import SwiftUI
 import Flow
 
 struct CardBackView: View {
-    @Environment(\.colorScheme) var colorScheme
     @StateObject private var cardsProvider = CardsProvider.shared
     @StateObject private var colorManager = ColorManager.shared
     @AppStorage(UserDefaultsKey.cardDisplayMode) private var isTravelMode = false

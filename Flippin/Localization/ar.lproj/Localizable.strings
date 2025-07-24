@@ -131,7 +131,11 @@
 "premiumRequired" = "مطلوب بريميوم";
 "upgradeToPremium" = "الترقية إلى بريميوم";
 "premiumFeatureDescription" = "احصل على الوصول إلى جميع المجموعات المعرفة مسبقاً وافتح الإمكانيات غير المحدودة لتعلم اللغات";
-"previewBackgrounds" = "معاينة الخلفيات";
+"previewBackgrounds" = "معاينة";
+"colorScheme" = "مخطط الألوان";
+"colorSchemeSystem" = "النظام";
+"colorSchemeLight" = "فاتح";
+"colorSchemeDark" = "داكن";
 "premium" = "بريميوم";
 
 // MARK: - Labels

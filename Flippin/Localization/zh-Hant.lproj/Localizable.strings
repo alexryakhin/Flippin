@@ -131,7 +131,11 @@
 "premiumRequired" = "需要進階版";
 "upgradeToPremium" = "升級到進階版";
 "premiumFeatureDescription" = "存取所有預設集合并解鎖語言學習的無限潛力";
-"previewBackgrounds" = "預覽背景";
+"previewBackgrounds" = "預覽";
+"colorScheme" = "顏色方案";
+"colorSchemeSystem" = "系統";
+"colorSchemeLight" = "淺色";
+"colorSchemeDark" = "深色";
 "premium" = "進階版";
 
 // MARK: - Labels

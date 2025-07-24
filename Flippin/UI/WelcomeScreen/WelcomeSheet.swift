@@ -8,8 +8,7 @@ import SwiftUI
 
 enum WelcomeSheet {
     struct ContentView: View {
-        @Environment(\.colorScheme) var colorScheme
-        @Environment(\.dismiss) var dismiss
+            @Environment(\.dismiss) var dismiss
         @StateObject private var colorManager = ColorManager.shared
         @StateObject private var languageManager = LanguageManager.shared
         @State private var animateContent = false

@@ -15,16 +15,17 @@ final class ColorManager: ObservableObject {
 
     @Published var backgroundStyle: BackgroundStyle = .gradient
     @Published var userColor: Color = .blue
+    @Published var userColorSchemePreference: ColorSchemeInternal = .system
 
     @Published private(set) var tintColor: Color = .blue
     @Published private(set) var foregroundColor: Color = .blue
-    @Published private(set) var colorScheme: ColorScheme = .light
+    @Published private(set) var colorScheme: ColorScheme? = nil
 
     static let shared = ColorManager()
 
     // MARK: - Private properties
 
-    private let colorSchemePublisher = CurrentValueSubject<ColorScheme, Never>(.light)
+    private let colorSchemePublisher = CurrentValueSubject<ColorScheme?, Never>(nil)
     private var cancellables: Set<AnyCancellable> = []
 
     // MARK: - Init
@@ -33,10 +34,12 @@ final class ColorManager: ObservableObject {
         // Initialize all values from UserDefaults using the new extension
         let savedRGBA: RGBAColor = UserDefaults.standard.getCodable(RGBAColor.self, forKey: UserDefaultsKey.userColor, default: .blue)
         let savedBackgroundStyle: BackgroundStyle = UserDefaults.standard.getCodable(BackgroundStyle.self, forKey: UserDefaultsKey.backgroundStyle, default: .gradient)
-        
+        let savedColorSchemePreference: ColorSchemeInternal = UserDefaults.standard.getCodable(ColorSchemeInternal.self, forKey: UserDefaultsKey.colorSchemePreference, default: .system)
+
         self.tintColor = savedRGBA.notTransparentColor
         self.userColor = savedRGBA.color
         self.backgroundStyle = savedBackgroundStyle
+        self.userColorSchemePreference = savedColorSchemePreference
 
         setupBindings()
     }
@@ -45,7 +48,8 @@ final class ColorManager: ObservableObject {
 
     /// Updates the current color scheme
     /// This method should be called from views that have access to @Environment(\.colorScheme)
-    func updateColorsForColorScheme(_ colorScheme: ColorScheme) {
+    func updateColorsForColorScheme(_ colorScheme: ColorScheme?) {
+        // Use user preference if set, otherwise use system color scheme
         colorSchemePublisher.send(colorScheme)
     }
 
@@ -87,6 +91,20 @@ final class ColorManager: ObservableObject {
                     default: .gradient
                 )
                 self?.backgroundStyle = newStyle
+                HapticService.shared.selection()
+            }
+            .store(in: &cancellables)
+
+        $userColorSchemePreference
+            .removeDuplicates()
+            .receive(on: RunLoop.main)
+            .sink { [weak self] newPreference in
+                UserDefaults.standard.setCodable(
+                    newPreference,
+                    forKey: UserDefaultsKey.colorSchemePreference,
+                    default: nil
+                )
+                self?.updateColorsForColorScheme(newPreference.systemColorScheme)
                 HapticService.shared.selection()
             }
             .store(in: &cancellables)

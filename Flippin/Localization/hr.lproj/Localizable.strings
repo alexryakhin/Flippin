@@ -131,7 +131,11 @@
 "premiumRequired" = "Premium Potreban";
 "upgradeToPremium" = "Nadogradi na Premium";
 "premiumFeatureDescription" = "Pristupite svim unaprijed definiranim kolekcijama i otključajte neograničeni potencijal za učenje jezika";
-"previewBackgrounds" = "Pregled Pozadina";
+"previewBackgrounds" = "Pregled";
+"colorScheme" = "Shema Boja";
+"colorSchemeSystem" = "Sustav";
+"colorSchemeLight" = "Svijetlo";
+"colorSchemeDark" = "Tamno";
 "premium" = "Premium";
 
 // MARK: - Labels

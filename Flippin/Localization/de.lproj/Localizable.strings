@@ -131,7 +131,11 @@
 "premiumRequired" = "Premium erforderlich";
 "upgradeToPremium" = "Zu Premium upgraden";
 "premiumFeatureDescription" = "Greifen Sie auf alle vordefinierten Sammlungen zu und schalten Sie das unbegrenzte Potenzial zum Sprachenlernen frei";
-"previewBackgrounds" = "Hintergründe Vorschau";
+"previewBackgrounds" = "Vorschau";
+"colorScheme" = "Farbschema";
+"colorSchemeSystem" = "System";
+"colorSchemeLight" = "Hell";
+"colorSchemeDark" = "Dunkel";
 "premium" = "Premium";
 
 // MARK: - Labels

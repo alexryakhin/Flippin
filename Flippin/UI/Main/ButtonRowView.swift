@@ -7,7 +7,6 @@
 import SwiftUI
 
 struct ButtonRowView: View {
-    @Environment(\.colorScheme) var colorScheme
     @StateObject private var colorManager = ColorManager.shared
 
     let onAddItem: () -> Void
@@ -33,7 +32,7 @@ struct ButtonRowView: View {
                     Label {
                         Text(LocalizationKeys.myCards.localized)
                     } icon: {
-                        Image(.stackCardsRotated)
+                        Image(.stackCards)
                     }
                 }
             } label: {

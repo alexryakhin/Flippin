@@ -7,7 +7,6 @@
 import SwiftUI
 
 struct TagButton: View {
-    @Environment(\.colorScheme) var colorScheme
     @StateObject private var tagManager = TagManager.shared
     @StateObject private var colorManager = ColorManager.shared
 
@@ -84,7 +83,7 @@ struct TagButton: View {
     }
     
     private var foregroundColor: Color {
-        let isBlackForeground: Bool = colorScheme == .dark && colorManager.userColor.isLight
+        let isBlackForeground: Bool = colorManager.colorScheme == .dark && colorManager.userColor.isLight
 
         if isDisabled {
             return Color.gray

@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    @Environment(\.colorScheme) var colorScheme
     @StateObject private var cardsProvider = CardsProvider.shared
     @StateObject private var languageManager = LanguageManager.shared
     @StateObject private var tagManager = TagManager.shared
@@ -66,6 +65,9 @@ struct ContentView: View {
                 onShowSettings: { showSettings = true },
                 onShowMyCards: { showMyCards = true }
             )
+        }
+        .ifLet(colorManager.colorScheme) { view, scheme in
+            view.colorScheme(scheme)
         }
         .padding(16)
         .background {
@@ -204,9 +206,10 @@ struct ContentView: View {
         VStack(spacing: 16) {
             ContentUnavailableView {
                 VStack {
-                    Image(systemName: "rectangle.stack.fill")
-                        .font(.largeTitle)
-                        .rotationEffect(.init(degrees: 90))
+                    Image(.stackCards)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 60, height: 60)
                     Text(LocalizationKeys.noCardsYet.localized)
                 }
             } description: {
@@ -246,9 +249,10 @@ struct ContentView: View {
     private var filteredByLanguageCardsEmptyView: some View {
         ContentUnavailableView {
             VStack {
-                Image(systemName: "rectangle.stack.fill")
-                    .font(.largeTitle)
-                    .rotationEffect(.init(degrees: 90))
+                Image(.stackCards)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 60, height: 60)
                 Text(LocalizationKeys.noCardsYet.localized)
             }
         } description: {

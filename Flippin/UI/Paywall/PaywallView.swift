@@ -133,6 +133,9 @@ enum Paywall {
                     }
                 }
             }
+            .ifLet(colorManager.colorScheme) { view, scheme in
+                view.colorScheme(scheme)
+            }
             .onAppear {
                 isAnimating = true
                 Task {

@@ -131,7 +131,11 @@
 "premiumRequired" = "Yêu Cầu Premium";
 "upgradeToPremium" = "Nâng Cấp Lên Premium";
 "premiumFeatureDescription" = "Truy cập tất cả các bộ sưu tập được định sẵn và mở khóa tiềm năng vô hạn cho việc học ngôn ngữ";
-"previewBackgrounds" = "Xem Trước Nền";
+"previewBackgrounds" = "Xem Trước";
+"colorScheme" = "Bảng Màu";
+"colorSchemeSystem" = "Hệ Thống";
+"colorSchemeLight" = "Sáng";
+"colorSchemeDark" = "Tối";
 "premium" = "Premium";
 
 // MARK: - Labels

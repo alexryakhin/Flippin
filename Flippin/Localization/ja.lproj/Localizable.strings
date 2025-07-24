@@ -131,7 +131,11 @@
 "premiumRequired" = "プレミアムが必要";
 "upgradeToPremium" = "プレミアムにアップグレード";
 "premiumFeatureDescription" = "すべてのプリセットコレクションにアクセスし、言語学習の無限の可能性を開放";
-"previewBackgrounds" = "背景をプレビュー";
+"previewBackgrounds" = "プレビュー";
+"colorScheme" = "カラースキーム";
+"colorSchemeSystem" = "システム";
+"colorSchemeLight" = "ライト";
+"colorSchemeDark" = "ダーク";
 "premium" = "プレミアム";
 
 // MARK: - Labels

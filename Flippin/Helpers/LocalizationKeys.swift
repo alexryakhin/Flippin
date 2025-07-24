@@ -97,6 +97,10 @@ enum LocalizationKeys {
     static let theme = "theme"
     static let color = "color"
     static let backgroundStyle = "backgroundStyle"
+    static let colorScheme = "colorScheme"
+    static let colorSchemeSystem = "colorSchemeSystem"
+    static let colorSchemeLight = "colorSchemeLight"
+    static let colorSchemeDark = "colorSchemeDark"
     static let tapToSeeFullScreen = "tapToSeeFullScreen"
 
     // MARK: - Categories

@@ -131,7 +131,11 @@
 "premiumRequired" = "Требуется Премиум";
 "upgradeToPremium" = "Перейти на Премиум";
 "premiumFeatureDescription" = "Получите доступ ко всем предустановленным коллекциям и разблокируйте неограниченный потенциал для изучения языков";
-"previewBackgrounds" = "Предварительный Просмотр Фонов";
+"previewBackgrounds" = "Предварительный Просмотр";
+"colorScheme" = "Цветовая Схема";
+"colorSchemeSystem" = "Система";
+"colorSchemeLight" = "Светлая";
+"colorSchemeDark" = "Темная";
 "premium" = "Премиум";
 
 // MARK: - Labels

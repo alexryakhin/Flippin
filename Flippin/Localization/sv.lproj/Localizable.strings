@@ -131,7 +131,11 @@
 "premiumRequired" = "Premium Krävs";
 "upgradeToPremium" = "Uppgradera till Premium";
 "premiumFeatureDescription" = "Få tillgång till alla fördefinierade samlingar och lås upp det obegränsade potentialet för språkinlärning";
-"previewBackgrounds" = "Förhandsgranska Bakgrunder";
+"previewBackgrounds" = "Förhandsgranska";
+"colorScheme" = "Färgschema";
+"colorSchemeSystem" = "System";
+"colorSchemeLight" = "Ljus";
+"colorSchemeDark" = "Mörk";
 "premium" = "Premium";
 
 // MARK: - Labels

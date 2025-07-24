@@ -10,6 +10,7 @@ import Flow
 struct EditCardSheet: View {
     @Environment(\.dismiss) var dismiss
     @StateObject private var languageManager = LanguageManager.shared
+    @StateObject private var colorManager = ColorManager.shared
     @StateObject private var viewModel: EditCardSheetViewModel
     
     @FocusState private var isUserLanguageTextFieldFocused: Bool
@@ -61,6 +62,9 @@ struct EditCardSheet: View {
                     .foregroundStyle(.secondary)
                 }
             }
+        }
+        .ifLet(colorManager.colorScheme) { view, scheme in
+            view.colorScheme(scheme)
         }
     }
 

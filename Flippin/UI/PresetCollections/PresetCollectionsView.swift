@@ -9,7 +9,6 @@ import SwiftUI
 
 struct PresetCollectionsView: View {
     @Environment(\.dismiss) var dismiss
-    @Environment(\.colorScheme) var colorScheme
     @StateObject private var languageManager = LanguageManager.shared
     @StateObject private var cardsProvider = CardsProvider.shared
     @StateObject private var colorManager = ColorManager.shared
@@ -100,8 +99,10 @@ struct PresetCollectionsView: View {
                     if filteredCollections.isEmpty {
                         ContentUnavailableView {
                             VStack {
-                                Image(systemName: "rectangle.stack")
-                                    .font(.largeTitle)
+                                Image(.stackCards)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 60, height: 60)
                                 Text(LocalizationKeys.noCollectionsFound.localized)
                             }
                         } description: {
@@ -128,6 +129,9 @@ struct PresetCollectionsView: View {
                     .foregroundStyle(.secondary)
                 }
             }
+        }
+        .ifLet(colorManager.colorScheme) { view, scheme in
+            view.colorScheme(scheme)
         }
         .alert(LocalizationKeys.importCollection.localized, isPresented: $showingImportAlert) {
             Button(LocalizationKeys.cancel.localized, role: .cancel) { }
