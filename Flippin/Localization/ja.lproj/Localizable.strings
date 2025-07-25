@@ -207,6 +207,12 @@
 "upgrade" = "アップグレード";
 "unlimitedCards" = "無制限のカード";
 
+// MARK: - Subscription Management
+"subscription" = "サブスクリプション";
+"subscriptionStatus" = "サブスクリプション状態";
+"activeSubscription" = "アクティブなサブスクリプション";
+"manageSubscription" = "サブスクリプション管理";
+
 // MARK: - Categories
 "categoryBasics" = "基本";
 "categoryTravel" = "旅行";

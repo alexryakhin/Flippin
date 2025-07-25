@@ -207,6 +207,12 @@
 "upgrade" = "Убрать лимит";
 "unlimitedCards" = "Неограниченные карточки";
 
+// MARK: - Subscription Management
+"subscription" = "Подписка";
+"subscriptionStatus" = "Статус подписки";
+"activeSubscription" = "Активная подписка";
+"manageSubscription" = "Управление подпиской";
+
 // MARK: - Categories
 "categoryBasics" = "Основы";
 "categoryTravel" = "Путешествия";

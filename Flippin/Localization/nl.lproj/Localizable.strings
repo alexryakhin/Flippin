@@ -207,6 +207,12 @@
 "upgrade" = "Upgraden";
 "unlimitedCards" = "Onbeperkte Kaarten";
 
+// MARK: - Subscription Management
+"subscription" = "Abonnement";
+"subscriptionStatus" = "Abonnement Status";
+"activeSubscription" = "Actief Abonnement";
+"manageSubscription" = "Abonnement Beheren";
+
 // MARK: - Categories
 "categoryBasics" = "Basis";
 "categoryTravel" = "Reizen";

@@ -207,6 +207,12 @@
 "upgrade" = "Nadogradi";
 "unlimitedCards" = "Neograničene Kartice";
 
+// MARK: - Subscription Management
+"subscription" = "Pretplata";
+"subscriptionStatus" = "Status pretplate";
+"activeSubscription" = "Aktivna pretplata";
+"manageSubscription" = "Upravljanje pretplatom";
+
 // MARK: - Categories
 "categoryBasics" = "Osnove";
 "categoryTravel" = "Putovanje";

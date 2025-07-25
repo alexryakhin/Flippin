@@ -207,6 +207,12 @@
 "upgrade" = "升级";
 "unlimitedCards" = "无限卡片";
 
+// MARK: - Subscription Management
+"subscription" = "订阅";
+"subscriptionStatus" = "订阅状态";
+"activeSubscription" = "活跃订阅";
+"manageSubscription" = "管理订阅";
+
 // MARK: - Categories
 "categoryBasics" = "基础";
 "categoryTravel" = "旅行";

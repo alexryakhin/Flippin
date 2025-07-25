@@ -179,6 +179,12 @@
 "upgrade" = "업그레이드";
 "unlimitedCards" = "무제한 카드";
 
+// MARK: - Subscription Management
+"subscription" = "구독";
+"subscriptionStatus" = "구독 상태";
+"activeSubscription" = "활성 구독";
+"manageSubscription" = "구독 관리";
+
 // MARK: - Categories
 "categoryBasics" = "기본";
 "categoryTravel" = "여행";

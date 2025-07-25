@@ -207,6 +207,12 @@
 "upgrade" = "ترقية";
 "unlimitedCards" = "بطاقات غير محدودة";
 
+// MARK: - Subscription Management
+"subscription" = "الاشتراك";
+"subscriptionStatus" = "حالة الاشتراك";
+"activeSubscription" = "اشتراك نشط";
+"manageSubscription" = "إدارة الاشتراك";
+
 // MARK: - Categories
 "categoryBasics" = "الأساسيات";
 "categoryTravel" = "السفر";

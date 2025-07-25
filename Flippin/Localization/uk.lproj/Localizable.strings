@@ -207,6 +207,12 @@
 "upgrade" = "Оновити";
 "unlimitedCards" = "Необмежені Картки";
 
+// MARK: - Subscription Management
+"subscription" = "Підписка";
+"subscriptionStatus" = "Статус підписки";
+"activeSubscription" = "Активна підписка";
+"manageSubscription" = "Управління підпискою";
+
 // MARK: - Categories
 "categoryBasics" = "Основы";
 "categoryTravel" = "Подорожі";

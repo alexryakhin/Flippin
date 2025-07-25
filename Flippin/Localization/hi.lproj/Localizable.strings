@@ -207,6 +207,12 @@
 "upgrade" = "अपग्रेड";
 "unlimitedCards" = "असीमित कार्ड";
 
+// MARK: - Subscription Management
+"subscription" = "सदस्यता";
+"subscriptionStatus" = "सदस्यता स्थिति";
+"activeSubscription" = "सक्रिय सदस्यता";
+"manageSubscription" = "सदस्यता प्रबंधन";
+
 // MARK: - Categories
 "categoryBasics" = "मूल बातें";
 "categoryTravel" = "यात्रा";

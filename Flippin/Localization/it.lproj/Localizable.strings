@@ -207,6 +207,12 @@
 "upgrade" = "Aggiorna";
 "unlimitedCards" = "Carte Illimitate";
 
+// MARK: - Subscription Management
+"subscription" = "Abbonamento";
+"subscriptionStatus" = "Stato Abbonamento";
+"activeSubscription" = "Abbonamento Attivo";
+"manageSubscription" = "Gestisci Abbonamento";
+
 // MARK: - Categories
 "categoryBasics" = "Base";
 "categoryTravel" = "Viaggio";

@@ -179,6 +179,12 @@ enum LocalizationKeys {
     static let cardsUsedOfLimit = "cardsUsedOfLimit"
     static let upgrade = "upgrade"
     
+    // MARK: - Subscription Management
+    static let subscription = "subscription"
+    static let subscriptionStatus = "subscriptionStatus"
+    static let activeSubscription = "activeSubscription"
+    static let manageSubscription = "manageSubscription"
+    
     // MARK: - Labels
     static let settingsLabel = "settingsLabel"
     static let menu = "menu"

@@ -207,6 +207,12 @@
 "upgrade" = "Nâng cấp";
 "unlimitedCards" = "Thẻ Không Giới Hạn";
 
+// MARK: - Subscription Management
+"subscription" = "Đăng ký";
+"subscriptionStatus" = "Trạng thái đăng ký";
+"activeSubscription" = "Đăng ký hoạt động";
+"manageSubscription" = "Quản lý đăng ký";
+
 // MARK: - Categories
 "categoryBasics" = "Cơ Bản";
 "categoryTravel" = "Du Lịch";
