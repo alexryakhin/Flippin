@@ -44,7 +44,7 @@ final class PresetCollectionService: ObservableObject {
     }
 
     func getFeaturedCollections() -> [PresetCollection] {
-        Array(collections.prefix(2))
+        Array(collections.prefix(4))
     }
 
     private func setupBindings() {

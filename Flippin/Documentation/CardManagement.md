@@ -24,7 +24,7 @@ Core data model for flashcards:
 
 ### Free User Limits
 ```swift
-private let freeUserCardLimit = 15
+private let freeUserCardLimit = 25
 
 var cardLimit: Int {
     if PurchaseService.shared.isProductPurchased("com.dor.flippin.premium_monthly") ||
