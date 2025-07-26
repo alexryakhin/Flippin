@@ -29,10 +29,6 @@ struct AddCardSheet: View {
     @FocusState private var isUserLanguageTextFieldFocused: Bool
     @FocusState private var isTargetLanguageTextFieldFocused: Bool
     @FocusState private var isNotesTextFieldFocused: Bool
-    
-    // MARK: - State Variables
-    
-    @State private var showPaywall = false
 
     // MARK: - Body
     
@@ -54,17 +50,6 @@ struct AddCardSheet: View {
             .background(Color(.systemGroupedBackground))
             .navigationTitle(LocalizationKeys.addNewCard.localized)
             .navigationBarTitleDisplayMode(.inline)
-            .alert("Card Limit Reached", isPresented: $viewModel.showingLimitAlert) {
-                Button("OK") { }
-                Button("Upgrade to Premium") {
-                    showPaywall = true
-                }
-            } message: {
-                Text(viewModel.limitAlertMessage)
-            }
-            .sheet(isPresented: $showPaywall) {
-                Paywall.ContentView()
-            }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {

@@ -19,8 +19,8 @@ struct FeaturedPresetCollections: View {
     @State private var collectionToImport: PresetCollection?
     @State private var showingLimitAlert = false
     @State private var limitAlertMessage = ""
-    @State private var showPaywall = false
-    
+    @State private var premiumFeature: PremiumFeature?
+
     var featuredCollections: [PresetCollection] {
         presetService.getFeaturedCollections()
     }
@@ -40,8 +40,7 @@ struct FeaturedPresetCollections: View {
                             showingAllCollections = true
                             AnalyticsService.trackEvent(.presetCollectionsOpened)
                         } else {
-                            // Donate tip event and show paywall for free users
-                            showPaywall = true
+                            premiumFeature = .cardPresets
                         }
                     }
                     .font(.subheadline)
@@ -73,9 +72,7 @@ struct FeaturedPresetCollections: View {
             .sheet(isPresented: $showingAllCollections) {
                 PresetCollectionsView()
             }
-            .sheet(isPresented: $showPaywall) {
-                Paywall.ContentView()
-            }
+            .premiumAlert(feature: $premiumFeature)
             .alert(LocalizationKeys.importCollection.localized, isPresented: $showingImportAlert) {
                 Button(LocalizationKeys.cancel.localized, role: .cancel) { }
                 Button(LocalizationKeys.importButton.localized) {

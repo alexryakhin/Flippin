@@ -33,8 +33,7 @@ struct ContentView: View {
     @State private var showStudyMode = false
     @State private var showAddCardSheet = false
     @State private var shuffledItems: [CardItem] = []
-    @State private var showUpgradeAlert = false
-    @State private var showPaywall = false
+    @State private var premiumFeature: PremiumFeature?
 
     // MARK: - Computed Properties
     
@@ -62,17 +61,7 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 16) {
             FiltersScrollView()
-            
-            // Card Limit Indicator for Free Users
-            if !cardsProvider.hasUnlimitedCards {
-                cardLimitIndicator
-                    .if(isPad) { view in
-                        view
-                            .frame(maxWidth: 500, alignment: .center)
-                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-                    }
-            }
-
+            cardLimitIndicator
             cardsStackView
                 .if(isPad) { view in
                     view
@@ -140,26 +129,13 @@ struct ContentView: View {
         }
         .sheet(isPresented: $showAddCardSheet) {
             AddCardSheet()
+                .interactiveDismissDisabled()
         }
         .sheet(isPresented: $showStudyMode) {
             StudyModeView()
+                .interactiveDismissDisabled()
         }
-        .sheet(isPresented: $showPaywall) {
-            Paywall.ContentView()
-        }
-        .onChange(of: showPaywall) { _, isPresented in
-            if isPresented {
-                AnalyticsService.trackEvent(.paywallOpened)
-            }
-        }
-        .alert("Upgrade to Premium", isPresented: $showUpgradeAlert) {
-            Button("Cancel", role: .cancel) { }
-            Button("View Options") {
-                showSettings = true
-            }
-        } message: {
-            Text("Upgrade to premium to create unlimited cards and unlock all features!")
-        }
+        .premiumAlert(feature: $premiumFeature)
     }
 
     // MARK: - Card Stack Views
@@ -193,27 +169,34 @@ struct ContentView: View {
     
     @ViewBuilder
     private var cardLimitIndicator: some View {
-        HStack {
-            VStack(alignment: .leading, spacing: 4) {
-                Text(LocalizationKeys.cardsUsedOfLimit.localized(with: cardsProvider.cards.count, cardsProvider.cardLimit))
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
+        // Card Limit Indicator for Free Users
+        if !cardsProvider.hasUnlimitedCards && !cardsProvider.cards.isEmpty {
+            HStack {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(LocalizationKeys.cardsUsedOfLimit.localized(with: cardsProvider.cards.count, cardsProvider.cardLimit))
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
 
-                ProgressView(value: Double(cardsProvider.cards.count), total: Double(cardsProvider.cardLimit))
-                    .progressViewStyle(LinearProgressViewStyle(tint: colorManager.tintColor))
-                    .frame(height: 4)
+                    ProgressView(value: Double(cardsProvider.cards.count), total: Double(cardsProvider.cardLimit))
+                        .progressViewStyle(LinearProgressViewStyle(tint: colorManager.tintColor))
+                        .frame(height: 4)
+                }
+
+                Spacer()
+
+                Button(LocalizationKeys.upgrade.localized) {
+                    premiumFeature = .unlimitedCards
+                }
+                .font(.caption)
+                .buttonStyle(.borderedProminent)
+                .clipShape(Capsule())
             }
-            
-            Spacer()
-            
-            Button(LocalizationKeys.upgrade.localized) {
-                showPaywall = true
+            .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
+            .if(isPad) { view in
+                view
+                    .frame(maxWidth: 500, alignment: .center)
             }
-            .font(.caption)
-            .buttonStyle(.borderedProminent)
-            .clipShape(Capsule())
         }
-        .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
     }
 
     private var noCardsView: some View {

@@ -13,14 +13,12 @@ struct PresetCollectionsView: View {
     @StateObject private var cardsProvider = CardsProvider.shared
     @StateObject private var colorManager = ColorManager.shared
     @StateObject private var presetService = PresetCollectionService.shared
-    @StateObject private var purchaseService = PurchaseService.shared
 
     @State private var searchText = ""
     @State private var selectedCategory: PresetModel.Category?
     @State private var showingImportAlert = false
     @State private var collectionToImport: PresetCollection?
     @State private var lastSearchText = ""
-    @State private var showPaywall = false
 
     var filteredCollections: [PresetCollection] {
         var collections: [PresetCollection] = presetService.collections
@@ -55,19 +53,6 @@ struct PresetCollectionsView: View {
     }
 
     var body: some View {
-        Group {
-            if purchaseService.hasPremiumAccess {
-                collectionsView
-            } else {
-                paywallPromptView
-            }
-        }
-        .sheet(isPresented: $showPaywall) {
-            Paywall.ContentView()
-        }
-    }
-    
-    private var collectionsView: some View {
         NavigationView {
             VStack(spacing: 0) {
                 ScrollView {
@@ -143,57 +128,6 @@ struct PresetCollectionsView: View {
         } message: {
             if let collection = collectionToImport {
                 Text(LocalizationKeys.importCollectionMessage.localized(with: collection.name, collection.cardCount))
-            }
-        }
-    }
-    
-    private var paywallPromptView: some View {
-        NavigationView {
-            VStack(spacing: 32) {
-                Spacer()
-                
-                VStack(spacing: 16) {
-                    Image(systemName: "crown.fill")
-                        .font(.system(size: 60))
-                        .foregroundStyle(.yellow)
-                    
-                    Text(LocalizationKeys.premiumFeature.localized)
-                        .font(.title)
-                        .fontWeight(.bold)
-                    
-                    Text(LocalizationKeys.premiumFeatureDescription.localized)
-                        .font(.body)
-                        .foregroundStyle(.secondary)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal, 32)
-                }
-                
-                Spacer()
-                
-                Button(LocalizationKeys.upgradeToPremium.localized) {
-                    showPaywall = true
-                }
-                .buttonStyle(.borderedProminent)
-                .controlSize(.large)
-                
-                Button(LocalizationKeys.cancel.localized) {
-                    dismiss()
-                }
-                .buttonStyle(.bordered)
-                .controlSize(.large)
-            }
-            .padding(16)
-            .navigationTitle(LocalizationKeys.premiumRequired.localized)
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        dismiss()
-                    } label: {
-                        Image(systemName: "xmark.circle.fill")
-                    }
-                    .foregroundStyle(.secondary)
-                }
             }
         }
     }

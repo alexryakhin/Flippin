@@ -28,8 +28,10 @@ struct DetailedAnalyticsView: View {
                     Text("Insights").tag(3)
                 }
                 .pickerStyle(.segmented)
-                .padding(16)
-                
+                .padding(vertical: 12, horizontal: 16)
+
+                Divider()
+
                 // Content based on selected tab
                 TabView(selection: $selectedTab) {
                     overviewTab
@@ -45,9 +47,11 @@ struct DetailedAnalyticsView: View {
                         .tag(3)
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
+                .ignoresSafeArea()
             }
             .navigationTitle("Detailed Analytics")
             .navigationBarTitleDisplayMode(.inline)
+            .background(Color(.systemGroupedBackground))
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button("Done") {
@@ -74,7 +78,7 @@ struct DetailedAnalyticsView: View {
     
     private var overviewTab: some View {
         ScrollView {
-            VStack(spacing: 24) {
+            VStack(spacing: 16) {
                 // Summary cards
                 summaryCardsSection
                 
@@ -92,7 +96,7 @@ struct DetailedAnalyticsView: View {
     }
     
     private var summaryCardsSection: some View {
-        LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 2), spacing: 16) {
+        LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 8), count: 2), spacing: 8) {
             DetailedStatCard(
                 title: "Total Study Time",
                 value: formatStudyTime(analyticsService.totalStudyTime),
@@ -157,8 +161,7 @@ struct DetailedAnalyticsView: View {
             }
         }
         .padding(20)
-        .background(.ultraThinMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: 16))
+        .clippedWithBackground()
     }
     
     private var languageProgressSection: some View {
@@ -202,8 +205,7 @@ struct DetailedAnalyticsView: View {
                 )
         }
         .padding(20)
-        .background(.ultraThinMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: 16))
+        .clippedWithBackground()
     }
     
     private var achievementBadgesSection: some View {
@@ -212,7 +214,7 @@ struct DetailedAnalyticsView: View {
                 .font(.headline)
                 .fontWeight(.semibold)
             
-            LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 3), spacing: 16) {
+            LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 8), count: 3), spacing: 8) {
                 AchievementBadge(
                     title: "First Steps",
                     icon: "1.circle.fill",
@@ -229,7 +231,7 @@ struct DetailedAnalyticsView: View {
                 
                 AchievementBadge(
                     title: "Master Learner",
-                    icon: "crown.fill",
+                    icon: "brain",
                     isUnlocked: analyticsService.totalCardsMastered >= 50,
                     color: .orange
                 )
@@ -243,7 +245,7 @@ struct DetailedAnalyticsView: View {
                 
                 AchievementBadge(
                     title: "Vocabulary Master",
-                    icon: "100.circle.fill",
+                    icon: "character.magnify",
                     isUnlocked: analyticsService.totalCardsMastered >= 100,
                     color: .red
                 )
@@ -257,8 +259,7 @@ struct DetailedAnalyticsView: View {
             }
         }
         .padding(20)
-        .background(.ultraThinMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: 16))
+        .clippedWithBackground()
     }
     
     // MARK: - Performance Tab
@@ -319,8 +320,7 @@ struct DetailedAnalyticsView: View {
             }
         }
         .padding(20)
-        .background(.ultraThinMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: 16))
+        .clippedWithBackground()
     }
     
     private var sessionPerformanceSection: some View {
@@ -353,8 +353,7 @@ struct DetailedAnalyticsView: View {
             }
         }
         .padding(20)
-        .background(.ultraThinMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: 16))
+        .clippedWithBackground()
     }
     
     private var cardDifficultySection: some View {
@@ -387,8 +386,7 @@ struct DetailedAnalyticsView: View {
             }
         }
         .padding(20)
-        .background(.ultraThinMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: 16))
+        .clippedWithBackground()
     }
     
     private var learningSpeedSection: some View {
@@ -424,8 +422,7 @@ struct DetailedAnalyticsView: View {
             }
         }
         .padding(20)
-        .background(.ultraThinMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: 16))
+        .clippedWithBackground()
     }
     
     // MARK: - Progress Tab
@@ -476,8 +473,7 @@ struct DetailedAnalyticsView: View {
             }
         }
         .padding(20)
-        .background(.ultraThinMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: 16))
+        .clippedWithBackground()
     }
     
     private var vocabularyGrowthSection: some View {
@@ -523,8 +519,7 @@ struct DetailedAnalyticsView: View {
                 )
         }
         .padding(20)
-        .background(.ultraThinMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: 16))
+        .clippedWithBackground()
     }
     
     private var learningMilestonesSection: some View {
@@ -560,8 +555,7 @@ struct DetailedAnalyticsView: View {
             }
         }
         .padding(20)
-        .background(.ultraThinMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: 16))
+        .clippedWithBackground()
     }
     
     // MARK: - Insights Tab
@@ -612,8 +606,7 @@ struct DetailedAnalyticsView: View {
             }
         }
         .padding(20)
-        .background(.ultraThinMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: 16))
+        .clippedWithBackground()
     }
     
     private var recommendationsSection: some View {
@@ -646,8 +639,7 @@ struct DetailedAnalyticsView: View {
             }
         }
         .padding(20)
-        .background(.ultraThinMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: 16))
+        .clippedWithBackground()
     }
     
     private var learningTipsSection: some View {
@@ -677,8 +669,7 @@ struct DetailedAnalyticsView: View {
             }
         }
         .padding(20)
-        .background(.ultraThinMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: 16))
+        .clippedWithBackground()
     }
     
     // MARK: - Helper Methods
@@ -727,8 +718,7 @@ struct DetailedStatCard: View {
                 .foregroundColor(.secondary)
         }
         .padding(16)
-        .background(.ultraThinMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: 12))
+        .clippedWithBackground()
     }
 }
 
@@ -896,12 +886,12 @@ struct InsightCard: View {
                     .font(.caption)
                     .foregroundColor(.secondary)
             }
-            
-            Spacer()
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
-        .padding(12)
-        .background(color.opacity(0.1))
-        .clipShape(RoundedRectangle(cornerRadius: 8))
+        .clippedWithPaddingAndBackground(
+            color.opacity(0.1),
+            cornerRadius: 8
+        )
     }
 }
 
@@ -931,9 +921,11 @@ struct RecommendationCard: View {
             .background(color.opacity(0.1))
             .clipShape(Capsule())
         }
-        .padding(12)
-        .background(.ultraThinMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: 8))
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .clippedWithPaddingAndBackground(
+            Color(.tertiarySystemGroupedBackground).opacity(0.6),
+            cornerRadius: 8
+        )
     }
 }
 
@@ -957,12 +949,12 @@ struct TipCard: View {
                     .font(.caption)
                     .foregroundColor(.secondary)
             }
-            
-            Spacer()
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
-        .padding(12)
-        .background(.ultraThinMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: 8))
+        .clippedWithPaddingAndBackground(
+            Color(.tertiarySystemGroupedBackground).opacity(0.6),
+            cornerRadius: 8
+        )
     }
 }
 
@@ -983,9 +975,11 @@ struct AchievementBadge: View {
                 .multilineTextAlignment(.center)
                 .foregroundColor(isUnlocked ? .primary : .secondary)
         }
-        .padding(8)
-        .background(isUnlocked ? color.opacity(0.1) : Color.gray.opacity(0.1))
-        .clipShape(RoundedRectangle(cornerRadius: 8))
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .clippedWithPaddingAndBackground(
+            isUnlocked ? color.opacity(0.1) : Color.gray.opacity(0.1),
+            cornerRadius: 8
+        )
     }
 }
 

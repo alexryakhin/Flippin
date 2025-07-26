@@ -47,6 +47,8 @@ public final class CardPerformance: NSManagedObject, Identifiable {
     @NSManaged public var consecutiveCorrect: Int32
     @NSManaged public var consecutiveIncorrect: Int32
     @NSManaged public var masteryLevel: Int16 // 0-100 scale
+    @NSManaged public var averageResponseTime: Double // Average time to respond in seconds
+    @NSManaged public var creationDate: Date? // When this performance record was created
     
     var accuracyRate: Double {
         guard totalReviews > 0 else { return 0.0 }
@@ -118,6 +120,8 @@ extension CardPerformance {
         self.consecutiveCorrect = 0
         self.consecutiveIncorrect = 0
         self.masteryLevel = 0
+        self.averageResponseTime = 0.0
+        self.creationDate = Date()
     }
 }
 

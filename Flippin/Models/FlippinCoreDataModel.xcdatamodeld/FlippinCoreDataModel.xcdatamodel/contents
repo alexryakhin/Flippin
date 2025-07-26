@@ -42,6 +42,8 @@
         <attribute name="nextReviewDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="timeSpent" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="totalReviews" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="averageResponseTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
     <entity name="DailyStats" representedClassName="DailyStats" syncable="YES">
         <attribute name="cardsStudied" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>

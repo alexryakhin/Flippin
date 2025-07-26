@@ -15,7 +15,10 @@ import SwiftUI
 struct ButtonRowView: View {
     // MARK: - State Objects
     
+    @StateObject private var cardsProvider = CardsProvider.shared
     @StateObject private var colorManager = ColorManager.shared
+
+    @State private var showStudyModeAlert = false
 
     // MARK: - Properties
     
@@ -30,33 +33,37 @@ struct ButtonRowView: View {
     var body: some View {
         HStack {
             Spacer()
-
+            
             // Menu button with settings and my cards
             Menu {
-                Button {
-                    HapticService.shared.menuOpened()
-                    onShowMyCards()
-                } label: {
-                    Label {
-                        Text(LocalizationKeys.myCards.localized)
-                    } icon: {
-                        Image(.stackCards)
-                    }
-                }
-
-                Button {
-                    HapticService.shared.menuOpened()
-                    onShowStudyMode()
-                } label: {
-                    Label("Study Mode", systemImage: "book.fill")
-                }
-
                 Section {
                     Button {
                         HapticService.shared.menuOpened()
                         onShowSettings()
                     } label: {
                         Label(LocalizationKeys.settingsLabel.localized, systemImage: "gear")
+                    }
+                }
+                Section {
+                    Button {
+                        HapticService.shared.menuOpened()
+                        onShowMyCards()
+                    } label: {
+                        Label {
+                            Text(LocalizationKeys.myCards.localized)
+                        } icon: {
+                            Image(.stackCards)
+                        }
+                    }
+                    Button {
+                        if cardsProvider.cards.count > 4 {
+                            onShowStudyMode()
+                        } else {
+                            showStudyModeAlert = true
+                        }
+                        HapticService.shared.menuOpened()
+                    } label: {
+                        Label("Study Mode", systemImage: "book.fill")
                     }
                 }
             } label: {
@@ -87,6 +94,11 @@ struct ButtonRowView: View {
             .buttonStyle(ActionButtonStyle())
 
             Spacer()
+        }
+        .alert("Not enough cards", isPresented: $showStudyModeAlert) {
+            Button("OK") { }
+        } message: {
+            Text("You need at least 5 cards to start study mode.")
         }
     }
 }

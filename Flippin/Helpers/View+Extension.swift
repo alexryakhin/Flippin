@@ -107,11 +107,12 @@ extension UIApplication {
 extension View {
     func clippedWithBackground(
         _ color: Color = Color(.secondarySystemGroupedBackground),
+        cornerRadius: CGFloat = 16,
         showShadow: Bool = false
     ) -> some View {
         self
             .background(color)
-            .clipShape(RoundedRectangle(cornerRadius: 16))
+            .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
             .if(showShadow) {
                 $0.shadow(color: Color(.separator), radius: 1)
             }
@@ -119,11 +120,12 @@ extension View {
 
     func clippedWithBackgroundMaterial(
         _ material: Material = .thinMaterial,
+        cornerRadius: CGFloat = 16,
         showShadow: Bool = false
     ) -> some View {
         self
             .background(material)
-            .clipShape(RoundedRectangle(cornerRadius: 16))
+            .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
             .if(showShadow) {
                 $0.shadow(color: Color(.separator), radius: 1)
             }
@@ -131,12 +133,13 @@ extension View {
 
     func clippedWithPaddingAndBackground(
         _ color: Color = Color(.secondarySystemGroupedBackground),
+        cornerRadius: CGFloat = 16,
         showShadow: Bool = false
     ) -> some View {
         self
             .padding(vertical: 12, horizontal: 16)
             .background(color)
-            .clipShape(RoundedRectangle(cornerRadius: 16))
+            .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
             .if(showShadow) {
                 $0.shadow(color: Color(.separator), radius: 1)
             }
@@ -144,12 +147,13 @@ extension View {
 
     func clippedWithPaddingAndBackgroundMaterial(
         _ material: Material = .thinMaterial,
+        cornerRadius: CGFloat = 16,
         showShadow: Bool = false
     ) -> some View {
         self
             .padding(vertical: 12, horizontal: 16)
             .background(material)
-            .clipShape(RoundedRectangle(cornerRadius: 16))
+            .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
             .if(showShadow) {
                 $0.shadow(color: Color(.separator), radius: 1)
             }

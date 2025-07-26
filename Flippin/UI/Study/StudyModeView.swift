@@ -12,6 +12,8 @@ struct StudyModeView: View {
     @State private var studyCards: [CardItem] = []
     @State private var showingResults = false
     @State private var sessionResults: SessionResults?
+    @State private var sessionStartTime = Date()
+    @State private var sessionStats = SessionStats()
     
     struct SessionResults {
         let totalCards: Int
@@ -19,6 +21,12 @@ struct StudyModeView: View {
         let incorrectAnswers: Int
         let totalTime: TimeInterval
         let accuracy: Double
+    }
+    
+    struct SessionStats {
+        var correctAnswers: Int = 0
+        var incorrectAnswers: Int = 0
+        var totalTime: TimeInterval = 0
     }
     
     var body: some View {
@@ -38,17 +46,22 @@ struct StudyModeView: View {
                     resultsView
                 }
             }
+            .padding(vertical: 12, horizontal: 16)
             .background {
                 AnimatedBackground(style: colorManager.backgroundStyle)
             }
             .navigationTitle("Study Mode")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button("Exit") {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        HapticService.shared.buttonTapped()
                         endStudySession()
                         dismiss()
+                    } label: {
+                        Image(systemName: "xmark.circle.fill")
                     }
+                    .foregroundStyle(.secondary)
                 }
             }
         }
@@ -58,39 +71,23 @@ struct StudyModeView: View {
         .onAppear {
             setupStudySession()
         }
-        .onDisappear {
-            endStudySession()
-        }
     }
     
     // MARK: - Progress Header
     
     private var progressHeader: some View {
-        VStack(spacing: 8) {
-            // Progress bar
-            ProgressView(value: Double(currentCardIndex), total: Double(studyCards.count))
-                .progressViewStyle(LinearProgressViewStyle(tint: colorManager.tintColor))
-                .padding(.horizontal)
-            
+        HStack(spacing: 8) {
             // Progress text
-            HStack {
-                Text("\(currentCardIndex + 1) of \(studyCards.count)")
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-                
-                Spacer()
-                
-                Text("Study Mode")
-                    .font(.caption)
-                    .padding(.horizontal, 8)
-                    .padding(.vertical, 4)
-                    .background(colorManager.tintColor.opacity(0.2))
-                    .foregroundColor(colorManager.tintColor)
-                    .clipShape(Capsule())
-            }
-            .padding(.horizontal)
+            Text("\(currentCardIndex + 1) of \(studyCards.count)")
+                .font(.subheadline)
+                .foregroundColor(.secondary)
+
+            // Progress bar
+            ProgressView(value: Double(currentCardIndex) / Double(studyCards.count))
+                .progressViewStyle(LinearProgressViewStyle(tint: colorManager.tintColor))
+                .animation(.spring, value: currentCardIndex)
         }
-        .padding(.top)
+        .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
     }
     
     // MARK: - Card Content
@@ -112,11 +109,10 @@ struct StudyModeView: View {
                         Text(card.backText.orEmpty)
                             .font(.title2)
                             .fontWeight(.semibold)
+                            .lineLimit(4)
                             .multilineTextAlignment(.center)
-                            .padding(16)
                             .frame(maxWidth: .infinity)
-                            .background(.ultraThinMaterial)
-                            .clipShape(RoundedRectangle(cornerRadius: 12))
+                            .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
                     }
                     
                     // Answer (shown after user interaction)
@@ -130,10 +126,9 @@ struct StudyModeView: View {
                                 .font(.title3)
                                 .fontWeight(.medium)
                                 .multilineTextAlignment(.center)
-                                .padding(16)
+                                .lineLimit(4)
                                 .frame(maxWidth: .infinity)
-                                .background(.ultraThinMaterial)
-                                .clipShape(RoundedRectangle(cornerRadius: 12))
+                                .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
                                 .transition(.opacity.combined(with: .scale))
                         }
                     }
@@ -157,7 +152,6 @@ struct StudyModeView: View {
                     }
                 }
                 .buttonStyle(.borderedProminent)
-                .tint(colorManager.tintColor)
                 .font(.headline)
             } else {
                 // Correct/Incorrect buttons
@@ -165,8 +159,8 @@ struct StudyModeView: View {
                     Button("Incorrect") {
                         recordAnswer(wasCorrect: false)
                     }
-                    .buttonStyle(.bordered)
-                    .foregroundColor(.red)
+                    .buttonStyle(.borderedProminent)
+                    .tint(.red)
                     .font(.headline)
                     
                     Button("Correct") {
@@ -222,9 +216,7 @@ struct StudyModeView: View {
                         color: .purple
                     )
                 }
-                .padding(16)
-                .background(.ultraThinMaterial)
-                .clipShape(RoundedRectangle(cornerRadius: 16))
+                .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
                 .padding(.horizontal)
             }
             
@@ -239,7 +231,8 @@ struct StudyModeView: View {
                 Button("Done") {
                     dismiss()
                 }
-                .buttonStyle(.bordered)
+                .buttonStyle(.borderedProminent)
+                .tint(.secondary)
             }
             
             Spacer()
@@ -261,6 +254,8 @@ struct StudyModeView: View {
         showingAnswer = false
         showingResults = false
         sessionResults = nil
+        sessionStartTime = Date()
+        sessionStats = SessionStats()
         
         // Start analytics session
         analyticsService.startStudySession(sessionType: "study")
@@ -274,6 +269,14 @@ struct StudyModeView: View {
         
         let card = studyCards[currentCardIndex]
         let timeSpent = Date().timeIntervalSince(cardStartTime)
+        
+        // Update local session stats
+        if wasCorrect {
+            sessionStats.correctAnswers += 1
+        } else {
+            sessionStats.incorrectAnswers += 1
+        }
+        sessionStats.totalTime += timeSpent
         
         // Record the answer in analytics
         if let cardId = card.id {
@@ -305,15 +308,13 @@ struct StudyModeView: View {
     
     private func showResults() {
         let totalCards = studyCards.count
-        let correctAnswers = analyticsService.currentSession?.cardsCorrect ?? 0
-        let incorrectAnswers = analyticsService.currentSession?.cardsIncorrect ?? 0
-        let totalTime = analyticsService.currentSession?.duration ?? 0
-        let accuracy = totalCards > 0 ? Double(correctAnswers) / Double(totalCards) : 0.0
+        let totalTime = Date().timeIntervalSince(sessionStartTime)
+        let accuracy = totalCards > 0 ? Double(sessionStats.correctAnswers) / Double(totalCards) : 0.0
         
         sessionResults = SessionResults(
             totalCards: totalCards,
-            correctAnswers: Int(correctAnswers),
-            incorrectAnswers: Int(incorrectAnswers),
+            correctAnswers: sessionStats.correctAnswers,
+            incorrectAnswers: sessionStats.incorrectAnswers,
             totalTime: totalTime,
             accuracy: accuracy
         )

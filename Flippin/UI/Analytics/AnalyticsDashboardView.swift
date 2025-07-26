@@ -18,7 +18,7 @@ struct AnalyticsDashboardView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                VStack(spacing: 24) {
+                VStack(spacing: 16) {
                     // Header with streak and overview
                     headerSection
                     
@@ -39,7 +39,7 @@ struct AnalyticsDashboardView: View {
                         premiumFeaturesSection
                     }
                 }
-                .padding(16)
+                .padding(vertical: 12, horizontal: 16)
             }
             .background(Color(.systemGroupedBackground))
             .navigationTitle("Learning Analytics")
@@ -65,7 +65,7 @@ struct AnalyticsDashboardView: View {
     // MARK: - Header Section
     
     private var headerSection: some View {
-        VStack(spacing: 16) {
+        VStack(spacing: 12) {
             // Streak display
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
@@ -73,15 +73,10 @@ struct AnalyticsDashboardView: View {
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                     
-                    HStack(alignment: .bottom, spacing: 8) {
-                        Text("\(analyticsService.studyStreak)")
-                            .font(.system(size: 32, weight: .bold, design: .rounded))
-                            .foregroundColor(colorManager.tintColor)
-                        
-                        Text("days")
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-                    }
+                    Text("\(analyticsService.studyStreak) days")
+                        .font(.system(.title2, design: .rounded))
+                        .bold()
+                        .foregroundColor(colorManager.tintColor)
                 }
                 
                 Spacer()
@@ -93,10 +88,8 @@ struct AnalyticsDashboardView: View {
                     .scaleEffect(analyticsService.studyStreak > 0 ? 1.2 : 0.8)
                     .animation(.easeInOut(duration: 0.3), value: analyticsService.studyStreak)
             }
-            .padding(20)
-            .background(.ultraThinMaterial)
-            .clipShape(RoundedRectangle(cornerRadius: 16))
-            
+            .clippedWithPaddingAndBackground()
+
             // Total study time
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
@@ -105,8 +98,8 @@ struct AnalyticsDashboardView: View {
                         .foregroundColor(.secondary)
                     
                     Text(formatStudyTime(analyticsService.totalStudyTime))
-                        .font(.title2)
-                        .fontWeight(.semibold)
+                        .font(.system(.title2, design: .rounded))
+                        .bold()
                 }
                 
                 Spacer()
@@ -117,21 +110,19 @@ struct AnalyticsDashboardView: View {
                         .foregroundColor(.secondary)
                     
                     Text("\(analyticsService.totalCardsMastered)")
-                        .font(.title2)
-                        .fontWeight(.semibold)
+                        .font(.system(.title2, design: .rounded))
+                        .bold()
                         .foregroundColor(.green)
                 }
             }
-            .padding(20)
-            .background(.ultraThinMaterial)
-            .clipShape(RoundedRectangle(cornerRadius: 16))
+            .clippedWithPaddingAndBackground()
         }
     }
     
     // MARK: - Quick Stats Section
     
     private var quickStatsSection: some View {
-        LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 2), spacing: 16) {
+        LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 8), count: 2), spacing: 8) {
             StatCard(
                 title: "Today's Study",
                 value: formatStudyTime(analyticsService.dailyStats?.totalStudyTime ?? 0),
@@ -182,43 +173,30 @@ struct AnalyticsDashboardView: View {
                 .frame(width: 200)
             }
             
-            if #available(iOS 16.0, *) {
-                Chart(analyticsService.getWeeklyStudyData(), id: \.date) { data in
-                    BarMark(
-                        x: .value("Date", data.date, unit: .day),
-                        y: .value("Study Time", data.studyTime / 60) // Convert to minutes
-                    )
-                    .foregroundStyle(colorManager.tintColor.gradient)
+            Chart(analyticsService.getWeeklyStudyData(), id: \.date) { data in
+                BarMark(
+                    x: .value("Date", data.date, unit: .day),
+                    y: .value("Study Time", data.studyTime / 60) // Convert to minutes
+                )
+                .foregroundStyle(colorManager.tintColor.gradient)
+            }
+            .frame(height: 200)
+            .chartXAxis {
+                AxisMarks(values: .stride(by: .day)) { value in
+                    AxisValueLabel(format: .dateTime.weekday(.abbreviated))
                 }
-                .frame(height: 200)
-                .chartXAxis {
-                    AxisMarks(values: .stride(by: .day)) { value in
-                        AxisValueLabel(format: .dateTime.weekday(.abbreviated))
-                    }
-                }
-                .chartYAxis {
-                    AxisMarks { value in
-                        AxisValueLabel {
-                            if let minutes = value.as(Double.self) {
-                                Text("\(Int(minutes))m")
-                            }
+            }
+            .chartYAxis {
+                AxisMarks { value in
+                    AxisValueLabel {
+                        if let minutes = value.as(Double.self) {
+                            Text("\(Int(minutes))m")
                         }
                     }
                 }
-            } else {
-                // Fallback for iOS 15
-                RoundedRectangle(cornerRadius: 8)
-                    .fill(Color.gray.opacity(0.2))
-                    .frame(height: 200)
-                    .overlay(
-                        Text("Charts available in iOS 16+")
-                            .foregroundColor(.secondary)
-                    )
             }
         }
-        .padding(20)
-        .background(.ultraThinMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: 16))
+        .clippedWithPaddingAndBackground()
     }
     
     // MARK: - Mastery Progress Section
@@ -257,9 +235,7 @@ struct AnalyticsDashboardView: View {
                 )
             }
         }
-        .padding(20)
-        .background(.ultraThinMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: 16))
+        .clippedWithPaddingAndBackground()
     }
     
     // MARK: - Recent Activity Section
@@ -290,9 +266,7 @@ struct AnalyticsDashboardView: View {
                 }
             }
         }
-        .padding(20)
-        .background(.ultraThinMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: 16))
+        .clippedWithPaddingAndBackground()
     }
     
     // MARK: - Premium Features Section
@@ -319,9 +293,7 @@ struct AnalyticsDashboardView: View {
             .buttonStyle(.borderedProminent)
             .tint(colorManager.tintColor)
         }
-        .padding(20)
-        .background(.ultraThinMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: 16))
+        .clippedWithPaddingAndBackground()
     }
     
     // MARK: - Helper Methods
@@ -357,16 +329,15 @@ struct StatCard: View {
             }
             
             Text(value)
-                .font(.title2)
-                .fontWeight(.bold)
-            
+                .font(.system(.title2, design: .rounded))
+                .bold()
+
             Text(title)
                 .font(.caption)
                 .foregroundColor(.secondary)
         }
         .padding(16)
-        .background(.ultraThinMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: 12))
+        .clippedWithBackground()
     }
 }
 

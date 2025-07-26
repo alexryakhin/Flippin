@@ -21,7 +21,7 @@ struct SettingsView: View {
     @State private var showingBackgroundPreview = false
     @State private var showingBackgroundDemo = false
     @State private var showingPurchaseTest = false
-    @State private var showPaywall = false
+    @State private var premiumFeature: PremiumFeature?
     @State private var showingAnalytics = false
 
     var body: some View {
@@ -66,9 +66,7 @@ struct SettingsView: View {
                     PurchaseTestView()
                 }
             }
-            .sheet(isPresented: $showPaywall) {
-                Paywall.ContentView()
-            }
+            .premiumAlert(feature: $premiumFeature)
             .sheet(isPresented: $showingAnalytics) {
                 AnalyticsDashboardView()
             }
@@ -111,7 +109,7 @@ struct SettingsView: View {
                 }
                 .onTapGesture {
                     if !purchaseService.hasPremiumAccess {
-                        showPaywall = true
+                        premiumFeature = .languageChange
                     }
                 }
 
@@ -139,7 +137,7 @@ struct SettingsView: View {
                 }
                 .onTapGesture {
                     if !purchaseService.hasPremiumAccess {
-                        showPaywall = true
+                        premiumFeature = .languageChange
                     }
                 }
                 .onAppear {
@@ -181,8 +179,24 @@ struct SettingsView: View {
                         .font(.subheadline)
                         .foregroundStyle(.primary)
                 } trailingContent: {
-                    ColorPicker("", selection: $colorManager.userColor)
-                        .labelsHidden()
+                    if purchaseService.hasPremiumAccess {
+                        ColorPicker("", selection: $colorManager.userColor)
+                            .labelsHidden()
+                    } else {
+                        HStack {
+                            Circle()
+                                .fill(colorManager.userColor)
+                                .frame(width: 20, height: 20)
+                            Image(systemName: "crown.fill")
+                                .foregroundStyle(.yellow)
+                                .font(.caption)
+                        }
+                    }
+                }
+                .onTapGesture {
+                    if !purchaseService.hasPremiumAccess {
+                        premiumFeature = .customThemes
+                    }
                 }
 
                 CellWrapper {
@@ -190,10 +204,20 @@ struct SettingsView: View {
                         .font(.subheadline)
                         .foregroundStyle(.primary)
                 } trailingContent: {
-                    Button(LocalizationKeys.previewBackgrounds.localized) {
-                        showingBackgroundPreview = true
+                    if purchaseService.hasPremiumAccess {
+                        Button(colorManager.backgroundStyle.displayName) {
+                            showingBackgroundPreview = true
+                            AnalyticsService.trackEvent(.backgroundDemoOpened)
+                        }
+                        .buttonStyle(.bordered)
+                    } else {
+                        Button(LocalizationKeys.previewBackgrounds.localized) {
+                            showingBackgroundDemo = true
+                            AnalyticsService.trackEvent(.backgroundDemoOpened)
+                        }
+                        .buttonStyle(.bordered)
+                        .foregroundStyle(.secondary)
                     }
-                    .buttonStyle(.bordered)
                 }
 
                 CellWrapper {
@@ -302,14 +326,14 @@ struct SettingsView: View {
                 Text("Track your learning progress and get detailed insights")
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
-                
-                Button("View Analytics") {
-                    showingAnalytics = true
-                    AnalyticsService.trackEvent(.analyticsViewed)
-                }
-                .buttonStyle(.bordered)
 
-                if !purchaseService.hasPremiumAccess {
+                if purchaseService.hasPremiumAccess {
+                    Button("View Analytics") {
+                        showingAnalytics = true
+                        AnalyticsService.trackEvent(.analyticsViewed)
+                    }
+                    .buttonStyle(.bordered)
+                } else {
                     HStack {
                         Image(systemName: "crown.fill")
                             .foregroundColor(.yellow)
@@ -318,6 +342,9 @@ struct SettingsView: View {
                         Text("Premium users get advanced analytics and insights")
                             .font(.caption)
                             .foregroundColor(.secondary)
+                    }
+                    .onTapGesture {
+                        premiumFeature = .advancedAnalytics
                     }
                 }
             }

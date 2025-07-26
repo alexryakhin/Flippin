@@ -18,6 +18,7 @@ struct CardFrontView: View {
     
     @StateObject private var cardsProvider = CardsProvider.shared
     @StateObject private var colorManager = ColorManager.shared
+    @StateObject private var learningAnalytics = LearningAnalyticsService.shared
 
     // MARK: - App Storage
     
@@ -40,12 +41,27 @@ struct CardFrontView: View {
     private var displayLanguage: Language? {
         isTravelMode ? card.backLanguage : card.frontLanguage
     }
+    
+    private var difficultyLevel: Int16 {
+        learningAnalytics.getCardPerformance(for: card.id)?.difficultyLevel ?? 3
+    }
+    
+    private var difficultyColor: Color {
+        switch difficultyLevel {
+        case 1: return .green
+        case 2: return .blue
+        case 3: return .orange
+        case 4: return .red
+        case 5: return .purple
+        default: return .gray
+        }
+    }
 
     // MARK: - Body
     
     var body: some View {
         VStack(spacing: 20) {
-            // Header with language and favorite button
+            // Header with language, difficulty, and favorite button
             HStack {
                 if let language = displayLanguage {
                     Text(language.displayName)
@@ -53,6 +69,15 @@ struct CardFrontView: View {
                         .foregroundStyle(.secondary)
                 }
                 Spacer()
+                
+                // Difficulty indicator
+                Text("\(difficultyLevel)")
+                    .font(.caption2)
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                    .frame(width: 16, height: 16)
+                    .background(difficultyColor)
+                    .clipShape(Circle())
                 
                 Button {
                     cardsProvider.toggleFavorite(card)

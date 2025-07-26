@@ -18,6 +18,8 @@ final class LearningAnalyticsService: ObservableObject {
     
     private let coreDataService = CoreDataService.shared
     private let languageManager = LanguageManager.shared
+    private let cardsProvider = CardsProvider.shared
+
     private var sessionStartTime: Date?
     private var cancellables = Set<AnyCancellable>()
     
@@ -110,6 +112,8 @@ final class LearningAnalyticsService: ObservableObject {
         
         // Update mastery level and difficulty
         updateCardMastery(performance: performance)
+        updateAverageResponseTime(performance: performance, timeSpent: timeSpent)
+        updateCardDifficulty(performance: performance, timeSpent: timeSpent)
         updateNextReviewDate(performance: performance)
         
         // Update daily stats
@@ -252,6 +256,75 @@ final class LearningAnalyticsService: ObservableObject {
         performance.masteryLevel = max(0, min(100, mastery))
     }
     
+    /// Update average response time for a card
+    private func updateAverageResponseTime(performance: CardPerformance, timeSpent: TimeInterval) {
+        let currentTotal = performance.averageResponseTime * Double(performance.totalReviews)
+        let newTotal = currentTotal + timeSpent
+        let newCount = performance.totalReviews + 1
+        
+        performance.averageResponseTime = newTotal / Double(newCount)
+    }
+    
+    /// Update card difficulty level based on performance and content
+    private func updateCardDifficulty(performance: CardPerformance, timeSpent: TimeInterval) {
+        var difficultyScore: Double = 0
+        
+        // 1. Performance-based factors (60% weight)
+        let performanceWeight = 0.6
+        
+        // Accuracy factor (inverse relationship)
+        let accuracyFactor = 1.0 - performance.accuracyRate
+        difficultyScore += accuracyFactor * performanceWeight * 0.4
+        
+        // Response time factor (normalized to 0-1, where 1 = very slow)
+        let avgResponseTime = performance.averageResponseTime
+        let timeFactor = min(1.0, avgResponseTime / 10.0) // 10 seconds = max difficulty
+        difficultyScore += timeFactor * performanceWeight * 0.3
+        
+        // Consecutive incorrect factor
+        let consecutiveIncorrectFactor = min(1.0, Double(performance.consecutiveIncorrect) / 5.0)
+        difficultyScore += consecutiveIncorrectFactor * performanceWeight * 0.3
+        
+        // 2. Content-based factors (30% weight)
+        let contentWeight = 0.3
+        
+        // Card age factor (newer cards are harder)
+        if let creationDate = performance.creationDate {
+            let daysSinceCreation = Calendar.current.dateComponents([.day], from: creationDate, to: Date()).day ?? 0
+            let ageFactor = max(0, min(1.0, 1.0 - (Double(daysSinceCreation) / 30.0))) // 30 days to normalize
+            difficultyScore += ageFactor * contentWeight * 0.5
+        }
+        
+        // Review frequency factor (more reviews = harder)
+        if let creationDate = performance.creationDate {
+            let daysSinceCreation = Calendar.current.dateComponents([.day], from: creationDate, to: Date()).day ?? 1
+            let reviewFrequency = Double(performance.totalReviews) / max(1, Double(daysSinceCreation))
+            let frequencyFactor = min(1.0, reviewFrequency / 2.0) // 2 reviews per day = max difficulty
+            difficultyScore += frequencyFactor * contentWeight * 0.5
+        }
+        
+        // 3. User-specific factors (10% weight)
+        let userWeight = 0.1
+        
+        // Individual learning pattern (compared to user average)
+        let userAvgAccuracy = calculateUserAverageAccuracy()
+        let userAccuracyFactor = max(0, userAvgAccuracy - performance.accuracyRate)
+        difficultyScore += userAccuracyFactor * userWeight
+        
+        // Convert to 1-5 scale
+        let difficultyLevel = Int16(max(1, min(5, round(difficultyScore * 5))))
+        performance.difficultyLevel = difficultyLevel
+    }
+    
+    /// Calculate user's average accuracy across all cards
+    private func calculateUserAverageAccuracy() -> Double {
+        let performances = Array(cardPerformances.values)
+        guard !performances.isEmpty else { return 0.5 }
+        
+        let totalAccuracy = performances.reduce(0.0) { $0 + $1.accuracyRate }
+        return totalAccuracy / Double(performances.count)
+    }
+    
     /// Update next review date using spaced repetition
     private func updateNextReviewDate(performance: CardPerformance) {
         let accuracy = performance.accuracyRate
@@ -296,6 +369,55 @@ final class LearningAnalyticsService: ObservableObject {
     }
     
     // MARK: - Analytics Queries
+    
+    /// Get cards by difficulty level
+    func getCardsByDifficulty(_ difficulty: Int16) -> [CardItem] {
+        let request = CardPerformance.fetchRequest()
+        request.predicate = NSPredicate(format: "difficultyLevel == %d", difficulty)
+        
+        do {
+            let performances = try coreDataService.context.fetch(request)
+            return performances.compactMap { performance in
+                guard let cardId = performance.cardId else { return nil }
+                return cardsProvider.cards.first { card in
+                    card.id == cardId
+                }
+            }
+        } catch {
+            print("❌ Failed to get cards by difficulty: \(error)")
+            return []
+        }
+    }
+    
+    /// Get difficulty distribution
+    func getDifficultyDistribution() -> [Int16: Int] {
+        var distribution: [Int16: Int] = [1: 0, 2: 0, 3: 0, 4: 0, 5: 0]
+        
+        for performance in cardPerformances.values {
+            let difficulty = performance.difficultyLevel
+            distribution[difficulty, default: 0] += 1
+        }
+        
+        return distribution
+    }
+    
+    /// Get card performance for a specific card
+    func getCardPerformance(for cardId: String?) -> CardPerformance? {
+        guard let cardId else { return nil }
+        return cardPerformances[cardId]
+    }
+    
+    /// Get difficulty level description
+    func getDifficultyDescription(_ level: Int16) -> String {
+        switch level {
+        case 1: return "Very Easy"
+        case 2: return "Easy"
+        case 3: return "Medium"
+        case 4: return "Hard"
+        case 5: return "Very Hard"
+        default: return "Unknown"
+        }
+    }
     
     /// Get cards that need review
     func getCardsNeedingReview() -> [CardItem] {
