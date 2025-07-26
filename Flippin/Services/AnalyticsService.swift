@@ -12,7 +12,7 @@ enum AnalyticsEvent: String, CaseIterable {
     case allCardsDeleted = "all_cards_deleted"
     case cardFavorited = "card_favorited"
     case cardUnfavorited = "card_unfavorited"
-    
+
     // MARK: - Navigation Events
     case settingsScreenOpened = "settings_screen_opened"
     case myCardsScreenOpened = "my_cards_screen_opened"
@@ -20,7 +20,7 @@ enum AnalyticsEvent: String, CaseIterable {
     case welcomeScreenOpened = "welcome_screen_opened"
     case backgroundDemoOpened = "background_demo_opened"
     case presetCollectionsOpened = "preset_collections_opened"
-    
+
     // MARK: - Tag Events
     case tagAdded = "tag_added"
     case tagDeleted = "tag_deleted"
@@ -28,32 +28,38 @@ enum AnalyticsEvent: String, CaseIterable {
     case tagFilterCleared = "tag_filter_cleared"
     case favoriteFilterApplied = "favorite_filter_applied"
     case favoriteFilterCleared = "favorite_filter_cleared"
-    
+
     // MARK: - Settings Events
     case languageChanged = "language_changed"
     case backgroundStyleChanged = "background_style_changed"
     case backgroundColorChanged = "background_color_changed"
     case travelModeToggled = "travel_mode_toggled"
-    
+
     // MARK: - Search Events
     case searchPerformed = "search_performed"
     case searchCleared = "search_cleared"
-    
+
     // MARK: - App Events
     case appLaunched = "app_launched"
     case appBackgrounded = "app_backgrounded"
     case appForegrounded = "app_foregrounded"
-    
+
     // MARK: - Learning Events
     case studySessionStarted = "study_session_started"
     case studySessionEnded = "study_session_ended"
     case cardsShuffled = "cards_shuffled"
-    
+    case cardReviewedCorrect = "card_reviewed_correct"
+    case cardReviewedIncorrect = "card_reviewed_incorrect"
+    case masteryLevelReached = "mastery_level_reached"
+    case studyStreakExtended = "study_streak_extended"
+    case analyticsViewed = "analytics_viewed"
+    case detailedAnalyticsViewed = "detailed_analytics_viewed"
+
     // MARK: - Error Events
     case errorOccurred = "error_occurred"
     case translationFailed = "translation_failed"
     case ttsFailed = "tts_failed"
-    
+
     // MARK: - Purchase Events
     case purchaseTestOpened = "purchase_test_opened"
     case transactionUpdated = "transaction_updated"
@@ -61,7 +67,7 @@ enum AnalyticsEvent: String, CaseIterable {
     case purchaseFailed = "purchase_failed"
     case purchaseCompleted = "purchase_completed"
     case paywallOpened = "paywall_opened"
-    
+
     // MARK: - Preset Collection Events
     case presetCollectionImported = "preset_collection_imported"
     case presetCollectionViewed = "preset_collection_viewed"
@@ -70,18 +76,18 @@ enum AnalyticsEvent: String, CaseIterable {
 // MARK: - Analytics Service
 final class AnalyticsService {
     static let shared = AnalyticsService()
-    
+
     private init() {}
-    
+
     // MARK: - Event Tracking Methods
-    
+
     /// Track a simple event
     /// - Parameter event: The analytics event to track
     static func trackEvent(_ event: AnalyticsEvent) {
         Analytics.logEvent(event.rawValue, parameters: nil)
         print("📊 Analytics: \(event.rawValue)")
     }
-    
+
     /// Track an event with parameters
     /// - Parameters:
     ///   - event: The analytics event to track
@@ -90,7 +96,7 @@ final class AnalyticsService {
         Analytics.logEvent(event.rawValue, parameters: parameters)
         print("📊 Analytics: \(event.rawValue) with parameters: \(parameters)")
     }
-    
+
     /// Track card-related events with card information
     /// - Parameters:
     ///   - event: The card event to track
@@ -99,7 +105,7 @@ final class AnalyticsService {
     ///   - tagCount: Number of tags on the card
     static func trackCardEvent(_ event: AnalyticsEvent, cardLanguage: String? = nil, hasTags: Bool? = nil, tagCount: Int? = nil) {
         var parameters: [String: Any] = [:]
-        
+
         if let cardLanguage = cardLanguage {
             parameters["card_language"] = cardLanguage
         }
@@ -109,24 +115,10 @@ final class AnalyticsService {
         if let tagCount = tagCount {
             parameters["tag_count"] = tagCount
         }
-        
+
         trackEvent(event, parameters: parameters)
     }
-    
-    /// Track navigation events
-    /// - Parameters:
-    ///   - event: The navigation event to track
-    ///   - screenName: The name of the screen being navigated to
-    static func trackNavigationEvent(_ event: AnalyticsEvent, screenName: String? = nil) {
-        var parameters: [String: Any] = [:]
-        
-        if let screenName = screenName {
-            parameters["screen_name"] = screenName
-        }
-        
-        trackEvent(event, parameters: parameters)
-    }
-    
+
     /// Track settings changes
     /// - Parameters:
     ///   - event: The settings event to track
@@ -134,17 +126,17 @@ final class AnalyticsService {
     ///   - newValue: The new value
     static func trackSettingsEvent(_ event: AnalyticsEvent, oldValue: String? = nil, newValue: String? = nil) {
         var parameters: [String: Any] = [:]
-        
+
         if let oldValue = oldValue {
             parameters["old_value"] = oldValue
         }
         if let newValue = newValue {
             parameters["new_value"] = newValue
         }
-        
+
         trackEvent(event, parameters: parameters)
     }
-    
+
     /// Track search events
     /// - Parameters:
     ///   - event: The search event to track
@@ -152,17 +144,17 @@ final class AnalyticsService {
     ///   - resultCount: Number of results found
     static func trackSearchEvent(_ event: AnalyticsEvent, searchTerm: String? = nil, resultCount: Int? = nil) {
         var parameters: [String: Any] = [:]
-        
+
         if let searchTerm = searchTerm {
             parameters["search_term"] = searchTerm
         }
         if let resultCount = resultCount {
             parameters["result_count"] = resultCount
         }
-        
+
         trackEvent(event, parameters: parameters)
     }
-    
+
     /// Track tag events
     /// - Parameters:
     ///   - event: The tag event to track
@@ -170,17 +162,17 @@ final class AnalyticsService {
     ///   - tagCount: Total number of tags
     static func trackTagEvent(_ event: AnalyticsEvent, tagName: String? = nil, tagCount: Int? = nil) {
         var parameters: [String: Any] = [:]
-        
+
         if let tagName = tagName {
             parameters["tag_name"] = tagName
         }
         if let tagCount = tagCount {
             parameters["tag_count"] = tagCount
         }
-        
+
         trackEvent(event, parameters: parameters)
     }
-    
+
     /// Track error events
     /// - Parameters:
     ///   - event: The error event to track
@@ -188,17 +180,17 @@ final class AnalyticsService {
     ///   - errorCode: The error code if available
     static func trackErrorEvent(_ event: AnalyticsEvent, errorMessage: String? = nil, errorCode: String? = nil) {
         var parameters: [String: Any] = [:]
-        
+
         if let errorMessage = errorMessage {
             parameters["error_message"] = errorMessage
         }
         if let errorCode = errorCode {
             parameters["error_code"] = errorCode
         }
-        
+
         trackEvent(event, parameters: parameters)
     }
-    
+
     /// Track study session events
     /// - Parameters:
     ///   - event: The study session event to track
@@ -206,17 +198,17 @@ final class AnalyticsService {
     ///   - cardsReviewed: Number of cards reviewed
     static func trackStudySessionEvent(_ event: AnalyticsEvent, sessionDuration: TimeInterval? = nil, cardsReviewed: Int? = nil) {
         var parameters: [String: Any] = [:]
-        
+
         if let sessionDuration = sessionDuration {
             parameters["session_duration"] = sessionDuration
         }
         if let cardsReviewed = cardsReviewed {
             parameters["cards_reviewed"] = cardsReviewed
         }
-        
+
         trackEvent(event, parameters: parameters)
     }
-    
+
     /// Track favorite events
     /// - Parameters:
     ///   - event: The favorite event to track
@@ -224,17 +216,17 @@ final class AnalyticsService {
     ///   - hasTags: Whether the card has tags
     static func trackFavoriteEvent(_ event: AnalyticsEvent, cardLanguage: String? = nil, hasTags: Bool? = nil) {
         var parameters: [String: Any] = [:]
-        
+
         if let cardLanguage = cardLanguage {
             parameters["card_language"] = cardLanguage
         }
         if let hasTags = hasTags {
             parameters["has_tags"] = hasTags
         }
-        
+
         trackEvent(event, parameters: parameters)
     }
-    
+
     /// Track preset collection events
     /// - Parameters:
     ///   - event: The preset collection event to track
@@ -243,7 +235,7 @@ final class AnalyticsService {
     ///   - category: The category of the collection
     static func trackPresetCollectionEvent(_ event: AnalyticsEvent, collectionName: String? = nil, cardCount: Int? = nil, category: String? = nil) {
         var parameters: [String: Any] = [:]
-        
+
         if let collectionName = collectionName {
             parameters["collection_name"] = collectionName
         }
@@ -253,10 +245,10 @@ final class AnalyticsService {
         if let category = category {
             parameters["category"] = category
         }
-        
+
         trackEvent(event, parameters: parameters)
     }
-    
+
     /// Track filter events
     /// - Parameters:
     ///   - event: The filter event to track
@@ -264,19 +256,19 @@ final class AnalyticsService {
     ///   - filterValue: The value of the filter
     static func trackFilterEvent(_ event: AnalyticsEvent, filterType: String? = nil, filterValue: String? = nil) {
         var parameters: [String: Any] = [:]
-        
+
         if let filterType = filterType {
             parameters["filter_type"] = filterType
         }
         if let filterValue = filterValue {
             parameters["filter_value"] = filterValue
         }
-        
+
         trackEvent(event, parameters: parameters)
     }
-    
+
     // MARK: - User Properties
-    
+
     /// Set user properties for analytics
     /// - Parameters:
     ///   - nativeLanguage: User's native language
@@ -293,10 +285,10 @@ final class AnalyticsService {
             Analytics.setUserProperty(backgroundStyle, forName: "background_style")
         }
     }
-    
+
     /// Set user ID for analytics
     /// - Parameter userId: The user's unique identifier
     static func setUserId(_ userId: String) {
         Analytics.setUserID(userId)
     }
-} 
+}

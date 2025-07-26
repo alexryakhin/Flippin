@@ -30,6 +30,7 @@ struct ContentView: View {
     @State private var showWelcomeSheet = false
     @State private var showSettings = false
     @State private var showMyCards = false
+    @State private var showStudyMode = false
     @State private var showAddCardSheet = false
     @State private var shuffledItems: [CardItem] = []
     @State private var showUpgradeAlert = false
@@ -83,7 +84,8 @@ struct ContentView: View {
                 onAddItem: { showAddCardSheet = true },
                 onShuffle: shuffleCards,
                 onShowSettings: { showSettings = true },
-                onShowMyCards: { showMyCards = true }
+                onShowMyCards: { showMyCards = true },
+                onShowStudyMode: { showStudyMode = true }
             )
         }
         .ifLet(colorManager.colorScheme) { view, scheme in
@@ -129,11 +131,6 @@ struct ContentView: View {
         .sheet(isPresented: $showSettings) {
             SettingsView()
         }
-        .onChange(of: showSettings) { _, isPresented in
-            if isPresented {
-                AnalyticsService.trackNavigationEvent(.settingsScreenOpened, screenName: "Settings")
-            }
-        }
         .sheet(isPresented: $showMyCards) {
             MyCardsListView(
                 onToSettings: {
@@ -141,18 +138,11 @@ struct ContentView: View {
                 }
             )
         }
-        .onChange(of: showMyCards) { _, isPresented in
-            if isPresented {
-                AnalyticsService.trackNavigationEvent(.myCardsScreenOpened, screenName: "MyCards")
-            }
-        }
         .sheet(isPresented: $showAddCardSheet) {
             AddCardSheet()
         }
-        .onChange(of: showAddCardSheet) { _, isPresented in
-            if isPresented {
-                AnalyticsService.trackNavigationEvent(.addCardScreenOpened, screenName: "AddCard")
-            }
+        .sheet(isPresented: $showStudyMode) {
+            StudyModeView()
         }
         .sheet(isPresented: $showPaywall) {
             Paywall.ContentView()

@@ -76,6 +76,9 @@ struct AddCardSheet: View {
                     .foregroundStyle(.secondary)
                 }
             }
+            .onAppear {
+                AnalyticsService.trackEvent(.addCardScreenOpened)
+            }
         }
         .ifLet(colorManager.colorScheme) { view, scheme in
             view.colorScheme(scheme)

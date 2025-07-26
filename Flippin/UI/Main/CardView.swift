@@ -85,6 +85,11 @@ struct CardView: View {
                         hasTags: !card.tagNames.isEmpty,
                         tagCount: card.tagNames.count
                     )
+                    
+                    // Start study session if not already started
+                    if LearningAnalyticsService.shared.currentSession == nil {
+                        LearningAnalyticsService.shared.startStudySession()
+                    }
                 }
             }
             .onChange(of: progress) { _, newProgress in

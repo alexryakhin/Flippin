@@ -38,7 +38,7 @@ final class TTSPlayer: TTSPlayerInterface {
     // MARK: - Online TTS (Google Translate)
     
     private func playOnlineTTS(_ text: String, language: Language) async throws {
-        let escapedText = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        let escapedText = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed).orEmpty
         let urlString = "https://translate.google.com/translate_tts?ie=UTF-8&client=gtx&q=\(escapedText)&tl=\(language.voiceOverCode)"
         guard let url = URL(string: urlString) else { 
             throw TTSError.invalidURL 

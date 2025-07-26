@@ -23,6 +23,7 @@ struct ButtonRowView: View {
     let onShuffle: () -> Void
     let onShowSettings: () -> Void
     let onShowMyCards: () -> Void
+    let onShowStudyMode: () -> Void
 
     // MARK: - Body
     
@@ -34,19 +35,28 @@ struct ButtonRowView: View {
             Menu {
                 Button {
                     HapticService.shared.menuOpened()
-                    onShowSettings()
-                } label: {
-                    Label(LocalizationKeys.settingsLabel.localized, systemImage: "gear")
-                }
-                
-                Button {
-                    HapticService.shared.menuOpened()
                     onShowMyCards()
                 } label: {
                     Label {
                         Text(LocalizationKeys.myCards.localized)
                     } icon: {
                         Image(.stackCards)
+                    }
+                }
+
+                Button {
+                    HapticService.shared.menuOpened()
+                    onShowStudyMode()
+                } label: {
+                    Label("Study Mode", systemImage: "book.fill")
+                }
+
+                Section {
+                    Button {
+                        HapticService.shared.menuOpened()
+                        onShowSettings()
+                    } label: {
+                        Label(LocalizationKeys.settingsLabel.localized, systemImage: "gear")
                     }
                 }
             } label: {

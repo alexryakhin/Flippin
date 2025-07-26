@@ -13,9 +13,15 @@ public final class Tag: NSManagedObject, Identifiable {
     @NSManaged public var id: String?
     @NSManaged public var name: String?
     @NSManaged public var cards: NSSet?
+    @NSManaged public var studySessions: NSSet?
     
     var cardArray: [CardItem] {
         let set = cards as? Set<CardItem> ?? []
+        return Array(set)
+    }
+    
+    var studySessionArray: [StudySession] {
+        let set = studySessions as? Set<StudySession> ?? []
         return Array(set)
     }
 }
@@ -48,6 +54,21 @@ extension Tag {
     
     @objc(removeCards:)
     @NSManaged public func removeFromCards(_ values: NSSet)
+}
+
+// MARK: - Generated accessors for studySessions
+extension Tag {
+    @objc(addStudySessionsObject:)
+    @NSManaged public func addToStudySessions(_ value: StudySession)
+    
+    @objc(removeStudySessionsObject:)
+    @NSManaged public func removeFromStudySessions(_ value: StudySession)
+    
+    @objc(addStudySessions:)
+    @NSManaged public func addToStudySessions(_ values: NSSet)
+    
+    @objc(removeStudySessions:)
+    @NSManaged public func removeFromStudySessions(_ values: NSSet)
 } 
 
 extension Tag: Comparable {

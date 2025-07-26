@@ -22,6 +22,7 @@ struct SettingsView: View {
     @State private var showingBackgroundDemo = false
     @State private var showingPurchaseTest = false
     @State private var showPaywall = false
+    @State private var showingAnalytics = false
 
     var body: some View {
         NavigationView {
@@ -31,6 +32,7 @@ struct SettingsView: View {
                     themeSection
                     cardDisplaySection
                     tagsManagementSection
+                    analyticsSection
                     subscriptionManagementSection
 
                     #if DEBUG
@@ -66,6 +68,12 @@ struct SettingsView: View {
             }
             .sheet(isPresented: $showPaywall) {
                 Paywall.ContentView()
+            }
+            .sheet(isPresented: $showingAnalytics) {
+                AnalyticsDashboardView()
+            }
+            .onAppear {
+                AnalyticsService.trackEvent(.settingsScreenOpened)
             }
         }
         .ifLet(colorManager.colorScheme) { view, scheme in
@@ -281,6 +289,39 @@ struct SettingsView: View {
                         .font(.caption)
                 }
             }
+            .clippedWithPaddingAndBackground()
+        }
+    }
+    
+    // MARK: - Analytics Section
+    private var analyticsSection: some View {
+        CustomSectionView(
+            header: "Learning Analytics"
+        ) {
+            VStack(alignment: .leading, spacing: 12) {
+                Text("Track your learning progress and get detailed insights")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                
+                Button("View Analytics") {
+                    showingAnalytics = true
+                    AnalyticsService.trackEvent(.analyticsViewed)
+                }
+                .buttonStyle(.bordered)
+
+                if !purchaseService.hasPremiumAccess {
+                    HStack {
+                        Image(systemName: "crown.fill")
+                            .foregroundColor(.yellow)
+                            .font(.caption)
+                        
+                        Text("Premium users get advanced analytics and insights")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+                }
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
             .clippedWithPaddingAndBackground()
         }
     }

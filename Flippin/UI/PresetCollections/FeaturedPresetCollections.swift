@@ -38,7 +38,7 @@ struct FeaturedPresetCollections: View {
                     Button(LocalizationKeys.seeAllCollections.localized) {
                         if purchaseService.hasPremiumAccess {
                             showingAllCollections = true
-                            AnalyticsService.trackNavigationEvent(.presetCollectionsOpened, screenName: "PresetCollections")
+                            AnalyticsService.trackEvent(.presetCollectionsOpened)
                         } else {
                             // Donate tip event and show paywall for free users
                             showPaywall = true

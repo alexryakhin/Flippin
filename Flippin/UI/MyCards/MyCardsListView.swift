@@ -173,6 +173,9 @@ struct MyCardsListView: View {
         .ifLet(colorManager.colorScheme) { view, scheme in
             view.colorScheme(scheme)
         }
+        .onAppear {
+            AnalyticsService.trackEvent(.myCardsScreenOpened)
+        }
         .sheet(isPresented: $showAddCardSheet) {
             AddCardSheet()
         }
