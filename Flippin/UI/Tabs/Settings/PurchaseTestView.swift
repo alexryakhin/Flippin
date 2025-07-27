@@ -42,6 +42,7 @@ struct PurchaseTestView: View {
                     }
                     .disabled(purchaseService.isPurchasing || purchaseService.products.isEmpty)
                     .buttonStyle(.borderedProminent)
+                    .clipShape(Capsule())
                 }
                 .padding(.vertical, 8)
             }
@@ -61,6 +62,7 @@ struct PurchaseTestView: View {
                             showAlert(title: "Copied!", message: "Transaction ID copied to clipboard")
                         }
                         .buttonStyle(.borderedProminent)
+                        .clipShape(Capsule())
                     }
                     .padding(.vertical, 4)
                 }
@@ -248,6 +250,7 @@ struct ProductRowView: View {
                 }
                 .disabled(isPurchasing)
                 .buttonStyle(.borderedProminent)
+                .clipShape(Capsule())
             } else {
                 HStack {
                     Image(systemName: "checkmark.circle.fill")

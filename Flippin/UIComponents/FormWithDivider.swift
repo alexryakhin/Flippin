@@ -14,7 +14,7 @@ struct FormWithDivider<Content: View>: View {
     private let dividerLeadingPadding: CGFloat
 
     init(
-        dividerLeadingPadding: CGFloat = 16,
+        dividerLeadingPadding: CGFloat = 0,
         @ViewBuilder content: () -> Content
     ) {
         self.content = content()
@@ -33,7 +33,7 @@ struct FormWithDivider<Content: View>: View {
         @ViewBuilder
         func body(children: _VariadicView.Children) -> some View {
             let last = children.last?.id
-            VStack(spacing: 0) {
+            VStack(spacing: 8) {
                 ForEach(children) { child in
                     child
                     if child.id != last {

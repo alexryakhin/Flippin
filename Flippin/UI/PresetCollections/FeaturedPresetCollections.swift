@@ -24,50 +24,51 @@ struct FeaturedPresetCollections: View {
     var featuredCollections: [PresetCollection] {
         presetService.getFeaturedCollections()
     }
-    
+
+    var bgStyle = SectionBgStyle.material
+
     var body: some View {
         if !featuredCollections.isEmpty {
-            VStack(alignment: .leading, spacing: 16) {
-                HStack {
-                    Text(LocalizationKeys.presetCollections.localized)
-                        .font(.headline)
-                        .foregroundStyle(.primary)
+            CustomSectionView(
+                header: LocalizationKeys.presetCollections.localized,
+                headerFontStyle: .bold,
+                backgroundStyle: bgStyle
+            ) {
+                VStack(alignment: .leading, spacing: 16) {
+                    Text(LocalizationKeys.getStartedWithCollections.localized)
+                        .font(.caption)
+                        .foregroundColor(.secondary)
 
-                    Spacer()
-
-                    Button(LocalizationKeys.seeAllCollections.localized) {
-                        if purchaseService.hasPremiumAccess {
-                            showingAllCollections = true
-                            AnalyticsService.trackEvent(.presetCollectionsOpened)
-                        } else {
-                            premiumFeature = .cardPresets
-                        }
-                    }
-                    .font(.subheadline)
-                    .foregroundColor(colorManager.tintColor)
-                }
-
-                Text(LocalizationKeys.getStartedWithCollections.localized)
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 12) {
-                        ForEach(featuredCollections) { collection in
-                            PresetCollectionCard(collection: collection) {
-                                collectionToImport = collection
-                                showingImportAlert = true
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 12) {
+                            ForEach(featuredCollections) { collection in
+                                PresetCollectionCard(collection: collection) {
+                                    collectionToImport = collection
+                                    showingImportAlert = true
+                                }
+                                .frame(width: 240)
+                                .clippedWithPaddingAndBackground(
+                                    Color(.tertiarySystemGroupedBackground).opacity(0.6)
+                                )
                             }
-                            .frame(width: 240)
-                            .clippedWithPaddingAndBackground(
-                                Color(.tertiarySystemGroupedBackground).opacity(0.6)
-                            )
                         }
+                        .scrollTargetLayout()
                     }
-                    .scrollTargetLayout()
+                    .scrollTargetBehavior(.viewAligned)
+                    .scrollClipDisabled()
                 }
-                .scrollTargetBehavior(.viewAligned)
-                .scrollClipDisabled()
+            } trailingContent: {
+                Button(LocalizationKeys.seeAllCollections.localized) {
+                    if purchaseService.hasPremiumAccess {
+                        showingAllCollections = true
+                        AnalyticsService.trackEvent(.presetCollectionsOpened)
+                    } else {
+                        premiumFeature = .cardPresets
+                    }
+                }
+                .foregroundStyle(colorManager.borderedProminentForegroundColor)
+                .buttonStyle(.borderedProminent)
+                .clipShape(Capsule())
             }
             .sheet(isPresented: $showingAllCollections) {
                 PresetCollectionsView()

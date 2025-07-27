@@ -68,11 +68,13 @@ struct SettingsView: View {
             header: LocalizationKeys.languages.localized
         ) {
             FormWithDivider {
-                CellWrapper {
+                HStack(spacing: 2) {
                     Text(LocalizationKeys.myLanguageSettings.localized)
                         .font(.subheadline)
                         .foregroundStyle(.primary)
-                } trailingContent: {
+
+                    Spacer()
+
                     if purchaseService.hasPremiumAccess {
                         Picker(LocalizationKeys.myLanguageSettings.localized, selection: $languageManager.userLanguageRaw) {
                             ForEach(Language.sortedByDisplayNameWithSystemFirst) { lang in
@@ -81,6 +83,7 @@ struct SettingsView: View {
                         }
                         .pickerStyle(.menu)
                         .buttonStyle(.bordered)
+                        .clipShape(Capsule())
                     } else {
                         HStack {
                             Text(languageManager.userLanguage.displayName)
@@ -97,11 +100,12 @@ struct SettingsView: View {
                     }
                 }
 
-                CellWrapper {
+                HStack(spacing: 2) {
                     Text(LocalizationKeys.targetLanguage.localized)
                         .font(.subheadline)
                         .foregroundStyle(.primary)
-                } trailingContent: {
+
+                    Spacer()
                     if purchaseService.hasPremiumAccess {
                         Picker(LocalizationKeys.targetLanguage.localized, selection: $languageManager.targetLanguageRaw) {
                             ForEach(Language.sortedByDisplayNameWithSystemFirst) { lang in
@@ -110,6 +114,7 @@ struct SettingsView: View {
                         }
                         .pickerStyle(.menu)
                         .buttonStyle(.bordered)
+                        .clipShape(Capsule())
                     } else {
                         HStack {
                             Text(languageManager.targetLanguage.displayName)
@@ -133,7 +138,7 @@ struct SettingsView: View {
 
                 // Only show filter by language for premium users
                 if purchaseService.hasPremiumAccess {
-                    CellWrapper {
+                    HStack(spacing: 2) {
                         VStack(alignment: .leading, spacing: 4) {
                             Text(LocalizationKeys.filterByLanguage.localized)
                                 .font(.subheadline)
@@ -142,14 +147,15 @@ struct SettingsView: View {
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                         }
-                    } trailingContent: {
+
+                        Spacer()
+
                         Toggle("", isOn: $languageManager.filterByLanguage)
                             .disabled(!purchaseService.hasPremiumAccess)
                             .labelsHidden()
                     }
                 }
             }
-            .clippedWithBackgroundMaterial(.regularMaterial)
         }
     }
     
@@ -159,11 +165,13 @@ struct SettingsView: View {
             header: LocalizationKeys.theme.localized
         ) {
             FormWithDivider {
-                CellWrapper {
+                HStack(spacing: 2) {
                     Text(LocalizationKeys.color.localized)
                         .font(.subheadline)
                         .foregroundStyle(.primary)
-                } trailingContent: {
+
+                    Spacer()
+
                     if purchaseService.hasPremiumAccess {
                         ColorPicker("", selection: $colorManager.userColor)
                             .labelsHidden()
@@ -184,32 +192,38 @@ struct SettingsView: View {
                     }
                 }
 
-                CellWrapper {
+                HStack(spacing: 2) {
                     Text(LocalizationKeys.backgroundStyle.localized)
                         .font(.subheadline)
                         .foregroundStyle(.primary)
-                } trailingContent: {
+
+                    Spacer()
+
                     if purchaseService.hasPremiumAccess {
                         Button(colorManager.backgroundStyle.displayName) {
                             showingBackgroundPreview = true
-                            AnalyticsService.trackEvent(.backgroundDemoOpened)
+                            AnalyticsService.trackEvent(.backgroundPreviewOpened)
                         }
                         .buttonStyle(.bordered)
+                        .clipShape(Capsule())
                     } else {
                         Button(LocalizationKeys.previewBackgrounds.localized) {
                             showingBackgroundDemo = true
                             AnalyticsService.trackEvent(.backgroundDemoOpened)
                         }
                         .buttonStyle(.bordered)
+                        .clipShape(Capsule())
                         .foregroundStyle(.secondary)
                     }
                 }
 
-                CellWrapper {
+                HStack(spacing: 2) {
                     Text(LocalizationKeys.colorScheme.localized)
                         .font(.subheadline)
                         .foregroundStyle(.primary)
-                } trailingContent: {
+
+                    Spacer()
+
                     Picker(LocalizationKeys.colorScheme.localized, selection: $colorManager.userColorSchemePreference) {
                         ForEach(ColorSchemeInternal.allCases, id: \.self) { scheme in
                             Text(scheme.localizedName)
@@ -218,24 +232,26 @@ struct SettingsView: View {
                     }
                     .pickerStyle(.menu)
                     .buttonStyle(.bordered)
+                    .clipShape(Capsule())
                 }
             }
-            .clippedWithBackgroundMaterial(.regularMaterial)
         }
     }
     
     // MARK: - Card Display Section
     private var cardDisplaySection: some View {
         CustomSectionView(
-            header: LocalizationKeys.cardDisplay.localized
+            header: LocalizationKeys.cardDisplayMode.localized
         ) {
             VStack(alignment: .leading, spacing: 4) {
-                Text(LocalizationKeys.cardDisplayMode.localized)
-                    .font(.subheadline)
-                    .foregroundStyle(.primary)
-                Text(isTravelMode ? LocalizationKeys.travelModeDescription.localized : LocalizationKeys.learningModeDescription.localized)
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
+                Text(
+                    isTravelMode
+                    ? LocalizationKeys.travelModeDescription.localized
+                    : LocalizationKeys.learningModeDescription.localized
+                )
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+
                 Picker(LocalizationKeys.cardDisplayMode.localized, selection: $isTravelMode) {
                     Text(LocalizationKeys.learningMode.localized).tag(false)
                     Text(LocalizationKeys.travelMode.localized).tag(true)
@@ -243,7 +259,6 @@ struct SettingsView: View {
                 .pickerStyle(.segmented)
                 .padding(.top, 8)
             }
-            .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
         }
     }
     
@@ -254,25 +269,24 @@ struct SettingsView: View {
         ) {
             VStack(alignment: .leading, spacing: 12) {
                 HStack {
-                    TextField(LocalizationKeys.newTagName.localized, text: $newTagText)
-                        .textFieldStyle(.roundedBorder)
-                        .autocorrectionDisabled()
-                        .textInputAutocapitalization(.never)
-                        .keyboardType(.asciiCapable)
-                        .textContentType(.nickname)
-
-                    Button(LocalizationKeys.add.localized) {
-                        if !newTagText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-                            tagManager.addTag(newTagText)
-                            AnalyticsService.trackTagEvent(
-                                .tagAdded,
-                                tagName: newTagText,
-                                tagCount: tagManager.availableTags.count
-                            )
-                            newTagText = ""
-                        }
-                    }
-                    .disabled(newTagText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+                    InputView(
+                        LocalizationKeys.newTagName.localized,
+                        text: $newTagText,
+                        onSubmit: {
+                            onAddTagButtonTap()
+                        },
+                        trailingButtonLabel: newTagText.isEmpty
+                        ? LocalizationKeys.cancel.localized
+                        : LocalizationKeys.add.localized,
+                        onTrailingButtonTap: {
+                            onAddTagButtonTap()
+                        },
+                    )
+                    .autocorrectionDisabled()
+                    .textInputAutocapitalization(.never)
+                    .keyboardType(.asciiCapable)
+                    .textContentType(.nickname)
+                    .animation(.default, value: newTagText.isEmpty)
                 }
                 
                 if !tagManager.availableTags.isEmpty {
@@ -299,10 +313,22 @@ struct SettingsView: View {
                         .font(.caption)
                 }
             }
-            .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
         }
     }
-    
+
+    private func onAddTagButtonTap() {
+        HapticService.shared.buttonTapped()
+        if !newTagText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            tagManager.addTag(newTagText)
+            AnalyticsService.trackTagEvent(
+                .tagAdded,
+                tagName: newTagText,
+                tagCount: tagManager.availableTags.count
+            )
+            newTagText = ""
+        }
+    }
+
     // MARK: - Purchase Testing Section (Debug Only)
     #if DEBUG
     private var purchaseTestingSection: some View {
@@ -318,10 +344,11 @@ struct SettingsView: View {
                     showingPurchaseTest = true
                     AnalyticsService.trackEvent(.purchaseTestOpened)
                 }
+                .foregroundStyle(colorManager.borderedProminentForegroundColor)
                 .buttonStyle(.borderedProminent)
+                .clipShape(Capsule())
             }
             .frame(maxWidth: .infinity, alignment: .leading)
-            .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
         }
     }
     #endif
@@ -331,19 +358,14 @@ struct SettingsView: View {
         Group {
             if purchaseService.hasPremiumAccess {
                 CustomSectionView(
-                    header: LocalizationKeys.subscription.localized
+                    header: LocalizationKeys.subscriptionStatus.localized
                 ) {
                     VStack(alignment: .leading, spacing: 12) {
                         HStack {
-                            VStack(alignment: .leading, spacing: 4) {
-                                Text(LocalizationKeys.subscriptionStatus.localized)
-                                    .font(.subheadline)
-                                    .foregroundStyle(.primary)
-                                Text(LocalizationKeys.activeSubscription.localized)
-                                    .font(.caption)
-                                    .foregroundStyle(.secondary)
-                            }
-                            
+                            Text(LocalizationKeys.activeSubscription.localized)
+                                .font(.subheadline)
+                                .foregroundStyle(.secondary)
+
                             Spacer()
                             
                             Image(systemName: "checkmark.circle.fill")
@@ -357,9 +379,9 @@ struct SettingsView: View {
                             }
                         }
                         .buttonStyle(.bordered)
+                        .clipShape(Capsule())
                         .frame(maxWidth: .infinity, alignment: .leading)
                     }
-                    .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
                 }
             }
         }

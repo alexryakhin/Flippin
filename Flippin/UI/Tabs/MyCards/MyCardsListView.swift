@@ -146,14 +146,15 @@ struct MyCardsListView: View {
                 } label: {
                     Image(systemName: "plus")
                         .font(.headline)
+                        .foregroundStyle(colorManager.borderedProminentForegroundColor)
                 }
                 .buttonStyle(.borderedProminent)
                 .clipShape(Capsule())
             },
             bottomContent: {
                 VStack(spacing: 8) {
-                    SearchView(
-                        placeholder: LocalizationKeys.searchCards.localized,
+                    InputView.searchView(
+                        LocalizationKeys.searchCards.localized,
                         searchText: $searchText
                     )
                     FiltersScrollView()
@@ -204,7 +205,6 @@ struct MyCardsListView: View {
             }
 
             FeaturedPresetCollections()
-                .clippedWithPaddingAndBackgroundMaterial()
                 .padding(.horizontal, 16)
                 .padding(.bottom, 12)
         }
@@ -269,7 +269,9 @@ struct MyCardsListView: View {
                     tagManager.clearFilter()
                     AnalyticsService.trackFilterEvent(.tagFilterCleared, filterType: "tag", filterValue: "")
                 }
+                .foregroundStyle(colorManager.borderedProminentForegroundColor)
                 .buttonStyle(.borderedProminent)
+                .clipShape(Capsule())
             }
         }
     }

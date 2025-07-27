@@ -274,8 +274,9 @@ enum AnalyticsDashboard {
                 Button("Upgrade to Premium") {
                     // Handle premium upgrade
                 }
+                .foregroundStyle(colorManager.borderedProminentForegroundColor)
                 .buttonStyle(.borderedProminent)
-                .tint(colorManager.tintColor)
+                .clipShape(Capsule())
             }
             .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
         }

@@ -18,6 +18,7 @@ enum AnalyticsEvent: String, CaseIterable {
     case myCardsScreenOpened = "my_cards_screen_opened"
     case addCardScreenOpened = "add_card_screen_opened"
     case welcomeScreenOpened = "welcome_screen_opened"
+    case backgroundPreviewOpened = "background_preview_opened"
     case backgroundDemoOpened = "background_demo_opened"
     case presetCollectionsOpened = "preset_collections_opened"
 

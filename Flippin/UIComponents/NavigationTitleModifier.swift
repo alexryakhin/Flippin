@@ -31,12 +31,13 @@ struct NavigationTitleModifier<TrailingContent: View, BottomContent: View>: View
         content
             .safeAreaInset(edge: .top) {
                 VStack(spacing: mode == .large ? 12 : 8) {
-                    HStack {
+                    HStack(spacing: 2) {
                         Text(title)
                             .font(mode == .inline ? .headline : .largeTitle)
                             .bold()
                             .foregroundStyle(.secondary)
-                            .frame(maxWidth: .infinity, alignment: .leading)
+
+                        Spacer()
 
                         trailingContent()
                     }

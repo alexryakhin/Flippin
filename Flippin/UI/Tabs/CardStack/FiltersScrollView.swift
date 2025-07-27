@@ -13,6 +13,9 @@ import SwiftUI
  Supports smooth scrolling with view-aligned behavior.
  */
 struct FiltersScrollView: View {
+
+    var isMaterialBackground: Bool = false
+
     // MARK: - State Objects
     
     @StateObject private var tagManager = TagManager.shared
@@ -26,7 +29,8 @@ struct FiltersScrollView: View {
                 // Show all cards filter
                 TagButton(
                     title: LocalizationKeys.showAllCards,
-                    isSelected: tagManager.selectedFilterTag == nil && !tagManager.isFavoriteFilterOn
+                    isSelected: tagManager.selectedFilterTag == nil && !tagManager.isFavoriteFilterOn,
+                    isMaterialBackground: isMaterialBackground
                 ) {
                     tagManager.selectedFilterTag = nil
                     tagManager.isFavoriteFilterOn = false
@@ -36,7 +40,8 @@ struct FiltersScrollView: View {
                 TagButton(
                     title: LocalizationKeys.showFavoritesOnly,
                     imageSystemName: "heart.fill",
-                    isSelected: tagManager.isFavoriteFilterOn
+                    isSelected: tagManager.isFavoriteFilterOn,
+                    isMaterialBackground: isMaterialBackground
                 ) {
                     tagManager.isFavoriteFilterOn.toggle()
                 }
@@ -47,7 +52,8 @@ struct FiltersScrollView: View {
                     TagButton(
                         title: tag.name.orEmpty,
                         imageSystemName: "tag.fill",
-                        isSelected: isSelected
+                        isSelected: isSelected,
+                        isMaterialBackground: isMaterialBackground
                     ) {
                         tagManager.selectedFilterTag = isSelected ? nil : tag
                     }

@@ -9,6 +9,7 @@ import SwiftUI
 extension WelcomeSheet {
     struct LanguageSelectionStepView: View {
         @StateObject private var languageManager = LanguageManager.shared
+        @StateObject private var colorManager = ColorManager.shared
         @State private var animateContent = false
 
         let onContinue: () -> Void
@@ -91,7 +92,9 @@ extension WelcomeSheet {
                             .frame(maxWidth: .infinity)
                             .padding(vertical: 12, horizontal: 16)
                     }
+                    .foregroundStyle(colorManager.borderedProminentForegroundColor)
                     .buttonStyle(.borderedProminent)
+                    .clipShape(Capsule())
                 }
                 .padding(vertical: 12, horizontal: 16)
                 .onAppear {

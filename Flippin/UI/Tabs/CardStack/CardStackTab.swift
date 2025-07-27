@@ -46,7 +46,7 @@ enum CardStackTab {
         var body: some View {
             VStack(spacing: 16) {
                 // Filters
-                FiltersScrollView()
+                FiltersScrollView(isMaterialBackground: true)
 
                 // Card limit indicator
                 cardLimitIndicator
@@ -67,6 +67,7 @@ enum CardStackTab {
                             shuffleCards()
                         } label: {
                             Label("Shuffle", systemImage: "shuffle")
+                                .foregroundStyle(colorManager.borderedProminentForegroundColor)
                         }
                         .buttonStyle(.borderedProminent)
                         .clipShape(Capsule())
@@ -76,6 +77,7 @@ enum CardStackTab {
                             showAddCardSheet = true
                         } label: {
                             Label("Add Card", systemImage: "plus")
+                                .foregroundStyle(colorManager.borderedProminentForegroundColor)
                         }
                         .buttonStyle(.borderedProminent)
                         .clipShape(Capsule())
@@ -160,6 +162,7 @@ enum CardStackTab {
                         premiumFeature = .unlimitedCards
                     }
                     .font(.caption)
+                    .foregroundStyle(colorManager.borderedProminentForegroundColor)
                     .buttonStyle(.borderedProminent)
                     .clipShape(Capsule())
                 }
@@ -189,6 +192,7 @@ enum CardStackTab {
                         showAddCardSheet = true
                     } label: {
                         Label(LocalizationKeys.addCard.localized, systemImage: "plus")
+                            .foregroundStyle(colorManager.borderedProminentForegroundColor)
                     }
                     .buttonStyle(.borderedProminent)
                     .clipShape(Capsule())
@@ -196,7 +200,6 @@ enum CardStackTab {
                 .foregroundColor(colorManager.foregroundColor)
 
                 FeaturedPresetCollections()
-                    .clippedWithPaddingAndBackgroundMaterial()
             }
         }
 
@@ -217,7 +220,9 @@ enum CardStackTab {
                         HapticService.shared.buttonTapped()
                         tagManager.clearFilter()
                     }
+                    .foregroundStyle(colorManager.borderedProminentForegroundColor)
                     .buttonStyle(.borderedProminent)
+                    .clipShape(Capsule())
                 }
                 .foregroundColor(colorManager.foregroundColor)
             }

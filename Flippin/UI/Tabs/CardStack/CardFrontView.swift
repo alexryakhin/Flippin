@@ -48,12 +48,12 @@ struct CardFrontView: View {
     
     private var difficultyColor: Color {
         switch difficultyLevel {
-        case 1: return .green
-        case 2: return .blue
-        case 3: return .orange
-        case 4: return .red
-        case 5: return .purple
-        default: return .gray
+        case 1: return .green.opacity(0.5)
+        case 2: return .blue.opacity(0.5)
+        case 3: return .orange.opacity(0.5)
+        case 4: return .red.opacity(0.5)
+        case 5: return .purple.opacity(0.5)
+        default: return .gray.opacity(0.5)
         }
     }
 
@@ -71,14 +71,10 @@ struct CardFrontView: View {
                 Spacer()
                 
                 // Difficulty indicator
-                Text("\(difficultyLevel)")
-                    .font(.caption2)
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
-                    .frame(width: 16, height: 16)
-                    .background(difficultyColor)
-                    .clipShape(Circle())
-                
+                Image(systemName: "\(difficultyLevel).circle.fill")
+                    .font(.headline)
+                    .foregroundStyle(difficultyColor)
+
                 Button {
                     cardsProvider.toggleFavorite(card)
                 } label: {

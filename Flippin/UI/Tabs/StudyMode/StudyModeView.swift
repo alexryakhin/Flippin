@@ -137,6 +137,7 @@ struct StudyModeView: View {
                         showingAnswer = true
                     }
                 }
+                .foregroundStyle(colorManager.borderedProminentForegroundColor)
                 .buttonStyle(.borderedProminent)
                 .clipShape(Capsule())
             } else {
@@ -211,14 +212,16 @@ struct StudyModeView: View {
                 Button("Study Again") {
                     setupStudySession()
                 }
+                .foregroundStyle(colorManager.borderedProminentForegroundColor)
                 .buttonStyle(.borderedProminent)
-                .tint(colorManager.tintColor)
-                
+                .clipShape(Capsule())
+
                 Button("Done") {
                     dismiss()
                 }
                 .buttonStyle(.borderedProminent)
                 .tint(.secondary)
+                .clipShape(Capsule())
             }
             
             Spacer()

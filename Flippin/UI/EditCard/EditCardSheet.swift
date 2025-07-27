@@ -38,12 +38,14 @@ struct EditCardSheet: View {
             } label: {
                 Text(LocalizationKeys.save.localized)
                     .font(.headline)
+                    .foregroundStyle(colorManager.borderedProminentForegroundColor)
                     .frame(maxWidth: .infinity)
                     .padding(vertical: 12, horizontal: 16)
             }
             .padding(.horizontal)
             .padding(.bottom)
             .buttonStyle(.borderedProminent)
+            .clipShape(Capsule())
             .disabled(viewModel.nativeText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || viewModel.targetText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
             .gradientStyle(.bottomButtonOnList)
         }
@@ -58,7 +60,7 @@ struct EditCardSheet: View {
                 } label: {
                     Image(systemName: "xmark")
                 }
-                .buttonStyle(.borderedProminent)
+                .buttonStyle(.bordered)
                 .clipShape(Capsule())
             }
         )
@@ -70,7 +72,8 @@ struct EditCardSheet: View {
 
     private var languageSelectionSection: some View {
         CustomSectionView(
-            header: languageManager.userLanguage.displayName
+            header: languageManager.userLanguage.displayName,
+            backgroundStyle: .standard
         ) {
             TextField(
                 LocalizationKeys.enterTextInYourLanguage.localized,
@@ -79,8 +82,8 @@ struct EditCardSheet: View {
             )
             .autocapitalization(.sentences)
             .focused($isUserLanguageTextFieldFocused)
-            .clippedWithPaddingAndBackground()
-        } headerTrailingContent: {
+            .clippedWithPaddingAndBackground(colorManager.tintColor.opacity(0.1))
+        } trailingContent: {
             if isUserLanguageTextFieldFocused {
                 SectionHeaderButton(LocalizationKeys.done.localized) {
                     UIApplication.shared.endEditing()
@@ -91,7 +94,8 @@ struct EditCardSheet: View {
 
     private var translationSection: some View {
         CustomSectionView(
-            header: languageManager.targetLanguage.displayName
+            header: languageManager.targetLanguage.displayName,
+            backgroundStyle: .standard
         ) {
             TextField(
                 LocalizationKeys.translationWillAppearHere.localized,
@@ -100,9 +104,9 @@ struct EditCardSheet: View {
             )
             .autocapitalization(.sentences)
             .focused($isTargetLanguageTextFieldFocused)
-            .clippedWithPaddingAndBackground()
+            .clippedWithPaddingAndBackground(colorManager.tintColor.opacity(0.1))
             .shimmering(when: viewModel.isTranslating)
-        } headerTrailingContent: {
+        } trailingContent: {
             if isTargetLanguageTextFieldFocused {
                 SectionHeaderButton(LocalizationKeys.done.localized) {
                     UIApplication.shared.endEditing()
@@ -113,7 +117,8 @@ struct EditCardSheet: View {
 
     private var tagsSection: some View {
         CustomSectionView(
-            header: LocalizationKeys.tagsCount.localized(with: viewModel.card.tagArray.count)
+            header: LocalizationKeys.tagsCount.localized(with: viewModel.card.tagArray.count),
+            backgroundStyle: .standard
         ) {
             if !viewModel.availableTags.isEmpty {
                 HFlow(spacing: 6) {
@@ -132,20 +137,19 @@ struct EditCardSheet: View {
                     }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .clippedWithPaddingAndBackground()
             } else {
                 Text(LocalizationKeys.noTagsAvailableAddInSettings.localized)
                     .foregroundStyle(.secondary)
                     .font(.caption)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .clippedWithPaddingAndBackground()
             }
         }
     }
 
     private var notesSection: some View {
         CustomSectionView(
-            header: LocalizationKeys.notes.localized
+            header: LocalizationKeys.notes.localized,
+            backgroundStyle: .standard
         ) {
             TextField(
                 LocalizationKeys.addNotesOptional.localized,
@@ -154,8 +158,8 @@ struct EditCardSheet: View {
             )
             .autocapitalization(.sentences)
             .focused($isNotesTextFieldFocused)
-            .clippedWithPaddingAndBackground()
-        } headerTrailingContent: {
+            .clippedWithPaddingAndBackground(colorManager.tintColor.opacity(0.1))
+        } trailingContent: {
             if isNotesTextFieldFocused {
                 SectionHeaderButton(LocalizationKeys.done.localized) {
                     UIApplication.shared.endEditing()

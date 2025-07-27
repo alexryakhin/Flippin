@@ -24,6 +24,7 @@ struct TagButton: View {
     let imageSystemName: String
     let isSelected: Bool
     let isDisabled: Bool
+    let isMaterialBackground: Bool
     let action: () -> Void
     
     // MARK: - Initialization
@@ -33,12 +34,14 @@ struct TagButton: View {
         imageSystemName: String = "",
         isSelected: Bool,
         isDisabled: Bool = false,
+        isMaterialBackground: Bool = false,
         action: @escaping () -> Void
     ) {
         self.title = LocalizedStringKey(title)
         self.imageSystemName = imageSystemName
         self.isSelected = isSelected
         self.isDisabled = isDisabled && !isSelected
+        self.isMaterialBackground = isMaterialBackground
         self.action = action
     }
     
@@ -47,12 +50,14 @@ struct TagButton: View {
         imageSystemName: String = "",
         isSelected: Bool,
         isDisabled: Bool = false,
+        isMaterialBackground: Bool = false,
         action: @escaping () -> Void
     ) {
         self.title = title
         self.imageSystemName = imageSystemName
         self.isSelected = isSelected
         self.isDisabled = isDisabled && !isSelected
+        self.isMaterialBackground = isMaterialBackground
         self.action = action
     }
     
@@ -73,7 +78,9 @@ struct TagButton: View {
         .buttonStyle(.plain)
         .padding(vertical: 6, horizontal: 12)
         .background(backgroundColor)
-        .background(.thinMaterial)
+        .if(isMaterialBackground) {
+            $0.background(.thinMaterial)
+        }
         .clipShape(Capsule())
         .overlay {
             if isSelected {

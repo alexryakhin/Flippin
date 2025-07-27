@@ -46,6 +46,7 @@ enum AnalyticsTab {
                     } label: {
                         Image(systemName: "chart.line.uptrend.xyaxis")
                             .font(.headline)
+                            .foregroundStyle(colorManager.borderedProminentForegroundColor)
                     }
                     .buttonStyle(.borderedProminent)
                     .clipShape(Capsule())
@@ -118,9 +119,10 @@ enum AnalyticsTab {
                     Text("Upgrade to Premium")
                         .font(.headline)
                         .frame(maxWidth: .infinity)
+                        .foregroundStyle(colorManager.borderedProminentForegroundColor)
                 }
                 .buttonStyle(.borderedProminent)
-                .tint(colorManager.tintColor)
+                .clipShape(Capsule())
             }
             .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
         }

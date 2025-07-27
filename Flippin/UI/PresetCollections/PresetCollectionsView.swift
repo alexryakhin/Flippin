@@ -87,8 +87,8 @@ struct PresetCollectionsView: View {
                 },
                 bottomContent: {
                     VStack(spacing: 8) {
-                        SearchView(
-                            placeholder: LocalizationKeys.searchCollections.localized,
+                        InputView.searchView(
+                            LocalizationKeys.searchCollections.localized,
                             searchText: $searchText
                         )
                         categoryFilterView
@@ -147,6 +147,7 @@ struct PresetCollectionsView: View {
                 }
             }
         }
+        .scrollClipDisabled()
     }
 
     private func importCollection(_ collection: PresetCollection) {

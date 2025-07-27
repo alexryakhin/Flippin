@@ -21,6 +21,11 @@ final class ColorManager: ObservableObject {
     @Published private(set) var foregroundColor: Color = .blue
     @Published private(set) var colorScheme: ColorScheme? = nil
 
+    var borderedProminentForegroundColor: Color {
+        let isBlackForeground: Bool = colorScheme == .dark && userColor.isLight
+        return isBlackForeground ? .black : .white
+    }
+
     static let shared = ColorManager()
 
     // MARK: - Private properties
@@ -69,7 +74,7 @@ final class ColorManager: ObservableObject {
 
         $userColor
             .removeDuplicates()
-            .receive(on: RunLoop.main)
+            .throttle(for: .seconds(0.2), scheduler: RunLoop.main, latest: true)
             .sink { [weak self] newColor in
                 guard let self else { return }
                 let rgbaColor = RGBAColor(color: newColor)
