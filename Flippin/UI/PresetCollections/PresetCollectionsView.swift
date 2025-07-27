@@ -53,65 +53,62 @@ struct PresetCollectionsView: View {
     }
 
     var body: some View {
-        NavigationView {
-            VStack(spacing: 0) {
-                ScrollView {
-                    LazyVGrid(columns: [
-                        GridItem(.flexible(), spacing: 12),
-                        GridItem(.flexible(), spacing: 12)
-                    ], spacing: 12) {
-                        ForEach(filteredCollections) { collection in
-                            PresetCollectionCard(collection: collection) {
-                                collectionToImport = collection
-                                showingImportAlert = true
-                            }
-                            .clippedWithPaddingAndBackground()
+        VStack(spacing: 0) {
+            ScrollView {
+                LazyVGrid(columns: [
+                    GridItem(.flexible(), spacing: 12),
+                    GridItem(.flexible(), spacing: 12)
+                ], spacing: 12) {
+                    ForEach(filteredCollections) { collection in
+                        PresetCollectionCard(collection: collection) {
+                            collectionToImport = collection
+                            showingImportAlert = true
                         }
-                    }
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 12)
-                }
-                .background(Color(.systemGroupedBackground))
-                .safeAreaInset(edge: .top) {
-                    VStack(spacing: 0) {
-                        categoryFilterView
-                            .padding(.bottom, 12)
-                        Divider()
-                    }
-                    .background(.ultraThinMaterial)
-                }
-                .overlay {
-                    if filteredCollections.isEmpty {
-                        ContentUnavailableView {
-                            VStack {
-                                Image(.stackCards)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 60, height: 60)
-                                Text(LocalizationKeys.noCollectionsFound.localized)
-                            }
-                        } description: {
-                            Text(LocalizationKeys.tryAdjustingSearch.localized)
-                                .foregroundStyle(.secondary)
-                        }
+                        .clippedWithPaddingAndBackground()
                     }
                 }
+                .padding(.horizontal, 16)
+                .padding(.vertical, 12)
             }
-            .navigationTitle(LocalizationKeys.presetCollections.localized)
-            .navigationBarTitleDisplayMode(.inline)
-            .searchable(
-                text: $searchText,
-                placement: .navigationBarDrawer(displayMode: .always),
-                prompt: LocalizationKeys.searchCollections.localized
-            )
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+            .background(Color(.systemGroupedBackground))
+            .navigation(
+                title: LocalizationKeys.presetCollections.localized,
+                mode: .inline,
+                clipMode: .rectangle,
+                trailingContent: {
                     Button {
                         dismiss()
                     } label: {
-                        Image(systemName: "xmark.circle.fill")
+                        Image(systemName: "xmark")
                     }
                     .foregroundStyle(.secondary)
+                    .buttonStyle(.bordered)
+                    .clipShape(Capsule())
+                },
+                bottomContent: {
+                    VStack(spacing: 8) {
+                        SearchView(
+                            placeholder: LocalizationKeys.searchCollections.localized,
+                            searchText: $searchText
+                        )
+                        categoryFilterView
+                    }
+                }
+            )
+            .overlay {
+                if filteredCollections.isEmpty {
+                    ContentUnavailableView {
+                        VStack {
+                            Image(.stackCards)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 48, height: 48)
+                            Text(LocalizationKeys.noCollectionsFound.localized)
+                        }
+                    } description: {
+                        Text(LocalizationKeys.tryAdjustingSearch.localized)
+                            .foregroundStyle(.secondary)
+                    }
                 }
             }
         }
@@ -149,7 +146,6 @@ struct PresetCollectionsView: View {
                     }
                 }
             }
-            .padding(.horizontal, 16)
         }
     }
 

@@ -2,12 +2,33 @@ import SwiftUI
 import Charts
 
 struct DetailedAnalyticsView: View {
+
+    enum Tab: Int, CaseIterable {
+        case overview
+        case performance
+        case progress
+        case insights
+
+        var title: String {
+            switch self {
+            case .overview:
+                return "Overview"
+            case .performance:
+                return "Performance"
+            case .progress:
+                return "Progress"
+            case .insights:
+                return "Insights"
+            }
+        }
+    }
+
     @Environment(\.dismiss) var dismiss
     @StateObject private var analyticsService = LearningAnalyticsService.shared
     @StateObject private var colorManager = ColorManager.shared
     @StateObject private var purchaseService = PurchaseService.shared
     
-    @State private var selectedTab = 0
+    @State private var selectedTab = Tab.overview
     @State private var selectedTimeRange: TimeRange = .month
     
     enum TimeRange: String, CaseIterable {
@@ -18,57 +39,40 @@ struct DetailedAnalyticsView: View {
     }
     
     var body: some View {
-        NavigationView {
-            VStack(spacing: 0) {
-                // Tab selector
-                Picker("Analytics Tab", selection: $selectedTab) {
-                    Text("Overview").tag(0)
-                    Text("Performance").tag(1)
-                    Text("Progress").tag(2)
-                    Text("Insights").tag(3)
-                }
-                .pickerStyle(.segmented)
-                .padding(vertical: 12, horizontal: 16)
-
-                Divider()
-
-                // Content based on selected tab
-                TabView(selection: $selectedTab) {
-                    overviewTab
-                        .tag(0)
-                    
-                    performanceTab
-                        .tag(1)
-                    
-                    progressTab
-                        .tag(2)
-                    
-                    insightsTab
-                        .tag(3)
-                }
-                .tabViewStyle(.page(indexDisplayMode: .never))
-                .ignoresSafeArea()
+        VStack(spacing: 0) {
+            switch selectedTab {
+                case .overview: overviewTab
+                case .performance: performanceTab
+                case .progress: progressTab
+                case .insights: insightsTab
             }
-            .navigationTitle("Detailed Analytics")
-            .navigationBarTitleDisplayMode(.inline)
-            .background(Color(.systemGroupedBackground))
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button("Done") {
-                        dismiss()
-                    }
-                }
-                
-                ToolbarItem(placement: .topBarTrailing) {
+        }
+        .navigation(
+            title: "Detailed Analytics",
+            mode: .inline,
+            clipMode: .rectangle,
+            trailingContent: {
+                HStack {
                     Picker("Time Range", selection: $selectedTimeRange) {
                         ForEach(TimeRange.allCases, id: \.self) { range in
                             Text(range.rawValue).tag(range)
                         }
                     }
                     .pickerStyle(.menu)
+                    .buttonStyle(.bordered)
+                    .foregroundStyle(.secondary)
+                    .clipShape(Capsule())
                 }
+            },
+            bottomContent: {
+                Picker("Analytics Tab", selection: $selectedTab) {
+                    ForEach(Tab.allCases, id: \.self) { tab in
+                        Text(tab.title)
+                    }
+                }
+                .pickerStyle(.segmented)
             }
-        }
+        )
         .ifLet(colorManager.colorScheme) { view, scheme in
             view.colorScheme(scheme)
         }
@@ -93,6 +97,7 @@ struct DetailedAnalyticsView: View {
             }
             .padding(16)
         }
+        .background(Color(.systemGroupedBackground))
     }
     
     private var summaryCardsSection: some View {
@@ -281,6 +286,7 @@ struct DetailedAnalyticsView: View {
             }
             .padding(16)
         }
+        .background(Color(.systemGroupedBackground))
     }
     
     private var accuracyTrendsSection: some View {
@@ -441,6 +447,7 @@ struct DetailedAnalyticsView: View {
             }
             .padding(16)
         }
+        .background(Color(.systemGroupedBackground))
     }
     
     private var masteryTimelineSection: some View {
@@ -574,6 +581,7 @@ struct DetailedAnalyticsView: View {
             }
             .padding(16)
         }
+        .background(Color(.systemGroupedBackground))
     }
     
     private var personalizedInsightsSection: some View {

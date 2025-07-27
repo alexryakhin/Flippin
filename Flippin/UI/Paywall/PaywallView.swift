@@ -10,130 +10,131 @@ enum Paywall {
         @State private var isAnimating = false
 
         var body: some View {
-            NavigationView {
-                ScrollView {
-                    VStack(spacing: 32) {
-                        // Header with subtle animation
-                        VStack(spacing: 12) {
-                            Text(LocalizationKeys.unlockPremium.localized)
-                                .font(.system(size: 34, weight: .bold, design: .rounded))
-                                .foregroundColor(.primary)
-                                .scaleEffect(isAnimating ? 1.0 : 0.95)
-                                .animation(.easeOut(duration: 0.6), value: isAnimating)
+            ScrollView {
+                VStack(spacing: 32) {
+                    // Header with subtle animation
+                    VStack(spacing: 12) {
+                        Text(LocalizationKeys.unlockPremium.localized)
+                            .font(.system(size: 34, weight: .bold, design: .rounded))
+                            .foregroundColor(.primary)
+                            .scaleEffect(isAnimating ? 1.0 : 0.95)
+                            .animation(.easeOut(duration: 0.6), value: isAnimating)
 
-                            Text(LocalizationKeys.masterLanguageLearning.localized)
-                                .font(.system(size: 18, weight: .medium, design: .rounded))
-                                .foregroundColor(.secondary)
-                                .multilineTextAlignment(.center)
-                                .padding(.horizontal, 40)
+                        Text(LocalizationKeys.masterLanguageLearning.localized)
+                            .font(.system(size: 18, weight: .medium, design: .rounded))
+                            .foregroundColor(.secondary)
+                            .multilineTextAlignment(.center)
+                            .padding(.horizontal, 40)
 
-                            // Progress indicator with gradient
-                            VStack(spacing: 10) {
-                                Text(LocalizationKeys.usedCardsOfLimit.localized(with: cardsProvider.cards.count, cardsProvider.cardLimit))
-                                    .font(.system(size: 14, weight: .medium, design: .rounded))
-                                    .foregroundColor(.secondary)
-
-                                ProgressView(value: Double(cardsProvider.cards.count), total: Double(cardsProvider.cardLimit))
-                                    .progressViewStyle(.linear)
-                                    .tint(LinearGradient(
-                                        gradient: Gradient(colors: [colorManager.tintColor, colorManager.tintColor.opacity(0.7)]),
-                                        startPoint: .leading,
-                                        endPoint: .trailing
-                                    ))
-                                    .scaleEffect(x: 1, y: 2, anchor: .center)
-                                    .padding(.horizontal, 40)
-                            }
-                            .padding(.top, 8)
-                        }
-                        .padding(.top, 20)
-
-                        // Features with glassmorphism cards
-                        VStack(spacing: 12) {
-                            Text(LocalizationKeys.whatYouGetWithPremium.localized)
-                                .font(.system(size: 24, weight: .semibold, design: .rounded))
-                                .foregroundColor(.primary)
-
-                            ForEach(features, id: \.title) { feature in
-                                FeatureRow(
-                                    icon: feature.icon,
-                                    title: feature.title,
-                                    description: feature.description
-                                )
-                                .padding(.horizontal, 20)
-                                .padding(.vertical, 12)
-                                .background(.thinMaterial)
-                                .clipShape(RoundedRectangle(cornerRadius: 16))
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 16)
-                                        .strokeBorder(Color(.systemGray5), lineWidth: 1)
-                                )
-                                .shadow(color: .black.opacity(0.05), radius: 10, x: 0, y: 5)
-                                .scaleEffect(isAnimating ? 1.0 : 0.98)
-                                .animation(.spring(response: 0.4, dampingFraction: 0.8).delay(Double(features.firstIndex(where: { $0.title == feature.title }) ?? 0) * 0.1), value: isAnimating)
-                            }
-                        }
-                        .padding(.horizontal, 16)
-
-                        // Subscription Store with polished styling
-                        SubscriptionStoreView(groupID: "21731755")
-                            .subscriptionStoreControlStyle(.prominentPicker)
-                            .subscriptionStoreButtonLabel(.action)
-                            .onInAppPurchaseCompletion { product, result in
-                                handlePurchaseResult(product: product, result: result)
-                            }
-
-                        // Restore Purchases button with modern styling
-                        Button(action: {
-                            Task {
-                                await restorePurchases()
-                            }
-                        }) {
-                            Text(LocalizationKeys.restorePurchases.localized)
+                        // Progress indicator with gradient
+                        VStack(spacing: 10) {
+                            Text(LocalizationKeys.usedCardsOfLimit.localized(with: cardsProvider.cards.count, cardsProvider.cardLimit))
                                 .font(.system(size: 14, weight: .medium, design: .rounded))
                                 .foregroundColor(.secondary)
-                                .padding(.vertical, 8)
-                                .padding(.horizontal, 16)
-                                .background(.ultraThinMaterial)
-                                .clipShape(Capsule())
-                                .overlay(
-                                    Capsule()
-                                        .strokeBorder(.white.opacity(0.2), lineWidth: 1)
-                                )
-                        }
 
-                        // Footer with links
-                        VStack(spacing: 8) {
-                            Text(LocalizationKeys.cancelAnytime.localized)
-                                .font(.system(size: 12, weight: .regular, design: .rounded))
-                                .foregroundColor(.secondary)
-
-                            HStack(spacing: 20) {
-                                Link(LocalizationKeys.terms.localized, destination: URL(string: "https://example.com/terms")!)
-                                Link(LocalizationKeys.privacy.localized, destination: URL(string: "https://example.com/privacy")!)
-                            }
-                            .font(.system(size: 12, weight: .regular, design: .rounded))
-                            .foregroundColor(.secondary.opacity(0.8))
+                            ProgressView(value: Double(cardsProvider.cards.count), total: Double(cardsProvider.cardLimit))
+                                .progressViewStyle(.linear)
+                                .tint(LinearGradient(
+                                    gradient: Gradient(colors: [colorManager.tintColor, colorManager.tintColor.opacity(0.7)]),
+                                    startPoint: .leading,
+                                    endPoint: .trailing
+                                ))
+                                .scaleEffect(x: 1, y: 2, anchor: .center)
+                                .padding(.horizontal, 40)
                         }
-                        .padding(.bottom, 20)
+                        .padding(.top, 8)
                     }
-                    .multilineTextAlignment(.center)
+                    .padding(.top, 20)
+
+                    // Features with glassmorphism cards
+                    VStack(spacing: 12) {
+                        Text(LocalizationKeys.whatYouGetWithPremium.localized)
+                            .font(.system(size: 24, weight: .semibold, design: .rounded))
+                            .foregroundColor(.primary)
+
+                        ForEach(features, id: \.title) { feature in
+                            FeatureRow(
+                                icon: feature.icon,
+                                title: feature.title,
+                                description: feature.description
+                            )
+                            .padding(.horizontal, 20)
+                            .padding(.vertical, 12)
+                            .background(.thinMaterial)
+                            .clipShape(RoundedRectangle(cornerRadius: 16))
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 16)
+                                    .strokeBorder(Color(.systemGray5), lineWidth: 1)
+                            )
+                            .shadow(color: .black.opacity(0.05), radius: 10, x: 0, y: 5)
+                            .scaleEffect(isAnimating ? 1.0 : 0.98)
+                            .animation(.spring(response: 0.4, dampingFraction: 0.8).delay(Double(features.firstIndex(where: { $0.title == feature.title }) ?? 0) * 0.1), value: isAnimating)
+                        }
+                    }
                     .padding(.horizontal, 16)
-                }
-                .background(
-                    WelcomeSheet.AnimatedBackground()
-                )
-                .navigationTitle(LocalizationKeys.goPremium.localized)
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(action: { dismiss() }) {
-                            Image(systemName: "xmark.circle.fill")
-                                .foregroundColor(.secondary)
-                                .font(.system(size: 20))
+
+                    // Subscription Store with polished styling
+                    SubscriptionStoreView(groupID: "21731755")
+                        .subscriptionStoreControlStyle(.prominentPicker)
+                        .subscriptionStoreButtonLabel(.action)
+                        .onInAppPurchaseCompletion { product, result in
+                            handlePurchaseResult(product: product, result: result)
                         }
+
+                    // Restore Purchases button with modern styling
+                    Button(action: {
+                        Task {
+                            await restorePurchases()
+                        }
+                    }) {
+                        Text(LocalizationKeys.restorePurchases.localized)
+                            .font(.system(size: 14, weight: .medium, design: .rounded))
+                            .foregroundColor(.secondary)
+                            .padding(.vertical, 8)
+                            .padding(.horizontal, 16)
+                            .background(.ultraThinMaterial)
+                            .clipShape(Capsule())
+                            .overlay(
+                                Capsule()
+                                    .strokeBorder(.white.opacity(0.2), lineWidth: 1)
+                            )
                     }
+
+                    // Footer with links
+                    VStack(spacing: 8) {
+                        Text(LocalizationKeys.cancelAnytime.localized)
+                            .font(.system(size: 12, weight: .regular, design: .rounded))
+                            .foregroundColor(.secondary)
+
+                        HStack(spacing: 20) {
+                            Link(LocalizationKeys.terms.localized, destination: URL(string: "https://example.com/terms")!)
+                            Link(LocalizationKeys.privacy.localized, destination: URL(string: "https://example.com/privacy")!)
+                        }
+                        .font(.system(size: 12, weight: .regular, design: .rounded))
+                        .foregroundColor(.secondary.opacity(0.8))
+                    }
+                    .padding(.bottom, 20)
                 }
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 16)
             }
+            .background(
+                WelcomeSheet.AnimatedBackground()
+            )
+            .navigation(
+                title: LocalizationKeys.goPremium.localized,
+                mode: .inline,
+                trailingContent: {
+                    Button {
+                        dismiss()
+                        HapticService.shared.buttonTapped()
+                    } label: {
+                        Image(systemName: "xmark")
+                    }
+                    .buttonStyle(.bordered)
+                    .clipShape(Capsule())
+                }
+            )
             .ifLet(colorManager.colorScheme) { view, scheme in
                 view.colorScheme(scheme)
             }

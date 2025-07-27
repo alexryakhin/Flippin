@@ -22,50 +22,50 @@ struct EditCardSheet: View {
     }
 
     var body: some View {
-        NavigationView {
-            ScrollView {
-                VStack(spacing: 24) {
-                    languageSelectionSection
-                    translationSection
-                    notesSection
-                    tagsSection
-                }
-                .padding(16)
+        ScrollView {
+            VStack(spacing: 24) {
+                languageSelectionSection
+                translationSection
+                notesSection
+                tagsSection
             }
-            .safeAreaInset(edge: .bottom) {
+            .padding(16)
+        }
+        .safeAreaInset(edge: .bottom) {
+            Button {
+                viewModel.updateCard()
+                dismiss()
+            } label: {
+                Text(LocalizationKeys.save.localized)
+                    .font(.headline)
+                    .frame(maxWidth: .infinity)
+                    .padding(vertical: 12, horizontal: 16)
+            }
+            .padding(.horizontal)
+            .padding(.bottom)
+            .buttonStyle(.borderedProminent)
+            .disabled(viewModel.nativeText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || viewModel.targetText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+            .gradientStyle(.bottomButtonOnList)
+        }
+        .background(Color(.systemGroupedBackground))
+        .navigation(
+            title: LocalizationKeys.editCard.localized,
+            mode: .inline,
+            trailingContent: {
                 Button {
-                    viewModel.updateCard()
+                    viewModel.cancel()
                     dismiss()
                 } label: {
-                    Text(LocalizationKeys.save.localized)
-                        .font(.headline)
-                        .frame(maxWidth: .infinity)
-                        .padding(vertical: 12, horizontal: 16)
+                    Image(systemName: "xmark")
                 }
-                .padding(.horizontal)
-                .padding(.bottom)
                 .buttonStyle(.borderedProminent)
-                .disabled(viewModel.nativeText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || viewModel.targetText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
-                .gradientStyle(.bottomButtonOnList)
+                .clipShape(Capsule())
             }
-            .background(Color(.systemGroupedBackground))
-            .navigationTitle(LocalizationKeys.editCard.localized)
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        viewModel.cancel()
-                        dismiss()
-                    } label: {
-                        Image(systemName: "xmark.circle.fill")
-                    }
-                    .foregroundStyle(.secondary)
-                }
-            }
-        }
+        )
         .ifLet(colorManager.colorScheme) { view, scheme in
             view.colorScheme(scheme)
         }
+        .interactiveDismissDisabled()
     }
 
     private var languageSelectionSection: some View {

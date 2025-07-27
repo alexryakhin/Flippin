@@ -5,42 +5,39 @@ struct BackgroundPreviewView: View {
     @StateObject private var colorManager = ColorManager.shared
 
     var body: some View {
-        NavigationView {
-            ScrollView {
-                LazyVGrid(columns: [
-                    GridItem(.flexible(), spacing: 16),
-                    GridItem(.flexible(), spacing: 16)
-                ], spacing: 16) {
-                    ForEach(BackgroundStyle.allCases, id: \.self) { style in
-                        BackgroundPreviewCard(
-                            style: style,
-                            isSelected: colorManager.backgroundStyle == style
-                        ) {
-                            colorManager.backgroundStyle = style
-                            AnalyticsService.trackSettingsEvent(.backgroundStyleChanged, newValue: style.rawValue)
-                        }
-                    }
-                }
-                .padding(16)
-            }
-            .background(Color(.systemGroupedBackground))
-            .navigationTitle(LocalizationKeys.backgroundStyles.localized)
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button(LocalizationKeys.cancel.localized) {
-                        HapticService.shared.buttonTapped()
-                        dismiss()
-                    }
-                }
-                ToolbarItem(placement: .confirmationAction) {
-                    Button(LocalizationKeys.done.localized) {
-                        HapticService.shared.buttonTapped()
-                        dismiss()
+        ScrollView {
+            LazyVGrid(columns: [
+                GridItem(.flexible(), spacing: 16),
+                GridItem(.flexible(), spacing: 16)
+            ], spacing: 16) {
+                ForEach(BackgroundStyle.allCases, id: \.self) { style in
+                    BackgroundPreviewCard(
+                        style: style,
+                        isSelected: colorManager.backgroundStyle == style
+                    ) {
+                        colorManager.backgroundStyle = style
+                        AnalyticsService.trackSettingsEvent(.backgroundStyleChanged, newValue: style.rawValue)
                     }
                 }
             }
+            .padding(16)
         }
+        .background(Color(.systemGroupedBackground))
+        .navigation(
+            title: LocalizationKeys.backgroundStyles.localized,
+            mode: .inline,
+            trailingContent: {
+                Button {
+                    HapticService.shared.buttonTapped()
+                    dismiss()
+                } label: {
+                    Image(systemName: "xmark")
+                }
+                .buttonStyle(.bordered)
+                .foregroundStyle(.secondary)
+                .clipShape(Capsule())
+            }
+        )
     }
 }
 

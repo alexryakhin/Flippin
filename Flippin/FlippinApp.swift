@@ -34,7 +34,7 @@ struct FlippinApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainTabView()
                 .observeColorScheme()
                 .tint(colorManager.tintColor)
                 .task {
@@ -68,5 +68,13 @@ struct FlippinApp: App {
             "current_cards": currentCards,
             "has_unlimited": hasUnlimited
         ])
+    }
+}
+
+var isIos26Available: Bool {
+    if #available(iOS 26.0, *) {
+        return true
+    } else {
+        return false
     }
 }

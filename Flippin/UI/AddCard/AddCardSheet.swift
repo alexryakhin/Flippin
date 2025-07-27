@@ -33,41 +33,41 @@ struct AddCardSheet: View {
     // MARK: - Body
     
     var body: some View {
-        NavigationView {
-            ScrollView {
-                VStack(spacing: 24) {
-                    languageSelectionSection
-                    translationSection
-                    notesSection
-                    tagsSection
-                    presetCollectionsSection
+        ScrollView {
+            VStack(spacing: 24) {
+                languageSelectionSection
+                translationSection
+                notesSection
+                tagsSection
+                presetCollectionsSection
+            }
+            .padding(16)
+        }
+        .safeAreaInset(edge: .bottom) {
+            saveButton
+        }
+        .background(Color(.systemGroupedBackground))
+        .navigation(
+            title: LocalizationKeys.addNewCard.localized,
+            mode: .inline,
+            trailingContent: {
+                Button {
+                    dismiss()
+                    HapticService.shared.buttonTapped()
+                } label: {
+                    Image(systemName: "xmark")
                 }
-                .padding(16)
+                .buttonStyle(.bordered)
+                .clipShape(Capsule())
             }
-            .safeAreaInset(edge: .bottom) {
-                saveButton
-            }
-            .background(Color(.systemGroupedBackground))
-            .navigationTitle(LocalizationKeys.addNewCard.localized)
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        viewModel.cancel()
-                        dismiss()
-                    } label: {
-                        Image(systemName: "xmark.circle.fill")
-                    }
-                    .foregroundStyle(.secondary)
-                }
-            }
-            .onAppear {
-                AnalyticsService.trackEvent(.addCardScreenOpened)
-            }
+        )
+        .onAppear {
+            AnalyticsService.trackEvent(.addCardScreenOpened)
         }
         .ifLet(colorManager.colorScheme) { view, scheme in
             view.colorScheme(scheme)
         }
+        .interactiveDismissDisabled()
     }
 
     // MARK: - UI Components

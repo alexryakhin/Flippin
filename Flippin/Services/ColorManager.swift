@@ -60,7 +60,10 @@ final class ColorManager: ObservableObject {
             .receive(on: RunLoop.main)
             .removeDuplicates()
             .sink { [weak self] newColorScheme in
-                self?.colorScheme = newColorScheme
+                guard let self else { return }
+                colorScheme = newColorScheme
+                tintColor = adjustedTintColor()
+                foregroundColor = adjustedForegroundColor()
             }
             .store(in: &cancellables)
 
@@ -85,12 +88,15 @@ final class ColorManager: ObservableObject {
             .removeDuplicates()
             .receive(on: RunLoop.main)
             .sink { [weak self] newStyle in
+                guard let self else { return }
                 UserDefaults.standard.setCodable(
                     newStyle,
                     forKey: UserDefaultsKey.backgroundStyle,
                     default: .gradient
                 )
-                self?.backgroundStyle = newStyle
+                backgroundStyle = newStyle
+                tintColor = adjustedTintColor()
+                foregroundColor = adjustedForegroundColor()
                 HapticService.shared.selection()
             }
             .store(in: &cancellables)
@@ -99,12 +105,15 @@ final class ColorManager: ObservableObject {
             .removeDuplicates()
             .receive(on: RunLoop.main)
             .sink { [weak self] newPreference in
+                guard let self else { return }
                 UserDefaults.standard.setCodable(
                     newPreference,
                     forKey: UserDefaultsKey.colorSchemePreference,
                     default: nil
                 )
-                self?.updateColorsForColorScheme(newPreference.systemColorScheme)
+                updateColorsForColorScheme(newPreference.systemColorScheme)
+                tintColor = adjustedTintColor()
+                foregroundColor = adjustedForegroundColor()
                 HapticService.shared.selection()
             }
             .store(in: &cancellables)

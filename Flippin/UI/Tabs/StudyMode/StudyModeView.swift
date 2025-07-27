@@ -30,70 +30,57 @@ struct StudyModeView: View {
     }
     
     var body: some View {
-        NavigationView {
-            VStack(spacing: 0) {
-                if !showingResults {
-                    // Progress indicator
-                    progressHeader
-                    
-                    // Card content
-                    cardContent
-                    
-                    // Action buttons
-                    actionButtons
-                } else {
-                    // Results view
-                    resultsView
-                }
-            }
-            .padding(vertical: 12, horizontal: 16)
-            .background {
-                AnimatedBackground(style: colorManager.backgroundStyle)
-            }
-            .navigationTitle("Study Mode")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        HapticService.shared.buttonTapped()
-                        endStudySession()
-                        dismiss()
-                    } label: {
-                        Image(systemName: "xmark.circle.fill")
-                    }
-                    .foregroundStyle(.secondary)
-                }
+        VStack(spacing: 0) {
+            if !showingResults {
+                // Card content
+                cardContent
+
+                // Action buttons
+                actionButtons
+            } else {
+                // Results view
+                resultsView
             }
         }
+        .padding(vertical: 12, horizontal: 16)
+        .background {
+            AnimatedBackground(style: colorManager.backgroundStyle)
+        }
+        .navigation(title: "Study Mode", mode: .inline, clipMode: .rectangle, trailingContent: {
+            Button("Exit") {
+                HapticService.shared.buttonTapped()
+                endStudySession()
+                dismiss()
+            }
+            .buttonStyle(.bordered)
+            .foregroundStyle(.secondary)
+            .clipShape(Capsule())
+        }, bottomContent: {
+            HStack(spacing: 8) {
+                // Progress text
+                Text("\(currentCardIndex + 1) of \(studyCards.count)")
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+
+                // Progress bar
+                ProgressView(value: Double(currentCardIndex) / Double(studyCards.count))
+                    .progressViewStyle(LinearProgressViewStyle(tint: colorManager.tintColor))
+                    .animation(.spring, value: currentCardIndex)
+            }
+        })
         .ifLet(colorManager.colorScheme) { view, scheme in
             view.colorScheme(scheme)
         }
         .onAppear {
             setupStudySession()
         }
+        .interactiveDismissDisabled()
     }
-    
-    // MARK: - Progress Header
-    
-    private var progressHeader: some View {
-        HStack(spacing: 8) {
-            // Progress text
-            Text("\(currentCardIndex + 1) of \(studyCards.count)")
-                .font(.subheadline)
-                .foregroundColor(.secondary)
 
-            // Progress bar
-            ProgressView(value: Double(currentCardIndex) / Double(studyCards.count))
-                .progressViewStyle(LinearProgressViewStyle(tint: colorManager.tintColor))
-                .animation(.spring, value: currentCardIndex)
-        }
-        .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
-    }
-    
     // MARK: - Card Content
     
     private var cardContent: some View {
-        VStack(spacing: 20) {
+        VStack(spacing: 0) {
             Spacer()
             
             if currentCardIndex < studyCards.count {
@@ -104,8 +91,8 @@ struct StudyModeView: View {
                     VStack(spacing: 8) {
                         Text("Translate to \(card.frontLanguage?.displayName ?? LocalizationKeys.targetLanguage.localized)")
                             .font(.subheadline)
-                            .foregroundColor(.secondary)
-                        
+                            .foregroundColor(colorManager.foregroundColor)
+
                         Text(card.backText.orEmpty)
                             .font(.title2)
                             .fontWeight(.semibold)
@@ -120,8 +107,8 @@ struct StudyModeView: View {
                         VStack(spacing: 8) {
                             Text("Correct Answer")
                                 .font(.subheadline)
-                                .foregroundColor(.secondary)
-                            
+                                .foregroundColor(colorManager.foregroundColor)
+
                             Text(card.frontText.orEmpty)
                                 .font(.title3)
                                 .fontWeight(.medium)
@@ -133,7 +120,6 @@ struct StudyModeView: View {
                         }
                     }
                 }
-                .padding(.horizontal)
             }
             
             Spacer()
@@ -152,7 +138,7 @@ struct StudyModeView: View {
                     }
                 }
                 .buttonStyle(.borderedProminent)
-                .font(.headline)
+                .clipShape(Capsule())
             } else {
                 // Correct/Incorrect buttons
                 HStack(spacing: 16) {
@@ -160,15 +146,15 @@ struct StudyModeView: View {
                         recordAnswer(wasCorrect: false)
                     }
                     .buttonStyle(.borderedProminent)
+                    .clipShape(Capsule())
                     .tint(.red)
-                    .font(.headline)
-                    
+
                     Button("Correct") {
                         recordAnswer(wasCorrect: true)
                     }
                     .buttonStyle(.borderedProminent)
                     .tint(.green)
-                    .font(.headline)
+                    .clipShape(Capsule())
                 }
             }
         }
@@ -283,7 +269,7 @@ struct StudyModeView: View {
             analyticsService.recordCardReview(
                 cardId: cardId,
                 wasCorrect: wasCorrect,
-                timeSpent: timeSpent
+                timeSpent: timeSpent    
             )
         }
         

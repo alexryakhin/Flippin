@@ -39,6 +39,7 @@ public extension View {
 public enum GradientStyle {
     case bottomButton
     case bottomButtonOnList
+    case navigationBar(color: Color)
 
     var colors: [Color] {
         switch self {
@@ -54,6 +55,14 @@ public enum GradientStyle {
                 Color(.systemGroupedBackground),
                 Color(.systemGroupedBackground)
             ]
+        case .navigationBar(let color):
+            return [
+                color.opacity(0),
+                color.opacity(0.2),
+                color.opacity(0.4),
+                color.opacity(0.6),
+                color
+            ]
         }
     }
 
@@ -61,6 +70,8 @@ public enum GradientStyle {
         switch self {
         case .bottomButton, .bottomButtonOnList:
             return .top
+        case .navigationBar:
+            return .bottom
         }
     }
 
@@ -68,6 +79,8 @@ public enum GradientStyle {
         switch self {
         case .bottomButton, .bottomButtonOnList:
             return .bottom
+        case .navigationBar:
+            return .top
         }
     }
 }

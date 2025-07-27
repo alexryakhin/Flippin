@@ -22,57 +22,40 @@ struct SettingsView: View {
     @State private var showingBackgroundDemo = false
     @State private var showingPurchaseTest = false
     @State private var premiumFeature: PremiumFeature?
-    @State private var showingAnalytics = false
 
     var body: some View {
-        NavigationView {
-            ScrollView {
-                VStack(spacing: 24) {
-                    languagesSection
-                    themeSection
-                    cardDisplaySection
-                    tagsManagementSection
-                    analyticsSection
-                    subscriptionManagementSection
+        ScrollView {
+            VStack(spacing: 24) {
+                languagesSection
+                themeSection
+                cardDisplaySection
+                tagsManagementSection
+                subscriptionManagementSection
 
-                    #if DEBUG
-                    purchaseTestingSection
-                    #endif
-                }
-                .padding(16)
+                #if DEBUG
+                purchaseTestingSection
+                #endif
             }
-            .background(Color(.systemGroupedBackground))
-            .navigationTitle(LocalizationKeys.settings.localized)
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        HapticService.shared.buttonTapped()
-                        dismiss()
-                    } label: {
-                        Image(systemName: "xmark.circle.fill")
-                    }
-                    .foregroundStyle(.secondary)
-                }
+            .padding(16)
+        }
+        .if(isPad) { view in
+            view.frame(maxWidth: 500, alignment: .center)
+        }
+        .navigation(title: LocalizationKeys.settings.localized)
+        .sheet(isPresented: $showingBackgroundPreview) {
+            BackgroundPreviewView()
+        }
+        .sheet(isPresented: $showingBackgroundDemo) {
+            BackgroundDemoView()
+        }
+        .sheet(isPresented: $showingPurchaseTest) {
+            NavigationView {
+                PurchaseTestView()
             }
-            .sheet(isPresented: $showingBackgroundPreview) {
-                BackgroundPreviewView()
-            }
-            .sheet(isPresented: $showingBackgroundDemo) {
-                BackgroundDemoView()
-            }
-            .sheet(isPresented: $showingPurchaseTest) {
-                NavigationView {
-                    PurchaseTestView()
-                }
-            }
-            .premiumAlert(feature: $premiumFeature)
-            .sheet(isPresented: $showingAnalytics) {
-                AnalyticsDashboardView()
-            }
-            .onAppear {
-                AnalyticsService.trackEvent(.settingsScreenOpened)
-            }
+        }
+        .premiumAlert(feature: $premiumFeature)
+        .onAppear {
+            AnalyticsService.trackEvent(.settingsScreenOpened)
         }
         .ifLet(colorManager.colorScheme) { view, scheme in
             view.colorScheme(scheme)
@@ -97,6 +80,7 @@ struct SettingsView: View {
                             }
                         }
                         .pickerStyle(.menu)
+                        .buttonStyle(.bordered)
                     } else {
                         HStack {
                             Text(languageManager.userLanguage.displayName)
@@ -125,6 +109,7 @@ struct SettingsView: View {
                             }
                         }
                         .pickerStyle(.menu)
+                        .buttonStyle(.bordered)
                     } else {
                         HStack {
                             Text(languageManager.targetLanguage.displayName)
@@ -164,7 +149,7 @@ struct SettingsView: View {
                     }
                 }
             }
-            .clippedWithBackground()
+            .clippedWithBackgroundMaterial(.regularMaterial)
         }
     }
     
@@ -232,9 +217,10 @@ struct SettingsView: View {
                         }
                     }
                     .pickerStyle(.menu)
+                    .buttonStyle(.bordered)
                 }
             }
-            .clippedWithBackground()
+            .clippedWithBackgroundMaterial(.regularMaterial)
         }
     }
     
@@ -257,7 +243,7 @@ struct SettingsView: View {
                 .pickerStyle(.segmented)
                 .padding(.top, 8)
             }
-            .clippedWithPaddingAndBackground()
+            .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
         }
     }
     
@@ -313,43 +299,7 @@ struct SettingsView: View {
                         .font(.caption)
                 }
             }
-            .clippedWithPaddingAndBackground()
-        }
-    }
-    
-    // MARK: - Analytics Section
-    private var analyticsSection: some View {
-        CustomSectionView(
-            header: "Learning Analytics"
-        ) {
-            VStack(alignment: .leading, spacing: 12) {
-                Text("Track your learning progress and get detailed insights")
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
-
-                if purchaseService.hasPremiumAccess {
-                    Button("View Analytics") {
-                        showingAnalytics = true
-                        AnalyticsService.trackEvent(.analyticsViewed)
-                    }
-                    .buttonStyle(.bordered)
-                } else {
-                    HStack {
-                        Image(systemName: "crown.fill")
-                            .foregroundColor(.yellow)
-                            .font(.caption)
-                        
-                        Text("Premium users get advanced analytics and insights")
-                            .font(.caption)
-                            .foregroundColor(.secondary)
-                    }
-                    .onTapGesture {
-                        premiumFeature = .advancedAnalytics
-                    }
-                }
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .clippedWithPaddingAndBackground()
+            .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
         }
     }
     
@@ -371,7 +321,7 @@ struct SettingsView: View {
                 .buttonStyle(.borderedProminent)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
-            .clippedWithPaddingAndBackground()
+            .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
         }
     }
     #endif
@@ -409,9 +359,16 @@ struct SettingsView: View {
                         .buttonStyle(.bordered)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     }
-                    .clippedWithPaddingAndBackground()
+                    .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
                 }
             }
         }
     }
+}
+
+#Preview {
+    SettingsView()
+        .background {
+            AnimatedBackground(style: .bubbles)
+        }
 }

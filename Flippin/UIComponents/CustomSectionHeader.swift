@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CustomSectionHeader: View {
 
+    @StateObject private var colorManager = ColorManager.shared
+
     private let text: LocalizedStringKey
 
     init(text: LocalizedStringKey) {
@@ -19,7 +21,7 @@ struct CustomSectionHeader: View {
         Text(text)
             .textCase(.uppercase)
             .font(.footnote)
-            .foregroundStyle(.secondary)
+            .foregroundStyle(colorManager.foregroundColor)
             .frame(maxWidth: .infinity, alignment: .leading)
     }
 }

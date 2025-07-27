@@ -28,8 +28,6 @@ struct MyCardsListView: View {
     @State private var showAddCardSheet = false
     @State private var lastSearchText = ""
 
-    let onToSettings: () -> Void
-
     var filteredCards: [CardItem] {
         var filtered = cardsProvider.cards
 
@@ -92,84 +90,76 @@ struct MyCardsListView: View {
     }
 
     var body: some View {
-        NavigationView {
-            VStack {
-                if cardsProvider.cards.isEmpty {
-                    noCardsView
-                } else if groupedCards.isEmpty {
-                    if tagManager.isFavoriteFilterOn {
-                        noFavoriteCardsView
-                    } else if languageManager.filterByLanguage {
-                        filteredByLanguageCardsEmptyView
-                    } else if tagManager.selectedFilterTag == nil {
-                        noCardsFoundView
-                    } else {
-                        noCardsWithTagsView
-                    }
+        VStack {
+            if cardsProvider.cards.isEmpty {
+                noCardsView
+            } else if groupedCards.isEmpty {
+                if tagManager.isFavoriteFilterOn {
+                    noFavoriteCardsView
+                } else if languageManager.filterByLanguage {
+                    filteredByLanguageCardsEmptyView
+                } else if tagManager.selectedFilterTag == nil {
+                    noCardsFoundView
                 } else {
-                    List {
-                        ForEach(groupedCards) { group in
-                            Section(header: Text(group.language.displayName)) {
-                                ForEach(group.cards) { card in
-                                    CardRowView(
-                                        card: card,
-                                        onDelete: {
-                                            cardToDelete = card
-                                            showingDeleteAlert = true
-                                        },
-                                        onEdit: {
-                                            cardToEdit = card
-                                        }
-                                    )
-                                }
+                    noCardsWithTagsView
+                }
+            } else {
+                List {
+                    ForEach(groupedCards) { group in
+                        Section {
+                            ForEach(group.cards) { card in
+                                CardRowView(
+                                    card: card,
+                                    onDelete: {
+                                        cardToDelete = card
+                                        showingDeleteAlert = true
+                                    },
+                                    onEdit: {
+                                        cardToEdit = card
+                                    }
+                                )
+                                .listRowBackground(
+                                    Color.clear
+                                        .background(.regularMaterial)
+                                )
                             }
-                        }
-                    }
-                    .listStyle(.insetGrouped)
-                }
-            }
-            .safeAreaInset(edge: .top) {
-                VStack(spacing: 0) {
-                    FiltersScrollView()
-                        .padding(.horizontal, 16)
-                        .padding(.bottom, 12)
-                    Divider()
-                }
-                .background(.ultraThinMaterial)
-            }
-            .background(Color(.systemGroupedBackground))
-            .searchable(
-                text: $searchText,
-                prompt: LocalizationKeys.searchCards.localized
-            )
-            .navigationTitle(LocalizationKeys.myCards.localized)
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        HapticService.shared.buttonTapped()
-                        dismiss()
-                    } label: {
-                        Image(systemName: "xmark.circle.fill")
-                    }
-                    .foregroundStyle(.secondary)
-                }
-                if !cardsProvider.cards.isEmpty {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Menu {
-                            Button(role: .destructive) {
-                                cardToDelete = nil
-                                showingDeleteAlert = true
-                            } label: {
-                                Label(LocalizationKeys.deleteAllCards.localized, systemImage: "trash")
-                            }
-                        } label: {
-                            Image(systemName: "ellipsis.circle")
+                        } header: {
+                            Text(group.language.displayName)
+                                .foregroundStyle(colorManager.foregroundColor)
                         }
                     }
                 }
+                .listStyle(.insetGrouped)
+                .scrollContentBackground(.hidden)
             }
         }
+        .if(isPad) { view in
+            view.frame(maxWidth: 500, alignment: .center)
+        }
+        .navigation(
+            title: LocalizationKeys.myCards.localized,
+            mode: .large,
+            clipMode: .rectangle,
+            trailingContent: {
+                Button {
+                    showAddCardSheet = true
+                } label: {
+                    Image(systemName: "plus")
+                        .font(.headline)
+                }
+                .buttonStyle(.borderedProminent)
+                .clipShape(Capsule())
+            },
+            bottomContent: {
+                VStack(spacing: 8) {
+                    SearchView(
+                        placeholder: LocalizationKeys.searchCards.localized,
+                        searchText: $searchText
+                    )
+                    FiltersScrollView()
+                }
+            }
+        )
         .ifLet(colorManager.colorScheme) { view, scheme in
             view.colorScheme(scheme)
         }
@@ -199,13 +189,13 @@ struct MyCardsListView: View {
     }
 
     private var noCardsView: some View {
-        VStack(spacing: 24) {
+        VStack {
             ContentUnavailableView {
                 VStack {
                     Image(.stackCards)
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 60, height: 60)
+                        .frame(width: 48, height: 48)
                     Text(LocalizationKeys.noCardsYet.localized)
                 }
             } description: {
@@ -214,8 +204,9 @@ struct MyCardsListView: View {
             }
 
             FeaturedPresetCollections()
-                .clippedWithPaddingAndBackground()
-                .padding(vertical: 12, horizontal: 16)
+                .clippedWithPaddingAndBackgroundMaterial()
+                .padding(.horizontal, 16)
+                .padding(.bottom, 12)
         }
     }
 
@@ -225,7 +216,7 @@ struct MyCardsListView: View {
                 Image(.stackCards)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 60, height: 60)
+                    .frame(width: 48, height: 48)
                 Text(LocalizationKeys.noCardsYet.localized)
             }
         } description: {
