@@ -3,6 +3,14 @@ import CoreData
 import Combine
 import SwiftUI
 
+// MARK: - Analytics Data Models
+
+struct AccuracyDataPoint: Identifiable {
+    let id = UUID()
+    let date: Date
+    let accuracy: Double
+}
+
 // MARK: - Learning Analytics Service
 
 @MainActor
@@ -754,6 +762,164 @@ final class LearningAnalyticsService: ObservableObject {
             print("❌ Failed to get time range study stats: \(error)")
             return (0, 0, 0)
         }
+    }
+    
+    /// Get accuracy trends data for the selected time range
+    func getAccuracyTrends(for timeRange: AnalyticsDashboard.TimeRange) -> [AccuracyDataPoint] {
+        let calendar = Calendar.current
+        let today = Date()
+        
+        let startDate: Date?
+        let numberOfDays: Int
+        
+        switch timeRange {
+        case .week:
+            startDate = calendar.date(byAdding: .day, value: -7, to: today)!
+            numberOfDays = 7
+        case .month:
+            startDate = calendar.date(byAdding: .day, value: -30, to: today)!
+            numberOfDays = 30
+        case .year:
+            startDate = calendar.date(byAdding: .day, value: -365, to: today)!
+            numberOfDays = 365
+        case .all:
+            startDate = nil
+            numberOfDays = 365 // Show last year for all time
+        }
+        
+        let request = DailyStats.fetchRequest()
+        if let startDate = startDate {
+            request.predicate = NSPredicate(format: "date >= %@ AND date <= %@", startDate as NSDate, today as NSDate)
+        } else {
+            request.predicate = NSPredicate(format: "date <= %@", today as NSDate)
+        }
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \DailyStats.date, ascending: true)]
+        
+        do {
+            let stats = try coreDataService.context.fetch(request)
+            return stats.compactMap { stat in
+                guard let date = stat.date else { return nil }
+                // Calculate daily accuracy based on card performances for that day
+                let dailyAccuracy = calculateDailyAccuracy(for: date)
+                return AccuracyDataPoint(date: date, accuracy: dailyAccuracy)
+            }
+        } catch {
+            print("❌ Failed to get accuracy trends: \(error)")
+            return []
+        }
+    }
+    
+    /// Calculate daily accuracy for a specific date
+    private func calculateDailyAccuracy(for date: Date) -> Double {
+        let calendar = Calendar.current
+        let startOfDay = calendar.startOfDay(for: date)
+        let endOfDay = calendar.date(byAdding: .day, value: 1, to: startOfDay)!
+        
+        // Get all card performances that were reviewed on this day
+        let performances = cardPerformances.values.filter { performance in
+            guard let lastReviewed = performance.lastReviewed else { return false }
+            return lastReviewed >= startOfDay && lastReviewed < endOfDay
+        }
+        
+        guard !performances.isEmpty else { return 0.0 }
+        
+        let totalReviews = performances.reduce(0) { $0 + $1.totalReviews }
+        let totalCorrect = performances.reduce(0) { $0 + $1.correctReviews }
+        
+        return totalReviews > 0 ? Double(totalCorrect) / Double(totalReviews) : 0.0
+    }
+    
+    /// Get session performance metrics for the selected time range
+    func getSessionPerformance(for timeRange: AnalyticsDashboard.TimeRange) -> (averageDuration: TimeInterval, cardsPerSession: Double, sessionFrequency: Double) {
+        let calendar = Calendar.current
+        let today = Date()
+        
+        let startDate: Date?
+        switch timeRange {
+        case .week:
+            startDate = calendar.date(byAdding: .day, value: -7, to: today)!
+        case .month:
+            startDate = calendar.date(byAdding: .month, value: -1, to: today)!
+        case .year:
+            startDate = calendar.date(byAdding: .year, value: -1, to: today)!
+        case .all:
+            startDate = nil
+        }
+        
+        let request = StudySession.fetchRequest()
+        if let startDate = startDate {
+            request.predicate = NSPredicate(format: "startTime >= %@ AND startTime <= %@", startDate as NSDate, today as NSDate)
+        } else {
+            request.predicate = NSPredicate(format: "startTime <= %@", today as NSDate)
+        }
+        
+        do {
+            let sessions = try coreDataService.context.fetch(request)
+            let validSessions = sessions.filter { $0.duration > 0 }
+            
+            guard !validSessions.isEmpty else { return (0, 0, 0) }
+            
+            let averageDuration = validSessions.reduce(0) { $0 + $1.duration } / Double(validSessions.count)
+            let totalCards = validSessions.reduce(0) { $0 + $1.cardsReviewed }
+            let cardsPerSession = Double(totalCards) / Double(validSessions.count)
+            
+            // Calculate session frequency (sessions per day)
+            let daysInRange: Double
+            if let startDate = startDate {
+                daysInRange = Double(calendar.dateComponents([.day], from: startDate, to: today).day ?? 1)
+            } else {
+                daysInRange = 365 // Assume 1 year for all time
+            }
+            let sessionFrequency = Double(validSessions.count) / daysInRange
+            
+            return (averageDuration, cardsPerSession, sessionFrequency)
+        } catch {
+            print("❌ Failed to get session performance: \(error)")
+            return (0, 0, 0)
+        }
+    }
+    
+    /// Get card difficulty distribution
+    func getCardDifficultyDistribution() -> [(level: String, count: Int, percentage: Int, color: Color)] {
+        let performances = cardPerformances.values
+        guard !performances.isEmpty else { return [] }
+        
+        var distribution: [Int16: Int] = [1: 0, 2: 0, 3: 0, 4: 0, 5: 0]
+        
+        for performance in performances {
+            let difficulty = performance.difficultyLevel
+            distribution[difficulty, default: 0] += 1
+        }
+        
+        let total = performances.count
+        let easy = distribution[1, default: 0] + distribution[2, default: 0]
+        let medium = distribution[3, default: 0]
+        let hard = distribution[4, default: 0] + distribution[5, default: 0]
+        
+        return [
+            ("Easy", easy, total > 0 ? Int(Double(easy) / Double(total) * 100) : 0, .green),
+            ("Medium", medium, total > 0 ? Int(Double(medium) / Double(total) * 100) : 0, .orange),
+            ("Hard", hard, total > 0 ? Int(Double(hard) / Double(total) * 100) : 0, .red)
+        ]
+    }
+    
+    /// Get learning speed metrics
+    func getLearningSpeedMetrics() -> (cardsPerHour: Double, vsAverage: Double) {
+        let performances = cardPerformances.values
+        guard !performances.isEmpty else { return (0, 0) }
+        
+        let totalTime = performances.reduce(0) { $0 + $1.timeSpent }
+        let totalCards = performances.reduce(0) { $0 + $1.totalReviews }
+        
+        guard totalTime > 0 else { return (0, 0) }
+        
+        let cardsPerHour = Double(totalCards) / (totalTime / 3600) // Convert seconds to hours
+        
+        // Calculate vs average (assuming 20 cards/hour is average)
+        let averageCardsPerHour = 20.0
+        let vsAverage = cardsPerHour - averageCardsPerHour
+        
+        return (cardsPerHour, vsAverage)
     }
     
     // MARK: - Helper Methods

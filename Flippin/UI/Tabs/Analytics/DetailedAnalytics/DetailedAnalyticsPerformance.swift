@@ -38,94 +38,84 @@ extension DetailedAnalytics {
         }
 
         private var accuracyTrendsSection: some View {
-            CustomSectionView(
+            let accuracyData = analyticsService.getAccuracyTrends(for: selectedTimeRange)
+            
+            return CustomSectionView(
                 header: "Accuracy Trends",
                 backgroundStyle: .standard
             ) {
-                Chart(0..<7, id: \.self) { day in
-                    LineMark(
-                        x: .value("Day", day),
-                        y: .value("Accuracy", 70 + Double(day) * 3 + Double.random(in: -5...5))
-                    )
-                    .foregroundStyle(colorManager.tintColor.gradient)
-                    .interpolationMethod(.catmullRom)
-                }
-                .frame(height: 200)
-                .chartYScale(domain: 60...100)
-                .chartYAxis {
-                    AxisMarks { value in
-                        AxisValueLabel {
-                            if let accuracy = value.as(Double.self) {
-                                Text(Int(accuracy).asPercentage)
-                            }
-                        }
-                    }
-                }
+                AccuracyTrendsChart(data: accuracyData, tintColor: colorManager.tintColor)
             }
         }
 
         private var sessionPerformanceSection: some View {
-            CustomSectionView(
+            let sessionStats = analyticsService.getSessionPerformance(for: selectedTimeRange)
+            
+            return CustomSectionView(
                 header: "Session Performance",
                 backgroundStyle: .standard
             ) {
                 VStack(spacing: 12) {
                     PerformanceMetricRow(
                         title: "Average Session Duration",
-                        value: "18 minutes",
-                        trend: "+2 min",
+                        value: sessionStats.averageDuration.formattedStudyTime,
+                        trend: "Based on \(selectedTimeRange.rawValue.lowercased()) data",
                         isPositive: true
                     )
 
                     PerformanceMetricRow(
                         title: "Cards per Session",
-                        value: "12 cards",
-                        trend: "+1 card",
+                        value: String(format: "%.1f cards", sessionStats.cardsPerSession),
+                        trend: "Average",
                         isPositive: true
                     )
 
                     PerformanceMetricRow(
                         title: "Session Frequency",
-                        value: "2.3 sessions/day",
-                        trend: "-0.2",
-                        isPositive: false
+                        value: String(format: "%.1f sessions/day", sessionStats.sessionFrequency),
+                        trend: "Based on \(selectedTimeRange.rawValue.lowercased()) data",
+                        isPositive: sessionStats.sessionFrequency > 0
                     )
                 }
             }
         }
 
         private var cardDifficultySection: some View {
-            CustomSectionView(
+            let difficultyDistribution = analyticsService.getCardDifficultyDistribution()
+            
+            return CustomSectionView(
                 header: "Card Difficulty Analysis",
                 backgroundStyle: .standard
             ) {
-                VStack(spacing: 12) {
-                    DifficultyRow(
-                        level: "Easy",
-                        count: 45,
-                        percentage: 60,
-                        color: .green
-                    )
-
-                    DifficultyRow(
-                        level: "Medium",
-                        count: 25,
-                        percentage: 33,
-                        color: .orange
-                    )
-
-                    DifficultyRow(
-                        level: "Hard",
-                        count: 5,
-                        percentage: 7,
-                        color: .red
-                    )
+                if difficultyDistribution.isEmpty {
+                    VStack(spacing: 12) {
+                        Image(systemName: "chart.bar.xaxis")
+                            .font(.title2)
+                            .foregroundColor(.secondary)
+                        Text("No difficulty data available")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+                    .frame(height: 100)
+                } else {
+                    VStack(spacing: 12) {
+                        ForEach(difficultyDistribution, id: \.level) { difficulty in
+                            DifficultyRow(
+                                level: difficulty.level,
+                                count: difficulty.count,
+                                percentage: difficulty.percentage,
+                                color: difficulty.color
+                            )
+                        }
+                    }
                 }
             }
         }
 
         private var learningSpeedSection: some View {
-            CustomSectionView(
+            let learningSpeed = analyticsService.getLearningSpeedMetrics()
+            
+            return CustomSectionView(
                 header: "Learning Speed",
                 backgroundStyle: .standard
             ) {
@@ -135,7 +125,7 @@ extension DetailedAnalytics {
                             .font(.subheadline)
                             .foregroundColor(.secondary)
 
-                        Text("24")
+                        Text(String(format: "%.1f", learningSpeed.cardsPerHour))
                             .font(.title)
                             .fontWeight(.bold)
                             .foregroundColor(colorManager.tintColor)
@@ -148,10 +138,10 @@ extension DetailedAnalytics {
                             .font(.caption)
                             .foregroundColor(.secondary)
 
-                        Text("+8")
+                        Text(String(format: "%+.1f", learningSpeed.vsAverage))
                             .font(.title2)
                             .fontWeight(.semibold)
-                            .foregroundColor(.green)
+                            .foregroundColor(learningSpeed.vsAverage >= 0 ? .green : .red)
                     }
                 }
             }
