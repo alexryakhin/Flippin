@@ -137,6 +137,18 @@ enum StudyTab {
                             }
                         )
                     }
+                    
+                    // Multiple choice quiz
+                    if !cardsProvider.cards.isEmpty {
+                        studyOptionButton(
+                            image: Image(systemName: "list.bullet.circle.fill"),
+                            text: "Multiple Choice Quiz",
+                            color: .purple,
+                            action: { 
+                                currentStudyMode = .multipleChoice
+                            }
+                        )
+                    }
                 }
             }
         }

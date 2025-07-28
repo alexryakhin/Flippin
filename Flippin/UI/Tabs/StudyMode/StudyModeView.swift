@@ -20,11 +20,16 @@ struct StudyModeView: View {
     @State private var sessionResults: SessionResults?
     @State private var sessionStartTime = Date()
     @State private var sessionStats = SessionStats()
+    @State private var multipleChoiceOptions: [String] = []
+    @State private var selectedAnswer: String?
+    @State private var showAnswerResult = false
+    @State private var isAnswerCorrect = false
     
     enum StudyMode: Int, Identifiable, Hashable {
         case practice    // Practice all cards
         case practice10  // Practice just 10 cards
         case difficult   // Practice difficult cards only
+        case multipleChoice // Multiple choice quiz
 
         var id: Int { rawValue }
     }
@@ -107,39 +112,10 @@ struct StudyModeView: View {
             if currentCardIndex < studyCards.count {
                 let card = studyCards[currentCardIndex]
                 
-                VStack(spacing: 16) {
-                    // Question
-                    VStack(spacing: 8) {
-                        Text("Translate to \(card.frontLanguage?.displayName ?? LocalizationKeys.targetLanguage.localized)")
-                            .font(.subheadline)
-                            .foregroundColor(colorManager.foregroundColor)
-
-                        Text(card.backText.orEmpty)
-                            .font(.title2)
-                            .fontWeight(.semibold)
-                            .lineLimit(4)
-                            .multilineTextAlignment(.center)
-                            .frame(maxWidth: .infinity)
-                            .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
-                    }
-                    
-                    // Answer (shown after user interaction)
-                    if showingAnswer {
-                        VStack(spacing: 8) {
-                            Text("Correct Answer")
-                                .font(.subheadline)
-                                .foregroundColor(colorManager.foregroundColor)
-
-                            Text(card.frontText.orEmpty)
-                                .font(.title3)
-                                .fontWeight(.medium)
-                                .multilineTextAlignment(.center)
-                                .lineLimit(4)
-                                .frame(maxWidth: .infinity)
-                                .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
-                                .transition(.opacity.combined(with: .scale))
-                        }
-                    }
+                if studyMode == .multipleChoice {
+                    multipleChoiceCard(card: card)
+                } else {
+                    translationCard(card: card)
                 }
             }
             
@@ -147,36 +123,113 @@ struct StudyModeView: View {
         }
     }
     
+    private func translationCard(card: CardItem) -> some View {
+        VStack(spacing: 16) {
+            // Question
+            VStack(spacing: 8) {
+                Text("Translate to \(card.frontLanguage?.displayName ?? LocalizationKeys.targetLanguage.localized)")
+                    .font(.subheadline)
+                    .foregroundColor(colorManager.foregroundColor)
+
+                Text(card.backText.orEmpty)
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                    .lineLimit(4)
+                    .multilineTextAlignment(.center)
+                    .frame(maxWidth: .infinity)
+                    .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
+            }
+            
+            // Answer (shown after user interaction)
+            if showingAnswer {
+                VStack(spacing: 8) {
+                    Text("Correct Answer")
+                        .font(.subheadline)
+                        .foregroundColor(colorManager.foregroundColor)
+
+                    Text(card.frontText.orEmpty)
+                        .font(.title3)
+                        .fontWeight(.medium)
+                        .multilineTextAlignment(.center)
+                        .lineLimit(4)
+                        .frame(maxWidth: .infinity)
+                        .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
+                        .transition(.opacity.combined(with: .scale))
+                }
+            }
+        }
+    }
+    
+    private func multipleChoiceCard(card: CardItem) -> some View {
+        VStack(spacing: 20) {
+            // Question
+            VStack(spacing: 8) {
+                Text("Select the correct translation")
+                    .font(.subheadline)
+                    .foregroundColor(colorManager.foregroundColor)
+
+                Text(card.frontText.orEmpty)
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                    .lineLimit(4)
+                    .multilineTextAlignment(.center)
+                    .frame(maxWidth: .infinity)
+                    .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
+            }
+            
+            // Multiple choice options
+            if !multipleChoiceOptions.isEmpty {
+                VStack(spacing: 12) {
+                    ForEach(multipleChoiceOptions, id: \.self) { option in
+                        multipleChoiceButton(
+                            text: option,
+                            isSelected: selectedAnswer == option,
+                            isCorrect: showAnswerResult && option == card.backText.orEmpty,
+                            isIncorrect: showAnswerResult && selectedAnswer == option && option != card.backText.orEmpty
+                        ) {
+                            if selectedAnswer == nil {
+                                selectedAnswer = option
+                                checkMultipleChoiceAnswer(card: card)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     // MARK: - Action Buttons
     
     private var actionButtons: some View {
         VStack(spacing: 16) {
-            if !showingAnswer {
-                // Show answer button
-                Button("Show Answer") {
-                    withAnimation(.easeInOut(duration: 0.3)) {
-                        showingAnswer = true
+            if studyMode != .multipleChoice {
+                if !showingAnswer {
+                    // Show answer button
+                    Button("Show Answer") {
+                        withAnimation(.easeInOut(duration: 0.3)) {
+                            showingAnswer = true
+                        }
                     }
-                }
-                .foregroundStyle(colorManager.borderedProminentForegroundColor)
-                .buttonStyle(.borderedProminent)
-                .clipShape(Capsule())
-            } else {
-                // Correct/Incorrect buttons
-                HStack(spacing: 16) {
-                    Button("Incorrect") {
-                        recordAnswer(wasCorrect: false)
-                    }
+                    .foregroundStyle(colorManager.borderedProminentForegroundColor)
                     .buttonStyle(.borderedProminent)
                     .clipShape(Capsule())
-                    .tint(.red)
+                } else {
+                    // Correct/Incorrect buttons
+                    HStack(spacing: 16) {
+                        Button("Incorrect") {
+                            recordAnswer(wasCorrect: false)
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .clipShape(Capsule())
+                        .tint(.red)
 
-                    Button("Correct") {
-                        recordAnswer(wasCorrect: true)
+                        Button("Correct") {
+                            recordAnswer(wasCorrect: true)
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .tint(.green)
+                        .clipShape(Capsule())
                     }
-                    .buttonStyle(.borderedProminent)
-                    .tint(.green)
-                    .clipShape(Capsule())
                 }
             }
         }
@@ -274,6 +327,15 @@ struct StudyModeView: View {
                 // If no difficult cards, fall back to all cards
                 studyCards = cardsProvider.cards
             }
+        case .multipleChoice:
+            // For multiple choice, use all cards but limit to 10 for manageable sessions
+            let allCards = cardsProvider.cards
+            if allCards.count <= 10 {
+                studyCards = allCards
+            } else {
+                // Take a random sample of 10 cards for multiple choice
+                studyCards = Array(allCards.shuffled().prefix(10))
+            }
         }
         
         // Shuffle cards for study
@@ -292,6 +354,12 @@ struct StudyModeView: View {
         
         // Start timing for first card
         cardStartTime = Date()
+        
+        // Generate multiple choice options if needed
+        if studyMode == .multipleChoice && !studyCards.isEmpty {
+            let firstCard = studyCards[0]
+            generateMultipleChoiceOptions(for: firstCard)
+        }
     }
     
     private func recordAnswer(wasCorrect: Bool) {
@@ -357,7 +425,102 @@ struct StudyModeView: View {
         }
     }
     
-    // Removed formatStudyTime - now using TimeInterval extension
+    // MARK: - Multiple Choice Methods
+    
+    private func generateMultipleChoiceOptions(for card: CardItem) {
+        let correctAnswer = card.backText.orEmpty
+        var options = [correctAnswer]
+        
+        // Get other cards to use as wrong options
+        let otherCards = cardsProvider.cards.filter { $0.id != card.id }
+        let shuffledOthers = otherCards.shuffled()
+        
+        // Add 3 wrong options
+        for otherCard in shuffledOthers.prefix(3) {
+            let wrongAnswer = otherCard.backText.orEmpty
+            if !options.contains(wrongAnswer) {
+                options.append(wrongAnswer)
+            }
+        }
+        
+        // If we don't have enough options, add some generic ones
+        while options.count < 4 {
+            let genericOptions = ["I don't know", "Maybe", "Not sure", "Skip"]
+            for option in genericOptions {
+                if !options.contains(option) {
+                    options.append(option)
+                    break
+                }
+            }
+        }
+        
+        // Shuffle the options
+        multipleChoiceOptions = options.shuffled()
+    }
+    
+    private func checkMultipleChoiceAnswer(card: CardItem) {
+        let correctAnswer = card.backText.orEmpty
+        isAnswerCorrect = selectedAnswer == correctAnswer
+        
+        // Show result for a moment
+        showAnswerResult = true
+        
+        // Record the answer
+        recordMultipleChoiceAnswer(card: card, wasCorrect: isAnswerCorrect)
+        
+        // Move to next card after a delay
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            moveToNextCard()
+        }
+    }
+    
+    private func recordMultipleChoiceAnswer(card: CardItem, wasCorrect: Bool) {
+        let timeSpent = Date().timeIntervalSince(cardStartTime)
+        
+        // Update local session stats
+        if wasCorrect {
+            sessionStats.correctAnswers += 1
+        } else {
+            sessionStats.incorrectAnswers += 1
+        }
+        sessionStats.totalTime += timeSpent
+        
+        // Record the answer in analytics
+        if let cardId = card.id {
+            analyticsService.recordCardReview(
+                cardId: cardId,
+                wasCorrect: wasCorrect,
+                timeSpent: timeSpent    
+            )
+        }
+    }
+    
+    private func moveToNextCard() {
+        if currentCardIndex + 1 < studyCards.count {
+            currentCardIndex += 1
+            resetMultipleChoiceState()
+            cardStartTime = Date()
+            
+            // Haptic feedback
+            HapticService.shared.cardFlipped()
+        } else {
+            // End session
+            endStudySession()
+            showResults()
+        }
+    }
+    
+    private func resetMultipleChoiceState() {
+        selectedAnswer = nil
+        showAnswerResult = false
+        multipleChoiceOptions = []
+        
+        // Generate options for the new card
+        if currentCardIndex < studyCards.count {
+            let card = studyCards[currentCardIndex]
+            generateMultipleChoiceOptions(for: card)
+        }
+    }
 }
 
 // MARK: - Supporting Views
@@ -382,6 +545,94 @@ struct ResultStatRow: View {
             Text(value)
                 .font(.subheadline)
                 .fontWeight(.semibold)
+        }
+    }
+}
+
+extension StudyModeView {
+    func multipleChoiceButton(
+        text: String,
+        isSelected: Bool,
+        isCorrect: Bool,
+        isIncorrect: Bool,
+        action: @escaping () -> Void
+    ) -> some View {
+        Button(action: action) {
+            HStack {
+                Text(text)
+                    .font(.body)
+                    .fontWeight(.medium)
+                    .multilineTextAlignment(.leading)
+                    .lineLimit(3)
+                
+                Spacer()
+                
+                if isSelected {
+                    Image(systemName: isCorrect ? "checkmark.circle.fill" : "xmark.circle.fill")
+                        .foregroundColor(isCorrect ? .green : .red)
+                        .font(.title2)
+                }
+            }
+            .padding(16)
+            .background(
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(backgroundColor(
+                        isSelected: isSelected,
+                        isCorrect: isCorrect,
+                        isIncorrect: isIncorrect
+                    ))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(borderColor(
+                                isSelected: isSelected,
+                                isCorrect: isCorrect,
+                                isIncorrect: isIncorrect
+                            ), lineWidth: 2)
+                    )
+            )
+            .foregroundColor(textColor(
+                isSelected: isSelected,
+                isCorrect: isCorrect,
+                isIncorrect: isIncorrect
+            ))
+        }
+        .disabled(isSelected)
+        .animation(.easeInOut(duration: 0.2), value: isSelected)
+        .animation(.easeInOut(duration: 0.2), value: isCorrect)
+        .animation(.easeInOut(duration: 0.2), value: isIncorrect)
+    }
+    
+    private func backgroundColor(isSelected: Bool, isCorrect: Bool, isIncorrect: Bool) -> Color {
+        if isCorrect {
+            return .green.opacity(0.2)
+        } else if isIncorrect {
+            return .red.opacity(0.2)
+        } else if isSelected {
+            return colorManager.tintColor.opacity(0.2)
+        } else {
+            return Color(.tertiarySystemGroupedBackground)
+        }
+    }
+    
+    private func borderColor(isSelected: Bool, isCorrect: Bool, isIncorrect: Bool) -> Color {
+        if isCorrect {
+            return .green
+        } else if isIncorrect {
+            return .red
+        } else if isSelected {
+            return colorManager.tintColor
+        } else {
+            return Color(.separator)
+        }
+    }
+    
+    private func textColor(isSelected: Bool, isCorrect: Bool, isIncorrect: Bool) -> Color {
+        if isCorrect || isIncorrect {
+            return .primary
+        } else if isSelected {
+            return colorManager.tintColor
+        } else {
+            return .primary
         }
     }
 }
