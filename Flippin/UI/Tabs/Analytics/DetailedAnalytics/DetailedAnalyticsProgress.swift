@@ -34,37 +34,41 @@ extension DetailedAnalytics {
         }
 
         private var masteryTimelineSection: some View {
-            CustomSectionView(
+            let timelineEvents = analyticsService.getMasteryTimelineEvents(for: selectedTimeRange)
+            
+            return CustomSectionView(
                 header: "Mastery Timeline",
                 backgroundStyle: .standard
             ) {
-                VStack(spacing: 16) {
-                    TimelineEvent(
-                        date: "Today",
-                        title: "Reached 75 cards mastered",
-                        description: "Great progress! You're on track for your weekly goal.",
-                        isCompleted: true
-                    )
-
-                    TimelineEvent(
-                        date: "Yesterday",
-                        title: "Completed 3 study sessions",
-                        description: "Consistent daily practice is key to success.",
-                        isCompleted: true
-                    )
-
-                    TimelineEvent(
-                        date: "3 days ago",
-                        title: "Started new vocabulary set",
-                        description: "Added 15 new travel phrases to your collection.",
-                        isCompleted: true
-                    )
+                if timelineEvents.isEmpty {
+                    VStack(spacing: 12) {
+                        Image(systemName: "timeline.selection")
+                            .font(.title2)
+                            .foregroundColor(.secondary)
+                        Text("No recent activity")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+                    .frame(height: 100)
+                } else {
+                    VStack(spacing: 16) {
+                        ForEach(timelineEvents) { event in
+                            TimelineEvent(
+                                date: event.date,
+                                title: event.title,
+                                description: event.description,
+                                isCompleted: event.isCompleted
+                            )
+                        }
+                    }
                 }
             }
         }
 
         private var vocabularyGrowthSection: some View {
-            CustomSectionView(
+            let growthData = analyticsService.getVocabularyGrowthData(for: selectedTimeRange)
+            
+            return CustomSectionView(
                 header: "Vocabulary Growth",
                 backgroundStyle: .standard
             ) {
@@ -75,7 +79,7 @@ extension DetailedAnalytics {
                                 .font(.subheadline)
                                 .foregroundColor(.secondary)
 
-                            Text("\(analyticsService.totalCardsMastered + 25)")
+                            Text("\(growthData.totalCards)")
                                 .font(.title)
                                 .fontWeight(.bold)
                                 .foregroundColor(colorManager.tintColor)
@@ -88,55 +92,34 @@ extension DetailedAnalytics {
                                 .font(.caption)
                                 .foregroundColor(.secondary)
 
-                            Text("+12")
+                            Text("+\(growthData.weeklyGrowth)")
                                 .font(.title2)
                                 .fontWeight(.semibold)
                                 .foregroundColor(.green)
                         }
                     }
 
-                    // Growth chart placeholder
-                    RoundedRectangle(cornerRadius: 8)
-                        .fill(Color.gray.opacity(0.1))
-                        .frame(height: 100)
-                        .overlay(
-                            Text("Vocabulary growth chart")
-                                .font(.caption)
-                                .foregroundColor(.secondary)
-                        )
+                    // Growth chart
+                    VocabularyGrowthChart(data: growthData.growthData, tintColor: colorManager.tintColor)
                 }
             }
         }
 
         private var learningMilestonesSection: some View {
-            CustomSectionView(
+            let milestones = analyticsService.getLearningMilestones()
+            
+            return CustomSectionView(
                 header: "Learning Milestones",
                 backgroundStyle: .standard
             ) {
                 VStack(spacing: 12) {
-                    MilestoneRow(
-                        title: "First 10 cards mastered",
-                        isCompleted: true,
-                        date: "2 weeks ago"
-                    )
-
-                    MilestoneRow(
-                        title: "7-day study streak",
-                        isCompleted: analyticsService.studyStreak >= 7,
-                        date: analyticsService.studyStreak >= 7 ? "1 week ago" : "In progress"
-                    )
-
-                    MilestoneRow(
-                        title: "50 cards mastered",
-                        isCompleted: analyticsService.totalCardsMastered >= 50,
-                        date: analyticsService.totalCardsMastered >= 50 ? "3 days ago" : "In progress"
-                    )
-
-                    MilestoneRow(
-                        title: "30-day study streak",
-                        isCompleted: analyticsService.studyStreak >= 30,
-                        date: analyticsService.studyStreak >= 30 ? "Today" : "In progress"
-                    )
+                    ForEach(milestones) { milestone in
+                        MilestoneRow(
+                            title: milestone.title,
+                            isCompleted: milestone.isCompleted,
+                            date: milestone.date
+                        )
+                    }
                 }
             }
         }

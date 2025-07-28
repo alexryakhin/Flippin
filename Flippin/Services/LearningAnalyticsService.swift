@@ -11,6 +11,44 @@ struct AccuracyDataPoint: Identifiable {
     let accuracy: Double
 }
 
+struct TimelineEvent: Identifiable {
+    let id = UUID()
+    let date: String
+    let title: String
+    let description: String
+    let isCompleted: Bool
+}
+
+struct VocabularyGrowthPoint: Identifiable {
+    let id = UUID()
+    let date: Date
+    let masteredCards: Int
+    let totalCards: Int
+}
+
+struct LearningMilestone: Identifiable {
+    let id = UUID()
+    let title: String
+    let isCompleted: Bool
+    let date: String
+}
+
+struct PersonalizedInsight: Identifiable {
+    let id = UUID()
+    let title: String
+    let description: String
+    let icon: String
+    let color: Color
+}
+
+struct PersonalizedRecommendation: Identifiable {
+    let id = UUID()
+    let title: String
+    let description: String
+    let action: String
+    let color: Color
+}
+
 // MARK: - Learning Analytics Service
 
 @MainActor
@@ -920,6 +958,338 @@ final class LearningAnalyticsService: ObservableObject {
         let vsAverage = cardsPerHour - averageCardsPerHour
         
         return (cardsPerHour, vsAverage)
+    }
+    
+    /// Get mastery timeline events for the selected time range
+    func getMasteryTimelineEvents(for timeRange: AnalyticsDashboard.TimeRange) -> [TimelineEvent] {
+        let calendar = Calendar.current
+        let today = Date()
+        
+        let startDate: Date?
+        switch timeRange {
+        case .week:
+            startDate = calendar.date(byAdding: .day, value: -7, to: today)!
+        case .month:
+            startDate = calendar.date(byAdding: .month, value: -1, to: today)!
+        case .year:
+            startDate = calendar.date(byAdding: .year, value: -1, to: today)!
+        case .all:
+            startDate = nil
+        }
+        
+        var events: [TimelineEvent] = []
+        
+        // Get study sessions for the time range
+        let request = StudySession.fetchRequest()
+        if let startDate = startDate {
+            request.predicate = NSPredicate(format: "startTime >= %@ AND startTime <= %@", startDate as NSDate, today as NSDate)
+        } else {
+            request.predicate = NSPredicate(format: "startTime <= %@", today as NSDate)
+        }
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \StudySession.startTime, ascending: false)]
+        
+        do {
+            let sessions = try coreDataService.context.fetch(request)
+            
+            // Add recent study session events
+            let recentSessions = Array(sessions.prefix(3))
+            for session in recentSessions {
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateStyle = .medium
+                let dateString = dateFormatter.string(from: session.startTime ?? Date())
+                
+                let event = TimelineEvent(
+                    date: dateString,
+                    title: "Completed study session",
+                    description: "Reviewed \(session.cardsReviewed) cards in \(session.duration.formattedStudyTime)",
+                    isCompleted: true
+                )
+                events.append(event)
+            }
+            
+            // Add mastery milestone events
+            let masteredCards = cardPerformances.values.filter { $0.masteryLevel >= 5 }.count
+            if masteredCards > 0 {
+                let event = TimelineEvent(
+                    date: "Recent",
+                    title: "Reached \(masteredCards) cards mastered",
+                    description: "Great progress! You're building a strong foundation.",
+                    isCompleted: true
+                )
+                events.append(event)
+            }
+            
+        } catch {
+            print("❌ Failed to get mastery timeline events: \(error)")
+        }
+        
+        return events
+    }
+    
+    /// Get vocabulary growth data for the selected time range
+    func getVocabularyGrowthData(for timeRange: AnalyticsDashboard.TimeRange) -> (totalCards: Int, weeklyGrowth: Int, growthData: [VocabularyGrowthPoint]) {
+        let calendar = Calendar.current
+        let today = Date()
+        
+        let startDate: Date?
+        switch timeRange {
+        case .week:
+            startDate = calendar.date(byAdding: .day, value: -7, to: today)!
+        case .month:
+            startDate = calendar.date(byAdding: .month, value: -1, to: today)!
+        case .year:
+            startDate = calendar.date(byAdding: .year, value: -1, to: today)!
+        case .all:
+            startDate = nil
+        }
+        
+        let totalCards = cardsProvider.cards.count
+        let masteredCards = cardPerformances.values.filter { $0.masteryLevel >= 5 }.count
+        
+        // Calculate weekly growth (cards mastered in the last 7 days)
+        let weekAgo = calendar.date(byAdding: .day, value: -7, to: today)!
+        let weeklyGrowth = cardPerformances.values.filter { performance in
+            guard let lastReviewed = performance.lastReviewed else { return false }
+            return lastReviewed >= weekAgo && performance.masteryLevel >= 5
+        }.count
+        
+        // Generate growth data points
+        var growthData: [VocabularyGrowthPoint] = []
+        let numberOfPoints = timeRange == .week ? 7 : (timeRange == .month ? 30 : 12)
+        
+        for i in 0..<numberOfPoints {
+            let date: Date
+            if timeRange == .week {
+                date = calendar.date(byAdding: .day, value: -i, to: today)!
+            } else if timeRange == .month {
+                date = calendar.date(byAdding: .day, value: -i, to: today)!
+            } else {
+                date = calendar.date(byAdding: .month, value: -i, to: today)!
+            }
+            
+            // Simulate growth data (in a real app, this would come from historical data)
+            let growthValue = masteredCards - (numberOfPoints - i) * 2
+            let point = VocabularyGrowthPoint(
+                date: date,
+                masteredCards: max(0, growthValue),
+                totalCards: totalCards
+            )
+            growthData.append(point)
+        }
+        
+        growthData.reverse() // Show oldest to newest
+        
+        return (totalCards, weeklyGrowth, growthData)
+    }
+    
+    /// Get learning milestones with real completion status
+    func getLearningMilestones() -> [LearningMilestone] {
+        let masteredCards = cardPerformances.values.filter { $0.masteryLevel >= 5 }.count
+        
+        return [
+            LearningMilestone(
+                title: "First 10 cards mastered",
+                isCompleted: masteredCards >= 10,
+                date: masteredCards >= 10 ? "Completed" : "In progress"
+            ),
+            LearningMilestone(
+                title: "7-day study streak",
+                isCompleted: studyStreak >= 7,
+                date: studyStreak >= 7 ? "Completed" : "In progress"
+            ),
+            LearningMilestone(
+                title: "50 cards mastered",
+                isCompleted: masteredCards >= 50,
+                date: masteredCards >= 50 ? "Completed" : "In progress"
+            ),
+            LearningMilestone(
+                title: "30-day study streak",
+                isCompleted: studyStreak >= 30,
+                date: studyStreak >= 30 ? "Completed" : "In progress"
+            )
+        ]
+    }
+    
+    /// Get personalized insights based on user data
+    func getPersonalizedInsights(for timeRange: AnalyticsDashboard.TimeRange) -> [PersonalizedInsight] {
+        var insights: [PersonalizedInsight] = []
+        
+        // Analyze study patterns
+        let patterns = getStudyPatterns()
+        
+        // Insight 1: Most productive time
+        if !patterns.mostActiveTime.isEmpty {
+            insights.append(PersonalizedInsight(
+                title: "You're most productive in the \(patterns.mostActiveTime.lowercased())",
+                description: "Your study sessions during this time show better focus and retention.",
+                icon: "clock.fill",
+                color: .indigo
+            ))
+        }
+        
+        // Insight 2: Session length preference
+        if !patterns.preferredSessionLength.isEmpty {
+            insights.append(PersonalizedInsight(
+                title: "Optimal session length",
+                description: "Your \(patterns.preferredSessionLength.lowercased()) sessions show the best results.",
+                icon: "timer",
+                color: .blue
+            ))
+        }
+        
+        // Insight 3: Study frequency
+        if !patterns.studyFrequency.isEmpty {
+            insights.append(PersonalizedInsight(
+                title: "Consistent learning pattern",
+                description: "Your \(patterns.studyFrequency.lowercased()) study routine is working well.",
+                icon: "calendar",
+                color: .green
+            ))
+        }
+        
+        // Insight 4: Accuracy trends
+        let accuracyData = getAccuracyTrends(for: timeRange)
+        if accuracyData.count >= 2 {
+            let recentAccuracy = accuracyData.suffix(3).map { $0.accuracy }.reduce(0, +) / Double(accuracyData.suffix(3).count)
+            let olderAccuracy = accuracyData.prefix(3).map { $0.accuracy }.reduce(0, +) / Double(accuracyData.prefix(3).count)
+            
+            if recentAccuracy > olderAccuracy {
+                insights.append(PersonalizedInsight(
+                    title: "Improving accuracy",
+                    description: "Your recent accuracy is \(Int((recentAccuracy - olderAccuracy) * 100))% higher than before.",
+                    icon: "arrow.up.circle.fill",
+                    color: .green
+                ))
+            } else if recentAccuracy < olderAccuracy {
+                insights.append(PersonalizedInsight(
+                    title: "Focus on accuracy",
+                    description: "Your recent accuracy has decreased. Consider reviewing difficult cards.",
+                    icon: "exclamationmark.triangle.fill",
+                    color: .orange
+                ))
+            }
+        }
+        
+        // Insight 5: Vocabulary growth
+        let masteredCards = cardPerformances.values.filter { $0.masteryLevel >= 5 }.count
+        let totalCards = cardsProvider.cards.count
+        if totalCards > 0 {
+            let masteryPercentage = Double(masteredCards) / Double(totalCards)
+            if masteryPercentage >= 0.8 {
+                insights.append(PersonalizedInsight(
+                    title: "Excellent progress",
+                    description: "You've mastered \(Int(masteryPercentage * 100))% of your vocabulary!",
+                    icon: "star.fill",
+                    color: .yellow
+                ))
+            } else if masteryPercentage >= 0.5 {
+                insights.append(PersonalizedInsight(
+                    title: "Good foundation",
+                    description: "You've mastered \(Int(masteryPercentage * 100))% of your vocabulary. Keep going!",
+                    icon: "checkmark.circle.fill",
+                    color: .green
+                ))
+            }
+        }
+        
+        return insights
+    }
+    
+    /// Get personalized recommendations based on user data
+    func getPersonalizedRecommendations() -> [PersonalizedRecommendation] {
+        var recommendations: [PersonalizedRecommendation] = []
+        
+        // Recommendation 1: Difficult cards
+        let difficultCards = cardPerformances.values.filter { $0.difficultyLevel >= 4 && $0.masteryLevel < 3 }.count
+        if difficultCards > 0 {
+            recommendations.append(PersonalizedRecommendation(
+                title: "Review difficult cards",
+                description: "\(difficultCards) cards need more practice. Focus on these to improve accuracy.",
+                action: "Start Review",
+                color: .orange
+            ))
+        }
+        
+        // Recommendation 2: Add more vocabulary
+        let masteredCards = cardPerformances.values.filter { $0.masteryLevel >= 5 }.count
+        let totalCards = cardsProvider.cards.count
+        if Double(masteredCards) >= Double(totalCards) * 0.7 && totalCards < 100 {
+            recommendations.append(PersonalizedRecommendation(
+                title: "Add more vocabulary",
+                description: "You've mastered most of your current cards. Ready for new challenges!",
+                action: "Browse Collections",
+                color: .blue
+            ))
+        }
+        
+        // Recommendation 3: Extend streak (only if haven't studied today)
+        let calendar = Calendar.current
+        let today = calendar.startOfDay(for: Date())
+        let lastStudyDate = getLastStudyDate()
+        
+        if let lastStudy = lastStudyDate {
+            let lastStudyDay = calendar.startOfDay(for: lastStudy)
+            if lastStudyDay < today {
+                let nextStreakMilestone = getNextStreakMilestone()
+                if nextStreakMilestone > 0 {
+                    recommendations.append(PersonalizedRecommendation(
+                        title: "Extend your streak",
+                        description: "You're \(nextStreakMilestone) days away from a new achievement!",
+                        action: "Study Now",
+                        color: .green
+                    ))
+                }
+            }
+        }
+        
+        // Recommendation 4: Study more frequently
+        if studyStreak < 3 {
+            recommendations.append(PersonalizedRecommendation(
+                title: "Build consistency",
+                description: "Try to study daily to build a strong learning habit.",
+                action: "Study Now",
+                color: .purple
+            ))
+        }
+        
+        // Recommendation 5: Focus on accuracy
+        let overallAccuracy = getOverallAccuracy()
+        if overallAccuracy < 0.7 {
+            recommendations.append(PersonalizedRecommendation(
+                title: "Improve accuracy",
+                description: "Your accuracy is \(Int(overallAccuracy * 100))%. Focus on quality over speed.",
+                action: "Practice Mode",
+                color: .red
+            ))
+        }
+        
+        return recommendations
+    }
+    
+    /// Get next streak milestone
+    private func getNextStreakMilestone() -> Int {
+        let milestones = [7, 14, 30, 60, 100]
+        for milestone in milestones {
+            if studyStreak < milestone {
+                return milestone - studyStreak
+            }
+        }
+        return 0
+    }
+    
+    /// Get the last study date
+    private func getLastStudyDate() -> Date? {
+        let request = StudySession.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \StudySession.startTime, ascending: false)]
+        request.fetchLimit = 1
+        
+        do {
+            let sessions = try coreDataService.context.fetch(request)
+            return sessions.first?.startTime
+        } catch {
+            print("❌ Failed to get last study date: \(error)")
+            return nil
+        }
     }
     
     // MARK: - Helper Methods

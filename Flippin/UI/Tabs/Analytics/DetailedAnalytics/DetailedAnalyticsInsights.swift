@@ -15,6 +15,7 @@ extension DetailedAnalytics {
 
         @StateObject private var analyticsService = LearningAnalyticsService.shared
         @StateObject private var colorManager = ColorManager.shared
+        @State private var showingPresetCollections = false
 
         var body: some View {
             ScrollView {
@@ -31,64 +32,74 @@ extension DetailedAnalytics {
                 .padding(16)
             }
             .background(Color(.systemGroupedBackground))
+            .sheet(isPresented: $showingPresetCollections) {
+                PresetCollectionsView()
+            }
         }
 
         private var personalizedInsightsSection: some View {
-            CustomSectionView(
+            let insights = analyticsService.getPersonalizedInsights(for: selectedTimeRange)
+            
+            return CustomSectionView(
                 header: "Personalized Insights",
                 backgroundStyle: .standard
             ) {
-                VStack(spacing: 12) {
-                    InsightCard(
-                        title: "You're most productive in the evening",
-                        description: "Your accuracy is 15% higher during 6-9 PM sessions.",
-                        icon: "moon.fill",
-                        color: .indigo
-                    )
-
-                    InsightCard(
-                        title: "Shorter sessions work better",
-                        description: "Sessions under 20 minutes have 25% higher retention.",
-                        icon: "timer",
-                        color: .blue
-                    )
-
-                    InsightCard(
-                        title: "Consistency is key",
-                        description: "Daily practice has improved your learning speed by 40%.",
-                        icon: "calendar",
-                        color: .green
-                    )
+                if insights.isEmpty {
+                    VStack(spacing: 12) {
+                        Image(systemName: "lightbulb")
+                            .font(.title2)
+                            .foregroundColor(.secondary)
+                        Text("No insights available yet")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+                    .frame(height: 100)
+                } else {
+                    VStack(spacing: 12) {
+                        ForEach(insights) { insight in
+                            InsightCard(
+                                title: insight.title,
+                                description: insight.description,
+                                icon: insight.icon,
+                                color: insight.color
+                            )
+                        }
+                    }
                 }
             }
         }
 
         private var recommendationsSection: some View {
-            CustomSectionView(
+            let recommendations = analyticsService.getPersonalizedRecommendations()
+            
+            return CustomSectionView(
                 header: "Recommendations",
                 backgroundStyle: .standard
             ) {
-                VStack(spacing: 12) {
-                    RecommendationCard(
-                        title: "Review difficult cards",
-                        description: "5 cards need more practice. Focus on these to improve accuracy.",
-                        action: "Start Review",
-                        color: .orange
-                    )
-
-                    RecommendationCard(
-                        title: "Add more vocabulary",
-                        description: "You're ready for intermediate level phrases.",
-                        action: "Browse Collections",
-                        color: .blue
-                    )
-
-                    RecommendationCard(
-                        title: "Extend your streak",
-                        description: "You're 3 days away from a new achievement!",
-                        action: "Study Now",
-                        color: .green
-                    )
+                if recommendations.isEmpty {
+                    VStack(spacing: 12) {
+                        Image(systemName: "checkmark.circle")
+                            .font(.title2)
+                            .foregroundColor(.secondary)
+                        Text("No recommendations at this time")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+                    .frame(height: 100)
+                } else {
+                    VStack(spacing: 12) {
+                        ForEach(recommendations) { recommendation in
+                            RecommendationCard(
+                                title: recommendation.title,
+                                description: recommendation.description,
+                                action: recommendation.action,
+                                color: recommendation.color,
+                                onAction: {
+                                    handleRecommendationAction(recommendation)
+                                }
+                            )
+                        }
+                    }
                 }
             }
         }
@@ -117,6 +128,30 @@ extension DetailedAnalytics {
                         icon: "text.bubble"
                     )
                 }
+            }
+        }
+        
+        private func handleRecommendationAction(_ recommendation: PersonalizedRecommendation) {
+            switch recommendation.action {
+            case "Study Now":
+                // Navigate to study mode
+                print("🎯 Starting study session from recommendation")
+                // In a real app, this would trigger navigation to study mode
+                break
+            case "Start Review":
+                // Navigate to review mode for difficult cards
+                print("🎯 Starting review session for difficult cards")
+                break
+            case "Browse Collections":
+                // Present PresetCollectionsView
+                showingPresetCollections = true
+                break
+            case "Practice Mode":
+                // Navigate to practice mode
+                print("🎯 Starting practice mode")
+                break
+            default:
+                print("🎯 Unknown recommendation action: \(recommendation.action)")
             }
         }
     }
@@ -156,6 +191,7 @@ extension DetailedAnalytics {
         let description: String
         let action: String
         let color: Color
+        let onAction: () -> Void
 
         var body: some View {
             VStack(alignment: .leading, spacing: 8) {
@@ -167,15 +203,15 @@ extension DetailedAnalytics {
                     .font(.caption)
                     .foregroundColor(.secondary)
 
-                Button(action) {
-                    // Handle action
+                Button(action: onAction) {
+                    Text(action)
+                        .font(.caption)
+                        .foregroundColor(color)
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 6)
+                        .background(color.opacity(0.1))
+                        .clipShape(Capsule())
                 }
-                .font(.caption)
-                .foregroundColor(color)
-                .padding(.horizontal, 12)
-                .padding(.vertical, 6)
-                .background(color.opacity(0.1))
-                .clipShape(Capsule())
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .clippedWithPaddingAndBackground(
