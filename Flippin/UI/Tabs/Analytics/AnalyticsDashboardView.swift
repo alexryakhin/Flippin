@@ -70,7 +70,7 @@ enum AnalyticsDashboard {
                             .font(.subheadline)
                             .foregroundColor(.secondary)
 
-                        Text(formatStudyTime(analyticsService.totalStudyTime))
+                        Text(analyticsService.totalStudyTime.formattedAnalyticsTime)
                             .font(.system(.title2, design: .rounded))
                             .bold()
                     }
@@ -99,7 +99,7 @@ enum AnalyticsDashboard {
                 LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 8), count: 2), spacing: 8) {
                     StatCard(
                         title: "Today's Study",
-                        value: formatStudyTime(analyticsService.dailyStats?.totalStudyTime ?? 0),
+                        value: (analyticsService.dailyStats?.totalStudyTime ?? 0).formattedStudyTime,
                         icon: "clock.fill",
                         color: .blue
                     )
@@ -120,7 +120,7 @@ enum AnalyticsDashboard {
 
                     StatCard(
                         title: "Accuracy",
-                        value: "\(Int((analyticsService.dailyStats?.totalStudyTime ?? 0) > 0 ? 85.0 : 0.0))%",
+                        value: ((analyticsService.dailyStats?.totalStudyTime ?? 0) > 0 ? 85.0 : 0.0).formattedPercentage,
                         icon: "target",
                         color: .green
                     )
@@ -201,16 +201,7 @@ enum AnalyticsDashboard {
 
         // MARK: - Helper Methods
 
-        private func formatStudyTime(_ timeInterval: TimeInterval) -> String {
-            let hours = Int(timeInterval) / 3600
-            let minutes = Int(timeInterval) % 3600 / 60
-
-            if hours > 0 {
-                return "\(hours)h \(minutes)m"
-            } else {
-                return "\(minutes)m"
-            }
-        }
+        // Removed formatStudyTime - now using TimeInterval extension
     }
 
     // MARK: - Supporting Views

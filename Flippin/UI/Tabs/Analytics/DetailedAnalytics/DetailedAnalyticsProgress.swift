@@ -120,8 +120,8 @@ extension DetailedAnalytics {
 
                     MilestoneRow(
                         title: "7-day study streak",
-                        isCompleted: true,
-                        date: "1 week ago"
+                        isCompleted: analyticsService.studyStreak >= 7,
+                        date: analyticsService.studyStreak >= 7 ? "1 week ago" : "In progress"
                     )
 
                     MilestoneRow(

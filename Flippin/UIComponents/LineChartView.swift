@@ -66,7 +66,7 @@ struct LineChartView: View {
                                     .font(.caption)
                                     .fontWeight(.medium)
                                     .foregroundColor(.primary)
-                                Text("\(value.percentage, specifier: "%.1f")%")
+                                Text(value.percentage.formattedPercentageWithDecimal)
                                     .font(.caption2)
                                     .foregroundColor(.secondary)
                             }

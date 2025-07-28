@@ -93,7 +93,7 @@ enum StudyTab {
 
                     StatCard(
                         title: "Study Time Today",
-                        value: formatStudyTime(studyTimeStats.today),
+                        value: studyTimeStats.today.formattedStudyTime,
                         icon: "clock",
                         color: .purple
                     )
@@ -182,14 +182,14 @@ enum StudyTab {
                     VStack(spacing: 12) {
                         ActivityRow(
                             title: "Total Study Time",
-                            value: formatStudyTime(studyTimeStats.total),
+                            value: studyTimeStats.total.formattedAnalyticsTime,
                             icon: "clock.fill",
                             color: .purple
                         )
 
                         ActivityRow(
                             title: "Average Session",
-                            value: formatStudyTime(studyTimeStats.average),
+                            value: studyTimeStats.average.formattedStudyTime,
                             icon: "timer",
                             color: .blue
                         )
@@ -207,16 +207,7 @@ enum StudyTab {
 
         // MARK: - Helper Methods
 
-        private func formatStudyTime(_ timeInterval: TimeInterval) -> String {
-            let minutes = Int(timeInterval) / 60
-            let seconds = Int(timeInterval) % 60
-
-            if minutes > 0 {
-                return "\(minutes)m \(seconds)s"
-            } else {
-                return "\(seconds)s"
-            }
-        }
+        // Removed formatStudyTime - now using TimeInterval extension
     }
 
     // MARK: - Supporting Views

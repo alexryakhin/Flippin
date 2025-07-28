@@ -50,6 +50,7 @@ struct StudyModeView: View {
             Button("Exit") {
                 HapticService.shared.buttonTapped()
                 endStudySession()
+                analyticsService.refreshAnalytics()
                 dismiss()
             }
             .buttonStyle(.bordered)
@@ -73,6 +74,12 @@ struct StudyModeView: View {
         }
         .onAppear {
             setupStudySession()
+        }
+        .onDisappear {
+            // Ensure session is ended if view disappears
+            if analyticsService.currentSession != nil {
+                endStudySession()
+            }
         }
         .interactiveDismissDisabled()
     }
@@ -184,7 +191,7 @@ struct StudyModeView: View {
                 VStack(spacing: 16) {
                     ResultStatRow(
                         title: "Accuracy",
-                        value: "\(Int(results.accuracy * 100))%",
+                        value: results.accuracy.asPercentage,
                         icon: "target",
                         color: results.accuracy >= 0.8 ? .green : .orange
                     )
@@ -198,7 +205,7 @@ struct StudyModeView: View {
                     
                     ResultStatRow(
                         title: "Time Spent",
-                        value: formatStudyTime(results.totalTime),
+                        value: results.totalTime.formattedSessionTime,
                         icon: "clock.fill",
                         color: .purple
                     )
@@ -217,6 +224,9 @@ struct StudyModeView: View {
                 .clipShape(Capsule())
 
                 Button("Done") {
+                    // Force refresh analytics data and notify UI
+                    analyticsService.refreshAnalytics()
+                    
                     dismiss()
                 }
                 .buttonStyle(.borderedProminent)
@@ -308,21 +318,15 @@ struct StudyModeView: View {
             accuracy: accuracy
         )
         
+        // Ensure analytics data is saved
+        analyticsService.objectWillChange.send()
+        
         withAnimation(.easeInOut(duration: 0.5)) {
             showingResults = true
         }
     }
     
-    private func formatStudyTime(_ timeInterval: TimeInterval) -> String {
-        let minutes = Int(timeInterval) / 60
-        let seconds = Int(timeInterval) % 60
-        
-        if minutes > 0 {
-            return "\(minutes)m \(seconds)s"
-        } else {
-            return "\(seconds)s"
-        }
-    }
+    // Removed formatStudyTime - now using TimeInterval extension
 }
 
 // MARK: - Supporting Views

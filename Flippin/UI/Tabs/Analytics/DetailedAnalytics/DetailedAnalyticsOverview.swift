@@ -38,7 +38,7 @@ extension DetailedAnalytics {
             LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 8), count: 2), spacing: 8) {
                 DetailedStatCard(
                     title: "Total Study Time",
-                    value: formatStudyTime(analyticsService.totalStudyTime),
+                    value: analyticsService.totalStudyTime.formattedAnalyticsTime,
                     subtitle: "Lifetime",
                     icon: "clock.fill",
                     color: .blue
@@ -47,7 +47,7 @@ extension DetailedAnalytics {
                 DetailedStatCard(
                     title: "Cards Mastered",
                     value: "\(analyticsService.totalCardsMastered)",
-                    subtitle: "90%+ accuracy",
+                    subtitle: "90%+ accuracy", // This is a static subtitle, not a calculated value
                     icon: "checkmark.circle.fill",
                     color: .green
                 )
@@ -62,7 +62,7 @@ extension DetailedAnalytics {
 
                 DetailedStatCard(
                     title: "Average Session",
-                    value: formatStudyTime(analyticsService.dailyStats?.averageSessionTime ?? 0),
+                    value: (analyticsService.dailyStats?.averageSessionTime ?? 0).formattedStudyTime,
                     subtitle: "per session",
                     icon: "timer",
                     color: .purple
@@ -118,7 +118,7 @@ extension DetailedAnalytics {
 
                         Spacer()
 
-                        Text("75%")
+                        Text(75.asPercentage)
                             .font(.subheadline)
                             .fontWeight(.semibold)
                             .foregroundColor(colorManager.tintColor)
@@ -195,12 +195,7 @@ extension DetailedAnalytics {
 
         // MARK: - Helper Methods
 
-        private func formatStudyTime(_ timeInterval: TimeInterval) -> String {
-            let formatter = DateComponentsFormatter()
-            formatter.allowedUnits = [.hour, .minute]
-            formatter.unitsStyle = .short
-            return formatter.string(from: timeInterval) ?? ""
-        }
+        // Removed formatStudyTime - now using TimeInterval extension
     }
 
     struct DetailedStatCard: View {

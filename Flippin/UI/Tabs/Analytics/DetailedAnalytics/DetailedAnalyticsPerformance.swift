@@ -55,7 +55,7 @@ extension DetailedAnalytics {
                         AxisMarks { value in
                             AxisValueLabel {
                                 if let accuracy = value.as(Double.self) {
-                                    Text("\(Int(accuracy))%")
+                                    Text(Int(accuracy).asPercentage)
                                 }
                             }
                         }
@@ -215,7 +215,7 @@ extension DetailedAnalytics {
                     .font(.subheadline)
                     .fontWeight(.semibold)
 
-                Text("(\(percentage)%)")
+                Text(percentage.asPercentage)
                     .font(.caption)
                     .foregroundColor(.secondary)
             }

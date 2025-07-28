@@ -56,11 +56,16 @@ final class LearningAnalyticsService: ObservableObject {
     /// End the current study session
     func endStudySession() {
         guard let session = currentSession,
-              let startTime = sessionStartTime else { return }
+              let startTime = sessionStartTime else { 
+            print("📚 No active session to end")
+            return 
+        }
         
         let duration = Date().timeIntervalSince(startTime)
         session.endTime = Date()
         session.duration = duration
+        
+        print("📚 Ending study session: \(duration)s, \(session.cardsReviewed) cards reviewed")
         
         // Update daily stats
         updateDailyStats(session: session)
@@ -79,7 +84,7 @@ final class LearningAnalyticsService: ObservableObject {
         currentSession = nil
         sessionStartTime = nil
         
-        print("📚 Ended study session: \(duration)s, \(session.cardsReviewed) cards reviewed")
+        print("📚 Study session ended successfully")
     }
     
     /// Record a card review during study session
@@ -116,12 +121,6 @@ final class LearningAnalyticsService: ObservableObject {
         updateCardDifficulty(performance: performance, timeSpent: timeSpent)
         updateNextReviewDate(performance: performance)
         
-        // Update daily stats
-        if let dailyStats = dailyStats {
-            dailyStats.cardsStudied += 1
-            dailyStats.totalStudyTime += timeSpent
-        }
-        
         // Track card review
         AnalyticsService.trackCardEvent(
             wasCorrect ? .cardReviewedCorrect : .cardReviewedIncorrect,
@@ -134,12 +133,18 @@ final class LearningAnalyticsService: ObservableObject {
     // MARK: - Analytics Data Management
     
     /// Load all analytics data
-    private func loadAnalytics() {
+    func loadAnalytics() {
         loadCardPerformances()
         loadDailyStats()
         calculateStudyStreak()
         calculateTotalStudyTime()
         calculateTotalCardsMastered()
+    }
+    
+    /// Force refresh analytics data and notify UI
+    func refreshAnalytics() {
+        loadAnalytics()
+        objectWillChange.send()
     }
     
     /// Load card performance data
@@ -196,19 +201,38 @@ final class LearningAnalyticsService: ObservableObject {
             let calendar = Calendar.current
             let today = calendar.startOfDay(for: Date())
             
-            for stat in stats {
-                guard let date = stat.date else { continue }
-                let statDate = calendar.startOfDay(for: date)
+            // Check if user studied today
+            let hasStudiedToday = stats.contains { stat in
+                guard let date = stat.date else { return false }
+                return calendar.isDate(calendar.startOfDay(for: date), inSameDayAs: today)
+            }
+            
+            if !hasStudiedToday {
+                studyStreak = 0
+                return
+            }
+            
+            // Calculate consecutive days streak
+            var currentDate = today
+            var consecutiveDays = 0
+            
+            while true {
+                let hasStudiedOnDate = stats.contains { stat in
+                    guard let date = stat.date else { return false }
+                    return calendar.isDate(calendar.startOfDay(for: date), inSameDayAs: currentDate)
+                }
                 
-                if calendar.isDate(statDate, inSameDayAs: today) || 
-                   calendar.isDate(statDate, equalTo: calendar.date(byAdding: .day, value: -streak - 1, to: today)!, toGranularity: .day) {
-                    streak += 1
+                if hasStudiedOnDate {
+                    consecutiveDays += 1
+                    // Move to previous day
+                    currentDate = calendar.date(byAdding: .day, value: -1, to: currentDate) ?? currentDate
                 } else {
                     break
                 }
             }
             
-            studyStreak = streak
+            studyStreak = consecutiveDays
+            print("📊 Study streak calculated: \(consecutiveDays) days")
         } catch {
             print("❌ Failed to calculate study streak: \(error)")
         }
@@ -355,17 +379,30 @@ final class LearningAnalyticsService: ObservableObject {
         if dailyStats == nil {
             let languagePair = "\(languageManager.userLanguage.rawValue)-\(languageManager.targetLanguage.rawValue)"
             dailyStats = DailyStats(date: today, languagePair: languagePair, context: coreDataService.context)
+            print("📊 Created new daily stats for today")
         }
         
-        guard let stats = dailyStats else { return }
+        guard let stats = dailyStats else { 
+            print("❌ Failed to get daily stats")
+            return 
+        }
+        
+        let previousStudyTime = stats.totalStudyTime
+        let previousCardsStudied = stats.cardsStudied
         
         stats.totalStudyTime += session.duration
         stats.cardsStudied += session.cardsReviewed
         stats.sessionsCompleted += 1
         
-        // Update streak
+        // Update streak after updating today's stats
         calculateStudyStreak()
         stats.streakDays = Int32(studyStreak)
+        
+        print("📊 Updated daily stats - Added: \(session.duration)s, \(session.cardsReviewed) cards")
+        print("📊 Total today: \(stats.totalStudyTime)s, \(stats.cardsStudied) cards, \(stats.sessionsCompleted) sessions, Streak: \(studyStreak)")
+        
+        // Save the updated daily stats
+        saveContext()
     }
     
     // MARK: - Analytics Queries
