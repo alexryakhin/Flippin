@@ -6,6 +6,12 @@ struct StudyModeView: View {
     @StateObject private var cardsProvider = CardsProvider.shared
     @StateObject private var colorManager = ColorManager.shared
     
+    let studyMode: StudyMode
+    
+    init(studyMode: StudyMode) {
+        self.studyMode = studyMode
+    }
+    
     @State private var currentCardIndex = 0
     @State private var showingAnswer = false
     @State private var cardStartTime = Date()
@@ -14,6 +20,14 @@ struct StudyModeView: View {
     @State private var sessionResults: SessionResults?
     @State private var sessionStartTime = Date()
     @State private var sessionStats = SessionStats()
+    
+    enum StudyMode: Int, Identifiable, Hashable {
+        case practice    // Practice all cards
+        case practice10  // Practice just 10 cards
+        case difficult   // Practice difficult cards only
+
+        var id: Int { rawValue }
+    }
     
     struct SessionResults {
         let totalCards: Int
@@ -241,9 +255,26 @@ struct StudyModeView: View {
     // MARK: - Helper Methods
     
     private func setupStudySession() {
-        // Get cards that need review or all cards if none need review
-        let cardsNeedingReview = analyticsService.getCardsNeedingReview()
-        studyCards = cardsNeedingReview.isEmpty ? cardsProvider.cards : cardsNeedingReview
+        switch studyMode {
+        case .practice:
+            // Practice all cards
+            studyCards = cardsProvider.cards
+        case .practice10:
+            let allCards = cardsProvider.cards
+            if allCards.count <= 10 {
+                studyCards = allCards
+            } else {
+                // Take a random sample of 10 cards
+                studyCards = Array(allCards.shuffled().prefix(10))
+            }
+        case .difficult:
+            // Practice difficult cards only
+            studyCards = analyticsService.getDifficultCardsNeedingReview()
+            if studyCards.isEmpty {
+                // If no difficult cards, fall back to all cards
+                studyCards = cardsProvider.cards
+            }
+        }
         
         // Shuffle cards for study
         studyCards.shuffle()
@@ -356,5 +387,5 @@ struct ResultStatRow: View {
 }
 
 #Preview {
-    StudyModeView()
-} 
+    StudyModeView(studyMode: .practice)
+}

@@ -505,10 +505,43 @@ final class LearningAnalyticsService: ObservableObject {
     /// Get cards that need review
     func getCardsNeedingReview() -> [CardItem] {
         let cardsProvider = CardsProvider.shared
+        let allCards = cardsProvider.cards
+        
+        let cardsNeedingReview = allCards.filter { card in
+            guard let cardId = card.id else { return false }
+            let performance = cardPerformances[cardId]
+            
+            // If no performance data exists, card needs review
+            guard let performance = performance else { return true }
+            
+            // Check if card needs review based on nextReviewDate
+            if performance.needsReview {
+                return true
+            }
+            
+            // Also include difficult cards (level 4-5) that should be reviewed more frequently
+            if performance.difficultyLevel >= 4 {
+                return true
+            }
+            
+            return false
+        }
+        
+        return cardsNeedingReview
+    }
+    
+    /// Get difficult cards (level 4-5) that need review
+    func getDifficultCardsNeedingReview() -> [CardItem] {
+        let cardsProvider = CardsProvider.shared
         return cardsProvider.cards.filter { card in
             guard let cardId = card.id else { return false }
             let performance = cardPerformances[cardId]
-            return performance?.needsReview ?? true
+            
+            // If no performance data exists, don't include in difficult cards
+            guard let performance = performance else { return false }
+            
+            // Only include cards with difficulty level 4 or 5
+            return performance.difficultyLevel >= 4
         }
     }
     
@@ -1200,11 +1233,11 @@ final class LearningAnalyticsService: ObservableObject {
         var recommendations: [PersonalizedRecommendation] = []
         
         // Recommendation 1: Difficult cards
-        let difficultCards = cardPerformances.values.filter { $0.difficultyLevel >= 4 && $0.masteryLevel < 3 }.count
-        if difficultCards > 0 {
+        let difficultCards = getDifficultCardsNeedingReview()
+        if !difficultCards.isEmpty {
             recommendations.append(PersonalizedRecommendation(
                 title: "Review difficult cards",
-                description: "\(difficultCards) cards need more practice. Focus on these to improve accuracy.",
+                description: "\(difficultCards.count) cards need more practice. Focus on these to improve accuracy.",
                 action: "Start Review",
                 color: .orange
             ))

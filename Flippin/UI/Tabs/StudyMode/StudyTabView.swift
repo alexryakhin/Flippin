@@ -16,14 +16,10 @@ enum StudyTab {
 
         // MARK: - State Variables
 
-        @State private var showStudyMode = false
         @State private var premiumFeature: PremiumFeature?
+        @State private var currentStudyMode: StudyModeView.StudyMode?
 
         // MARK: - Computed Properties
-
-        var cardsNeedingReview: [CardItem] {
-            analyticsService.getCardsNeedingReview()
-        }
 
         var masteryStats: (total: Int, mastered: Int, learning: Int, needsReview: Int) {
             analyticsService.getMasteryStats()
@@ -56,8 +52,8 @@ enum StudyTab {
             .ifLet(colorManager.colorScheme) { view, scheme in
                 view.colorScheme(scheme)
             }
-            .sheet(isPresented: $showStudyMode) {
-                StudyModeView()
+            .sheet(item: $currentStudyMode) { mode in
+                StudyModeView(studyMode: mode)
             }
             .premiumAlert(feature: $premiumFeature)
         }
@@ -70,13 +66,6 @@ enum StudyTab {
                     columns: Array(repeating: GridItem(.flexible(), spacing: 8), count: 2),
                     spacing: 8
                 ) {
-                    StatCard(
-                        title: "Cards to Review",
-                        value: "\(cardsNeedingReview.count)",
-                        icon: "clock.fill",
-                        color: .orange
-                    )
-
                     StatCard(
                         title: "Total Cards",
                         value: "\(cardsProvider.cards.count)",
@@ -92,6 +81,13 @@ enum StudyTab {
                     )
 
                     StatCard(
+                        title: "Difficult Cards",
+                        value: "\(analyticsService.getDifficultCardsNeedingReview().count)",
+                        icon: "exclamationmark.triangle.fill",
+                        color: .red
+                    )
+
+                    StatCard(
                         title: "Study Time Today",
                         value: studyTimeStats.today.formattedStudyTime,
                         icon: "clock",
@@ -104,23 +100,16 @@ enum StudyTab {
         private var studyOptionsSection: some View {
             CustomSectionView(header: "Study Options", headerFontStyle: .large) {
                 VStack(spacing: 12) {
-                    // Start study session
-                    studyOptionButton(
-                        image: Image(systemName: "play.fill"),
-                        text: "Start Study Session",
-                        color: .green,
-                        isDisabled: cardsProvider.cards.isEmpty,
-                        action: { showStudyMode = true }
-                    )
-
-                    // Review cards
-                    if !cardsNeedingReview.isEmpty {
+                    // Start study session (only show if user has more than 10 cards)
+                    if cardsProvider.cards.count > 10 {
                         studyOptionButton(
-                            image: Image(systemName: "clock.fill"),
-                            text: "Review Due Cards (\(cardsNeedingReview.count))",
-                            color: .orange,
+                            image: Image(systemName: "play.fill"),
+                            text: "Start Study Session (10 cards)",
+                            color: .green,
                             isDisabled: cardsProvider.cards.isEmpty,
-                            action: { showStudyMode = true }
+                            action: { 
+                                currentStudyMode = .practice10
+                            }
                         )
                     }
 
@@ -128,9 +117,24 @@ enum StudyTab {
                     if !cardsProvider.cards.isEmpty {
                         studyOptionButton(
                             image: Image(.icCardsStack),
-                            text: "Practice All Cards",
+                            text: "Practice All Cards (\(cardsProvider.cards.count))",
                             color: .blue,
-                            action: { showStudyMode = true }
+                            action: { 
+                                currentStudyMode = .practice
+                            }
+                        )
+                    }
+                    
+                    // Practice difficult cards
+                    let difficultCards = analyticsService.getDifficultCardsNeedingReview()
+                    if !difficultCards.isEmpty {
+                        studyOptionButton(
+                            image: Image(systemName: "exclamationmark.triangle.fill"),
+                            text: "Practice Difficult Cards (\(difficultCards.count))",
+                            color: .red,
+                            action: { 
+                                currentStudyMode = .difficult
+                            }
                         )
                     }
                 }
