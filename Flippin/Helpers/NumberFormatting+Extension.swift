@@ -35,12 +35,12 @@ extension Double {
     
     /// Format as percentage from decimal (0.0 to 1.0) to percentage string
     var asPercentage: String {
-        return (self * 100).formattedPercentage
+        return self.formattedPercentage
     }
     
     /// Format as percentage from decimal (0.0 to 1.0) to percentage string with decimal
     var asPercentageWithDecimal: String {
-        return (self * 100).formattedPercentageWithDecimal
+        return self.formattedPercentageWithDecimal
     }
 }
 

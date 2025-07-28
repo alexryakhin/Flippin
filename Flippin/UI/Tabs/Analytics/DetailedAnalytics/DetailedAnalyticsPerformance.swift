@@ -40,34 +40,24 @@ extension DetailedAnalytics {
                 header: "Accuracy Trends",
                 backgroundStyle: .standard
             ) {
-                if #available(iOS 16.0, *) {
-                    Chart(0..<7, id: \.self) { day in
-                        LineMark(
-                            x: .value("Day", day),
-                            y: .value("Accuracy", 70 + Double(day) * 3 + Double.random(in: -5...5))
-                        )
-                        .foregroundStyle(colorManager.tintColor.gradient)
-                        .interpolationMethod(.catmullRom)
-                    }
-                    .frame(height: 200)
-                    .chartYScale(domain: 60...100)
-                    .chartYAxis {
-                        AxisMarks { value in
-                            AxisValueLabel {
-                                if let accuracy = value.as(Double.self) {
-                                    Text(Int(accuracy).asPercentage)
-                                }
+                Chart(0..<7, id: \.self) { day in
+                    LineMark(
+                        x: .value("Day", day),
+                        y: .value("Accuracy", 70 + Double(day) * 3 + Double.random(in: -5...5))
+                    )
+                    .foregroundStyle(colorManager.tintColor.gradient)
+                    .interpolationMethod(.catmullRom)
+                }
+                .frame(height: 200)
+                .chartYScale(domain: 60...100)
+                .chartYAxis {
+                    AxisMarks { value in
+                        AxisValueLabel {
+                            if let accuracy = value.as(Double.self) {
+                                Text(Int(accuracy).asPercentage)
                             }
                         }
                     }
-                } else {
-                    RoundedRectangle(cornerRadius: 8)
-                        .fill(Color.gray.opacity(0.1))
-                        .frame(height: 200)
-                        .overlay(
-                            Text("Charts available in iOS 16+")
-                                .foregroundColor(.secondary)
-                        )
                 }
             }
         }

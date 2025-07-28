@@ -468,12 +468,29 @@ final class LearningAnalyticsService: ObservableObject {
     
     /// Get mastery statistics
     func getMasteryStats() -> (total: Int, mastered: Int, learning: Int, needsReview: Int) {
-        let total = cardPerformances.count
+        let allCards = cardsProvider.cards
+        let total = allCards.count
         let mastered = cardPerformances.values.filter { $0.isMastered }.count
         let learning = cardPerformances.values.filter { $0.masteryLevel > 0 && !$0.isMastered }.count
         let needsReview = getCardsNeedingReview().count
         
         return (total, mastered, learning, needsReview)
+    }
+    
+    /// Calculate overall accuracy from all card performances
+    func getOverallAccuracy() -> Double {
+        let performances = cardPerformances.values
+        guard !performances.isEmpty else { return 0.0 }
+        
+        let totalReviews = performances.reduce(0) { $0 + $1.totalReviews }
+        let totalCorrect = performances.reduce(0) { $0 + $1.correctReviews }
+        
+        guard totalReviews > 0 else { return 0.0 }
+        let accuracy = Double(totalCorrect) / Double(totalReviews)
+        
+        print("📊 Accuracy calculation: \(totalCorrect) correct out of \(totalReviews) total reviews = \(accuracy * 100)%")
+        
+        return accuracy
     }
     
     /// Get study time statistics
@@ -503,6 +520,37 @@ final class LearningAnalyticsService: ObservableObject {
             }
         } catch {
             print("❌ Failed to get weekly study data: \(error)")
+            return []
+        }
+    }
+    
+    /// Get study data for different time ranges
+    func getStudyData(for timeRange: AnalyticsDashboard.TimeRange) -> [(date: Date, studyTime: TimeInterval, cardsStudied: Int)] {
+        let calendar = Calendar.current
+        let today = Date()
+        
+        let startDate: Date
+        switch timeRange {
+        case .week:
+            startDate = calendar.date(byAdding: .day, value: -7, to: today)!
+        case .month:
+            startDate = calendar.date(byAdding: .month, value: -1, to: today)!
+        case .year:
+            startDate = calendar.date(byAdding: .year, value: -1, to: today)!
+        }
+        
+        let request = DailyStats.fetchRequest()
+        request.predicate = NSPredicate(format: "date >= %@ AND date <= %@", startDate as NSDate, today as NSDate)
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \DailyStats.date, ascending: true)]
+        
+        do {
+            let stats = try coreDataService.context.fetch(request)
+            return stats.compactMap { stat in
+                guard let date = stat.date else { return nil }
+                return (date: date, studyTime: stat.totalStudyTime, cardsStudied: Int(stat.cardsStudied))
+            }
+        } catch {
+            print("❌ Failed to get study data for \(timeRange): \(error)")
             return []
         }
     }

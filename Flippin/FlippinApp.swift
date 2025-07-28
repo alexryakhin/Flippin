@@ -71,10 +71,4 @@ struct FlippinApp: App {
     }
 }
 
-var isIos26Available: Bool {
-    if #available(iOS 26.0, *) {
-        return true
-    } else {
-        return false
-    }
-}
+// Removed iOS 26 availability check - app targets iOS 17+
