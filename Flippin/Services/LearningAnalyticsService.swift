@@ -529,7 +529,7 @@ final class LearningAnalyticsService: ObservableObject {
         let calendar = Calendar.current
         let today = Date()
         
-        let startDate: Date
+        let startDate: Date?
         switch timeRange {
         case .week:
             startDate = calendar.date(byAdding: .day, value: -7, to: today)!
@@ -537,10 +537,16 @@ final class LearningAnalyticsService: ObservableObject {
             startDate = calendar.date(byAdding: .month, value: -1, to: today)!
         case .year:
             startDate = calendar.date(byAdding: .year, value: -1, to: today)!
+        case .all:
+            startDate = nil // All time
         }
         
         let request = DailyStats.fetchRequest()
-        request.predicate = NSPredicate(format: "date >= %@ AND date <= %@", startDate as NSDate, today as NSDate)
+        if let startDate = startDate {
+            request.predicate = NSPredicate(format: "date >= %@ AND date <= %@", startDate as NSDate, today as NSDate)
+        } else {
+            request.predicate = NSPredicate(format: "date <= %@", today as NSDate)
+        }
         request.sortDescriptors = [NSSortDescriptor(keyPath: \DailyStats.date, ascending: true)]
         
         do {
@@ -552,6 +558,201 @@ final class LearningAnalyticsService: ObservableObject {
         } catch {
             print("❌ Failed to get study data for \(timeRange): \(error)")
             return []
+        }
+    }
+    
+    /// Get study data for DetailedAnalytics time ranges (includes All Time)
+    func getDetailedAnalyticsStudyData(for timeRange: AnalyticsDashboard.TimeRange) -> [(date: Date, studyTime: TimeInterval, cardsStudied: Int)] {
+        let calendar = Calendar.current
+        let today = Date()
+        
+        let startDate: Date?
+        switch timeRange {
+        case .week:
+            startDate = calendar.date(byAdding: .day, value: -7, to: today)!
+        case .month:
+            startDate = calendar.date(byAdding: .month, value: -1, to: today)!
+        case .year:
+            startDate = calendar.date(byAdding: .year, value: -1, to: today)!
+        case .all:
+            startDate = nil // All time
+        }
+        
+        let request = DailyStats.fetchRequest()
+        if let startDate = startDate {
+            request.predicate = NSPredicate(format: "date >= %@ AND date <= %@", startDate as NSDate, today as NSDate)
+        } else {
+            request.predicate = NSPredicate(format: "date <= %@", today as NSDate)
+        }
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \DailyStats.date, ascending: true)]
+        
+        do {
+            let stats = try coreDataService.context.fetch(request)
+            return stats.compactMap { stat in
+                guard let date = stat.date else { return nil }
+                return (date: date, studyTime: stat.totalStudyTime, cardsStudied: Int(stat.cardsStudied))
+            }
+        } catch {
+            print("❌ Failed to get detailed analytics study data for \(timeRange): \(error)")
+            return []
+        }
+    }
+    
+    /// Get study patterns analysis
+    func getStudyPatterns() -> (mostActiveTime: String, preferredSessionLength: String, studyFrequency: String) {
+        let request = StudySession.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \StudySession.startTime, ascending: false)]
+        
+        do {
+            let sessions = try coreDataService.context.fetch(request)
+            
+            // Calculate most active time
+            let mostActiveTime = calculateMostActiveTime(from: sessions)
+            
+            // Calculate preferred session length
+            let preferredSessionLength = calculatePreferredSessionLength(from: sessions)
+            
+            // Calculate study frequency
+            let studyFrequency = calculateStudyFrequency(from: sessions)
+            
+            return (mostActiveTime, preferredSessionLength, studyFrequency)
+        } catch {
+            print("❌ Failed to get study patterns: \(error)")
+            return ("Not enough data", "Not enough data", "Not enough data")
+        }
+    }
+    
+    /// Calculate most active study time
+    private func calculateMostActiveTime(from sessions: [StudySession]) -> String {
+        guard !sessions.isEmpty else { return "Not enough data" }
+        
+        let calendar = Calendar.current
+        var hourCounts: [Int: Int] = [:]
+        
+        for session in sessions {
+            guard let startTime = session.startTime else { continue }
+            let hour = calendar.component(.hour, from: startTime)
+            hourCounts[hour, default: 0] += 1
+        }
+        
+        guard let mostActiveHour = hourCounts.max(by: { $0.value < $1.value })?.key else {
+            return "Not enough data"
+        }
+        
+        switch mostActiveHour {
+        case 6..<12:
+            return "Morning (6-12 AM)"
+        case 12..<17:
+            return "Afternoon (12-5 PM)"
+        case 17..<21:
+            return "Evening (5-9 PM)"
+        case 21..<24, 0..<6:
+            return "Night (9 PM-6 AM)"
+        default:
+            return "Evening (5-9 PM)"
+        }
+    }
+    
+    /// Calculate preferred session length
+    private func calculatePreferredSessionLength(from sessions: [StudySession]) -> String {
+        guard !sessions.isEmpty else { return "Not enough data" }
+        
+        let durations = sessions.compactMap { $0.duration }.filter { $0 > 0 }
+        guard !durations.isEmpty else { return "Not enough data" }
+        
+        let averageDuration = durations.reduce(0, +) / Double(durations.count)
+        let minutes = Int(averageDuration / 60)
+        
+        if minutes < 10 {
+            return "Under 10 minutes"
+        } else if minutes < 20 {
+            return "10-20 minutes"
+        } else if minutes < 30 {
+            return "20-30 minutes"
+        } else if minutes < 60 {
+            return "30-60 minutes"
+        } else {
+            return "Over 60 minutes"
+        }
+    }
+    
+    /// Calculate study frequency
+    private func calculateStudyFrequency(from sessions: [StudySession]) -> String {
+        guard !sessions.isEmpty else { return "Not enough data" }
+        
+        let calendar = Calendar.current
+        let today = Date()
+        let weekAgo = calendar.date(byAdding: .day, value: -7, to: today)!
+        
+        let recentSessions = sessions.filter { session in
+            guard let startTime = session.startTime else { return false }
+            return startTime >= weekAgo
+        }
+        
+        let sessionCount = recentSessions.count
+        
+        switch sessionCount {
+        case 0:
+            return "No recent activity"
+        case 1:
+            return "Once this week"
+        case 2...3:
+            return "A few times this week"
+        case 4...6:
+            return "Most days this week"
+        case 7...:
+            return "Daily"
+        default:
+            return "Not enough data"
+        }
+    }
+    
+    /// Get language progress data
+    func getLanguageProgress() -> (languagePair: String, progress: Double, vocabularyCount: Int) {
+        let languagePair = "\(languageManager.userLanguage.displayName) → \(languageManager.targetLanguage.displayName)"
+        
+        // Calculate progress based on mastered cards vs total cards
+        let totalCards = cardsProvider.cards.count
+        let masteredCards = totalCardsMastered
+        let progress = totalCards > 0 ? Double(masteredCards) / Double(totalCards) : 0.0
+        
+        return (languagePair, progress, totalCards)
+    }
+    
+    /// Get time-range-specific study statistics
+    func getTimeRangeStudyStats(for timeRange: AnalyticsDashboard.TimeRange) -> (totalStudyTime: TimeInterval, averageSessionTime: TimeInterval, sessionsCount: Int) {
+        let calendar = Calendar.current
+        let today = Date()
+        
+        let startDate: Date?
+        switch timeRange {
+        case .week:
+            startDate = calendar.date(byAdding: .day, value: -7, to: today)!
+        case .month:
+            startDate = calendar.date(byAdding: .month, value: -1, to: today)!
+        case .year:
+            startDate = calendar.date(byAdding: .year, value: -1, to: today)!
+        case .all:
+            startDate = nil
+        }
+        
+        let request = DailyStats.fetchRequest()
+        if let startDate = startDate {
+            request.predicate = NSPredicate(format: "date >= %@ AND date <= %@", startDate as NSDate, today as NSDate)
+        } else {
+            request.predicate = NSPredicate(format: "date <= %@", today as NSDate)
+        }
+        
+        do {
+            let stats = try coreDataService.context.fetch(request)
+            let totalStudyTime = stats.reduce(0) { $0 + $1.totalStudyTime }
+            let totalSessions = stats.reduce(0) { $0 + $1.sessionsCompleted }
+            let averageSessionTime = totalSessions > 0 ? totalStudyTime / Double(totalSessions) : 0
+            
+            return (totalStudyTime, averageSessionTime, Int(totalSessions))
+        } catch {
+            print("❌ Failed to get time range study stats: \(error)")
+            return (0, 0, 0)
         }
     }
     

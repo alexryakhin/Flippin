@@ -10,7 +10,8 @@ import SwiftUI
 extension DetailedAnalytics {
 
     struct OverviewTab: View {
-
+        let selectedTimeRange: DetailedAnalytics.TimeRange
+        
         @StateObject private var analyticsService = LearningAnalyticsService.shared
         @StateObject private var colorManager = ColorManager.shared
 
@@ -35,11 +36,13 @@ extension DetailedAnalytics {
         }
 
         private var summaryCardsSection: some View {
-            LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 8), count: 2), spacing: 8) {
+            let timeRangeStats = analyticsService.getTimeRangeStudyStats(for: selectedTimeRange)
+            
+            return LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 8), count: 2), spacing: 8) {
                 DetailedStatCard(
-                    title: "Total Study Time",
-                    value: analyticsService.totalStudyTime.formattedAnalyticsTime,
-                    subtitle: "Lifetime",
+                    title: "Study Time",
+                    value: timeRangeStats.totalStudyTime.formattedAnalyticsTime,
+                    subtitle: selectedTimeRange.rawValue,
                     icon: "clock.fill",
                     color: .blue
                 )
@@ -62,7 +65,7 @@ extension DetailedAnalytics {
 
                 DetailedStatCard(
                     title: "Average Session",
-                    value: (analyticsService.dailyStats?.averageSessionTime ?? 0).formattedStudyTime,
+                    value: timeRangeStats.averageSessionTime.formattedStudyTime,
                     subtitle: "per session",
                     icon: "timer",
                     color: .purple
@@ -71,26 +74,28 @@ extension DetailedAnalytics {
         }
 
         private var studyPatternsSection: some View {
-            CustomSectionView(
+            let patterns = analyticsService.getStudyPatterns()
+            
+            return CustomSectionView(
                 header: "Study Patterns",
                 backgroundStyle: .standard
             ) {
                 FormWithDivider {
                     PatternRow(
                         title: "Most Active Time",
-                        value: "Evening (6-9 PM)",
+                        value: patterns.mostActiveTime,
                         icon: "moon.fill",
                         color: .indigo
                     )
                     PatternRow(
                         title: "Preferred Session Length",
-                        value: "15-20 minutes",
+                        value: patterns.preferredSessionLength,
                         icon: "timer",
                         color: .blue
                     )
                     PatternRow(
                         title: "Study Frequency",
-                        value: "Daily",
+                        value: patterns.studyFrequency,
                         icon: "calendar",
                         color: .green
                     )
@@ -99,7 +104,9 @@ extension DetailedAnalytics {
         }
 
         private var languageProgressSection: some View {
-            CustomSectionView(
+            let languageProgress = analyticsService.getLanguageProgress()
+            
+            return CustomSectionView(
                 header: "Language Progress",
                 backgroundStyle: .standard
             ) {
@@ -108,36 +115,49 @@ extension DetailedAnalytics {
                     // Language pair progress
                     HStack {
                         VStack(alignment: .leading, spacing: 4) {
-                            Text("English → Spanish")
+                            Text(languageProgress.languagePair)
                                 .font(.subheadline)
                                 .fontWeight(.medium)
 
-                            ProgressView(value: 0.75)
+                            ProgressView(value: languageProgress.progress)
                                 .progressViewStyle(LinearProgressViewStyle(tint: colorManager.tintColor))
                         }
 
                         Spacer()
 
-                        Text(75.asPercentage)
+                        Text(languageProgress.progress.asPercentage)
                             .font(.subheadline)
                             .fontWeight(.semibold)
                             .foregroundColor(colorManager.tintColor)
                     }
 
-                    // Vocabulary growth chart placeholder
-                    RoundedRectangle(cornerRadius: 8)
-                        .fill(Color.gray.opacity(0.1))
-                        .frame(height: 120)
-                        .overlay(
-                            VStack {
-                                Image(systemName: "chart.line.uptrend.xyaxis")
-                                    .font(.title2)
-                                    .foregroundColor(.secondary)
-                                Text("Vocabulary Growth")
-                                    .font(.caption)
-                                    .foregroundColor(.secondary)
-                            }
-                        )
+                    // Vocabulary count
+                    HStack {
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("Collection Size")
+                                .font(.subheadline)
+                                .fontWeight(.medium)
+                            
+                            Text("\(languageProgress.vocabularyCount) cards")
+                                .font(.title3)
+                                .fontWeight(.bold)
+                                .foregroundColor(colorManager.tintColor)
+                        }
+                        
+                        Spacer()
+                        
+                        VStack(alignment: .trailing, spacing: 4) {
+                            Text("Mastered")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                            
+                            Text("\(analyticsService.totalCardsMastered) cards")
+                                .font(.subheadline)
+                                .fontWeight(.semibold)
+                                .foregroundColor(.green)
+                        }
+                    }
+                    .padding(.top, 8)
                 }
             }
         }

@@ -12,6 +12,8 @@ extension DetailedAnalytics {
 
     struct PerformanceTab: View {
 
+        let selectedTimeRange: TimeRange
+
         @StateObject private var analyticsService = LearningAnalyticsService.shared
         @StateObject private var colorManager = ColorManager.shared
 

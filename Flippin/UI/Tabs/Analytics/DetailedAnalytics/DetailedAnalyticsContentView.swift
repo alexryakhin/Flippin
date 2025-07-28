@@ -3,6 +3,8 @@ import Charts
 
 enum DetailedAnalytics {
 
+    typealias TimeRange = AnalyticsDashboard.TimeRange
+
     enum Tab: Int, CaseIterable {
         case overview
         case performance
@@ -23,13 +25,6 @@ enum DetailedAnalytics {
         }
     }
 
-    enum TimeRange: String, CaseIterable {
-        case week = "Week"
-        case month = "Month"
-        case year = "Year"
-        case all = "All Time"
-    }
-
     struct ContentView: View {
 
         @Environment(\.dismiss) var dismiss
@@ -42,10 +37,10 @@ enum DetailedAnalytics {
         var body: some View {
             VStack(spacing: 0) {
                 switch selectedTab {
-                    case .overview: OverviewTab()
-                    case .performance: PerformanceTab()
-                    case .progress: ProgressTab()
-                    case .insights: InsightsTab()
+                    case .overview: OverviewTab(selectedTimeRange: selectedTimeRange)
+                    case .performance: PerformanceTab(selectedTimeRange: selectedTimeRange)
+                    case .progress: ProgressTab(selectedTimeRange: selectedTimeRange)
+                    case .insights: InsightsTab(selectedTimeRange: selectedTimeRange)
                 }
             }
             .navigation(
