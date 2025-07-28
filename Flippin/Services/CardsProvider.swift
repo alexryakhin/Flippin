@@ -143,7 +143,7 @@ final class CardsProvider: ObservableObject {
                 remainingCards: remainingCards
             )
         }
-        let items = convertPresetCardsToCardItems(cards)
+        let _ = convertPresetCardsToCardItems(cards)
         saveContext()
         fetchCards()
     }

@@ -74,28 +74,44 @@ extension StudyMode {
             
             print("📊 Generating options for card: \(card.frontText.orEmpty)")
             print("📊 Correct answer: \(correctAnswer)")
+            print("📊 Card back language: \(card.backLanguage?.displayName ?? "unknown")")
             
-            // Get other cards to use as wrong options
-            let otherCards = cardsProvider.cards.filter { $0.id != card.id }
-            let shuffledOthers = otherCards.shuffled()
+            // Get other cards with the SAME back language as the current card
+            let sameLanguageCards = cardsProvider.cards.filter { otherCard in
+                otherCard.id != card.id && 
+                otherCard.backLanguage == card.backLanguage
+            }
+            let shuffledSameLanguage = sameLanguageCards.shuffled()
             
-            print("📊 Available other cards: \(otherCards.count)")
+            print("📊 Available cards with same back language: \(sameLanguageCards.count)")
             
-            // Add 3 wrong options
-            for otherCard in shuffledOthers.prefix(3) {
+            // Add wrong options from cards with the same back language
+            // But ensure they are DIFFERENT words, not just different cards
+            var usedWords: Set<String> = [correctAnswer]
+            
+            for otherCard in shuffledSameLanguage.prefix(6) { // Check more cards to find different words
                 let wrongAnswer = otherCard.backText.orEmpty
-                if !options.contains(wrongAnswer) {
+                
+                // Only add if it's a different word (not the same translation)
+                if !usedWords.contains(wrongAnswer) {
                     options.append(wrongAnswer)
+                    usedWords.insert(wrongAnswer)
                     print("📊 Added wrong option: \(wrongAnswer)")
+                    
+                    // Stop when we have 4 total options
+                    if options.count >= 4 {
+                        break
+                    }
                 }
             }
             
-            // If we don't have enough options, add some generic ones
+            // If we don't have enough different words, add some generic ones
             while options.count < 4 {
                 let genericOptions = ["I don't know", "Maybe", "Not sure", "Skip"]
                 for option in genericOptions {
-                    if !options.contains(option) {
+                    if !usedWords.contains(option) {
                         options.append(option)
+                        usedWords.insert(option)
                         print("📊 Added generic option: \(option)")
                         break
                     }

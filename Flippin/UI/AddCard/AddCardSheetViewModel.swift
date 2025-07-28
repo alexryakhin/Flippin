@@ -97,17 +97,6 @@ final class AddCardSheetViewModel: ObservableObject {
             return
         }
 
-        let card = CardItem(
-            timestamp: Date(),
-            frontText: trimmedTarget,
-            backText: trimmedNative,
-            frontLanguage: languageManager.targetLanguage,
-            backLanguage: languageManager.userLanguage,
-            notes: trimmedNotes.isEmpty ? "" : trimmedNotes,
-            isFavorite: false,
-            id: UUID().uuidString
-        )
-
         do {
             try cardsProvider.addCard(
                 frontText: trimmedTarget,

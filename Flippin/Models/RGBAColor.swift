@@ -51,13 +51,4 @@ struct RGBAColor: Codable, Equatable {
     // MARK: - Static Default Colors
     
     static let blue = RGBAColor(red: 0.294, green: 0.624, blue: 0.973) // #4B9FF8
-    static let red = RGBAColor(red: 1.0, green: 0.0, blue: 0.0)
-    static let green = RGBAColor(red: 0.0, green: 1.0, blue: 0.0)
-    static let yellow = RGBAColor(red: 1.0, green: 1.0, blue: 0.0)
-    static let purple = RGBAColor(red: 0.5, green: 0.0, blue: 0.5)
-    static let orange = RGBAColor(red: 1.0, green: 0.5, blue: 0.0)
-    static let pink = RGBAColor(red: 1.0, green: 0.0, blue: 0.5)
-    static let teal = RGBAColor(red: 0.0, green: 0.5, blue: 0.5)
-    static let indigo = RGBAColor(red: 0.294, green: 0.0, blue: 0.509)
-    static let gray = RGBAColor(red: 0.5, green: 0.5, blue: 0.5)
-} 
+}

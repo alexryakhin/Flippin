@@ -39,11 +39,48 @@ struct AuroraBackground: View {
             LinearGradient(
                 colors: [
                     Color.black,
-                    colorManager.userColor.darker(by: 60)
+                    adjustedAuroraBackgroundColor
                 ],
                 startPoint: .top,
                 endPoint: .bottom
             )
         )
+        .overlay(
+            // Additional dark overlay for extra darkness in dark mode
+            Group {
+                if shouldShowExtraDarkOverlay {
+                    Color.black.opacity(0.2)
+                }
+            }
+        )
+    }
+    
+    private var adjustedAuroraBackgroundColor: Color {
+        let colorScheme = colorManager.colorScheme
+        let baseColor = colorManager.userColor
+        
+        switch (colorScheme, baseColor.isLight) {
+        case (.dark, true):
+            // Dark mode with light color - darker, more muted
+            return baseColor.darker(by: 60).desaturated(by: 15)
+        case (.dark, false):
+            // Dark mode with dark color - lighter, more vibrant
+            return baseColor.lighter(by: 20).saturated(by: 25)
+        case (.light, true):
+            // Light mode with light color - much darker for visibility
+            return baseColor.darker(by: 70).saturated(by: 20)
+        case (.light, false):
+            // Light mode with dark color - lighter for contrast
+            return baseColor.lighter(by: 30).saturated(by: 30)
+        default:
+            return baseColor.darker(by: 60)
+        }
+    }
+    
+    private var shouldShowExtraDarkOverlay: Bool {
+        let colorScheme = colorManager.colorScheme
+        let baseColor = colorManager.userColor
+        // Show extra overlay if the user color is light in dark mode
+        return colorScheme == .dark && baseColor.isLight
     }
 }

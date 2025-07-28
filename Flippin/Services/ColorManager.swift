@@ -126,22 +126,42 @@ final class ColorManager: ObservableObject {
 
     private func adjustedTintColor() -> Color {
         switch (colorSchemePublisher.value, userColor.isLight) {
-        case (.dark, false): return userColor.lighter(by: 50)
-        case (.dark, true): return userColor.darker(by: 10)
-        case (.light, true): return userColor.darker(by: 30)
-        case (.light, false): return userColor.darker(by: 10)
-        default: return userColor
+        case (.dark, false):
+            // Dark mode with dark color - make it more vibrant
+            return userColor.lighter(by: 70).saturated(by: 0)
+        case (.dark, true):
+            // Dark mode with light color - make it more muted
+            return userColor.darker(by: 20).desaturated(by: 10)
+        case (.light, true):
+            // Light mode with light color - make it more visible
+            return userColor.darker(by: 40).saturated(by: 15)
+        case (.light, false):
+            // Light mode with dark color - make it more vibrant
+            return userColor.lighter(by: 20).saturated(by: 25)
+        default:
+            return userColor
         }
     }
 
     private func adjustedForegroundColor() -> Color {
         guard !backgroundStyle.isAlwaysDark else { return Color(.white) }
+        
         switch (colorSchemePublisher.value, userColor.isLight) {
-        case (.light, false): return Color(.white)
-        case (.dark, false): return Color(.white)
-        case (.light, true): return Color(.black)
-        case (.dark, true): return Color(.black)
-        default: return Color(.label)
+        case (.light, false):
+            // Light mode with dark color - use white for good contrast
+            return Color(.white)
+        case (.dark, false):
+            // Dark mode with dark color - use white for good contrast
+            return Color(.white)
+        case (.light, true):
+            // Light mode with light color - use black for good contrast
+            return Color(.black)
+        case (.dark, true):
+            // Dark mode with light color - use black for good contrast
+            return Color(.black)
+        default:
+            // Fallback to system label color
+            return Color(.label)
         }
     }
 }

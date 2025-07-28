@@ -120,6 +120,7 @@ enum Paywall {
             }
             .background(
                 WelcomeSheet.AnimatedBackground()
+                    .ignoresSafeArea()
             )
             .navigation(
                 title: LocalizationKeys.goPremium.localized,
