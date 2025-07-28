@@ -7,6 +7,7 @@
 import SwiftUI
 
 struct GradientBackground: View {
+    @Environment(\.colorScheme) var colorScheme
     @StateObject private var colorManager = ColorManager.shared
 
     var body: some View {
@@ -18,7 +19,7 @@ struct GradientBackground: View {
     }
     
     private var adjustedGradientColors: [Color] {
-        let colorScheme = colorManager.colorScheme
+        let colorScheme = colorManager.colorScheme ?? self.colorScheme
         let baseColor = colorManager.userColor
 
         switch (colorScheme, baseColor.isLight) {

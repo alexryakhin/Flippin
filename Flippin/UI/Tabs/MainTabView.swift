@@ -47,6 +47,7 @@ struct MainTabView: View {
     @StateObject private var cardsProvider = CardsProvider.shared
     @StateObject private var colorManager = ColorManager.shared
     @StateObject private var purchaseService = PurchaseService.shared
+    @StateObject private var navigationManager = NavigationManager.shared
 
     // MARK: - App Storage
 
@@ -55,7 +56,6 @@ struct MainTabView: View {
     // MARK: - State Variables
 
     @State private var showWelcomeSheet = false
-    @State private var selectedTab = Tab.stack
     @State private var premiumFeature: PremiumFeature?
 
     @Namespace private var animation
@@ -66,7 +66,7 @@ struct MainTabView: View {
         ZStack {
             AnimatedBackground(style: colorManager.backgroundStyle)
             VStack {
-                switch selectedTab {
+                switch navigationManager.selectedTab {
                 case .stack:
                     CardStackTab.ContentView()
                 case .list:
@@ -83,7 +83,7 @@ struct MainTabView: View {
         .safeAreaInset(edge: .bottom) {
             tabBarView
         }
-        .animation(.easeInOut, value: selectedTab)
+        .animation(.easeInOut, value: navigationManager.selectedTab)
         .ifLet(colorManager.colorScheme) { view, scheme in
             view.colorScheme(scheme)
         }
@@ -109,8 +109,8 @@ struct MainTabView: View {
     private var tabBarView: some View {
         HStack {
             ForEach(cardsProvider.cards.isEmpty ? Tab.allCasesIfEmpty : Tab.allCases, id: \.self) { tab in
-                TabButton(title: tab.title, image: tab.image, isSelected: selectedTab == tab) {
-                    selectedTab = tab
+                TabButton(title: tab.title, image: tab.image, isSelected: navigationManager.selectedTab == tab) {
+                    navigationManager.selectedTab = tab
                 }
             }
         }

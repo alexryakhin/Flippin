@@ -112,7 +112,7 @@ extension DetailedAnalytics {
                 header: "Learning Milestones",
                 backgroundStyle: .standard
             ) {
-                VStack(spacing: 12) {
+                FormWithDivider {
                     ForEach(milestones) { milestone in
                         MilestoneRow(
                             title: milestone.title,

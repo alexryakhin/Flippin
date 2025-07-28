@@ -82,5 +82,8 @@ struct BackgroundDemoView: View {
         .sheet(isPresented: $showPaywall) {
             Paywall.ContentView()
         }
+        .ifLet(colorManager.colorScheme) { view, scheme in
+            view.colorScheme(scheme)
+        }
     }
 }

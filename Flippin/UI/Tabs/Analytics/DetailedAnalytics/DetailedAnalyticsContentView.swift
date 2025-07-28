@@ -37,10 +37,13 @@ enum DetailedAnalytics {
         var body: some View {
             VStack(spacing: 0) {
                 switch selectedTab {
-                    case .overview: OverviewTab(selectedTimeRange: selectedTimeRange)
-                    case .performance: PerformanceTab(selectedTimeRange: selectedTimeRange)
-                    case .progress: ProgressTab(selectedTimeRange: selectedTimeRange)
-                    case .insights: InsightsTab(selectedTimeRange: selectedTimeRange)
+                case .overview: OverviewTab(selectedTimeRange: selectedTimeRange)
+                case .performance: PerformanceTab(selectedTimeRange: selectedTimeRange)
+                case .progress: ProgressTab(selectedTimeRange: selectedTimeRange)
+                case .insights: InsightsTab(
+                    selectedTimeRange: selectedTimeRange,
+                    onDismiss: { dismiss() }
+                )
                 }
             }
             .navigation(
@@ -73,17 +76,7 @@ enum DetailedAnalytics {
                 view.colorScheme(scheme)
             }
         }
-
-        // MARK: - Overview Tab
-
-        // MARK: - Performance Tab
-
-        // MARK: - Progress Tab
-
-        // MARK: - Insights Tab
     }
-
-    // MARK: - Supporting Views
 }
 
 #Preview {

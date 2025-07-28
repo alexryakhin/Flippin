@@ -55,7 +55,7 @@ extension DetailedAnalytics {
                 header: "Session Performance",
                 backgroundStyle: .standard
             ) {
-                VStack(spacing: 12) {
+                FormWithDivider {
                     PerformanceMetricRow(
                         title: "Average Session Duration",
                         value: sessionStats.averageDuration.formattedStudyTime,
@@ -98,7 +98,7 @@ extension DetailedAnalytics {
                     }
                     .frame(height: 100)
                 } else {
-                    VStack(spacing: 12) {
+                    FormWithDivider {
                         ForEach(difficultyDistribution, id: \.level) { difficulty in
                             DifficultyRow(
                                 level: difficulty.level,

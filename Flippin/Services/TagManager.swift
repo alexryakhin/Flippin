@@ -76,6 +76,17 @@ final class TagManager: ObservableObject {
             }
         }
     }
+    
+    @Published var isDifficultFilterOn: Bool = false {
+        didSet {
+            // Haptic feedback for difficult filter toggle
+            if oldValue != isDifficultFilterOn {
+                DispatchQueue.main.async {
+                    HapticService.shared.filterApplied()
+                }
+            }
+        }
+    }
 
     private func updateAvailableTags() {
         let request = Tag.fetchRequest()
@@ -145,8 +156,32 @@ final class TagManager: ObservableObject {
         return cards.filter { $0.isFavorite }
     }
 
+    @MainActor
+    func filterCardsByDifficulty(_ cards: [CardItem]) -> [CardItem] {
+        guard isDifficultFilterOn else { return cards }
+        
+        // Get card performance data from LearningAnalyticsService
+        let analyticsService = LearningAnalyticsService.shared
+        let cardPerformances = analyticsService.cardPerformances
+        
+        return cards.filter { card in
+            guard let cardId = card.id else { return false }
+            
+            // Check if we have performance data for this card
+            if let performance = cardPerformances[cardId] {
+                // Consider cards with difficulty level 4 or 5 as difficult
+                return performance.difficultyLevel >= 4
+            }
+            
+            // If no performance data, don't include in difficult filter
+            return false
+        }
+    }
+
     func clearFilter() {
         selectedFilterTag = nil
+        isFavoriteFilterOn = false
+        isDifficultFilterOn = false
 
         // Haptic feedback for filter cleared
         DispatchQueue.main.async {

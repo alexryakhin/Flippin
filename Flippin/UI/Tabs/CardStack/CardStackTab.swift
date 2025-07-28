@@ -33,6 +33,7 @@ enum CardStackTab {
                 filtered = tagManager.filterCards(filtered, by: selectedFilterTag)
             }
             filtered = tagManager.filterCardsByFavorite(filtered)
+            filtered = tagManager.filterCardsByDifficulty(filtered)
             return filtered
         }
 
@@ -97,6 +98,9 @@ enum CardStackTab {
             .onChange(of: tagManager.isFavoriteFilterOn) { _, _ in
                 resetShuffle()
             }
+            .onChange(of: tagManager.isDifficultFilterOn) { _, _ in
+                resetShuffle()
+            }
             .onChange(of: languageManager.filterByLanguage) { _, _ in
                 resetShuffle()
             }
@@ -121,6 +125,8 @@ enum CardStackTab {
             } else if displayItems.isEmpty {
                 if tagManager.isFavoriteFilterOn {
                     noFavoriteCardsView
+                } else if tagManager.isDifficultFilterOn {
+                    noDifficultCardsView
                 } else if languageManager.filterByLanguage {
                     filteredByLanguageCardsEmptyView
                 } else {
@@ -253,6 +259,20 @@ enum CardStackTab {
                 }
             } description: {
                 Text(LocalizationKeys.noFavoriteCardsDescription.localized)
+                    .foregroundStyle(.secondary)
+            }
+            .foregroundColor(colorManager.foregroundColor)
+        }
+        
+        private var noDifficultCardsView: some View {
+            ContentUnavailableView {
+                VStack {
+                    Image(systemName: "exclamationmark.triangle")
+                        .font(.largeTitle)
+                    Text("No Difficult Cards")
+                }
+            } description: {
+                Text("You don't have any cards marked as difficult yet. Study more cards to see difficulty levels.")
                     .foregroundStyle(.secondary)
             }
             .foregroundColor(colorManager.foregroundColor)

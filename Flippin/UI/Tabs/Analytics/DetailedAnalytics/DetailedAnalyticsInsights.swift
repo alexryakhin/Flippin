@@ -12,9 +12,12 @@ extension DetailedAnalytics {
     struct InsightsTab: View {
 
         let selectedTimeRange: TimeRange
+        let onDismiss: () -> Void
 
         @StateObject private var analyticsService = LearningAnalyticsService.shared
         @StateObject private var colorManager = ColorManager.shared
+        @StateObject private var tagManager = TagManager.shared
+        @StateObject private var navigationManager = NavigationManager.shared
         @State private var showingPresetCollections = false
 
         var body: some View {
@@ -139,17 +142,26 @@ extension DetailedAnalytics {
                 // In a real app, this would trigger navigation to study mode
                 break
             case "Start Review":
-                // Navigate to review mode for difficult cards
-                print("🎯 Starting review session for difficult cards")
-                break
+                // Apply difficult filter and navigate to card stack
+                tagManager.isDifficultFilterOn = true
+                tagManager.selectedFilterTag = nil
+                tagManager.isFavoriteFilterOn = false
+                // Switch to stack tab and dismiss the analytics sheet
+                print("🎯 Applied difficult filter and navigating to card stack")
+                onDismiss()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+                    navigationManager.switchToTab(.stack)
+                })
             case "Browse Collections":
                 // Present PresetCollectionsView
                 showingPresetCollections = true
-                break
             case "Practice Mode":
                 // Navigate to practice mode
                 print("🎯 Starting practice mode")
-                break
+                onDismiss()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+                    navigationManager.switchToTab(.study)
+                })
             default:
                 print("🎯 Unknown recommendation action: \(recommendation.action)")
             }

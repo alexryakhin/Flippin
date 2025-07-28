@@ -29,11 +29,12 @@ struct FiltersScrollView: View {
                 // Show all cards filter
                 TagButton(
                     title: LocalizationKeys.showAllCards,
-                    isSelected: tagManager.selectedFilterTag == nil && !tagManager.isFavoriteFilterOn,
+                    isSelected: tagManager.selectedFilterTag == nil && !tagManager.isFavoriteFilterOn && !tagManager.isDifficultFilterOn,
                     isMaterialBackground: isMaterialBackground
                 ) {
                     tagManager.selectedFilterTag = nil
                     tagManager.isFavoriteFilterOn = false
+                    tagManager.isDifficultFilterOn = false
                 }
 
                 // Favorite filter button
@@ -44,6 +45,16 @@ struct FiltersScrollView: View {
                     isMaterialBackground: isMaterialBackground
                 ) {
                     tagManager.isFavoriteFilterOn.toggle()
+                }
+
+                // Difficult cards filter button
+                TagButton(
+                    title: "Difficult Cards",
+                    imageSystemName: "exclamationmark.triangle.fill",
+                    isSelected: tagManager.isDifficultFilterOn,
+                    isMaterialBackground: isMaterialBackground
+                ) {
+                    tagManager.isDifficultFilterOn.toggle()
                 }
 
                 // Tag filter buttons

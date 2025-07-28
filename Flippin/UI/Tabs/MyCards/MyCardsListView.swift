@@ -58,6 +58,7 @@ struct MyCardsListView: View {
             filtered = tagManager.filterCards(filtered, by: selectedFilterTag)
         }
         filtered = tagManager.filterCardsByFavorite(filtered)
+        filtered = tagManager.filterCardsByDifficulty(filtered)
 
         return filtered.sorted { $0.timestamp.orNow > $1.timestamp.orNow }
     }
@@ -96,6 +97,8 @@ struct MyCardsListView: View {
             } else if groupedCards.isEmpty {
                 if tagManager.isFavoriteFilterOn {
                     noFavoriteCardsView
+                } else if tagManager.isDifficultFilterOn {
+                    noDifficultCardsView
                 } else if languageManager.filterByLanguage {
                     filteredByLanguageCardsEmptyView
                 } else if tagManager.selectedFilterTag == nil {
@@ -247,6 +250,19 @@ struct MyCardsListView: View {
             }
         } description: {
             Text(LocalizationKeys.noFavoriteCardsDescription.localized)
+                .foregroundStyle(.secondary)
+        }
+    }
+    
+    private var noDifficultCardsView: some View {
+        ContentUnavailableView {
+            VStack {
+                Image(systemName: "exclamationmark.triangle")
+                    .font(.largeTitle)
+                Text("No Difficult Cards")
+            }
+        } description: {
+            Text("You don't have any cards marked as difficult yet. Study more cards to see difficulty levels.")
                 .foregroundStyle(.secondary)
         }
     }

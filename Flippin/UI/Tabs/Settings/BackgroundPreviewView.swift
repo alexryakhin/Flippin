@@ -38,6 +38,9 @@ struct BackgroundPreviewView: View {
                 .clipShape(Capsule())
             }
         )
+        .ifLet(colorManager.colorScheme) { view, scheme in
+            view.colorScheme(scheme)
+        }
     }
 }
 
