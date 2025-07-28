@@ -17,7 +17,7 @@ enum StudyTab {
         // MARK: - State Variables
 
         @State private var premiumFeature: PremiumFeature?
-        @State private var currentStudyMode: StudyModeView.StudyMode?
+        @State private var currentStudyMode: StudyMode?
 
         // MARK: - Computed Properties
 
@@ -53,7 +53,7 @@ enum StudyTab {
                 view.colorScheme(scheme)
             }
             .sheet(item: $currentStudyMode) { mode in
-                StudyModeView(studyMode: mode)
+                StudyMode.ContentView(studyMode: mode)
             }
             .premiumAlert(feature: $premiumFeature)
         }
