@@ -93,9 +93,9 @@ The Flippin app has been redesigned to use a modern TabView-based navigation sys
 ```
 Flippin/UI/Main/
 ├── MainTabView.swift          # Main TabView container
-├── StudyTabView.swift         # Study tab (main cards)
+├── CardStackTabView.swift         # Study tab (main cards)
 ├── MyCardsTabView.swift       # Card management tab
-├── StudyModeTabView.swift     # Study sessions tab
+├── StudyTabView.swift     # Study sessions tab
 ├── AnalyticsTabView.swift     # Analytics tab
 └── SettingsTabView.swift      # Settings tab
 ```
@@ -114,7 +114,7 @@ Flippin/UI/Main/
 - **Better visual hierarchy**
 - **Maintained all existing functionality**
 
-#### StudyModeTabView
+#### StudyTabView
 - **New dedicated interface** for study sessions
 - **Quick stats overview** with visual cards
 - **Multiple study options** (review, practice, etc.)
@@ -126,28 +126,6 @@ Flippin/UI/Main/
 - **Quick access** to detailed analytics
 - **Activity preview** section
 
-## 🔄 Migration from Sheet-Based Navigation
-
-### Before (ContentView + Sheets)
-```swift
-// Single ContentView with multiple sheets
-.sheet(isPresented: $showSettings) { SettingsView() }
-.sheet(isPresented: $showMyCards) { MyCardsListView() }
-.sheet(isPresented: $showStudyMode) { StudyModeView() }
-.sheet(isPresented: $showAddCardSheet) { AddCardSheet() }
-```
-
-### After (TabView)
-```swift
-// Dedicated tabs for each major feature
-TabView(selection: $selectedTab) {
-    StudyTabView().tabItem { /* Study */ }
-    MyCardsTabView().tabItem { /* My Cards */ }
-    StudyModeTabView().tabItem { /* Study Mode */ }
-    AnalyticsTabView().tabItem { /* Analytics */ }
-    SettingsTabView().tabItem { /* Settings */ }
-}
-```
 
 ## 🎨 Design Considerations
 

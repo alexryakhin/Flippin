@@ -57,7 +57,7 @@ enum AnalyticsTab {
                 view.colorScheme(scheme)
             }
             .sheet(isPresented: $showDetailedAnalytics) {
-                DetailedAnalyticsView()
+                DetailedAnalytics.ContentView()
             }
             .premiumAlert(feature: $premiumFeature)
         }

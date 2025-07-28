@@ -16,12 +16,14 @@ struct CustomSectionView<Content: View, TrailingContent: View>: View {
 
     enum HeaderFontStyle {
         case regular
-        case bold
+        case large
 
         var font: Font {
             switch self {
-                case .regular: .headline
-                case .bold: .title2
+            case .regular:
+                    .headline.weight(.semibold)
+            case .large:
+                    .title2.weight(.bold)
             }
         }
     }
@@ -51,7 +53,6 @@ struct CustomSectionView<Content: View, TrailingContent: View>: View {
             HStack(spacing: 2) {
                 Text(header)
                     .font(headerFontStyle.font)
-                    .fontWeight(.bold)
 
                 Spacer()
 

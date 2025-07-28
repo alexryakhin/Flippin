@@ -31,7 +31,7 @@ struct FeaturedPresetCollections: View {
         if !featuredCollections.isEmpty {
             CustomSectionView(
                 header: LocalizationKeys.presetCollections.localized,
-                headerFontStyle: .bold,
+                headerFontStyle: .large,
                 backgroundStyle: bgStyle
             ) {
                 VStack(alignment: .leading, spacing: 16) {

@@ -2,19 +2,19 @@ import SwiftUI
 import Charts
 
 enum AnalyticsDashboard {
+
+    enum TimeRange: String, CaseIterable {
+        case week = "Week"
+        case month = "Month"
+        case year = "Year"
+    }
+
     struct ContentView: View {
         @StateObject private var analyticsService = LearningAnalyticsService.shared
         @StateObject private var colorManager = ColorManager.shared
         @StateObject private var purchaseService = PurchaseService.shared
 
         @State private var selectedTimeRange: TimeRange = .week
-        @State private var showingDetailedStats = false
-
-        enum TimeRange: String, CaseIterable {
-            case week = "Week"
-            case month = "Month"
-            case year = "Year"
-        }
 
         var body: some View {
             VStack(spacing: 16) {
@@ -29,20 +29,9 @@ enum AnalyticsDashboard {
 
                 // Mastery progress
                 masteryProgressSection
-
-                // Recent activity
-                recentActivitySection
-
-                // Premium features promotion
-                if !purchaseService.hasPremiumAccess {
-                    premiumFeaturesSection
-                }
             }
             .ifLet(colorManager.colorScheme) { view, scheme in
                 view.colorScheme(scheme)
-            }
-            .sheet(isPresented: $showingDetailedStats) {
-                DetailedAnalyticsView()
             }
         }
 
@@ -106,57 +95,43 @@ enum AnalyticsDashboard {
         // MARK: - Quick Stats Section
 
         private var quickStatsSection: some View {
-            LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 8), count: 2), spacing: 8) {
-                StatCard(
-                    title: "Today's Study",
-                    value: formatStudyTime(analyticsService.dailyStats?.totalStudyTime ?? 0),
-                    icon: "clock.fill",
-                    color: .blue
-                )
+            CustomSectionView(header: "Today", headerFontStyle: .large) {
+                LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 8), count: 2), spacing: 8) {
+                    StatCard(
+                        title: "Today's Study",
+                        value: formatStudyTime(analyticsService.dailyStats?.totalStudyTime ?? 0),
+                        icon: "clock.fill",
+                        color: .blue
+                    )
 
-                StatCard(
-                    title: "Cards Studied",
-                    value: "\(analyticsService.dailyStats?.cardsStudied ?? 0)",
-                    icon: "rectangle.stack.fill",
-                    color: .purple
-                )
+                    StatCard(
+                        title: "Cards Studied",
+                        value: "\(analyticsService.dailyStats?.cardsStudied ?? 0)",
+                        icon: "rectangle.stack.fill",
+                        color: .purple
+                    )
 
-                StatCard(
-                    title: "Sessions",
-                    value: "\(analyticsService.dailyStats?.sessionsCompleted ?? 0)",
-                    icon: "play.circle.fill",
-                    color: .orange
-                )
+                    StatCard(
+                        title: "Sessions",
+                        value: "\(analyticsService.dailyStats?.sessionsCompleted ?? 0)",
+                        icon: "play.circle.fill",
+                        color: .orange
+                    )
 
-                StatCard(
-                    title: "Accuracy",
-                    value: "\(Int((analyticsService.dailyStats?.totalStudyTime ?? 0) > 0 ? 85.0 : 0.0))%",
-                    icon: "target",
-                    color: .green
-                )
+                    StatCard(
+                        title: "Accuracy",
+                        value: "\(Int((analyticsService.dailyStats?.totalStudyTime ?? 0) > 0 ? 85.0 : 0.0))%",
+                        icon: "target",
+                        color: .green
+                    )
+                }
             }
         }
 
         // MARK: - Study Time Chart Section
 
         private var studyTimeChartSection: some View {
-            VStack(alignment: .leading, spacing: 16) {
-                HStack {
-                    Text("Study Time")
-                        .font(.headline)
-                        .fontWeight(.semibold)
-
-                    Spacer()
-
-                    Picker("Time Range", selection: $selectedTimeRange) {
-                        ForEach(TimeRange.allCases, id: \.self) { range in
-                            Text(range.rawValue).tag(range)
-                        }
-                    }
-                    .pickerStyle(.segmented)
-                    .frame(width: 200)
-                }
-
+            CustomSectionView(header: "Study Time") {
                 Chart(analyticsService.getWeeklyStudyData(), id: \.date) { data in
                     BarMark(
                         x: .value("Date", data.date, unit: .day),
@@ -179,21 +154,24 @@ enum AnalyticsDashboard {
                         }
                     }
                 }
+            } trailingContent: {
+                Picker("Time Range", selection: $selectedTimeRange) {
+                    ForEach(TimeRange.allCases, id: \.self) { range in
+                        Text(range.rawValue).tag(range)
+                    }
+                }
+                .pickerStyle(.segmented)
             }
-            .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
         }
 
         // MARK: - Mastery Progress Section
 
+        @ViewBuilder
         private var masteryProgressSection: some View {
             let masteryStats = analyticsService.getMasteryStats()
 
-            return VStack(alignment: .leading, spacing: 16) {
-                Text("Mastery Progress")
-                    .font(.headline)
-                    .fontWeight(.semibold)
-
-                VStack(spacing: 12) {
+            CustomSectionView(header: "Mastery Progress") {
+                FormWithDivider {
                     MasteryProgressRow(
                         title: "Mastered",
                         count: masteryStats.mastered,
@@ -219,66 +197,6 @@ enum AnalyticsDashboard {
                     )
                 }
             }
-            .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
-        }
-
-        // MARK: - Recent Activity Section
-
-        private var recentActivitySection: some View {
-            VStack(alignment: .leading, spacing: 16) {
-                Text("Recent Activity")
-                    .font(.headline)
-                    .fontWeight(.semibold)
-
-                // Placeholder for recent activity
-                VStack(spacing: 12) {
-                    ForEach(0..<3, id: \.self) { index in
-                        HStack {
-                            Circle()
-                                .fill(colorManager.tintColor)
-                                .frame(width: 8, height: 8)
-
-                            Text("Studied \(5 - index) cards")
-                                .font(.subheadline)
-
-                            Spacer()
-
-                            Text("\(2 - index)h ago")
-                                .font(.caption)
-                                .foregroundColor(.secondary)
-                        }
-                    }
-                }
-            }
-            .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
-        }
-
-        // MARK: - Premium Features Section
-
-        private var premiumFeaturesSection: some View {
-            VStack(alignment: .leading, spacing: 16) {
-                HStack {
-                    Image(systemName: "crown.fill")
-                        .foregroundColor(.yellow)
-                        .font(.title2)
-
-                    Text("Unlock Premium Analytics")
-                        .font(.headline)
-                        .fontWeight(.semibold)
-                }
-
-                Text("Get detailed insights, advanced charts, and personalized learning recommendations.")
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-
-                Button("Upgrade to Premium") {
-                    // Handle premium upgrade
-                }
-                .foregroundStyle(colorManager.borderedProminentForegroundColor)
-                .buttonStyle(.borderedProminent)
-                .clipShape(Capsule())
-            }
-            .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
         }
 
         // MARK: - Helper Methods
@@ -321,7 +239,6 @@ enum AnalyticsDashboard {
                     .font(.caption)
                     .foregroundColor(.secondary)
             }
-            .padding(16)
             .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
         }
     }
@@ -339,10 +256,11 @@ enum AnalyticsDashboard {
         }
 
         var body: some View {
-            HStack(spacing: 12) {
+            HStack(spacing: 8) {
                 Image(systemName: icon)
                     .foregroundColor(color)
                     .font(.subheadline)
+                    .frame(width: 24)
 
                 Text(title)
                     .font(.subheadline)

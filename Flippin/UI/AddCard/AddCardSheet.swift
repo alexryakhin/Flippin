@@ -83,10 +83,10 @@ struct AddCardSheet: View {
                 .frame(maxWidth: .infinity)
                 .padding(vertical: 12, horizontal: 16)
         }
-        .padding(.horizontal)
-        .padding(.bottom)
         .buttonStyle(.borderedProminent)
         .clipShape(Capsule())
+        .padding(.horizontal)
+        .padding(.bottom)
         .disabled(viewModel.nativeText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ||
                  viewModel.targetText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
         .gradientStyle(.bottomButtonOnList)

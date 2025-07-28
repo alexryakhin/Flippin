@@ -5,7 +5,7 @@ import SwiftUI
  Provides focused study experience with progress tracking.
  */
 
-enum StudyModeTab {
+enum StudyTab {
 
     struct ContentView: View {
         // MARK: - State Objects
@@ -65,16 +65,11 @@ enum StudyModeTab {
         // MARK: - UI Components
 
         private var quickStatsSection: some View {
-            VStack(spacing: 16) {
-                Text("Quick Stats")
-                    .font(.title2)
-                    .fontWeight(.bold)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-
-                LazyVGrid(columns: [
-                    GridItem(.flexible(), spacing: 12),
-                    GridItem(.flexible(), spacing: 12)
-                ], spacing: 12) {
+            CustomSectionView(header: "Quick Stats", headerFontStyle: .large) {
+                LazyVGrid(
+                    columns: Array(repeating: GridItem(.flexible(), spacing: 8), count: 2),
+                    spacing: 8
+                ) {
                     StatCard(
                         title: "Cards to Review",
                         value: "\(cardsNeedingReview.count)",
@@ -104,92 +99,73 @@ enum StudyModeTab {
                     )
                 }
             }
-            .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
         }
 
         private var studyOptionsSection: some View {
-            VStack(spacing: 16) {
-                Text("Study Options")
-                    .font(.title2)
-                    .fontWeight(.bold)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-
+            CustomSectionView(header: "Study Options", headerFontStyle: .large) {
                 VStack(spacing: 12) {
                     // Start study session
-                    Button {
-                        showStudyMode = true
-                    } label: {
-                        HStack {
-                            Image(systemName: "play.fill")
-                                .font(.title2)
-                            Text("Start Study Session")
-                                .font(.headline)
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                                .font(.caption)
-                        }
-                        .padding(16)
-                        .background(Color.green.opacity(0.1))
-                        .foregroundColor(.green)
-                        .cornerRadius(12)
-                    }
-                    .disabled(cardsProvider.cards.isEmpty)
+                    studyOptionButton(
+                        image: Image(systemName: "play.fill"),
+                        text: "Start Study Session",
+                        color: .green,
+                        isDisabled: cardsProvider.cards.isEmpty,
+                        action: { showStudyMode = true }
+                    )
 
                     // Review cards
                     if !cardsNeedingReview.isEmpty {
-                        Button {
-                            showStudyMode = true
-                        } label: {
-                            HStack {
-                                Image(systemName: "clock.fill")
-                                    .font(.title2)
-                                Text("Review Due Cards (\(cardsNeedingReview.count))")
-                                    .font(.headline)
-                                Spacer()
-                                Image(systemName: "chevron.right")
-                                    .font(.caption)
-                            }
-                            .padding(16)
-                            .background(Color.orange.opacity(0.1))
-                            .foregroundColor(.orange)
-                            .cornerRadius(12)
-                        }
-                        .disabled(cardsProvider.cards.isEmpty)
+                        studyOptionButton(
+                            image: Image(systemName: "clock.fill"),
+                            text: "Review Due Cards (\(cardsNeedingReview.count))",
+                            color: .orange,
+                            isDisabled: cardsProvider.cards.isEmpty,
+                            action: { showStudyMode = true }
+                        )
                     }
 
                     // Practice all cards
                     if !cardsProvider.cards.isEmpty {
-                        Button {
-                            showStudyMode = true
-                        } label: {
-                            HStack {
-                                Image(systemName: "rectangle.stack.fill")
-                                    .font(.title2)
-                                Text("Practice All Cards")
-                                    .font(.headline)
-                                Spacer()
-                                Image(systemName: "chevron.right")
-                                    .font(.caption)
-                            }
-                            .padding(16)
-                            .background(Color.blue.opacity(0.1))
-                            .foregroundColor(.blue)
-                            .cornerRadius(12)
-                        }
-                        .disabled(cardsProvider.cards.isEmpty)
+                        studyOptionButton(
+                            image: Image(.icCardsStack),
+                            text: "Practice All Cards",
+                            color: .blue,
+                            action: { showStudyMode = true }
+                        )
                     }
                 }
             }
-            .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
+        }
+
+        private func studyOptionButton(
+            image: Image,
+            text: String,
+            color: Color,
+            isDisabled: Bool = false,
+            action: @escaping () -> Void
+        ) -> some View {
+            Button(action: action) {
+                HStack(spacing: 8) {
+                    image
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 24, height: 24)
+                    Text(text)
+                        .font(.headline)
+                    Spacer()
+                    Image(systemName: "chevron.right")
+                        .font(.caption)
+                }
+                .padding(16)
+                .background(color.opacity(0.1))
+                .foregroundStyle(color)
+                .cornerRadius(12)
+            }
+            .disabled(isDisabled)
         }
 
         private var recentActivitySection: some View {
-            VStack(spacing: 16) {
-                Text("Recent Activity")
-                    .font(.title2)
-                    .fontWeight(.bold)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-
+            CustomSectionView(header: "Recent Activity", headerFontStyle: .large) {
                 if cardsProvider.cards.isEmpty {
                     ContentUnavailableView {
                         VStack {
@@ -227,7 +203,6 @@ enum StudyModeTab {
                     }
                 }
             }
-            .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
         }
 
         // MARK: - Helper Methods
@@ -302,5 +277,5 @@ enum StudyModeTab {
 }
 
 #Preview {
-    StudyModeTab.ContentView()
+    StudyTab.ContentView()
 }

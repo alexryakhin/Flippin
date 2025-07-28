@@ -72,7 +72,7 @@ struct MainTabView: View {
                 case .list:
                     MyCardsListView()
                 case .study:
-                    StudyModeTab.ContentView()
+                    StudyTab.ContentView()
                 case .analytics:
                     AnalyticsTab.ContentView()
                 case .settings:
