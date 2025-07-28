@@ -97,54 +97,53 @@ enum StudyTab {
             }
         }
 
+        @ViewBuilder
         private var studyOptionsSection: some View {
-            CustomSectionView(header: "Study Options", headerFontStyle: .large) {
-                VStack(spacing: 12) {
-                    // Start study session (only show if user has more than 10 cards)
-                    if cardsProvider.cards.count > 10 {
-                        studyOptionButton(
-                            image: Image(systemName: "play.fill"),
-                            text: "Start Study Session (10 cards)",
-                            color: .green,
-                            isDisabled: cardsProvider.cards.isEmpty,
-                            action: { 
-                                currentStudyMode = .practice10
-                            }
-                        )
-                    }
+            if !cardsProvider.cards.isEmpty {
+                CustomSectionView(header: "Study Options", headerFontStyle: .large) {
+                    VStack(spacing: 12) {
+                        // Start study session (only show if user has more than 10 cards)
+                        if cardsProvider.cards.count > 10 {
+                            studyOptionButton(
+                                image: Image(systemName: "play.fill"),
+                                text: "Start Study Session (10 cards)",
+                                color: .green,
+                                isDisabled: cardsProvider.cards.isEmpty,
+                                action: {
+                                    currentStudyMode = .practice10
+                                }
+                            )
+                        }
 
-                    // Practice all cards
-                    if !cardsProvider.cards.isEmpty {
+                        // Practice all cards
                         studyOptionButton(
-                            image: Image(.icCardsStack),
+                            image: Image(.icCardStackFill),
                             text: "Practice All Cards (\(cardsProvider.cards.count))",
                             color: .blue,
-                            action: { 
+                            action: {
                                 currentStudyMode = .practice
                             }
                         )
-                    }
-                    
-                    // Practice difficult cards
-                    let difficultCards = analyticsService.getDifficultCardsNeedingReview()
-                    if !difficultCards.isEmpty {
-                        studyOptionButton(
-                            image: Image(systemName: "exclamationmark.triangle.fill"),
-                            text: "Practice Difficult Cards (\(difficultCards.count))",
-                            color: .red,
-                            action: { 
-                                currentStudyMode = .difficult
-                            }
-                        )
-                    }
-                    
-                    // Multiple choice quiz
-                    if !cardsProvider.cards.isEmpty {
+
+                        // Practice difficult cards
+                        let difficultCards = analyticsService.getDifficultCardsNeedingReview()
+                        if !difficultCards.isEmpty {
+                            studyOptionButton(
+                                image: Image(systemName: "exclamationmark.triangle.fill"),
+                                text: "Practice Difficult Cards (\(difficultCards.count))",
+                                color: .red,
+                                action: {
+                                    currentStudyMode = .difficult
+                                }
+                            )
+                        }
+
+                        // Multiple choice quiz
                         studyOptionButton(
                             image: Image(systemName: "list.bullet.circle.fill"),
                             text: "Multiple Choice Quiz",
                             color: .purple,
-                            action: { 
+                            action: {
                                 currentStudyMode = .multipleChoice
                             }
                         )
@@ -192,8 +191,13 @@ enum StudyTab {
                     } description: {
                         Text("Start studying to see your progress!")
                             .foregroundStyle(.secondary)
+                    } actions: {
+                        Button("To cards") {
+                            NavigationManager.shared.switchToTab(.stack)
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .clipShape(Capsule())
                     }
-                    .foregroundColor(colorManager.foregroundColor)
                 } else {
                     VStack(spacing: 12) {
                         ActivityRow(

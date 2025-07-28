@@ -113,6 +113,9 @@ enum CardStackTab {
             .sheet(isPresented: $showAddCardSheet) {
                 AddCardSheet()
             }
+            .onDisappear {
+                LearningAnalyticsService.shared.endStudySession()
+            }
             .premiumAlert(feature: $premiumFeature)
         }
 
@@ -184,7 +187,7 @@ enum CardStackTab {
             VStack {
                 ContentUnavailableView {
                     VStack {
-                        Image(.stackCards)
+                        Image(.cardStackFill)
                             .resizable()
                             .scaledToFit()
                             .frame(width: 48, height: 48)
@@ -237,7 +240,7 @@ enum CardStackTab {
         private var filteredByLanguageCardsEmptyView: some View {
             ContentUnavailableView {
                 VStack {
-                    Image(.stackCards)
+                    Image(.cardStackFill)
                         .resizable()
                         .scaledToFit()
                         .frame(width: 48, height: 48)

@@ -27,15 +27,30 @@ struct MainTabView: View {
         var image: Image {
             switch self {
             case .stack:
-                Image(.stackCards)
+                Image(.icCardStack)
             case .list:
-                Image(systemName: "list.bullet")
+                Image(systemName: "list.bullet.rectangle")
             case .study:
                 Image(systemName: "book")
             case .analytics:
-                Image(systemName: "chart.bar.fill")
+                Image(systemName: "chart.bar")
             case .settings:
                 Image(systemName: "gearshape")
+            }
+        }
+
+        var imageSelected: Image {
+            switch self {
+            case .stack:
+                Image(.icCardStackFill)
+            case .list:
+                Image(systemName: "list.bullet.rectangle.fill")
+            case .study:
+                Image(systemName: "book.fill")
+            case .analytics:
+                Image(systemName: "chart.bar.fill")
+            case .settings:
+                Image(systemName: "gearshape.fill")
             }
         }
 
@@ -109,7 +124,12 @@ struct MainTabView: View {
     private var tabBarView: some View {
         HStack {
             ForEach(cardsProvider.cards.isEmpty ? Tab.allCasesIfEmpty : Tab.allCases, id: \.self) { tab in
-                TabButton(title: tab.title, image: tab.image, isSelected: navigationManager.selectedTab == tab) {
+                TabButton(
+                    title: tab.title,
+                    image: tab.image,
+                    imageSelected: tab.imageSelected,
+                    isSelected: navigationManager.selectedTab == tab
+                ) {
                     navigationManager.selectedTab = tab
                 }
             }

@@ -196,7 +196,7 @@ struct MyCardsListView: View {
         VStack {
             ContentUnavailableView {
                 VStack {
-                    Image(.stackCards)
+                    Image(.cardStackFill)
                         .resizable()
                         .scaledToFit()
                         .frame(width: 48, height: 48)
@@ -216,7 +216,7 @@ struct MyCardsListView: View {
     private var filteredByLanguageCardsEmptyView: some View {
         ContentUnavailableView {
             VStack {
-                Image(.stackCards)
+                Image(.cardStackFill)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 48, height: 48)

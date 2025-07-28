@@ -54,85 +54,85 @@ struct PersonalizedRecommendation: Identifiable {
 @MainActor
 final class LearningAnalyticsService: ObservableObject {
     static let shared = LearningAnalyticsService()
-    
+
     @Published var currentSession: StudySession?
     @Published var dailyStats: DailyStats?
     @Published var cardPerformances: [String: CardPerformance] = [:]
     @Published var studyStreak: Int = 0
     @Published var totalStudyTime: TimeInterval = 0
     @Published var totalCardsMastered: Int = 0
-    
+
     private let coreDataService = CoreDataService.shared
     private let languageManager = LanguageManager.shared
     private let cardsProvider = CardsProvider.shared
 
     private var sessionStartTime: Date?
     private var cancellables = Set<AnyCancellable>()
-    
+
     private init() {
         loadAnalytics()
         setupObservers()
     }
-    
+
     // MARK: - Study Session Management
-    
+
     /// Start a new study session
     func startStudySession(sessionType: String = "review") {
         let languagePair = "\(languageManager.userLanguage.rawValue)-\(languageManager.targetLanguage.rawValue)"
-        
+
         currentSession = StudySession(
             startTime: Date(),
             sessionType: sessionType,
             languagePair: languagePair,
             context: coreDataService.context
         )
-        
+
         sessionStartTime = Date()
-        
+
         // Track session start
         AnalyticsService.trackStudySessionEvent(
             .studySessionStarted,
             sessionDuration: nil,
             cardsReviewed: 0
         )
-        
+
         print("📚 Started study session: \(sessionType)")
     }
-    
+
     /// End the current study session
     func endStudySession() {
         guard let session = currentSession,
-              let startTime = sessionStartTime else { 
+              let startTime = sessionStartTime else {
             print("📚 No active session to end")
-            return 
+            return
         }
-        
+
         let duration = Date().timeIntervalSince(startTime)
         session.endTime = Date()
         session.duration = duration
-        
+
         print("📚 Ending study session: \(duration)s, \(session.cardsReviewed) cards reviewed")
-        
+
         // Update daily stats
         updateDailyStats(session: session)
-        
+
         // Save session
         saveContext()
-        
+
         // Track session end
         AnalyticsService.trackStudySessionEvent(
             .studySessionEnded,
             sessionDuration: duration,
             cardsReviewed: Int(session.cardsReviewed)
         )
-        
+
         // Reset current session
         currentSession = nil
         sessionStartTime = nil
-        
+
         print("📚 Study session ended successfully")
     }
-    
+
     /// Record a card review during study session
     func recordCardReview(cardId: String, wasCorrect: Bool, timeSpent: TimeInterval) {
         // Update current session
@@ -144,13 +144,13 @@ final class LearningAnalyticsService: ObservableObject {
                 session.cardsIncorrect += 1
             }
         }
-        
+
         // Update card performance
         let performance = getOrCreateCardPerformance(for: cardId)
         performance.totalReviews += 1
         performance.timeSpent += timeSpent
         performance.lastReviewed = Date()
-        
+
         if wasCorrect {
             performance.correctReviews += 1
             performance.consecutiveCorrect += 1
@@ -160,13 +160,13 @@ final class LearningAnalyticsService: ObservableObject {
             performance.consecutiveIncorrect += 1
             performance.consecutiveCorrect = 0
         }
-        
+
         // Update mastery level and difficulty
         updateCardMastery(performance: performance)
         updateAverageResponseTime(performance: performance, timeSpent: timeSpent)
         updateCardDifficulty(performance: performance, timeSpent: timeSpent)
         updateNextReviewDate(performance: performance)
-        
+
         // Track card review
         AnalyticsService.trackCardEvent(
             wasCorrect ? .cardReviewedCorrect : .cardReviewedIncorrect,
@@ -175,9 +175,9 @@ final class LearningAnalyticsService: ObservableObject {
             tagCount: getCardTagCount(for: cardId)
         )
     }
-    
+
     // MARK: - Analytics Data Management
-    
+
     /// Load all analytics data
     func loadAnalytics() {
         loadCardPerformances()
@@ -186,18 +186,18 @@ final class LearningAnalyticsService: ObservableObject {
         calculateTotalStudyTime()
         calculateTotalCardsMastered()
     }
-    
+
     /// Force refresh analytics data and notify UI
     func refreshAnalytics() {
         loadAnalytics()
         objectWillChange.send()
     }
-    
+
     /// Load card performance data
     private func loadCardPerformances() {
         let request = CardPerformance.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(keyPath: \CardPerformance.lastReviewed, ascending: false)]
-        
+
         do {
             let performances = try coreDataService.context.fetch(request)
             cardPerformances = Dictionary(uniqueKeysWithValues: performances.compactMap { performance in
@@ -208,13 +208,13 @@ final class LearningAnalyticsService: ObservableObject {
             print("❌ Failed to load card performances: \(error)")
         }
     }
-    
+
     /// Load daily statistics
     private func loadDailyStats() {
         let today = Calendar.current.startOfDay(for: Date())
         let request = DailyStats.fetchRequest()
         request.predicate = NSPredicate(format: "date == %@", today as NSDate)
-        
+
         do {
             let stats = try coreDataService.context.fetch(request)
             dailyStats = stats.first
@@ -222,52 +222,51 @@ final class LearningAnalyticsService: ObservableObject {
             print("❌ Failed to load daily stats: \(error)")
         }
     }
-    
+
     /// Get or create card performance for a card
     private func getOrCreateCardPerformance(for cardId: String) -> CardPerformance {
         if let existing = cardPerformances[cardId] {
             return existing
         }
-        
+
         let performance = CardPerformance(cardId: cardId, context: coreDataService.context)
         cardPerformances[cardId] = performance
         return performance
     }
-    
+
     // MARK: - Statistics Calculation
-    
+
     /// Calculate study streak
     private func calculateStudyStreak() {
         let request = DailyStats.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(keyPath: \DailyStats.date, ascending: false)]
-        
+
         do {
             let stats = try coreDataService.context.fetch(request)
-            var streak = 0
             let calendar = Calendar.current
             let today = calendar.startOfDay(for: Date())
-            
+
             // Check if user studied today
             let hasStudiedToday = stats.contains { stat in
                 guard let date = stat.date else { return false }
                 return calendar.isDate(calendar.startOfDay(for: date), inSameDayAs: today)
             }
-            
+
             if !hasStudiedToday {
                 studyStreak = 0
                 return
             }
-            
+
             // Calculate consecutive days streak
             var currentDate = today
             var consecutiveDays = 0
-            
+
             while true {
                 let hasStudiedOnDate = stats.contains { stat in
                     guard let date = stat.date else { return false }
                     return calendar.isDate(calendar.startOfDay(for: date), inSameDayAs: currentDate)
                 }
-                
+
                 if hasStudiedOnDate {
                     consecutiveDays += 1
                     // Move to previous day
@@ -276,18 +275,18 @@ final class LearningAnalyticsService: ObservableObject {
                     break
                 }
             }
-            
+
             studyStreak = consecutiveDays
             print("📊 Study streak calculated: \(consecutiveDays) days")
         } catch {
             print("❌ Failed to calculate study streak: \(error)")
         }
     }
-    
+
     /// Calculate total study time
     private func calculateTotalStudyTime() {
         let request = StudySession.fetchRequest()
-        
+
         do {
             let sessions = try coreDataService.context.fetch(request)
             totalStudyTime = sessions.reduce(0) { $0 + $1.duration }
@@ -295,76 +294,91 @@ final class LearningAnalyticsService: ObservableObject {
             print("❌ Failed to calculate total study time: \(error)")
         }
     }
-    
+
     /// Calculate total cards mastered
     private func calculateTotalCardsMastered() {
         totalCardsMastered = cardPerformances.values.filter { $0.isMastered }.count
     }
-    
+
     // MARK: - Card Mastery System
-    
+
     /// Update card mastery level based on performance
     private func updateCardMastery(performance: CardPerformance) {
         let accuracy = performance.accuracyRate
         let consecutiveCorrect = performance.consecutiveCorrect
+        let totalReviews = performance.totalReviews
         
-        // Mastery calculation based on accuracy and consistency
+        // Base mastery calculation based on accuracy
         var mastery = Int16(accuracy * 100)
         
-        // Bonus for consecutive correct answers
-        if consecutiveCorrect >= 5 {
-            mastery += 10
-        } else if consecutiveCorrect >= 3 {
-            mastery += 5
+        // Require minimum reviews before considering mastery
+        if totalReviews < 3 {
+            // Not enough data yet - cap mastery at 50%
+            mastery = min(mastery, 50)
+        } else if totalReviews < 5 {
+            // Some data but not enough for full mastery - cap at 75%
+            mastery = min(mastery, 75)
+        }
+        
+        // Bonus for consecutive correct answers (only if enough reviews)
+        if totalReviews >= 3 {
+            if consecutiveCorrect >= 5 {
+                mastery += 15
+            } else if consecutiveCorrect >= 3 {
+                mastery += 10
+            }
         }
         
         // Penalty for recent mistakes
         if performance.consecutiveIncorrect >= 2 {
-            mastery -= 15
+            mastery -= 20
+        } else if performance.consecutiveIncorrect >= 1 {
+            mastery -= 10
         }
         
+        // Ensure mastery stays within bounds
         performance.masteryLevel = max(0, min(100, mastery))
     }
-    
+
     /// Update average response time for a card
     private func updateAverageResponseTime(performance: CardPerformance, timeSpent: TimeInterval) {
         let currentTotal = performance.averageResponseTime * Double(performance.totalReviews)
         let newTotal = currentTotal + timeSpent
         let newCount = performance.totalReviews + 1
-        
+
         performance.averageResponseTime = newTotal / Double(newCount)
     }
-    
+
     /// Update card difficulty level based on performance and content
     private func updateCardDifficulty(performance: CardPerformance, timeSpent: TimeInterval) {
         var difficultyScore: Double = 0
-        
+
         // 1. Performance-based factors (60% weight)
         let performanceWeight = 0.6
-        
+
         // Accuracy factor (inverse relationship)
         let accuracyFactor = 1.0 - performance.accuracyRate
         difficultyScore += accuracyFactor * performanceWeight * 0.4
-        
+
         // Response time factor (normalized to 0-1, where 1 = very slow)
         let avgResponseTime = performance.averageResponseTime
         let timeFactor = min(1.0, avgResponseTime / 10.0) // 10 seconds = max difficulty
         difficultyScore += timeFactor * performanceWeight * 0.3
-        
+
         // Consecutive incorrect factor
         let consecutiveIncorrectFactor = min(1.0, Double(performance.consecutiveIncorrect) / 5.0)
         difficultyScore += consecutiveIncorrectFactor * performanceWeight * 0.3
-        
+
         // 2. Content-based factors (30% weight)
         let contentWeight = 0.3
-        
+
         // Card age factor (newer cards are harder)
         if let creationDate = performance.creationDate {
             let daysSinceCreation = Calendar.current.dateComponents([.day], from: creationDate, to: Date()).day ?? 0
             let ageFactor = max(0, min(1.0, 1.0 - (Double(daysSinceCreation) / 30.0))) // 30 days to normalize
             difficultyScore += ageFactor * contentWeight * 0.5
         }
-        
+
         // Review frequency factor (more reviews = harder)
         if let creationDate = performance.creationDate {
             let daysSinceCreation = Calendar.current.dateComponents([.day], from: creationDate, to: Date()).day ?? 1
@@ -372,36 +386,36 @@ final class LearningAnalyticsService: ObservableObject {
             let frequencyFactor = min(1.0, reviewFrequency / 2.0) // 2 reviews per day = max difficulty
             difficultyScore += frequencyFactor * contentWeight * 0.5
         }
-        
+
         // 3. User-specific factors (10% weight)
         let userWeight = 0.1
-        
+
         // Individual learning pattern (compared to user average)
         let userAvgAccuracy = calculateUserAverageAccuracy()
         let userAccuracyFactor = max(0, userAvgAccuracy - performance.accuracyRate)
         difficultyScore += userAccuracyFactor * userWeight
-        
+
         // Convert to 1-5 scale
         let difficultyLevel = Int16(max(1, min(5, round(difficultyScore * 5))))
         performance.difficultyLevel = difficultyLevel
     }
-    
+
     /// Calculate user's average accuracy across all cards
     private func calculateUserAverageAccuracy() -> Double {
         let performances = Array(cardPerformances.values)
         guard !performances.isEmpty else { return 0.5 }
-        
+
         let totalAccuracy = performances.reduce(0.0) { $0 + $1.accuracyRate }
         return totalAccuracy / Double(performances.count)
     }
-    
+
     /// Update next review date using spaced repetition
     private func updateNextReviewDate(performance: CardPerformance) {
         let accuracy = performance.accuracyRate
         let consecutiveCorrect = performance.consecutiveCorrect
-        
+
         var daysToAdd: Int
-        
+
         if accuracy >= 0.9 && consecutiveCorrect >= 3 {
             // Well known: review in 7-30 days
             daysToAdd = Int(min(30, 7 + consecutiveCorrect * 2))
@@ -412,52 +426,49 @@ final class LearningAnalyticsService: ObservableObject {
             // Needs work: review soon
             daysToAdd = Int(max(1, 3 - consecutiveCorrect))
         }
-        
+
         performance.nextReviewDate = Calendar.current.date(byAdding: .day, value: daysToAdd, to: Date())
     }
-    
+
     // MARK: - Daily Statistics
-    
+
     /// Update daily statistics
     private func updateDailyStats(session: StudySession) {
         let today = Calendar.current.startOfDay(for: Date())
-        
+
         if dailyStats == nil {
             let languagePair = "\(languageManager.userLanguage.rawValue)-\(languageManager.targetLanguage.rawValue)"
             dailyStats = DailyStats(date: today, languagePair: languagePair, context: coreDataService.context)
             print("📊 Created new daily stats for today")
         }
-        
-        guard let stats = dailyStats else { 
+
+        guard let stats = dailyStats else {
             print("❌ Failed to get daily stats")
-            return 
+            return
         }
-        
-        let previousStudyTime = stats.totalStudyTime
-        let previousCardsStudied = stats.cardsStudied
-        
+
         stats.totalStudyTime += session.duration
         stats.cardsStudied += session.cardsReviewed
         stats.sessionsCompleted += 1
-        
+
         // Update streak after updating today's stats
         calculateStudyStreak()
         stats.streakDays = Int32(studyStreak)
-        
+
         print("📊 Updated daily stats - Added: \(session.duration)s, \(session.cardsReviewed) cards")
         print("📊 Total today: \(stats.totalStudyTime)s, \(stats.cardsStudied) cards, \(stats.sessionsCompleted) sessions, Streak: \(studyStreak)")
-        
+
         // Save the updated daily stats
         saveContext()
     }
-    
+
     // MARK: - Analytics Queries
-    
+
     /// Get cards by difficulty level
     func getCardsByDifficulty(_ difficulty: Int16) -> [CardItem] {
         let request = CardPerformance.fetchRequest()
         request.predicate = NSPredicate(format: "difficultyLevel == %d", difficulty)
-        
+
         do {
             let performances = try coreDataService.context.fetch(request)
             return performances.compactMap { performance in
@@ -471,25 +482,25 @@ final class LearningAnalyticsService: ObservableObject {
             return []
         }
     }
-    
+
     /// Get difficulty distribution
     func getDifficultyDistribution() -> [Int16: Int] {
         var distribution: [Int16: Int] = [1: 0, 2: 0, 3: 0, 4: 0, 5: 0]
-        
+
         for performance in cardPerformances.values {
             let difficulty = performance.difficultyLevel
             distribution[difficulty, default: 0] += 1
         }
-        
+
         return distribution
     }
-    
+
     /// Get card performance for a specific card
     func getCardPerformance(for cardId: String?) -> CardPerformance? {
         guard let cardId else { return nil }
         return cardPerformances[cardId]
     }
-    
+
     /// Get difficulty level description
     func getDifficultyDescription(_ level: Int16) -> String {
         switch level {
@@ -501,50 +512,50 @@ final class LearningAnalyticsService: ObservableObject {
         default: return "Unknown"
         }
     }
-    
+
     /// Get cards that need review
     func getCardsNeedingReview() -> [CardItem] {
         let cardsProvider = CardsProvider.shared
         let allCards = cardsProvider.cards
-        
+
         let cardsNeedingReview = allCards.filter { card in
             guard let cardId = card.id else { return false }
             let performance = cardPerformances[cardId]
-            
+
             // If no performance data exists, card needs review
             guard let performance = performance else { return true }
-            
+
             // Check if card needs review based on nextReviewDate
             if performance.needsReview {
                 return true
             }
-            
+
             // Also include difficult cards (level 4-5) that should be reviewed more frequently
             if performance.difficultyLevel >= 4 {
                 return true
             }
-            
+
             return false
         }
-        
+
         return cardsNeedingReview
     }
-    
+
     /// Get difficult cards (level 4-5) that need review
     func getDifficultCardsNeedingReview() -> [CardItem] {
         let cardsProvider = CardsProvider.shared
         return cardsProvider.cards.filter { card in
             guard let cardId = card.id else { return false }
             let performance = cardPerformances[cardId]
-            
+
             // If no performance data exists, don't include in difficult cards
             guard let performance = performance else { return false }
-            
+
             // Only include cards with difficulty level 4 or 5
             return performance.difficultyLevel >= 4
         }
     }
-    
+
     /// Get mastery statistics
     func getMasteryStats() -> (total: Int, mastered: Int, learning: Int, needsReview: Int) {
         let allCards = cardsProvider.cards
@@ -552,45 +563,45 @@ final class LearningAnalyticsService: ObservableObject {
         let mastered = cardPerformances.values.filter { $0.isMastered }.count
         let learning = cardPerformances.values.filter { $0.masteryLevel > 0 && !$0.isMastered }.count
         let needsReview = getCardsNeedingReview().count
-        
+
         return (total, mastered, learning, needsReview)
     }
-    
+
     /// Calculate overall accuracy from all card performances
     func getOverallAccuracy() -> Double {
         let performances = cardPerformances.values
         guard !performances.isEmpty else { return 0.0 }
-        
+
         let totalReviews = performances.reduce(0) { $0 + $1.totalReviews }
         let totalCorrect = performances.reduce(0) { $0 + $1.correctReviews }
-        
+
         guard totalReviews > 0 else { return 0.0 }
         let accuracy = Double(totalCorrect) / Double(totalReviews)
-        
+
         print("📊 Accuracy calculation: \(totalCorrect) correct out of \(totalReviews) total reviews = \(accuracy * 100)%")
-        
+
         return accuracy
     }
-    
+
     /// Get study time statistics
     func getStudyTimeStats() -> (total: TimeInterval, today: TimeInterval, average: TimeInterval) {
         let total = totalStudyTime
         let today = dailyStats?.totalStudyTime ?? 0
         let average = dailyStats?.averageSessionTime ?? 0
-        
+
         return (total, today, average)
     }
-    
+
     /// Get weekly study data
     func getWeeklyStudyData() -> [(date: Date, studyTime: TimeInterval, cardsStudied: Int)] {
         let calendar = Calendar.current
         let today = Date()
         let weekAgo = calendar.date(byAdding: .day, value: -7, to: today)!
-        
+
         let request = DailyStats.fetchRequest()
         request.predicate = NSPredicate(format: "date >= %@ AND date <= %@", weekAgo as NSDate, today as NSDate)
         request.sortDescriptors = [NSSortDescriptor(keyPath: \DailyStats.date, ascending: true)]
-        
+
         do {
             let stats = try coreDataService.context.fetch(request)
             return stats.compactMap { stat in
@@ -602,12 +613,12 @@ final class LearningAnalyticsService: ObservableObject {
             return []
         }
     }
-    
+
     /// Get study data for different time ranges
     func getStudyData(for timeRange: AnalyticsDashboard.TimeRange) -> [(date: Date, studyTime: TimeInterval, cardsStudied: Int)] {
         let calendar = Calendar.current
         let today = Date()
-        
+
         let startDate: Date?
         switch timeRange {
         case .week:
@@ -619,7 +630,7 @@ final class LearningAnalyticsService: ObservableObject {
         case .all:
             startDate = nil // All time
         }
-        
+
         let request = DailyStats.fetchRequest()
         if let startDate = startDate {
             request.predicate = NSPredicate(format: "date >= %@ AND date <= %@", startDate as NSDate, today as NSDate)
@@ -627,7 +638,7 @@ final class LearningAnalyticsService: ObservableObject {
             request.predicate = NSPredicate(format: "date <= %@", today as NSDate)
         }
         request.sortDescriptors = [NSSortDescriptor(keyPath: \DailyStats.date, ascending: true)]
-        
+
         do {
             let stats = try coreDataService.context.fetch(request)
             return stats.compactMap { stat in
@@ -639,12 +650,12 @@ final class LearningAnalyticsService: ObservableObject {
             return []
         }
     }
-    
+
     /// Get study data for DetailedAnalytics time ranges (includes All Time)
     func getDetailedAnalyticsStudyData(for timeRange: AnalyticsDashboard.TimeRange) -> [(date: Date, studyTime: TimeInterval, cardsStudied: Int)] {
         let calendar = Calendar.current
         let today = Date()
-        
+
         let startDate: Date?
         switch timeRange {
         case .week:
@@ -656,7 +667,7 @@ final class LearningAnalyticsService: ObservableObject {
         case .all:
             startDate = nil // All time
         }
-        
+
         let request = DailyStats.fetchRequest()
         if let startDate = startDate {
             request.predicate = NSPredicate(format: "date >= %@ AND date <= %@", startDate as NSDate, today as NSDate)
@@ -664,7 +675,7 @@ final class LearningAnalyticsService: ObservableObject {
             request.predicate = NSPredicate(format: "date <= %@", today as NSDate)
         }
         request.sortDescriptors = [NSSortDescriptor(keyPath: \DailyStats.date, ascending: true)]
-        
+
         do {
             let stats = try coreDataService.context.fetch(request)
             return stats.compactMap { stat in
@@ -676,48 +687,48 @@ final class LearningAnalyticsService: ObservableObject {
             return []
         }
     }
-    
+
     /// Get study patterns analysis
     func getStudyPatterns() -> (mostActiveTime: String, preferredSessionLength: String, studyFrequency: String) {
         let request = StudySession.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(keyPath: \StudySession.startTime, ascending: false)]
-        
+
         do {
             let sessions = try coreDataService.context.fetch(request)
-            
+
             // Calculate most active time
             let mostActiveTime = calculateMostActiveTime(from: sessions)
-            
+
             // Calculate preferred session length
             let preferredSessionLength = calculatePreferredSessionLength(from: sessions)
-            
+
             // Calculate study frequency
             let studyFrequency = calculateStudyFrequency(from: sessions)
-            
+
             return (mostActiveTime, preferredSessionLength, studyFrequency)
         } catch {
             print("❌ Failed to get study patterns: \(error)")
             return ("Not enough data", "Not enough data", "Not enough data")
         }
     }
-    
+
     /// Calculate most active study time
     private func calculateMostActiveTime(from sessions: [StudySession]) -> String {
         guard !sessions.isEmpty else { return "Not enough data" }
-        
+
         let calendar = Calendar.current
         var hourCounts: [Int: Int] = [:]
-        
+
         for session in sessions {
             guard let startTime = session.startTime else { continue }
             let hour = calendar.component(.hour, from: startTime)
             hourCounts[hour, default: 0] += 1
         }
-        
+
         guard let mostActiveHour = hourCounts.max(by: { $0.value < $1.value })?.key else {
             return "Not enough data"
         }
-        
+
         switch mostActiveHour {
         case 6..<12:
             return "Morning (6-12 AM)"
@@ -731,17 +742,17 @@ final class LearningAnalyticsService: ObservableObject {
             return "Evening (5-9 PM)"
         }
     }
-    
+
     /// Calculate preferred session length
     private func calculatePreferredSessionLength(from sessions: [StudySession]) -> String {
         guard !sessions.isEmpty else { return "Not enough data" }
-        
+
         let durations = sessions.compactMap { $0.duration }.filter { $0 > 0 }
         guard !durations.isEmpty else { return "Not enough data" }
-        
+
         let averageDuration = durations.reduce(0, +) / Double(durations.count)
         let minutes = Int(averageDuration / 60)
-        
+
         if minutes < 10 {
             return "Under 10 minutes"
         } else if minutes < 20 {
@@ -754,22 +765,22 @@ final class LearningAnalyticsService: ObservableObject {
             return "Over 60 minutes"
         }
     }
-    
+
     /// Calculate study frequency
     private func calculateStudyFrequency(from sessions: [StudySession]) -> String {
         guard !sessions.isEmpty else { return "Not enough data" }
-        
+
         let calendar = Calendar.current
         let today = Date()
         let weekAgo = calendar.date(byAdding: .day, value: -7, to: today)!
-        
+
         let recentSessions = sessions.filter { session in
             guard let startTime = session.startTime else { return false }
             return startTime >= weekAgo
         }
-        
+
         let sessionCount = recentSessions.count
-        
+
         switch sessionCount {
         case 0:
             return "No recent activity"
@@ -785,24 +796,34 @@ final class LearningAnalyticsService: ObservableObject {
             return "Not enough data"
         }
     }
-    
+
     /// Get language progress data
     func getLanguageProgress() -> (languagePair: String, progress: Double, vocabularyCount: Int) {
         let languagePair = "\(languageManager.userLanguage.displayName) → \(languageManager.targetLanguage.displayName)"
-        
-        // Calculate progress based on mastered cards vs total cards
-        let totalCards = cardsProvider.cards.count
-        let masteredCards = totalCardsMastered
-        let progress = totalCards > 0 ? Double(masteredCards) / Double(totalCards) : 0.0
-        
+
+        // Get cards for current language pair only
+        let currentLanguageCards = cardsProvider.cards.filter { card in
+            card.frontLanguage == languageManager.targetLanguage &&
+            card.backLanguage == languageManager.userLanguage
+        }
+
+        // Calculate mastered cards for current language pair only
+        let currentLanguageMastered = currentLanguageCards.filter { card in
+            guard let performance = getCardPerformance(for: card.id) else { return false }
+            return performance.isMastered
+        }.count
+
+        let totalCards = currentLanguageCards.count
+        let progress = totalCards > 0 ? Double(currentLanguageMastered) / Double(totalCards) : 0.0
+
         return (languagePair, progress, totalCards)
     }
-    
+
     /// Get time-range-specific study statistics
     func getTimeRangeStudyStats(for timeRange: AnalyticsDashboard.TimeRange) -> (totalStudyTime: TimeInterval, averageSessionTime: TimeInterval, sessionsCount: Int) {
         let calendar = Calendar.current
         let today = Date()
-        
+
         let startDate: Date?
         switch timeRange {
         case .week:
@@ -814,58 +835,57 @@ final class LearningAnalyticsService: ObservableObject {
         case .all:
             startDate = nil
         }
-        
+
         let request = DailyStats.fetchRequest()
         if let startDate = startDate {
             request.predicate = NSPredicate(format: "date >= %@ AND date <= %@", startDate as NSDate, today as NSDate)
         } else {
             request.predicate = NSPredicate(format: "date <= %@", today as NSDate)
         }
-        
+
         do {
             let stats = try coreDataService.context.fetch(request)
             let totalStudyTime = stats.reduce(0) { $0 + $1.totalStudyTime }
             let totalSessions = stats.reduce(0) { $0 + $1.sessionsCompleted }
             let averageSessionTime = totalSessions > 0 ? totalStudyTime / Double(totalSessions) : 0
-            
+
             return (totalStudyTime, averageSessionTime, Int(totalSessions))
         } catch {
             print("❌ Failed to get time range study stats: \(error)")
             return (0, 0, 0)
         }
     }
-    
+
     /// Get accuracy trends data for the selected time range
     func getAccuracyTrends(for timeRange: AnalyticsDashboard.TimeRange) -> [AccuracyDataPoint] {
         let calendar = Calendar.current
         let today = Date()
-        
+
         let startDate: Date?
-        let numberOfDays: Int
-        
+
         switch timeRange {
         case .week:
-            startDate = calendar.date(byAdding: .day, value: -7, to: today)!
-            numberOfDays = 7
+            startDate = calendar.date(byAdding: .day, value: -7, to: today)
         case .month:
-            startDate = calendar.date(byAdding: .day, value: -30, to: today)!
-            numberOfDays = 30
+            startDate = calendar.date(byAdding: .day, value: -30, to: today)
         case .year:
-            startDate = calendar.date(byAdding: .day, value: -365, to: today)!
-            numberOfDays = 365
+            startDate = calendar.date(byAdding: .day, value: -365, to: today)
         case .all:
             startDate = nil
-            numberOfDays = 365 // Show last year for all time
         }
-        
+
         let request = DailyStats.fetchRequest()
-        if let startDate = startDate {
-            request.predicate = NSPredicate(format: "date >= %@ AND date <= %@", startDate as NSDate, today as NSDate)
+        if let startDate {
+            request.predicate = NSPredicate(
+                format: "date >= %@ AND date <= %@",
+                startDate as NSDate,
+                today as NSDate
+            )
         } else {
             request.predicate = NSPredicate(format: "date <= %@", today as NSDate)
         }
         request.sortDescriptors = [NSSortDescriptor(keyPath: \DailyStats.date, ascending: true)]
-        
+
         do {
             let stats = try coreDataService.context.fetch(request)
             return stats.compactMap { stat in
@@ -879,32 +899,32 @@ final class LearningAnalyticsService: ObservableObject {
             return []
         }
     }
-    
+
     /// Calculate daily accuracy for a specific date
     private func calculateDailyAccuracy(for date: Date) -> Double {
         let calendar = Calendar.current
         let startOfDay = calendar.startOfDay(for: date)
         let endOfDay = calendar.date(byAdding: .day, value: 1, to: startOfDay)!
-        
+
         // Get all card performances that were reviewed on this day
         let performances = cardPerformances.values.filter { performance in
             guard let lastReviewed = performance.lastReviewed else { return false }
             return lastReviewed >= startOfDay && lastReviewed < endOfDay
         }
-        
+
         guard !performances.isEmpty else { return 0.0 }
-        
+
         let totalReviews = performances.reduce(0) { $0 + $1.totalReviews }
         let totalCorrect = performances.reduce(0) { $0 + $1.correctReviews }
-        
+
         return totalReviews > 0 ? Double(totalCorrect) / Double(totalReviews) : 0.0
     }
-    
+
     /// Get session performance metrics for the selected time range
     func getSessionPerformance(for timeRange: AnalyticsDashboard.TimeRange) -> (averageDuration: TimeInterval, cardsPerSession: Double, sessionFrequency: Double) {
         let calendar = Calendar.current
         let today = Date()
-        
+
         let startDate: Date?
         switch timeRange {
         case .week:
@@ -916,24 +936,24 @@ final class LearningAnalyticsService: ObservableObject {
         case .all:
             startDate = nil
         }
-        
+
         let request = StudySession.fetchRequest()
         if let startDate = startDate {
             request.predicate = NSPredicate(format: "startTime >= %@ AND startTime <= %@", startDate as NSDate, today as NSDate)
         } else {
             request.predicate = NSPredicate(format: "startTime <= %@", today as NSDate)
         }
-        
+
         do {
             let sessions = try coreDataService.context.fetch(request)
             let validSessions = sessions.filter { $0.duration > 0 }
-            
+
             guard !validSessions.isEmpty else { return (0, 0, 0) }
-            
+
             let averageDuration = validSessions.reduce(0) { $0 + $1.duration } / Double(validSessions.count)
             let totalCards = validSessions.reduce(0) { $0 + $1.cardsReviewed }
             let cardsPerSession = Double(totalCards) / Double(validSessions.count)
-            
+
             // Calculate session frequency (sessions per day)
             let daysInRange: Double
             if let startDate = startDate {
@@ -942,62 +962,62 @@ final class LearningAnalyticsService: ObservableObject {
                 daysInRange = 365 // Assume 1 year for all time
             }
             let sessionFrequency = Double(validSessions.count) / daysInRange
-            
+
             return (averageDuration, cardsPerSession, sessionFrequency)
         } catch {
             print("❌ Failed to get session performance: \(error)")
             return (0, 0, 0)
         }
     }
-    
+
     /// Get card difficulty distribution
     func getCardDifficultyDistribution() -> [(level: String, count: Int, percentage: Int, color: Color)] {
         let performances = cardPerformances.values
         guard !performances.isEmpty else { return [] }
-        
+
         var distribution: [Int16: Int] = [1: 0, 2: 0, 3: 0, 4: 0, 5: 0]
-        
+
         for performance in performances {
             let difficulty = performance.difficultyLevel
             distribution[difficulty, default: 0] += 1
         }
-        
+
         let total = performances.count
         let easy = distribution[1, default: 0] + distribution[2, default: 0]
         let medium = distribution[3, default: 0]
         let hard = distribution[4, default: 0] + distribution[5, default: 0]
-        
+
         return [
             ("Easy", easy, total > 0 ? Int(Double(easy) / Double(total) * 100) : 0, .green),
             ("Medium", medium, total > 0 ? Int(Double(medium) / Double(total) * 100) : 0, .orange),
             ("Hard", hard, total > 0 ? Int(Double(hard) / Double(total) * 100) : 0, .red)
         ]
     }
-    
+
     /// Get learning speed metrics
     func getLearningSpeedMetrics() -> (cardsPerHour: Double, vsAverage: Double) {
         let performances = cardPerformances.values
         guard !performances.isEmpty else { return (0, 0) }
-        
+
         let totalTime = performances.reduce(0) { $0 + $1.timeSpent }
         let totalCards = performances.reduce(0) { $0 + $1.totalReviews }
-        
+
         guard totalTime > 0 else { return (0, 0) }
-        
+
         let cardsPerHour = Double(totalCards) / (totalTime / 3600) // Convert seconds to hours
-        
+
         // Calculate vs average (assuming 20 cards/hour is average)
         let averageCardsPerHour = 20.0
         let vsAverage = cardsPerHour - averageCardsPerHour
-        
+
         return (cardsPerHour, vsAverage)
     }
-    
+
     /// Get mastery timeline events for the selected time range
     func getMasteryTimelineEvents(for timeRange: AnalyticsDashboard.TimeRange) -> [TimelineEvent] {
         let calendar = Calendar.current
         let today = Date()
-        
+
         let startDate: Date?
         switch timeRange {
         case .week:
@@ -1009,9 +1029,9 @@ final class LearningAnalyticsService: ObservableObject {
         case .all:
             startDate = nil
         }
-        
+
         var events: [TimelineEvent] = []
-        
+
         // Get study sessions for the time range
         let request = StudySession.fetchRequest()
         if let startDate = startDate {
@@ -1020,17 +1040,17 @@ final class LearningAnalyticsService: ObservableObject {
             request.predicate = NSPredicate(format: "startTime <= %@", today as NSDate)
         }
         request.sortDescriptors = [NSSortDescriptor(keyPath: \StudySession.startTime, ascending: false)]
-        
+
         do {
             let sessions = try coreDataService.context.fetch(request)
-            
+
             // Add recent study session events
             let recentSessions = Array(sessions.prefix(3))
             for session in recentSessions {
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateStyle = .medium
                 let dateString = dateFormatter.string(from: session.startTime ?? Date())
-                
+
                 let event = TimelineEvent(
                     date: dateString,
                     title: "Completed study session",
@@ -1039,9 +1059,9 @@ final class LearningAnalyticsService: ObservableObject {
                 )
                 events.append(event)
             }
-            
+
             // Add mastery milestone events
-            let masteredCards = cardPerformances.values.filter { $0.masteryLevel >= 5 }.count
+            let masteredCards = cardPerformances.values.filter { $0.isMastered }.count
             if masteredCards > 0 {
                 let event = TimelineEvent(
                     date: "Recent",
@@ -1051,45 +1071,33 @@ final class LearningAnalyticsService: ObservableObject {
                 )
                 events.append(event)
             }
-            
+
         } catch {
             print("❌ Failed to get mastery timeline events: \(error)")
         }
-        
+
         return events
     }
-    
+
     /// Get vocabulary growth data for the selected time range
     func getVocabularyGrowthData(for timeRange: AnalyticsDashboard.TimeRange) -> (totalCards: Int, weeklyGrowth: Int, growthData: [VocabularyGrowthPoint]) {
         let calendar = Calendar.current
         let today = Date()
-        
-        let startDate: Date?
-        switch timeRange {
-        case .week:
-            startDate = calendar.date(byAdding: .day, value: -7, to: today)!
-        case .month:
-            startDate = calendar.date(byAdding: .month, value: -1, to: today)!
-        case .year:
-            startDate = calendar.date(byAdding: .year, value: -1, to: today)!
-        case .all:
-            startDate = nil
-        }
-        
+
         let totalCards = cardsProvider.cards.count
-        let masteredCards = cardPerformances.values.filter { $0.masteryLevel >= 5 }.count
-        
+        let masteredCards = cardPerformances.values.filter { $0.isMastered }.count
+
         // Calculate weekly growth (cards mastered in the last 7 days)
         let weekAgo = calendar.date(byAdding: .day, value: -7, to: today)!
         let weeklyGrowth = cardPerformances.values.filter { performance in
             guard let lastReviewed = performance.lastReviewed else { return false }
-            return lastReviewed >= weekAgo && performance.masteryLevel >= 5
+            return lastReviewed >= weekAgo && performance.isMastered
         }.count
-        
+
         // Generate growth data points
         var growthData: [VocabularyGrowthPoint] = []
         let numberOfPoints = timeRange == .week ? 7 : (timeRange == .month ? 30 : 12)
-        
+
         for i in 0..<numberOfPoints {
             let date: Date
             if timeRange == .week {
@@ -1099,7 +1107,7 @@ final class LearningAnalyticsService: ObservableObject {
             } else {
                 date = calendar.date(byAdding: .month, value: -i, to: today)!
             }
-            
+
             // Simulate growth data (in a real app, this would come from historical data)
             let growthValue = masteredCards - (numberOfPoints - i) * 2
             let point = VocabularyGrowthPoint(
@@ -1109,16 +1117,16 @@ final class LearningAnalyticsService: ObservableObject {
             )
             growthData.append(point)
         }
-        
+
         growthData.reverse() // Show oldest to newest
-        
+
         return (totalCards, weeklyGrowth, growthData)
     }
-    
+
     /// Get learning milestones with real completion status
     func getLearningMilestones() -> [LearningMilestone] {
-        let masteredCards = cardPerformances.values.filter { $0.masteryLevel >= 5 }.count
-        
+        let masteredCards = cardPerformances.values.filter { $0.isMastered }.count
+
         return [
             LearningMilestone(
                 title: "First 10 cards mastered",
@@ -1142,14 +1150,14 @@ final class LearningAnalyticsService: ObservableObject {
             )
         ]
     }
-    
+
     /// Get personalized insights based on user data
     func getPersonalizedInsights(for timeRange: AnalyticsDashboard.TimeRange) -> [PersonalizedInsight] {
         var insights: [PersonalizedInsight] = []
-        
+
         // Analyze study patterns
         let patterns = getStudyPatterns()
-        
+
         // Insight 1: Most productive time
         if !patterns.mostActiveTime.isEmpty {
             insights.append(PersonalizedInsight(
@@ -1159,7 +1167,7 @@ final class LearningAnalyticsService: ObservableObject {
                 color: .indigo
             ))
         }
-        
+
         // Insight 2: Session length preference
         if !patterns.preferredSessionLength.isEmpty {
             insights.append(PersonalizedInsight(
@@ -1169,7 +1177,7 @@ final class LearningAnalyticsService: ObservableObject {
                 color: .blue
             ))
         }
-        
+
         // Insight 3: Study frequency
         if !patterns.studyFrequency.isEmpty {
             insights.append(PersonalizedInsight(
@@ -1179,13 +1187,13 @@ final class LearningAnalyticsService: ObservableObject {
                 color: .green
             ))
         }
-        
+
         // Insight 4: Accuracy trends
         let accuracyData = getAccuracyTrends(for: timeRange)
         if accuracyData.count >= 2 {
             let recentAccuracy = accuracyData.suffix(3).map { $0.accuracy }.reduce(0, +) / Double(accuracyData.suffix(3).count)
             let olderAccuracy = accuracyData.prefix(3).map { $0.accuracy }.reduce(0, +) / Double(accuracyData.prefix(3).count)
-            
+
             if recentAccuracy > olderAccuracy {
                 insights.append(PersonalizedInsight(
                     title: "Improving accuracy",
@@ -1202,9 +1210,9 @@ final class LearningAnalyticsService: ObservableObject {
                 ))
             }
         }
-        
+
         // Insight 5: Vocabulary growth
-        let masteredCards = cardPerformances.values.filter { $0.masteryLevel >= 5 }.count
+        let masteredCards = cardPerformances.values.filter { $0.isMastered }.count
         let totalCards = cardsProvider.cards.count
         if totalCards > 0 {
             let masteryPercentage = Double(masteredCards) / Double(totalCards)
@@ -1224,14 +1232,14 @@ final class LearningAnalyticsService: ObservableObject {
                 ))
             }
         }
-        
+
         return insights
     }
-    
+
     /// Get personalized recommendations based on user data
     func getPersonalizedRecommendations() -> [PersonalizedRecommendation] {
         var recommendations: [PersonalizedRecommendation] = []
-        
+
         // Recommendation 1: Difficult cards
         let difficultCards = getDifficultCardsNeedingReview()
         if !difficultCards.isEmpty {
@@ -1242,9 +1250,9 @@ final class LearningAnalyticsService: ObservableObject {
                 color: .orange
             ))
         }
-        
+
         // Recommendation 2: Add more vocabulary
-        let masteredCards = cardPerformances.values.filter { $0.masteryLevel >= 5 }.count
+        let masteredCards = cardPerformances.values.filter { $0.isMastered }.count
         let totalCards = cardsProvider.cards.count
         if Double(masteredCards) >= Double(totalCards) * 0.7 && totalCards < 100 {
             recommendations.append(PersonalizedRecommendation(
@@ -1254,12 +1262,12 @@ final class LearningAnalyticsService: ObservableObject {
                 color: .blue
             ))
         }
-        
+
         // Recommendation 3: Extend streak (only if haven't studied today)
         let calendar = Calendar.current
         let today = calendar.startOfDay(for: Date())
         let lastStudyDate = getLastStudyDate()
-        
+
         if let lastStudy = lastStudyDate {
             let lastStudyDay = calendar.startOfDay(for: lastStudy)
             if lastStudyDay < today {
@@ -1274,7 +1282,7 @@ final class LearningAnalyticsService: ObservableObject {
                 }
             }
         }
-        
+
         // Recommendation 4: Study more frequently
         if studyStreak < 3 {
             recommendations.append(PersonalizedRecommendation(
@@ -1284,7 +1292,7 @@ final class LearningAnalyticsService: ObservableObject {
                 color: .purple
             ))
         }
-        
+
         // Recommendation 5: Focus on accuracy
         let overallAccuracy = getOverallAccuracy()
         if overallAccuracy < 0.7 {
@@ -1295,10 +1303,10 @@ final class LearningAnalyticsService: ObservableObject {
                 color: .red
             ))
         }
-        
+
         return recommendations
     }
-    
+
     /// Get next streak milestone
     private func getNextStreakMilestone() -> Int {
         let milestones = [7, 14, 30, 60, 100]
@@ -1309,13 +1317,13 @@ final class LearningAnalyticsService: ObservableObject {
         }
         return 0
     }
-    
+
     /// Get the last study date
     private func getLastStudyDate() -> Date? {
         let request = StudySession.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(keyPath: \StudySession.startTime, ascending: false)]
         request.fetchLimit = 1
-        
+
         do {
             let sessions = try coreDataService.context.fetch(request)
             return sessions.first?.startTime
@@ -1324,28 +1332,28 @@ final class LearningAnalyticsService: ObservableObject {
             return nil
         }
     }
-    
+
     // MARK: - Helper Methods
-    
+
     private func getCardLanguage(for cardId: String) -> String? {
         let cardsProvider = CardsProvider.shared
         return cardsProvider.cards.first { $0.id == cardId }?.frontLanguage?.rawValue
     }
-    
+
     private func getCardHasTags(for cardId: String) -> Bool? {
         let cardsProvider = CardsProvider.shared
         let card = cardsProvider.cards.first { $0.id == cardId }
         return card?.tagNames.isEmpty == false
     }
-    
+
     private func getCardTagCount(for cardId: String) -> Int? {
         let cardsProvider = CardsProvider.shared
         let card = cardsProvider.cards.first { $0.id == cardId }
         return card?.tagNames.count
     }
-    
+
     // MARK: - Setup and Cleanup
-    
+
     private func setupObservers() {
         // Observe app lifecycle for session management
         NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)
@@ -1354,7 +1362,7 @@ final class LearningAnalyticsService: ObservableObject {
             }
             .store(in: &cancellables)
     }
-    
+
     private func saveContext() {
         do {
             try coreDataService.saveContext()

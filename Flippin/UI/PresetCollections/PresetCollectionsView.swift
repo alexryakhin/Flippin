@@ -99,7 +99,7 @@ struct PresetCollectionsView: View {
                 if filteredCollections.isEmpty {
                     ContentUnavailableView {
                         VStack {
-                            Image(.stackCards)
+                            Image(.cardStackFill)
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 48, height: 48)

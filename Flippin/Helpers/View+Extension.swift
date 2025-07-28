@@ -107,7 +107,7 @@ extension UIApplication {
 extension View {
     func clippedWithBackground(
         _ color: Color = Color(.secondarySystemGroupedBackground),
-        cornerRadius: CGFloat = 16,
+        cornerRadius: CGFloat = 24,
         showShadow: Bool = false
     ) -> some View {
         self
@@ -120,7 +120,7 @@ extension View {
 
     func clippedWithBackgroundMaterial(
         _ material: Material = .thinMaterial,
-        cornerRadius: CGFloat = 16,
+        cornerRadius: CGFloat = 24,
         showShadow: Bool = false
     ) -> some View {
         self
@@ -133,7 +133,7 @@ extension View {
 
     func clippedWithPaddingAndBackground(
         _ color: Color = Color(.secondarySystemGroupedBackground),
-        cornerRadius: CGFloat = 16,
+        cornerRadius: CGFloat = 24,
         showShadow: Bool = false
     ) -> some View {
         self
@@ -147,7 +147,7 @@ extension View {
 
     func clippedWithPaddingAndBackgroundMaterial(
         _ material: Material = .thinMaterial,
-        cornerRadius: CGFloat = 16,
+        cornerRadius: CGFloat = 24,
         showShadow: Bool = false
     ) -> some View {
         self

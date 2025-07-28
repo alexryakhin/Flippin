@@ -106,6 +106,14 @@ extension DetailedAnalytics {
         private var languageProgressSection: some View {
             let languageProgress = analyticsService.getLanguageProgress()
             
+            // Calculate mastered cards for current language pair
+            let currentLanguageCards = LanguageManager.shared.filterCards(CardsProvider.shared.cards)
+            
+            let currentLanguageMastered = currentLanguageCards.filter { card in
+                guard let performance = analyticsService.getCardPerformance(for: card.id) else { return false }
+                return performance.isMastered
+            }.count
+            
             return CustomSectionView(
                 header: "Language Progress",
                 backgroundStyle: .standard
@@ -151,7 +159,7 @@ extension DetailedAnalytics {
                                 .font(.caption)
                                 .foregroundColor(.secondary)
                             
-                            Text("\(analyticsService.totalCardsMastered) cards")
+                            Text("\(currentLanguageMastered) cards")
                                 .font(.subheadline)
                                 .fontWeight(.semibold)
                                 .foregroundColor(.green)

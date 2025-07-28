@@ -85,18 +85,18 @@ struct SettingsView: View {
                         .buttonStyle(.bordered)
                         .clipShape(Capsule())
                     } else {
-                        HStack {
-                            Text(languageManager.userLanguage.displayName)
-                                .foregroundStyle(.secondary)
-                            Image(systemName: "crown.fill")
-                                .foregroundStyle(.yellow)
-                                .font(.caption)
+                        Button {
+                            premiumFeature = .languageChange
+                        } label: {
+                            HStack {
+                                Text(languageManager.userLanguage.displayName)
+                                Image(systemName: "crown.fill")
+                                    .foregroundStyle(.yellow)
+                                    .font(.caption)
+                            }
                         }
-                    }
-                }
-                .onTapGesture {
-                    if !purchaseService.hasPremiumAccess {
-                        premiumFeature = .languageChange
+                        .buttonStyle(.bordered)
+                        .clipShape(Capsule())
                     }
                 }
 
@@ -116,18 +116,18 @@ struct SettingsView: View {
                         .buttonStyle(.bordered)
                         .clipShape(Capsule())
                     } else {
-                        HStack {
-                            Text(languageManager.targetLanguage.displayName)
-                                .foregroundStyle(.secondary)
-                            Image(systemName: "crown.fill")
-                                .foregroundStyle(.yellow)
-                                .font(.caption)
+                        Button {
+                            premiumFeature = .languageChange
+                        } label: {
+                            HStack {
+                                Text(languageManager.targetLanguage.displayName)
+                                Image(systemName: "crown.fill")
+                                    .foregroundStyle(.yellow)
+                                    .font(.caption)
+                            }
                         }
-                    }
-                }
-                .onTapGesture {
-                    if !purchaseService.hasPremiumAccess {
-                        premiumFeature = .languageChange
+                        .buttonStyle(.bordered)
+                        .clipShape(Capsule())
                     }
                 }
                 .onAppear {
@@ -176,19 +176,20 @@ struct SettingsView: View {
                         ColorPicker("", selection: $colorManager.userColor)
                             .labelsHidden()
                     } else {
-                        HStack {
-                            Circle()
-                                .fill(colorManager.userColor)
-                                .frame(width: 20, height: 20)
-                            Image(systemName: "crown.fill")
-                                .foregroundStyle(.yellow)
-                                .font(.caption)
+                        Button {
+                            premiumFeature = .customThemes
+                        } label: {
+                            HStack {
+                                Circle()
+                                    .fill(colorManager.userColor)
+                                    .frame(width: 20, height: 20)
+                                Image(systemName: "crown.fill")
+                                    .foregroundStyle(.yellow)
+                                    .font(.caption)
+                            }
                         }
-                    }
-                }
-                .onTapGesture {
-                    if !purchaseService.hasPremiumAccess {
-                        premiumFeature = .customThemes
+                        .buttonStyle(.bordered)
+                        .clipShape(Capsule())
                     }
                 }
 

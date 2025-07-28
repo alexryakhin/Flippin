@@ -20,8 +20,9 @@ struct TabButton: View {
 
     // MARK: - Properties
     
-    let title: LocalizedStringKey
+    let title: String
     let image: Image
+    let imageSelected: Image
     let isSelected: Bool
     let isDisabled: Bool
     let action: () -> Void
@@ -31,37 +32,25 @@ struct TabButton: View {
     init(
         title: String,
         image: Image,
-        isSelected: Bool,
-        isDisabled: Bool = false,
-        action: @escaping () -> Void
-    ) {
-        self.title = LocalizedStringKey(title)
-        self.image = image
-        self.isSelected = isSelected
-        self.isDisabled = isDisabled && !isSelected
-        self.action = action
-    }
-    
-    init(
-        title: LocalizedStringKey,
-        image: Image,
+        imageSelected: Image,
         isSelected: Bool,
         isDisabled: Bool = false,
         action: @escaping () -> Void
     ) {
         self.title = title
         self.image = image
+        self.imageSelected = imageSelected
         self.isSelected = isSelected
         self.isDisabled = isDisabled && !isSelected
         self.action = action
     }
-    
+
     // MARK: - Body
     
     var body: some View {
         Button(action: action) {
             VStack(spacing: 4) {
-                image
+                (isSelected ? imageSelected : image)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 24, height: 24)

@@ -133,20 +133,23 @@ enum AnalyticsDashboard {
 
         // MARK: - Study Time Chart Section
 
+        @ViewBuilder
         private var studyTimeChartSection: some View {
-            CustomSectionView(header: "Study Time") {
-                StudyTimeChart(
-                    data: analyticsService.getStudyData(for: selectedTimeRange),
-                    timeRange: selectedTimeRange,
-                    tintColor: colorManager.tintColor
-                )
-            } trailingContent: {
-                Picker("Time Range", selection: $selectedTimeRange) {
-                    ForEach(TimeRange.chartCases, id: \.self) { range in
-                        Text(range.rawValue).tag(range)
+            if purchaseService.hasPremiumAccess {
+                CustomSectionView(header: "Study Time") {
+                    StudyTimeChart(
+                        data: analyticsService.getStudyData(for: selectedTimeRange),
+                        timeRange: selectedTimeRange,
+                        tintColor: colorManager.tintColor
+                    )
+                } trailingContent: {
+                    Picker("Time Range", selection: $selectedTimeRange) {
+                        ForEach(TimeRange.chartCases, id: \.self) { range in
+                            Text(range.rawValue).tag(range)
+                        }
                     }
+                    .pickerStyle(.segmented)
                 }
-                .pickerStyle(.segmented)
             }
         }
 
@@ -154,33 +157,35 @@ enum AnalyticsDashboard {
 
         @ViewBuilder
         private var masteryProgressSection: some View {
-            let masteryStats = analyticsService.getMasteryStats()
+            if purchaseService.hasPremiumAccess {
+                let masteryStats = analyticsService.getMasteryStats()
 
-            CustomSectionView(header: "Mastery Progress") {
-                FormWithDivider {
-                    MasteryProgressRow(
-                        title: "Mastered",
-                        count: masteryStats.mastered,
-                        total: masteryStats.total,
-                        color: .green,
-                        icon: "checkmark.circle.fill"
-                    )
+                CustomSectionView(header: "Mastery Progress") {
+                    FormWithDivider {
+                        MasteryProgressRow(
+                            title: "Mastered",
+                            count: masteryStats.mastered,
+                            total: masteryStats.total,
+                            color: .green,
+                            icon: "checkmark.circle.fill"
+                        )
 
-                    MasteryProgressRow(
-                        title: "Learning",
-                        count: masteryStats.learning,
-                        total: masteryStats.total,
-                        color: .orange,
-                        icon: "book.fill"
-                    )
+                        MasteryProgressRow(
+                            title: "Learning",
+                            count: masteryStats.learning,
+                            total: masteryStats.total,
+                            color: .orange,
+                            icon: "book.fill"
+                        )
 
-                    MasteryProgressRow(
-                        title: "Needs Review",
-                        count: masteryStats.needsReview,
-                        total: masteryStats.total,
-                        color: .red,
-                        icon: "exclamationmark.circle.fill"
-                    )
+                        MasteryProgressRow(
+                            title: "Needs Review",
+                            count: masteryStats.needsReview,
+                            total: masteryStats.total,
+                            color: .red,
+                            icon: "exclamationmark.circle.fill"
+                        )
+                    }
                 }
             }
         }

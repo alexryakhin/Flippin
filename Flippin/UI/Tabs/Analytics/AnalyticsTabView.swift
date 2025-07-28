@@ -41,16 +41,17 @@ enum AnalyticsTab {
                 title: "Analytics",
                 mode: .large,
                 trailingContent: {
-                    Button {
-                        showDetailedAnalytics = true
-                    } label: {
-                        Image(systemName: "chart.line.uptrend.xyaxis")
-                            .font(.headline)
-                            .foregroundStyle(colorManager.borderedProminentForegroundColor)
+                    if purchaseService.hasPremiumAccess {
+                        Button {
+                            showDetailedAnalytics = true
+                        } label: {
+                            Image(systemName: "chart.line.uptrend.xyaxis")
+                                .font(.headline)
+                                .foregroundStyle(colorManager.borderedProminentForegroundColor)
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .clipShape(Capsule())
                     }
-                    .buttonStyle(.borderedProminent)
-                    .clipShape(Capsule())
-                    .disabled(!purchaseService.hasPremiumAccess)
                 }
             )
             .ifLet(colorManager.colorScheme) { view, scheme in
@@ -67,30 +68,26 @@ enum AnalyticsTab {
         @ViewBuilder
         private var quickOverviewSection: some View {
             if cardsProvider.cards.isEmpty {
-                ContentUnavailableView {
-                    VStack {
-                        Image(systemName: "chart.bar.doc.horizontal")
-                            .font(.largeTitle)
-                        Text("No Analytics Data")
+                CustomSectionView(header: "Today", headerFontStyle: .large) {
+                    ContentUnavailableView {
+                        VStack {
+                            Image(systemName: "chart.bar.doc.horizontal")
+                                .font(.largeTitle)
+                            Text("No Analytics Data")
+                        }
+                    } description: {
+                        Text("Start studying to see your learning progress!")
+                            .foregroundStyle(.secondary)
                     }
-                } description: {
-                    Text("Start studying to see your learning progress!")
-                        .foregroundStyle(.secondary)
                 }
-                .foregroundColor(colorManager.foregroundColor)
             } else {
                 AnalyticsDashboard.ContentView()
             }
         }
 
         private var premiumFeaturesSection: some View {
-            VStack(spacing: 16) {
-                Text("Unlock Advanced Analytics")
-                    .font(.title2)
-                    .fontWeight(.bold)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-
-                VStack(spacing: 12) {
+            CustomSectionView(header: "Unlock Advanced Analytics", headerFontStyle: .large) {
+                VStack(alignment: .leading, spacing: 12) {
                     PremiumFeatureRow(
                         title: "Detailed Progress Reports",
                         description: "Track your learning patterns and improvement over time",
@@ -112,19 +109,20 @@ enum AnalyticsTab {
                         color: .green
                     )
                 }
+                .padding(.horizontal, 16)
 
                 Button {
                     premiumFeature = .advancedAnalytics
                 } label: {
                     Text("Upgrade to Premium")
                         .font(.headline)
+                        .padding(.vertical, 12)
                         .frame(maxWidth: .infinity)
                         .foregroundStyle(colorManager.borderedProminentForegroundColor)
                 }
                 .buttonStyle(.borderedProminent)
                 .clipShape(Capsule())
             }
-            .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
         }
 
         private var recentActivityPreviewSection: some View {
@@ -210,8 +208,6 @@ enum AnalyticsTab {
                         .font(.caption)
                         .foregroundColor(.secondary)
                 }
-
-                Spacer()
             }
             .padding(.vertical, 4)
         }

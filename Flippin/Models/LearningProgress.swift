@@ -56,7 +56,15 @@ public final class CardPerformance: NSManagedObject, Identifiable {
     }
     
     var isMastered: Bool {
-        return masteryLevel >= 90
+        // A card is mastered when:
+        // 1. Has been reviewed at least 5 times
+        // 2. Has 90%+ accuracy
+        // 3. Has at least 3 consecutive correct answers
+        // 4. Has a mastery level of 85 or higher
+        return totalReviews >= 5 && 
+               accuracyRate >= 0.9 && 
+               consecutiveCorrect >= 3 && 
+               masteryLevel >= 85
     }
     
     var needsReview: Bool {

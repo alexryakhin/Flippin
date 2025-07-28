@@ -24,7 +24,7 @@ final class CardsProvider: ObservableObject {
     private var hasCheckedInitialSync = false
 
     // MARK: - Card Limit Configuration
-    private let freeUserCardLimit = 25
+    private let freeUserCardLimit = 20
 
     /// Returns the maximum number of cards allowed for the current user
     var cardLimit: Int {
