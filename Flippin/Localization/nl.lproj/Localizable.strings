@@ -49,7 +49,7 @@
 "noCardsForLanguagePair" = "Geen kaarten voor dit taalpaar";
 
 // MARK: - Card Views
-"showAnswer" = "Antwoord tonen";
+"flip" = "Omdraaien";
 "tapToGoBack" = "Tik om terug te gaan";
 
 // MARK: - Tag Management
@@ -96,6 +96,19 @@
 "color" = "Kleur";
 "backgroundStyle" = "Achtergrondstijl";
 "tapToSeeFullScreen" = "Tik om volledig scherm te zien";
+
+// MARK: - Categories
+"categoryBasics" = "Basis";
+"categoryTravel" = "Reizen";
+"categoryEntertainment" = "Vermakelijkheden";
+"categoryFood" = "Eten";
+"categoryShopping" = "Winkelen";
+"categorySocial" = "Sociaal";
+"categoryWeather" = "Weer";
+"categoryTechnology" = "Technologie";
+"categoryLifestyle" = "Levensstijl";
+"categoryProfessional" = "Professioneel";
+"categoryEmergency" = "Noodgeval";
 
 // MARK: - Add Card
 "enterTextInYourLanguage" = "Voer tekst in in je taal";
@@ -161,6 +174,276 @@
 "shuffle" = "Schudden";
 "addCardLabel" = "Kaart toevoegen";
 
+// MARK: - Navigation
+"stack" = "Stapel";
+"list" = "Lijst";
+"study" = "Studeren";
+"analytics" = "Analyse";
+"settings" = "Instellingen";
+
+// MARK: - Card Management
+"noDifficultCards" = "Geen Moeilijke Kaarten";
+"noDifficultCardsDescription" = "Je hebt nog geen kaarten als moeilijk gemarkeerd. Leer meer kaarten om moeilijkheidsgraden te zien.";
+"difficultCards" = "Moeilijke Kaarten";
+"failedToCreateCard" = "Kaart aanmaken mislukt: %@";
+
+// MARK: - Study
+"study" = "Studeren";
+"studyMode" = "Studiemodus";
+"quickStats" = "Snelle Statistieken";
+"studyOptions" = "Studie-opties";
+"recentActivity" = "Recente Activiteit";
+"totalCards" = "Totaal Kaarten";
+"mastered" = "Beheerst";
+"difficultCards" = "Moeilijke Kaarten";
+"studyTimeToday" = "Studietijd Vandaag";
+"startStudySession" = "Start Studiesessie (10 kaarten)";
+"practiceAllCards" = "Oefen Alle Kaarten (%d)";
+"practiceDifficultCards" = "Oefen Moeilijke Kaarten (%d)";
+"multipleChoiceQuiz" = "Meerkeuzequiz";
+"fillInTheBlank" = "Vul de Lege Plek (%d)";
+"unlockAllStudyModes" = "Ontgrendel Alle Studiemodi";
+"noStudyData" = "Geen Studiegegevens";
+"startStudyingToSeeProgress" = "Begin met studeren om je voortgang te zien!";
+"toCards" = "Naar kaarten";
+"totalStudyTime" = "Totale Studietijd";
+"averageSession" = "Gemiddelde Sessie";
+"learningProgress" = "Leerprogressie";
+"exit" = "Afsluiten";
+"showAnswer" = "Antwoord Tonen";
+"incorrect" = "Onjuist";
+"correct" = "Juist";
+"studySessionComplete" = "Studiesessie Voltooid!";
+"accuracy" = "Nauwkeurigheid";
+"cardsStudied" = "Bestudeerde Kaarten";
+"timeSpent" = "Bestede Tijd";
+"studyAgain" = "Opnieuw Studeren";
+"done" = "Klaar";
+"selectCorrectTranslation" = "Selecteer de juiste vertaling";
+"fillInMissingWord" = "Vul het ontbrekende woord in";
+"completeSentence" = "Maak de zin af";
+"chooseCorrectWord" = "Kies het juiste woord:";
+"correctAnswer" = "Juist Antwoord";
+"translateTo" = "Vertaal naar %@";
+"studyProgress" = "%d van %d";
+
+// MARK: - Analytics
+"analytics" = "Analyse";
+"detailedAnalytics" = "Gedetailleerde Analyse";
+"today" = "Vandaag";
+"noAnalyticsData" = "Geen Analytische Gegevens";
+"startStudyingToSeeProgress" = "Begin met studeren om je leerprogressie te zien!";
+"unlockAdvancedAnalytics" = "Ontgrendel Geavanceerde Analyse";
+"detailedProgressReports" = "Gedetailleerde Voortgangsrapporten";
+"detailedProgressReportsDescription" = "Volg je leerpatronen en verbeteringen in de tijd";
+"performanceInsights" = "Prestaties Inzichten";
+"performanceInsightsDescription" = "Krijg gepersonaliseerde aanbevelingen om je studiegewoonten te verbeteren";
+"studyTimeAnalytics" = "Studietijd Analyse";
+"studyTimeAnalyticsDescription" = "Analyseer je studiesessies en optimaliseer je leren";
+"upgradeToPremium" = "Upgraden naar Premium";
+"recentActivity" = "Recente Activiteit";
+"viewAll" = "Alles Bekijken";
+"noRecentActivity" = "Geen Recente Activiteit";
+"studySessionsWillAppearHere" = "Je studiesessies verschijnen hier";
+"lastStudySession" = "Laatste Studiesessie";
+"cardsStudiedToday" = "Kaarten Bestudeerd Vandaag";
+"studyStreak" = "Studie Streak";
+"totalStudyTime" = "Totale Studietijd";
+"cardsMastered" = "Beheerde Kaarten";
+"todaysStudy" = "Studie Vandaag";
+"time" = "Tijd";
+"cardsStudied" = "Bestudeerde Kaarten";
+"sessions" = "Sessies";
+"accuracy" = "Nauwkeurigheid";
+"studyTime" = "Studietijd";
+"timeRange" = "Tijdbereik";
+"masteryProgress" = "Beheersingsprogressie";
+"mastered" = "Beheerst";
+"learning" = "Leren";
+"needsReview" = "Moet Herzien Worden";
+"week" = "Week";
+"month" = "Maand";
+"year" = "Jaar";
+"allTime" = "Alle Tijd";
+"overview" = "Overzicht";
+"performance" = "Prestaties";
+"progress" = "Voortgang";
+"insights" = "Inzichten";
+"noStudyDataAvailable" = "Geen studiegegevens beschikbaar";
+
+// MARK: - Detailed Analytics
+"analyticsTab" = "Analyse Tab";
+"studyTimeTitle" = "Studietijd";
+"cardsMasteredTitle" = "Beheerde Kaarten";
+"studyStreakTitle" = "Studie Streak";
+"averageSessionTitle" = "Gemiddelde Sessie";
+"consecutiveDays" = "opeenvolgende dagen";
+"perSession" = "per sessie";
+"studyPatterns" = "Studiepatronen";
+"mostActiveTime" = "Meest Actieve Tijd";
+"preferredSessionLength" = "Voorkeurs Sessielengte";
+"studyFrequency" = "Studiefrequentie";
+"languageProgress" = "Taalprogressie";
+"collectionSize" = "Collectiegrootte";
+"cards" = "kaarten";
+"achievements" = "Prestaties";
+"firstSteps" = "Eerste Stappen";
+"weekWarrior" = "Week Krijger";
+"masterLearner" = "Meester Leraar";
+"dedicated" = "Toegewijd";
+"vocabularyMaster" = "Woordenschat Meester";
+"timeMaster" = "Tijd Meester";
+"accuracyTrends" = "Nauwkeurigheid Trends";
+"sessionPerformance" = "Sessie Prestaties";
+"averageSessionDuration" = "Gemiddelde Sessieduur";
+"basedOnData" = "Gebaseerd op gegevens van %@";
+"cardsPerSession" = "Kaarten Per Sessie";
+"average" = "Gemiddelde";
+"sessionFrequency" = "Sessie Frequentie";
+"cardDifficultyAnalysis" = "Kaart Moeilijkheidsanalyse";
+"noDifficultyDataAvailable" = "Geen moeilijkheidsgegevens beschikbaar";
+"learningSpeed" = "Leersnelheid";
+"cardsPerHour" = "Kaarten Per Uur";
+"vsAverage" = "versus gemiddelde";
+"masteryTimeline" = "Beheersingstijdlijn";
+"vocabularyGrowth" = "Woordenschat Groei";
+"totalVocabulary" = "Totale Woordenschat";
+"thisWeek" = "Deze Week";
+"thisMonth" = "Deze Maand";
+"thisYear" = "Dit Jaar";
+"learningMilestones" = "Leer Mijlpalen";
+"personalizedInsights" = "Gepersonaliseerde Inzichten";
+"noInsightsAvailableYet" = "Nog geen inzichten beschikbaar";
+"recommendations" = "Aanbevelingen";
+"noRecommendationsAtThisTime" = "Geen aanbevelingen op dit moment";
+"learningTips" = "Leertips";
+"spacedRepetition" = "Gespreide Herhaling";
+"spacedRepetitionDescription" = "Herzie kaarten met toenemende intervallen voor betere retentie.";
+"activeRecall" = "Actieve Herinnering";
+"activeRecallDescription" = "Probeer het antwoord te herinneren voordat je de kaart omdraait.";
+"contextLearning" = "Contextueel Leren";
+"contextLearningDescription" = "Leer woorden in zinnen in plaats van geïsoleerd.";
+"studyNow" = "Nu Studeren";
+"startReview" = "Begin Herziening";
+"browseCollections" = "Blader door Collecties";
+"practiceMode" = "Oefenmodus";
+
+// MARK: - Learning Analytics Service
+"notEnoughData" = "Niet genoeg gegevens";
+"morning" = "Ochtend (6-12 uur)";
+"afternoon" = "Middag (12-17 uur)";
+"evening" = "Avond (17-21 uur)";
+"night" = "Nacht (21-6 uur)";
+"under10Minutes" = "Minder dan 10 minuten";
+"tenTo20Minutes" = "10-20 minuten";
+"twentyTo30Minutes" = "20-30 minuten";
+"thirtyTo60Minutes" = "30-60 minuten";
+"over60Minutes" = "Meer dan 60 minuten";
+"onceThisWeek" = "Eén keer deze week";
+"fewTimesThisWeek" = "Een paar keer deze week";
+"mostDaysThisWeek" = "De meeste dagen deze week";
+"daily" = "Dagelijks";
+"veryEasy" = "Zeer Gemakkelijk";
+"easy" = "Gemakkelijk";
+"medium" = "Gemiddeld";
+"hard" = "Moeilijk";
+"veryHard" = "Zeer Moeilijk";
+"unknown" = "Onbekend";
+"completedStudySession" = "Studiesessie Voltooid";
+"reviewedCardsInTime" = "%d kaarten herzien in %@";
+"recent" = "Recent";
+"reachedCardsMastered" = "%d kaarten beheerst";
+"greatProgressBuildingFoundation" = "Geweldige vooruitgang! Je bouwt een solide basis.";
+"first10CardsMastered" = "Eerste 10 kaarten beheerst";
+"sevenDayStudyStreak" = "Zeven dagen studie streak";
+"fiftyCardsMastered" = "Vijftig kaarten beheerst";
+"thirtyDayStudyStreak" = "Dertig dagen studie streak";
+"completed" = "Voltooid";
+"inProgress" = "In uitvoering";
+"youreMostProductiveIn" = "Je bent het meest productief in %@";
+"studySessionsDuringThisTime" = "Je studiesessies tijdens deze tijd tonen betere focus en retentie.";
+"optimalSessionLength" = "Optimale Sessielengte";
+"yourSessionsShowBestResults" = "Je sessies van %@ tonen de beste resultaten.";
+"consistentLearningPattern" = "Consistent Leerpatroon";
+"yourStudyRoutineWorkingWell" = "Je studieroutine van %@ werkt goed.";
+"improvingAccuracy" = "Nauwkeurigheid Verbeteren";
+"recentAccuracyHigherThanBefore" = "Je recente nauwkeurigheid is %d%% hoger dan voorheen.";
+"focusOnAccuracy" = "Focus op Nauwkeurigheid";
+"recentAccuracyDecreased" = "Je recente nauwkeurigheid is afgenomen. Overweeg moeilijke kaarten te herzien.";
+"excellentProgress" = "Uitstekende Vooruitgang";
+"masteredVocabularyPercentage" = "Je hebt %d%% van je woordenschat beheerst!";
+"goodFoundation" = "Goede Basis";
+"masteredVocabularyKeepGoing" = "Je hebt %d%% van je woordenschat beheerst. Ga zo door!";
+"reviewDifficultCards" = "Herzie Moeilijke Kaarten";
+"cardsNeedMorePractice" = "%d kaarten hebben meer oefening nodig. Focus hierop om je nauwkeurigheid te verbeteren.";
+"addMoreVocabulary" = "Voeg Meer Woordenschat Toe";
+"masteredMostCurrentCards" = "Je hebt de meeste van je huidige kaarten beheerst. Klaar voor nieuwe uitdagingen!";
+"extendYourStreak" = "Verleng Je Streak";
+"daysAwayFromAchievement" = "Je bent %d dagen verwijderd van een nieuwe prestatie!";
+"buildConsistency" = "Bouw Consistentie";
+"tryToStudyDaily" = "Probeer dagelijks te studeren om een solide studiegewoonte op te bouwen.";
+"improveAccuracy" = "Nauwkeurigheid Verbeteren";
+"accuracyPercentageFocusQuality" = "Je nauwkeurigheid is %d%%. Focus op kwaliteit in plaats van snelheid.";
+
+// MARK: - Settings
+"previewBackgrounds" = "Voorvertoning Achtergronden";
+"subscriptionStatus" = "Abonnement Status";
+"activeSubscription" = "Actief Abonnement";
+"manageSubscription" = "Abonnement Beheren";
+"purchaseTesting" = "Aankoop Testen";
+"testInAppPurchases" = "Test in-app aankopen en ontvang transactie-ID's";
+"openPurchaseTest" = "Open Aankoop Test";
+"testPurchase" = "Test Aankoop";
+"performTestPurchase" = "Voer een test aankoop uit om een transactie-ID te ontvangen";
+"transactionListenerActive" = "Transactie Listener Actief";
+"transactionListenerNotActive" = "Transactie Listener Niet Actief";
+"startTestPurchase" = "Start Test Aankoop";
+"lastTransactionId" = "Laatste Transactie-ID";
+"transactionId" = "Transactie-ID:";
+"copyToClipboard" = "Kopiëren naar Klembord";
+"copied" = "Gekopieerd!";
+"transactionIdCopied" = "Transactie-ID gekopieerd naar klembord";
+"availableProducts" = "Beschikbare Producten";
+"noProductsAvailable" = "Geen producten beschikbaar";
+"purchasedProducts" = "Aangekochte Producten";
+"noProductsPurchasedYet" = "Nog geen producten aangekocht";
+"purchased" = "Aangekocht";
+"transactionHistory" = "Transactiegeschiedenis";
+"loadTransactionHistory" = "Laad Transactiegeschiedenis";
+"restorePurchases" = "Aankopen Herstellen";
+"success" = "Succes";
+"failed" = "Mislukt";
+"purchasesRestoredSuccessfully" = "Aankopen succesvol hersteld";
+"failedToRestorePurchases" = "Aankopen herstellen mislukt";
+"purchaseTestingTitle" = "Aankoop Testen";
+"ok" = "OK";
+"testPurchaseCompleted" = "Test aankoop voltooid! Transactie-ID: %@";
+"testPurchaseFailed" = "Test aankoop mislukt: %@";
+"purchaseCompleted" = "Aankoop voltooid! Transactie-ID: %@";
+"purchaseFailed" = "Aankoop mislukt: %@";
+"unknown" = "Onbekend";
+"unknownError" = "Onbekende Fout";
+"product" = "Product: %@";
+"date" = "Datum: %@";
+
+// MARK: - Paywall
+"upgradeToPremiumTitle" = "Upgraden naar Premium";
+"upgradeToPremiumMessage" = "Upgrade naar Premium om alle functies te ontgrendelen!";
+"cancel" = "Annuleren";
+"viewOptions" = "Opties Bekijken";
+"unlimitedCardsTitle" = "Onbeperkte Kaarten";
+"unlimitedCardsMessage" = "Upgrade naar Premium om onbeperkte kaarten te maken en alle functies te ontgrendelen!";
+"advancedAnalyticsTitle" = "Geavanceerde Analyse";
+"advancedAnalyticsMessage" = "Krijg gedetailleerde leerinzichten, voortgangsgrafieken en prestatie-analyses met Premium!";
+"customThemesTitle" = "Aangepaste Thema's";
+"customThemesMessage" = "Ontgrendel prachtige aangepaste thema's en achtergronden met Premium!";
+"languageChangeTitle" = "Talen Wijzigen";
+"languageChangeMessage" = "Kies uit meer dan 15 talen om je leerervaring te verbeteren met Premium!";
+"cardPresetsTitle" = "Kaart Presets";
+"cardPresetsMessage" = "Verken een uitgebreide collectie vooraf ontworpen kaart presets met Premium!";
+"studyModesTitle" = "Studiemodi";
+"studyModesMessage" = "Krijg toegang tot geavanceerde studiemodi en leermethoden met Premium!";
+
 // MARK: - Search
 "searchCards" = "Kaarten zoeken...";
 
@@ -201,9 +484,10 @@
 "galaxy" = "Melkweg";
 
 // MARK: - Card Limits
-"cardLimitExceeded" = "Kaartlimiet Bereikt";
-"cardsRemaining" = "Resterende Kaarten";
 "cardsUsedOfLimit" = "%d van %d kaarten";
+"cardLimitExceeded" = "Kaartlimiet bereikt. Je hebt %d van %d toegestane kaarten gebruikt. Upgrade naar Premium voor onbeperkte kaarten.";
+"freeUsersLimitedTo" = "Gratis gebruikers zijn beperkt tot %d kaarten";
+"purchaseUnlimitedCards" = "Koop onbeperkte kaarten om meer kaarten aan je collectie toe te voegen";
 "upgrade" = "Upgraden";
 "unlimitedCards" = "Onbeperkte Kaarten";
 
@@ -213,15 +497,16 @@
 "activeSubscription" = "Actief Abonnement";
 "manageSubscription" = "Abonnement Beheren";
 
-// MARK: - Categories
-"categoryBasics" = "Basis";
-"categoryTravel" = "Reizen";
-"categoryEntertainment" = "Vermakelijkheden";
-"categoryFood" = "Eten";
-"categoryShopping" = "Winkelen";
-"categorySocial" = "Sociaal";
-"categoryWeather" = "Weer";
-"categoryTechnology" = "Technologie";
-"categoryLifestyle" = "Levensstijl";
-"categoryProfessional" = "Professioneel";
-"categoryEmergency" = "Noodgeval";
+"done" = "Klaar";
+"cancel" = "Annuleren";
+"delete" = "Verwijderen";
+"edit" = "Bewerken";
+"save" = "Opslaan";
+"searchCards" = "Kaarten zoeken...";
+"noCardsAvailable" = "Geen kaarten beschikbaar";
+"noAccuracyDataAvailable" = "Geen nauwkeurigheidsgegevens beschikbaar";
+"noGrowthDataAvailable" = "Geen groeigegevens beschikbaar";
+"date" = "Datum";
+"accuracy" = "Nauwkeurigheid";
+"masteredCards" = "Beheerde Kaarten";
+"invalidJSON" = "Ongeldige JSON-gegevens";
