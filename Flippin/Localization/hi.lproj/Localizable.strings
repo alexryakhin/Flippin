@@ -49,7 +49,7 @@
 "noCardsForLanguagePair" = "इस भाषा जोड़ी के लिए कोई कार्ड नहीं";
 
 // MARK: - Card Views
-"showAnswer" = "उत्तर दिखाएं";
+"flip" = "पलटें";
 "tapToGoBack" = "वापस जाने के लिए टैप करें";
 
 // MARK: - Tag Management
@@ -96,6 +96,19 @@
 "color" = "रंग";
 "backgroundStyle" = "पृष्ठभूमि शैली";
 "tapToSeeFullScreen" = "पूर्ण स्क्रीन देखने के लिए टैप करें";
+
+// MARK: - Categories
+"categoryBasics" = "मूल बातें";
+"categoryTravel" = "यात्रा";
+"categoryEntertainment" = "मनोरंजन";
+"categoryFood" = "भोजन";
+"categoryShopping" = "खरीदारी";
+"categorySocial" = "सामाजिक";
+"categoryWeather" = "मौसम";
+"categoryTechnology" = "प्रौद्योगिकी";
+"categoryLifestyle" = "जीवनशैली";
+"categoryProfessional" = "पेशेवर";
+"categoryEmergency" = "आपातकाल";
 
 // MARK: - Add Card
 "enterTextInYourLanguage" = "अपनी भाषा में पाठ दर्ज करें";
@@ -161,6 +174,276 @@
 "shuffle" = "फेरबदल";
 "addCardLabel" = "कार्ड जोड़ें";
 
+// MARK: - Navigation
+"stack" = "ढेर";
+"list" = "सूची";
+"study" = "अध्ययन";
+"analytics" = "विश्लेषण";
+"settings" = "सेटिंग्स";
+
+// MARK: - Card Management
+"noDifficultCards" = "कोई कठिन कार्ड नहीं";
+"noDifficultCardsDescription" = "आपने अभी तक किसी कार्ड को कठिन के रूप में चिह्नित नहीं किया है। कठिनाई स्तर देखने के लिए और कार्ड पढ़ें।";
+"difficultCards" = "कठिन कार्ड";
+"failedToCreateCard" = "कार्ड बनाने में विफल: %@";
+
+// MARK: - Study
+"study" = "अध्ययन";
+"studyMode" = "अध्ययन मोड";
+"quickStats" = "त्वरित आँकड़े";
+"studyOptions" = "अध्ययन विकल्प";
+"recentActivity" = "हाल की गतिविधि";
+"totalCards" = "कुल कार्ड";
+"mastered" = "निपुण";
+"difficultCards" = "कठिन कार्ड";
+"studyTimeToday" = "आज का अध्ययन समय";
+"startStudySession" = "अध्ययन सत्र शुरू करें (10 कार्ड)";
+"practiceAllCards" = "सभी कार्ड का अभ्यास करें (%d)";
+"practiceDifficultCards" = "कठिन कार्ड का अभ्यास करें (%d)";
+"multipleChoiceQuiz" = "बहुविकल्पीय प्रश्नोत्तरी";
+"fillInTheBlank" = "रिक्त स्थान भरें (%d)";
+"unlockAllStudyModes" = "सभी अध्ययन मोड अनलॉक करें";
+"noStudyData" = "कोई अध्ययन डेटा नहीं";
+"startStudyingToSeeProgress" = "अपनी प्रगति देखने के लिए अध्ययन शुरू करें!";
+"toCards" = "कार्ड्स की ओर";
+"totalStudyTime" = "कुल अध्ययन समय";
+"averageSession" = "औसत सत्र";
+"learningProgress" = "सीखने की प्रगति";
+"exit" = "बाहर निकलें";
+"showAnswer" = "उत्तर दिखाएं";
+"incorrect" = "गलत";
+"correct" = "सही";
+"studySessionComplete" = "अध्ययन सत्र पूरा हुआ!";
+"accuracy" = "सटीकता";
+"cardsStudied" = "पढ़े गए कार्ड";
+"timeSpent" = "बिताया गया समय";
+"studyAgain" = "फिर से पढ़ें";
+"done" = "हो गया";
+"selectCorrectTranslation" = "सही अनुवाद चुनें";
+"fillInMissingWord" = "लापता शब्द भरें";
+"completeSentence" = "वाक्य पूरा करें";
+"chooseCorrectWord" = "सही शब्द चुनें:";
+"correctAnswer" = "सही उत्तर";
+"translateTo" = "%@ में अनुवाद करें";
+"studyProgress" = "%d में से %d";
+
+// MARK: - Analytics
+"analytics" = "विश्लेषण";
+"detailedAnalytics" = "विस्तृत विश्लेषण";
+"today" = "आज";
+"noAnalyticsData" = "कोई विश्लेषण डेटा नहीं";
+"startStudyingToSeeProgress" = "अपनी सीखने की प्रगति देखने के लिए अध्ययन शुरू करें!";
+"unlockAdvancedAnalytics" = "उन्नत विश्लेषण अनलॉक करें";
+"detailedProgressReports" = "विस्तृत प्रगति रिपोर्ट";
+"detailedProgressReportsDescription" = "समय के साथ अपने सीखने के पैटर्न और सुधारों को ट्रैक करें";
+"performanceInsights" = "प्रदर्शन अंतर्दृष्टि";
+"performanceInsightsDescription" = "अपनी अध्ययन आदतों को बेहतर बनाने के लिए व्यक्तिगत सिफारिशें प्राप्त करें";
+"studyTimeAnalytics" = "अध्ययन समय विश्लेषण";
+"studyTimeAnalyticsDescription" = "अपने अध्ययन सत्रों का विश्लेषण करें और अपने सीखने को अनुकूलित करें";
+"upgradeToPremium" = "प्रीमियम में अपग्रेड करें";
+"recentActivity" = "हाल की गतिविधि";
+"viewAll" = "सभी देखें";
+"noRecentActivity" = "कोई हाल की गतिविधि नहीं";
+"studySessionsWillAppearHere" = "आपके अध्ययन सत्र यहां दिखाई देंगे";
+"lastStudySession" = "आखिरी अध्ययन सत्र";
+"cardsStudiedToday" = "आज पढ़े गए कार्ड";
+"studyStreak" = "अध्ययन की र streak";
+"totalStudyTime" = "कुल अध्ययन समय";
+"cardsMastered" = "निपुण कार्ड";
+"todaysStudy" = "आज का अध्ययन";
+"time" = "समय";
+"cardsStudied" = "पढ़े गए कार्ड";
+"sessions" = "सत्र";
+"accuracy" = "सटीकता";
+"studyTime" = "अध्ययन समय";
+"timeRange" = "समय सीमा";
+"masteryProgress" = "निपुणता प्रगति";
+"mastered" = "निपुण";
+"learning" = "सीखना";
+"needsReview" = "समीक्षा की आवश्यकता";
+"week" = "सप्ताह";
+"month" = "महीना";
+"year" = "वर्ष";
+"allTime" = "हर समय";
+"overview" = "अवलोकन";
+"performance" = "प्रदर्शन";
+"progress" = "प्रगति";
+"insights" = "अंतर्दृष्टि";
+"noStudyDataAvailable" = "कोई अध्ययन डेटा उपलब्ध नहीं";
+
+// MARK: - Detailed Analytics
+"analyticsTab" = "विश्लेषण टैब";
+"studyTimeTitle" = "अध्ययन समय";
+"cardsMasteredTitle" = "निपुण कार्ड";
+"studyStreakTitle" = "अध्ययन की र streak";
+"averageSessionTitle" = "औसत सत्र";
+"consecutiveDays" = "लगातार दिन";
+"perSession" = "प्रति सत्र";
+"studyPatterns" = "अध्ययन पैटर्न";
+"mostActiveTime" = "सबसे सक्रिय समय";
+"preferredSessionLength" = "पसंदीदा सत्र लंबाई";
+"studyFrequency" = "अध्ययन आवृत्ति";
+"languageProgress" = "भाषा प्रगति";
+"collectionSize" = "संग्रह का आकार";
+"cards" = "कार्ड";
+"achievements" = "उपलब्धियां";
+"firstSteps" = "पहले कदम";
+"weekWarrior" = "सप्ताह योद्धा";
+"masterLearner" = "मास्टर शिक्षार्थी";
+"dedicated" = "समर्पित";
+"vocabularyMaster" = "शब्दावली मास्टर";
+"timeMaster" = "समय मास्टर";
+"accuracyTrends" = "सटीकता रुझान";
+"sessionPerformance" = "सत्र प्रदर्शन";
+"averageSessionDuration" = "औसत सत्र अवधि";
+"basedOnData" = "%@ डेटा के आधार पर";
+"cardsPerSession" = "प्रति सत्र कार्ड";
+"average" = "औसत";
+"sessionFrequency" = "सत्र आवृत्ति";
+"cardDifficultyAnalysis" = "कार्ड कठिनाई विश्लेषण";
+"noDifficultyDataAvailable" = "कोई कठिनाई डेटा उपलब्ध नहीं";
+"learningSpeed" = "सीखने की गति";
+"cardsPerHour" = "प्रति घंटा कार्ड";
+"vsAverage" = "बनाम औसत";
+"masteryTimeline" = "निपुणता समयरेखा";
+"vocabularyGrowth" = "शब्दावली वृद्धि";
+"totalVocabulary" = "कुल शब्दावली";
+"thisWeek" = "इस सप्ताह";
+"thisMonth" = "इस महीने";
+"thisYear" = "इस वर्ष";
+"learningMilestones" = "सीखने के मील के पत्थर";
+"personalizedInsights" = "व व्यक्तिगत अंतर्दृष्टि";
+"noInsightsAvailableYet" = "अभी तक कोई अंतर्दृष्टि उपलब्ध नहीं";
+"recommendations" = "सिफारिशें";
+"noRecommendationsAtThisTime" = "इस समय कोई सिफारिशें नहीं";
+"learningTips" = "सीखने के सुझाव";
+"spacedRepetition" = "अंतराल पुनरावृत्ति";
+"spacedRepetitionDescription" = "बेहतर प्रतिधारण के लिए बढ़ते अंतराल पर कार्ड की समीक्षा करें।";
+"activeRecall" = "सक्रिय स्मरण";
+"activeRecallDescription" = "कार्ड पलटने से पहले उत्तर याद करने की कोशिश करें।";
+"contextLearning" = "संदर्भ सीखना";
+"contextLearningDescription" = "शब्दों को अलग-थलग करने के बजाय वाक्यांशों में सीखें।";
+"studyNow" = "अब पढ़ें";
+"startReview" = "समीक्षा शुरू करें";
+"browseCollections" = "संग्रह ब्राउज़ करें";
+"practiceMode" = "अभ्यास मोड";
+
+// MARK: - Learning Analytics Service
+"notEnoughData" = "पर्याप्त डेटा नहीं";
+"morning" = "सुबह (6-12 बजे)";
+"afternoon" = "दोपहर (12-5 बजे)";
+"evening" = "शाम (5-9 बजे)";
+"night" = "रात (9 बजे-6 बजे)";
+"under10Minutes" = "10 मिनट से कम";
+"tenTo20Minutes" = "10-20 मिनट";
+"twentyTo30Minutes" = "20-30 मिनट";
+"thirtyTo60Minutes" = "30-60 मिनट";
+"over60Minutes" = "60 मिनट से अधिक";
+"onceThisWeek" = "इस सप्ताह एक बार";
+"fewTimesThisWeek" = "इस सप्ताह कुछ बार";
+"mostDaysThisWeek" = "इस सप्ताह अधिकांश दिन";
+"daily" = "दैनिक";
+"veryEasy" = "बहुत आसान";
+"easy" = "आसान";
+"medium" = "मध्यम";
+"hard" = "कठिन";
+"veryHard" = "बहुत कठिन";
+"unknown" = "अज्ञात";
+"completedStudySession" = "अध्ययन सत्र पूरा हुआ";
+"reviewedCardsInTime" = "%@ में %d कार्ड की समीक्षा की";
+"recent" = "हाल ही में";
+"reachedCardsMastered" = "%d निपुण कार्ड तक पहुंचा";
+"greatProgressBuildingFoundation" = "शानदार प्रगति! आप एक मजबूत नींव बना रहे हैं।";
+"first10CardsMastered" = "पहले 10 कार्ड निपुण";
+"sevenDayStudyStreak" = "7 दिन की अध्ययन र streak";
+"fiftyCardsMastered" = "50 कार्ड निपुण";
+"thirtyDayStudyStreak" = "30 दिन की अध्ययन र streak";
+"completed" = "पूरा हुआ";
+"inProgress" = "प्रगति में";
+"youreMostProductiveIn" = "आप %@ में सबसे अधिक उत्पादक हैं";
+"studySessionsDuringThisTime" = "इस समय के दौरान आपके अध्ययन सत्र बेहतर ध्यान और प्रतिधारण दिखाते हैं।";
+"optimalSessionLength" = "इष्टतम सत्र लंबाई";
+"yourSessionsShowBestResults" = "आपके %@ सत्र सर्वश्रेष्ठ परिणाम दिखाते हैं।";
+"consistentLearningPattern" = "निरंतर सीखने का पैटर्न";
+"yourStudyRoutineWorkingWell" = "आपकी %@ अध्ययन दिनचर्या अच्छी तरह से काम कर रही है।";
+"improvingAccuracy" = "सटीकता में सुधार";
+"recentAccuracyHigherThanBefore" = "आपकी हाल की सटीकता पहले की तुलना में %d%% अधिक है।";
+"focusOnAccuracy" = "सटीकता पर ध्यान दें";
+"recentAccuracyDecreased" = "आपकी हाल की सटीकता कम हो गई है। कठिन कार्ड की समीक्षा करने पर विचार करें।";
+"excellentProgress" = "उत्कृष्ट प्रगति";
+"masteredVocabularyPercentage" = "आपने अपनी शब्दावली का %d%% निपुण कर लिया है!";
+"goodFoundation" = "अच्छी नींव";
+"masteredVocabularyKeepGoing" = "आपने अपनी शब्दावली का %d%% निपुण कर लिया है। आगे बढ़ते रहें!";
+"reviewDifficultCards" = "कठिन कार्ड की समीक्षा करें";
+"cardsNeedMorePractice" = "%d कार्ड को और अभ्यास की आवश्यकता है। सटीकता सुधारने के लिए इन पर ध्यान दें।";
+"addMoreVocabulary" = "अधिक शब्दावली जोड़ें";
+"masteredMostCurrentCards" = "आपने अपने वर्तमान कार्डों के अधिकांश को निपुण कर लिया है। नई चुनौतियों के लिए तैयार!";
+"extendYourStreak" = "अपनी र streak बढ़ाएं";
+"daysAwayFromAchievement" = "आप नई उपलब्धि से %d दिन दूर हैं!";
+"buildConsistency" = "निरंतरता बनाएं";
+"tryToStudyDaily" = "मजबूत सीखने की आदत बनाने के लिए रोजाना पढ़ने की कोशिश करें।";
+"improveAccuracy" = "सटीकता सुधारें";
+"accuracyPercentageFocusQuality" = "आपकी सटीकता %d%% है। गति के बजाय गुणवत्ता पर ध्यान दें।";
+
+// MARK: - Settings
+"previewBackgrounds" = "पृष्ठभूमि पूर्वावलोकन";
+"subscriptionStatus" = "सदस्यता स्थिति";
+"activeSubscription" = "सक्रिय सदस्यता";
+"manageSubscription" = "सदस्यता प्रबंधन";
+"purchaseTesting" = "खरीद परीक्षण";
+"testInAppPurchases" = "ऐप में खरीदारी का परीक्षण करें और लेनदेन आईडी प्राप्त करें";
+"openPurchaseTest" = "खरीद परीक्षण खोलें";
+"testPurchase" = "परीक्षण खरीद";
+"performTestPurchase" = "लेनदेन आईडी प्राप्त करने के लिए परीक्षण खरीद करें";
+"transactionListenerActive" = "लेनदेन श्रोता सक्रिय";
+"transactionListenerNotActive" = "लेनदेन श्रोता निष्क्रिय";
+"startTestPurchase" = "परीक्षण खरीद शुरू करें";
+"lastTransactionId" = "अंतिम लेनदेन आईडी";
+"transactionId" = "लेनदेन आईडी:";
+"copyToClipboard" = "क्लिपबोर्ड पर कॉपी करें";
+"copied" = "कॉपी किया गया!";
+"transactionIdCopied" = "लेनदेन आईडी क्लिपबोर्ड पर कॉपी की गई";
+"availableProducts" = "उपलब्ध उत्पाद";
+"noProductsAvailable" = "कोई उत्पाद उपलब्ध नहीं";
+"purchasedProducts" = "खरीदे गए उत्पाद";
+"noProductsPurchasedYet" = "अभी तक कोई उत्पाद खरीदा नहीं गया";
+"purchased" = "खरीदा गया";
+"transactionHistory" = "लेनदेन इतिहास";
+"loadTransactionHistory" = "लेनदेन इतिहास लोड करें";
+"restorePurchases" = "खरीदारी पुनर्स्थापित करें";
+"success" = "सफलता";
+"failed" = "विफल";
+"purchasesRestoredSuccessfully" = "खरीदारी सफलतापूर्वक पुनर्स्थापित की गई";
+"failedToRestorePurchases" = "खरीदारी पुनर्स्थापित करने में विफल";
+"purchaseTestingTitle" = "खरीद परीक्षण";
+"ok" = "ठीक है";
+"testPurchaseCompleted" = "परीक्षण खरीद पूरी हुई! लेनदेन आईडी: %@";
+"testPurchaseFailed" = "परीक्षण खरीद विफल: %@";
+"purchaseCompleted" = "खरीद पूरी हुई! लेनदेन आईडी: %@";
+"purchaseFailed" = "खरीद विफल: %@";
+"unknown" = "अज्ञात";
+"unknownError" = "अज्ञात त्रुटि";
+"product" = "उत्पाद: %@";
+"date" = "तारीख: %@";
+
+// MARK: - Paywall
+"upgradeToPremiumTitle" = "प्रीमियम में अपग्रेड करें";
+"upgradeToPremiumMessage" = "सभी सुविधाओं को अनलॉक करने के लिए प्रीमियम में अपग्रेड करें!";
+"cancel" = "रद्द करें";
+"viewOptions" = "विकल्प देखें";
+"unlimitedCardsTitle" = "असीमित कार्ड";
+"unlimitedCardsMessage" = "असीमित कार्ड बनाने और सभी सुविधाओं को अनलॉक करने के लिए प्रीमियम में अपग्रेड करें!";
+"advancedAnalyticsTitle" = "उन्नत विश्लेषण";
+"advancedAnalyticsMessage" = "प्रीमियम के साथ विस्तृत सीखने की अंतर्दृष्टि, प्रगति चार्ट और प्रदर्शन विश्लेषण प्राप्त करें!";
+"customThemesTitle" = "कस्टम थीम";
+"customThemesMessage" = "प्रीमियम के साथ सुंदर कस्टम थीम और पृष्ठभूमि अनलॉक करें!";
+"languageChangeTitle" = "भाषा बदलें";
+"languageChangeMessage" = "प्रीमियम के साथ अपनी सीखने की अनुभव को बेहतर बनाने के लिए 15 से अधिक भाषाओं में से चुनें!";
+"cardPresetsTitle" = "कार्ड प्रीसेट";
+"cardPresetsMessage" = "प्रीमियम के साथ पूर्व-डिज़ाइन किए गए कार्ड प्रीसेट की विस्तृत संग्रह का अन्वेषण करें!";
+"studyModesTitle" = "अध्ययन मोड";
+"studyModesMessage" = "प्रीमियम के साथ उन्नत अध्ययन मोड और सीखने की तकनीकों तक पहुंचें!";
+
 // MARK: - Search
 "searchCards" = "कार्ड खोजें...";
 
@@ -201,9 +484,10 @@
 "galaxy" = "आकाशगंगा";
 
 // MARK: - Card Limits
-"cardLimitExceeded" = "कार्ड सीमा पार";
-"cardsRemaining" = "शेष कार्ड";
 "cardsUsedOfLimit" = "%d में से %d कार्ड";
+"cardLimitExceeded" = "कार्ड सीमा पार हो गई। आपके पास %d में से %d अनुमत कार्ड हैं। असीमित कार्ड के लिए प्रीमियम में अपग्रेड करें।";
+"freeUsersLimitedTo" = "मुफ्त उपयोगकर्ता %d कार्ड तक सीमित हैं";
+"purchaseUnlimitedCards" = "अपने संग्रह में और कार्ड जोड़ने के लिए असीमित कार्ड खरीदें";
 "upgrade" = "अपग्रेड";
 "unlimitedCards" = "असीमित कार्ड";
 
@@ -213,15 +497,16 @@
 "activeSubscription" = "सक्रिय सदस्यता";
 "manageSubscription" = "सदस्यता प्रबंधन";
 
-// MARK: - Categories
-"categoryBasics" = "मूल बातें";
-"categoryTravel" = "यात्रा";
-"categoryEntertainment" = "मनोरंजन";
-"categoryFood" = "भोजन";
-"categoryShopping" = "खरीदारी";
-"categorySocial" = "सामाजिक";
-"categoryWeather" = "मौसम";
-"categoryTechnology" = "प्रौद्योगिकी";
-"categoryLifestyle" = "जीवनशैली";
-"categoryProfessional" = "पेशेवर";
-"categoryEmergency" = "आपातकाल";
+"done" = "हो गया";
+"cancel" = "रद्द करें";
+"delete" = "हटाएं";
+"edit" = "संपादित करें";
+"save" = "सहेजें";
+"searchCards" = "कार्ड खोजें...";
+"noCardsAvailable" = "कोई कार्ड उपलब्ध नहीं";
+"noAccuracyDataAvailable" = "कोई सटीकता डेटा उपलब्ध नहीं";
+"noGrowthDataAvailable" = "कोई वृद्धि डेटा उपलब्ध नहीं";
+"date" = "तारीख";
+"accuracy" = "सटीकता";
+"masteredCards" = "निपुण कार्ड";
+"invalidJSON" = "अमान्य JSON डेटा";
