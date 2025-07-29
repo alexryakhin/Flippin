@@ -48,11 +48,6 @@ struct SettingsView: View {
         .sheet(isPresented: $showingBackgroundDemo) {
             BackgroundDemoView()
         }
-        .sheet(isPresented: $showingPurchaseTest) {
-            NavigationView {
-                PurchaseTestView()
-            }
-        }
         .premiumAlert(feature: $premiumFeature)
         .onAppear {
             AnalyticsService.trackEvent(.settingsScreenOpened)
@@ -60,6 +55,13 @@ struct SettingsView: View {
         .ifLet(colorManager.colorScheme) { view, scheme in
             view.colorScheme(scheme)
         }
+        #if DEBUG
+        .sheet(isPresented: $showingPurchaseTest) {
+            NavigationView {
+                PurchaseTestView()
+            }
+        }
+        #endif
     }
     
     // MARK: - Languages Section

@@ -196,6 +196,7 @@ enum StudyTab {
                         .frame(width: 24, height: 24)
                     Text(text)
                         .font(.headline)
+                        .multilineTextAlignment(.leading)
                     Spacer()
                     Image(systemName: "chevron.right")
                         .font(.caption)
