@@ -21,34 +21,34 @@ enum PremiumFeature: String, CaseIterable {
     var title: String {
         switch self {
         case .unlimitedCards:
-            return "Unlimited Cards"
+            return LocalizationKeys.Paywall.unlimitedCardsTitle.localized
         case .advancedAnalytics:
-            return "Advanced Analytics"
+            return LocalizationKeys.Paywall.advancedAnalyticsTitle.localized
         case .customThemes:
-            return "Custom Themes"
+            return LocalizationKeys.Paywall.customThemesTitle.localized
         case .languageChange:
-            return "Language Change"
+            return LocalizationKeys.Paywall.languageChangeTitle.localized
         case .cardPresets:
-            return "Card Presets"
+            return LocalizationKeys.Paywall.cardPresetsTitle.localized
         case .studyModes:
-            return "Study Modes"
+            return LocalizationKeys.Paywall.studyModesTitle.localized
         }
     }
     
     var message: String {
         switch self {
         case .unlimitedCards:
-            return "Upgrade to premium to create unlimited cards and unlock all features!"
+            return LocalizationKeys.Paywall.unlimitedCardsMessage.localized
         case .advancedAnalytics:
-            return "Get detailed learning insights, progress charts, and performance analytics with premium!"
+            return LocalizationKeys.Paywall.advancedAnalyticsMessage.localized
         case .customThemes:
-            return "Unlock beautiful custom themes and backgrounds with premium!"
+            return LocalizationKeys.Paywall.customThemesMessage.localized
         case .cardPresets:
-            return "Explore a vast collection of pre-designed card presets with premium!"
+            return LocalizationKeys.Paywall.cardPresetsMessage.localized
         case .languageChange:
-            return "Choose from over 15 languages to enhance your learning experience with premium!"
+            return LocalizationKeys.Paywall.languageChangeMessage.localized
         case .studyModes:
-            return "Access advanced study modes and learning techniques with premium!"
+            return LocalizationKeys.Paywall.studyModesMessage.localized
         }
     }
 }
@@ -68,16 +68,16 @@ struct PremiumAlertModifier: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-            .alert(feature?.title ?? "Upgrade to Premium", isPresented: Binding(
+            .alert(feature?.title ?? LocalizationKeys.Paywall.upgradeToPremiumTitle.localized, isPresented: Binding(
                 get: { feature != nil },
                 set: { if !$0 { feature = nil } }
             )) {
-                Button("Cancel", role: .cancel) { }
-                Button("View Options") {
+                Button(LocalizationKeys.Paywall.cancel.localized, role: .cancel) { }
+                Button(LocalizationKeys.Paywall.viewOptions.localized) {
                     showPaywall = true
                 }
             } message: {
-                Text(feature?.message ?? "Upgrade to premium to unlock all features!")
+                Text(feature?.message ?? LocalizationKeys.Paywall.upgradeToPremiumMessage.localized)
             }
             .sheet(isPresented: $showPaywall) {
                 Paywall.ContentView()

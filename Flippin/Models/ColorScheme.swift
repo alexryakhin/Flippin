@@ -22,9 +22,9 @@ enum ColorSchemeInternal: String, Codable, CaseIterable {
 
     var localizedName: String {
         switch self {
-        case .dark: return LocalizationKeys.colorSchemeDark.localized
-        case .light: return LocalizationKeys.colorSchemeLight.localized
-        case .system: return LocalizationKeys.colorSchemeSystem.localized
+        case .dark: return LocalizationKeys.Settings.colorSchemeDark.localized
+        case .light: return LocalizationKeys.Settings.colorSchemeLight.localized
+        case .system: return LocalizationKeys.Settings.colorSchemeSystem.localized
         }
     }
 }

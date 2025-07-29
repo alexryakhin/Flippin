@@ -47,13 +47,13 @@ extension WelcomeSheet {
                         .animation(.easeInOut(duration: 0.5).delay(0.2), value: animateContent)
 
                         VStack(spacing: 16) {
-                            Text(LocalizationKeys.chooseLanguages.localized)
+                            Text(LocalizationKeys.Welcome.chooseLanguages.localized)
                                 .font(.system(size: 28, weight: .bold, design: .rounded))
                                 .multilineTextAlignment(.center)
                                 .offset(y: animateContent ? 0 : 20)
                                 .opacity(animateContent ? 1 : 0)
 
-                            Text(LocalizationKeys.chooseLanguagesDesc.localized)
+                            Text(LocalizationKeys.Welcome.chooseLanguagesDesc.localized)
                                 .font(.body)
                                 .foregroundColor(.secondary)
                                 .multilineTextAlignment(.center)
@@ -68,16 +68,16 @@ extension WelcomeSheet {
                     // Language pickers
                     VStack(spacing: 16) {
                         LanguagePickerCard(
-                            title: LocalizationKeys.myLanguage.localized,
-                            subtitle: LocalizationKeys.myLanguageDesc.localized,
+                            title: LocalizationKeys.Welcome.myLanguage.localized,
+                            subtitle: LocalizationKeys.Welcome.myLanguageDesc.localized,
                             selection: $languageManager.userLanguageRaw,
                             animateContent: animateContent,
                             delay: 0.7
                         )
 
                         LanguagePickerCard(
-                            title: LocalizationKeys.imLearning.localized,
-                            subtitle: LocalizationKeys.imLearningDesc.localized,
+                            title: LocalizationKeys.Welcome.imLearning.localized,
+                            subtitle: LocalizationKeys.Welcome.imLearningDesc.localized,
                             selection: $languageManager.targetLanguageRaw,
                             animateContent: animateContent,
                             delay: 0.9
@@ -87,7 +87,7 @@ extension WelcomeSheet {
                     Spacer()
 
                     NavigationLink(destination: ReadyStepView(onContinue: onContinue)) {
-                        Text(LocalizationKeys.continueButton.localized)
+                        Text(LocalizationKeys.Welcome.continueButton.localized)
                             .font(.headline)
                             .frame(maxWidth: .infinity)
                             .padding(vertical: 12, horizontal: 16)

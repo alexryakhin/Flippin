@@ -12,7 +12,7 @@ extension DetailedAnalytics {
     struct ProgressTab: View {
 
         let selectedTimeRange: TimeRange
-        
+
         @StateObject private var analyticsService = LearningAnalyticsService.shared
         @StateObject private var colorManager = ColorManager.shared
 
@@ -35,9 +35,9 @@ extension DetailedAnalytics {
 
         private var masteryTimelineSection: some View {
             let timelineEvents = analyticsService.getMasteryTimelineEvents(for: selectedTimeRange)
-            
+
             return CustomSectionView(
-                header: "Mastery Timeline",
+                header: LocalizationKeys.Analytics.masteryTimeline.localized,
                 backgroundStyle: .standard
             ) {
                 if timelineEvents.isEmpty {
@@ -45,7 +45,7 @@ extension DetailedAnalytics {
                         Image(systemName: "timeline.selection")
                             .font(.title2)
                             .foregroundColor(.secondary)
-                        Text("No recent activity")
+                        Text(LocalizationKeys.Analytics.noRecentActivity.localized)
                             .font(.caption)
                             .foregroundColor(.secondary)
                     }
@@ -67,15 +67,15 @@ extension DetailedAnalytics {
 
         private var vocabularyGrowthSection: some View {
             let growthData = analyticsService.getVocabularyGrowthData(for: selectedTimeRange)
-            
+
             return CustomSectionView(
-                header: "Vocabulary Growth",
+                header: LocalizationKeys.Analytics.vocabularyGrowth.localized,
                 backgroundStyle: .standard
             ) {
                 VStack(spacing: 16) {
                     HStack {
                         VStack(alignment: .leading, spacing: 4) {
-                            Text("Total Vocabulary")
+                            Text(LocalizationKeys.Analytics.totalVocabulary.localized)
                                 .font(.subheadline)
                                 .foregroundColor(.secondary)
 
@@ -88,7 +88,7 @@ extension DetailedAnalytics {
                         Spacer()
 
                         VStack(alignment: .trailing, spacing: 4) {
-                            Text("This Week")
+                            Text(selectedTimeRange.growthPeriodLabel)
                                 .font(.caption)
                                 .foregroundColor(.secondary)
 
@@ -107,13 +107,13 @@ extension DetailedAnalytics {
 
         private var learningMilestonesSection: some View {
             let milestones = analyticsService.getLearningMilestones()
-            
+
             return CustomSectionView(
-                header: "Learning Milestones",
+                header: LocalizationKeys.Analytics.learningMilestones.localized,
                 backgroundStyle: .standard
             ) {
                 FormWithDivider {
-                    ForEach(milestones) { milestone in
+                    ForEach(milestones, id: \.id) { milestone in
                         MilestoneRow(
                             title: milestone.title,
                             isCompleted: milestone.isCompleted,
@@ -173,7 +173,7 @@ extension DetailedAnalytics {
         var body: some View {
             HStack {
                 Image(systemName: isCompleted ? "checkmark.circle.fill" : "circle")
-                    .foregroundColor(isCompleted ? .green : .gray)
+                    .foregroundStyle(isCompleted ? .green : .gray)
                     .font(.subheadline)
 
                 Text(title)
@@ -183,8 +183,8 @@ extension DetailedAnalytics {
 
                 Text(date)
                     .font(.caption)
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
             }
         }
     }
-} 
+}

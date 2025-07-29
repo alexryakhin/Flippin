@@ -34,8 +34,16 @@ public struct CardStack<Data, Content>: View where Data: RandomAccessCollection 
     public var body: some View {
         Group {
             if data.isEmpty {
-                Text("No cards available")
-                    .accessibilityLabel("No cards available")
+                VStack(spacing: 16) {
+                    Image(systemName: "rectangle.stack")
+                        .font(.largeTitle)
+                        .foregroundColor(.secondary)
+                    Text(LocalizationKeys.General.noCardsAvailable.localized)
+                        .font(.headline)
+                        .foregroundColor(.secondary)
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .accessibilityLabel(LocalizationKeys.General.noCardsAvailable.localized)
             } else {
                 ZStack {
                     ForEach(Array(data.enumerated()), id: \.element.id) { (index, element) in

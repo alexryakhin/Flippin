@@ -12,7 +12,7 @@ struct BackgroundDemoView: View {
                 GridItem(.flexible(), spacing: 16),
                 GridItem(.flexible(), spacing: 16)
             ], spacing: 16) {
-                ForEach(BackgroundStyle.allCases, id: \.self) { style in
+                ForEach(BgStyle.allCases, id: \.self) { style in
                     VStack {
                         ZStack {
                             AnimatedBackground(style: style)
@@ -39,7 +39,7 @@ struct BackgroundDemoView: View {
                                 RoundedRectangle(cornerRadius: 16)
                                     .fill(.clear)
                                     .overlay(alignment: .bottomTrailing) {
-                                        Text(LocalizationKeys.premium.localized)
+                                        Text(LocalizationKeys.Paywall.premium.localized)
                                             .font(.caption)
                                             .fontWeight(.semibold)
                                             .foregroundColor(.white)
@@ -65,7 +65,7 @@ struct BackgroundDemoView: View {
         }
         .background(Color(.systemGroupedBackground))
         .navigation(
-            title: LocalizationKeys.backgroundDemo.localized,
+            title: LocalizationKeys.Settings.backgroundDemo.localized,
             mode: .inline,
             trailingContent: {
                 Button {

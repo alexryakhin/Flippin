@@ -42,9 +42,17 @@ public struct InfiniteCardStack<Data, Content>: View where Data: RandomAccessCol
 
     public var body: some View {
         Group {
-            if data.isEmpty {
-                Text("No cards available")
-                    .accessibilityLabel("No cards available")
+            if cardCount == 0 {
+                VStack(spacing: 16) {
+                    Image(systemName: "rectangle.stack")
+                        .font(.largeTitle)
+                        .foregroundColor(.secondary)
+                    Text(LocalizationKeys.General.noCardsAvailable.localized)
+                        .font(.headline)
+                        .foregroundColor(.secondary)
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .accessibilityLabel(LocalizationKeys.General.noCardsAvailable.localized)
             } else {
                 ZStack {
                     ForEach(visibleCards) { card in

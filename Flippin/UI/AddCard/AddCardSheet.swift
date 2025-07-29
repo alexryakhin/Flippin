@@ -48,7 +48,7 @@ struct AddCardSheet: View {
         }
         .background(Color(.systemGroupedBackground))
         .navigation(
-            title: LocalizationKeys.addNewCard.localized,
+            title: LocalizationKeys.Card.addNewCard.localized,
             mode: .inline,
             trailingContent: {
                 Button {
@@ -77,7 +77,7 @@ struct AddCardSheet: View {
             viewModel.createCard()
             dismiss()
         } label: {
-            Text(LocalizationKeys.save.localized)
+            Text(LocalizationKeys.General.save.localized)
                 .font(.headline)
                 .foregroundStyle(colorManager.borderedProminentForegroundColor)
                 .frame(maxWidth: .infinity)
@@ -97,13 +97,13 @@ struct AddCardSheet: View {
             header: languageManager.userLanguage.displayName,
             backgroundStyle: .standard
         ) {
-            TextField(LocalizationKeys.enterTextInYourLanguage.localized, text: $viewModel.nativeText, axis: .vertical)
+            TextField(LocalizationKeys.Card.enterTextInYourLanguage.localized, text: $viewModel.nativeText, axis: .vertical)
                 .autocapitalization(.sentences)
                 .focused($isUserLanguageTextFieldFocused)
                 .clippedWithPaddingAndBackground(colorManager.tintColor.opacity(0.1))
         } trailingContent: {
             if isUserLanguageTextFieldFocused {
-                SectionHeaderButton(LocalizationKeys.done.localized) {
+                SectionHeaderButton(LocalizationKeys.General.done.localized) {
                     UIApplication.shared.endEditing()
                 }
             }
@@ -116,7 +116,7 @@ struct AddCardSheet: View {
             backgroundStyle: .standard
         ) {
             TextField(
-                LocalizationKeys.translationWillAppearHere.localized,
+                LocalizationKeys.Card.translationWillAppearHere.localized,
                 text: $viewModel.targetText,
                 axis: .vertical
             )
@@ -126,7 +126,7 @@ struct AddCardSheet: View {
             .shimmering(when: viewModel.isTranslating)
         } trailingContent: {
             if isTargetLanguageTextFieldFocused {
-                SectionHeaderButton(LocalizationKeys.done.localized) {
+                SectionHeaderButton(LocalizationKeys.General.done.localized) {
                     UIApplication.shared.endEditing()
                 }
             }
@@ -135,7 +135,7 @@ struct AddCardSheet: View {
 
     private var tagsSection: some View {
         CustomSectionView(
-            header: LocalizationKeys.tagsCount.localized(with: viewModel.selectedTags.count),
+            header: LocalizationKeys.Tag.tagsCount.localized(with: viewModel.selectedTags.count),
             backgroundStyle: .standard
         ) {
             if !viewModel.availableTags.isEmpty {
@@ -156,7 +156,7 @@ struct AddCardSheet: View {
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
             } else {
-                Text(LocalizationKeys.noTagsAvailableAddInSettings.localized)
+                Text(LocalizationKeys.Tag.noTagsAvailableAddInSettings.localized)
                     .foregroundStyle(.secondary)
                     .font(.caption)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -166,16 +166,16 @@ struct AddCardSheet: View {
 
     private var notesSection: some View {
         CustomSectionView(
-            header: LocalizationKeys.notes.localized,
+            header: LocalizationKeys.Card.notes.localized,
             backgroundStyle: .standard
         ) {
-            TextField(LocalizationKeys.addNotesOptional.localized, text: $viewModel.notes, axis: .vertical)
+            TextField(LocalizationKeys.Card.addNotesOptional.localized, text: $viewModel.notes, axis: .vertical)
                 .autocapitalization(.sentences)
                 .focused($isNotesTextFieldFocused)
                 .clippedWithPaddingAndBackground(colorManager.tintColor.opacity(0.1))
         } trailingContent: {
             if isNotesTextFieldFocused {
-                SectionHeaderButton(LocalizationKeys.done.localized) {
+                SectionHeaderButton(LocalizationKeys.General.done.localized) {
                     UIApplication.shared.endEditing()
                 }
             }

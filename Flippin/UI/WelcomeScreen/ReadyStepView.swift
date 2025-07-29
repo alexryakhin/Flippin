@@ -46,13 +46,13 @@ extension WelcomeSheet {
                         .animation(.easeInOut(duration: 0.5).delay(0.2), value: animateContent)
 
                         VStack(spacing: 16) {
-                            Text(LocalizationKeys.readyToStart.localized)
+                            Text(LocalizationKeys.Welcome.readyToStart.localized)
                                 .font(.system(size: 28, weight: .bold, design: .rounded))
                                 .multilineTextAlignment(.center)
                                 .offset(y: animateContent ? 0 : 20)
                                 .opacity(animateContent ? 1 : 0)
 
-                            Text(LocalizationKeys.readyToStartDesc.localized)
+                            Text(LocalizationKeys.Welcome.readyToStartDesc.localized)
                                 .font(.body)
                                 .foregroundColor(.secondary)
                                 .multilineTextAlignment(.center)
@@ -68,21 +68,21 @@ extension WelcomeSheet {
                     VStack(spacing: 16) {
                         FinalFeatureRow(
                             icon: "plus.circle.fill",
-                            text: LocalizationKeys.finalFeatureAdd.localized,
+                            text: LocalizationKeys.Welcome.finalFeatureAdd.localized,
                             animateContent: animateContent,
                             delay: 0.7
                         )
 
                         FinalFeatureRow(
                             icon: "play.circle.fill",
-                            text: LocalizationKeys.finalFeaturePractice.localized,
+                            text: LocalizationKeys.Welcome.finalFeaturePractice.localized,
                             animateContent: animateContent,
                             delay: 0.9
                         )
 
                         FinalFeatureRow(
                             icon: "chart.line.uptrend.xyaxis.circle.fill",
-                            text: LocalizationKeys.finalFeatureProgress.localized,
+                            text: LocalizationKeys.Welcome.finalFeatureProgress.localized,
                             animateContent: animateContent,
                             delay: 1.1
                         )
@@ -96,7 +96,7 @@ extension WelcomeSheet {
                         HapticService.shared.buttonTapped()
                         onContinue()
                     } label: {
-                        Text(LocalizationKeys.getStarted.localized)
+                        Text(LocalizationKeys.Welcome.getStarted.localized)
                             .font(.headline)
                             .frame(maxWidth: .infinity)
                             .padding(vertical: 12, horizontal: 16)

@@ -133,7 +133,7 @@ struct CardFrontView: View {
 
                 Spacer()
 
-                Text(LocalizationKeys.showAnswer.localized)
+                Text(LocalizationKeys.Card.flip.localized)
                     .font(.footnote)
                     .foregroundStyle(.secondary)
             }

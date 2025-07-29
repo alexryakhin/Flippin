@@ -110,7 +110,7 @@ struct CardRowView: View {
                 HapticService.shared.swipeAction()
                 onDelete()
             } label: {
-                Label(LocalizationKeys.delete.localized, systemImage: "trash")
+                Label(LocalizationKeys.General.delete.localized, systemImage: "trash")
             }
             .tint(.red)
         }
@@ -120,7 +120,7 @@ struct CardRowView: View {
                 HapticService.shared.swipeAction()
                 onEdit()
             } label: {
-                Label(LocalizationKeys.edit.localized, systemImage: "pencil")
+                Label(LocalizationKeys.General.edit.localized, systemImage: "pencil")
             }
         }
         .onTapGesture {
@@ -144,13 +144,13 @@ struct CardRowView: View {
                 HapticService.shared.buttonTapped()
                 onEdit()
             } label: {
-                Label(LocalizationKeys.edit.localized, systemImage: "pencil")
+                Label(LocalizationKeys.General.edit.localized, systemImage: "pencil")
             }
             Button {
                 HapticService.shared.buttonTapped()
                 onDelete()
             } label: {
-                Label(LocalizationKeys.delete.localized, systemImage: "trash")
+                Label(LocalizationKeys.General.delete.localized, systemImage: "trash")
             }
             .tint(.red)
         }

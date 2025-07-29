@@ -16,12 +16,15 @@ extension StudyMode {
         
         var body: some View {
             VStack(spacing: 24) {
+                // Instructions
+                VStack(spacing: 4) {
+                    Text(LocalizationKeys.Study.selectCorrectTranslation.localized)
+                        .font(.title2)
+                        .fontWeight(.bold)
+                }
+                
                 // Question
                 VStack(spacing: 16) {
-                    Text("Select the correct translation")
-                        .font(.headline)
-                        .multilineTextAlignment(.center)
-
                     Text(card.frontText.orEmpty)
                         .font(.title2)
                         .fontWeight(.semibold)

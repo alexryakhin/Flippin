@@ -42,9 +42,9 @@ extension DetailedAnalytics {
 
         private var personalizedInsightsSection: some View {
             let insights = analyticsService.getPersonalizedInsights(for: selectedTimeRange)
-            
+
             return CustomSectionView(
-                header: "Personalized Insights",
+                header: LocalizationKeys.Analytics.personalizedInsights.localized,
                 backgroundStyle: .standard
             ) {
                 if insights.isEmpty {
@@ -52,7 +52,7 @@ extension DetailedAnalytics {
                         Image(systemName: "lightbulb")
                             .font(.title2)
                             .foregroundColor(.secondary)
-                        Text("No insights available yet")
+                        Text(LocalizationKeys.Analytics.noInsightsAvailableYet.localized)
                             .font(.caption)
                             .foregroundColor(.secondary)
                     }
@@ -74,9 +74,9 @@ extension DetailedAnalytics {
 
         private var recommendationsSection: some View {
             let recommendations = analyticsService.getPersonalizedRecommendations()
-            
+
             return CustomSectionView(
-                header: "Recommendations",
+                header: LocalizationKeys.Analytics.recommendations.localized,
                 backgroundStyle: .standard
             ) {
                 if recommendations.isEmpty {
@@ -84,7 +84,7 @@ extension DetailedAnalytics {
                         Image(systemName: "checkmark.circle")
                             .font(.title2)
                             .foregroundColor(.secondary)
-                        Text("No recommendations at this time")
+                        Text(LocalizationKeys.Analytics.noRecommendationsAtThisTime.localized)
                             .font(.caption)
                             .foregroundColor(.secondary)
                     }
@@ -108,26 +108,26 @@ extension DetailedAnalytics {
         }
 
         private var learningTipsSection: some View {
-            CustomSectionView(
-                header: "Learning Tips",
+            return CustomSectionView(
+                header: LocalizationKeys.Analytics.learningTips.localized,
                 backgroundStyle: .standard
             ) {
                 VStack(spacing: 12) {
                     TipCard(
-                        title: "Spaced Repetition",
-                        description: "Review cards at increasing intervals for better retention.",
+                        title: LocalizationKeys.Analytics.spacedRepetition.localized,
+                        description: LocalizationKeys.Analytics.spacedRepetitionDescription.localized,
                         icon: "clock.arrow.circlepath"
                     )
 
                     TipCard(
-                        title: "Active Recall",
-                        description: "Try to recall the answer before flipping the card.",
+                        title: LocalizationKeys.Analytics.activeRecall.localized,
+                        description: LocalizationKeys.Analytics.activeRecallDescription.localized,
                         icon: "brain.head.profile"
                     )
 
                     TipCard(
-                        title: "Context Learning",
-                        description: "Learn words in phrases rather than isolation.",
+                        title: LocalizationKeys.Analytics.contextLearning.localized,
+                        description: LocalizationKeys.Analytics.contextLearningDescription.localized,
                         icon: "text.bubble"
                     )
                 }
@@ -136,34 +136,26 @@ extension DetailedAnalytics {
         
         private func handleRecommendationAction(_ recommendation: PersonalizedRecommendation) {
             switch recommendation.action {
-            case "Study Now":
-                // Navigate to study mode
-                print("🎯 Starting study session from recommendation")
-                // In a real app, this would trigger navigation to study mode
-                break
-            case "Start Review":
-                // Apply difficult filter and navigate to card stack
-                tagManager.isDifficultFilterOn = true
-                tagManager.selectedFilterTag = nil
-                tagManager.isFavoriteFilterOn = false
-                // Switch to stack tab and dismiss the analytics sheet
-                print("🎯 Applied difficult filter and navigating to card stack")
-                onDismiss()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
-                    navigationManager.switchToTab(.stack)
-                })
-            case "Browse Collections":
-                // Present PresetCollectionsView
-                showingPresetCollections = true
-            case "Practice Mode":
-                // Navigate to practice mode
-                print("🎯 Starting practice mode")
+            case .studyNow:
                 onDismiss()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
                     navigationManager.switchToTab(.study)
                 })
-            default:
-                print("🎯 Unknown recommendation action: \(recommendation.action)")
+            case .startReview:
+                tagManager.isDifficultFilterOn = true
+                tagManager.selectedFilterTag = nil
+                tagManager.isFavoriteFilterOn = false
+                onDismiss()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+                    navigationManager.switchToTab(.stack)
+                })
+            case .browseCollections:
+                showingPresetCollections = true
+            case .practiceMode:
+                onDismiss()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+                    navigationManager.switchToTab(.study)
+                })
             }
         }
     }
@@ -201,7 +193,7 @@ extension DetailedAnalytics {
     struct RecommendationCard: View {
         let title: String
         let description: String
-        let action: String
+        let action: PersonalizedRecommendation.Action
         let color: Color
         let onAction: () -> Void
 
@@ -216,7 +208,7 @@ extension DetailedAnalytics {
                     .foregroundColor(.secondary)
 
                 Button(action: onAction) {
-                    Text(action)
+                    Text(action.name)
                         .font(.caption)
                         .foregroundColor(color)
                         .padding(.horizontal, 12)

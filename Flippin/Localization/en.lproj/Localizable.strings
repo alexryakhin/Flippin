@@ -49,7 +49,7 @@
 "noCardsForLanguagePair" = "No cards for this pair of languages";
 
 // MARK: - Card Views
-"showAnswer" = "Show answer";
+"flip" = "Flip";
 "tapToGoBack" = "Tap to go back";
 
 // MARK: - Tag Management
@@ -174,6 +174,276 @@
 "shuffle" = "Shuffle";
 "addCardLabel" = "Add card";
 
+// MARK: - Navigation
+"stack" = "Stack";
+"list" = "List";
+"study" = "Study";
+"analytics" = "Analytics";
+"settings" = "Settings";
+
+// MARK: - Card Management
+"noDifficultCards" = "No Difficult Cards";
+"noDifficultCardsDescription" = "You don't have any cards marked as difficult yet. Study more cards to see difficulty levels.";
+"difficultCards" = "Difficult Cards";
+"failedToCreateCard" = "Failed to create card: %@";
+
+// MARK: - Study
+"study" = "Study";
+"studyMode" = "Study Mode";
+"quickStats" = "Quick Stats";
+"studyOptions" = "Study Options";
+"recentActivity" = "Recent Activity";
+"totalCards" = "Total Cards";
+"mastered" = "Mastered";
+"difficultCards" = "Difficult Cards";
+"studyTimeToday" = "Study Time Today";
+"startStudySession" = "Start Study Session (10 cards)";
+"practiceAllCards" = "Practice All Cards (%d)";
+"practiceDifficultCards" = "Practice Difficult Cards (%d)";
+"multipleChoiceQuiz" = "Multiple Choice Quiz";
+"fillInTheBlank" = "Fill in the Blank (%d)";
+"unlockAllStudyModes" = "Unlock All Study Modes";
+"noStudyData" = "No Study Data";
+"startStudyingToSeeProgress" = "Start studying to see your progress!";
+"toCards" = "To cards";
+"totalStudyTime" = "Total Study Time";
+"averageSession" = "Average Session";
+"learningProgress" = "Learning Progress";
+"exit" = "Exit";
+"showAnswer" = "Show Answer";
+"incorrect" = "Incorrect";
+"correct" = "Correct";
+"studySessionComplete" = "Study Session Complete!";
+"accuracy" = "Accuracy";
+"cardsStudied" = "Cards Studied";
+"timeSpent" = "Time Spent";
+"studyAgain" = "Study Again";
+"done" = "Done";
+"selectCorrectTranslation" = "Select the correct translation";
+"fillInMissingWord" = "Fill in the missing word";
+"completeSentence" = "Complete the sentence";
+"chooseCorrectWord" = "Choose the correct word:";
+"correctAnswer" = "Correct Answer";
+"translateTo" = "Translate to %@";
+"studyProgress" = "%d of %d";
+
+// MARK: - Analytics
+"analytics" = "Analytics";
+"detailedAnalytics" = "Detailed Analytics";
+"today" = "Today";
+"noAnalyticsData" = "No Analytics Data";
+"startStudyingToSeeProgress" = "Start studying to see your learning progress!";
+"unlockAdvancedAnalytics" = "Unlock Advanced Analytics";
+"detailedProgressReports" = "Detailed Progress Reports";
+"detailedProgressReportsDescription" = "Track your learning patterns and improvement over time";
+"performanceInsights" = "Performance Insights";
+"performanceInsightsDescription" = "Get personalized recommendations to improve your study habits";
+"studyTimeAnalytics" = "Study Time Analytics";
+"studyTimeAnalyticsDescription" = "Analyze your study sessions and optimize your learning";
+"upgradeToPremium" = "Upgrade to Premium";
+"recentActivity" = "Recent Activity";
+"viewAll" = "View All";
+"noRecentActivity" = "No Recent Activity";
+"studySessionsWillAppearHere" = "Your study sessions will appear here";
+"lastStudySession" = "Last Study Session";
+"cardsStudiedToday" = "Cards Studied Today";
+"studyStreak" = "Study Streak";
+"totalStudyTime" = "Total Study Time";
+"cardsMastered" = "Cards Mastered";
+"todaysStudy" = "Today's Study";
+"time" = "Time";
+"cardsStudied" = "Cards Studied";
+"sessions" = "Sessions";
+"accuracy" = "Accuracy";
+"studyTime" = "Study Time";
+"timeRange" = "Time Range";
+"masteryProgress" = "Mastery Progress";
+"mastered" = "Mastered";
+"learning" = "Learning";
+"needsReview" = "Needs Review";
+"week" = "Week";
+"month" = "Month";
+"year" = "Year";
+"allTime" = "All Time";
+"overview" = "Overview";
+"performance" = "Performance";
+"progress" = "Progress";
+"insights" = "Insights";
+"noStudyDataAvailable" = "No study data available";
+
+// MARK: - Detailed Analytics
+"analyticsTab" = "Analytics Tab";
+"studyTimeTitle" = "Study Time";
+"cardsMasteredTitle" = "Cards Mastered";
+"studyStreakTitle" = "Study Streak";
+"averageSessionTitle" = "Average Session";
+"consecutiveDays" = "consecutive days";
+"perSession" = "per session";
+"studyPatterns" = "Study Patterns";
+"mostActiveTime" = "Most Active Time";
+"preferredSessionLength" = "Preferred Session Length";
+"studyFrequency" = "Study Frequency";
+"languageProgress" = "Language Progress";
+"collectionSize" = "Collection Size";
+"cards" = "cards";
+"achievements" = "Achievements";
+"firstSteps" = "First Steps";
+"weekWarrior" = "Week Warrior";
+"masterLearner" = "Master Learner";
+"dedicated" = "Dedicated";
+"vocabularyMaster" = "Vocabulary Master";
+"timeMaster" = "Time Master";
+"accuracyTrends" = "Accuracy Trends";
+"sessionPerformance" = "Session Performance";
+"averageSessionDuration" = "Average Session Duration";
+"basedOnData" = "Based on %@ data";
+"cardsPerSession" = "Cards per Session";
+"average" = "Average";
+"sessionFrequency" = "Session Frequency";
+"cardDifficultyAnalysis" = "Card Difficulty Analysis";
+"noDifficultyDataAvailable" = "No difficulty data available";
+"learningSpeed" = "Learning Speed";
+"cardsPerHour" = "Cards per Hour";
+"vsAverage" = "vs. Average";
+"masteryTimeline" = "Mastery Timeline";
+"vocabularyGrowth" = "Vocabulary Growth";
+"totalVocabulary" = "Total Vocabulary";
+"thisWeek" = "This Week";
+"thisMonth" = "This Month";
+"thisYear" = "This Year";
+"learningMilestones" = "Learning Milestones";
+"personalizedInsights" = "Personalized Insights";
+"noInsightsAvailableYet" = "No insights available yet";
+"recommendations" = "Recommendations";
+"noRecommendationsAtThisTime" = "No recommendations at this time";
+"learningTips" = "Learning Tips";
+"spacedRepetition" = "Spaced Repetition";
+"spacedRepetitionDescription" = "Review cards at increasing intervals for better retention.";
+"activeRecall" = "Active Recall";
+"activeRecallDescription" = "Try to recall the answer before flipping the card.";
+"contextLearning" = "Context Learning";
+"contextLearningDescription" = "Learn words in phrases rather than isolation.";
+"studyNow" = "Study Now";
+"startReview" = "Start Review";
+"browseCollections" = "Browse Collections";
+"practiceMode" = "Practice Mode";
+
+// MARK: - Learning Analytics Service
+"notEnoughData" = "Not enough data";
+"morning" = "Morning (6-12 AM)";
+"afternoon" = "Afternoon (12-5 PM)";
+"evening" = "Evening (5-9 PM)";
+"night" = "Night (9 PM-6 AM)";
+"under10Minutes" = "Under 10 minutes";
+"tenTo20Minutes" = "10-20 minutes";
+"twentyTo30Minutes" = "20-30 minutes";
+"thirtyTo60Minutes" = "30-60 minutes";
+"over60Minutes" = "Over 60 minutes";
+"onceThisWeek" = "Once this week";
+"fewTimesThisWeek" = "A few times this week";
+"mostDaysThisWeek" = "Most days this week";
+"daily" = "Daily";
+"veryEasy" = "Very Easy";
+"easy" = "Easy";
+"medium" = "Medium";
+"hard" = "Hard";
+"veryHard" = "Very Hard";
+"unknown" = "Unknown";
+"completedStudySession" = "Completed study session";
+"reviewedCardsInTime" = "Reviewed %d cards in %@";
+"recent" = "Recent";
+"reachedCardsMastered" = "Reached %d cards mastered";
+"greatProgressBuildingFoundation" = "Great progress! You're building a strong foundation.";
+"first10CardsMastered" = "First 10 cards mastered";
+"sevenDayStudyStreak" = "7-day study streak";
+"fiftyCardsMastered" = "50 cards mastered";
+"thirtyDayStudyStreak" = "30-day study streak";
+"completed" = "Completed";
+"inProgress" = "In progress";
+"youreMostProductiveIn" = "You're most productive in the %@";
+"studySessionsDuringThisTime" = "Your study sessions during this time show better focus and retention.";
+"optimalSessionLength" = "Optimal session length";
+"yourSessionsShowBestResults" = "Your %@ sessions show the best results.";
+"consistentLearningPattern" = "Consistent learning pattern";
+"yourStudyRoutineWorkingWell" = "Your %@ study routine is working well.";
+"improvingAccuracy" = "Improving accuracy";
+"recentAccuracyHigherThanBefore" = "Your recent accuracy is %d%% higher than before.";
+"focusOnAccuracy" = "Focus on accuracy";
+"recentAccuracyDecreased" = "Your recent accuracy has decreased. Consider reviewing difficult cards.";
+"excellentProgress" = "Excellent progress";
+"masteredVocabularyPercentage" = "You've mastered %d%% of your vocabulary!";
+"goodFoundation" = "Good foundation";
+"masteredVocabularyKeepGoing" = "You've mastered %d%% of your vocabulary. Keep going!";
+"reviewDifficultCards" = "Review difficult cards";
+"cardsNeedMorePractice" = "%d cards need more practice. Focus on these to improve accuracy.";
+"addMoreVocabulary" = "Add more vocabulary";
+"masteredMostCurrentCards" = "You've mastered most of your current cards. Ready for new challenges!";
+"extendYourStreak" = "Extend your streak";
+"daysAwayFromAchievement" = "You're %d days away from a new achievement!";
+"buildConsistency" = "Build consistency";
+"tryToStudyDaily" = "Try to study daily to build a strong learning habit.";
+"improveAccuracy" = "Improve accuracy";
+"accuracyPercentageFocusQuality" = "Your accuracy is %d%%. Focus on quality over speed.";
+
+// MARK: - Settings
+"previewBackgrounds" = "Preview Backgrounds";
+"subscriptionStatus" = "Subscription Status";
+"activeSubscription" = "Active Subscription";
+"manageSubscription" = "Manage Subscription";
+"purchaseTesting" = "Purchase Testing";
+"testInAppPurchases" = "Test in-app purchases and get transaction IDs";
+"openPurchaseTest" = "Open Purchase Test";
+"testPurchase" = "Test Purchase";
+"performTestPurchase" = "Perform a test purchase to get transaction ID";
+"transactionListenerActive" = "Transaction listener active";
+"transactionListenerNotActive" = "Transaction listener not active";
+"startTestPurchase" = "Start Test Purchase";
+"lastTransactionId" = "Last Transaction ID";
+"transactionId" = "Transaction ID:";
+"copyToClipboard" = "Copy to Clipboard";
+"copied" = "Copied!";
+"transactionIdCopied" = "Transaction ID copied to clipboard";
+"availableProducts" = "Available Products";
+"noProductsAvailable" = "No products available";
+"purchasedProducts" = "Purchased Products";
+"noProductsPurchasedYet" = "No products purchased yet";
+"purchased" = "Purchased";
+"transactionHistory" = "Transaction History";
+"loadTransactionHistory" = "Load Transaction History";
+"restorePurchases" = "Restore Purchases";
+"success" = "Success";
+"failed" = "Failed";
+"purchasesRestoredSuccessfully" = "Purchases restored successfully";
+"failedToRestorePurchases" = "Failed to restore purchases";
+"purchaseTestingTitle" = "Purchase Testing";
+"ok" = "OK";
+"testPurchaseCompleted" = "Test purchase completed! Transaction ID: %@";
+"testPurchaseFailed" = "Test purchase failed: %@";
+"purchaseCompleted" = "Purchase completed! Transaction ID: %@";
+"purchaseFailed" = "Purchase failed: %@";
+"unknown" = "Unknown";
+"unknownError" = "Unknown error";
+"product" = "Product: %@";
+"date" = "Date: %@";
+
+// MARK: - Paywall
+"upgradeToPremiumTitle" = "Upgrade to Premium";
+"upgradeToPremiumMessage" = "Upgrade to premium to unlock all features!";
+"cancel" = "Cancel";
+"viewOptions" = "View Options";
+"unlimitedCardsTitle" = "Unlimited Cards";
+"unlimitedCardsMessage" = "Upgrade to premium to create unlimited cards and unlock all features!";
+"advancedAnalyticsTitle" = "Advanced Analytics";
+"advancedAnalyticsMessage" = "Get detailed learning insights, progress charts, and performance analytics with premium!";
+"customThemesTitle" = "Custom Themes";
+"customThemesMessage" = "Unlock beautiful custom themes and backgrounds with premium!";
+"languageChangeTitle" = "Language Change";
+"languageChangeMessage" = "Choose from over 15 languages to enhance your learning experience with premium!";
+"cardPresetsTitle" = "Card Presets";
+"cardPresetsMessage" = "Explore a vast collection of pre-designed card presets with premium!";
+"studyModesTitle" = "Study Modes";
+"studyModesMessage" = "Access advanced study modes and learning techniques with premium!";
+
 // MARK: - Search
 "searchCards" = "Search cards...";
 
@@ -214,10 +484,10 @@
 "galaxy" = "Galaxy";
 
 // MARK: - Card Limits
-"cardLimitExceeded" = "Card Limit Reached";
-"upgradeToPremium" = "Upgrade to Premium";
-"cardsRemaining" = "Cards Remaining";
 "cardsUsedOfLimit" = "%d of %d cards";
+"cardLimitExceeded" = "Card limit exceeded. You have %d cards out of %d allowed. Upgrade to premium for unlimited cards.";
+"freeUsersLimitedTo" = "Free users are limited to %d cards";
+"purchaseUnlimitedCards" = "Purchase unlimited cards to add more cards to your collection";
 "upgrade" = "Upgrade";
 "unlimitedCards" = "Unlimited Cards";
 
@@ -226,3 +496,17 @@
 "subscriptionStatus" = "Subscription Status";
 "activeSubscription" = "Active Subscription";
 "manageSubscription" = "Manage Subscription";
+
+"done" = "Done";
+"cancel" = "Cancel";
+"delete" = "Delete";
+"edit" = "Edit";
+"save" = "Save";
+"searchCards" = "Search cards...";
+"noCardsAvailable" = "No cards available";
+"noAccuracyDataAvailable" = "No accuracy data available";
+"noGrowthDataAvailable" = "No growth data available";
+"date" = "Date";
+"accuracy" = "Accuracy";
+"masteredCards" = "Mastered Cards";
+"invalidJSON" = "JSON data is invalid";

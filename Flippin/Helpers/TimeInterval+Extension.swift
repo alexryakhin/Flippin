@@ -44,4 +44,16 @@ extension TimeInterval {
         formatter.zeroFormattingBehavior = .dropLeading
         return formatter.string(from: self) ?? "0 seconds"
     }
+    
+    /// Format day count with proper localization (e.g., "1 day", "2 days")
+    static func formatDayCount(_ days: Int) -> String {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.day]
+        formatter.unitsStyle = .full
+        formatter.zeroFormattingBehavior = .dropLeading
+        
+        // Convert days to TimeInterval (seconds)
+        let timeInterval = TimeInterval(days * 24 * 60 * 60)
+        return formatter.string(from: timeInterval) ?? "\(days) days"
+    }
 } 

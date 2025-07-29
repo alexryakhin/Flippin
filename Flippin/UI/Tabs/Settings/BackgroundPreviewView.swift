@@ -10,7 +10,7 @@ struct BackgroundPreviewView: View {
                 GridItem(.flexible(), spacing: 16),
                 GridItem(.flexible(), spacing: 16)
             ], spacing: 16) {
-                ForEach(BackgroundStyle.allCases, id: \.self) { style in
+                ForEach(BgStyle.allCases, id: \.self) { style in
                     BackgroundPreviewCard(
                         style: style,
                         isSelected: colorManager.backgroundStyle == style
@@ -24,7 +24,7 @@ struct BackgroundPreviewView: View {
         }
         .background(Color(.systemGroupedBackground))
         .navigation(
-            title: LocalizationKeys.backgroundStyles.localized,
+            title: LocalizationKeys.Settings.backgroundStyles.localized,
             mode: .inline,
             trailingContent: {
                 Button {
@@ -47,7 +47,7 @@ struct BackgroundPreviewView: View {
 struct BackgroundPreviewCard: View {
     @StateObject private var colorManager = ColorManager.shared
 
-    let style: BackgroundStyle
+    let style: BgStyle
     let isSelected: Bool
     let onTap: () -> Void
 

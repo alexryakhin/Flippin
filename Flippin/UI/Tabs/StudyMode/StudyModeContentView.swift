@@ -68,8 +68,8 @@ enum StudyMode: Int, Identifiable, Hashable {
             .background {
                 AnimatedBackground(style: colorManager.backgroundStyle)
             }
-            .navigation(title: "Study Mode", mode: .inline, clipMode: .rectangle, trailingContent: {
-                Button("Exit") {
+            .navigation(title: LocalizationKeys.Study.studyMode.localized, mode: .inline, clipMode: .rectangle, trailingContent: {
+                Button(LocalizationKeys.Study.exit.localized) {
                     HapticService.shared.buttonTapped()
                     endStudySession()
                     analyticsService.refreshAnalytics()
@@ -81,7 +81,7 @@ enum StudyMode: Int, Identifiable, Hashable {
             }, bottomContent: {
                 HStack(spacing: 8) {
                     // Progress text
-                    Text("\(currentCardIndex + 1) of \(studyCards.count)")
+                    Text(LocalizationKeys.Study.studyProgress.localized(with: currentCardIndex + 1, studyCards.count))
                         .font(.subheadline)
                         .foregroundColor(.secondary)
 
@@ -156,7 +156,7 @@ enum StudyMode: Int, Identifiable, Hashable {
                 VStack(spacing: 16) {
                     if !showingAnswer {
                         // Show answer button
-                        Button("Show Answer") {
+                        Button(LocalizationKeys.Study.showAnswer.localized) {
                             withAnimation(.easeInOut(duration: 0.3)) {
                                 showingAnswer = true
                             }
@@ -166,14 +166,14 @@ enum StudyMode: Int, Identifiable, Hashable {
                     } else {
                         // Correct/Incorrect buttons
                         HStack(spacing: 16) {
-                            Button("Incorrect") {
+                            Button(LocalizationKeys.Study.incorrect.localized) {
                                 recordAnswer(wasCorrect: false)
                             }
                             .tint(.red)
                             .buttonStyle(.borderedProminent)
                             .clipShape(Capsule())
 
-                            Button("Correct") {
+                            Button(LocalizationKeys.Study.correct.localized) {
                                 recordAnswer(wasCorrect: true)
                             }
                             .tint(.green)
@@ -199,7 +199,7 @@ enum StudyMode: Int, Identifiable, Hashable {
                             .font(.system(size: 60))
                             .foregroundColor(.green)
 
-                        Text("Study Session Complete!")
+                        Text(LocalizationKeys.Study.studySessionComplete.localized)
                             .font(.title)
                             .fontWeight(.bold)
                             .multilineTextAlignment(.center)
@@ -209,21 +209,21 @@ enum StudyMode: Int, Identifiable, Hashable {
                     if let results = sessionResults {
                         VStack(spacing: 16) {
                             ResultStatRow(
-                                title: "Accuracy",
+                                title: LocalizationKeys.Study.accuracy.localized,
                                 value: results.accuracy.asPercentage,
                                 icon: "target",
                                 color: results.accuracy >= 0.8 ? .green : .orange
                             )
 
                             ResultStatRow(
-                                title: "Cards Studied",
+                                title: LocalizationKeys.Study.cardsStudied.localized,
                                 value: "\(results.totalCards)",
                                 icon: "rectangle.stack.fill",
                                 color: .blue
                             )
 
                             ResultStatRow(
-                                title: "Time Spent",
+                                title: LocalizationKeys.Study.timeSpent.localized,
                                 value: results.totalTime.formattedSessionTime,
                                 icon: "clock.fill",
                                 color: .purple
@@ -234,14 +234,14 @@ enum StudyMode: Int, Identifiable, Hashable {
 
                     // Action buttons
                     VStack(spacing: 12) {
-                        Button("Study Again") {
+                        Button(LocalizationKeys.Study.studyAgain.localized) {
                             setupStudySession()
                         }
                         .foregroundStyle(colorManager.borderedProminentForegroundColor)
                         .buttonStyle(.borderedProminent)
                         .clipShape(Capsule())
 
-                        Button("Done") {
+                        Button(LocalizationKeys.Study.done.localized) {
                             // Force refresh analytics data and notify UI
                             analyticsService.refreshAnalytics()
 

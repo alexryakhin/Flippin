@@ -108,7 +108,7 @@ final class AddCardSheetViewModel: ObservableObject {
             limitAlertMessage = error.localizedDescription
             showingLimitAlert = true
         } catch {
-            limitAlertMessage = "Failed to create card: \(error.localizedDescription)"
+            limitAlertMessage = LocalizationKeys.Card.failedToCreateCard.localized(with: error.localizedDescription)
             showingLimitAlert = true
         }
     }

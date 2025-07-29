@@ -217,25 +217,39 @@ final class CardsProvider: ObservableObject {
 // MARK: - Card Limit Error
 enum CardLimitError: LocalizedError {
     case limitExceeded(currentCount: Int, limit: Int, remainingCards: Int)
+    case freeUserLimit(Int)
+    case purchaseRequired
     
     var errorDescription: String? {
         switch self {
-        case .limitExceeded(let currentCount, let limit, let remainingCards):
-            return "Card limit exceeded. You have \(currentCount) cards out of \(limit) allowed. Upgrade to premium for unlimited cards."
+        case .limitExceeded(let currentCount, let limit, _):
+            return LocalizationKeys.Card.cardLimitExceeded.localized(with: currentCount, limit)
+        case .freeUserLimit(let limit):
+            return LocalizationKeys.Card.freeUsersLimitedTo.localized(with: limit)
+        case .purchaseRequired:
+            return LocalizationKeys.Card.purchaseUnlimitedCards.localized
         }
     }
     
     var failureReason: String? {
         switch self {
         case .limitExceeded(_, let limit, _):
-            return "Free users are limited to \(limit) cards"
+            return LocalizationKeys.Card.freeUsersLimitedTo.localized(with: limit)
+        case .freeUserLimit(let limit):
+            return LocalizationKeys.Card.freeUsersLimitedTo.localized(with: limit)
+        case .purchaseRequired:
+            return LocalizationKeys.Card.purchaseUnlimitedCards.localized
         }
     }
     
     var recoverySuggestion: String? {
         switch self {
         case .limitExceeded:
-            return "Purchase unlimited cards to add more cards to your collection"
+            return LocalizationKeys.Card.purchaseUnlimitedCards.localized
+        case .freeUserLimit:
+            return LocalizationKeys.Card.purchaseUnlimitedCards.localized
+        case .purchaseRequired:
+            return LocalizationKeys.Card.purchaseUnlimitedCards.localized
         }
     }
 }

@@ -66,17 +66,17 @@ extension PresetModel.Category {
 
     var displayTitle: String {
         switch self {
-        case .basics: return LocalizationKeys.categoryBasics.localized
-        case .travel: return LocalizationKeys.categoryTravel.localized
-        case .entertainment: return LocalizationKeys.categoryEntertainment.localized
-        case .food: return LocalizationKeys.categoryFood.localized
-        case .shopping: return LocalizationKeys.categoryShopping.localized
-        case .social: return LocalizationKeys.categorySocial.localized
-        case .weather: return LocalizationKeys.categoryWeather.localized
-        case .technology: return LocalizationKeys.categoryTechnology.localized
-        case .lifestyle: return LocalizationKeys.categoryLifestyle.localized
-        case .professional: return LocalizationKeys.categoryProfessional.localized
-        case .emergency: return LocalizationKeys.categoryEmergency.localized
+        case .basics: return LocalizationKeys.Presets.categoryBasics.localized
+        case .travel: return LocalizationKeys.Presets.categoryTravel.localized
+        case .entertainment: return LocalizationKeys.Presets.categoryEntertainment.localized
+        case .food: return LocalizationKeys.Presets.categoryFood.localized
+        case .shopping: return LocalizationKeys.Presets.categoryShopping.localized
+        case .social: return LocalizationKeys.Presets.categorySocial.localized
+        case .weather: return LocalizationKeys.Presets.categoryWeather.localized
+        case .technology: return LocalizationKeys.Presets.categoryTechnology.localized
+        case .lifestyle: return LocalizationKeys.Presets.categoryLifestyle.localized
+        case .professional: return LocalizationKeys.Presets.categoryProfessional.localized
+        case .emergency: return LocalizationKeys.Presets.categoryEmergency.localized
         }
     }
 }

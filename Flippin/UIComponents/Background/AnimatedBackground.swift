@@ -8,7 +8,7 @@ import SwiftUI
 
 struct AnimatedBackground: View {
 
-    let style: BackgroundStyle
+    let style: BgStyle
 
     var body: some View {
         ZStack {

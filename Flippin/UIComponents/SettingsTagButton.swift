@@ -13,7 +13,7 @@ struct SettingsTagButton: View {
     var body: some View {
         Menu {
             Button(role: .destructive, action: onDelete) {
-                Label(LocalizationKeys.delete.localized, systemImage: "trash")
+                Label(LocalizationKeys.General.delete.localized, systemImage: "trash")
             }
         } label: {
             Text(title)

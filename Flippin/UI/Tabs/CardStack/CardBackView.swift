@@ -129,7 +129,7 @@ struct CardBackView: View {
 
                 Spacer()
 
-                Text(LocalizationKeys.tapToGoBack.localized)
+                Text(LocalizationKeys.Card.tapToGoBack.localized)
                     .font(.footnote)
                     .foregroundStyle(.secondary)
             }

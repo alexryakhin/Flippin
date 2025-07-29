@@ -13,7 +13,7 @@ final class ColorManager: ObservableObject {
 
     // MARK: - Public properties
 
-    @Published var backgroundStyle: BackgroundStyle = .gradient
+    @Published var backgroundStyle: BgStyle = .gradient
     @Published var userColor: Color = .blue
     @Published var userColorSchemePreference: ColorSchemeInternal = .system
 
@@ -38,7 +38,7 @@ final class ColorManager: ObservableObject {
     private init() {
         // Initialize all values from UserDefaults using the new extension
         let savedRGBA: RGBAColor = UserDefaults.standard.getCodable(RGBAColor.self, forKey: UserDefaultsKey.userColor, default: .blue)
-        let savedBackgroundStyle: BackgroundStyle = UserDefaults.standard.getCodable(BackgroundStyle.self, forKey: UserDefaultsKey.backgroundStyle, default: .gradient)
+        let savedBackgroundStyle: BgStyle = UserDefaults.standard.getCodable(BgStyle.self, forKey: UserDefaultsKey.backgroundStyle, default: .gradient)
         let savedColorSchemePreference: ColorSchemeInternal = UserDefaults.standard.getCodable(ColorSchemeInternal.self, forKey: UserDefaultsKey.colorSchemePreference, default: .system)
 
         self.tintColor = savedRGBA.notTransparentColor

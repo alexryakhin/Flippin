@@ -3,6 +3,7 @@ import StoreKit
 
 typealias SKTransaction = StoreKit.Transaction
 
+#if DEBUG
 struct PurchaseTestView: View {
     @StateObject private var purchaseService = PurchaseService.shared
     @State private var showingAlert = false
@@ -288,3 +289,4 @@ struct TransactionRowView: View {
         .padding(.vertical, 4)
     }
 }
+#endif

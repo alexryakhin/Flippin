@@ -68,7 +68,7 @@ final class PresetCollectionService: ObservableObject {
             let targetLanguageData = try loadPresetCollection(for: languageManager.targetLanguage)
 
             guard targetLanguageData.presets.count == userLanguageData.presets.count else {
-                throw AppError.invalidJSONData
+                throw AppError.invalidJSON
             }
 
             collections = zip(userLanguageData.presets, targetLanguageData.presets).map { userData, targetData in

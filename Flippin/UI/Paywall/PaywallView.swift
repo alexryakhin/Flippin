@@ -14,13 +14,13 @@ enum Paywall {
                 VStack(spacing: 32) {
                     // Header with subtle animation
                     VStack(spacing: 12) {
-                        Text(LocalizationKeys.unlockPremium.localized)
+                        Text(LocalizationKeys.Paywall.unlockPremium.localized)
                             .font(.system(size: 34, weight: .bold, design: .rounded))
                             .foregroundColor(.primary)
                             .scaleEffect(isAnimating ? 1.0 : 0.95)
                             .animation(.easeOut(duration: 0.6), value: isAnimating)
 
-                        Text(LocalizationKeys.masterLanguageLearning.localized)
+                        Text(LocalizationKeys.Paywall.masterLanguageLearning.localized)
                             .font(.system(size: 18, weight: .medium, design: .rounded))
                             .foregroundColor(.secondary)
                             .multilineTextAlignment(.center)
@@ -28,7 +28,7 @@ enum Paywall {
 
                         // Progress indicator with gradient
                         VStack(spacing: 10) {
-                            Text(LocalizationKeys.usedCardsOfLimit.localized(with: cardsProvider.cards.count, cardsProvider.cardLimit))
+                            Text(LocalizationKeys.Paywall.usedCardsOfLimit.localized(with: cardsProvider.cards.count, cardsProvider.cardLimit))
                                 .font(.system(size: 14, weight: .medium, design: .rounded))
                                 .foregroundColor(.secondary)
 
@@ -48,7 +48,7 @@ enum Paywall {
 
                     // Features with glassmorphism cards
                     VStack(spacing: 12) {
-                        Text(LocalizationKeys.whatYouGetWithPremium.localized)
+                        Text(LocalizationKeys.Paywall.whatYouGetWithPremium.localized)
                             .font(.system(size: 24, weight: .semibold, design: .rounded))
                             .foregroundColor(.primary)
 
@@ -87,7 +87,7 @@ enum Paywall {
                             await restorePurchases()
                         }
                     }) {
-                        Text(LocalizationKeys.restorePurchases.localized)
+                        Text(LocalizationKeys.Paywall.restorePurchases.localized)
                             .font(.system(size: 14, weight: .medium, design: .rounded))
                             .foregroundColor(.secondary)
                             .padding(.vertical, 8)
@@ -102,13 +102,13 @@ enum Paywall {
 
                     // Footer with links
                     VStack(spacing: 8) {
-                        Text(LocalizationKeys.cancelAnytime.localized)
+                        Text(LocalizationKeys.Paywall.cancelAnytime.localized)
                             .font(.system(size: 12, weight: .regular, design: .rounded))
                             .foregroundColor(.secondary)
 
                         HStack(spacing: 20) {
-                            Link(LocalizationKeys.terms.localized, destination: URL(string: "https://example.com/terms")!)
-                            Link(LocalizationKeys.privacy.localized, destination: URL(string: "https://example.com/privacy")!)
+                            Link(LocalizationKeys.Paywall.terms.localized, destination: URL(string: "https://example.com/terms")!)
+                            Link(LocalizationKeys.Paywall.privacy.localized, destination: URL(string: "https://example.com/privacy")!)
                         }
                         .font(.system(size: 12, weight: .regular, design: .rounded))
                         .foregroundColor(.secondary.opacity(0.8))
@@ -123,7 +123,7 @@ enum Paywall {
                     .ignoresSafeArea()
             )
             .navigation(
-                title: LocalizationKeys.goPremium.localized,
+                title: LocalizationKeys.Paywall.goPremium.localized,
                 mode: .inline,
                 trailingContent: {
                     Button {
@@ -166,10 +166,10 @@ enum Paywall {
         // Feature data
         private var features: [FeatureModel] {
             [
-                FeatureModel(icon: "infinity", title: LocalizationKeys.unlimitedCards.localized, description: LocalizationKeys.unlimitedCardsDescription.localized),
-                FeatureModel(icon: "folder.fill", title: LocalizationKeys.collections.localized, description: LocalizationKeys.collectionsDescription.localized),
-                FeatureModel(icon: "sparkles", title: LocalizationKeys.premiumBackgrounds.localized, description: LocalizationKeys.premiumBackgroundsDescription.localized),
-                FeatureModel(icon: "globe", title: LocalizationKeys.changeLanguages.localized, description: LocalizationKeys.changeLanguagesDescription.localized)
+                FeatureModel(icon: "infinity", title: LocalizationKeys.Paywall.unlimitedCards.localized, description: LocalizationKeys.Paywall.unlimitedCardsDescription.localized),
+                FeatureModel(icon: "folder.fill", title: LocalizationKeys.Paywall.collections.localized, description: LocalizationKeys.Paywall.collectionsDescription.localized),
+                FeatureModel(icon: "sparkles", title: LocalizationKeys.Paywall.premiumBackgrounds.localized, description: LocalizationKeys.Paywall.premiumBackgroundsDescription.localized),
+                FeatureModel(icon: "globe", title: LocalizationKeys.Paywall.changeLanguages.localized, description: LocalizationKeys.Paywall.changeLanguagesDescription.localized)
             ]
         }
     }

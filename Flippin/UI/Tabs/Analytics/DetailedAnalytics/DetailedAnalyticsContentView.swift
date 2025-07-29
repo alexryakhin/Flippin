@@ -14,13 +14,13 @@ enum DetailedAnalytics {
         var title: String {
             switch self {
             case .overview:
-                return "Overview"
+                return LocalizationKeys.Analytics.overview.localized
             case .performance:
-                return "Performance"
+                return LocalizationKeys.Analytics.performance.localized
             case .progress:
-                return "Progress"
+                return LocalizationKeys.Analytics.progress.localized
             case .insights:
-                return "Insights"
+                return LocalizationKeys.Analytics.insights.localized
             }
         }
     }
@@ -32,7 +32,7 @@ enum DetailedAnalytics {
         @StateObject private var colorManager = ColorManager.shared
 
         @State private var selectedTab = Tab.overview
-        @State private var selectedTimeRange: TimeRange = .month
+        @State private var selectedTimeRange: TimeRange = .week
 
         var body: some View {
             VStack(spacing: 0) {
@@ -47,14 +47,14 @@ enum DetailedAnalytics {
                 }
             }
             .navigation(
-                title: "Detailed Analytics",
+                title: LocalizationKeys.Analytics.detailedAnalytics.localized,
                 mode: .inline,
                 clipMode: .rectangle,
                 trailingContent: {
                     HStack {
-                        Picker("Time Range", selection: $selectedTimeRange) {
+                        Picker(LocalizationKeys.Analytics.timeRange.localized, selection: $selectedTimeRange) {
                             ForEach(TimeRange.allCases, id: \.self) { range in
-                                Text(range.rawValue).tag(range)
+                                Text(range.name).tag(range)
                             }
                         }
                         .pickerStyle(.menu)
@@ -64,7 +64,7 @@ enum DetailedAnalytics {
                     }
                 },
                 bottomContent: {
-                    Picker("Analytics Tab", selection: $selectedTab) {
+                    Picker(LocalizationKeys.Analytics.analyticsTab.localized, selection: $selectedTab) {
                         ForEach(Tab.allCases, id: \.self) { tab in
                             Text(tab.title)
                         }

@@ -140,7 +140,7 @@ struct MyCardsListView: View {
             view.frame(maxWidth: 500, alignment: .center)
         }
         .navigation(
-            title: LocalizationKeys.myCards.localized,
+            title: LocalizationKeys.Navigation.myCards.localized,
             mode: .large,
             clipMode: .rectangle,
             trailingContent: {
@@ -157,7 +157,7 @@ struct MyCardsListView: View {
             bottomContent: {
                 VStack(spacing: 8) {
                     InputView.searchView(
-                        LocalizationKeys.searchCards.localized,
+                        LocalizationKeys.General.searchCards.localized,
                         searchText: $searchText
                     )
                     FiltersScrollView()
@@ -178,17 +178,17 @@ struct MyCardsListView: View {
         } content: { card in
             EditCardSheet(card: card)
         }
-        .alert(cardToDelete == nil ? LocalizationKeys.deleteAllCards.localized : LocalizationKeys.deleteCard.localized, isPresented: $showingDeleteAlert) {
-            Button(LocalizationKeys.delete.localized, role: .destructive) {
+        .alert(cardToDelete == nil ? LocalizationKeys.Card.deleteAllCards.localized : LocalizationKeys.Card.deleteCard.localized, isPresented: $showingDeleteAlert) {
+            Button(LocalizationKeys.General.delete.localized, role: .destructive) {
                 if let card = cardToDelete {
                     deleteCard(card)
                 } else {
                     deleteAllCards()
                 }
             }
-            Button(LocalizationKeys.cancel.localized, role: .cancel) {}
+            Button(LocalizationKeys.General.cancel.localized, role: .cancel) {}
         } message: {
-            Text(cardToDelete == nil ? LocalizationKeys.deleteAllCardsConfirmation.localized : LocalizationKeys.deleteCardConfirmation.localized)
+            Text(cardToDelete == nil ? LocalizationKeys.Card.deleteAllCardsConfirmation.localized : LocalizationKeys.Card.deleteCardConfirmation.localized)
         }
     }
 
@@ -200,10 +200,10 @@ struct MyCardsListView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 48, height: 48)
-                    Text(LocalizationKeys.noCardsYet.localized)
+                    Text(LocalizationKeys.Card.noCardsYet.localized)
                 }
             } description: {
-                Text(LocalizationKeys.tapToAddFirstCard.localized)
+                Text(LocalizationKeys.Card.tapToAddFirstCard.localized)
                     .foregroundStyle(.secondary)
             }
 
@@ -220,10 +220,10 @@ struct MyCardsListView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 48, height: 48)
-                Text(LocalizationKeys.noCardsYet.localized)
+                Text(LocalizationKeys.Card.noCardsYet.localized)
             }
         } description: {
-            Text(LocalizationKeys.noCardsForLanguagePair.localized)
+            Text(LocalizationKeys.Card.noCardsForLanguagePair.localized)
                 .foregroundStyle(.secondary)
         }
     }
@@ -233,10 +233,10 @@ struct MyCardsListView: View {
             VStack {
                 Image(systemName: "magnifyingglass")
                     .font(.largeTitle)
-                Text(LocalizationKeys.noCardsFound.localized)
+                Text(LocalizationKeys.Card.noCardsFound.localized)
             }
         } description: {
-            Text(LocalizationKeys.noCardsMatchSearch.localized)
+            Text(LocalizationKeys.Card.noCardsMatchSearch.localized)
                 .foregroundStyle(.secondary)
         }
     }
@@ -246,10 +246,10 @@ struct MyCardsListView: View {
             VStack {
                 Image(systemName: "heart")
                     .font(.largeTitle)
-                Text(LocalizationKeys.noFavoriteCards.localized)
+                Text(LocalizationKeys.Settings.noFavoriteCards.localized)
             }
         } description: {
-            Text(LocalizationKeys.noFavoriteCardsDescription.localized)
+            Text(LocalizationKeys.Settings.noFavoriteCardsDescription.localized)
                 .foregroundStyle(.secondary)
         }
     }
@@ -259,10 +259,10 @@ struct MyCardsListView: View {
             VStack {
                 Image(systemName: "exclamationmark.triangle")
                     .font(.largeTitle)
-                Text("No Difficult Cards")
+                Text(LocalizationKeys.Card.noDifficultCards.localized)
             }
         } description: {
-            Text("You don't have any cards marked as difficult yet. Study more cards to see difficulty levels.")
+            Text(LocalizationKeys.Card.noDifficultCardsDescription.localized)
                 .foregroundStyle(.secondary)
         }
     }
@@ -274,13 +274,13 @@ struct MyCardsListView: View {
                 VStack {
                     Image(systemName: "tag")
                         .font(.largeTitle)
-                    Text(LocalizationKeys.noCardsWithSelectedTag.localized)
+                    Text(LocalizationKeys.Card.noCardsWithSelectedTag.localized)
                 }
             } description: {
-                Text(LocalizationKeys.noCardsFoundWithTag.localized(with: selectedFilterTag.name.orEmpty))
+                Text(LocalizationKeys.Card.noCardsFoundWithTag.localized(with: selectedFilterTag.name.orEmpty))
                     .foregroundStyle(.secondary)
             } actions: {
-                Button(LocalizationKeys.clearFilter.localized) {
+                Button(LocalizationKeys.General.clearFilter.localized) {
                     HapticService.shared.buttonTapped()
                     tagManager.clearFilter()
                     AnalyticsService.trackFilterEvent(.tagFilterCleared, filterType: "tag", filterValue: "")

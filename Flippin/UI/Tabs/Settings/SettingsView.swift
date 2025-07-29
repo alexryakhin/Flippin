@@ -41,7 +41,7 @@ struct SettingsView: View {
         .if(isPad) { view in
             view.frame(maxWidth: 500, alignment: .center)
         }
-        .navigation(title: LocalizationKeys.settings.localized)
+        .navigation(title: LocalizationKeys.Settings.settings.localized)
         .sheet(isPresented: $showingBackgroundPreview) {
             BackgroundPreviewView()
         }
@@ -65,18 +65,18 @@ struct SettingsView: View {
     // MARK: - Languages Section
     private var languagesSection: some View {
         CustomSectionView(
-            header: LocalizationKeys.languages.localized
+            header: LocalizationKeys.Settings.languages.localized
         ) {
             FormWithDivider {
                 HStack(spacing: 2) {
-                    Text(LocalizationKeys.myLanguageSettings.localized)
+                    Text(LocalizationKeys.Settings.myLanguageSettings.localized)
                         .font(.subheadline)
                         .foregroundStyle(.primary)
 
                     Spacer()
 
                     if purchaseService.hasPremiumAccess {
-                        Picker(LocalizationKeys.myLanguageSettings.localized, selection: $languageManager.userLanguageRaw) {
+                        Picker(LocalizationKeys.Settings.myLanguageSettings.localized, selection: $languageManager.userLanguageRaw) {
                             ForEach(Language.sortedByDisplayNameWithSystemFirst) { lang in
                                 Text(lang.displayName).tag(lang.rawValue)
                             }
@@ -101,13 +101,13 @@ struct SettingsView: View {
                 }
 
                 HStack(spacing: 2) {
-                    Text(LocalizationKeys.targetLanguage.localized)
+                    Text(LocalizationKeys.Settings.targetLanguage.localized)
                         .font(.subheadline)
                         .foregroundStyle(.primary)
 
                     Spacer()
                     if purchaseService.hasPremiumAccess {
-                        Picker(LocalizationKeys.targetLanguage.localized, selection: $languageManager.targetLanguageRaw) {
+                        Picker(LocalizationKeys.Settings.targetLanguage.localized, selection: $languageManager.targetLanguageRaw) {
                             ForEach(Language.sortedByDisplayNameWithSystemFirst) { lang in
                                 Text(lang.displayName).tag(lang.rawValue)
                             }
@@ -140,10 +140,10 @@ struct SettingsView: View {
                 if purchaseService.hasPremiumAccess {
                     HStack(spacing: 2) {
                         VStack(alignment: .leading, spacing: 4) {
-                            Text(LocalizationKeys.filterByLanguage.localized)
+                            Text(LocalizationKeys.Settings.filterByLanguage.localized)
                                 .font(.subheadline)
                                 .foregroundStyle(.primary)
-                            Text(LocalizationKeys.filterByLanguageDescription.localized)
+                            Text(LocalizationKeys.Settings.filterByLanguageDescription.localized)
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                         }
@@ -162,11 +162,11 @@ struct SettingsView: View {
     // MARK: - Theme Section
     private var themeSection: some View {
         CustomSectionView(
-            header: LocalizationKeys.theme.localized
+            header: LocalizationKeys.Settings.theme.localized
         ) {
             FormWithDivider {
                 HStack(spacing: 2) {
-                    Text(LocalizationKeys.color.localized)
+                    Text(LocalizationKeys.Settings.color.localized)
                         .font(.subheadline)
                         .foregroundStyle(.primary)
 
@@ -194,7 +194,7 @@ struct SettingsView: View {
                 }
 
                 HStack(spacing: 2) {
-                    Text(LocalizationKeys.backgroundStyle.localized)
+                    Text(LocalizationKeys.Settings.backgroundStyle.localized)
                         .font(.subheadline)
                         .foregroundStyle(.primary)
 
@@ -208,7 +208,7 @@ struct SettingsView: View {
                         .buttonStyle(.bordered)
                         .clipShape(Capsule())
                     } else {
-                        Button(LocalizationKeys.previewBackgrounds.localized) {
+                        Button(LocalizationKeys.Settings.previewBackgrounds.localized) {
                             showingBackgroundDemo = true
                             AnalyticsService.trackEvent(.backgroundDemoOpened)
                         }
@@ -219,13 +219,13 @@ struct SettingsView: View {
                 }
 
                 HStack(spacing: 2) {
-                    Text(LocalizationKeys.colorScheme.localized)
+                    Text(LocalizationKeys.Settings.colorScheme.localized)
                         .font(.subheadline)
                         .foregroundStyle(.primary)
 
                     Spacer()
 
-                    Picker(LocalizationKeys.colorScheme.localized, selection: $colorManager.userColorSchemePreference) {
+                    Picker(LocalizationKeys.Settings.colorScheme.localized, selection: $colorManager.userColorSchemePreference) {
                         ForEach(ColorSchemeInternal.allCases, id: \.self) { scheme in
                             Text(scheme.localizedName)
                                 .tag(scheme)
@@ -242,20 +242,20 @@ struct SettingsView: View {
     // MARK: - Card Display Section
     private var cardDisplaySection: some View {
         CustomSectionView(
-            header: LocalizationKeys.cardDisplayMode.localized
+            header: LocalizationKeys.Settings.cardDisplayMode.localized
         ) {
             VStack(alignment: .leading, spacing: 4) {
                 Text(
                     isTravelMode
-                    ? LocalizationKeys.travelModeDescription.localized
-                    : LocalizationKeys.learningModeDescription.localized
+                    ? LocalizationKeys.Settings.travelModeDescription.localized
+                    : LocalizationKeys.Settings.learningModeDescription.localized
                 )
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
 
-                Picker(LocalizationKeys.cardDisplayMode.localized, selection: $isTravelMode) {
-                    Text(LocalizationKeys.learningMode.localized).tag(false)
-                    Text(LocalizationKeys.travelMode.localized).tag(true)
+                Picker(LocalizationKeys.Settings.cardDisplayMode.localized, selection: $isTravelMode) {
+                    Text(LocalizationKeys.Settings.learningMode.localized).tag(false)
+                    Text(LocalizationKeys.Settings.travelMode.localized).tag(true)
                 }
                 .pickerStyle(.segmented)
                 .padding(.top, 8)
@@ -266,19 +266,19 @@ struct SettingsView: View {
     // MARK: - Tags Management Section
     private var tagsManagementSection: some View {
         CustomSectionView(
-            header: LocalizationKeys.tagsManagement.localized
+            header: LocalizationKeys.Tag.tagsManagement.localized
         ) {
             VStack(alignment: .leading, spacing: 12) {
                 HStack {
                     InputView(
-                        LocalizationKeys.newTagName.localized,
+                        LocalizationKeys.Tag.newTagName.localized,
                         text: $newTagText,
                         onSubmit: {
                             onAddTagButtonTap()
                         },
                         trailingButtonLabel: newTagText.isEmpty
-                        ? LocalizationKeys.cancel.localized
-                        : LocalizationKeys.add.localized,
+                        ? LocalizationKeys.General.cancel.localized
+                        : LocalizationKeys.Tag.addTag.localized,
                         onTrailingButtonTap: {
                             onAddTagButtonTap()
                         },
@@ -292,7 +292,7 @@ struct SettingsView: View {
                 
                 if !tagManager.availableTags.isEmpty {
                     VStack(alignment: .leading, spacing: 8) {
-                        Text(LocalizationKeys.availableTags.localized)
+                        Text(LocalizationKeys.Tag.availableTags.localized)
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
                         
@@ -309,7 +309,7 @@ struct SettingsView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                     }
                 } else {
-                    Text(LocalizationKeys.noTagsAvailable.localized)
+                    Text(LocalizationKeys.Tag.noTagsAvailable.localized)
                         .foregroundStyle(.secondary)
                         .font(.caption)
                 }
@@ -334,22 +334,20 @@ struct SettingsView: View {
     #if DEBUG
     private var purchaseTestingSection: some View {
         CustomSectionView(
-            header: "Purchase Testing"
+            header: LocalizationKeys.Settings.purchaseTesting.localized
         ) {
             VStack(alignment: .leading, spacing: 12) {
-                Text("Test in-app purchases and get transaction IDs")
+                Text(LocalizationKeys.Settings.testInAppPurchases.localized)
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
-                
-                Button("Open Purchase Test") {
+
+                Button(LocalizationKeys.Settings.openPurchaseTest.localized) {
                     showingPurchaseTest = true
-                    AnalyticsService.trackEvent(.purchaseTestOpened)
                 }
-                .foregroundStyle(colorManager.borderedProminentForegroundColor)
-                .buttonStyle(.borderedProminent)
+                .buttonStyle(.bordered)
                 .clipShape(Capsule())
+                .frame(maxWidth: .infinity, alignment: .leading)
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
         }
     }
     #endif
@@ -359,11 +357,11 @@ struct SettingsView: View {
         Group {
             if purchaseService.hasPremiumAccess {
                 CustomSectionView(
-                    header: LocalizationKeys.subscriptionStatus.localized
+                    header: LocalizationKeys.Settings.subscriptionStatus.localized
                 ) {
                     VStack(alignment: .leading, spacing: 12) {
                         HStack {
-                            Text(LocalizationKeys.activeSubscription.localized)
+                            Text(LocalizationKeys.Settings.activeSubscription.localized)
                                 .font(.subheadline)
                                 .foregroundStyle(.secondary)
 
@@ -374,7 +372,7 @@ struct SettingsView: View {
                                 .font(.title2)
                         }
                         
-                        Button(LocalizationKeys.manageSubscription.localized) {
+                        Button(LocalizationKeys.Settings.manageSubscription.localized) {
                             if let url = URL(string: "https://apps.apple.com/account/subscriptions") {
                                 UIApplication.shared.open(url)
                             }

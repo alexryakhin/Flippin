@@ -72,7 +72,7 @@ struct PresetCollectionsView: View {
             }
             .background(Color(.systemGroupedBackground))
             .navigation(
-                title: LocalizationKeys.presetCollections.localized,
+                title: LocalizationKeys.Presets.presetCollections.localized,
                 mode: .inline,
                 clipMode: .rectangle,
                 trailingContent: {
@@ -88,7 +88,7 @@ struct PresetCollectionsView: View {
                 bottomContent: {
                     VStack(spacing: 8) {
                         InputView.searchView(
-                            LocalizationKeys.searchCollections.localized,
+                            LocalizationKeys.Presets.searchCollections.localized,
                             searchText: $searchText
                         )
                         categoryFilterView
@@ -103,10 +103,10 @@ struct PresetCollectionsView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 48, height: 48)
-                            Text(LocalizationKeys.noCollectionsFound.localized)
+                            Text(LocalizationKeys.Presets.noCollectionsFound.localized)
                         }
                     } description: {
-                        Text(LocalizationKeys.tryAdjustingSearch.localized)
+                        Text(LocalizationKeys.Presets.tryAdjustingSearch.localized)
                             .foregroundStyle(.secondary)
                     }
                 }
@@ -115,16 +115,16 @@ struct PresetCollectionsView: View {
         .ifLet(colorManager.colorScheme) { view, scheme in
             view.colorScheme(scheme)
         }
-        .alert(LocalizationKeys.importCollection.localized, isPresented: $showingImportAlert) {
-            Button(LocalizationKeys.cancel.localized, role: .cancel) { }
-            Button(LocalizationKeys.importButton.localized) {
+        .alert(LocalizationKeys.Presets.importCollection.localized, isPresented: $showingImportAlert) {
+            Button(LocalizationKeys.General.cancel.localized, role: .cancel) { }
+            Button(LocalizationKeys.Presets.importButton.localized) {
                 if let collection = collectionToImport {
                     importCollection(collection)
                 }
             }
         } message: {
             if let collection = collectionToImport {
-                Text(LocalizationKeys.importCollectionMessage.localized(with: collection.name, collection.cardCount))
+                Text(LocalizationKeys.Presets.importCollectionMessage.localized(with: collection.name, collection.cardCount))
             }
         }
     }
@@ -132,7 +132,7 @@ struct PresetCollectionsView: View {
     private var categoryFilterView: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 8) {
-                TagButton(title: LocalizationKeys.allCategories.localized, isSelected: selectedCategory == nil) {
+                TagButton(title: LocalizationKeys.Presets.allCategories.localized, isSelected: selectedCategory == nil) {
                     selectedCategory = nil
                 }
 

@@ -1,33 +1,33 @@
 import SwiftUI
 
-enum BackgroundStyle: String, CaseIterable, Codable {
-    case gradient = "Gradient"
-    case lavaLamp = "Lava Lamp"
-    case snow = "Snow"
-    case rain = "Rain"
-    case stars = "Stars"
-    case bubbles = "Bubbles"
-    case waves = "Waves"
-    case particles = "Particles"
-    case aurora = "Aurora"
-    case fireflies = "Fireflies"
-    case ocean = "Ocean"
-    case galaxy = "Galaxy"
+enum BgStyle: String, CaseIterable, Codable {
+    case gradient
+    case lavaLamp
+    case snow
+    case rain
+    case stars
+    case bubbles
+    case waves
+    case particles
+    case aurora
+    case fireflies
+    case ocean
+    case galaxy
     
     var displayName: String {
         switch self {
-        case .gradient: return LocalizationKeys.gradient.localized
-        case .lavaLamp: return LocalizationKeys.lavaLamp.localized
-        case .snow: return LocalizationKeys.snow.localized
-        case .rain: return LocalizationKeys.rain.localized
-        case .stars: return LocalizationKeys.stars.localized
-        case .bubbles: return LocalizationKeys.bubbles.localized
-        case .waves: return LocalizationKeys.waves.localized
-        case .particles: return LocalizationKeys.particles.localized
-        case .aurora: return LocalizationKeys.aurora.localized
-        case .fireflies: return LocalizationKeys.fireflies.localized
-        case .ocean: return LocalizationKeys.ocean.localized
-        case .galaxy: return LocalizationKeys.galaxy.localized
+        case .gradient: return LocalizationKeys.BackgroundStyles.gradient.localized
+        case .lavaLamp: return LocalizationKeys.BackgroundStyles.lavaLamp.localized
+        case .snow: return LocalizationKeys.BackgroundStyles.snow.localized
+        case .rain: return LocalizationKeys.BackgroundStyles.rain.localized
+        case .stars: return LocalizationKeys.BackgroundStyles.stars.localized
+        case .bubbles: return LocalizationKeys.BackgroundStyles.bubbles.localized
+        case .waves: return LocalizationKeys.BackgroundStyles.waves.localized
+        case .particles: return LocalizationKeys.BackgroundStyles.particles.localized
+        case .aurora: return LocalizationKeys.BackgroundStyles.aurora.localized
+        case .fireflies: return LocalizationKeys.BackgroundStyles.fireflies.localized
+        case .ocean: return LocalizationKeys.BackgroundStyles.ocean.localized
+        case .galaxy: return LocalizationKeys.BackgroundStyles.galaxy.localized
         }
     }
     

@@ -38,7 +38,7 @@ enum AnalyticsTab {
                 view.frame(maxWidth: 500, alignment: .center)
             }
             .navigation(
-                title: "Analytics",
+                title: LocalizationKeys.Analytics.analytics.localized,
                 mode: .large,
                 trailingContent: {
                     if purchaseService.hasPremiumAccess {
@@ -68,15 +68,15 @@ enum AnalyticsTab {
         @ViewBuilder
         private var quickOverviewSection: some View {
             if cardsProvider.cards.isEmpty {
-                CustomSectionView(header: "Today", headerFontStyle: .large) {
+                CustomSectionView(header: LocalizationKeys.Analytics.today.localized, headerFontStyle: .large) {
                     ContentUnavailableView {
                         VStack {
                             Image(systemName: "chart.bar.doc.horizontal")
                                 .font(.largeTitle)
-                            Text("No Analytics Data")
+                            Text(LocalizationKeys.Analytics.noAnalyticsData.localized)
                         }
                     } description: {
-                        Text("Start studying to see your learning progress!")
+                        Text(LocalizationKeys.Analytics.startStudyingToSeeProgress.localized)
                             .foregroundStyle(.secondary)
                     }
                 }
@@ -86,25 +86,25 @@ enum AnalyticsTab {
         }
 
         private var premiumFeaturesSection: some View {
-            CustomSectionView(header: "Unlock Advanced Analytics", headerFontStyle: .large) {
+            CustomSectionView(header: LocalizationKeys.Analytics.unlockAdvancedAnalytics.localized, headerFontStyle: .large) {
                 VStack(alignment: .leading, spacing: 12) {
                     PremiumFeatureRow(
-                        title: "Detailed Progress Reports",
-                        description: "Track your learning patterns and improvement over time",
+                        title: LocalizationKeys.Analytics.detailedProgressReports.localized,
+                        description: LocalizationKeys.Analytics.detailedProgressReportsDescription.localized,
                         icon: "chart.line.uptrend.xyaxis",
                         color: .blue
                     )
 
                     PremiumFeatureRow(
-                        title: "Performance Insights",
-                        description: "Get personalized recommendations to improve your study habits",
+                        title: LocalizationKeys.Analytics.performanceInsights.localized,
+                        description: LocalizationKeys.Analytics.performanceInsightsDescription.localized,
                         icon: "brain.head.profile",
                         color: .purple
                     )
 
                     PremiumFeatureRow(
-                        title: "Study Time Analytics",
-                        description: "Analyze your study sessions and optimize your learning",
+                        title: LocalizationKeys.Analytics.studyTimeAnalytics.localized,
+                        description: LocalizationKeys.Analytics.studyTimeAnalyticsDescription.localized,
                         icon: "clock.arrow.circlepath",
                         color: .green
                     )
@@ -114,7 +114,7 @@ enum AnalyticsTab {
                 Button {
                     premiumFeature = .advancedAnalytics
                 } label: {
-                    Text("Upgrade to Premium")
+                    Text(LocalizationKeys.Analytics.upgradeToPremium.localized)
                         .font(.headline)
                         .padding(.vertical, 12)
                         .frame(maxWidth: .infinity)
@@ -128,14 +128,14 @@ enum AnalyticsTab {
         private var recentActivityPreviewSection: some View {
             VStack(spacing: 16) {
                 HStack {
-                    Text("Recent Activity")
+                    Text(LocalizationKeys.Analytics.recentActivity.localized)
                         .font(.title2)
                         .fontWeight(.bold)
 
                     Spacer()
 
                     if purchaseService.hasPremiumAccess {
-                        Button("View All") {
+                        Button(LocalizationKeys.Analytics.viewAll.localized) {
                             showDetailedAnalytics = true
                         }
                         .font(.subheadline)
@@ -148,31 +148,31 @@ enum AnalyticsTab {
                         VStack {
                             Image(systemName: "clock.arrow.circlepath")
                                 .font(.largeTitle)
-                            Text("No Recent Activity")
+                            Text(LocalizationKeys.Analytics.noRecentActivity.localized)
                         }
                     } description: {
-                        Text("Your study sessions will appear here")
+                        Text(LocalizationKeys.Analytics.studySessionsWillAppearHere.localized)
                             .foregroundStyle(.secondary)
                     }
                     .foregroundColor(colorManager.foregroundColor)
                 } else {
                     VStack(spacing: 12) {
                         ActivityPreviewRow(
-                            title: "Last Study Session",
+                            title: LocalizationKeys.Analytics.lastStudySession.localized,
                             value: "2 hours ago",
                             icon: "book.fill",
                             color: .blue
                         )
 
                         ActivityPreviewRow(
-                            title: "Cards Studied Today",
-                            value: "12 cards",
+                            title: LocalizationKeys.Analytics.cardsStudiedToday.localized,
+                            value: "15 cards",
                             icon: "rectangle.stack.fill",
-                            color: .green
+                            color: .purple
                         )
 
                         ActivityPreviewRow(
-                            title: "Study Streak",
+                            title: LocalizationKeys.Analytics.studyStreak.localized,
                             value: "5 days",
                             icon: "flame.fill",
                             color: .orange

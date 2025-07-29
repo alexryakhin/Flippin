@@ -49,11 +49,11 @@
 "noCardsForLanguagePair" = "Нет карточек для этой пары языков";
 
 // MARK: - Card Views
-"showAnswer" = "Показать ответ";
+"flip" = "Перевернуть";
 "tapToGoBack" = "Нажмите, чтобы вернуться";
 
 // MARK: - Tag Management
-"availableTags" = "Доступные Теги";
+"availableTags" = "Доступные теги";
 "noTagsAvailable" = "Нет доступных тегов";
 "manageTagsInSettings" = "Управляйте тегами в настройках.";
 "toSettings" = "В настройки";
@@ -73,7 +73,7 @@
 // MARK: - Settings
 "languages" = "Языки";
 "cardDisplay" = "Отображение карточек";
-"cardDisplayMode" = "Режим Отображения карточек";
+"cardDisplayMode" = "Режим отображения карточек";
 "learningMode" = "Режим обучения";
 "travelMode" = "Режим путешествия";
 "learningModeDescription" = "Показывать целевой язык первым (для обучения)";
@@ -94,17 +94,30 @@
 "targetLanguage" = "Целевой язык";
 "theme" = "Тема";
 "color" = "Цвет";
-"backgroundStyle" = "Стиль Фона";
+"backgroundStyle" = "Стиль фона";
 "tapToSeeFullScreen" = "Нажмите, чтобы увидеть полноэкранный режим";
 
+// MARK: - Categories
+"categoryBasics" = "Основы";
+"categoryTravel" = "Путешествия";
+"categoryEntertainment" = "Развлечения";
+"categoryFood" = "Еда";
+"categoryShopping" = "Покупки";
+"categorySocial" = "Общение";
+"categoryWeather" = "Погода";
+"categoryTechnology" = "Технологии";
+"categoryLifestyle" = "Образ жизни";
+"categoryProfessional" = "Профессиональное";
+"categoryEmergency" = "Экстренные ситуации";
+
 // MARK: - Add Card
-"enterTextInYourLanguage" = "Введите текст на своем языке";
+"enterTextInYourLanguage" = "Введите текст на вашем языке";
 "enterTextInTargetLanguage" = "Введите текст на целевом языке";
 "addNotesOptional" = "Добавить заметки (необязательно)";
 "notes" = "Заметки";
 "tagsCount" = "Теги (%d/5)";
-"noTagsAvailableAddInSettings" = "Нет доступных тегов. Добавьте несколько тегов в настройках.";
-"translating" = "Перевод...";
+"noTagsAvailableAddInSettings" = "Нет доступных тегов. Добавьте теги в Настройках.";
+"translating" = "Переводится...";
 "translationWillAppearHere" = "Перевод появится здесь";
 
 // MARK: - Buttons
@@ -116,42 +129,42 @@
 "clearFilter" = "Очистить фильтр";
 "clearSearch" = "Очистить поиск";
 "addCardButton" = "Добавить карточку";
-"edit" = "Редактировать";
-"editCard" = "Редактировать карточку";
+"edit" = "Изменить";
+"editCard" = "Изменить карточку";
 "delete" = "Удалить";
 "deleteCard" = "Удалить карточку";
 "deleteCardConfirmation" = "Вы уверены, что хотите удалить эту карточку? Это действие нельзя отменить.";
 "deleteAll" = "Удалить все";
 "deleteAllCards" = "Удалить все карточки";
 "deleteAllCardsConfirmation" = "Вы уверены, что хотите удалить все карточки? Это действие нельзя отменить.";
-"ok" = "OK";
+"ok" = "ОК";
 
 // MARK: - Premium Features
-"premiumFeature" = "Премиум Функция";
-"premiumRequired" = "Требуется Премиум";
-"upgradeToPremium" = "Перейти на Премиум";
-"premiumFeatureDescription" = "Получите доступ ко всем предустановленным коллекциям и разблокируйте неограниченный потенциал для изучения языков";
+"premiumFeature" = "Премиум функция";
+"premiumRequired" = "Требуется премиум";
+"upgradeToPremium" = "Обновить до премиум";
+"premiumFeatureDescription" = "Получите доступ ко всем предустановленным коллекциям и откройте неограниченный потенциал изучения языков";
 "previewBackgrounds" = "Предварительный просмотр";
 "colorScheme" = "Цветовая схема";
-"colorSchemeSystem" = "Система";
+"colorSchemeSystem" = "Системная";
 "colorSchemeLight" = "Светлая";
 "colorSchemeDark" = "Темная";
-"unlockPremium" = "Разблокируйте Премиум";
+"unlockPremium" = "Разблокировать премиум";
 "masterLanguageLearning" = "Освойте изучение языков с эксклюзивными функциями";
 "usedCardsOfLimit" = "Вы использовали %d из %d бесплатных карточек";
-"whatYouGetWithPremium" = "Что вы получаете с Премиум";
-"unlimitedCardsDescription" = "Создавайте столько карточек для изучения, сколько хотите";
-"collections" = "30+ Коллекций";
-"collectionsDescription" = "Доступ ко всем предустановленным коллекциям словаря";
+"whatYouGetWithPremium" = "Что вы получаете с премиум";
+"unlimitedCardsDescription" = "Создавайте столько карточек, сколько хотите";
+"collections" = "30+ коллекций";
+"collectionsDescription" = "Доступ ко всем предустановленным коллекциям слов";
 "premiumBackgrounds" = "Премиум фоны";
 "premiumBackgroundsDescription" = "Красивые анимированные фоны";
-"changeLanguages" = "Изменить языки";
+"changeLanguages" = "Изменение языков";
 "changeLanguagesDescription" = "Переключайтесь между различными языковыми парами в любое время";
-"restorePurchases" = "Восстановить Покупки";
+"restorePurchases" = "Восстановить покупки";
 "cancelAnytime" = "Отменить в любое время • Без обязательств";
 "terms" = "Условия";
 "privacy" = "Конфиденциальность";
-"goPremium" = "Перейти на Премиум";
+"goPremium" = "Перейти на премиум";
 "premium" = "Премиум";
 
 // MARK: - Labels
@@ -161,11 +174,281 @@
 "shuffle" = "Перемешать";
 "addCardLabel" = "Добавить карточку";
 
+// MARK: - Navigation
+"stack" = "Стек";
+"list" = "Список";
+"study" = "Изучение";
+"analytics" = "Аналитика";
+"settings" = "Настройки";
+
+// MARK: - Card Management
+"noDifficultCards" = "Нет сложных карточек";
+"noDifficultCardsDescription" = "У вас пока нет карточек, отмеченных как сложные. Изучайте больше карточек, чтобы увидеть уровни сложности.";
+"difficultCards" = "Сложные карточки";
+"failedToCreateCard" = "Не удалось создать карточку: %@";
+
+// MARK: - Study
+"study" = "Изучение";
+"studyMode" = "Режим изучения";
+"quickStats" = "Быстрая статистика";
+"studyOptions" = "Варианты изучения";
+"recentActivity" = "Недавняя активность";
+"totalCards" = "Всего карточек";
+"mastered" = "Освоено";
+"difficultCards" = "Сложные карточки";
+"studyTimeToday" = "Время изучения сегодня";
+"startStudySession" = "Начать сессию изучения (10 карточек)";
+"practiceAllCards" = "Практиковать все карточки (%d)";
+"practiceDifficultCards" = "Практиковать сложные карточки (%d)";
+"multipleChoiceQuiz" = "Тест с множественным выбором";
+"fillInTheBlank" = "Заполнить пропуск (%d)";
+"unlockAllStudyModes" = "Разблокировать все режимы изучения";
+"noStudyData" = "Нет данных об изучении";
+"startStudyingToSeeProgress" = "Начните изучать, чтобы увидеть свой прогресс!";
+"toCards" = "К карточкам";
+"totalStudyTime" = "Общее время изучения";
+"averageSession" = "Средняя сессия";
+"learningProgress" = "Прогресс обучения";
+"exit" = "Выход";
+"showAnswer" = "Показать ответ";
+"incorrect" = "Неверно";
+"correct" = "Верно";
+"studySessionComplete" = "Сессия изучения завершена!";
+"accuracy" = "Точность";
+"cardsStudied" = "Изученные карточки";
+"timeSpent" = "Затраченное время";
+"studyAgain" = "Изучать снова";
+"done" = "Готово";
+"selectCorrectTranslation" = "Выберите правильный перевод";
+"fillInMissingWord" = "Заполните пропущенное слово";
+"completeSentence" = "Завершите предложение";
+"chooseCorrectWord" = "Выберите правильное слово:";
+"correctAnswer" = "Правильный ответ";
+"translateTo" = "Переведите на %@";
+"studyProgress" = "%d из %d";
+
+// MARK: - Analytics
+"analytics" = "Аналитика";
+"detailedAnalytics" = "Детальная аналитика";
+"today" = "Сегодня";
+"noAnalyticsData" = "Нет данных аналитики";
+"startStudyingToSeeProgress" = "Начните изучать, чтобы увидеть свой прогресс обучения!";
+"unlockAdvancedAnalytics" = "Разблокировать расширенную аналитику";
+"detailedProgressReports" = "Детальные отчеты о прогрессе";
+"detailedProgressReportsDescription" = "Отслеживайте свои модели обучения и улучшения с течением времени";
+"performanceInsights" = "Анализ производительности";
+"performanceInsightsDescription" = "Получите персонализированные рекомендации для улучшения ваших привычек изучения";
+"studyTimeAnalytics" = "Аналитика времени изучения";
+"studyTimeAnalyticsDescription" = "Анализируйте свои сессии изучения и оптимизируйте обучение";
+"upgradeToPremium" = "Обновить до премиум";
+"recentActivity" = "Недавняя активность";
+"viewAll" = "Посмотреть все";
+"noRecentActivity" = "Нет недавней активности";
+"studySessionsWillAppearHere" = "Ваши сессии изучения появятся здесь";
+"lastStudySession" = "Последняя сессия изучения";
+"cardsStudiedToday" = "Карточки, изученные сегодня";
+"studyStreak" = "Серия изучения";
+"totalStudyTime" = "Общее время изучения";
+"cardsMastered" = "Освоенные карточки";
+"todaysStudy" = "Сегодняшнее изучение";
+"time" = "Время";
+"cardsStudied" = "Изученные карточки";
+"sessions" = "Сессии";
+"accuracy" = "Точность";
+"studyTime" = "Время изучения";
+"timeRange" = "Временной диапазон";
+"masteryProgress" = "Прогресс освоения";
+"mastered" = "Освоено";
+"learning" = "Изучение";
+"needsReview" = "Требует повторения";
+"week" = "Неделя";
+"month" = "Месяц";
+"year" = "Год";
+"allTime" = "Все время";
+"overview" = "Обзор";
+"performance" = "Производительность";
+"progress" = "Прогресс";
+"insights" = "Анализ";
+"noStudyDataAvailable" = "Нет доступных данных об изучении";
+
+// MARK: - Detailed Analytics
+"analyticsTab" = "Вкладка аналитики";
+"studyTimeTitle" = "Время изучения";
+"cardsMasteredTitle" = "Освоенные карточки";
+"studyStreakTitle" = "Серия изучения";
+"averageSessionTitle" = "Средняя сессия";
+"consecutiveDays" = "дней подряд";
+"perSession" = "за сессию";
+"studyPatterns" = "Модели изучения";
+"mostActiveTime" = "Самое активное время";
+"preferredSessionLength" = "Предпочитаемая длина сессии";
+"studyFrequency" = "Частота изучения";
+"languageProgress" = "Прогресс языка";
+"collectionSize" = "Размер коллекции";
+"cards" = "карточек";
+"achievements" = "Достижения";
+"firstSteps" = "Первые шаги";
+"weekWarrior" = "Воин недели";
+"masterLearner" = "Мастер обучения";
+"dedicated" = "Преданный";
+"vocabularyMaster" = "Мастер словарного запаса";
+"timeMaster" = "Мастер времени";
+"accuracyTrends" = "Тенденции точности";
+"sessionPerformance" = "Производительность сессии";
+"averageSessionDuration" = "Средняя продолжительность сессии";
+"basedOnData" = "На основе данных %@";
+"cardsPerSession" = "Карточек за сессию";
+"average" = "Среднее";
+"sessionFrequency" = "Частота сессий";
+"cardDifficultyAnalysis" = "Анализ сложности карточек";
+"noDifficultyDataAvailable" = "Нет доступных данных о сложности";
+"learningSpeed" = "Скорость обучения";
+"cardsPerHour" = "Карточек в час";
+"vsAverage" = "по сравнению со средним";
+"masteryTimeline" = "Временная шкала освоения";
+"vocabularyGrowth" = "Рост словарного запаса";
+"totalVocabulary" = "Общий словарный запас";
+"thisWeek" = "На этой неделе";
+"thisMonth" = "В этом месяце";
+"thisYear" = "В этом году";
+"learningMilestones" = "Вехи обучения";
+"personalizedInsights" = "Персонализированный анализ";
+"noInsightsAvailableYet" = "Пока нет доступного анализа";
+"recommendations" = "Рекомендации";
+"noRecommendationsAtThisTime" = "Сейчас нет рекомендаций";
+"learningTips" = "Советы по обучению";
+"spacedRepetition" = "Интервальное повторение";
+"spacedRepetitionDescription" = "Повторяйте карточки с увеличивающимися интервалами для лучшего запоминания.";
+"activeRecall" = "Активное вспоминание";
+"activeRecallDescription" = "Попробуйте вспомнить ответ перед переворачиванием карточки.";
+"contextLearning" = "Обучение в контексте";
+"contextLearningDescription" = "Изучайте слова в фразах, а не изолированно.";
+"studyNow" = "Изучать сейчас";
+"startReview" = "Начать повторение";
+"browseCollections" = "Просматривать коллекции";
+"practiceMode" = "Режим практики";
+
+// MARK: - Learning Analytics Service
+"notEnoughData" = "Недостаточно данных";
+"morning" = "Утро (6-12)";
+"afternoon" = "День (12-17)";
+"evening" = "Вечер (17-21)";
+"night" = "Ночь (21-6)";
+"under10Minutes" = "Менее 10 минут";
+"tenTo20Minutes" = "10-20 минут";
+"twentyTo30Minutes" = "20-30 минут";
+"thirtyTo60Minutes" = "30-60 минут";
+"over60Minutes" = "Более 60 минут";
+"onceThisWeek" = "Раз в неделю";
+"fewTimesThisWeek" = "Несколько раз в неделю";
+"mostDaysThisWeek" = "Большинство дней недели";
+"daily" = "Ежедневно";
+"veryEasy" = "Очень легко";
+"easy" = "Легко";
+"medium" = "Средне";
+"hard" = "Сложно";
+"veryHard" = "Очень сложно";
+"unknown" = "Неизвестно";
+"completedStudySession" = "Завершена сессия изучения";
+"reviewedCardsInTime" = "Просмотрено %d карточек за %@";
+"recent" = "Недавно";
+"reachedCardsMastered" = "Достигнуто %d освоенных карточек";
+"greatProgressBuildingFoundation" = "Отличный прогресс! Вы строите прочную основу.";
+"first10CardsMastered" = "Первые 10 карточек освоены";
+"sevenDayStudyStreak" = "7-дневная серия изучения";
+"fiftyCardsMastered" = "50 карточек освоено";
+"thirtyDayStudyStreak" = "30-дневная серия изучения";
+"completed" = "Завершено";
+"inProgress" = "В процессе";
+"youreMostProductiveIn" = "Вы наиболее продуктивны в %@";
+"studySessionsDuringThisTime" = "Ваши сессии изучения в это время показывают лучшую концентрацию и запоминание.";
+"optimalSessionLength" = "Оптимальная длина сессии";
+"yourSessionsShowBestResults" = "Ваши %@ сессии показывают лучшие результаты.";
+"consistentLearningPattern" = "Последовательная модель обучения";
+"yourStudyRoutineWorkingWell" = "Ваша %@ рутина изучения работает хорошо.";
+"improvingAccuracy" = "Улучшение точности";
+"recentAccuracyHigherThanBefore" = "Ваша недавняя точность на %d%% выше, чем раньше.";
+"focusOnAccuracy" = "Сосредоточьтесь на точности";
+"recentAccuracyDecreased" = "Ваша недавняя точность снизилась. Рассмотрите повторение сложных карточек.";
+"excellentProgress" = "Отличный прогресс";
+"masteredVocabularyPercentage" = "Вы освоили %d%% вашего словарного запаса!";
+"goodFoundation" = "Хорошая основа";
+"masteredVocabularyKeepGoing" = "Вы освоили %d%% вашего словарного запаса. Продолжайте!";
+"reviewDifficultCards" = "Повторите сложные карточки";
+"cardsNeedMorePractice" = "%d карточек требуют больше практики. Сосредоточьтесь на них для улучшения точности.";
+"addMoreVocabulary" = "Добавьте больше словарного запаса";
+"masteredMostCurrentCards" = "Вы освоили большую часть ваших текущих карточек. Готовы к новым вызовам!";
+"extendYourStreak" = "Продлите вашу серию";
+"daysAwayFromAchievement" = "Вам осталось %d дней до нового достижения!";
+"buildConsistency" = "Стройте последовательность";
+"tryToStudyDaily" = "Попробуйте изучать ежедневно, чтобы построить сильную привычку обучения.";
+"improveAccuracy" = "Улучшите точность";
+"accuracyPercentageFocusQuality" = "Ваша точность %d%%. Сосредоточьтесь на качестве, а не на скорости.";
+
+// MARK: - Settings
+"previewBackgrounds" = "Предварительный просмотр фонов";
+"subscriptionStatus" = "Статус подписки";
+"activeSubscription" = "Активная подписка";
+"manageSubscription" = "Управление подпиской";
+"purchaseTesting" = "Тестирование покупок";
+"testInAppPurchases" = "Тестируйте покупки в приложении и получайте ID транзакций";
+"openPurchaseTest" = "Открыть тест покупок";
+"testPurchase" = "Тест покупки";
+"performTestPurchase" = "Выполните тестовую покупку для получения ID транзакции";
+"transactionListenerActive" = "Слушатель транзакций активен";
+"transactionListenerNotActive" = "Слушатель транзакций не активен";
+"startTestPurchase" = "Начать тестовую покупку";
+"lastTransactionId" = "Последний ID транзакции";
+"transactionId" = "ID транзакции:";
+"copyToClipboard" = "Копировать в буфер обмена";
+"copied" = "Скопировано!";
+"transactionIdCopied" = "ID транзакции скопирован в буфер обмена";
+"availableProducts" = "Доступные продукты";
+"noProductsAvailable" = "Нет доступных продуктов";
+"purchasedProducts" = "Купленные продукты";
+"noProductsPurchasedYet" = "Пока не куплено ни одного продукта";
+"purchased" = "Куплено";
+"transactionHistory" = "История транзакций";
+"loadTransactionHistory" = "Загрузить историю транзакций";
+"restorePurchases" = "Восстановить покупки";
+"success" = "Успех";
+"failed" = "Неудача";
+"purchasesRestoredSuccessfully" = "Покупки успешно восстановлены";
+"failedToRestorePurchases" = "Не удалось восстановить покупки";
+"purchaseTestingTitle" = "Тестирование покупок";
+"ok" = "ОК";
+"testPurchaseCompleted" = "Тестовая покупка завершена! ID транзакции: %@";
+"testPurchaseFailed" = "Тестовая покупка не удалась: %@";
+"purchaseCompleted" = "Покупка завершена! ID транзакции: %@";
+"purchaseFailed" = "Покупка не удалась: %@";
+"unknown" = "Неизвестно";
+"unknownError" = "Неизвестная ошибка";
+"product" = "Продукт: %@";
+"date" = "Дата: %@";
+
+// MARK: - Paywall
+"upgradeToPremiumTitle" = "Обновить до премиум";
+"upgradeToPremiumMessage" = "Обновите до премиум, чтобы разблокировать все функции!";
+"cancel" = "Отмена";
+"viewOptions" = "Посмотреть варианты";
+"unlimitedCardsTitle" = "Неограниченные карточки";
+"unlimitedCardsMessage" = "Обновите до премиум, чтобы создавать неограниченное количество карточек и разблокировать все функции!";
+"advancedAnalyticsTitle" = "Расширенная аналитика";
+"advancedAnalyticsMessage" = "Получите детальную аналитику обучения, графики прогресса и аналитику производительности с премиум!";
+"customThemesTitle" = "Пользовательские темы";
+"customThemesMessage" = "Разблокируйте красивые пользовательские темы и фоны с премиум!";
+"languageChangeTitle" = "Изменение языка";
+"languageChangeMessage" = "Выбирайте из более чем 15 языков для улучшения вашего опыта обучения с премиум!";
+"cardPresetsTitle" = "Предустановки карточек";
+"cardPresetsMessage" = "Исследуйте обширную коллекцию предустановленных карточек с премиум!";
+"studyModesTitle" = "Режимы изучения";
+"studyModesMessage" = "Получите доступ к расширенным режимам изучения и техникам обучения с премиум!";
+
 // MARK: - Search
 "searchCards" = "Поиск карточек...";
 
 // MARK: - Placeholder Text
-"placeholderAB" = "AB";
+"placeholderAB" = "АБ";
 
 // MARK: - Languages
 "english" = "Английский";
@@ -188,23 +471,24 @@
 
 // MARK: - Background Styles
 "gradient" = "Градиент";
-"lavaLamp" = "Лавовая Лампа";
+"lavaLamp" = "Лавовая лампа";
 "snow" = "Снег";
 "rain" = "Дождь";
 "stars" = "Звезды";
 "bubbles" = "Пузыри";
 "waves" = "Волны";
 "particles" = "Частицы";
-"aurora" = "Северное Сияние";
+"aurora" = "Аврора";
 "fireflies" = "Светлячки";
 "ocean" = "Океан";
 "galaxy" = "Галактика";
 
 // MARK: - Card Limits
-"cardLimitExceeded" = "Лимит карточек достигнут";
-"cardsRemaining" = "Оставшиеся карточки";
 "cardsUsedOfLimit" = "%d из %d карточек";
-"upgrade" = "Убрать лимит";
+"cardLimitExceeded" = "Лимит карточек превышен. У вас %d карточек из %d разрешенных. Обновите до премиум для неограниченных карточек.";
+"freeUsersLimitedTo" = "Бесплатные пользователи ограничены %d карточками";
+"purchaseUnlimitedCards" = "Купите неограниченные карточки, чтобы добавить больше карточек в вашу коллекцию";
+"upgrade" = "Обновить";
 "unlimitedCards" = "Неограниченные карточки";
 
 // MARK: - Subscription Management
@@ -213,15 +497,16 @@
 "activeSubscription" = "Активная подписка";
 "manageSubscription" = "Управление подпиской";
 
-// MARK: - Categories
-"categoryBasics" = "Основы";
-"categoryTravel" = "Путешествия";
-"categoryEntertainment" = "Развлечения";
-"categoryFood" = "Еда";
-"categoryShopping" = "Покупки";
-"categorySocial" = "Общение";
-"categoryWeather" = "Погода";
-"categoryTechnology" = "Технологии";
-"categoryLifestyle" = "Образ жизни";
-"categoryProfessional" = "Профессиональное";
-"categoryEmergency" = "Чрезвычайная ситуация";
+"done" = "Готово";
+"cancel" = "Отмена";
+"delete" = "Удалить";
+"edit" = "Изменить";
+"save" = "Сохранить";
+"searchCards" = "Поиск карточек...";
+"noCardsAvailable" = "Нет доступных карточек";
+"noAccuracyDataAvailable" = "Нет доступных данных о точности";
+"noGrowthDataAvailable" = "Нет доступных данных о росте";
+"date" = "Дата";
+"accuracy" = "Точность";
+"masteredCards" = "Освоенные карточки";
+"invalidJSON" = "Данные JSON недействительны";

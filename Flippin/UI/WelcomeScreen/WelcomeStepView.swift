@@ -55,24 +55,24 @@ extension WelcomeSheet {
                 VStack(spacing: 20) {
                     FeatureRow(
                         icon: "translate",
-                        title: LocalizationKeys.featureLearning.localized,
-                        description: LocalizationKeys.featureLearningDesc.localized,
+                        title: LocalizationKeys.Welcome.featureLearning.localized,
+                        description: LocalizationKeys.Welcome.featureLearningDesc.localized,
                         animateContent: animateContent,
                         delay: 0.7
                     )
 
                     FeatureRow(
                         icon: "globe",
-                        title: LocalizationKeys.featureLanguages.localized,
-                        description: LocalizationKeys.featureLanguagesDesc.localized,
+                        title: LocalizationKeys.Welcome.featureLanguages.localized,
+                        description: LocalizationKeys.Welcome.featureLanguagesDesc.localized,
                         animateContent: animateContent,
                         delay: 0.9
                     )
 
                     FeatureRow(
                         icon: "speaker.wave.2.bubble.fill",
-                        title: LocalizationKeys.featureSmart.localized,
-                        description: LocalizationKeys.featureSmartDesc.localized,
+                        title: LocalizationKeys.Welcome.featureSmart.localized,
+                        description: LocalizationKeys.Welcome.featureSmartDesc.localized,
                         animateContent: animateContent,
                         delay: 1.1
                     )
@@ -85,7 +85,7 @@ extension WelcomeSheet {
                 NavigationLink(
                     destination: LanguageSelectionStepView(onContinue: onContinue)
                 ) {
-                    Text(LocalizationKeys.continueButton.localized)
+                    Text(LocalizationKeys.Welcome.continueButton.localized)
                         .font(.headline)
                         .frame(maxWidth: .infinity)
                         .padding(vertical: 12, horizontal: 16)

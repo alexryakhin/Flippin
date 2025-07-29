@@ -67,7 +67,7 @@ enum CardStackTab {
                         Button {
                             shuffleCards()
                         } label: {
-                            Label("Shuffle", systemImage: "shuffle")
+                            Label(LocalizationKeys.Navigation.shuffle.localized, systemImage: "shuffle")
                                 .foregroundStyle(colorManager.borderedProminentForegroundColor)
                         }
                         .buttonStyle(.borderedProminent)
@@ -77,7 +77,7 @@ enum CardStackTab {
                         Button {
                             showAddCardSheet = true
                         } label: {
-                            Label("Add Card", systemImage: "plus")
+                            Label(LocalizationKeys.Navigation.addCardLabel.localized, systemImage: "plus")
                                 .foregroundStyle(colorManager.borderedProminentForegroundColor)
                         }
                         .buttonStyle(.borderedProminent)
@@ -156,7 +156,7 @@ enum CardStackTab {
             if !cardsProvider.hasUnlimitedCards && !cardsProvider.cards.isEmpty {
                 HStack {
                     VStack(alignment: .leading, spacing: 4) {
-                        Text(LocalizationKeys.cardsUsedOfLimit.localized(with: cardsProvider.cards.count, cardsProvider.cardLimit))
+                        Text(LocalizationKeys.Paywall.cardsUsedOfLimit.localized(with: cardsProvider.cards.count, cardsProvider.cardLimit))
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
 
@@ -167,7 +167,7 @@ enum CardStackTab {
 
                     Spacer()
 
-                    Button(LocalizationKeys.upgrade.localized) {
+                    Button(LocalizationKeys.Paywall.upgrade.localized) {
                         premiumFeature = .unlimitedCards
                     }
                     .font(.caption)
@@ -191,16 +191,16 @@ enum CardStackTab {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 48, height: 48)
-                        Text(LocalizationKeys.noCardsYet.localized)
+                        Text(LocalizationKeys.Card.noCardsYet.localized)
                     }
                 } description: {
-                    Text(LocalizationKeys.tapToAddFirstCard.localized)
+                    Text(LocalizationKeys.Card.tapToAddFirstCard.localized)
                         .foregroundStyle(.secondary)
                 } actions: {
                     Button {
                         showAddCardSheet = true
                     } label: {
-                        Label(LocalizationKeys.addCard.localized, systemImage: "plus")
+                        Label(LocalizationKeys.Card.addCard.localized, systemImage: "plus")
                             .foregroundStyle(colorManager.borderedProminentForegroundColor)
                     }
                     .buttonStyle(.borderedProminent)
@@ -219,13 +219,13 @@ enum CardStackTab {
                     VStack {
                         Image(systemName: "tag")
                             .font(.largeTitle)
-                        Text(LocalizationKeys.noCardsWithSelectedTag.localized)
+                        Text(LocalizationKeys.Card.noCardsWithSelectedTag.localized)
                     }
                 } description: {
-                    Text(LocalizationKeys.noCardsFoundWithTag.localized(with: selectedFilterTag.name.orEmpty))
+                    Text(LocalizationKeys.Card.noCardsFoundWithTag.localized(with: selectedFilterTag.name.orEmpty))
                         .foregroundStyle(.secondary)
                 } actions: {
-                    Button(LocalizationKeys.clearFilter.localized) {
+                    Button(LocalizationKeys.General.clearFilter.localized) {
                         HapticService.shared.buttonTapped()
                         tagManager.clearFilter()
                     }
@@ -244,10 +244,10 @@ enum CardStackTab {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 48, height: 48)
-                    Text(LocalizationKeys.noCardsYet.localized)
+                    Text(LocalizationKeys.Card.noCardsYet.localized)
                 }
             } description: {
-                Text(LocalizationKeys.noCardsForLanguagePair.localized)
+                Text(LocalizationKeys.Card.noCardsForLanguagePair.localized)
                     .foregroundStyle(.secondary)
             }
             .foregroundColor(colorManager.foregroundColor)
@@ -258,10 +258,10 @@ enum CardStackTab {
                 VStack {
                     Image(systemName: "heart")
                         .font(.largeTitle)
-                    Text(LocalizationKeys.noFavoriteCards.localized)
+                    Text(LocalizationKeys.Settings.noFavoriteCards.localized)
                 }
             } description: {
-                Text(LocalizationKeys.noFavoriteCardsDescription.localized)
+                Text(LocalizationKeys.Settings.noFavoriteCardsDescription.localized)
                     .foregroundStyle(.secondary)
             }
             .foregroundColor(colorManager.foregroundColor)
@@ -272,10 +272,10 @@ enum CardStackTab {
                 VStack {
                     Image(systemName: "exclamationmark.triangle")
                         .font(.largeTitle)
-                    Text("No Difficult Cards")
+                    Text(LocalizationKeys.Card.noDifficultCards.localized)
                 }
             } description: {
-                Text("You don't have any cards marked as difficult yet. Study more cards to see difficulty levels.")
+                Text(LocalizationKeys.Card.noDifficultCardsDescription.localized)
                     .foregroundStyle(.secondary)
             }
             .foregroundColor(colorManager.foregroundColor)

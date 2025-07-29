@@ -15,39 +15,41 @@ struct StudyTimeChart: View {
     
     var body: some View {
         if data.isEmpty {
-            // Empty state
             VStack(spacing: 12) {
                 Image(systemName: "chart.bar.xaxis")
                     .font(.title2)
                     .foregroundColor(.secondary)
-                Text("No study data available")
-                    .font(.caption)
+
+                Text(LocalizationKeys.Analytics.noStudyDataAvailable.localized)
+                    .font(.headline)
                     .foregroundColor(.secondary)
             }
-            .frame(height: 200)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
         } else {
             Chart(data, id: \.date) { dataPoint in
                 BarMark(
                     x: .value("Date", dataPoint.date, unit: .day),
                     y: .value("Study Time", dataPoint.studyTime / 60) // Convert to minutes
                 )
-                .foregroundStyle(tintColor.gradient)
+                .foregroundStyle(tintColor)
             }
-            .frame(height: 200)
             .chartXAxis {
                 AxisMarks(values: .stride(by: strideBy)) { value in
+                    AxisGridLine()
                     AxisValueLabel(format: axisLabelFormat)
                 }
             }
             .chartYAxis {
                 AxisMarks { value in
+                    AxisGridLine()
                     AxisValueLabel {
-                        if let minutes = value.as(Double.self) {
-                            Text("\(Int(minutes))m")
+                        if let studyTime = value.as(Double.self) {
+                            Text("\(Int(studyTime))m")
                         }
                     }
                 }
             }
+            .frame(height: 200)
         }
     }
     

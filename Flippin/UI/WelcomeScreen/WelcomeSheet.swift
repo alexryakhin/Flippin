@@ -23,8 +23,8 @@ enum WelcomeSheet {
                         .ignoresSafeArea()
 
                     WelcomeStepView(
-                        title: LocalizationKeys.welcomeScreenTitle.localized,
-                        message: LocalizationKeys.welcomeScreenMessage.localized,
+                        title: LocalizationKeys.Welcome.welcomeScreenTitle.localized,
+                        message: LocalizationKeys.Welcome.welcomeScreenMessage.localized,
                         onContinue: onContinue
                     )
                 }

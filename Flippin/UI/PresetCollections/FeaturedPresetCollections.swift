@@ -30,12 +30,12 @@ struct FeaturedPresetCollections: View {
     var body: some View {
         if !featuredCollections.isEmpty {
             CustomSectionView(
-                header: LocalizationKeys.presetCollections.localized,
+                header: LocalizationKeys.Presets.presetCollections.localized,
                 headerFontStyle: .large,
                 backgroundStyle: bgStyle
             ) {
                 VStack(alignment: .leading, spacing: 16) {
-                    Text(LocalizationKeys.getStartedWithCollections.localized)
+                    Text(LocalizationKeys.Presets.getStartedWithCollections.localized)
                         .font(.caption)
                         .foregroundColor(.secondary)
 
@@ -58,7 +58,7 @@ struct FeaturedPresetCollections: View {
                     .scrollClipDisabled()
                 }
             } trailingContent: {
-                Button(LocalizationKeys.seeAllCollections.localized) {
+                Button(LocalizationKeys.Presets.seeAllCollections.localized) {
                     if purchaseService.hasPremiumAccess {
                         showingAllCollections = true
                         AnalyticsService.trackEvent(.presetCollectionsOpened)
@@ -74,20 +74,20 @@ struct FeaturedPresetCollections: View {
                 PresetCollectionsView()
             }
             .premiumAlert(feature: $premiumFeature)
-            .alert(LocalizationKeys.importCollection.localized, isPresented: $showingImportAlert) {
-                Button(LocalizationKeys.cancel.localized, role: .cancel) { }
-                Button(LocalizationKeys.importButton.localized) {
+            .alert(LocalizationKeys.Presets.importCollection.localized, isPresented: $showingImportAlert) {
+                Button(LocalizationKeys.General.cancel.localized, role: .cancel) { }
+                Button(LocalizationKeys.Presets.importButton.localized) {
                     if let collection = collectionToImport {
                         importCollection(collection)
                     }
                 }
             } message: {
                 if let collection = collectionToImport {
-                    Text(LocalizationKeys.importCollectionMessage.localized(with: collection.name, collection.cardCount))
+                    Text(LocalizationKeys.Presets.importCollectionMessage.localized(with: collection.name, collection.cardCount))
                 }
             }
-            .alert(LocalizationKeys.cardLimitExceeded.localized, isPresented: $showingLimitAlert) {
-                Button(LocalizationKeys.ok.localized, role: .cancel) { }
+            .alert(LocalizationKeys.Card.cardLimitExceeded.localized, isPresented: $showingLimitAlert) {
+                Button(LocalizationKeys.General.ok.localized, role: .cancel) { }
             } message: {
                 Text(limitAlertMessage)
             }

@@ -8,12 +8,12 @@
 import Foundation
 
 enum AppError: Error, LocalizedError {
-    case invalidJSONData
+    case invalidJSON
 
     var errorDescription: String? {
         switch self {
-        case .invalidJSONData:
-            return "JSON data is invalid"
+        case .invalidJSON:
+            return LocalizationKeys.General.invalidJSON.localized
         }
     }
 }

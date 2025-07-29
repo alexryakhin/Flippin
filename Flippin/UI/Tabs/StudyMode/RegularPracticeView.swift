@@ -12,7 +12,7 @@ extension StudyMode {
             VStack(spacing: 16) {
                 // Question
                 VStack(spacing: 8) {
-                    Text("Translate to \(card.frontLanguage?.displayName ?? LocalizationKeys.targetLanguage.localized)")
+                    Text(LocalizationKeys.Study.translateTo.localized(with: card.frontLanguage?.displayName ?? LocalizationKeys.Settings.targetLanguage.localized))
                         .font(.subheadline)
                         .foregroundColor(colorManager.foregroundColor)
 
@@ -28,9 +28,9 @@ extension StudyMode {
                 // Answer (shown after user interaction)
                 if showingAnswer {
                     VStack(spacing: 8) {
-                        Text("Correct Answer")
+                        Text(LocalizationKeys.Study.correctAnswer.localized)
                             .font(.subheadline)
-                            .foregroundColor(colorManager.foregroundColor)
+                            .foregroundColor(.secondary)
 
                         Text(card.frontText.orEmpty)
                             .font(.title3)

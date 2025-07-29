@@ -4,10 +4,28 @@ import Charts
 enum AnalyticsDashboard {
 
     enum TimeRange: String, CaseIterable {
-        case week = "Week"
-        case month = "Month"
-        case year = "Year"
-        case all = "All Time"
+        case week
+        case month
+        case year
+        case all
+
+        var name: String {
+            switch self {
+            case .week: LocalizationKeys.Analytics.week.localized
+            case .month: LocalizationKeys.Analytics.month.localized
+            case .year: LocalizationKeys.Analytics.year.localized
+            case .all: LocalizationKeys.Analytics.allTime.localized
+            }
+        }
+
+        var growthPeriodLabel: String {
+            switch self {
+            case .week: LocalizationKeys.Analytics.thisWeek.localized
+            case .month: LocalizationKeys.Analytics.thisMonth.localized
+            case .year: LocalizationKeys.Analytics.thisYear.localized
+            case .all: LocalizationKeys.Analytics.allTime.localized
+            }
+        }
 
         static let chartCases: [TimeRange] = [.week, .month, .year]
     }
@@ -45,11 +63,11 @@ enum AnalyticsDashboard {
                 // Streak display
                 HStack {
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("Study Streak")
+                        Text(LocalizationKeys.Analytics.studyStreak.localized)
                             .font(.subheadline)
                             .foregroundColor(.secondary)
 
-                        Text("\(analyticsService.studyStreak) days")
+                        Text(TimeInterval.formatDayCount(analyticsService.studyStreak))
                             .font(.system(.title2, design: .rounded))
                             .bold()
                             .foregroundColor(colorManager.tintColor)
@@ -69,7 +87,7 @@ enum AnalyticsDashboard {
                 // Total study time
                 HStack {
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("Total Study Time")
+                        Text(LocalizationKeys.Analytics.totalStudyTime.localized)
                             .font(.subheadline)
                             .foregroundColor(.secondary)
 
@@ -81,7 +99,7 @@ enum AnalyticsDashboard {
                     Spacer()
 
                     VStack(alignment: .trailing, spacing: 4) {
-                        Text("Cards Mastered")
+                        Text(LocalizationKeys.Analytics.cardsMastered.localized)
                             .font(.subheadline)
                             .foregroundColor(.secondary)
 
@@ -98,31 +116,31 @@ enum AnalyticsDashboard {
         // MARK: - Quick Stats Section
 
         private var quickStatsSection: some View {
-            CustomSectionView(header: "Today", headerFontStyle: .large) {
+            CustomSectionView(header: LocalizationKeys.Analytics.today.localized, headerFontStyle: .large) {
                 LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 8), count: 2), spacing: 8) {
                     StatCard(
-                        title: "Today's Study",
+                        title: LocalizationKeys.Analytics.time.localized,
                         value: (analyticsService.dailyStats?.totalStudyTime ?? 0).formattedStudyTime,
                         icon: "clock.fill",
                         color: .blue
                     )
 
                     StatCard(
-                        title: "Cards Studied",
+                        title: LocalizationKeys.Analytics.cardsStudied.localized,
                         value: "\(analyticsService.dailyStats?.cardsStudied ?? 0)",
                         icon: "rectangle.stack.fill",
                         color: .purple
                     )
 
                     StatCard(
-                        title: "Sessions",
+                        title: LocalizationKeys.Analytics.sessions.localized,
                         value: "\(analyticsService.dailyStats?.sessionsCompleted ?? 0)",
                         icon: "play.circle.fill",
                         color: .orange
                     )
 
                     StatCard(
-                        title: "Accuracy",
+                        title: LocalizationKeys.Analytics.accuracy.localized,
                         value: analyticsService.getOverallAccuracy().asPercentage,
                         icon: "target",
                         color: .green
@@ -136,16 +154,16 @@ enum AnalyticsDashboard {
         @ViewBuilder
         private var studyTimeChartSection: some View {
             if purchaseService.hasPremiumAccess {
-                CustomSectionView(header: "Study Time") {
+                CustomSectionView(header: LocalizationKeys.Analytics.studyTime.localized) {
                     StudyTimeChart(
                         data: analyticsService.getStudyData(for: selectedTimeRange),
                         timeRange: selectedTimeRange,
                         tintColor: colorManager.tintColor
                     )
                 } trailingContent: {
-                    Picker("Time Range", selection: $selectedTimeRange) {
+                    Picker(LocalizationKeys.Analytics.timeRange.localized, selection: $selectedTimeRange) {
                         ForEach(TimeRange.chartCases, id: \.self) { range in
-                            Text(range.rawValue).tag(range)
+                            Text(range.name).tag(range)
                         }
                     }
                     .pickerStyle(.segmented)
@@ -160,10 +178,10 @@ enum AnalyticsDashboard {
             if purchaseService.hasPremiumAccess {
                 let masteryStats = analyticsService.getMasteryStats()
 
-                CustomSectionView(header: "Mastery Progress") {
+                CustomSectionView(header: LocalizationKeys.Analytics.masteryProgress.localized) {
                     FormWithDivider {
                         MasteryProgressRow(
-                            title: "Mastered",
+                            title: LocalizationKeys.Analytics.mastered.localized,
                             count: masteryStats.mastered,
                             total: masteryStats.total,
                             color: .green,
@@ -171,7 +189,7 @@ enum AnalyticsDashboard {
                         )
 
                         MasteryProgressRow(
-                            title: "Learning",
+                            title: LocalizationKeys.Analytics.learning.localized,
                             count: masteryStats.learning,
                             total: masteryStats.total,
                             color: .orange,
@@ -179,7 +197,7 @@ enum AnalyticsDashboard {
                         )
 
                         MasteryProgressRow(
-                            title: "Needs Review",
+                            title: LocalizationKeys.Analytics.needsReview.localized,
                             count: masteryStats.needsReview,
                             total: masteryStats.total,
                             color: .red,

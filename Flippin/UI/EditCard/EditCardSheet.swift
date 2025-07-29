@@ -36,7 +36,7 @@ struct EditCardSheet: View {
                 viewModel.updateCard()
                 dismiss()
             } label: {
-                Text(LocalizationKeys.save.localized)
+                Text(LocalizationKeys.General.save.localized)
                     .font(.headline)
                     .foregroundStyle(colorManager.borderedProminentForegroundColor)
                     .frame(maxWidth: .infinity)
@@ -51,7 +51,7 @@ struct EditCardSheet: View {
         }
         .background(Color(.systemGroupedBackground))
         .navigation(
-            title: LocalizationKeys.editCard.localized,
+            title: LocalizationKeys.Card.editCard.localized,
             mode: .inline,
             trailingContent: {
                 Button {
@@ -76,7 +76,7 @@ struct EditCardSheet: View {
             backgroundStyle: .standard
         ) {
             TextField(
-                LocalizationKeys.enterTextInYourLanguage.localized,
+                LocalizationKeys.Card.enterTextInYourLanguage.localized,
                 text: $viewModel.nativeText,
                 axis: .vertical
             )
@@ -85,7 +85,7 @@ struct EditCardSheet: View {
             .clippedWithPaddingAndBackground(colorManager.tintColor.opacity(0.1))
         } trailingContent: {
             if isUserLanguageTextFieldFocused {
-                SectionHeaderButton(LocalizationKeys.done.localized) {
+                SectionHeaderButton(LocalizationKeys.General.done.localized) {
                     UIApplication.shared.endEditing()
                 }
             }
@@ -98,7 +98,7 @@ struct EditCardSheet: View {
             backgroundStyle: .standard
         ) {
             TextField(
-                LocalizationKeys.translationWillAppearHere.localized,
+                LocalizationKeys.Card.translationWillAppearHere.localized,
                 text: $viewModel.targetText,
                 axis: .vertical
             )
@@ -108,7 +108,7 @@ struct EditCardSheet: View {
             .shimmering(when: viewModel.isTranslating)
         } trailingContent: {
             if isTargetLanguageTextFieldFocused {
-                SectionHeaderButton(LocalizationKeys.done.localized) {
+                SectionHeaderButton(LocalizationKeys.General.done.localized) {
                     UIApplication.shared.endEditing()
                 }
             }
@@ -117,7 +117,7 @@ struct EditCardSheet: View {
 
     private var tagsSection: some View {
         CustomSectionView(
-            header: LocalizationKeys.tagsCount.localized(with: viewModel.card.tagArray.count),
+            header: LocalizationKeys.Tag.tagsCount.localized(with: viewModel.card.tagArray.count),
             backgroundStyle: .standard
         ) {
             if !viewModel.availableTags.isEmpty {
@@ -138,7 +138,7 @@ struct EditCardSheet: View {
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
             } else {
-                Text(LocalizationKeys.noTagsAvailableAddInSettings.localized)
+                Text(LocalizationKeys.Tag.noTagsAvailableAddInSettings.localized)
                     .foregroundStyle(.secondary)
                     .font(.caption)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -148,11 +148,11 @@ struct EditCardSheet: View {
 
     private var notesSection: some View {
         CustomSectionView(
-            header: LocalizationKeys.notes.localized,
+            header: LocalizationKeys.Card.notes.localized,
             backgroundStyle: .standard
         ) {
             TextField(
-                LocalizationKeys.addNotesOptional.localized,
+                LocalizationKeys.Card.addNotesOptional.localized,
                 text: $viewModel.notes,
                 axis: .vertical
             )
@@ -161,7 +161,7 @@ struct EditCardSheet: View {
             .clippedWithPaddingAndBackground(colorManager.tintColor.opacity(0.1))
         } trailingContent: {
             if isNotesTextFieldFocused {
-                SectionHeaderButton(LocalizationKeys.done.localized) {
+                SectionHeaderButton(LocalizationKeys.General.done.localized) {
                     UIApplication.shared.endEditing()
                 }
             }

@@ -49,7 +49,7 @@ enum StudyTab {
             .if(isPad) { view in
                 view.frame(maxWidth: 500, alignment: .center)
             }
-            .navigation(title: "Study")
+            .navigation(title: LocalizationKeys.Study.study.localized)
             .ifLet(colorManager.colorScheme) { view, scheme in
                 view.colorScheme(scheme)
             }
@@ -62,34 +62,34 @@ enum StudyTab {
         // MARK: - UI Components
 
         private var quickStatsSection: some View {
-            CustomSectionView(header: "Quick Stats", headerFontStyle: .large) {
+            CustomSectionView(header: LocalizationKeys.Study.quickStats.localized, headerFontStyle: .large) {
                 LazyVGrid(
                     columns: Array(repeating: GridItem(.flexible(), spacing: 8), count: 2),
                     spacing: 8
                 ) {
                     StatCard(
-                        title: "Total Cards",
+                        title: LocalizationKeys.Study.totalCards.localized,
                         value: "\(cardsProvider.cards.count)",
                         icon: "rectangle.stack.fill",
                         color: .blue
                     )
 
                     StatCard(
-                        title: "Mastered",
+                        title: LocalizationKeys.Study.mastered.localized,
                         value: "\(masteryStats.mastered)",
                         icon: "checkmark.circle.fill",
                         color: .green
                     )
 
                     StatCard(
-                        title: "Difficult Cards",
+                        title: LocalizationKeys.Study.difficultCards.localized,
                         value: "\(analyticsService.getDifficultCardsNeedingReview().count)",
                         icon: "exclamationmark.triangle.fill",
                         color: .red
                     )
 
                     StatCard(
-                        title: "Study Time Today",
+                        title: LocalizationKeys.Study.studyTimeToday.localized,
                         value: studyTimeStats.today.formattedStudyTime,
                         icon: "clock",
                         color: .purple
@@ -101,13 +101,13 @@ enum StudyTab {
         @ViewBuilder
         private var studyOptionsSection: some View {
             if !cardsProvider.cards.isEmpty {
-                CustomSectionView(header: "Study Options", headerFontStyle: .large) {
+                CustomSectionView(header: LocalizationKeys.Study.studyOptions.localized, headerFontStyle: .large) {
                     VStack(spacing: 12) {
                         // Start study session (only show if user has more than 10 cards)
                         if cardsProvider.cards.count > 10 {
                             studyOptionButton(
                                 image: Image(systemName: "play.fill"),
-                                text: "Start Study Session (10 cards)",
+                                text: LocalizationKeys.Study.startStudySession.localized,
                                 color: .green,
                                 isDisabled: cardsProvider.cards.isEmpty,
                                 action: {
@@ -119,7 +119,7 @@ enum StudyTab {
                         // Practice all cards
                         studyOptionButton(
                             image: Image(.icCardStackFill),
-                            text: "Practice All Cards (\(cardsProvider.cards.count))",
+                            text: LocalizationKeys.Study.practiceAllCards.localized(with: cardsProvider.cards.count),
                             color: .blue,
                             action: {
                                 currentStudyMode = .practice
@@ -131,7 +131,7 @@ enum StudyTab {
                         if !difficultCards.isEmpty {
                             studyOptionButton(
                                 image: Image(systemName: "exclamationmark.triangle.fill"),
-                                text: "Practice Difficult Cards (\(difficultCards.count))",
+                                text: LocalizationKeys.Study.practiceDifficultCards.localized(with: difficultCards.count),
                                 color: .red,
                                 action: {
                                     currentStudyMode = .difficult
@@ -143,7 +143,7 @@ enum StudyTab {
                             // Multiple choice quiz
                             studyOptionButton(
                                 image: Image(systemName: "list.bullet.circle.fill"),
-                                text: "Multiple Choice Quiz",
+                                text: LocalizationKeys.Study.multipleChoiceQuiz.localized,
                                 color: .purple,
                                 action: {
                                     currentStudyMode = .multipleChoice
@@ -159,7 +159,7 @@ enum StudyTab {
 
                             studyOptionButton(
                                 image: Image(systemName: "pencil.circle.fill"),
-                                text: "Fill in the Blank (\(fillInTheBlankCards.count))",
+                                text: LocalizationKeys.Study.fillInTheBlank.localized(with: fillInTheBlankCards.count),
                                 color: .orange,
                                 isDisabled: fillInTheBlankCards.isEmpty,
                                 action: {
@@ -169,7 +169,7 @@ enum StudyTab {
                         } else {
                             studyOptionButton(
                                 image: Image(systemName: "crown.fill"),
-                                text: "Unlock All Study Modes",
+                                text: LocalizationKeys.Study.unlockAllStudyModes.localized,
                                 color: .teal,
                                 action: {
                                     premiumFeature = .studyModes
@@ -209,19 +209,19 @@ enum StudyTab {
         }
 
         private var recentActivitySection: some View {
-            CustomSectionView(header: "Recent Activity", headerFontStyle: .large) {
+            CustomSectionView(header: LocalizationKeys.Study.recentActivity.localized, headerFontStyle: .large) {
                 if cardsProvider.cards.isEmpty {
                     ContentUnavailableView {
                         VStack {
                             Image(systemName: "book.closed")
                                 .font(.largeTitle)
-                            Text("No Study Data")
+                            Text(LocalizationKeys.Study.noStudyData.localized)
                         }
                     } description: {
-                        Text("Start studying to see your progress!")
+                        Text(LocalizationKeys.Study.startStudyingToSeeProgress.localized)
                             .foregroundStyle(.secondary)
                     } actions: {
-                        Button("To cards") {
+                        Button(LocalizationKeys.Study.toCards.localized) {
                             NavigationManager.shared.switchToTab(.stack)
                         }
                         .buttonStyle(.borderedProminent)
@@ -230,22 +230,22 @@ enum StudyTab {
                 } else {
                     VStack(spacing: 12) {
                         ActivityRow(
-                            title: "Total Study Time",
+                            title: LocalizationKeys.Study.totalStudyTime.localized,
                             value: studyTimeStats.total.formattedAnalyticsTime,
                             icon: "clock.fill",
                             color: .purple
                         )
 
                         ActivityRow(
-                            title: "Average Session",
+                            title: LocalizationKeys.Study.averageSession.localized,
                             value: studyTimeStats.average.formattedStudyTime,
                             icon: "timer",
                             color: .blue
                         )
 
                         ActivityRow(
-                            title: "Learning Progress",
-                            value: "\(masteryStats.learning) cards",
+                            title: LocalizationKeys.Study.learningProgress.localized,
+                            value: LocalizationKeys.Analytics.cardsCount.localized(with: Int(masteryStats.learning)),
                             icon: "brain.head.profile",
                             color: .orange
                         )
@@ -253,10 +253,6 @@ enum StudyTab {
                 }
             }
         }
-
-        // MARK: - Helper Methods
-
-        // Removed formatStudyTime - now using TimeInterval extension
     }
 
     // MARK: - Supporting Views

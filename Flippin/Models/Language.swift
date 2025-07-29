@@ -61,23 +61,23 @@ enum Language: String, Codable, CaseIterable, Identifiable {
 
     var displayName: String {
         switch self {
-        case .english: return LocalizationKeys.english.localized
-        case .spanish: return LocalizationKeys.spanish.localized
-        case .french: return LocalizationKeys.french.localized
-        case .german: return LocalizationKeys.german.localized
-        case .italian: return LocalizationKeys.italian.localized
-        case .portuguese: return LocalizationKeys.portuguese.localized
-        case .dutch: return LocalizationKeys.dutch.localized
-        case .swedish: return LocalizationKeys.swedish.localized
-        case .chinese: return LocalizationKeys.chinese.localized
-        case .japanese: return LocalizationKeys.japanese.localized
-        case .korean: return LocalizationKeys.korean.localized
-        case .vietnamese: return LocalizationKeys.vietnamese.localized
-        case .russian: return LocalizationKeys.russian.localized
-        case .arabic: return LocalizationKeys.arabic.localized
-        case .hindi: return LocalizationKeys.hindi.localized
-        case .croatian: return LocalizationKeys.croatian.localized
-        case .ukranian: return LocalizationKeys.ukrainian.localized
+        case .english: return LocalizationKeys.Languages.english.localized
+        case .spanish: return LocalizationKeys.Languages.spanish.localized
+        case .french: return LocalizationKeys.Languages.french.localized
+        case .german: return LocalizationKeys.Languages.german.localized
+        case .italian: return LocalizationKeys.Languages.italian.localized
+        case .portuguese: return LocalizationKeys.Languages.portuguese.localized
+        case .dutch: return LocalizationKeys.Languages.dutch.localized
+        case .swedish: return LocalizationKeys.Languages.swedish.localized
+        case .chinese: return LocalizationKeys.Languages.chinese.localized
+        case .japanese: return LocalizationKeys.Languages.japanese.localized
+        case .korean: return LocalizationKeys.Languages.korean.localized
+        case .vietnamese: return LocalizationKeys.Languages.vietnamese.localized
+        case .russian: return LocalizationKeys.Languages.russian.localized
+        case .arabic: return LocalizationKeys.Languages.arabic.localized
+        case .hindi: return LocalizationKeys.Languages.hindi.localized
+        case .croatian: return LocalizationKeys.Languages.croatian.localized
+        case .ukranian: return LocalizationKeys.Languages.ukrainian.localized
         }
     }
     
