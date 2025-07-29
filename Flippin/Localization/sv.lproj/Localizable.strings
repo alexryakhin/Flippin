@@ -49,7 +49,7 @@
 "noCardsForLanguagePair" = "Inga kort för detta språkpar";
 
 // MARK: - Card Views
-"showAnswer" = "Visa svar";
+"flip" = "Vänd";
 "tapToGoBack" = "Tryck för att gå tillbaka";
 
 // MARK: - Tag Management
@@ -96,6 +96,19 @@
 "color" = "Färg";
 "backgroundStyle" = "Bakgrundsstil";
 "tapToSeeFullScreen" = "Tryck för att se helskärm";
+
+// MARK: - Categories
+"categoryBasics" = "Grundläggande";
+"categoryTravel" = "Resor";
+"categoryEntertainment" = "Underhållning";
+"categoryFood" = "Mat";
+"categoryShopping" = "Shopping";
+"categorySocial" = "Socialt";
+"categoryWeather" = "Väder";
+"categoryTechnology" = "Teknologi";
+"categoryLifestyle" = "Livsstil";
+"categoryProfessional" = "Professionellt";
+"categoryEmergency" = "Nödsituation";
 
 // MARK: - Add Card
 "enterTextInYourLanguage" = "Ange text på ditt språk";
@@ -161,6 +174,276 @@
 "shuffle" = "Blanda";
 "addCardLabel" = "Lägg till kort";
 
+// MARK: - Navigation
+"stack" = "Stapel";
+"list" = "Lista";
+"study" = "Studera";
+"analytics" = "Analys";
+"settings" = "Inställningar";
+
+// MARK: - Card Management
+"noDifficultCards" = "Inga Svåra Kort";
+"noDifficultCardsDescription" = "Du har inte markerat några kort som svåra än. Studera fler kort för att se svårighetsgrader.";
+"difficultCards" = "Svåra Kort";
+"failedToCreateCard" = "Misslyckades med att skapa kort: %@";
+
+// MARK: - Study
+"study" = "Studera";
+"studyMode" = "Studieläge";
+"quickStats" = "Snabba Statistik";
+"studyOptions" = "Studiealternativ";
+"recentActivity" = "Senaste Aktivitet";
+"totalCards" = "Totalt Antal Kort";
+"mastered" = "Bemästrade";
+"difficultCards" = "Svåra Kort";
+"studyTimeToday" = "Studietid Idag";
+"startStudySession" = "Starta Studiesession (10 kort)";
+"practiceAllCards" = "Öva Alla Kort (%d)";
+"practiceDifficultCards" = "Öva Svåra Kort (%d)";
+"multipleChoiceQuiz" = "Flervalsquiz";
+"fillInTheBlank" = "Fyll i Tomrummet (%d)";
+"unlockAllStudyModes" = "Lås upp Alla Studielägen";
+"noStudyData" = "Inga Studiedata";
+"startStudyingToSeeProgress" = "Börja studera för att se dina framsteg!";
+"toCards" = "Till kort";
+"totalStudyTime" = "Total Studietid";
+"averageSession" = "Genomsnittlig Session";
+"learningProgress" = "Inlärningsframsteg";
+"exit" = "Avsluta";
+"showAnswer" = "Visa Svar";
+"incorrect" = "Fel";
+"correct" = "Rätt";
+"studySessionComplete" = "Studiesession Avslutad!";
+"accuracy" = "Noggrannhet";
+"cardsStudied" = "Studerade Kort";
+"timeSpent" = "Tidsåtgång";
+"studyAgain" = "Studera Igen";
+"done" = "Klar";
+"selectCorrectTranslation" = "Välj rätt översättning";
+"fillInMissingWord" = "Fyll i det saknade ordet";
+"completeSentence" = "Komplettera meningen";
+"chooseCorrectWord" = "Välj rätt ord:";
+"correctAnswer" = "Rätt Svar";
+"translateTo" = "Översätt till %@";
+"studyProgress" = "%d av %d";
+
+// MARK: - Analytics
+"analytics" = "Analys";
+"detailedAnalytics" = "Detaljerad Analys";
+"today" = "Idag";
+"noAnalyticsData" = "Inga Analysdata";
+"startStudyingToSeeProgress" = "Börja studera för att se dina inlärningsframsteg!";
+"unlockAdvancedAnalytics" = "Lås upp Avancerad Analys";
+"detailedProgressReports" = "Detaljerade Framstegsrapport";
+"detailedProgressReportsDescription" = "Följ dina inlärningsmönster och förbättringar över tid";
+"performanceInsights" = "Prestationsinsikter";
+"performanceInsightsDescription" = "Få personliga rekommendationer för att förbättra dina studievanor";
+"studyTimeAnalytics" = "Studietidsanalys";
+"studyTimeAnalyticsDescription" = "Analysera dina studiesessioner och optimera ditt lärande";
+"upgradeToPremium" = "Uppgradera till Premium";
+"recentActivity" = "Senaste Aktivitet";
+"viewAll" = "Visa Alla";
+"noRecentActivity" = "Ingen Senaste Aktivitet";
+"studySessionsWillAppearHere" = "Dina studiesessioner kommer att visas här";
+"lastStudySession" = "Senaste Studiesession";
+"cardsStudiedToday" = "Kort Studerade Idag";
+"studyStreak" = "Studierad";
+"totalStudyTime" = "Total Studietid";
+"cardsMastered" = "Bemästrade Kort";
+"todaysStudy" = "Dagens Studier";
+"time" = "Tid";
+"cardsStudied" = "Studerade Kort";
+"sessions" = "Sessioner";
+"accuracy" = "Noggrannhet";
+"studyTime" = "Studietid";
+"timeRange" = "Tidsintervall";
+"masteryProgress" = "Bemästringsframsteg";
+"mastered" = "Bemästrade";
+"learning" = "Lärande";
+"needsReview" = "Behöver Granskas";
+"week" = "Vecka";
+"month" = "Månad";
+"year" = "År";
+"allTime" = "All Tid";
+"overview" = "Översikt";
+"performance" = "Prestation";
+"progress" = "Framsteg";
+"insights" = "Insikter";
+"noStudyDataAvailable" = "Inga studiedata tillgängliga";
+
+// MARK: - Detailed Analytics
+"analyticsTab" = "Analysflik";
+"studyTimeTitle" = "Studietid";
+"cardsMasteredTitle" = "Bemästrade Kort";
+"studyStreakTitle" = "Studierad";
+"averageSessionTitle" = "Genomsnittlig Session";
+"consecutiveDays" = "konsekutiva dagar";
+"perSession" = "per session";
+"studyPatterns" = "Studiemönster";
+"mostActiveTime" = "Mest Aktiva Tid";
+"preferredSessionLength" = "Föredragen Sessionslängd";
+"studyFrequency" = "Studiefrekvens";
+"languageProgress" = "Språkframsteg";
+"collectionSize" = "Samlingens Storlek";
+"cards" = "kort";
+"achievements" = "Prestationer";
+"firstSteps" = "Första Steg";
+"weekWarrior" = "Veckans Krigare";
+"masterLearner" = "Mästarlärare";
+"dedicated" = "Dedikerad";
+"vocabularyMaster" = "Vokabulärmästare";
+"timeMaster" = "Tidsmästare";
+"accuracyTrends" = "Noggrannhetstrender";
+"sessionPerformance" = "Sessionsprestation";
+"averageSessionDuration" = "Genomsnittlig Sessionslängd";
+"basedOnData" = "Baserat på data från %@";
+"cardsPerSession" = "Kort Per Session";
+"average" = "Genomsnitt";
+"sessionFrequency" = "Sessionsfrekvens";
+"cardDifficultyAnalysis" = "Kortsvårighetsanalys";
+"noDifficultyDataAvailable" = "Inga svårighetsdata tillgängliga";
+"learningSpeed" = "Inlärningshastighet";
+"cardsPerHour" = "Kort Per Timme";
+"vsAverage" = "jämfört med genomsnittet";
+"masteryTimeline" = "Bemästringstidslinje";
+"vocabularyGrowth" = "Vokabulärtillväxt";
+"totalVocabulary" = "Totalt Vokabulär";
+"thisWeek" = "Denna Vecka";
+"thisMonth" = "Denna Månad";
+"thisYear" = "Detta År";
+"learningMilestones" = "Inlärningsmilstolpar";
+"personalizedInsights" = "Personliga Insikter";
+"noInsightsAvailableYet" = "Inga insikter tillgängliga ännu";
+"recommendations" = "Rekommendationer";
+"noRecommendationsAtThisTime" = "Inga rekommendationer för tillfället";
+"learningTips" = "Inlärningstips";
+"spacedRepetition" = "Upprepning med Intervall";
+"spacedRepetitionDescription" = "Granska kort med ökande intervall för bättre retention.";
+"activeRecall" = "Aktiv Återkallelse";
+"activeRecallDescription" = "Försök att komma ihåg svaret innan du vänder på kortet.";
+"contextLearning" = "Kontextuellt Lärande";
+"contextLearningDescription" = "Lär dig ord i meningar istället för isolerat.";
+"studyNow" = "Studera Nu";
+"startReview" = "Börja Granska";
+"browseCollections" = "Bläddra i Samlingar";
+"practiceMode" = "Övningsläge";
+
+// MARK: - Learning Analytics Service
+"notEnoughData" = "Inte tillräckligt med data";
+"morning" = "Morgon (6-12)";
+"afternoon" = "Eftermiddag (12-17)";
+"evening" = "Kväll (17-21)";
+"night" = "Natt (21-6)";
+"under10Minutes" = "Under 10 minuter";
+"tenTo20Minutes" = "10-20 minuter";
+"twentyTo30Minutes" = "20-30 minuter";
+"thirtyTo60Minutes" = "30-60 minuter";
+"over60Minutes" = "Över 60 minuter";
+"onceThisWeek" = "En gång denna vecka";
+"fewTimesThisWeek" = "Några gånger denna vecka";
+"mostDaysThisWeek" = "De flesta dagar denna vecka";
+"daily" = "Dagligen";
+"veryEasy" = "Mycket Lätt";
+"easy" = "Lätt";
+"medium" = "Medel";
+"hard" = "Svår";
+"veryHard" = "Mycket Svår";
+"unknown" = "Okänd";
+"completedStudySession" = "Studiesession Avslutad";
+"reviewedCardsInTime" = "Granskade %d kort på %@";
+"recent" = "Nyligen";
+"reachedCardsMastered" = "Bemästrade %d kort";
+"greatProgressBuildingFoundation" = "Fantastiska framsteg! Du bygger en stabil grund.";
+"first10CardsMastered" = "Första 10 korten bemästrade";
+"sevenDayStudyStreak" = "Sju dagars studierad";
+"fiftyCardsMastered" = "Femtio kort bemästrade";
+"thirtyDayStudyStreak" = "Trettio dagars studierad";
+"completed" = "Avslutad";
+"inProgress" = "Pågående";
+"youreMostProductiveIn" = "Du är mest produktiv under %@";
+"studySessionsDuringThisTime" = "Dina studiesessioner under denna tid visar bättre fokus och retention.";
+"optimalSessionLength" = "Optimal Sessionslängd";
+"yourSessionsShowBestResults" = "Dina sessioner på %@ visar bäst resultat.";
+"consistentLearningPattern" = "Konsekvent Inlärningsmönster";
+"yourStudyRoutineWorkingWell" = "Din studierutin på %@ fungerar bra.";
+"improvingAccuracy" = "Förbättrar Noggrannhet";
+"recentAccuracyHigherThanBefore" = "Din senaste noggrannhet är %d%% högre än tidigare.";
+"focusOnAccuracy" = "Fokusera på Noggrannhet";
+"recentAccuracyDecreased" = "Din senaste noggrannhet har minskat. Överväg att granska svåra kort.";
+"excellentProgress" = "Utmärkt Framsteg";
+"masteredVocabularyPercentage" = "Du har bemästrat %d%% av ditt vokabulär!";
+"goodFoundation" = "Bra Grund";
+"masteredVocabularyKeepGoing" = "Du har bemästrat %d%% av ditt vokabulär. Fortsätt så!";
+"reviewDifficultCards" = "Granska Svåra Kort";
+"cardsNeedMorePractice" = "%d kort behöver mer övning. Fokusera på dessa för att förbättra noggrannheten.";
+"addMoreVocabulary" = "Lägg till Mer Vokabulär";
+"masteredMostCurrentCards" = "Du har bemästrat de flesta av dina aktuella kort. Redo för nya utmaningar!";
+"extendYourStreak" = "Förläng Din Rad";
+"daysAwayFromAchievement" = "Du är %d dagar från en ny prestation!";
+"buildConsistency" = "Bygg Konsekvens";
+"tryToStudyDaily" = "Försök att studera dagligen för att bygga en stabil studievanan.";
+"improveAccuracy" = "Förbättra Noggrannhet";
+"accuracyPercentageFocusQuality" = "Din noggrannhet är %d%%. Fokusera på kvalitet snarare än hastighet.";
+
+// MARK: - Settings
+"previewBackgrounds" = "Förhandsgranska Bakgrunder";
+"subscriptionStatus" = "Prenumerationsstatus";
+"activeSubscription" = "Aktiv Prenumeration";
+"manageSubscription" = "Hantera Prenumeration";
+"purchaseTesting" = "Köpprov";
+"testInAppPurchases" = "Testa köp i appen och få transaktions-ID:n";
+"openPurchaseTest" = "Öppna Köpprov";
+"testPurchase" = "Testköp";
+"performTestPurchase" = "Utför ett testköp för att få ett transaktions-ID";
+"transactionListenerActive" = "Transaktionslyssnare Aktiv";
+"transactionListenerNotActive" = "Transaktionslyssnare Inte Aktiv";
+"startTestPurchase" = "Starta Testköp";
+"lastTransactionId" = "Senaste Transaktions-ID";
+"transactionId" = "Transaktions-ID:";
+"copyToClipboard" = "Kopiera till Urklipp";
+"copied" = "Kopierat!";
+"transactionIdCopied" = "Transaktions-ID kopierat till urklipp";
+"availableProducts" = "Tillgängliga Produkter";
+"noProductsAvailable" = "Inga produkter tillgängliga";
+"purchasedProducts" = "Köpta Produkter";
+"noProductsPurchasedYet" = "Inga produkter köpta ännu";
+"purchased" = "Köpt";
+"transactionHistory" = "Transaktionshistorik";
+"loadTransactionHistory" = "Ladda Transaktionshistorik";
+"restorePurchases" = "Återställ Köp";
+"success" = "Lyckades";
+"failed" = "Misslyckades";
+"purchasesRestoredSuccessfully" = "Köp återställda framgångsrikt";
+"failedToRestorePurchases" = "Misslyckades med att återställa köp";
+"purchaseTestingTitle" = "Köpprov";
+"ok" = "OK";
+"testPurchaseCompleted" = "Testköp slutfört! Transaktions-ID: %@";
+"testPurchaseFailed" = "Testköp misslyckades: %@";
+"purchaseCompleted" = "Köp slutfört! Transaktions-ID: %@";
+"purchaseFailed" = "Köp misslyckades: %@";
+"unknown" = "Okänd";
+"unknownError" = "Okänt Fel";
+"product" = "Produkt: %@";
+"date" = "Datum: %@";
+
+// MARK: - Paywall
+"upgradeToPremiumTitle" = "Uppgradera till Premium";
+"upgradeToPremiumMessage" = "Uppgradera till Premium för att låsa upp alla funktioner!";
+"cancel" = "Avbryt";
+"viewOptions" = "Visa Alternativ";
+"unlimitedCardsTitle" = "Obegränsade Kort";
+"unlimitedCardsMessage" = "Uppgradera till Premium för att skapa obegränsade kort och låsa upp alla funktioner!";
+"advancedAnalyticsTitle" = "Avancerad Analys";
+"advancedAnalyticsMessage" = "Få detaljerade lärinsikter, framstegsgrafer och prestationsanalyser med Premium!";
+"customThemesTitle" = "Anpassade Teman";
+"customThemesMessage" = "Lås upp vackra anpassade teman och bakgrunder med Premium!";
+"languageChangeTitle" = "Ändra Språk";
+"languageChangeMessage" = "Välj mellan över 15 språk för att förbättra din inlärningsupplevelse med Premium!";
+"cardPresetsTitle" = "Kortförinställningar";
+"cardPresetsMessage" = "Utforska en omfattande samling av fördesignade kortförinställningar med Premium!";
+"studyModesTitle" = "Studielägen";
+"studyModesMessage" = "Få tillgång till avancerade studielägen och inlärningstekniker med Premium!";
+
 // MARK: - Search
 "searchCards" = "Sök kort...";
 
@@ -201,9 +484,10 @@
 "galaxy" = "Galax";
 
 // MARK: - Card Limits
-"cardLimitExceeded" = "Kortgräns Uppnådd";
-"cardsRemaining" = "Återstående Kort";
 "cardsUsedOfLimit" = "%d av %d kort";
+"cardLimitExceeded" = "Kortgräns uppnådd. Du har använt %d av %d tillåtna kort. Uppgradera till Premium för obegränsade kort.";
+"freeUsersLimitedTo" = "Gratis användare är begränsade till %d kort";
+"purchaseUnlimitedCards" = "Köp obegränsade kort för att lägga till fler kort i din samling";
 "upgrade" = "Uppgradera";
 "unlimitedCards" = "Obegränsade Kort";
 
@@ -213,15 +497,16 @@
 "activeSubscription" = "Aktiv Prenumeration";
 "manageSubscription" = "Hantera Prenumeration";
 
-// MARK: - Categories
-"categoryBasics" = "Grundläggande";
-"categoryTravel" = "Resor";
-"categoryEntertainment" = "Underhållning";
-"categoryFood" = "Mat";
-"categoryShopping" = "Shopping";
-"categorySocial" = "Socialt";
-"categoryWeather" = "Väder";
-"categoryTechnology" = "Teknologi";
-"categoryLifestyle" = "Livsstil";
-"categoryProfessional" = "Professionellt";
-"categoryEmergency" = "Nödsituation";
+"done" = "Klar";
+"cancel" = "Avbryt";
+"delete" = "Radera";
+"edit" = "Redigera";
+"save" = "Spara";
+"searchCards" = "Sök kort...";
+"noCardsAvailable" = "Inga kort tillgängliga";
+"noAccuracyDataAvailable" = "Inga noggrannhetsdata tillgängliga";
+"noGrowthDataAvailable" = "Inga tillväxtdata tillgängliga";
+"date" = "Datum";
+"accuracy" = "Noggrannhet";
+"masteredCards" = "Bemästrade Kort";
+"invalidJSON" = "Ogiltiga JSON-data";
