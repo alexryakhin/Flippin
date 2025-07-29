@@ -15,20 +15,19 @@ extension StudyMode {
         @State private var isAnswerCorrect = false
         
         var body: some View {
-            VStack(spacing: 20) {
+            VStack(spacing: 24) {
                 // Question
-                VStack(spacing: 8) {
+                VStack(spacing: 16) {
                     Text("Select the correct translation")
-                        .font(.subheadline)
-                        .foregroundColor(colorManager.foregroundColor)
+                        .font(.headline)
+                        .multilineTextAlignment(.center)
 
                     Text(card.frontText.orEmpty)
                         .font(.title2)
                         .fontWeight(.semibold)
                         .lineLimit(4)
                         .multilineTextAlignment(.center)
-                        .frame(maxWidth: .infinity)
-                        .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
+                        .clippedWithPaddingAndBackgroundMaterial()
                 }
                 
                 // Multiple choice options
@@ -50,6 +49,7 @@ extension StudyMode {
                     }
                 }
             }
+            .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
             .onAppear {
                 print("📊 MultipleChoiceQuizView appeared for card: \(card.frontText.orEmpty)")
                 resetState()
@@ -154,43 +154,34 @@ extension StudyMode {
             action: @escaping () -> Void
         ) -> some View {
             Button(action: action) {
-                HStack {
-                    Text(text)
-                        .font(.body)
-                        .fontWeight(.medium)
-                        .multilineTextAlignment(.leading)
-                        .lineLimit(3)
-                    
-                    Spacer()
-                    
-                    if isSelected {
-                        Image(systemName: isCorrect ? "checkmark.circle.fill" : "xmark.circle.fill")
-                            .foregroundColor(isCorrect ? .green : .red)
-                            .font(.title2)
-                    }
-                }
-                .padding(16)
-                .background(
-                    RoundedRectangle(cornerRadius: 12)
-                        .fill(backgroundColor(
-                            isSelected: isSelected,
-                            isCorrect: isCorrect,
-                            isIncorrect: isIncorrect
-                        ))
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 12)
-                                .stroke(borderColor(
-                                    isSelected: isSelected,
-                                    isCorrect: isCorrect,
-                                    isIncorrect: isIncorrect
-                                ), lineWidth: 2)
-                        )
-                )
-                .foregroundColor(textColor(
-                    isSelected: isSelected,
-                    isCorrect: isCorrect,
-                    isIncorrect: isIncorrect
-                ))
+                Text(text)
+                    .font(.body)
+                    .fontWeight(.medium)
+                    .multilineTextAlignment(.leading)
+                    .lineLimit(3)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(16)
+                    .background(
+                        RoundedRectangle(cornerRadius: 12)
+                            .fill(backgroundColor(
+                                isSelected: isSelected,
+                                isCorrect: isCorrect,
+                                isIncorrect: isIncorrect
+                            ))
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 12)
+                                    .stroke(borderColor(
+                                        isSelected: isSelected,
+                                        isCorrect: isCorrect,
+                                        isIncorrect: isIncorrect
+                                    ), lineWidth: 2)
+                            )
+                    )
+                    .foregroundColor(textColor(
+                        isSelected: isSelected,
+                        isCorrect: isCorrect,
+                        isIncorrect: isIncorrect
+                    ))
             }
             .disabled(isSelected)
             .animation(.easeInOut(duration: 0.2), value: isSelected)

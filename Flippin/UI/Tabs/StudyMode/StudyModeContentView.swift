@@ -9,6 +9,15 @@ enum StudyMode: Int, Identifiable, Hashable {
     case fillInTheBlank // Fill in the blank exercise
 
     var id: Int { rawValue }
+    
+    var isRandomMode: Bool {
+        switch self {
+        case .practice, .practice10, .difficult:
+            return true
+        case .multipleChoice, .fillInTheBlank:
+            return false
+        }
+    }
 
     struct ContentView: View {
         @Environment(\.dismiss) var dismiss
@@ -26,6 +35,7 @@ enum StudyMode: Int, Identifiable, Hashable {
         @State private var sessionResults: SessionResults?
         @State private var sessionStartTime = Date()
         @State private var sessionStats = SessionStats()
+        @State private var currentCardMode: StudyMode = .practice // Track current card's mode
         
         struct SessionResults {
             let totalCards: Int
@@ -105,7 +115,10 @@ enum StudyMode: Int, Identifiable, Hashable {
                 if currentCardIndex < studyCards.count {
                     let card = studyCards[currentCardIndex]
                     
-                    switch studyMode {
+                    // Determine the mode for this card
+                    let cardMode = studyMode.isRandomMode ? currentCardMode : studyMode
+                    
+                    switch cardMode {
                     case .multipleChoice:
                         StudyMode.MultipleChoiceQuizView(
                             card: card,
@@ -133,10 +146,14 @@ enum StudyMode: Int, Identifiable, Hashable {
         }
         
         // MARK: - Action Buttons
-        
+
+        @ViewBuilder
         private var actionButtons: some View {
-            VStack(spacing: 16) {
-                if studyMode != .multipleChoice && studyMode != .fillInTheBlank {
+            // Determine the mode for this card
+            let cardMode = studyMode.isRandomMode ? currentCardMode : studyMode
+
+            if cardMode != .multipleChoice && cardMode != .fillInTheBlank {
+                VStack(spacing: 16) {
                     if !showingAnswer {
                         // Show answer button
                         Button("Show Answer") {
@@ -144,7 +161,6 @@ enum StudyMode: Int, Identifiable, Hashable {
                                 showingAnswer = true
                             }
                         }
-                        .foregroundStyle(colorManager.borderedProminentForegroundColor)
                         .buttonStyle(.borderedProminent)
                         .clipShape(Capsule())
                     } else {
@@ -153,88 +169,91 @@ enum StudyMode: Int, Identifiable, Hashable {
                             Button("Incorrect") {
                                 recordAnswer(wasCorrect: false)
                             }
+                            .tint(.red)
                             .buttonStyle(.borderedProminent)
                             .clipShape(Capsule())
-                            .tint(.red)
 
                             Button("Correct") {
                                 recordAnswer(wasCorrect: true)
                             }
-                            .buttonStyle(.borderedProminent)
                             .tint(.green)
+                            .buttonStyle(.borderedProminent)
                             .clipShape(Capsule())
                         }
                     }
                 }
+                .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
             }
-            .padding(16)
         }
         
         // MARK: - Results View
         
         private var resultsView: some View {
-            VStack(spacing: 24) {
+            VStack(spacing: 0) {
                 Spacer()
-                
-                // Results header
-                VStack(spacing: 8) {
-                    Image(systemName: "checkmark.circle.fill")
-                        .font(.system(size: 60))
-                        .foregroundColor(.green)
-                    
-                    Text("Study Session Complete!")
-                        .font(.title)
-                        .fontWeight(.bold)
-                }
-                
-                // Results stats
-                if let results = sessionResults {
-                    VStack(spacing: 16) {
-                        ResultStatRow(
-                            title: "Accuracy",
-                            value: results.accuracy.asPercentage,
-                            icon: "target",
-                            color: results.accuracy >= 0.8 ? .green : .orange
-                        )
-                        
-                        ResultStatRow(
-                            title: "Cards Studied",
-                            value: "\(results.totalCards)",
-                            icon: "rectangle.stack.fill",
-                            color: .blue
-                        )
-                        
-                        ResultStatRow(
-                            title: "Time Spent",
-                            value: results.totalTime.formattedSessionTime,
-                            icon: "clock.fill",
-                            color: .purple
-                        )
-                    }
-                    .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
-                    .padding(.horizontal)
-                }
-                
-                // Action buttons
-                VStack(spacing: 12) {
-                    Button("Study Again") {
-                        setupStudySession()
-                    }
-                    .foregroundStyle(colorManager.borderedProminentForegroundColor)
-                    .buttonStyle(.borderedProminent)
-                    .clipShape(Capsule())
 
-                    Button("Done") {
-                        // Force refresh analytics data and notify UI
-                        analyticsService.refreshAnalytics()
-                        
-                        dismiss()
+                VStack(spacing: 24) {
+                    // Results header
+                    VStack(spacing: 8) {
+                        Image(systemName: "checkmark.circle.fill")
+                            .font(.system(size: 60))
+                            .foregroundColor(.green)
+
+                        Text("Study Session Complete!")
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .multilineTextAlignment(.center)
                     }
-                    .buttonStyle(.borderedProminent)
-                    .tint(.secondary)
-                    .clipShape(Capsule())
+
+                    // Results stats
+                    if let results = sessionResults {
+                        VStack(spacing: 16) {
+                            ResultStatRow(
+                                title: "Accuracy",
+                                value: results.accuracy.asPercentage,
+                                icon: "target",
+                                color: results.accuracy >= 0.8 ? .green : .orange
+                            )
+
+                            ResultStatRow(
+                                title: "Cards Studied",
+                                value: "\(results.totalCards)",
+                                icon: "rectangle.stack.fill",
+                                color: .blue
+                            )
+
+                            ResultStatRow(
+                                title: "Time Spent",
+                                value: results.totalTime.formattedSessionTime,
+                                icon: "clock.fill",
+                                color: .purple
+                            )
+                        }
+                        .clippedWithPaddingAndBackgroundMaterial()
+                    }
+
+                    // Action buttons
+                    VStack(spacing: 12) {
+                        Button("Study Again") {
+                            setupStudySession()
+                        }
+                        .foregroundStyle(colorManager.borderedProminentForegroundColor)
+                        .buttonStyle(.borderedProminent)
+                        .clipShape(Capsule())
+
+                        Button("Done") {
+                            // Force refresh analytics data and notify UI
+                            analyticsService.refreshAnalytics()
+
+                            dismiss()
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .tint(.secondary)
+                        .clipShape(Capsule())
+                    }
                 }
-                
+                .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
+
                 Spacer()
             }
         }
@@ -246,6 +265,8 @@ enum StudyMode: Int, Identifiable, Hashable {
             case .practice:
                 // Practice all cards
                 studyCards = cardsProvider.cards
+                // Initialize random mode for first card
+                selectRandomModeForCard()
             case .practice10:
                 let allCards = cardsProvider.cards
                 if allCards.count <= 10 {
@@ -254,6 +275,8 @@ enum StudyMode: Int, Identifiable, Hashable {
                     // Take a random sample of 10 cards
                     studyCards = Array(allCards.shuffled().prefix(10))
                 }
+                // Initialize random mode for first card
+                selectRandomModeForCard()
             case .difficult:
                 // Practice difficult cards only
                 studyCards = analyticsService.getDifficultCardsNeedingReview()
@@ -261,6 +284,8 @@ enum StudyMode: Int, Identifiable, Hashable {
                     // If no difficult cards, fall back to all cards
                     studyCards = cardsProvider.cards
                 }
+                // Initialize random mode for first card
+                selectRandomModeForCard()
             case .multipleChoice:
                 // Multiple choice quiz - use all cards
                 studyCards = cardsProvider.cards
@@ -320,22 +345,12 @@ enum StudyMode: Int, Identifiable, Hashable {
             }
             
             // Move to next card or end session
-            if currentCardIndex + 1 < studyCards.count {
-                currentCardIndex += 1
-                showingAnswer = false
-                cardStartTime = Date()
-                
-                // Haptic feedback
-                HapticService.shared.cardFlipped()
-            } else {
-                // End session
-                endStudySession()
-                showResults()
-            }
+            moveToNextCard()
         }
         
         private func endStudySession() {
             analyticsService.endStudySession()
+            showResults()
         }
         
         private func showResults() {
@@ -356,6 +371,41 @@ enum StudyMode: Int, Identifiable, Hashable {
             
             withAnimation(.easeInOut(duration: 0.5)) {
                 showingResults = true
+            }
+        }
+        
+        private func moveToNextCard() {
+            if currentCardIndex < studyCards.count - 1 {
+                currentCardIndex += 1
+                showingAnswer = false
+                cardStartTime = Date()
+                
+                // For practice modes, randomly select mode for next card
+                if studyMode.isRandomMode {
+                    selectRandomModeForCard()
+                }
+            } else {
+                // Session completed
+                endStudySession()
+            }
+        }
+        
+        private func selectRandomModeForCard() {
+            // Get the current card
+            guard currentCardIndex < studyCards.count else { return }
+            let currentCard = studyCards[currentCardIndex]
+            
+            // Count words in the card
+            let wordCount = currentCard.frontText.orEmpty.components(separatedBy: .whitespacesAndNewlines)
+                .filter { !$0.isEmpty }.count
+            
+            if wordCount < 3 {
+                // Single words: only use standard practice
+                currentCardMode = .practice
+            } else {
+                // 3+ words: 50/50 between fill-in-the-blank and multiple choice
+                let random = Double.random(in: 0...1)
+                currentCardMode = random < 0.5 ? .fillInTheBlank : .multipleChoice
             }
         }
     }

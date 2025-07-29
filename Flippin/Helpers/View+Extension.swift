@@ -137,7 +137,7 @@ extension View {
         showShadow: Bool = false
     ) -> some View {
         self
-            .padding(vertical: 12, horizontal: 16)
+            .padding(16)
             .background(color)
             .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
             .if(showShadow) {
@@ -151,7 +151,7 @@ extension View {
         showShadow: Bool = false
     ) -> some View {
         self
-            .padding(vertical: 12, horizontal: 16)
+            .padding(16)
             .background(material)
             .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
             .if(showShadow) {

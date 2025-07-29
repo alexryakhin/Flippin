@@ -13,6 +13,7 @@ enum StudyTab {
         @StateObject private var cardsProvider = CardsProvider.shared
         @StateObject private var colorManager = ColorManager.shared
         @StateObject private var analyticsService = LearningAnalyticsService.shared
+        @StateObject private var purchaseService = PurchaseService.shared
 
         // MARK: - State Variables
 
@@ -138,32 +139,43 @@ enum StudyTab {
                             )
                         }
 
-                        // Multiple choice quiz
-                        studyOptionButton(
-                            image: Image(systemName: "list.bullet.circle.fill"),
-                            text: "Multiple Choice Quiz",
-                            color: .purple,
-                            action: {
-                                currentStudyMode = .multipleChoice
-                            }
-                        )
+                        if purchaseService.hasPremiumAccess {
+                            // Multiple choice quiz
+                            studyOptionButton(
+                                image: Image(systemName: "list.bullet.circle.fill"),
+                                text: "Multiple Choice Quiz",
+                                color: .purple,
+                                action: {
+                                    currentStudyMode = .multipleChoice
+                                }
+                            )
 
-                        // Fill in the blank
-                        let fillInTheBlankCards = cardsProvider.cards.filter { card in
-                            let wordCount = card.frontText.orEmpty.components(separatedBy: .whitespacesAndNewlines)
-                                .filter { !$0.isEmpty }.count
-                            return wordCount >= 3
-                        }
-                        
-                        studyOptionButton(
-                            image: Image(systemName: "pencil.circle.fill"),
-                            text: "Fill in the Blank (\(fillInTheBlankCards.count))",
-                            color: .orange,
-                            isDisabled: fillInTheBlankCards.isEmpty,
-                            action: {
-                                currentStudyMode = .fillInTheBlank
+                            // Fill in the blank
+                            let fillInTheBlankCards = cardsProvider.cards.filter { card in
+                                let wordCount = card.frontText.orEmpty.components(separatedBy: .whitespacesAndNewlines)
+                                    .filter { !$0.isEmpty }.count
+                                return wordCount >= 3
                             }
-                        )
+
+                            studyOptionButton(
+                                image: Image(systemName: "pencil.circle.fill"),
+                                text: "Fill in the Blank (\(fillInTheBlankCards.count))",
+                                color: .orange,
+                                isDisabled: fillInTheBlankCards.isEmpty,
+                                action: {
+                                    currentStudyMode = .fillInTheBlank
+                                }
+                            )
+                        } else {
+                            studyOptionButton(
+                                image: Image(systemName: "crown.fill"),
+                                text: "Unlock All Study Modes",
+                                color: .teal,
+                                action: {
+                                    premiumFeature = .studyModes
+                                }
+                            )
+                        }
                     }
                 }
             }
