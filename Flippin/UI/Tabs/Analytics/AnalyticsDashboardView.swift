@@ -39,11 +39,11 @@ enum AnalyticsDashboard {
 
         var body: some View {
             VStack(spacing: 16) {
-                // Header with streak and overview
-                headerSection
+                // Header with streak
+                streakSection
 
-                // Quick stats cards
-                quickStatsSection
+                // Today cards
+                todaySection
 
                 // Study time chart
                 studyTimeChartSection
@@ -56,66 +56,36 @@ enum AnalyticsDashboard {
             }
         }
 
-        // MARK: - Header Section
+        // MARK: - Streak Section
 
-        private var headerSection: some View {
-            VStack(spacing: 12) {
-                // Streak display
-                HStack {
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(LocalizationKeys.Analytics.studyStreak.localized)
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
+        private var streakSection: some View {
+            HStack {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(LocalizationKeys.Analytics.studyStreak.localized)
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
 
-                        Text(TimeInterval.formatDayCount(analyticsService.studyStreak))
-                            .font(.system(.title2, design: .rounded))
-                            .bold()
-                            .foregroundColor(colorManager.tintColor)
-                    }
-
-                    Spacer()
-
-                    // Streak icon
-                    Image(systemName: "flame.fill")
-                        .font(.title)
-                        .foregroundColor(.orange)
-                        .scaleEffect(analyticsService.studyStreak > 0 ? 1.2 : 0.8)
-                        .animation(.easeInOut(duration: 0.3), value: analyticsService.studyStreak)
+                    Text(TimeInterval.formatDayCount(analyticsService.studyStreak))
+                        .font(.system(.title2, design: .rounded))
+                        .bold()
+                        .foregroundColor(colorManager.tintColor)
                 }
-                .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
 
-                // Total study time
-                HStack {
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(LocalizationKeys.Analytics.totalStudyTime.localized)
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
+                Spacer()
 
-                        Text(analyticsService.totalStudyTime.formattedAnalyticsTime)
-                            .font(.system(.title2, design: .rounded))
-                            .bold()
-                    }
-
-                    Spacer()
-
-                    VStack(alignment: .trailing, spacing: 4) {
-                        Text(LocalizationKeys.Analytics.cardsMastered.localized)
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-
-                        Text("\(analyticsService.totalCardsMastered)")
-                            .font(.system(.title2, design: .rounded))
-                            .bold()
-                            .foregroundColor(.green)
-                    }
-                }
-                .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
+                // Streak icon
+                Image(systemName: "flame.fill")
+                    .font(.title)
+                    .foregroundColor(.orange)
+                    .scaleEffect(analyticsService.studyStreak > 0 ? 1.2 : 0.8)
+                    .animation(.easeInOut(duration: 0.3), value: analyticsService.studyStreak)
             }
+            .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
         }
 
-        // MARK: - Quick Stats Section
+        // MARK: - Today Section
 
-        private var quickStatsSection: some View {
+        private var todaySection: some View {
             CustomSectionView(header: LocalizationKeys.Analytics.today.localized, headerFontStyle: .large) {
                 LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 8), count: 2), spacing: 8) {
                     StatCard(
