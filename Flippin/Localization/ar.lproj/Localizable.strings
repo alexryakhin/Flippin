@@ -49,7 +49,7 @@
 "noCardsForLanguagePair" = "لا توجد بطاقات لهذا الزوج من اللغات";
 
 // MARK: - Card Views
-"showAnswer" = "إظهار الإجابة";
+"flip" = "قلب";
 "tapToGoBack" = "انقر للعودة";
 
 // MARK: - Tag Management
@@ -96,6 +96,19 @@
 "color" = "اللون";
 "backgroundStyle" = "نمط الخلفية";
 "tapToSeeFullScreen" = "انقر لرؤية الشاشة الكاملة";
+
+// MARK: - Categories
+"categoryBasics" = "الأساسيات";
+"categoryTravel" = "السفر";
+"categoryEntertainment" = "الترفيه";
+"categoryFood" = "الطعام";
+"categoryShopping" = "التسوق";
+"categorySocial" = "الاجتماعي";
+"categoryWeather" = "الطقس";
+"categoryTechnology" = "التكنولوجيا";
+"categoryLifestyle" = "نمط الحياة";
+"categoryProfessional" = "المهني";
+"categoryEmergency" = "الطوارئ";
 
 // MARK: - Add Card
 "enterTextInYourLanguage" = "أدخل النص بلغتك";
@@ -161,6 +174,276 @@
 "shuffle" = "خلط";
 "addCardLabel" = "إضافة بطاقة";
 
+// MARK: - Navigation
+"stack" = "مكدس";
+"list" = "قائمة";
+"study" = "دراسة";
+"analytics" = "تحليلات";
+"settings" = "الإعدادات";
+
+// MARK: - Card Management
+"noDifficultCards" = "لا توجد بطاقات صعبة";
+"noDifficultCardsDescription" = "لم تقم بوضع أي بطاقات كصعبة بعد. ادرس المزيد من البطاقات لرؤية مستويات الصعوبة.";
+"difficultCards" = "بطاقات صعبة";
+"failedToCreateCard" = "فشل في إنشاء البطاقة: %@";
+
+// MARK: - Study
+"study" = "دراسة";
+"studyMode" = "وضع الدراسة";
+"quickStats" = "إحصائيات سريعة";
+"studyOptions" = "خيارات الدراسة";
+"recentActivity" = "النشاط الأخير";
+"totalCards" = "إجمالي البطاقات";
+"mastered" = "تم إتقانها";
+"difficultCards" = "بطاقات صعبة";
+"studyTimeToday" = "وقت الدراسة اليوم";
+"startStudySession" = "بدء جلسة دراسة (10 بطاقات)";
+"practiceAllCards" = "مارس جميع البطاقات (%d)";
+"practiceDifficultCards" = "مارس البطاقات الصعبة (%d)";
+"multipleChoiceQuiz" = "اختبار متعدد الخيارات";
+"fillInTheBlank" = "املأ الفراغ (%d)";
+"unlockAllStudyModes" = "فتح جميع أوضاع الدراسة";
+"noStudyData" = "لا توجد بيانات دراسة";
+"startStudyingToSeeProgress" = "ابدأ الدراسة لرؤية تقدمك!";
+"toCards" = "إلى البطاقات";
+"totalStudyTime" = "إجمالي وقت الدراسة";
+"averageSession" = "متوسط الجلسة";
+"learningProgress" = "تقدم التعلم";
+"exit" = "خروج";
+"showAnswer" = "إظهار الإجابة";
+"incorrect" = "غير صحيح";
+"correct" = "صحيح";
+"studySessionComplete" = "اكتملت جلسة الدراسة!";
+"accuracy" = "الدقة";
+"cardsStudied" = "البطاقات التي تمت دراستها";
+"timeSpent" = "الوقت المستغرق";
+"studyAgain" = "دراسة مرة أخرى";
+"done" = "تم";
+"selectCorrectTranslation" = "اختر الترجمة الصحيحة";
+"fillInMissingWord" = "املأ الكلمة المفقودة";
+"completeSentence" = "أكمل الجملة";
+"chooseCorrectWord" = "اختر الكلمة الصحيحة:";
+"correctAnswer" = "الإجابة الصحيحة";
+"translateTo" = "ترجم إلى %@";
+"studyProgress" = "%d من %d";
+
+// MARK: - Analytics
+"analytics" = "تحليلات";
+"detailedAnalytics" = "تحليلات مفصلة";
+"today" = "اليوم";
+"noAnalyticsData" = "لا توجد بيانات تحليلات";
+"startStudyingToSeeProgress" = "ابدأ الدراسة لرؤية تقدم تعلمك!";
+"unlockAdvancedAnalytics" = "فتح التحليلات المتقدمة";
+"detailedProgressReports" = "تقارير تقدم مفصلة";
+"detailedProgressReportsDescription" = "تتبع أنماط تعلمك والتحسينات على مر الزمن";
+"performanceInsights" = "رؤى الأداء";
+"performanceInsightsDescription" = "احصل على توصيات مخصصة لتحسين عادات الدراسة";
+"studyTimeAnalytics" = "تحليلات وقت الدراسة";
+"studyTimeAnalyticsDescription" = "حلل جلسات دراستك وقم بتحسين تعلمك";
+"upgradeToPremium" = "الترقية إلى بريميوم";
+"recentActivity" = "النشاط الأخير";
+"viewAll" = "عرض الكل";
+"noRecentActivity" = "لا يوجد نشاط أخير";
+"studySessionsWillAppearHere" = "ستظهر جلسات دراستك هنا";
+"lastStudySession" = "آخر جلسة دراسة";
+"cardsStudiedToday" = "البطاقات التي تمت دراستها اليوم";
+"studyStreak" = "سلسلة الدراسة";
+"totalStudyTime" = "إجمالي وقت الدراسة";
+"cardsMastered" = "البطاقات التي تم إتقانها";
+"todaysStudy" = "دراسة اليوم";
+"time" = "الوقت";
+"cardsStudied" = "البطاقات التي تمت دراستها";
+"sessions" = "الجلسات";
+"accuracy" = "الدقة";
+"studyTime" = "وقت الدراسة";
+"timeRange" = "النطاق الزمني";
+"masteryProgress" = "تقدم الإتقان";
+"mastered" = "تم إتقانها";
+"learning" = "التعلم";
+"needsReview" = "يحتاج إلى مراجعة";
+"week" = "أسبوع";
+"month" = "شهر";
+"year" = "سنة";
+"allTime" = "كل الوقت";
+"overview" = "نظرة عامة";
+"performance" = "الأداء";
+"progress" = "التقدم";
+"insights" = "الرؤى";
+"noStudyDataAvailable" = "لا توجد بيانات دراسة متاحة";
+
+// MARK: - Detailed Analytics
+"analyticsTab" = "علامة تبويب التحليلات";
+"studyTimeTitle" = "وقت الدراسة";
+"cardsMasteredTitle" = "البطاقات التي تم إتقانها";
+"studyStreakTitle" = "سلسلة الدراسة";
+"averageSessionTitle" = "متوسط الجلسة";
+"consecutiveDays" = "أيام متتالية";
+"perSession" = "لكل جلسة";
+"studyPatterns" = "أنماط الدراسة";
+"mostActiveTime" = "الوقت الأكثر نشاطاً";
+"preferredSessionLength" = "طول الجلسة المفضل";
+"studyFrequency" = "تكرار الدراسة";
+"languageProgress" = "تقدم اللغة";
+"collectionSize" = "حجم المجموعة";
+"cards" = "بطاقات";
+"achievements" = "الإنجازات";
+"firstSteps" = "الخطوات الأولى";
+"weekWarrior" = "محارب الأسبوع";
+"masterLearner" = "متعلم رئيسي";
+"dedicated" = "مكرس";
+"vocabularyMaster" = "سيد المفردات";
+"timeMaster" = "سيد الوقت";
+"accuracyTrends" = "اتجاهات الدقة";
+"sessionPerformance" = "أداء الجلسة";
+"averageSessionDuration" = "متوسط مدة الجلسة";
+"basedOnData" = "بناءً على بيانات %@";
+"cardsPerSession" = "بطاقات لكل جلسة";
+"average" = "المتوسط";
+"sessionFrequency" = "تكرار الجلسة";
+"cardDifficultyAnalysis" = "تحليل صعوبة البطاقة";
+"noDifficultyDataAvailable" = "لا توجد بيانات صعوبة متاحة";
+"learningSpeed" = "سرعة التعلم";
+"cardsPerHour" = "بطاقات في الساعة";
+"vsAverage" = "مقابل المتوسط";
+"masteryTimeline" = "الجدول الزمني للإتقان";
+"vocabularyGrowth" = "نمو المفردات";
+"totalVocabulary" = "إجمالي المفردات";
+"thisWeek" = "هذا الأسبوع";
+"thisMonth" = "هذا الشهر";
+"thisYear" = "هذا العام";
+"learningMilestones" = "معالم التعلم";
+"personalizedInsights" = "رؤى مخصصة";
+"noInsightsAvailableYet" = "لا توجد رؤى متاحة بعد";
+"recommendations" = "التوصيات";
+"noRecommendationsAtThisTime" = "لا توجد توصيات في الوقت الحالي";
+"learningTips" = "نصائح التعلم";
+"spacedRepetition" = "التكرار المتباعد";
+"spacedRepetitionDescription" = "راجع البطاقات على فترات متزايدة لتحسين الاحتفاظ.";
+"activeRecall" = "الاستدعاء النشط";
+"activeRecallDescription" = "حاول تذكر الإجابة قبل قلب البطاقة.";
+"contextLearning" = "التعلم السياقي";
+"contextLearningDescription" = "تعلم الكلمات في عبارات بدلاً من العزلة.";
+"studyNow" = "ادرس الآن";
+"startReview" = "بدء المراجعة";
+"browseCollections" = "تصفح المجموعات";
+"practiceMode" = "وضع التدريب";
+
+// MARK: - Learning Analytics Service
+"notEnoughData" = "بيانات غير كافية";
+"morning" = "الصباح (6-12 صباحاً)";
+"afternoon" = "الظهيرة (12-5 مساءً)";
+"evening" = "المساء (5-9 مساءً)";
+"night" = "الليل (9 مساءً-6 صباحاً)";
+"under10Minutes" = "أقل من 10 دقائق";
+"tenTo20Minutes" = "10-20 دقيقة";
+"twentyTo30Minutes" = "20-30 دقيقة";
+"thirtyTo60Minutes" = "30-60 دقيقة";
+"over60Minutes" = "أكثر من 60 دقيقة";
+"onceThisWeek" = "مرة واحدة هذا الأسبوع";
+"fewTimesThisWeek" = "بضع مرات هذا الأسبوع";
+"mostDaysThisWeek" = "معظم أيام هذا الأسبوع";
+"daily" = "يومياً";
+"veryEasy" = "سهل جدًا";
+"easy" = "سهل";
+"medium" = "متوسط";
+"hard" = "صعب";
+"veryHard" = "صعب جدًا";
+"unknown" = "غير معروف";
+"completedStudySession" = "تم إكمال جلسة الدراسة";
+"reviewedCardsInTime" = "تم مراجعة %d بطاقة في %@";
+"recent" = "حديث";
+"reachedCardsMastered" = "تم الوصول إلى %d بطاقة تم إتقانها";
+"greatProgressBuildingFoundation" = "تقدم رائع! أنت تبني أساسًا قويًا.";
+"first10CardsMastered" = "تم إتقان أول 10 بطاقات";
+"sevenDayStudyStreak" = "سلسلة دراسة لمدة 7 أيام";
+"fiftyCardsMastered" = "تم إتقان 50 بطاقة";
+"thirtyDayStudyStreak" = "سلسلة دراسة لمدة 30 يومًا";
+"completed" = "مكتمل";
+"inProgress" = "قيد التقدم";
+"youreMostProductiveIn" = "أنت أكثر إنتاجية في %@";
+"studySessionsDuringThisTime" = "تظهر جلسات دراستك خلال هذا الوقت تركيزًا واحتفاظًا أفضل.";
+"optimalSessionLength" = "طول الجلسة المثالي";
+"yourSessionsShowBestResults" = "تظهر جلساتك %@ أفضل النتائج.";
+"consistentLearningPattern" = "نمط تعلم متسق";
+"yourStudyRoutineWorkingWell" = "روتين دراستك %@ يعمل بشكل جيد.";
+"improvingAccuracy" = "تحسين الدقة";
+"recentAccuracyHigherThanBefore" = "دقتك الأخيرة أعلى بنسبة %d%% من قبل.";
+"focusOnAccuracy" = "التركيز على الدقة";
+"recentAccuracyDecreased" = "انخفضت دقتك الأخيرة. فكر في مراجعة البطاقات الصعبة.";
+"excellentProgress" = "تقدم ممتاز";
+"masteredVocabularyPercentage" = "لقد أتقنت %d%% من مفرداتك!";
+"goodFoundation" = "أساس جيد";
+"masteredVocabularyKeepGoing" = "لقد أتقنت %d%% من مفرداتك. استمر!";
+"reviewDifficultCards" = "راجع البطاقات الصعبة";
+"cardsNeedMorePractice" = "%d بطاقة تحتاج إلى مزيد من التدريب. ركز على هذه لتحسين الدقة.";
+"addMoreVocabulary" = "أضف المزيد من المفردات";
+"masteredMostCurrentCards" = "لقد أتقنت معظم بطاقاتك الحالية. مستعد لتحديات جديدة!";
+"extendYourStreak" = "مدد سلسلتك";
+"daysAwayFromAchievement" = "أنت على بعد %d يوم من إنجاز جديد!";
+"buildConsistency" = "بناء الاتساق";
+"tryToStudyDaily" = "حاول الدراسة يوميًا لبناء عادة تعلم قوية.";
+"improveAccuracy" = "تحسين الدقة";
+"accuracyPercentageFocusQuality" = "دقتك هي %d%%. ركز على الجودة على السرعة.";
+
+// MARK: - Settings
+"previewBackgrounds" = "معاينة الخلفيات";
+"subscriptionStatus" = "حالة الاشتراك";
+"activeSubscription" = "اشتراك نشط";
+"manageSubscription" = "إدارة الاشتراك";
+"purchaseTesting" = "اختبار الشراء";
+"testInAppPurchases" = "اختبار المشتريات داخل التطبيق والحصول على معرفات المعاملات";
+"openPurchaseTest" = "فتح اختبار الشراء";
+"testPurchase" = "اختبار الشراء";
+"performTestPurchase" = "إجراء شراء اختباري للحصول على معرف المعاملة";
+"transactionListenerActive" = "مستمع المعاملات نشط";
+"transactionListenerNotActive" = "مستمع المعاملات غير نشط";
+"startTestPurchase" = "بدء اختبار الشراء";
+"lastTransactionId" = "آخر معرف معاملة";
+"transactionId" = "معرف المعاملة:";
+"copyToClipboard" = "نسخ إلى الحافظة";
+"copied" = "تم النسخ!";
+"transactionIdCopied" = "تم نسخ معرف المعاملة إلى الحافظة";
+"availableProducts" = "المنتجات المتاحة";
+"noProductsAvailable" = "لا توجد منتجات متاحة";
+"purchasedProducts" = "المنتجات المشتراة";
+"noProductsPurchasedYet" = "لم يتم شراء أي منتجات بعد";
+"purchased" = "تم الشراء";
+"transactionHistory" = "سجل المعاملات";
+"loadTransactionHistory" = "تحميل سجل المعاملات";
+"restorePurchases" = "استعادة المشتريات";
+"success" = "نجاح";
+"failed" = "فشل";
+"purchasesRestoredSuccessfully" = "تم استعادة المشتريات بنجاح";
+"failedToRestorePurchases" = "فشل في استعادة المشتريات";
+"purchaseTestingTitle" = "اختبار الشراء";
+"ok" = "موافق";
+"testPurchaseCompleted" = "اكتمل اختبار الشراء! معرف المعاملة: %@";
+"testPurchaseFailed" = "فشل اختبار الشراء: %@";
+"purchaseCompleted" = "اكتمل الشراء! معرف المعاملة: %@";
+"purchaseFailed" = "فشل الشراء: %@";
+"unknown" = "غير معروف";
+"unknownError" = "خطأ غير معروف";
+"product" = "المنتج: %@";
+"date" = "التاريخ: %@";
+
+// MARK: - Paywall
+"upgradeToPremiumTitle" = "الترقية إلى بريميوم";
+"upgradeToPremiumMessage" = "قم بالترقية إلى بريميوم لفتح جميع الميزات!";
+"cancel" = "إلغاء";
+"viewOptions" = "عرض الخيارات";
+"unlimitedCardsTitle" = "بطاقات غير محدودة";
+"unlimitedCardsMessage" = "قم بالترقية إلى بريميوم لإنشاء بطاقات غير محدودة وفتح جميع الميزات!";
+"advancedAnalyticsTitle" = "تحليلات متقدمة";
+"advancedAnalyticsMessage" = "احصل على رؤى تعليمية مفصلة، ومخططات التقدم، وتحليلات الأداء مع بريميوم!";
+"customThemesTitle" = "ثيمات مخصصة";
+"customThemesMessage" = "افتح ثيمات وخلفيات مخصصة جميلة مع بريميوم!";
+"languageChangeTitle" = "تغيير اللغة";
+"languageChangeMessage" = "اختر من بين أكثر من 15 لغة لتحسين تجربة التعلم مع بريميوم!";
+"cardPresetsTitle" = "إعدادات البطاقات";
+"cardPresetsMessage" = "استكشف مجموعة واسعة من إعدادات البطاقات المصممة مسبقًا مع بريميوم!";
+"studyModesTitle" = "أوضاع الدراسة";
+"studyModesMessage" = "احصل على أوضاع دراسة متقدمة وتقنيات تعلم مع بريميوم!";
+
 // MARK: - Search
 "searchCards" = "البحث في البطاقات...";
 
@@ -201,9 +484,10 @@
 "galaxy" = "المجرة";
 
 // MARK: - Card Limits
-"cardLimitExceeded" = "تم الوصول إلى حد البطاقات";
-"cardsRemaining" = "البطاقات المتبقية";
 "cardsUsedOfLimit" = "%d من %d بطاقة";
+"cardLimitExceeded" = "تم الوصول إلى حد البطاقات. لديك %d بطاقة من %d مسموح بها. قم بالترقية إلى بريميوم لبطاقات غير محدودة.";
+"freeUsersLimitedTo" = "المستخدمون المجانيون محدودون بـ %d بطاقة";
+"purchaseUnlimitedCards" = "اشترِ بطاقات غير محدودة لإضافة المزيد من البطاقات إلى مجموعتك";
 "upgrade" = "ترقية";
 "unlimitedCards" = "بطاقات غير محدودة";
 
@@ -213,15 +497,16 @@
 "activeSubscription" = "اشتراك نشط";
 "manageSubscription" = "إدارة الاشتراك";
 
-// MARK: - Categories
-"categoryBasics" = "الأساسيات";
-"categoryTravel" = "السفر";
-"categoryEntertainment" = "الترفيه";
-"categoryFood" = "الطعام";
-"categoryShopping" = "التسوق";
-"categorySocial" = "الاجتماعي";
-"categoryWeather" = "الطقس";
-"categoryTechnology" = "التكنولوجيا";
-"categoryLifestyle" = "نمط الحياة";
-"categoryProfessional" = "المهني";
-"categoryEmergency" = "الطوارئ";
+"done" = "تم";
+"cancel" = "إلغاء";
+"delete" = "حذف";
+"edit" = "تعديل";
+"save" = "حفظ";
+"searchCards" = "البحث في البطاقات...";
+"noCardsAvailable" = "لا توجد بطاقات متاحة";
+"noAccuracyDataAvailable" = "لا توجد بيانات دقة متاحة";
+"noGrowthDataAvailable" = "لا توجد بيانات نمو متاحة";
+"date" = "التاريخ";
+"accuracy" = "الدقة";
+"masteredCards" = "البطاقات التي تم إتقانها";
+"invalidJSON" = "بيانات JSON غير صالحة";
