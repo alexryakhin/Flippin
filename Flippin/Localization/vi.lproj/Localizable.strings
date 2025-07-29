@@ -49,7 +49,7 @@
 "noCardsForLanguagePair" = "Không có thẻ nào cho cặp ngôn ngữ này";
 
 // MARK: - Card Views
-"showAnswer" = "Hiển thị câu trả lời";
+"flip" = "Lật";
 "tapToGoBack" = "Nhấn để quay lại";
 
 // MARK: - Tag Management
@@ -65,9 +65,9 @@
 "filterByLanguage" = "Lọc theo Ngôn ngữ";
 "filterByLanguageDescription" = "Chỉ hiển thị các thẻ phù hợp với ngôn ngữ bạn đã chọn";
 "filterByFavorites" = "Lọc theo Yêu thích";
-"showAllCards" = "Hiện tất cả thẻ";
-"showFavoritesOnly" = "Chỉ hiện Yêu thích";
-"noFavoriteCards" = "Không có thẻ yêu thích";
+"showAllCards" = "Hiện Tất Cả Thẻ";
+"showFavoritesOnly" = "Chỉ Hiện Yêu Thích";
+"noFavoriteCards" = "Không Có Thẻ Yêu Thích";
 "noFavoriteCardsDescription" = "Bạn chưa đánh dấu thẻ nào là yêu thích";
 
 // MARK: - Settings
@@ -96,6 +96,19 @@
 "color" = "Màu sắc";
 "backgroundStyle" = "Kiểu Nền";
 "tapToSeeFullScreen" = "Nhấn để xem toàn màn hình";
+
+// MARK: - Categories
+"categoryBasics" = "Cơ Bản";
+"categoryTravel" = "Du Lịch";
+"categoryEntertainment" = "Giải Trí";
+"categoryFood" = "Thức Ăn";
+"categoryShopping" = "Mua Sắm";
+"categorySocial" = "Xã Hội";
+"categoryWeather" = "Thời Tiết";
+"categoryTechnology" = "Công Nghệ";
+"categoryLifestyle" = "Lối Sống";
+"categoryProfessional" = "Chuyên Nghiệp";
+"categoryEmergency" = "Khẩn Cấp";
 
 // MARK: - Add Card
 "enterTextInYourLanguage" = "Nhập văn bản bằng ngôn ngữ của bạn";
@@ -136,7 +149,7 @@
 "colorSchemeSystem" = "Hệ Thống";
 "colorSchemeLight" = "Sáng";
 "colorSchemeDark" = "Tối";
-"unlockPremium" = "Mở khóa Premium";
+"unlockPremium" = "Mở Khóa Premium";
 "masterLanguageLearning" = "Làm chủ việc học ngôn ngữ với các tính năng độc quyền";
 "usedCardsOfLimit" = "Bạn đã sử dụng %d trong số %d thẻ miễn phí";
 "whatYouGetWithPremium" = "Những gì bạn nhận được với Premium";
@@ -160,6 +173,276 @@
 "tagFilter" = "Bộ lọc nhãn";
 "shuffle" = "Xáo trộn";
 "addCardLabel" = "Thêm thẻ";
+
+// MARK: - Navigation
+"stack" = "Ngăn Xếp";
+"list" = "Danh Sách";
+"study" = "Học";
+"analytics" = "Phân Tích";
+"settings" = "Cài đặt";
+
+// MARK: - Card Management
+"noDifficultCards" = "Không Có Thẻ Khó";
+"noDifficultCardsDescription" = "Bạn chưa đánh dấu thẻ nào là khó. Học thêm thẻ để xem mức độ khó.";
+"difficultCards" = "Thẻ Khó";
+"failedToCreateCard" = "Không thể tạo thẻ: %@";
+
+// MARK: - Study
+"study" = "Học";
+"studyMode" = "Chế Độ Học";
+"quickStats" = "Thống Kê Nhanh";
+"studyOptions" = "Tùy Chọn Học";
+"recentActivity" = "Hoạt Động Gần Đây";
+"totalCards" = "Tổng Số Thẻ";
+"mastered" = "Đã Thành Thạo";
+"difficultCards" = "Thẻ Khó";
+"studyTimeToday" = "Thời Gian Học Hôm Nay";
+"startStudySession" = "Bắt Đầu Phiên Học (10 thẻ)";
+"practiceAllCards" = "Luyện Tập Tất Cả Thẻ (%d)";
+"practiceDifficultCards" = "Luyện Tập Thẻ Khó (%d)";
+"multipleChoiceQuiz" = "Câu Đố Trắc Nghiệm";
+"fillInTheBlank" = "Điền Vào Chỗ Trống (%d)";
+"unlockAllStudyModes" = "Mở Khóa Tất Cả Chế Độ Học";
+"noStudyData" = "Không Có Dữ Liệu Học";
+"startStudyingToSeeProgress" = "Bắt đầu học để xem tiến độ của bạn!";
+"toCards" = "Đến thẻ";
+"totalStudyTime" = "Tổng Thời Gian Học";
+"averageSession" = "Phiên Trung Bình";
+"learningProgress" = "Tiến Độ Học";
+"exit" = "Thoát";
+"showAnswer" = "Hiển Thị Câu Trả Lời";
+"incorrect" = "Sai";
+"correct" = "Đúng";
+"studySessionComplete" = "Phiên Học Hoàn Tất!";
+"accuracy" = "Độ Chính Xác";
+"cardsStudied" = "Thẻ Đã Học";
+"timeSpent" = "Thời Gian Đã Dùng";
+"studyAgain" = "Học Lại";
+"done" = "Xong";
+"selectCorrectTranslation" = "Chọn bản dịch đúng";
+"fillInMissingWord" = "Điền từ còn thiếu";
+"completeSentence" = "Hoàn thành câu";
+"chooseCorrectWord" = "Chọn từ đúng:";
+"correctAnswer" = "Câu Trả Lời Đúng";
+"translateTo" = "Dịch sang %@";
+"studyProgress" = "%d trong số %d";
+
+// MARK: - Analytics
+"analytics" = "Phân Tích";
+"detailedAnalytics" = "Phân Tích Chi Tiết";
+"today" = "Hôm Nay";
+"noAnalyticsData" = "Không Có Dữ Liệu Phân Tích";
+"startStudyingToSeeProgress" = "Bắt đầu học để xem tiến độ học tập của bạn!";
+"unlockAdvancedAnalytics" = "Mở Khóa Phân Tích Nâng Cao";
+"detailedProgressReports" = "Báo Cáo Tiến Độ Chi Tiết";
+"detailedProgressReportsDescription" = "Theo dõi mô hình học tập và cải thiện của bạn qua thời gian";
+"performanceInsights" = "Thông Tin Hiệu Suất";
+"performanceInsightsDescription" = "Nhận đề xuất cá nhân hóa để cải thiện thói quen học tập";
+"studyTimeAnalytics" = "Phân Tích Thời Gian Học";
+"studyTimeAnalyticsDescription" = "Phân tích các phiên học của bạn và tối ưu hóa việc học";
+"upgradeToPremium" = "Nâng Cấp Lên Premium";
+"recentActivity" = "Hoạt Động Gần Đây";
+"viewAll" = "Xem Tất Cả";
+"noRecentActivity" = "Không Có Hoạt Động Gần Đây";
+"studySessionsWillAppearHere" = "Các phiên học của bạn sẽ xuất hiện tại đây";
+"lastStudySession" = "Phiên Học Cuối Cùng";
+"cardsStudiedToday" = "Thẻ Đã Học Hôm Nay";
+"studyStreak" = "Chuỗi Học";
+"totalStudyTime" = "Tổng Thời Gian Học";
+"cardsMastered" = "Thẻ Đã Thành Thạo";
+"todaysStudy" = "Học Hôm Nay";
+"time" = "Thời Gian";
+"cardsStudied" = "Thẻ Đã Học";
+"sessions" = "Phiên";
+"accuracy" = "Độ Chính Xác";
+"studyTime" = "Thời Gian Học";
+"timeRange" = "Phạm Vi Thời Gian";
+"masteryProgress" = "Tiến Độ Thành Thạo";
+"mastered" = "Đã Thành Thạo";
+"learning" = "Đang Học";
+"needsReview" = "Cần Xem Lại";
+"week" = "Tuần";
+"month" = "Tháng";
+"year" = "Năm";
+"allTime" = "Tất Cả Thời Gian";
+"overview" = "Tổng Quan";
+"performance" = "Hiệu Suất";
+"progress" = "Tiến Độ";
+"insights" = "Thông Tin Chi Tiết";
+"noStudyDataAvailable" = "Không có dữ liệu học tập";
+
+// MARK: - Detailed Analytics
+"analyticsTab" = "Tab Phân Tích";
+"studyTimeTitle" = "Thời Gian Học";
+"cardsMasteredTitle" = "Thẻ Đã Thành Thạo";
+"studyStreakTitle" = "Chuỗi Học";
+"averageSessionTitle" = "Phiên Trung Bình";
+"consecutiveDays" = "ngày liên tục";
+"perSession" = "mỗi phiên";
+"studyPatterns" = "Mô Hình Học";
+"mostActiveTime" = "Thời Gian Hoạt Động Nhiều Nhất";
+"preferredSessionLength" = "Thời Lượng Phiên Ưa Thích";
+"studyFrequency" = "Tần Suất Học";
+"languageProgress" = "Tiến Độ Ngôn Ngữ";
+"collectionSize" = "Kích Thước Bộ Sưu Tập";
+"cards" = "thẻ";
+"achievements" = "Thành Tựu";
+"firstSteps" = "Những Bước Đầu Tiên";
+"weekWarrior" = "Chiến Binh Tuần";
+"masterLearner" = "Người Học Thành Thạo";
+"dedicated" = "Tận Tâm";
+"vocabularyMaster" = "Bậc Thầy Từ Vựng";
+"timeMaster" = "Bậc Thầy Thời Gian";
+"accuracyTrends" = "Xu Hướng Độ Chính Xác";
+"sessionPerformance" = "Hiệu Suất Phiên";
+"averageSessionDuration" = "Thời Lượng Phiên Trung Bình";
+"basedOnData" = "Dựa trên dữ liệu từ %@";
+"cardsPerSession" = "Thẻ Mỗi Phiên";
+"average" = "Trung Bình";
+"sessionFrequency" = "Tần Suất Phiên";
+"cardDifficultyAnalysis" = "Phân Tích Độ Khó Thẻ";
+"noDifficultyDataAvailable" = "Không có dữ liệu độ khó";
+"learningSpeed" = "Tốc Độ Học";
+"cardsPerHour" = "Thẻ Mỗi Giờ";
+"vsAverage" = "so với trung bình";
+"masteryTimeline" = "Dòng Thời Gian Thành Thạo";
+"vocabularyGrowth" = "Tăng Trưởng Từ Vựng";
+"totalVocabulary" = "Tổng Từ Vựng";
+"thisWeek" = "Tuần Này";
+"thisMonth" = "Tháng Này";
+"thisYear" = "Năm Này";
+"learningMilestones" = "Cột Mốc Học Tập";
+"personalizedInsights" = "Thông Tin Cá Nhân Hóa";
+"noInsightsAvailableYet" = "Chưa có thông tin chi tiết nào";
+"recommendations" = "Khuyến Nghị";
+"noRecommendationsAtThisTime" = "Không có khuyến nghị vào lúc này";
+"learningTips" = "Mẹo Học Tập";
+"spacedRepetition" = "Lặp Lại Có Khoảng Cách";
+"spacedRepetitionDescription" = "Xem lại thẻ với các khoảng thời gian tăng dần để ghi nhớ tốt hơn.";
+"activeRecall" = "Nhớ Chủ Động";
+"activeRecallDescription" = "Cố gắng nhớ câu trả lời trước khi lật thẻ.";
+"contextLearning" = "Học Theo Ngữ Cảnh";
+"contextLearningDescription" = "Học từ trong câu thay vì riêng lẻ.";
+"studyNow" = "Học Ngay";
+"startReview" = "Bắt Đầu Xem Lại";
+"browseCollections" = "Duyệt Bộ Sưu Tập";
+"practiceMode" = "Chế Độ Luyện Tập";
+
+// MARK: - Learning Analytics Service
+"notEnoughData" = "Không đủ dữ liệu";
+"morning" = "Buổi Sáng (6-12h)";
+"afternoon" = "Buổi Chiều (12-17h)";
+"evening" = "Buổi Tối (17-21h)";
+"night" = "Ban Đêm (21-6h)";
+"under10Minutes" = "Dưới 10 phút";
+"tenTo20Minutes" = "10-20 phút";
+"twentyTo30Minutes" = "20-30 phút";
+"thirtyTo60Minutes" = "30-60 phút";
+"over60Minutes" = "Hơn 60 phút";
+"onceThisWeek" = "Một lần tuần này";
+"fewTimesThisWeek" = "Vài lần tuần này";
+"mostDaysThisWeek" = "Hầu hết các ngày trong tuần này";
+"daily" = "Hàng ngày";
+"veryEasy" = "Rất Dễ";
+"easy" = "Dễ";
+"medium" = "Trung Bình";
+"hard" = "Khó";
+"veryHard" = "Rất Khó";
+"unknown" = "Không Xác Định";
+"completedStudySession" = "Phiên Học Đã Hoàn Tất";
+"reviewedCardsInTime" = "Đã xem lại %d thẻ trong %@";
+"recent" = "Gần Đây";
+"reachedCardsMastered" = "Đã thành thạo %d thẻ";
+"greatProgressBuildingFoundation" = "Tiến bộ tuyệt vời! Bạn đang xây dựng một nền tảng vững chắc.";
+"first10CardsMastered" = "10 thẻ đầu tiên đã thành thạo";
+"sevenDayStudyStreak" = "Chuỗi học 7 ngày";
+"fiftyCardsMastered" = "50 thẻ đã thành thạo";
+"thirtyDayStudyStreak" = "Chuỗi học 30 ngày";
+"completed" = "Hoàn Tất";
+"inProgress" = "Đang Tiến Hành";
+"youreMostProductiveIn" = "Bạn hiệu quả nhất vào %@";
+"studySessionsDuringThisTime" = "Các phiên học của bạn trong thời gian này cho thấy sự tập trung và ghi nhớ tốt hơn.";
+"optimalSessionLength" = "Thời Lượng Phiên Tối Ưu";
+"yourSessionsShowBestResults" = "Các phiên %@ của bạn cho thấy kết quả tốt nhất.";
+"consistentLearningPattern" = "Mô Hình Học Liên Tục";
+"yourStudyRoutineWorkingWell" = "Thói quen học %@ của bạn đang hoạt động tốt.";
+"improvingAccuracy" = "Cải Thiện Độ Chính Xác";
+"recentAccuracyHigherThanBefore" = "Độ chính xác gần đây của bạn cao hơn %d%% so với trước đây.";
+"focusOnAccuracy" = "Tập Trung vào Độ Chính Xác";
+"recentAccuracyDecreased" = "Độ chính xác gần đây của bạn đã giảm. Hãy xem lại các thẻ khó.";
+"excellentProgress" = "Tiến Bộ Xuất Sắc";
+"masteredVocabularyPercentage" = "Bạn đã thành thạo %d%% từ vựng của mình!";
+"goodFoundation" = "Nền Tảng Tốt";
+"masteredVocabularyKeepGoing" = "Bạn đã thành thạo %d%% từ vựng của mình. Tiếp tục nhé!";
+"reviewDifficultCards" = "Xem Lại Thẻ Khó";
+"cardsNeedMorePractice" = "%d thẻ cần luyện tập thêm. Tập trung vào chúng để cải thiện độ chính xác.";
+"addMoreVocabulary" = "Thêm Từ Vựng";
+"masteredMostCurrentCards" = "Bạn đã thành thạo hầu hết các thẻ hiện tại. Sẵn sàng cho thử thách mới!";
+"extendYourStreak" = "Kéo Dài Chuỗi Học";
+"daysAwayFromAchievement" = "Bạn còn %d ngày nữa để đạt được thành tựu mới!";
+"buildConsistency" = "Xây Dựng Tính Liên Tục";
+"tryToStudyDaily" = "Hãy thử học hàng ngày để xây dựng thói quen học tập vững chắc.";
+"improveAccuracy" = "Cải Thiện Độ Chính Xác";
+"accuracyPercentageFocusQuality" = "Độ chính xác của bạn là %d%%. Tập trung vào chất lượng thay vì tốc độ.";
+
+// MARK: - Settings
+"previewBackgrounds" = "Xem Trước Nền";
+"subscriptionStatus" = "Trạng Thái Đăng Ký";
+"activeSubscription" = "Đăng Ký Hoạt Động";
+"manageSubscription" = "Quản Lý Đăng Ký";
+"purchaseTesting" = "Kiểm Tra Mua Hàng";
+"testInAppPurchases" = "Kiểm tra mua hàng trong ứng dụng và nhận ID giao dịch";
+"openPurchaseTest" = "Mở Kiểm Tra Mua Hàng";
+"testPurchase" = "Mua Hàng Kiểm Tra";
+"performTestPurchase" = "Thực hiện mua hàng kiểm tra để nhận ID giao dịch";
+"transactionListenerActive" = "Trình Lắng Nghe Giao Dịch Hoạt Động";
+"transactionListenerNotActive" = "Trình Lắng Nghe Giao Dịch Không Hoạt Động";
+"startTestPurchase" = "Bắt Đầu Mua Hàng Kiểm Tra";
+"lastTransactionId" = "ID Giao Dịch Gần Nhất";
+"transactionId" = "ID Giao Dịch:";
+"copyToClipboard" = "Sao Chép Vào Bảng Tạm";
+"copied" = "Đã Sao Chép!";
+"transactionIdCopied" = "ID giao dịch đã được sao chép vào bảng tạm";
+"availableProducts" = "Sản Phẩm Khả Dụng";
+"noProductsAvailable" = "Không có sản phẩm nào khả dụng";
+"purchasedProducts" = "Sản Phẩm Đã Mua";
+"noProductsPurchasedYet" = "Chưa có sản phẩm nào được mua";
+"purchased" = "Đã Mua";
+"transactionHistory" = "Lịch Sử Giao Dịch";
+"loadTransactionHistory" = "Tải Lịch Sử Giao Dịch";
+"restorePurchases" = "Khôi Phục Mua Hàng";
+"success" = "Thành Công";
+"failed" = "Thất Bại";
+"purchasesRestoredSuccessfully" = "Mua hàng đã được khôi phục thành công";
+"failedToRestorePurchases" = "Không thể khôi phục mua hàng";
+"purchaseTestingTitle" = "Kiểm Tra Mua Hàng";
+"ok" = "OK";
+"testPurchaseCompleted" = "Mua hàng kiểm tra đã hoàn tất! ID giao dịch: %@";
+"testPurchaseFailed" = "Mua hàng kiểm tra thất bại: %@";
+"purchaseCompleted" = "Mua hàng hoàn tất! ID giao dịch: %@";
+"purchaseFailed" = "Mua hàng thất bại: %@";
+"unknown" = "Không Xác Định";
+"unknownError" = "Lỗi Không Xác Định";
+"product" = "Sản Phẩm: %@";
+"date" = "Ngày: %@";
+
+// MARK: - Paywall
+"upgradeToPremiumTitle" = "Nâng Cấp Lên Premium";
+"upgradeToPremiumMessage" = "Nâng cấp lên Premium để mở khóa tất cả các tính năng!";
+"cancel" = "Hủy";
+"viewOptions" = "Xem Tùy Chọn";
+"unlimitedCardsTitle" = "Thẻ Không Giới Hạn";
+"unlimitedCardsMessage" = "Nâng cấp lên Premium để tạo thẻ không giới hạn và mở khóa tất cả tính năng!";
+"advancedAnalyticsTitle" = "Phân Tích Nâng Cao";
+"advancedAnalyticsMessage" = "Nhận thông tin chi tiết về học tập, biểu đồ tiến độ và phân tích hiệu suất với Premium!";
+"customThemesTitle" = "Chủ Đề Tùy Chỉnh";
+"customThemesMessage" = "Mở khóa các chủ đề tùy chỉnh và nền đẹp với Premium!";
+"languageChangeTitle" = "Thay Đổi Ngôn Ngữ";
+"languageChangeMessage" = "Chọn từ hơn 15 ngôn ngữ để nâng cao trải nghiệm học tập với Premium!";
+"cardPresetsTitle" = "Mẫu Thẻ Định Sẵn";
+"cardPresetsMessage" = "Khám phá bộ sưu tập lớn các mẫu thẻ được thiết kế sẵn với Premium!";
+"studyModesTitle" = "Chế Độ Học";
+"studyModesMessage" = "Truy cập các chế độ học nâng cao và kỹ thuật học tập với Premium!";
 
 // MARK: - Search
 "searchCards" = "Tìm kiếm thẻ...";
@@ -192,36 +475,38 @@
 "snow" = "Tuyết";
 "rain" = "Mưa";
 "stars" = "Sao";
-"bubbles" = "Bong bóng";
+"bubbles" = "Bong Bóng";
 "waves" = "Sóng";
 "particles" = "Hạt";
-"aurora" = "Cực quang";
-"fireflies" = "Đom đóm";
-"ocean" = "Đại dương";
-"galaxy" = "Thiên hà";
+"aurora" = "Cực Quang";
+"fireflies" = "Đom Đóm";
+"ocean" = "Đại Dương";
+"galaxy" = "Thiên Hà";
 
 // MARK: - Card Limits
-"cardLimitExceeded" = "Đã Đạt Giới Hạn Thẻ";
-"cardsRemaining" = "Thẻ Còn Lại";
 "cardsUsedOfLimit" = "%d trong số %d thẻ";
+"cardLimitExceeded" = "Đã đạt giới hạn thẻ. Bạn đã sử dụng %d trong số %d thẻ được phép. Nâng cấp lên Premium để có thẻ không giới hạn.";
+"freeUsersLimitedTo" = "Người dùng miễn phí bị giới hạn ở %d thẻ";
+"purchaseUnlimitedCards" = "Mua thẻ không giới hạn để thêm nhiều thẻ hơn vào bộ sưu tập của bạn";
 "upgrade" = "Nâng cấp";
 "unlimitedCards" = "Thẻ Không Giới Hạn";
 
 // MARK: - Subscription Management
 "subscription" = "Đăng ký";
-"subscriptionStatus" = "Trạng thái đăng ký";
-"activeSubscription" = "Đăng ký hoạt động";
-"manageSubscription" = "Quản lý đăng ký";
+"subscriptionStatus" = "Trạng Thái Đăng Ký";
+"activeSubscription" = "Đăng Ký Hoạt Động";
+"manageSubscription" = "Quản Lý Đăng Ký";
 
-// MARK: - Categories
-"categoryBasics" = "Cơ Bản";
-"categoryTravel" = "Du Lịch";
-"categoryEntertainment" = "Giải Trí";
-"categoryFood" = "Thức Ăn";
-"categoryShopping" = "Mua Sắm";
-"categorySocial" = "Xã Hội";
-"categoryWeather" = "Thời Tiết";
-"categoryTechnology" = "Công Nghệ";
-"categoryLifestyle" = "Lối Sống";
-"categoryProfessional" = "Chuyên Nghiệp";
-"categoryEmergency" = "Khẩn Cấp";
+"done" = "Xong";
+"cancel" = "Hủy";
+"delete" = "Xóa";
+"edit" = "Chỉnh sửa";
+"save" = "Lưu";
+"searchCards" = "Tìm kiếm thẻ...";
+"noCardsAvailable" = "Không có thẻ nào khả dụng";
+"noAccuracyDataAvailable" = "Không có dữ liệu độ chính xác";
+"noGrowthDataAvailable" = "Không có dữ liệu tăng trưởng";
+"date" = "Ngày";
+"accuracy" = "Độ Chính Xác";
+"masteredCards" = "Thẻ Đã Thành Thạo";
+"invalidJSON" = "Dữ liệu JSON không hợp lệ";
