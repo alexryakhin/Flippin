@@ -147,6 +147,23 @@ enum StudyTab {
                                 currentStudyMode = .multipleChoice
                             }
                         )
+
+                        // Fill in the blank
+                        let fillInTheBlankCards = cardsProvider.cards.filter { card in
+                            let wordCount = card.frontText.orEmpty.components(separatedBy: .whitespacesAndNewlines)
+                                .filter { !$0.isEmpty }.count
+                            return wordCount >= 3
+                        }
+                        
+                        studyOptionButton(
+                            image: Image(systemName: "pencil.circle.fill"),
+                            text: "Fill in the Blank (\(fillInTheBlankCards.count))",
+                            color: .orange,
+                            isDisabled: fillInTheBlankCards.isEmpty,
+                            action: {
+                                currentStudyMode = .fillInTheBlank
+                            }
+                        )
                     }
                 }
             }

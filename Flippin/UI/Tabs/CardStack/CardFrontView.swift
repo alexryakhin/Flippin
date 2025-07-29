@@ -47,14 +47,16 @@ struct CardFrontView: View {
     }
     
     private var difficultyColor: Color {
-        switch difficultyLevel {
-        case 1: return .green.opacity(0.5)
-        case 2: return .blue.opacity(0.5)
-        case 3: return .orange.opacity(0.5)
-        case 4: return .red.opacity(0.5)
-        case 5: return .purple.opacity(0.5)
-        default: return .gray.opacity(0.5)
+        let color: Color = switch difficultyLevel {
+        case 1: .green
+        case 2: .blue
+        case 3: .orange
+        case 4: .red
+        case 5: .purple
+        default: .gray
         }
+
+        return color.opacity(0.5)
     }
 
     // MARK: - Body

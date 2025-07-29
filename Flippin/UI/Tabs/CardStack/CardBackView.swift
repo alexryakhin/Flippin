@@ -47,14 +47,16 @@ struct CardBackView: View {
     }
     
     private var difficultyColor: Color {
-        switch difficultyLevel {
-        case 1: return .green
-        case 2: return .blue
-        case 3: return .orange
-        case 4: return .red
-        case 5: return .purple
-        default: return .gray
+        let color: Color = switch difficultyLevel {
+        case 1: .green
+        case 2: .blue
+        case 3: .orange
+        case 4: .red
+        case 5: .purple
+        default: .gray
         }
+
+        return color.opacity(0.5)
     }
 
     // MARK: - Body

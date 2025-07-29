@@ -6,6 +6,7 @@ enum StudyMode: Int, Identifiable, Hashable {
     case practice10  // Practice just 10 cards
     case difficult   // Practice difficult cards only
     case multipleChoice // Multiple choice quiz
+    case fillInTheBlank // Fill in the blank exercise
 
     var id: Int { rawValue }
 
@@ -112,6 +113,13 @@ enum StudyMode: Int, Identifiable, Hashable {
                                 recordAnswer(wasCorrect: isCorrect)
                             }
                         )
+                    case .fillInTheBlank:
+                        StudyMode.FillInTheBlankView(
+                            card: card,
+                            onAnswerSubmitted: { isCorrect in
+                                recordAnswer(wasCorrect: isCorrect)
+                            }
+                        )
                     default:
                         StudyMode.RegularPracticeView(
                             card: card,
@@ -128,7 +136,7 @@ enum StudyMode: Int, Identifiable, Hashable {
         
         private var actionButtons: some View {
             VStack(spacing: 16) {
-                if studyMode != .multipleChoice {
+                if studyMode != .multipleChoice && studyMode != .fillInTheBlank {
                     if !showingAnswer {
                         // Show answer button
                         Button("Show Answer") {
@@ -254,13 +262,19 @@ enum StudyMode: Int, Identifiable, Hashable {
                     studyCards = cardsProvider.cards
                 }
             case .multipleChoice:
-                // For multiple choice, use all cards but limit to 10 for manageable sessions
-                let allCards = cardsProvider.cards
-                if allCards.count <= 10 {
-                    studyCards = allCards
-                } else {
-                    // Take a random sample of 10 cards for multiple choice
-                    studyCards = Array(allCards.shuffled().prefix(10))
+                // Multiple choice quiz - use all cards
+                studyCards = cardsProvider.cards
+            case .fillInTheBlank:
+                // Fill in the blank - only use cards with 3 or more words
+                studyCards = cardsProvider.cards.filter { card in
+                    let wordCount = card.frontText.orEmpty.components(separatedBy: .whitespacesAndNewlines)
+                        .filter { !$0.isEmpty }.count
+                    return wordCount >= 3
+                }
+                
+                // If no cards with 3+ words, fall back to all cards
+                if studyCards.isEmpty {
+                    studyCards = cardsProvider.cards
                 }
             }
             
