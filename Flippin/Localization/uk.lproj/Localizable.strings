@@ -49,7 +49,7 @@
 "noCardsForLanguagePair" = "Немає карток для цієї пари мов";
 
 // MARK: - Card Views
-"showAnswer" = "Показати відповідь";
+"flip" = "Перевернути";
 "tapToGoBack" = "Натисніть, щоб повернутися";
 
 // MARK: - Tag Management
@@ -64,10 +64,10 @@
 "filterByTag" = "Фільтрувати за Тегом";
 "filterByLanguage" = "Фільтрувати за Мовою";
 "filterByLanguageDescription" = "Показувати тільки картки, які відповідають вашим вибраним мовам";
-"filterByFavorites" = "Фільтрувати за улюбленими";
-"showAllCards" = "Показати всі картки";
-"showFavoritesOnly" = "Показати лише улюблені";
-"noFavoriteCards" = "Немає улюблених карток";
+"filterByFavorites" = "Фільтрувати за Улюбленими";
+"showAllCards" = "Показати Всі Картки";
+"showFavoritesOnly" = "Показати Лише Улюблені";
+"noFavoriteCards" = "Немає Улюблених Карток";
 "noFavoriteCardsDescription" = "Ви ще не позначили жодної картки як улюблену";
 
 // MARK: - Settings
@@ -97,15 +97,28 @@
 "backgroundStyle" = "Стиль Фону";
 "tapToSeeFullScreen" = "Натисніть, щоб побачити повний екран";
 
+// MARK: - Categories
+"categoryBasics" = "Основи";
+"categoryTravel" = "Подорожі";
+"categoryEntertainment" = "Розваги";
+"categoryFood" = "Їжа";
+"categoryShopping" = "Покупки";
+"categorySocial" = "Спілкування";
+"categoryWeather" = "Погода";
+"categoryTechnology" = "Технології";
+"categoryLifestyle" = "Спосіб Життя";
+"categoryProfessional" = "Професійне";
+"categoryEmergency" = "Надзвичайна Ситуація";
+
 // MARK: - Add Card
 "enterTextInYourLanguage" = "Введіть текст своєю мовою";
 "enterTextInTargetLanguage" = "Введіть текст цільовою мовою";
-"addNotesOptional" = "Додати нотатки (необов'язково)";
+"addNotesOptional" = "Додати нотатки (необов’язково)";
 "notes" = "Нотатки";
 "tagsCount" = "Теги (%d/5)";
 "noTagsAvailableAddInSettings" = "Немає доступних тегів. Додайте кілька тегів у Налаштування.";
 "translating" = "Переклад...";
-"translationWillAppearHere" = "Переклад з'явиться тут";
+"translationWillAppearHere" = "Переклад з’явиться тут";
 
 // MARK: - Buttons
 "done" = "Готово";
@@ -148,7 +161,7 @@
 "changeLanguages" = "Змінити Мови";
 "changeLanguagesDescription" = "Перемикайтеся між різними мовними парами в будь-який час";
 "restorePurchases" = "Відновити Покупки";
-"cancelAnytime" = "Скасувати в будь-який час • Без зобов'язань";
+"cancelAnytime" = "Скасувати в будь-який час • Без зобов’язань";
 "terms" = "Умови";
 "privacy" = "Конфіденційність";
 "goPremium" = "Перейти на Преміум";
@@ -160,6 +173,276 @@
 "tagFilter" = "Фільтр тегів";
 "shuffle" = "Перемішати";
 "addCardLabel" = "Додати картку";
+
+// MARK: - Navigation
+"stack" = "Стос";
+"list" = "Список";
+"study" = "Вчити";
+"analytics" = "Аналіз";
+"settings" = "Налаштування";
+
+// MARK: - Card Management
+"noDifficultCards" = "Немає Складних Карток";
+"noDifficultCardsDescription" = "Ви ще не позначили жодної картки як складну. Вивчайте більше карток, щоб побачити рівні складності.";
+"difficultCards" = "Складні Картки";
+"failedToCreateCard" = "Не вдалося створити картку: %@";
+
+// MARK: - Study
+"study" = "Вчити";
+"studyMode" = "Режим Вивчення";
+"quickStats" = "Швидка Статистика";
+"studyOptions" = "Варіанти Вивчення";
+"recentActivity" = "Остання Активність";
+"totalCards" = "Загальна Кількість Карток";
+"mastered" = "Опановано";
+"difficultCards" = "Складні Картки";
+"studyTimeToday" = "Час Вивчення Сьогодні";
+"startStudySession" = "Розпочати Сесію Вивчення (10 карток)";
+"practiceAllCards" = "Практикувати Всі Картки (%d)";
+"practiceDifficultCards" = "Практикувати Складні Картки (%d)";
+"multipleChoiceQuiz" = "Тест із Багатьма Варіантами";
+"fillInTheBlank" = "Заповнити Пропуск (%d)";
+"unlockAllStudyModes" = "Розблокувати Всі Режими Вивчення";
+"noStudyData" = "Немає Даних Вивчення";
+"startStudyingToSeeProgress" = "Почніть вивчати, щоб побачити свій прогрес!";
+"toCards" = "До карток";
+"totalStudyTime" = "Загальний Час Вивчення";
+"averageSession" = "Середня Сесія";
+"learningProgress" = "Прогрес Вивчення";
+"exit" = "Вийти";
+"showAnswer" = "Показати Відповідь";
+"incorrect" = "Неправильно";
+"correct" = "Правильно";
+"studySessionComplete" = "Сесію Вивчення Завершено!";
+"accuracy" = "Точність";
+"cardsStudied" = "Вивчені Картки";
+"timeSpent" = "Витрачений Час";
+"studyAgain" = "Вчити Знову";
+"done" = "Готово";
+"selectCorrectTranslation" = "Виберіть правильний переклад";
+"fillInMissingWord" = "Заповніть пропущене слово";
+"completeSentence" = "Завершіть речення";
+"chooseCorrectWord" = "Виберіть правильне слово:";
+"correctAnswer" = "Правильна Відповідь";
+"translateTo" = "Перекласти на %@";
+"studyProgress" = "%d з %d";
+
+// MARK: - Analytics
+"analytics" = "Аналіз";
+"detailedAnalytics" = "Детальний Аналіз";
+"today" = "Сьогодні";
+"noAnalyticsData" = "Немає Аналітичних Даних";
+"startStudyingToSeeProgress" = "Почніть вивчати, щоб побачити ваш прогрес у навчанні!";
+"unlockAdvancedAnalytics" = "Розблокувати Розширений Аналіз";
+"detailedProgressReports" = "Детальні Звіти про Прогрес";
+"detailedProgressReportsDescription" = "Відстежуйте свої моделі навчання та покращення з часом";
+"performanceInsights" = "Інсайти Продуктивності";
+"performanceInsightsDescription" = "Отримуйте персоналізовані рекомендації для покращення ваших звичок навчання";
+"studyTimeAnalytics" = "Аналіз Часу Вивчення";
+"studyTimeAnalyticsDescription" = "Аналізуйте свої сесії вивчення та оптимізуйте ваше навчання";
+"upgradeToPremium" = "Перейти на Преміум";
+"recentActivity" = "Остання Активність";
+"viewAll" = "Переглянути Все";
+"noRecentActivity" = "Немає Останньої Активності";
+"studySessionsWillAppearHere" = "Ваші сесії вивчення з’являться тут";
+"lastStudySession" = "Остання Сесія Вивчення";
+"cardsStudiedToday" = "Картки, Вивчені Сьогодні";
+"studyStreak" = "Серія Вивчення";
+"totalStudyTime" = "Загальний Час Вивчення";
+"cardsMastered" = "Опановано Карток";
+"todaysStudy" = "Сьогоднішнє Вивчення";
+"time" = "Час";
+"cardsStudied" = "Вивчені Картки";
+"sessions" = "Сесії";
+"accuracy" = "Точність";
+"studyTime" = "Час Вивчення";
+"timeRange" = "Часовий Діапазон";
+"masteryProgress" = "Прогрес Оволодіння";
+"mastered" = "Опановано";
+"learning" = "Навчання";
+"needsReview" = "Потрібен Перегляд";
+"week" = "Тиждень";
+"month" = "Місяць";
+"year" = "Рік";
+"allTime" = "Весь Час";
+"overview" = "Огляд";
+"performance" = "Продуктивність";
+"progress" = "Прогрес";
+"insights" = "Інсайти";
+"noStudyDataAvailable" = "Немає даних вивчення";
+
+// MARK: - Detailed Analytics
+"analyticsTab" = "Вкладка Аналізу";
+"studyTimeTitle" = "Час Вивчення";
+"cardsMasteredTitle" = "Опановано Карток";
+"studyStreakTitle" = "Серія Вивчення";
+"averageSessionTitle" = "Середня Сесія";
+"consecutiveDays" = "послідовні дні";
+"perSession" = "за сесію";
+"studyPatterns" = "Моделі Вивчення";
+"mostActiveTime" = "Найактивніший Час";
+"preferredSessionLength" = "Бажана Тривалість Сесії";
+"studyFrequency" = "Частота Вивчення";
+"languageProgress" = "Прогрес Мови";
+"collectionSize" = "Розмір Колекції";
+"cards" = "картки";
+"achievements" = "Досягнення";
+"firstSteps" = "Перші Кроки";
+"weekWarrior" = "Тижневий Воїн";
+"masterLearner" = "Майстер Навчання";
+"dedicated" = "Відданий";
+"vocabularyMaster" = "Майстер Словникового Запасу";
+"timeMaster" = "Майстер Часу";
+"accuracyTrends" = "Тенденції Точності";
+"sessionPerformance" = "Продуктивність Сесії";
+"averageSessionDuration" = "Середня Тривалість Сесії";
+"basedOnData" = "На основі даних від %@";
+"cardsPerSession" = "Картки за Сесію";
+"average" = "Середнє";
+"sessionFrequency" = "Частота Сесій";
+"cardDifficultyAnalysis" = "Аналіз Складності Карток";
+"noDifficultyDataAvailable" = "Немає даних про складність";
+"learningSpeed" = "Швидкість Навчання";
+"cardsPerHour" = "Картки за Годину";
+"vsAverage" = "порівняно з середнім";
+"masteryTimeline" = "Часова Шкала Оволодіння";
+"vocabularyGrowth" = "Зростання Словникового Запасу";
+"totalVocabulary" = "Загальний Словниковий Запас";
+"thisWeek" = "Цей Тиждень";
+"thisMonth" = "Цей Місяць";
+"thisYear" = "Цей Рік";
+"learningMilestones" = "Міcтки Навчання";
+"personalizedInsights" = "Персоналізовані Інсайти";
+"noInsightsAvailableYet" = "Поки що немає доступних інсайтів";
+"recommendations" = "Рекомендації";
+"noRecommendationsAtThisTime" = "Наразі немає рекомендацій";
+"learningTips" = "Поради з Навчання";
+"spacedRepetition" = "Інтервальне Повторення";
+"spacedRepetitionDescription" = "Переглядайте картки з наростаючими інтервалами для кращого запам’ятовування.";
+"activeRecall" = "Активне Пригадування";
+"activeRecallDescription" = "Намагайтеся пригадати відповідь перед тим, як перевернути картку.";
+"contextLearning" = "Контекстне Навчання";
+"contextLearningDescription" = "Вивчайте слова в реченнях, а не ізольовано.";
+"studyNow" = "Вчити Зараз";
+"startReview" = "Почати Перегляд";
+"browseCollections" = "Переглянути Колекції";
+"practiceMode" = "Режим Практики";
+
+// MARK: - Learning Analytics Service
+"notEnoughData" = "Недостатньо даних";
+"morning" = "Ранок (6-12)";
+"afternoon" = "День (12-17)";
+"evening" = "Вечір (17-21)";
+"night" = "Ніч (21-6)";
+"under10Minutes" = "Менше 10 хвилин";
+"tenTo20Minutes" = "10-20 хвилин";
+"twentyTo30Minutes" = "20-30 хвилин";
+"thirtyTo60Minutes" = "30-60 хвилин";
+"over60Minutes" = "Понад 60 хвилин";
+"onceThisWeek" = "Один раз цього тижня";
+"fewTimesThisWeek" = "Кілька разів цього тижня";
+"mostDaysThisWeek" = "Більшість днів цього тижня";
+"daily" = "Щоденно";
+"veryEasy" = "Дуже Легко";
+"easy" = "Легко";
+"medium" = "Середньо";
+"hard" = "Складно";
+"veryHard" = "Дуже Складно";
+"unknown" = "Невідомо";
+"completedStudySession" = "Сесію Вивчення Завершено";
+"reviewedCardsInTime" = "Переглянуто %d карток за %@";
+"recent" = "Нещодавно";
+"reachedCardsMastered" = "Опановано %d карток";
+"greatProgressBuildingFoundation" = "Чудовий прогрес! Ви будуєте міцну основу.";
+"first10CardsMastered" = "Перші 10 карток опановано";
+"sevenDayStudyStreak" = "Семиденна серія вивчення";
+"fiftyCardsMastered" = "П’ятдесят карток опановано";
+"thirtyDayStudyStreak" = "Тридцятиденна серія вивчення";
+"completed" = "Завершено";
+"inProgress" = "В процесі";
+"youreMostProductiveIn" = "Ви найбільш продуктивні в %@";
+"studySessionsDuringThisTime" = "Ваші сесії вивчення в цей час показують кращий фокус і запам’ятовування.";
+"optimalSessionLength" = "Оптимальна Тривалість Сесії";
+"yourSessionsShowBestResults" = "Ваші сесії тривалістю %@ показують найкращі результати.";
+"consistentLearningPattern" = "Послідовний Шаблон Навчання";
+"yourStudyRoutineWorkingWell" = "Ваша рутина вивчення на %@ працює добре.";
+"improvingAccuracy" = "Покращення Точності";
+"recentAccuracyHigherThanBefore" = "Ваша остання точність на %d%% вища, ніж раніше.";
+"focusOnAccuracy" = "Фокус на Точності";
+"recentAccuracyDecreased" = "Ваша остання точність знизилася. Розгляньте повторення складних карток.";
+"excellentProgress" = "Відмінний Прогрес";
+"masteredVocabularyPercentage" = "Ви опанували %d%% вашого словникового запасу!";
+"goodFoundation" = "Хороша Основа";
+"masteredVocabularyKeepGoing" = "Ви опанували %d%% вашого словникового запасу. Продовжуйте!";
+"reviewDifficultCards" = "Переглянути Складні Картки";
+"cardsNeedMorePractice" = "%d карток потребують більше практики. Зосередьтеся на них для покращення точності.";
+"addMoreVocabulary" = "Додати Більше Словникового Запасу";
+"masteredMostCurrentCards" = "Ви опанували більшість поточних карток. Готові до нових викликів!";
+"extendYourStreak" = "Продовжити Серію";
+"daysAwayFromAchievement" = "Ви за %d днів від нової досягнення!";
+"buildConsistency" = "Побудувати Послідовність";
+"tryToStudyDaily" = "Спробуйте вчитися щодня, щоб сформувати міцну звичку навчання.";
+"improveAccuracy" = "Покращити Точність";
+"accuracyPercentageFocusQuality" = "Ваша точність становить %d%%. Зосередьтеся на якості, а не на швидкості.";
+
+// MARK: - Settings
+"previewBackgrounds" = "Попередній Перегляд Фонів";
+"subscriptionStatus" = "Статус Підписки";
+"activeSubscription" = "Активна Підписка";
+"manageSubscription" = "Керувати Підпискою";
+"purchaseTesting" = "Тестування Покупок";
+"testInAppPurchases" = "Тестуйте покупки в додатку та отримуйте ID транзакцій";
+"openPurchaseTest" = "Відкрити Тест Покупки";
+"testPurchase" = "Тестова Покупка";
+"performTestPurchase" = "Виконайте тестову покупку, щоб отримати ID транзакції";
+"transactionListenerActive" = "Слухач Транзакцій Активний";
+"transactionListenerNotActive" = "Слухач Транзакцій Неактивний";
+"startTestPurchase" = "Розпочати Тестову Покупку";
+"lastTransactionId" = "Останній ID Транзакції";
+"transactionId" = "ID Транзакції:";
+"copyToClipboard" = "Копіювати до Буфера Обміну";
+"copied" = "Скопійовано!";
+"transactionIdCopied" = "ID транзакції скопійовано до буфера обміну";
+"availableProducts" = "Доступні Продукти";
+"noProductsAvailable" = "Немає доступних продуктів";
+"purchasedProducts" = "Придбані Продукти";
+"noProductsPurchasedYet" = "Ще немає придбаних продуктів";
+"purchased" = "Придбано";
+"transactionHistory" = "Історія Транзакцій";
+"loadTransactionHistory" = "Завантажити Історію Транзакцій";
+"restorePurchases" = "Відновити Покупки";
+"success" = "Успіх";
+"failed" = "Невдача";
+"purchasesRestoredSuccessfully" = "Покупки успішно відновлено";
+"failedToRestorePurchases" = "Не вдалося відновити покупки";
+"purchaseTestingTitle" = "Тестування Покупок";
+"ok" = "OK";
+"testPurchaseCompleted" = "Тестова покупка завершена! ID транзакції: %@";
+"testPurchaseFailed" = "Тестова покупка не вдалася: %@";
+"purchaseCompleted" = "Покупка завершена! ID транзакції: %@";
+"purchaseFailed" = "Покупка не вдалася: %@";
+"unknown" = "Невідомо";
+"unknownError" = "Невідома Помилка";
+"product" = "Продукт: %@";
+"date" = "Дата: %@";
+
+// MARK: - Paywall
+"upgradeToPremiumTitle" = "Перейти на Преміум";
+"upgradeToPremiumMessage" = "Оновіть до Преміум, щоб розблокувати всі функції!";
+"cancel" = "Скасувати";
+"viewOptions" = "Переглянути Варіанти";
+"unlimitedCardsTitle" = "Необмежені Картки";
+"unlimitedCardsMessage" = "Оновіть до Преміум, щоб створювати необмежені картки та розблокувати всі функції!";
+"advancedAnalyticsTitle" = "Розширений Аналіз";
+"advancedAnalyticsMessage" = "Отримуйте детальні інсайти навчання, графіки прогресу та аналізи продуктивності з Преміум!";
+"customThemesTitle" = "Користувацькі Теми";
+"customThemesMessage" = "Розблокуйте красиві користувацькі теми та фони з Преміум!";
+"languageChangeTitle" = "Зміна Мов";
+"languageChangeMessage" = "Вибирайте з-понад 15 мов для покращення вашого досвіду навчання з Преміум!";
+"cardPresetsTitle" = "Попередні Налаштування Карток";
+"cardPresetsMessage" = "Досліджуйте велику колекцію попередньо створених налаштувань карток з Преміум!";
+"studyModesTitle" = "Режими Вивчення";
+"studyModesMessage" = "Отримайте доступ до розширених режимів вивчення та технік навчання з Преміум!";
 
 // MARK: - Search
 "searchCards" = "Пошук карток...";
@@ -179,7 +462,7 @@
 "chinese" = "Китайська";
 "japanese" = "Японська";
 "korean" = "Корейська";
-"vietnamese" = "В'єтнамська";
+"vietnamese" = "В’єтнамська";
 "russian" = "Російська";
 "arabic" = "Арабська";
 "hindi" = "Гінді";
@@ -201,27 +484,29 @@
 "galaxy" = "Галактика";
 
 // MARK: - Card Limits
-"cardLimitExceeded" = "Ліміт Карток Досягнуто";
-"cardsRemaining" = "Картки, що Залишилися";
 "cardsUsedOfLimit" = "%d з %d карток";
+"cardLimitExceeded" = "Ліміт карток досягнуто. Ви використали %d з %d дозволених карток. Оновіть до Преміум для необмежених карток.";
+"freeUsersLimitedTo" = "Безкоштовні користувачі обмежені %d картками";
+"purchaseUnlimitedCards" = "Придбайте необмежені картки, щоб додати більше карток до вашої колекції";
 "upgrade" = "Оновити";
 "unlimitedCards" = "Необмежені Картки";
 
 // MARK: - Subscription Management
 "subscription" = "Підписка";
-"subscriptionStatus" = "Статус підписки";
-"activeSubscription" = "Активна підписка";
-"manageSubscription" = "Управління підпискою";
+"subscriptionStatus" = "Статус Підписки";
+"activeSubscription" = "Активна Підписка";
+"manageSubscription" = "Керувати Підпискою";
 
-// MARK: - Categories
-"categoryBasics" = "Основы";
-"categoryTravel" = "Подорожі";
-"categoryEntertainment" = "Розваги";
-"categoryFood" = "Їжа";
-"categoryShopping" = "Покупки";
-"categorySocial" = "Спілкування";
-"categoryWeather" = "Погода";
-"categoryTechnology" = "Технології";
-"categoryLifestyle" = "Спосіб Життя";
-"categoryProfessional" = "Професійне";
-"categoryEmergency" = "Надзвичайна Ситуація";
+"done" = "Готово";
+"cancel" = "Скасувати";
+"delete" = "Видалити";
+"edit" = "Редагувати";
+"save" = "Зберегти";
+"searchCards" = "Пошук карток...";
+"noCardsAvailable" = "Немає доступних карток";
+"noAccuracyDataAvailable" = "Немає даних про точність";
+"noGrowthDataAvailable" = "Немає даних про зростання";
+"date" = "Дата";
+"accuracy" = "Точність";
+"masteredCards" = "Опановано Карток";
+"invalidJSON" = "Недійсні дані JSON";
