@@ -49,7 +49,7 @@
 "noCardsForLanguagePair" = "この言語ペアのカードがありません";
 
 // MARK: - Card Views
-"showAnswer" = "答えを表示";
+"flip" = "めくる";
 "tapToGoBack" = "タップして戻る";
 
 // MARK: - Tag Management
@@ -96,6 +96,19 @@
 "color" = "色";
 "backgroundStyle" = "背景スタイル";
 "tapToSeeFullScreen" = "タップしてフルスクリーン表示";
+
+// MARK: - Categories
+"categoryBasics" = "基本";
+"categoryTravel" = "旅行";
+"categoryEntertainment" = "エンターテイメント";
+"categoryFood" = "食べ物";
+"categoryShopping" = "買い物";
+"categorySocial" = "社交";
+"categoryWeather" = "天気";
+"categoryTechnology" = "テクノロジー";
+"categoryLifestyle" = "ライフスタイル";
+"categoryProfessional" = "職業";
+"categoryEmergency" = "緊急";
 
 // MARK: - Add Card
 "enterTextInYourLanguage" = "あなたの言語でテキストを入力";
@@ -161,6 +174,276 @@
 "shuffle" = "シャッフル";
 "addCardLabel" = "カードを追加";
 
+// MARK: - Navigation
+"stack" = "スタック";
+"list" = "リスト";
+"study" = "学習";
+"analytics" = "分析";
+"settings" = "設定";
+
+// MARK: - Card Management
+"noDifficultCards" = "難しいカードなし";
+"noDifficultCardsDescription" = "まだカードを難しいとマークしていません。難易度を見るためにさらにカードを学習してください。";
+"difficultCards" = "難しいカード";
+"failedToCreateCard" = "カードの作成に失敗しました：%@";
+
+// MARK: - Study
+"study" = "学習";
+"studyMode" = "学習モード";
+"quickStats" = "クイック統計";
+"studyOptions" = "学習オプション";
+"recentActivity" = "最近のアクティビティ";
+"totalCards" = "総カード数";
+"mastered" = "習得済み";
+"difficultCards" = "難しいカード";
+"studyTimeToday" = "今日の学習時間";
+"startStudySession" = "学習セッションを開始（10枚のカード）";
+"practiceAllCards" = "すべてのカードを練習（%d）";
+"practiceDifficultCards" = "難しいカードを練習（%d）";
+"multipleChoiceQuiz" = "多肢選択クイズ";
+"fillInTheBlank" = "空欄を埋める（%d）";
+"unlockAllStudyModes" = "すべての学習モードをアンロック";
+"noStudyData" = "学習データなし";
+"startStudyingToSeeProgress" = "進捗を確認するために学習を開始してください！";
+"toCards" = "カードへ";
+"totalStudyTime" = "総学習時間";
+"averageSession" = "平均セッション";
+"learningProgress" = "学習進捗";
+"exit" = "終了";
+"showAnswer" = "答えを表示";
+"incorrect" = "不正解";
+"correct" = "正解";
+"studySessionComplete" = "学習セッション完了！";
+"accuracy" = "正確性";
+"cardsStudied" = "学習したカード";
+"timeSpent" = "費やした時間";
+"studyAgain" = "もう一度学習";
+"done" = "完了";
+"selectCorrectTranslation" = "正しい翻訳を選択";
+"fillInMissingWord" = "欠けている単語を入力";
+"completeSentence" = "文を完成させる";
+"chooseCorrectWord" = "正しい単語を選択：";
+"correctAnswer" = "正しい答え";
+"translateTo" = "%@に翻訳";
+"studyProgress" = "%d / %d";
+
+// MARK: - Analytics
+"analytics" = "分析";
+"detailedAnalytics" = "詳細分析";
+"today" = "今日";
+"noAnalyticsData" = "分析データなし";
+"startStudyingToSeeProgress" = "学習の進捗を確認するために学習を開始してください！";
+"unlockAdvancedAnalytics" = "高度な分析をアンロック";
+"detailedProgressReports" = "詳細な進捗レポート";
+"detailedProgressReportsDescription" = "時間ごとの学習パターンと改善を追跡";
+"performanceInsights" = "パフォーマンスインサイト";
+"performanceInsightsDescription" = "学習習慣を改善するためのパーソナライズされた提案";
+"studyTimeAnalytics" = "学習時間分析";
+"studyTimeAnalyticsDescription" = "学習セッションを分析し、学習を最適化";
+"upgradeToPremium" = "プレミアムにアップグレード";
+"recentActivity" = "最近のアクティビティ";
+"viewAll" = "すべて表示";
+"noRecentActivity" = "最近のアクティビティなし";
+"studySessionsWillAppearHere" = "学習セッションはここに表示されます";
+"lastStudySession" = "最後の学習セッション";
+"cardsStudiedToday" = "今日学習したカード";
+"studyStreak" = "学習継続日数";
+"totalStudyTime" = "総学習時間";
+"cardsMastered" = "習得したカード";
+"todaysStudy" = "今日の学習";
+"time" = "時間";
+"cardsStudied" = "学習したカード";
+"sessions" = "セッション";
+"accuracy" = "正確性";
+"studyTime" = "学習時間";
+"timeRange" = "時間範囲";
+"masteryProgress" = "習得進捗";
+"mastered" = "習得済み";
+"learning" = "学習中";
+"needsReview" = "復習が必要";
+"week" = "週";
+"month" = "月";
+"year" = "年";
+"allTime" = "全期間";
+"overview" = "概要";
+"performance" = "パフォーマンス";
+"progress" = "進捗";
+"insights" = "インサイト";
+"noStudyDataAvailable" = "学習データが利用できません";
+
+// MARK: - Detailed Analytics
+"analyticsTab" = "分析タブ";
+"studyTimeTitle" = "学習時間";
+"cardsMasteredTitle" = "習得したカード";
+"studyStreakTitle" = "学習継続日数";
+"averageSessionTitle" = "平均セッション";
+"consecutiveDays" = "連続日数";
+"perSession" = "セッションごと";
+"studyPatterns" = "学習パターン";
+"mostActiveTime" = "最もアクティブな時間";
+"preferredSessionLength" = "好みのセッション長";
+"studyFrequency" = "学習頻度";
+"languageProgress" = "言語進捗";
+"collectionSize" = "コレクションサイズ";
+"cards" = "カード";
+"achievements" = "実績";
+"firstSteps" = "最初のステップ";
+"weekWarrior" = "週の戦士";
+"masterLearner" = "マスター学習者";
+"dedicated" = "専念";
+"vocabularyMaster" = "語彙マスター";
+"timeMaster" = "タイムマスター";
+"accuracyTrends" = "正確性の傾向";
+"sessionPerformance" = "セッションパフォーマンス";
+"averageSessionDuration" = "平均セッション時間";
+"basedOnData" = "%@のデータに基づく";
+"cardsPerSession" = "セッションごとのカード";
+"average" = "平均";
+"sessionFrequency" = "セッション頻度";
+"cardDifficultyAnalysis" = "カード難易度分析";
+"noDifficultyDataAvailable" = "難易度データが利用できません";
+"learningSpeed" = "学習速度";
+"cardsPerHour" = "1時間あたりのカード";
+"vsAverage" = "平均と比較";
+"masteryTimeline" = "習得タイムライン";
+"vocabularyGrowth" = "語彙の成長";
+"totalVocabulary" = "総語彙";
+"thisWeek" = "今週";
+"thisMonth" = "今月";
+"thisYear" = "今年";
+"learningMilestones" = "学習のマイルストーン";
+"personalizedInsights" = "パーソナライズされたインサイト";
+"noInsightsAvailableYet" = "まだインサイトが利用できません";
+"recommendations" = "推奨事項";
+"noRecommendationsAtThisTime" = "現時点で推奨事項はありません";
+"learningTips" = "学習のヒント";
+"spacedRepetition" = "間隔反復";
+"spacedRepetitionDescription" = "より良い保持のために間隔を空けてカードを復習";
+"activeRecall" = "アクティブリコール";
+"activeRecallDescription" = "カードをめくる前に答えを思い出してみる";
+"contextLearning" = "コンテキスト学習";
+"contextLearningDescription" = "単語を個別にではなくフレーズで学ぶ";
+"studyNow" = "今すぐ学習";
+"startReview" = "復習を開始";
+"browseCollections" = "コレクションを閲覧";
+"practiceMode" = "練習モード";
+
+// MARK: - Learning Analytics Service
+"notEnoughData" = "データが不足しています";
+"morning" = "朝（6時-12時）";
+"afternoon" = "午後（12時-17時）";
+"evening" = "夕方（17時-21時）";
+"night" = "夜（21時-6時）";
+"under10Minutes" = "10分未満";
+"tenTo20Minutes" = "10-20分";
+"twentyTo30Minutes" = "20-30分";
+"thirtyTo60Minutes" = "30-60分";
+"over60Minutes" = "60分以上";
+"onceThisWeek" = "今週1回";
+"fewTimesThisWeek" = "今週数回";
+"mostDaysThisWeek" = "今週のほとんどの日";
+"daily" = "毎日";
+"veryEasy" = "とても簡単";
+"easy" = "簡単";
+"medium" = "中程度";
+"hard" = "難しい";
+"veryHard" = "非常に難しい";
+"unknown" = "不明";
+"completedStudySession" = "学習セッション完了";
+"reviewedCardsInTime" = "%@で%d枚のカードを復習";
+"recent" = "最近";
+"reachedCardsMastered" = "%d枚のカードを習得";
+"greatProgressBuildingFoundation" = "素晴らしい進捗！強固な基盤を築いています。";
+"first10CardsMastered" = "最初の10枚のカードを習得";
+"sevenDayStudyStreak" = "7日間の学習継続";
+"fiftyCardsMastered" = "50枚のカードを習得";
+"thirtyDayStudyStreak" = "30日間の学習継続";
+"completed" = "完了";
+"inProgress" = "進行中";
+"youreMostProductiveIn" = "あなたは%@で最も生産的です";
+"studySessionsDuringThisTime" = "この時間帯の学習セッションはより高い集中力と保持力を示します。";
+"optimalSessionLength" = "最適なセッション長";
+"yourSessionsShowBestResults" = "%@のセッションが最高の結果を示します。";
+"consistentLearningPattern" = "一貫した学習パターン";
+"yourStudyRoutineWorkingWell" = "%@の学習ルーチンがうまく機能しています。";
+"improvingAccuracy" = "正確性の向上";
+"recentAccuracyHigherThanBefore" = "最近の正確性が以前より%d%%高くなっています。";
+"focusOnAccuracy" = "正確性に焦点を当てる";
+"recentAccuracyDecreased" = "最近の正確性が低下しています。難しいカードの復習を検討してください。";
+"excellentProgress" = "素晴らしい進捗";
+"masteredVocabularyPercentage" = "語彙の%d%%を習得しました！";
+"goodFoundation" = "良い基盤";
+"masteredVocabularyKeepGoing" = "語彙の%d%%を習得しました。続けてください！";
+"reviewDifficultCards" = "難しいカードを復習";
+"cardsNeedMorePractice" = "%d枚のカードにさらなる練習が必要です。正確性を向上させるためにこれらに焦点を当ててください。";
+"addMoreVocabulary" = "さらに語彙を追加";
+"masteredMostCurrentCards" = "現在のカードのほとんどを習得しました。新しい挑戦の準備はできています！";
+"extendYourStreak" = "継続を延ばす";
+"daysAwayFromAchievement" = "新しい実績まであと%d日です！";
+"buildConsistency" = "一貫性を築く";
+"tryToStudyDaily" = "強固な学習習慣を築くために毎日学習してみてください。";
+"improveAccuracy" = "正確性を向上";
+"accuracyPercentageFocusQuality" = "あなたの正確性は%d%%です。速度よりも品質に焦点を当ててください。";
+
+// MARK: - Settings
+"previewBackgrounds" = "背景のプレビュー";
+"subscriptionStatus" = "サブスクリプション状態";
+"activeSubscription" = "アクティブなサブスクリプション";
+"manageSubscription" = "サブスクリプション管理";
+"purchaseTesting" = "購入テスト";
+"testInAppPurchases" = "アプリ内購入をテストしてトランザクションIDを取得";
+"openPurchaseTest" = "購入テストを開く";
+"testPurchase" = "テスト購入";
+"performTestPurchase" = "トランザクションIDを取得するためにテスト購入を実行";
+"transactionListenerActive" = "トランザクションリスナー有効";
+"transactionListenerNotActive" = "トランザクションリスナー無効";
+"startTestPurchase" = "テスト購入を開始";
+"lastTransactionId" = "最後のトランザクションID";
+"transactionId" = "トランザクションID：";
+"copyToClipboard" = "クリップボードにコピー";
+"copied" = "コピーしました！";
+"transactionIdCopied" = "トランザクションIDがクリップボードにコピーされました";
+"availableProducts" = "利用可能な製品";
+"noProductsAvailable" = "利用可能な製品がありません";
+"purchasedProducts" = "購入済み製品";
+"noProductsPurchasedYet" = "まだ購入済みの製品はありません";
+"purchased" = "購入済み";
+"transactionHistory" = "トランザクション履歴";
+"loadTransactionHistory" = "トランザクション履歴をロード";
+"restorePurchases" = "購入を復元";
+"success" = "成功";
+"failed" = "失敗";
+"purchasesRestoredSuccessfully" = "購入が正常に復元されました";
+"failedToRestorePurchases" = "購入の復元に失敗しました";
+"purchaseTestingTitle" = "購入テスト";
+"ok" = "OK";
+"testPurchaseCompleted" = "テスト購入が完了しました！トランザクションID：%@";
+"testPurchaseFailed" = "テスト購入が失敗しました：%@";
+"purchaseCompleted" = "購入が完了しました！トランザクションID：%@";
+"purchaseFailed" = "購入が失敗しました：%@";
+"unknown" = "不明";
+"unknownError" = "不明なエラー";
+"product" = "製品：%@";
+"date" = "日付：%@";
+
+// MARK: - Paywall
+"upgradeToPremiumTitle" = "プレミアムにアップグレード";
+"upgradeToPremiumMessage" = "すべての機能をアンロックするためにプレミアムにアップグレード！";
+"cancel" = "キャンセル";
+"viewOptions" = "オプションを表示";
+"unlimitedCardsTitle" = "無制限のカード";
+"unlimitedCardsMessage" = "無制限のカードを作成し、すべての機能をアンロックするためにプレミアムにアップグレード！";
+"advancedAnalyticsTitle" = "高度な分析";
+"advancedAnalyticsMessage" = "プレミアムで詳細な学習インサイト、進捗グラフ、パフォーマンス分析を取得！";
+"customThemesTitle" = "カスタムテーマ";
+"customThemesMessage" = "プレミアムで美しいカスタムテーマと背景をアンロック！";
+"languageChangeTitle" = "言語変更";
+"languageChangeMessage" = "プレミアムで15以上の言語から選んで学習体験を向上！";
+"cardPresetsTitle" = "カードプリセット";
+"cardPresetsMessage" = "プレミアムで事前にデザインされたカードプリセットの広範なコレクションを探る！";
+"studyModesTitle" = "学習モード";
+"studyModesMessage" = "プレミアムで高度な学習モードと学習テクニックにアクセス！";
+
 // MARK: - Search
 "searchCards" = "カードを検索...";
 
@@ -201,9 +484,10 @@
 "galaxy" = "銀河";
 
 // MARK: - Card Limits
-"cardLimitExceeded" = "カード制限に達しました";
-"cardsRemaining" = "残りのカード";
 "cardsUsedOfLimit" = "%d 枚中 %d 枚";
+"cardLimitExceeded" = "カード制限に達しました。許可されている %d 枚中 %d 枚を使用しています。無制限のカードのためにプレミアムにアップグレードしてください。";
+"freeUsersLimitedTo" = "無料ユーザーは %d 枚のカードに制限されています";
+"purchaseUnlimitedCards" = "コレクションにさらにカードを追加するために無制限のカードを購入";
 "upgrade" = "アップグレード";
 "unlimitedCards" = "無制限のカード";
 
@@ -213,15 +497,16 @@
 "activeSubscription" = "アクティブなサブスクリプション";
 "manageSubscription" = "サブスクリプション管理";
 
-// MARK: - Categories
-"categoryBasics" = "基本";
-"categoryTravel" = "旅行";
-"categoryEntertainment" = "エンターテイメント";
-"categoryFood" = "食べ物";
-"categoryShopping" = "買い物";
-"categorySocial" = "社交";
-"categoryWeather" = "天気";
-"categoryTechnology" = "テクノロジー";
-"categoryLifestyle" = "ライフスタイル";
-"categoryProfessional" = "職業";
-"categoryEmergency" = "緊急";
+"done" = "完了";
+"cancel" = "キャンセル";
+"delete" = "削除";
+"edit" = "編集";
+"save" = "保存";
+"searchCards" = "カードを検索...";
+"noCardsAvailable" = "利用可能なカードがありません";
+"noAccuracyDataAvailable" = "正確性データが利用できません";
+"noGrowthDataAvailable" = "成長データが利用できません";
+"date" = "日付";
+"accuracy" = "正確性";
+"masteredCards" = "習得したカード";
+"invalidJSON" = "無効なJSONデータ";
