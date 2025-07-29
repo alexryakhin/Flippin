@@ -49,7 +49,7 @@
 "noCardsForLanguagePair" = "Keine Karten für dieses Sprachenpaar";
 
 // MARK: - Card Views
-"showAnswer" = "Antwort anzeigen";
+"flip" = "Umdrehen";
 "tapToGoBack" = "Tippen Sie, um zurückzugehen";
 
 // MARK: - Tag Management
@@ -96,6 +96,19 @@
 "color" = "Farbe";
 "backgroundStyle" = "Hintergrund-Stil";
 "tapToSeeFullScreen" = "Tippen Sie, um Vollbild zu sehen";
+
+// MARK: - Categories
+"categoryBasics" = "Grundlagen";
+"categoryTravel" = "Reisen";
+"categoryEntertainment" = "Unterhaltung";
+"categoryFood" = "Essen";
+"categoryShopping" = "Einkaufen";
+"categorySocial" = "Soziales";
+"categoryWeather" = "Wetter";
+"categoryTechnology" = "Technologie";
+"categoryLifestyle" = "Lifestyle";
+"categoryProfessional" = "Beruflich";
+"categoryEmergency" = "Notfall";
 
 // MARK: - Add Card
 "enterTextInYourLanguage" = "Geben Sie Text in Ihrer Sprache ein";
@@ -161,6 +174,276 @@
 "shuffle" = "Mischen";
 "addCardLabel" = "Karte hinzufügen";
 
+// MARK: - Navigation
+"stack" = "Stapel";
+"list" = "Liste";
+"study" = "Lernen";
+"analytics" = "Analysen";
+"settings" = "Einstellungen";
+
+// MARK: - Card Management
+"noDifficultCards" = "Keine schwierigen Karten";
+"noDifficultCardsDescription" = "Sie haben noch keine Karten als schwierig markiert. Lernen Sie mehr Karten, um Schwierigkeitsstufen zu sehen.";
+"difficultCards" = "Schwierige Karten";
+"failedToCreateCard" = "Karte konnte nicht erstellt werden: %@";
+
+// MARK: - Study
+"study" = "Lernen";
+"studyMode" = "Lernmodus";
+"quickStats" = "Schnelle Statistiken";
+"studyOptions" = "Lernoptionen";
+"recentActivity" = "Letzte Aktivität";
+"totalCards" = "Gesamtanzahl Karten";
+"mastered" = "Beherrscht";
+"difficultCards" = "Schwierige Karten";
+"studyTimeToday" = "Lernzeit heute";
+"startStudySession" = "Lernsession starten (10 Karten)";
+"practiceAllCards" = "Alle Karten üben (%d)";
+"practiceDifficultCards" = "Schwierige Karten üben (%d)";
+"multipleChoiceQuiz" = "Multiple-Choice-Quiz";
+"fillInTheBlank" = "Lückentext (%d)";
+"unlockAllStudyModes" = "Alle Lernmodi freischalten";
+"noStudyData" = "Keine Lerndaten";
+"startStudyingToSeeProgress" = "Beginnen Sie zu lernen, um Ihren Fortschritt zu sehen!";
+"toCards" = "Zu den Karten";
+"totalStudyTime" = "Gesamte Lernzeit";
+"averageSession" = "Durchschnittliche Session";
+"learningProgress" = "Lernfortschritt";
+"exit" = "Beenden";
+"showAnswer" = "Antwort anzeigen";
+"incorrect" = "Falsch";
+"correct" = "Richtig";
+"studySessionComplete" = "Lernsession abgeschlossen!";
+"accuracy" = "Genauigkeit";
+"cardsStudied" = "Karten gelernt";
+"timeSpent" = "Zeitaufwand";
+"studyAgain" = "Erneut lernen";
+"done" = "Fertig";
+"selectCorrectTranslation" = "Wählen Sie die richtige Übersetzung";
+"fillInMissingWord" = "Füllen Sie das fehlende Wort aus";
+"completeSentence" = "Vervollständigen Sie den Satz";
+"chooseCorrectWord" = "Wählen Sie das richtige Wort:";
+"correctAnswer" = "Richtige Antwort";
+"translateTo" = "Übersetzen nach %@";
+"studyProgress" = "%d von %d";
+
+// MARK: - Analytics
+"analytics" = "Analysen";
+"detailedAnalytics" = "Detaillierte Analysen";
+"today" = "Heute";
+"noAnalyticsData" = "Keine Analysedaten";
+"startStudyingToSeeProgress" = "Beginnen Sie zu lernen, um Ihren Lernfortschritt zu sehen!";
+"unlockAdvancedAnalytics" = "Erweiterte Analysen freischalten";
+"detailedProgressReports" = "Detaillierte Fortschrittsberichte";
+"detailedProgressReportsDescription" = "Verfolgen Sie Ihre Lernmuster und Verbesserungen über die Zeit";
+"performanceInsights" = "Leistungseinblicke";
+"performanceInsightsDescription" = "Erhalten Sie personalisierte Empfehlungen zur Verbesserung Ihrer Lerngewohnheiten";
+"studyTimeAnalytics" = "Lernzeit-Analysen";
+"studyTimeAnalyticsDescription" = "Analysieren Sie Ihre Lernsessions und optimieren Sie Ihr Lernen";
+"upgradeToPremium" = "Zu Premium upgraden";
+"recentActivity" = "Letzte Aktivität";
+"viewAll" = "Alle anzeigen";
+"noRecentActivity" = "Keine kürzliche Aktivität";
+"studySessionsWillAppearHere" = "Ihre Lernsessions erscheinen hier";
+"lastStudySession" = "Letzte Lernsession";
+"cardsStudiedToday" = "Heute gelernte Karten";
+"studyStreak" = "Lernserie";
+"totalStudyTime" = "Gesamte Lernzeit";
+"cardsMastered" = "Beherrschte Karten";
+"todaysStudy" = "Heutiges Lernen";
+"time" = "Zeit";
+"cardsStudied" = "Karten gelernt";
+"sessions" = "Sessions";
+"accuracy" = "Genauigkeit";
+"studyTime" = "Lernzeit";
+"timeRange" = "Zeitraum";
+"masteryProgress" = "Beherrschungsfortschritt";
+"mastered" = "Beherrscht";
+"learning" = "Lernen";
+"needsReview" = "Muss überprüft werden";
+"week" = "Woche";
+"month" = "Monat";
+"year" = "Jahr";
+"allTime" = "Gesamte Zeit";
+"overview" = "Übersicht";
+"performance" = "Leistung";
+"progress" = "Fortschritt";
+"insights" = "Einblicke";
+"noStudyDataAvailable" = "Keine Lerndaten verfügbar";
+
+// MARK: - Detailed Analytics
+"analyticsTab" = "Analyse-Tab";
+"studyTimeTitle" = "Lernzeit";
+"cardsMasteredTitle" = "Beherrschte Karten";
+"studyStreakTitle" = "Lernserie";
+"averageSessionTitle" = "Durchschnittliche Session";
+"consecutiveDays" = "aufeinanderfolgende Tage";
+"perSession" = "pro Session";
+"studyPatterns" = "Lernmuster";
+"mostActiveTime" = "Aktivste Zeit";
+"preferredSessionLength" = "Bevorzugte Sessionslänge";
+"studyFrequency" = "Lernhäufigkeit";
+"languageProgress" = "Sprachfortschritt";
+"collectionSize" = "Sammlungsgröße";
+"cards" = "Karten";
+"achievements" = "Erfolge";
+"firstSteps" = "Erste Schritte";
+"weekWarrior" = "Wochenkrieger";
+"masterLearner" = "Meister-Lerner";
+"dedicated" = "Engagiert";
+"vocabularyMaster" = "Vokabelmeister";
+"timeMaster" = "Zeitmeister";
+"accuracyTrends" = "Genauigkeitstrends";
+"sessionPerformance" = "Sessionsleistung";
+"averageSessionDuration" = "Durchschnittliche Sessionsdauer";
+"basedOnData" = "Basierend auf %@ Daten";
+"cardsPerSession" = "Karten pro Session";
+"average" = "Durchschnitt";
+"sessionFrequency" = "Sessionshäufigkeit";
+"cardDifficultyAnalysis" = "Schwierigkeitsanalyse der Karten";
+"noDifficultyDataAvailable" = "Keine Schwierigkeitsdaten verfügbar";
+"learningSpeed" = "Lernspeed";
+"cardsPerHour" = "Karten pro Stunde";
+"vsAverage" = "gegen Durchschnitt";
+"masteryTimeline" = "Beherrschungszeitleiste";
+"vocabularyGrowth" = "Vokabelwachstum";
+"totalVocabulary" = "Gesamtes Vokabular";
+"thisWeek" = "Diese Woche";
+"thisMonth" = "Dieser Monat";
+"thisYear" = "Dieses Jahr";
+"learningMilestones" = "Lernmeilensteine";
+"personalizedInsights" = "Personalisierte Einblicke";
+"noInsightsAvailableYet" = "Noch keine Einblicke verfügbar";
+"recommendations" = "Empfehlungen";
+"noRecommendationsAtThisTime" = "Derzeit keine Empfehlungen";
+"learningTips" = "Lerntipps";
+"spacedRepetition" = "Abstandswiederholung";
+"spacedRepetitionDescription" = "Wiederholen Sie Karten in zunehmenden Abständen für bessere Behaltensleistung.";
+"activeRecall" = "Aktives Abrufen";
+"activeRecallDescription" = "Versuchen Sie, die Antwort zu erinnern, bevor Sie die Karte umdrehen.";
+"contextLearning" = "Kontextlernen";
+"contextLearningDescription" = "Lernen Sie Wörter in Phrasen statt isoliert.";
+"studyNow" = "Jetzt lernen";
+"startReview" = "Überprüfung starten";
+"browseCollections" = "Sammlungen durchsehen";
+"practiceMode" = "Übungsmodus";
+
+// MARK: - Learning Analytics Service
+"notEnoughData" = "Nicht genug Daten";
+"morning" = "Morgen (6-12 Uhr)";
+"afternoon" = "Nachmittag (12-17 Uhr)";
+"evening" = "Abend (17-21 Uhr)";
+"night" = "Nacht (21-6 Uhr)";
+"under10Minutes" = "Unter 10 Minuten";
+"tenTo20Minutes" = "10-20 Minuten";
+"twentyTo30Minutes" = "20-30 Minuten";
+"thirtyTo60Minutes" = "30-60 Minuten";
+"over60Minutes" = "Über 60 Minuten";
+"onceThisWeek" = "Einmal diese Woche";
+"fewTimesThisWeek" = "Einige Male diese Woche";
+"mostDaysThisWeek" = "An den meisten Tagen dieser Woche";
+"daily" = "Täglich";
+"veryEasy" = "Sehr leicht";
+"easy" = "Leicht";
+"medium" = "Mittel";
+"hard" = "Schwer";
+"veryHard" = "Sehr schwer";
+"unknown" = "Unbekannt";
+"completedStudySession" = "Lernsession abgeschlossen";
+"reviewedCardsInTime" = "%d Karten in %@ überprüft";
+"recent" = "Kürzlich";
+"reachedCardsMastered" = "%d Karten beherrscht erreicht";
+"greatProgressBuildingFoundation" = "Großartiger Fortschritt! Sie bauen eine starke Grundlage.";
+"first10CardsMastered" = "Erste 10 Karten beherrscht";
+"sevenDayStudyStreak" = "7-Tage-Lernserie";
+"fiftyCardsMastered" = "50 Karten beherrscht";
+"thirtyDayStudyStreak" = "30-Tage-Lernserie";
+"completed" = "Abgeschlossen";
+"inProgress" = "In Bearbeitung";
+"youreMostProductiveIn" = "Sie sind am produktivsten am %@";
+"studySessionsDuringThisTime" = "Ihre Lernsessions während dieser Zeit zeigen besseren Fokus und Behaltensleistung.";
+"optimalSessionLength" = "Optimale Sessionslänge";
+"yourSessionsShowBestResults" = "Ihre %@ Sessions zeigen die besten Ergebnisse.";
+"consistentLearningPattern" = "Konsistentes Lernmuster";
+"yourStudyRoutineWorkingWell" = "Ihre %@ Lernroutine funktioniert gut.";
+"improvingAccuracy" = "Verbesserung der Genauigkeit";
+"recentAccuracyHigherThanBefore" = "Ihre kürzliche Genauigkeit ist %d%% höher als zuvor.";
+"focusOnAccuracy" = "Fokus auf Genauigkeit";
+"recentAccuracyDecreased" = "Ihre kürzliche Genauigkeit ist gesunken. Erwägen Sie, schwierige Karten zu überprüfen.";
+"excellentProgress" = "Hervorragender Fortschritt";
+"masteredVocabularyPercentage" = "Sie haben %d%% Ihres Vokabulars beherrscht!";
+"goodFoundation" = "Gute Grundlage";
+"masteredVocabularyKeepGoing" = "Sie haben %d%% Ihres Vokabulars beherrscht. Weiter so!";
+"reviewDifficultCards" = "Schwierige Karten überprüfen";
+"cardsNeedMorePractice" = "%d Karten benötigen mehr Übung. Konzentrieren Sie sich auf diese, um die Genauigkeit zu verbessern.";
+"addMoreVocabulary" = "Mehr Vokabular hinzufügen";
+"masteredMostCurrentCards" = "Sie haben die meisten Ihrer aktuellen Karten beherrscht. Bereit für neue Herausforderungen!";
+"extendYourStreak" = "Ihre Serie verlängern";
+"daysAwayFromAchievement" = "Sie sind %d Tage von einem neuen Erfolg entfernt!";
+"buildConsistency" = "Konsistenz aufbauen";
+"tryToStudyDaily" = "Versuchen Sie, täglich zu lernen, um eine starke Lerngewohnheit aufzubauen.";
+"improveAccuracy" = "Genauigkeit verbessern";
+"accuracyPercentageFocusQuality" = "Ihre Genauigkeit beträgt %d%%. Konzentrieren Sie sich auf Qualität statt Geschwindigkeit.";
+
+// MARK: - Settings
+"previewBackgrounds" = "Hintergründe Vorschau";
+"subscriptionStatus" = "Abonnement-Status";
+"activeSubscription" = "Aktives Abonnement";
+"manageSubscription" = "Abonnement verwalten";
+"purchaseTesting" = "Kauf-Tests";
+"testInAppPurchases" = "Testen Sie In-App-Käufe und erhalten Sie Transaktions-IDs";
+"openPurchaseTest" = "Kauf-Test öffnen";
+"testPurchase" = "Testkauf";
+"performTestPurchase" = "Führen Sie einen Testkauf durch, um die Transaktions-ID zu erhalten";
+"transactionListenerActive" = "Transaktionslistener aktiv";
+"transactionListenerNotActive" = "Transaktionslistener nicht aktiv";
+"startTestPurchase" = "Testkauf starten";
+"lastTransactionId" = "Letzte Transaktions-ID";
+"transactionId" = "Transaktions-ID:";
+"copyToClipboard" = "In die Zwischenablage kopieren";
+"copied" = "Kopiert!";
+"transactionIdCopied" = "Transaktions-ID in die Zwischenablage kopiert";
+"availableProducts" = "Verfügbare Produkte";
+"noProductsAvailable" = "Keine Produkte verfügbar";
+"purchasedProducts" = "Gekaufte Produkte";
+"noProductsPurchasedYet" = "Noch keine Produkte gekauft";
+"purchased" = "Gekauft";
+"transactionHistory" = "Transaktionsverlauf";
+"loadTransactionHistory" = "Transaktionsverlauf laden";
+"restorePurchases" = "Käufe wiederherstellen";
+"success" = "Erfolg";
+"failed" = "Fehlgeschlagen";
+"purchasesRestoredSuccessfully" = "Käufe erfolgreich wiederhergestellt";
+"failedToRestorePurchases" = "Fehler beim Wiederherstellen der Käufe";
+"purchaseTestingTitle" = "Kauf-Tests";
+"ok" = "OK";
+"testPurchaseCompleted" = "Testkauf abgeschlossen! Transaktions-ID: %@";
+"testPurchaseFailed" = "Testkauf fehlgeschlagen: %@";
+"purchaseCompleted" = "Kauf abgeschlossen! Transaktions-ID: %@";
+"purchaseFailed" = "Kauf fehlgeschlagen: %@";
+"unknown" = "Unbekannt";
+"unknownError" = "Unbekannter Fehler";
+"product" = "Produkt: %@";
+"date" = "Datum: %@";
+
+// MARK: - Paywall
+"upgradeToPremiumTitle" = "Zu Premium upgraden";
+"upgradeToPremiumMessage" = "Upgraden Sie zu Premium, um alle Funktionen freizuschalten!";
+"cancel" = "Abbrechen";
+"viewOptions" = "Optionen anzeigen";
+"unlimitedCardsTitle" = "Unbegrenzte Karten";
+"unlimitedCardsMessage" = "Upgraden Sie zu Premium, um unbegrenzte Karten zu erstellen und alle Funktionen freizuschalten!";
+"advancedAnalyticsTitle" = "Erweiterte Analysen";
+"advancedAnalyticsMessage" = "Erhalten Sie detaillierte Lerneinblicke, Fortschrittsdiagramme und Leistungsanalysen mit Premium!";
+"customThemesTitle" = "Benutzerdefinierte Themen";
+"customThemesMessage" = "Schalten Sie wunderschöne benutzerdefinierte Themen und Hintergründe mit Premium frei!";
+"languageChangeTitle" = "Sprachwechsel";
+"languageChangeMessage" = "Wählen Sie aus über 15 Sprachen, um Ihre Lernerfahrung mit Premium zu verbessern!";
+"cardPresetsTitle" = "Karten-Voreinstellungen";
+"cardPresetsMessage" = "Erkunden Sie eine umfangreiche Sammlung vordefinierter Karten-Voreinstellungen mit Premium!";
+"studyModesTitle" = "Lernmodi";
+"studyModesMessage" = "Greifen Sie auf erweiterte Lernmodi und Lerntechniken mit Premium zu!";
+
 // MARK: - Search
 "searchCards" = "Karten suchen...";
 
@@ -201,9 +484,10 @@
 "galaxy" = "Galaxie";
 
 // MARK: - Card Limits
-"cardLimitExceeded" = "Kartenlimit erreicht";
-"cardsRemaining" = "Verbleibende Karten";
 "cardsUsedOfLimit" = "%d von %d Karten";
+"cardLimitExceeded" = "Kartenlimit erreicht. Sie haben %d von %d erlaubten Karten. Upgraden Sie zu Premium für unbegrenzte Karten.";
+"freeUsersLimitedTo" = "Kostenlose Nutzer sind auf %d Karten beschränkt";
+"purchaseUnlimitedCards" = "Kaufen Sie unbegrenzte Karten, um weitere Karten zu Ihrer Sammlung hinzuzufügen";
 "upgrade" = "Upgraden";
 "unlimitedCards" = "Unbegrenzte Karten";
 
@@ -213,15 +497,16 @@
 "activeSubscription" = "Aktives Abonnement";
 "manageSubscription" = "Abonnement verwalten";
 
-// MARK: - Categories
-"categoryBasics" = "Grundlagen";
-"categoryTravel" = "Reisen";
-"categoryEntertainment" = "Unterhaltung";
-"categoryFood" = "Essen";
-"categoryShopping" = "Einkaufen";
-"categorySocial" = "Soziales";
-"categoryWeather" = "Wetter";
-"categoryTechnology" = "Technologie";
-"categoryLifestyle" = "Lifestyle";
-"categoryProfessional" = "Beruflich";
-"categoryEmergency" = "Notfall";
+"done" = "Fertig";
+"cancel" = "Abbrechen";
+"delete" = "Löschen";
+"edit" = "Bearbeiten";
+"save" = "Speichern";
+"searchCards" = "Karten suchen...";
+"noCardsAvailable" = "Keine Karten verfügbar";
+"noAccuracyDataAvailable" = "Keine Genauigkeitsdaten verfügbar";
+"noGrowthDataAvailable" = "Keine Wachstumsdaten verfügbar";
+"date" = "Datum";
+"accuracy" = "Genauigkeit";
+"masteredCards" = "Beherrschte Karten";
+"invalidJSON" = "JSON-Daten ungültig";

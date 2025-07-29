@@ -56,7 +56,7 @@ struct TabButton: View {
                     .frame(width: 24, height: 24)
                 Text(title)
                     .font(.caption)
-                    .multilineTextAlignment(.center)
+                    .lineLimit(1)
             }
             .frame(maxWidth: .infinity)
             .contentShape(Rectangle())
