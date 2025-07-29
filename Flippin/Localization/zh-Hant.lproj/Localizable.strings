@@ -49,7 +49,7 @@
 "noCardsForLanguagePair" = "沒有此語言對的卡片";
 
 // MARK: - Card Views
-"showAnswer" = "顯示答案";
+"flip" = "翻轉";
 "tapToGoBack" = "點擊返回";
 
 // MARK: - Tag Management
@@ -97,6 +97,19 @@
 "backgroundStyle" = "背景樣式";
 "tapToSeeFullScreen" = "點擊查看全螢幕";
 
+// MARK: - Categories
+"categoryBasics" = "基礎";
+"categoryTravel" = "旅行";
+"categoryEntertainment" = "娛樂";
+"categoryFood" = "食物";
+"categoryShopping" = "購物";
+"categorySocial" = "社交";
+"categoryWeather" = "天氣";
+"categoryTechnology" = "科技";
+"categoryLifestyle" = "生活方式";
+"categoryProfessional" = "專業";
+"categoryEmergency" = "緊急";
+
 // MARK: - Add Card
 "enterTextInYourLanguage" = "用您的語言輸入文字";
 "enterTextInTargetLanguage" = "用目標語言輸入文字";
@@ -130,7 +143,7 @@
 "premiumFeature" = "進階功能";
 "premiumRequired" = "需要進階版";
 "upgradeToPremium" = "升級到進階版";
-"premiumFeatureDescription" = "存取所有預設集合并解鎖語言學習的無限潛力";
+"premiumFeatureDescription" = "存取所有預設集合並解鎖語言學習的無限潛力";
 "previewBackgrounds" = "預覽";
 "colorScheme" = "顏色方案";
 "colorSchemeSystem" = "系統";
@@ -160,6 +173,276 @@
 "tagFilter" = "標籤篩選";
 "shuffle" = "隨機";
 "addCardLabel" = "新增卡片";
+
+// MARK: - Navigation
+"stack" = "堆疊";
+"list" = "列表";
+"study" = "學習";
+"analytics" = "分析";
+"settings" = "設定";
+
+// MARK: - Card Management
+"noDifficultCards" = "沒有困難卡片";
+"noDifficultCardsDescription" = "您尚未將任何卡片標記為困難。學習更多卡片以查看難度等級。";
+"difficultCards" = "困難卡片";
+"failedToCreateCard" = "創建卡片失敗：%@";
+
+// MARK: - Study
+"study" = "學習";
+"studyMode" = "學習模式";
+"quickStats" = "快速統計";
+"studyOptions" = "學習選項";
+"recentActivity" = "最近活動";
+"totalCards" = "總卡片數";
+"mastered" = "已掌握";
+"difficultCards" = "困難卡片";
+"studyTimeToday" = "今日學習時間";
+"startStudySession" = "開始學習會話（10張卡片）";
+"practiceAllCards" = "練習所有卡片（%d）";
+"practiceDifficultCards" = "練習困難卡片（%d）";
+"multipleChoiceQuiz" = "多選測驗";
+"fillInTheBlank" = "填空（%d）";
+"unlockAllStudyModes" = "解鎖所有學習模式";
+"noStudyData" = "無學習數據";
+"startStudyingToSeeProgress" = "開始學習以查看您的進度！";
+"toCards" = "前往卡片";
+"totalStudyTime" = "總學習時間";
+"averageSession" = "平均會話";
+"learningProgress" = "學習進度";
+"exit" = "退出";
+"showAnswer" = "顯示答案";
+"incorrect" = "錯誤";
+"correct" = "正確";
+"studySessionComplete" = "學習會話完成！";
+"accuracy" = "準確率";
+"cardsStudied" = "已學習卡片";
+"timeSpent" = "花費時間";
+"studyAgain" = "再次學習";
+"done" = "完成";
+"selectCorrectTranslation" = "選擇正確的翻譯";
+"fillInMissingWord" = "填入缺失的單詞";
+"completeSentence" = "完成句子";
+"chooseCorrectWord" = "選擇正確的單詞：";
+"correctAnswer" = "正確答案";
+"translateTo" = "翻譯為 %@";
+"studyProgress" = "%d / %d";
+
+// MARK: - Analytics
+"analytics" = "分析";
+"detailedAnalytics" = "詳細分析";
+"today" = "今天";
+"noAnalyticsData" = "無分析數據";
+"startStudyingToSeeProgress" = "開始學習以查看您的學習進度！";
+"unlockAdvancedAnalytics" = "解鎖高級分析";
+"detailedProgressReports" = "詳細進度報告";
+"detailedProgressReportsDescription" = "追蹤您的學習模式和隨時間改進";
+"performanceInsights" = "性能洞察";
+"performanceInsightsDescription" = "獲取個性化推薦以改進您的學習習慣";
+"studyTimeAnalytics" = "學習時間分析";
+"studyTimeAnalyticsDescription" = "分析您的學習會話並優化您的學習";
+"upgradeToPremium" = "升級到進階版";
+"recentActivity" = "最近活動";
+"viewAll" = "查看全部";
+"noRecentActivity" = "無最近活動";
+"studySessionsWillAppearHere" = "您的學習會話將顯示在此處";
+"lastStudySession" = "最後學習會話";
+"cardsStudiedToday" = "今日學習的卡片";
+"studyStreak" = "學習連勝";
+"totalStudyTime" = "總學習時間";
+"cardsMastered" = "已掌握卡片";
+"todaysStudy" = "今日學習";
+"time" = "時間";
+"cardsStudied" = "已學習卡片";
+"sessions" = "會話";
+"accuracy" = "準確率";
+"studyTime" = "學習時間";
+"timeRange" = "時間範圍";
+"masteryProgress" = "掌握進度";
+"mastered" = "已掌握";
+"learning" = "學習中";
+"needsReview" = "需要複習";
+"week" = "週";
+"month" = "月";
+"year" = "年";
+"allTime" = "全部時間";
+"overview" = "概覽";
+"performance" = "性能";
+"progress" = "進度";
+"insights" = "洞察";
+"noStudyDataAvailable" = "無學習數據可用";
+
+// MARK: - Detailed Analytics
+"analyticsTab" = "分析選項卡";
+"studyTimeTitle" = "學習時間";
+"cardsMasteredTitle" = "已掌握卡片";
+"studyStreakTitle" = "學習連勝";
+"averageSessionTitle" = "平均會話";
+"consecutiveDays" = "連續天數";
+"perSession" = "每會話";
+"studyPatterns" = "學習模式";
+"mostActiveTime" = "最活躍時間";
+"preferredSessionLength" = "首選會話長度";
+"studyFrequency" = "學習頻率";
+"languageProgress" = "語言進度";
+"collectionSize" = "集合大小";
+"cards" = "卡片";
+"achievements" = "成就";
+"firstSteps" = "第一步";
+"weekWarrior" = "週戰士";
+"masterLearner" = "學習大師";
+"dedicated" = "專注";
+"vocabularyMaster" = "詞彙大師";
+"timeMaster" = "時間大師";
+"accuracyTrends" = "準確率趨勢";
+"sessionPerformance" = "會話性能";
+"averageSessionDuration" = "平均會話時長";
+"basedOnData" = "基於%@的數據";
+"cardsPerSession" = "每會話卡片數";
+"average" = "平均";
+"sessionFrequency" = "會話頻率";
+"cardDifficultyAnalysis" = "卡片難度分析";
+"noDifficultyDataAvailable" = "無難度數據可用";
+"learningSpeed" = "學習速度";
+"cardsPerHour" = "每小時卡片數";
+"vsAverage" = "與平均值比較";
+"masteryTimeline" = "掌握時間線";
+"vocabularyGrowth" = "詞彙增長";
+"totalVocabulary" = "總詞彙量";
+"thisWeek" = "本週";
+"thisMonth" = "本月";
+"thisYear" = "今年";
+"learningMilestones" = "學習里程碑";
+"personalizedInsights" = "個性化洞察";
+"noInsightsAvailableYet" = "暫無洞察可用";
+"recommendations" = "推薦";
+"noRecommendationsAtThisTime" = "目前無推薦";
+"learningTips" = "學習建議";
+"spacedRepetition" = "間隔重複";
+"spacedRepetitionDescription" = "以逐漸增加的間隔複習卡片以獲得更好的記憶。";
+"activeRecall" = "主動回憶";
+"activeRecallDescription" = "在翻轉卡片前嘗試回憶答案。";
+"contextLearning" = "語境學習";
+"contextLearningDescription" = "在句子中學習單詞而非單獨學習。";
+"studyNow" = "現在學習";
+"startReview" = "開始複習";
+"browseCollections" = "瀏覽集合";
+"practiceMode" = "練習模式";
+
+// MARK: - Learning Analytics Service
+"notEnoughData" = "數據不足";
+"morning" = "早晨（6-12點）";
+"afternoon" = "下午（12-17點）";
+"evening" = "傍晚（17-21點）";
+"night" = "夜間（21-6點）";
+"under10Minutes" = "不到10分鐘";
+"tenTo20Minutes" = "10-20分鐘";
+"twentyTo30Minutes" = "20-30分鐘";
+"thirtyTo60Minutes" = "30-60分鐘";
+"over60Minutes" = "超過60分鐘";
+"onceThisWeek" = "本週一次";
+"fewTimesThisWeek" = "本週幾次";
+"mostDaysThisWeek" = "本週大部分日子";
+"daily" = "每日";
+"veryEasy" = "非常簡單";
+"easy" = "簡單";
+"medium" = "中等";
+"hard" = "困難";
+"veryHard" = "非常困難";
+"unknown" = "未知";
+"completedStudySession" = "學習會話完成";
+"reviewedCardsInTime" = "在%@內複習了%d張卡片";
+"recent" = "最近";
+"reachedCardsMastered" = "已掌握%d張卡片";
+"greatProgressBuildingFoundation" = "進展出色！您正在建立堅實的基礎。";
+"first10CardsMastered" = "前10張卡片已掌握";
+"sevenDayStudyStreak" = "7天學習連勝";
+"fiftyCardsMastered" = "50張卡片已掌握";
+"thirtyDayStudyStreak" = "30天學習連勝";
+"completed" = "已完成";
+"inProgress" = "進行中";
+"youreMostProductiveIn" = "您在%@時最為高效";
+"studySessionsDuringThisTime" = "您在此時間段的學習會話顯示出更好的專注力和記憶力。";
+"optimalSessionLength" = "最佳會話長度";
+"yourSessionsShowBestResults" = "您的%@會話顯示出最佳結果。";
+"consistentLearningPattern" = "持續學習模式";
+"yourStudyRoutineWorkingWell" = "您的%@學習例程效果良好。";
+"improvingAccuracy" = "提高準確率";
+"recentAccuracyHigherThanBefore" = "您最近的準確率比之前高%d%%。";
+"focusOnAccuracy" = "專注準確率";
+"recentAccuracyDecreased" = "您最近的準確率下降了。考慮複習困難卡片。";
+"excellentProgress" = "出色進展";
+"masteredVocabularyPercentage" = "您已掌握%d%%的詞彙量！";
+"goodFoundation" = "良好基礎";
+"masteredVocabularyKeepGoing" = "您已掌握%d%%的詞彙量，繼續努力！";
+"reviewDifficultCards" = "複習困難卡片";
+"cardsNeedMorePractice" = "%d張卡片需要更多練習。專注於這些卡片以提高準確率。";
+"addMoreVocabulary" = "新增更多詞彙";
+"masteredMostCurrentCards" = "您已掌握大部分當前卡片。準備好迎接新挑戰！";
+"extendYourStreak" = "延長您的連勝";
+"daysAwayFromAchievement" = "您距離新成就還有%d天！";
+"buildConsistency" = "建立一致性";
+"tryToStudyDaily" = "嘗試每天學習以建立穩固的學習習慣。";
+"improveAccuracy" = "提高準確率";
+"accuracyPercentageFocusQuality" = "您的準確率為%d%%。注重品質而非速度。";
+
+// MARK: - Settings
+"previewBackgrounds" = "預覽背景";
+"subscriptionStatus" = "訂閱狀態";
+"activeSubscription" = "活躍訂閱";
+"manageSubscription" = "管理訂閱";
+"purchaseTesting" = "購買測試";
+"testInAppPurchases" = "測試應用內購買並獲取交易ID";
+"openPurchaseTest" = "開啟購買測試";
+"testPurchase" = "測試購買";
+"performTestPurchase" = "執行測試購買以獲取交易ID";
+"transactionListenerActive" = "交易監聽器活躍";
+"transactionListenerNotActive" = "交易監聽器不活躍";
+"startTestPurchase" = "開始測試購買";
+"lastTransactionId" = "最後交易ID";
+"transactionId" = "交易ID：";
+"copyToClipboard" = "複製到剪貼板";
+"copied" = "已複製！";
+"transactionIdCopied" = "交易ID已複製到剪貼板";
+"availableProducts" = "可用產品";
+"noProductsAvailable" = "無可用產品";
+"purchasedProducts" = "已購買產品";
+"noProductsPurchasedYet" = "尚未購買任何產品";
+"purchased" = "已購買";
+"transactionHistory" = "交易歷史";
+"loadTransactionHistory" = "載入交易歷史";
+"restorePurchases" = "恢復購買";
+"success" = "成功";
+"failed" = "失敗";
+"purchasesRestoredSuccessfully" = "購買恢復成功";
+"failedToRestorePurchases" = "恢復購買失敗";
+"purchaseTestingTitle" = "購買測試";
+"ok" = "確定";
+"testPurchaseCompleted" = "測試購買完成！交易ID：%@";
+"testPurchaseFailed" = "測試購買失敗：%@";
+"purchaseCompleted" = "購買完成！交易ID：%@";
+"purchaseFailed" = "購買失敗：%@";
+"unknown" = "未知";
+"unknownError" = "未知錯誤";
+"product" = "產品：%@";
+"date" = "日期：%@";
+
+// MARK: - Paywall
+"upgradeToPremiumTitle" = "升級到進階版";
+"upgradeToPremiumMessage" = "升級到進階版以解鎖所有功能！";
+"cancel" = "取消";
+"viewOptions" = "查看選項";
+"unlimitedCardsTitle" = "無限卡片";
+"unlimitedCardsMessage" = "升級到進階版以創建無限卡片並解鎖所有功能！";
+"advancedAnalyticsTitle" = "高級分析";
+"advancedAnalyticsMessage" = "通過進階版獲取詳細的學習洞察、進度圖表和性能分析！";
+"customThemesTitle" = "自訂主題";
+"customThemesMessage" = "通過進階版解鎖美麗的自訂主題和背景！";
+"languageChangeTitle" = "更改語言";
+"languageChangeMessage" = "通過進階版從15種以上語言中選擇以提升您的學習體驗！";
+"cardPresetsTitle" = "卡片預設";
+"cardPresetsMessage" = "通過進階版探索大量預設計的卡片預設集合！";
+"studyModesTitle" = "學習模式";
+"studyModesMessage" = "通過進階版存取高級學習模式和學習技術！";
 
 // MARK: - Search
 "searchCards" = "搜尋卡片...";
@@ -201,9 +484,10 @@
 "galaxy" = "銀河";
 
 // MARK: - Card Limits
-"cardLimitExceeded" = "卡片限制已達";
-"cardsRemaining" = "剩餘卡片";
 "cardsUsedOfLimit" = "%d 張卡片中的 %d 張";
+"cardLimitExceeded" = "卡片限制已達。您已使用 %d 張中的 %d 張允許卡片。升級到進階版以獲得無限卡片。";
+"freeUsersLimitedTo" = "免費用戶限制為 %d 張卡片";
+"purchaseUnlimitedCards" = "購買無限卡片以向您的集合新增更多卡片";
 "upgrade" = "升級";
 "unlimitedCards" = "無限卡片";
 
@@ -213,15 +497,16 @@
 "activeSubscription" = "活躍訂閱";
 "manageSubscription" = "管理訂閱";
 
-// MARK: - Categories
-"categoryBasics" = "基礎";
-"categoryTravel" = "旅行";
-"categoryEntertainment" = "娛樂";
-"categoryFood" = "食物";
-"categoryShopping" = "購物";
-"categorySocial" = "社交";
-"categoryWeather" = "天氣";
-"categoryTechnology" = "科技";
-"categoryLifestyle" = "生活方式";
-"categoryProfessional" = "專業";
-"categoryEmergency" = "緊急";
+"done" = "完成";
+"cancel" = "取消";
+"delete" = "刪除";
+"edit" = "編輯";
+"save" = "儲存";
+"searchCards" = "搜尋卡片...";
+"noCardsAvailable" = "沒有可用的卡片";
+"noAccuracyDataAvailable" = "無準確率數據";
+"noGrowthDataAvailable" = "無增長數據";
+"date" = "日期";
+"accuracy" = "準確率";
+"masteredCards" = "已掌握卡片";
+"invalidJSON" = "無效JSON數據";
