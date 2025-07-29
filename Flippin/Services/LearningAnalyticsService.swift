@@ -167,6 +167,10 @@ final class LearningAnalyticsService: ObservableObject {
         updateCardDifficulty(performance: performance, timeSpent: timeSpent)
         updateNextReviewDate(performance: performance)
 
+        // Update daily stats for card flipping on main screen
+        // This ensures that card flipping contributes to the streak calculation
+        updateDailyStatsForCardReview(timeSpent: timeSpent)
+
         // Track card review
         AnalyticsService.trackCardEvent(
             wasCorrect ? .cardReviewedCorrect : .cardReviewedIncorrect,
@@ -182,7 +186,7 @@ final class LearningAnalyticsService: ObservableObject {
     func loadAnalytics() {
         loadCardPerformances()
         loadDailyStats()
-        calculateStudyStreak()
+        initializeStudyStreak()
         calculateTotalStudyTime()
         calculateTotalCardsMastered()
     }
@@ -191,6 +195,58 @@ final class LearningAnalyticsService: ObservableObject {
     func refreshAnalytics() {
         loadAnalytics()
         objectWillChange.send()
+    }
+
+    /// Initialize study streak properly when app starts
+    private func initializeStudyStreak() {
+        let request = DailyStats.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \DailyStats.date, ascending: false)]
+
+        do {
+            let stats = try coreDataService.context.fetch(request)
+            let calendar = Calendar.current
+            let today = calendar.startOfDay(for: Date())
+
+            // Check if user studied today
+            let hasStudiedToday = stats.contains { stat in
+                guard let date = stat.date else { return false }
+                return calendar.isDate(calendar.startOfDay(for: date), inSameDayAs: today)
+            }
+
+            if hasStudiedToday {
+                // If user has studied today, calculate the streak normally
+                calculateStudyStreak()
+            } else {
+                // If user hasn't studied today, calculate streak from previous days
+                calculateStreakFromPreviousDays(stats: stats, calendar: calendar, today: today)
+            }
+        } catch {
+            print("❌ Failed to initialize study streak: \(error)")
+        }
+    }
+
+    /// Calculate streak from previous days when user hasn't studied today
+    private func calculateStreakFromPreviousDays(stats: [DailyStats], calendar: Calendar, today: Date) {
+        var currentDate = calendar.date(byAdding: .day, value: -1, to: today) ?? today
+        var consecutiveDays = 0
+
+        while true {
+            let hasStudiedOnDate = stats.contains { stat in
+                guard let date = stat.date else { return false }
+                return calendar.isDate(calendar.startOfDay(for: date), inSameDayAs: currentDate)
+            }
+
+            if hasStudiedOnDate {
+                consecutiveDays += 1
+                // Move to previous day
+                currentDate = calendar.date(byAdding: .day, value: -1, to: currentDate) ?? currentDate
+            } else {
+                break
+            }
+        }
+
+        studyStreak = consecutiveDays
+        print("📊 Study streak initialized from previous days: \(consecutiveDays) days")
     }
 
     /// Load card performance data
@@ -252,8 +308,11 @@ final class LearningAnalyticsService: ObservableObject {
                 return calendar.isDate(calendar.startOfDay(for: date), inSameDayAs: today)
             }
 
+            // If no daily stats exist for today, we can't calculate a streak yet
+            // This prevents the streak from being reset to 0 when the app starts
             if !hasStudiedToday {
-                studyStreak = 0
+                // Don't reset streak to 0 here - just return the current value
+                // The streak will be properly calculated when a session ends
                 return
             }
 
@@ -452,7 +511,8 @@ final class LearningAnalyticsService: ObservableObject {
         stats.sessionsCompleted += 1
 
         // Update streak after updating today's stats
-        calculateStudyStreak()
+        // This ensures today's study session is included in the streak calculation
+        calculateStreakWithCurrentStats()
         stats.streakDays = Int32(studyStreak)
 
         print("📊 Updated daily stats - Added: \(session.duration)s, \(session.cardsReviewed) cards")
@@ -460,6 +520,76 @@ final class LearningAnalyticsService: ObservableObject {
 
         // Save the updated daily stats
         saveContext()
+    }
+
+    /// Update daily stats for card flipping on main screen
+    private func updateDailyStatsForCardReview(timeSpent: TimeInterval) {
+        let today = Calendar.current.startOfDay(for: Date())
+
+        if dailyStats == nil {
+            let languagePair = "\(languageManager.userLanguage.rawValue)-\(languageManager.targetLanguage.rawValue)"
+            dailyStats = DailyStats(date: today, languagePair: languagePair, context: coreDataService.context)
+            print("📊 Created new daily stats for today (for card review)")
+        }
+
+        guard let stats = dailyStats else {
+            print("❌ Failed to get daily stats for card review")
+            return
+        }
+
+        stats.totalStudyTime += timeSpent
+        stats.cardsStudied += 1 // Increment cardsStudied for each card flipped
+
+        // Calculate streak using in-memory dailyStats since it might not be saved yet
+        calculateStreakWithCurrentStats()
+        stats.streakDays = Int32(studyStreak)
+
+        print("📊 Updated daily stats for card review - Added: \(timeSpent)s, \(stats.cardsStudied) cards, Streak: \(studyStreak)")
+
+        // Save the updated daily stats
+        saveContext()
+    }
+
+    /// Calculate streak using current in-memory dailyStats
+    private func calculateStreakWithCurrentStats() {
+        let calendar = Calendar.current
+        let today = calendar.startOfDay(for: Date())
+
+        // If we have dailyStats for today, calculate streak including today
+        if let currentStats = dailyStats, let currentDate = currentStats.date,
+           calendar.isDate(calendar.startOfDay(for: currentDate), inSameDayAs: today) {
+            
+            // Fetch all daily stats from Core Data
+            let request = DailyStats.fetchRequest()
+            request.sortDescriptors = [NSSortDescriptor(keyPath: \DailyStats.date, ascending: false)]
+
+            do {
+                let allStats = try coreDataService.context.fetch(request)
+                var consecutiveDays = 0
+                var currentDate = today
+
+                while true {
+                    // Check if we have stats for this date (either from Core Data or in-memory)
+                    let hasStudiedOnDate = allStats.contains { stat in
+                        guard let date = stat.date else { return false }
+                        return calendar.isDate(calendar.startOfDay(for: date), inSameDayAs: currentDate)
+                    } || (calendar.isDate(currentDate, inSameDayAs: today) && currentStats.cardsStudied > 0)
+
+                    if hasStudiedOnDate {
+                        consecutiveDays += 1
+                        // Move to previous day
+                        currentDate = calendar.date(byAdding: .day, value: -1, to: currentDate) ?? currentDate
+                    } else {
+                        break
+                    }
+                }
+
+                studyStreak = consecutiveDays
+                print("📊 Study streak calculated with current stats: \(consecutiveDays) days")
+            } catch {
+                print("❌ Failed to calculate streak with current stats: \(error)")
+            }
+        }
     }
 
     // MARK: - Analytics Queries
