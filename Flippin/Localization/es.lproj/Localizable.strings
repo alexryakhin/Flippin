@@ -178,6 +178,7 @@
 "stack" = "Pila";
 "list" = "Lista";
 "study" = "Estudiar";
+"practice" = "Practicar";
 "analytics" = "Análisis";
 "settings" = "Configuración";
 
@@ -189,24 +190,33 @@
 
 // MARK: - Study
 "study" = "Estudiar";
+"practice" = "Practicar";
 "studyMode" = "Modo de Estudio";
+"practiceMode" = "Modo de Práctica";
 "quickStats" = "Estadísticas Rápidas";
 "studyOptions" = "Opciones de Estudio";
+"practiceOptions" = "Opciones de Práctica";
 "recentActivity" = "Actividad Reciente";
 "totalCards" = "Total de Tarjetas";
 "mastered" = "Dominadas";
 "difficultCards" = "Tarjetas Difíciles";
 "studyTimeToday" = "Tiempo de Estudio Hoy";
+"practiceTimeToday" = "Tiempo de Práctica Hoy";
 "startStudySession" = "Iniciar Sesión de Estudio (10 tarjetas)";
+"startPracticeSession" = "Iniciar Sesión de Práctica (10 tarjetas)";
 "practiceAllCards" = "Practicar Todas las Tarjetas (%d)";
 "practiceDifficultCards" = "Practicar Tarjetas Difíciles (%d)";
 "multipleChoiceQuiz" = "Cuestionario de Opción Múltiple";
 "fillInTheBlank" = "Completar el Espacio (%d)";
 "unlockAllStudyModes" = "Desbloquear Todos los Modos de Estudio";
+"unlockAllPracticeModes" = "Desbloquear Todos los Modos de Práctica";
 "noStudyData" = "Sin Datos de Estudio";
+"noPracticeData" = "Sin Datos de Práctica";
 "startStudyingToSeeProgress" = "¡Comienza a estudiar para ver tu progreso!";
+"startPracticingToSeeProgress" = "¡Comienza a practicar para ver tu progreso!";
 "toCards" = "A tarjetas";
 "totalStudyTime" = "Tiempo Total de Estudio";
+"totalPracticeTime" = "Tiempo Total de Práctica";
 "averageSession" = "Sesión Promedio";
 "learningProgress" = "Progreso de Aprendizaje";
 "exit" = "Salir";
@@ -214,10 +224,13 @@
 "incorrect" = "Incorrecto";
 "correct" = "Correcto";
 "studySessionComplete" = "¡Sesión de Estudio Completada!";
+"practiceSessionComplete" = "¡Sesión de Práctica Completada!";
 "accuracy" = "Precisión";
 "cardsStudied" = "Tarjetas Estudiadas";
+"cardsPracticed" = "Tarjetas Practicadas";
 "timeSpent" = "Tiempo Empleado";
 "studyAgain" = "Estudiar de Nuevo";
+"practiceAgain" = "Practicar de Nuevo";
 "done" = "Hecho";
 "selectCorrectTranslation" = "Selecciona la traducción correcta";
 "fillInMissingWord" = "Completa la palabra faltante";
@@ -226,6 +239,7 @@
 "correctAnswer" = "Respuesta Correcta";
 "translateTo" = "Traducir a %@";
 "studyProgress" = "%d de %d";
+"practiceProgress" = "%d de %d";
 
 // MARK: - Analytics
 "analytics" = "Análisis";
@@ -256,6 +270,7 @@
 "sessions" = "Sesiones";
 "accuracy" = "Precisión";
 "studyTime" = "Tiempo de Estudio";
+"practiceTime" = "Tiempo de Práctica";
 "timeRange" = "Rango de Tiempo";
 "masteryProgress" = "Progreso de Dominio";
 "mastered" = "Dominadas";
@@ -274,6 +289,7 @@
 // MARK: - Detailed Analytics
 "analyticsTab" = "Pestaña de Análisis";
 "studyTimeTitle" = "Tiempo de Estudio";
+"practiceTimeTitle" = "Tiempo de Práctica";
 "cardsMasteredTitle" = "Tarjetas Dominadas";
 "studyStreakTitle" = "Racha de Estudio";
 "averageSessionTitle" = "Sesión Promedio";

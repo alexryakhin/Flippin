@@ -178,6 +178,7 @@
 "stack" = "스택";
 "list" = "목록";
 "study" = "공부";
+"practice" = "연습";
 "analytics" = "분석";
 "settings" = "설정";
 
@@ -189,24 +190,33 @@
 
 // MARK: - Study
 "study" = "공부";
+"practice" = "연습";
 "studyMode" = "공부 모드";
+"practiceMode" = "연습 모드";
 "quickStats" = "빠른 통계";
 "studyOptions" = "공부 옵션";
+"practiceOptions" = "연습 옵션";
 "recentActivity" = "최근 활동";
 "totalCards" = "총 카드";
 "mastered" = "숙달";
 "difficultCards" = "어려운 카드";
 "studyTimeToday" = "오늘의 공부 시간";
+"practiceTimeToday" = "오늘의 연습 시간";
 "startStudySession" = "공부 세션 시작 (10개 카드)";
+"startPracticeSession" = "연습 세션 시작 (10개 카드)";
 "practiceAllCards" = "모든 카드 연습 (%d)";
 "practiceDifficultCards" = "어려운 카드 연습 (%d)";
 "multipleChoiceQuiz" = "다지선다 퀴즈";
 "fillInTheBlank" = "빈칸 채우기 (%d)";
 "unlockAllStudyModes" = "모든 공부 모드 잠금 해제";
+"unlockAllPracticeModes" = "모든 연습 모드 잠금 해제";
 "noStudyData" = "공부 데이터 없음";
+"noPracticeData" = "연습 데이터 없음";
 "startStudyingToSeeProgress" = "진행 상황을 보려면 공부를 시작하세요!";
+"startPracticingToSeeProgress" = "진행 상황을 보려면 연습을 시작하세요!";
 "toCards" = "카드로";
 "totalStudyTime" = "총 공부 시간";
+"totalPracticeTime" = "총 연습 시간";
 "averageSession" = "평균 세션";
 "learningProgress" = "학습 진행";
 "exit" = "종료";
@@ -214,10 +224,13 @@
 "incorrect" = "오답";
 "correct" = "정답";
 "studySessionComplete" = "공부 세션 완료!";
+"practiceSessionComplete" = "연습 세션 완료!";
 "accuracy" = "정확도";
 "cardsStudied" = "공부한 카드";
+"cardsPracticed" = "연습한 카드";
 "timeSpent" = "소요 시간";
 "studyAgain" = "다시 공부";
+"practiceAgain" = "다시 연습";
 "done" = "완료";
 "selectCorrectTranslation" = "올바른 번역 선택";
 "fillInMissingWord" = "누락된 단어 채우기";
@@ -226,6 +239,7 @@
 "correctAnswer" = "정답";
 "translateTo" = "%@로 번역";
 "studyProgress" = "%d / %d";
+"practiceProgress" = "%d / %d";
 
 // MARK: - Analytics
 "analytics" = "분석";
@@ -256,6 +270,7 @@
 "sessions" = "세션";
 "accuracy" = "정확도";
 "studyTime" = "공부 시간";
+"practiceTime" = "연습 시간";
 "timeRange" = "시간 범위";
 "masteryProgress" = "숙달 진행";
 "mastered" = "숙달";
@@ -274,6 +289,7 @@
 // MARK: - Detailed Analytics
 "analyticsTab" = "분석 탭";
 "studyTimeTitle" = "공부 시간";
+"practiceTimeTitle" = "연습 시간";
 "cardsMasteredTitle" = "숙달한 카드";
 "studyStreakTitle" = "공부 연속";
 "averageSessionTitle" = "평균 세션";

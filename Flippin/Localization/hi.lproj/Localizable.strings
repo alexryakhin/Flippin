@@ -178,6 +178,7 @@
 "stack" = "ढेर";
 "list" = "सूची";
 "study" = "अध्ययन";
+"practice" = "अभ्यास";
 "analytics" = "विश्लेषण";
 "settings" = "सेटिंग्स";
 
@@ -189,24 +190,33 @@
 
 // MARK: - Study
 "study" = "अध्ययन";
+"practice" = "अभ्यास";
 "studyMode" = "अध्ययन मोड";
+"practiceMode" = "अभ्यास मोड";
 "quickStats" = "त्वरित आँकड़े";
 "studyOptions" = "अध्ययन विकल्प";
+"practiceOptions" = "अभ्यास विकल्प";
 "recentActivity" = "हाल की गतिविधि";
 "totalCards" = "कुल कार्ड";
 "mastered" = "निपुण";
 "difficultCards" = "कठिन कार्ड";
 "studyTimeToday" = "आज का अध्ययन समय";
+"practiceTimeToday" = "आज का अभ्यास समय";
 "startStudySession" = "अध्ययन सत्र शुरू करें (10 कार्ड)";
+"startPracticeSession" = "अभ्यास सत्र शुरू करें (10 कार्ड)";
 "practiceAllCards" = "सभी कार्ड का अभ्यास करें (%d)";
 "practiceDifficultCards" = "कठिन कार्ड का अभ्यास करें (%d)";
 "multipleChoiceQuiz" = "बहुविकल्पीय प्रश्नोत्तरी";
 "fillInTheBlank" = "रिक्त स्थान भरें (%d)";
 "unlockAllStudyModes" = "सभी अध्ययन मोड अनलॉक करें";
+"unlockAllPracticeModes" = "सभी अभ्यास मोड अनलॉक करें";
 "noStudyData" = "कोई अध्ययन डेटा नहीं";
+"noPracticeData" = "कोई अभ्यास डेटा नहीं";
 "startStudyingToSeeProgress" = "अपनी प्रगति देखने के लिए अध्ययन शुरू करें!";
+"startPracticingToSeeProgress" = "अपनी प्रगति देखने के लिए अभ्यास शुरू करें!";
 "toCards" = "कार्ड्स की ओर";
 "totalStudyTime" = "कुल अध्ययन समय";
+"totalPracticeTime" = "कुल अभ्यास समय";
 "averageSession" = "औसत सत्र";
 "learningProgress" = "सीखने की प्रगति";
 "exit" = "बाहर निकलें";
@@ -214,10 +224,13 @@
 "incorrect" = "गलत";
 "correct" = "सही";
 "studySessionComplete" = "अध्ययन सत्र पूरा हुआ!";
+"practiceSessionComplete" = "अभ्यास सत्र पूरा हुआ!";
 "accuracy" = "सटीकता";
 "cardsStudied" = "पढ़े गए कार्ड";
+"cardsPracticed" = "अभ्यास किए गए कार्ड";
 "timeSpent" = "बिताया गया समय";
 "studyAgain" = "फिर से पढ़ें";
+"practiceAgain" = "फिर से अभ्यास करें";
 "done" = "हो गया";
 "selectCorrectTranslation" = "सही अनुवाद चुनें";
 "fillInMissingWord" = "लापता शब्द भरें";
@@ -226,6 +239,7 @@
 "correctAnswer" = "सही उत्तर";
 "translateTo" = "%@ में अनुवाद करें";
 "studyProgress" = "%d में से %d";
+"practiceProgress" = "%d में से %d";
 
 // MARK: - Analytics
 "analytics" = "विश्लेषण";
@@ -256,6 +270,7 @@
 "sessions" = "सत्र";
 "accuracy" = "सटीकता";
 "studyTime" = "अध्ययन समय";
+"practiceTime" = "अभ्यास समय";
 "timeRange" = "समय सीमा";
 "masteryProgress" = "निपुणता प्रगति";
 "mastered" = "निपुण";
@@ -274,6 +289,7 @@
 // MARK: - Detailed Analytics
 "analyticsTab" = "विश्लेषण टैब";
 "studyTimeTitle" = "अध्ययन समय";
+"practiceTimeTitle" = "अभ्यास समय";
 "cardsMasteredTitle" = "निपुण कार्ड";
 "studyStreakTitle" = "अध्ययन की र streak";
 "averageSessionTitle" = "औसत सत्र";

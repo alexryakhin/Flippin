@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>cardsCount</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@cards@</string>
+		<key>cards</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>zero</key>
+			<string>0 Karten</string>
+			<key>one</key>
+			<string>1 Karte</string>
+			<key>other</key>
+			<string>%d Karten</string>
+		</dict>
+	</dict>
+	<key>sessionsPerDay</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%.1f %#@sessions@</string>
+		<key>sessions</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>zero</key>
+			<string>Sessions/Tag</string>
+			<key>one</key>
+			<string>Session/Tag</string>
+			<key>other</key>
+			<string>Sessions/Tag</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

@@ -178,6 +178,7 @@
 "stack" = "Стек";
 "list" = "Список";
 "study" = "Изучение";
+"practice" = "Практика";
 "analytics" = "Аналитика";
 "settings" = "Настройки";
 
@@ -189,24 +190,33 @@
 
 // MARK: - Study
 "study" = "Изучение";
+"practice" = "Практика";
 "studyMode" = "Режим изучения";
+"practiceMode" = "Режим практики";
 "quickStats" = "Быстрая статистика";
 "studyOptions" = "Варианты изучения";
+"practiceOptions" = "Варианты практики";
 "recentActivity" = "Недавняя активность";
 "totalCards" = "Всего карточек";
 "mastered" = "Освоено";
 "difficultCards" = "Сложные карточки";
 "studyTimeToday" = "Время изучения сегодня";
+"practiceTimeToday" = "Время практики сегодня";
 "startStudySession" = "Начать сессию изучения (10 карточек)";
+"startPracticeSession" = "Начать сессию практики (10 карточек)";
 "practiceAllCards" = "Практиковать все карточки (%d)";
 "practiceDifficultCards" = "Практиковать сложные карточки (%d)";
 "multipleChoiceQuiz" = "Тест с множественным выбором";
 "fillInTheBlank" = "Заполнить пропуск (%d)";
 "unlockAllStudyModes" = "Разблокировать все режимы изучения";
+"unlockAllPracticeModes" = "Разблокировать все режимы практики";
 "noStudyData" = "Нет данных об изучении";
+"noPracticeData" = "Нет данных о практике";
 "startStudyingToSeeProgress" = "Начните изучать, чтобы увидеть свой прогресс!";
+"startPracticingToSeeProgress" = "Начните практиковать, чтобы увидеть свой прогресс!";
 "toCards" = "К карточкам";
 "totalStudyTime" = "Общее время изучения";
+"totalPracticeTime" = "Общее время практики";
 "averageSession" = "Средняя сессия";
 "learningProgress" = "Прогресс обучения";
 "exit" = "Выход";
@@ -214,10 +224,13 @@
 "incorrect" = "Неверно";
 "correct" = "Верно";
 "studySessionComplete" = "Сессия изучения завершена!";
+"practiceSessionComplete" = "Сессия практики завершена!";
 "accuracy" = "Точность";
 "cardsStudied" = "Изученные карточки";
+"cardsPracticed" = "Практикованные карточки";
 "timeSpent" = "Затраченное время";
 "studyAgain" = "Изучать снова";
+"practiceAgain" = "Практиковать снова";
 "done" = "Готово";
 "selectCorrectTranslation" = "Выберите правильный перевод";
 "fillInMissingWord" = "Заполните пропущенное слово";
@@ -226,6 +239,7 @@
 "correctAnswer" = "Правильный ответ";
 "translateTo" = "Переведите на %@";
 "studyProgress" = "%d из %d";
+"practiceProgress" = "%d из %d";
 
 // MARK: - Analytics
 "analytics" = "Аналитика";
@@ -256,6 +270,7 @@
 "sessions" = "Сессии";
 "accuracy" = "Точность";
 "studyTime" = "Время изучения";
+"practiceTime" = "Время практики";
 "timeRange" = "Временной диапазон";
 "masteryProgress" = "Прогресс освоения";
 "mastered" = "Освоено";
@@ -274,6 +289,7 @@
 // MARK: - Detailed Analytics
 "analyticsTab" = "Вкладка аналитики";
 "studyTimeTitle" = "Время изучения";
+"practiceTimeTitle" = "Время практики";
 "cardsMasteredTitle" = "Освоенные карточки";
 "studyStreakTitle" = "Серия изучения";
 "averageSessionTitle" = "Средняя сессия";

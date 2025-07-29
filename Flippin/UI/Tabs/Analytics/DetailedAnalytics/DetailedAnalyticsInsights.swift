@@ -139,7 +139,7 @@ extension DetailedAnalytics {
             case .studyNow:
                 onDismiss()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
-                    navigationManager.switchToTab(.study)
+                    navigationManager.switchToTab(.stack)
                 })
             case .startReview:
                 tagManager.isDifficultFilterOn = true
@@ -154,7 +154,7 @@ extension DetailedAnalytics {
             case .practiceMode:
                 onDismiss()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
-                    navigationManager.switchToTab(.study)
+                    navigationManager.switchToTab(.practice)
                 })
             }
         }

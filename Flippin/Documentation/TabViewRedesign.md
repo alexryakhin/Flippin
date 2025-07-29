@@ -95,7 +95,7 @@ Flippin/UI/Main/
 ├── MainTabView.swift          # Main TabView container
 ├── CardStackTabView.swift         # Study tab (main cards)
 ├── MyCardsTabView.swift       # Card management tab
-├── StudyTabView.swift     # Study sessions tab
+├── PracticeTabView.swift     # Study sessions tab
 ├── AnalyticsTabView.swift     # Analytics tab
 └── SettingsTabView.swift      # Settings tab
 ```
@@ -108,13 +108,13 @@ Flippin/UI/Main/
 - **Premium alert system**
 - **Color scheme management**
 
-#### StudyTabView
+#### PracticeTabView
 - **Extracted from ContentView** with improvements
 - **Simplified action buttons** (shuffle + add)
 - **Better visual hierarchy**
 - **Maintained all existing functionality**
 
-#### StudyTabView
+#### PracticeTabView
 - **New dedicated interface** for study sessions
 - **Quick stats overview** with visual cards
 - **Multiple study options** (review, practice, etc.)

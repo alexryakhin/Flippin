@@ -40,7 +40,7 @@ extension DetailedAnalytics {
             
             return LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 8), count: 2), spacing: 8) {
                 DetailedStatCard(
-                    title: LocalizationKeys.Analytics.studyTimeTitle.localized,
+                    title: LocalizationKeys.Analytics.practiceTimeTitle.localized,
                     value: timeRangeStats.totalStudyTime.formattedAnalyticsTime,
                     subtitle: selectedTimeRange.name,
                     icon: "clock.fill",

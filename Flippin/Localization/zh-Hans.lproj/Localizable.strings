@@ -178,6 +178,7 @@
 "stack" = "堆栈";
 "list" = "列表";
 "study" = "学习";
+"practice" = "练习";
 "analytics" = "分析";
 "settings" = "设置";
 
@@ -189,24 +190,33 @@
 
 // MARK: - Study
 "study" = "学习";
+"practice" = "练习";
 "studyMode" = "学习模式";
+"practiceMode" = "练习模式";
 "quickStats" = "快速统计";
 "studyOptions" = "学习选项";
+"practiceOptions" = "练习选项";
 "recentActivity" = "最近活动";
 "totalCards" = "总卡片数";
 "mastered" = "已掌握";
 "difficultCards" = "困难卡片";
 "studyTimeToday" = "今日学习时间";
+"practiceTimeToday" = "今日练习时间";
 "startStudySession" = "开始学习会话（10张卡片）";
+"startPracticeSession" = "开始练习会话（10张卡片）";
 "practiceAllCards" = "练习所有卡片（%d）";
 "practiceDifficultCards" = "练习困难卡片（%d）";
 "multipleChoiceQuiz" = "多选测验";
 "fillInTheBlank" = "填空（%d）";
 "unlockAllStudyModes" = "解锁所有学习模式";
+"unlockAllPracticeModes" = "解锁所有练习模式";
 "noStudyData" = "无学习数据";
+"noPracticeData" = "无练习数据";
 "startStudyingToSeeProgress" = "开始学习以查看您的进度！";
+"startPracticingToSeeProgress" = "开始练习以查看您的进度！";
 "toCards" = "前往卡片";
 "totalStudyTime" = "总学习时间";
+"totalPracticeTime" = "总练习时间";
 "averageSession" = "平均会话";
 "learningProgress" = "学习进度";
 "exit" = "退出";
@@ -214,10 +224,13 @@
 "incorrect" = "错误";
 "correct" = "正确";
 "studySessionComplete" = "学习会话完成！";
+"practiceSessionComplete" = "练习会话完成！";
 "accuracy" = "准确率";
 "cardsStudied" = "已学习卡片";
+"cardsPracticed" = "已练习卡片";
 "timeSpent" = "花费时间";
 "studyAgain" = "再次学习";
+"practiceAgain" = "再次练习";
 "done" = "完成";
 "selectCorrectTranslation" = "选择正确的翻译";
 "fillInMissingWord" = "填入缺失的单词";
@@ -226,6 +239,7 @@
 "correctAnswer" = "正确答案";
 "translateTo" = "翻译为 %@";
 "studyProgress" = "%d / %d";
+"practiceProgress" = "%d / %d";
 
 // MARK: - Analytics
 "analytics" = "分析";
@@ -256,6 +270,7 @@
 "sessions" = "会话";
 "accuracy" = "准确率";
 "studyTime" = "学习时间";
+"practiceTime" = "练习时间";
 "timeRange" = "时间范围";
 "masteryProgress" = "掌握进度";
 "mastered" = "已掌握";
@@ -274,6 +289,7 @@
 // MARK: - Detailed Analytics
 "analyticsTab" = "分析选项卡";
 "studyTimeTitle" = "学习时间";
+"practiceTimeTitle" = "练习时间";
 "cardsMasteredTitle" = "已掌握卡片";
 "studyStreakTitle" = "学习连胜";
 "averageSessionTitle" = "平均会话";

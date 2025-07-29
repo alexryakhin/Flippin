@@ -7,7 +7,7 @@ import SwiftUI
 struct MainTabView: View {
 
     enum Tab: Int, CaseIterable {
-        case stack, list, study, analytics, settings
+        case stack, list, practice, analytics, settings
 
         var title: String {
             switch self {
@@ -15,8 +15,8 @@ struct MainTabView: View {
                 return LocalizationKeys.Navigation.stack.localized
             case .list:
                 return LocalizationKeys.Navigation.list.localized
-            case .study:
-                return LocalizationKeys.Navigation.study.localized
+            case .practice:
+                return LocalizationKeys.Navigation.practice.localized
             case .analytics:
                 return LocalizationKeys.Navigation.analytics.localized
             case .settings:
@@ -30,7 +30,7 @@ struct MainTabView: View {
                 Image(.icCardStack)
             case .list:
                 Image(systemName: "list.bullet.rectangle")
-            case .study:
+            case .practice:
                 Image(systemName: "book")
             case .analytics:
                 Image(systemName: "chart.bar")
@@ -45,7 +45,7 @@ struct MainTabView: View {
                 Image(.icCardStackFill)
             case .list:
                 Image(systemName: "list.bullet.rectangle.fill")
-            case .study:
+            case .practice:
                 Image(systemName: "book.fill")
             case .analytics:
                 Image(systemName: "chart.bar.fill")
@@ -54,7 +54,7 @@ struct MainTabView: View {
             }
         }
 
-        static let allCasesIfEmpty: [Tab] = [.stack, .study, .analytics, .settings]
+        static let allCasesIfEmpty: [Tab] = [.stack, .practice, .analytics, .settings]
     }
 
     // MARK: - State Objects
@@ -86,8 +86,8 @@ struct MainTabView: View {
                     CardStackTab.ContentView()
                 case .list:
                     MyCardsListView()
-                case .study:
-                    StudyTab.ContentView()
+                case .practice:
+                    PracticeTab.ContentView()
                 case .analytics:
                     AnalyticsTab.ContentView()
                 case .settings:

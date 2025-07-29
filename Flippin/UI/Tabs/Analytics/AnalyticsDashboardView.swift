@@ -42,8 +42,8 @@ enum AnalyticsDashboard {
                 // Header with streak
                 streakSection
 
-                // Today cards
-                todaySection
+                // Overview cards
+                overviewSection
 
                 // Study time chart
                 studyTimeChartSection
@@ -83,14 +83,14 @@ enum AnalyticsDashboard {
             .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
         }
 
-        // MARK: - Today Section
+        // MARK: - Overview Section
 
-        private var todaySection: some View {
-            CustomSectionView(header: LocalizationKeys.Analytics.today.localized, headerFontStyle: .large) {
+        private var overviewSection: some View {
+            CustomSectionView(header: LocalizationKeys.Analytics.overview.localized, headerFontStyle: .large) {
                 LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 8), count: 2), spacing: 8) {
                     StatCard(
-                        title: LocalizationKeys.Analytics.time.localized,
-                        value: (analyticsService.dailyStats?.totalStudyTime ?? 0).formattedStudyTime,
+                        title: LocalizationKeys.Analytics.totalStudyTime.localized,
+                        value: analyticsService.getTotalStudyTimeIncludingCardFlipping().formattedStudyTime,
                         icon: "clock.fill",
                         color: .blue
                     )

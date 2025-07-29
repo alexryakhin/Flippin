@@ -1,11 +1,11 @@
 import SwiftUI
 
 /**
- Study Mode Tab View - Dedicated study session interface.
- Provides focused study experience with progress tracking.
+ Practice Mode Tab View - Dedicated practice session interface.
+ Provides focused practice experience with progress tracking.
  */
 
-enum StudyTab {
+enum PracticeTab {
 
     struct ContentView: View {
         // MARK: - State Objects
@@ -26,8 +26,17 @@ enum StudyTab {
             analyticsService.getMasteryStats()
         }
 
-        var studyTimeStats: (total: TimeInterval, today: TimeInterval, average: TimeInterval) {
-            analyticsService.getStudyTimeStats()
+        var practiceTimeStats: (total: TimeInterval, today: TimeInterval, average: TimeInterval) {
+            // Calculate practice time (only formal study sessions, not card flipping)
+            let total = analyticsService.totalStudyTime
+            
+            // Calculate today's practice time from formal study sessions only
+            let today = analyticsService.getTodayStudyTime()
+            
+            // Calculate average session time
+            let average = analyticsService.getAverageSessionTime()
+            
+            return (total, today, average)
         }
 
         // MARK: - Body
@@ -38,8 +47,8 @@ enum StudyTab {
                     // Quick stats
                     quickStatsSection
 
-                    // Study options
-                    studyOptionsSection
+                    // Practice options
+                    practiceOptionsSection
 
                     // Recent activity
                     recentActivitySection
@@ -49,7 +58,7 @@ enum StudyTab {
             .if(isPad) { view in
                 view.frame(maxWidth: 500, alignment: .center)
             }
-            .navigation(title: LocalizationKeys.Study.study.localized)
+            .navigation(title: LocalizationKeys.Study.practice.localized)
             .ifLet(colorManager.colorScheme) { view, scheme in
                 view.colorScheme(scheme)
             }
@@ -89,8 +98,8 @@ enum StudyTab {
                     )
 
                     StatCard(
-                        title: LocalizationKeys.Study.studyTimeToday.localized,
-                        value: studyTimeStats.today.formattedStudyTime,
+                        title: LocalizationKeys.Study.practiceTimeToday.localized,
+                        value: practiceTimeStats.today.formattedStudyTime,
                         icon: "clock",
                         color: .purple
                     )
@@ -99,15 +108,15 @@ enum StudyTab {
         }
 
         @ViewBuilder
-        private var studyOptionsSection: some View {
+        private var practiceOptionsSection: some View {
             if !cardsProvider.cards.isEmpty {
-                CustomSectionView(header: LocalizationKeys.Study.studyOptions.localized, headerFontStyle: .large) {
+                CustomSectionView(header: LocalizationKeys.Study.practiceOptions.localized, headerFontStyle: .large) {
                     VStack(spacing: 12) {
-                        // Start study session (only show if user has more than 10 cards)
+                        // Start practice session (only show if user has more than 10 cards)
                         if cardsProvider.cards.count > 10 {
-                            studyOptionButton(
+                            practiceOptionButton(
                                 image: Image(systemName: "play.fill"),
-                                text: LocalizationKeys.Study.startStudySession.localized,
+                                text: LocalizationKeys.Study.startPracticeSession.localized,
                                 color: .green,
                                 isDisabled: cardsProvider.cards.isEmpty,
                                 action: {
@@ -117,7 +126,7 @@ enum StudyTab {
                         }
 
                         // Practice all cards
-                        studyOptionButton(
+                        practiceOptionButton(
                             image: Image(.icCardStackFill),
                             text: LocalizationKeys.Study.practiceAllCards.localized(with: cardsProvider.cards.count),
                             color: .blue,
@@ -129,7 +138,7 @@ enum StudyTab {
                         // Practice difficult cards
                         let difficultCards = analyticsService.getDifficultCardsNeedingReview()
                         if !difficultCards.isEmpty {
-                            studyOptionButton(
+                            practiceOptionButton(
                                 image: Image(systemName: "exclamationmark.triangle.fill"),
                                 text: LocalizationKeys.Study.practiceDifficultCards.localized(with: difficultCards.count),
                                 color: .red,
@@ -141,7 +150,7 @@ enum StudyTab {
 
                         if purchaseService.hasPremiumAccess {
                             // Multiple choice quiz
-                            studyOptionButton(
+                            practiceOptionButton(
                                 image: Image(systemName: "list.bullet.circle.fill"),
                                 text: LocalizationKeys.Study.multipleChoiceQuiz.localized,
                                 color: .purple,
@@ -157,7 +166,7 @@ enum StudyTab {
                                 return wordCount >= 3
                             }
 
-                            studyOptionButton(
+                            practiceOptionButton(
                                 image: Image(systemName: "pencil.circle.fill"),
                                 text: LocalizationKeys.Study.fillInTheBlank.localized(with: fillInTheBlankCards.count),
                                 color: .orange,
@@ -167,7 +176,7 @@ enum StudyTab {
                                 }
                             )
                         } else {
-                            studyOptionButton(
+                            practiceOptionButton(
                                 image: Image(systemName: "crown.fill"),
                                 text: LocalizationKeys.Study.unlockAllStudyModes.localized,
                                 color: .teal,
@@ -181,7 +190,7 @@ enum StudyTab {
             }
         }
 
-        private func studyOptionButton(
+        private func practiceOptionButton(
             image: Image,
             text: String,
             color: Color,
@@ -231,15 +240,15 @@ enum StudyTab {
                 } else {
                     VStack(spacing: 12) {
                         ActivityRow(
-                            title: LocalizationKeys.Study.totalStudyTime.localized,
-                            value: studyTimeStats.total.formattedAnalyticsTime,
+                            title: LocalizationKeys.Study.totalPracticeTime.localized,
+                            value: practiceTimeStats.total.formattedAnalyticsTime,
                             icon: "clock.fill",
                             color: .purple
                         )
 
                         ActivityRow(
                             title: LocalizationKeys.Study.averageSession.localized,
-                            value: studyTimeStats.average.formattedStudyTime,
+                            value: practiceTimeStats.average.formattedStudyTime,
                             icon: "timer",
                             color: .blue
                         )
@@ -314,5 +323,5 @@ enum StudyTab {
 }
 
 #Preview {
-    StudyTab.ContentView()
+    PracticeTab.ContentView()
 }

@@ -188,10 +188,6 @@ final class LearningAnalyticsService: ObservableObject {
         updateCardDifficulty(performance: performance, timeSpent: timeSpent)
         updateNextReviewDate(performance: performance)
 
-        // Update daily stats for card flipping on main screen
-        // This ensures that card flipping contributes to the streak calculation
-        updateDailyStatsForCardReview(timeSpent: timeSpent)
-
         // Track card review
         AnalyticsService.trackCardEvent(
             wasCorrect ? .cardReviewedCorrect : .cardReviewedIncorrect,
@@ -375,6 +371,40 @@ final class LearningAnalyticsService: ObservableObject {
         }
     }
 
+    /// Get today's study time from formal study sessions only
+    func getTodayStudyTime() -> TimeInterval {
+        let calendar = Calendar.current
+        let today = calendar.startOfDay(for: Date())
+        let tomorrow = calendar.date(byAdding: .day, value: 1, to: today)!
+        
+        let request = StudySession.fetchRequest()
+        request.predicate = NSPredicate(format: "startTime >= %@ AND startTime < %@", today as NSDate, tomorrow as NSDate)
+        
+        do {
+            let sessions = try coreDataService.context.fetch(request)
+            return sessions.reduce(0) { $0 + $1.duration }
+        } catch {
+            print("❌ Failed to calculate today's study time: \(error)")
+            return 0
+        }
+    }
+
+    /// Get average session time from formal study sessions
+    func getAverageSessionTime() -> TimeInterval {
+        let request = StudySession.fetchRequest()
+        
+        do {
+            let sessions = try coreDataService.context.fetch(request)
+            guard !sessions.isEmpty else { return 0 }
+            
+            let totalTime = sessions.reduce(0) { $0 + $1.duration }
+            return totalTime / Double(sessions.count)
+        } catch {
+            print("❌ Failed to calculate average session time: \(error)")
+            return 0
+        }
+    }
+
     /// Calculate total cards mastered
     private func calculateTotalCardsMastered() {
         totalCardsMastered = cardPerformances.values.filter { $0.isMastered }.count
@@ -538,34 +568,6 @@ final class LearningAnalyticsService: ObservableObject {
 
         print("📊 Updated daily stats - Added: \(session.duration)s, \(session.cardsReviewed) cards")
         print("📊 Total today: \(stats.totalStudyTime)s, \(stats.cardsStudied) cards, \(stats.sessionsCompleted) sessions, Streak: \(studyStreak)")
-
-        // Save the updated daily stats
-        saveContext()
-    }
-
-    /// Update daily stats for card flipping on main screen
-    private func updateDailyStatsForCardReview(timeSpent: TimeInterval) {
-        let today = Calendar.current.startOfDay(for: Date())
-
-        if dailyStats == nil {
-            let languagePair = "\(languageManager.userLanguage.rawValue)-\(languageManager.targetLanguage.rawValue)"
-            dailyStats = DailyStats(date: today, languagePair: languagePair, context: coreDataService.context)
-            print("📊 Created new daily stats for today (for card review)")
-        }
-
-        guard let stats = dailyStats else {
-            print("❌ Failed to get daily stats for card review")
-            return
-        }
-
-        stats.totalStudyTime += timeSpent
-        stats.cardsStudied += 1 // Increment cardsStudied for each card flipped
-
-        // Calculate streak using in-memory dailyStats since it might not be saved yet
-        calculateStreakWithCurrentStats()
-        stats.streakDays = Int32(studyStreak)
-
-        print("📊 Updated daily stats for card review - Added: \(timeSpent)s, \(stats.cardsStudied) cards, Streak: \(studyStreak)")
 
         // Save the updated daily stats
         saveContext()
@@ -743,6 +745,21 @@ final class LearningAnalyticsService: ObservableObject {
         return (total, today, average)
     }
 
+    /// Get total study time including both formal sessions and card flipping
+    func getTotalStudyTimeIncludingCardFlipping() -> TimeInterval {
+        // Get all daily stats to calculate total study time including card flipping
+        let request = DailyStats.fetchRequest()
+        
+        do {
+            let allStats = try coreDataService.context.fetch(request)
+            let totalStudyTimeIncludingCardFlipping = allStats.reduce(0) { $0 + $1.totalStudyTime }
+            return totalStudyTimeIncludingCardFlipping
+        } catch {
+            print("❌ Failed to calculate total study time including card flipping: \(error)")
+            return totalStudyTime // Fallback to formal sessions only
+        }
+    }
+
     /// Get weekly study data
     func getWeeklyStudyData() -> [(date: Date, studyTime: TimeInterval, cardsStudied: Int)] {
         let calendar = Calendar.current
@@ -783,21 +800,33 @@ final class LearningAnalyticsService: ObservableObject {
         }
 
         let request = DailyStats.fetchRequest()
+        
         if let startDate = startDate {
-            request.predicate = NSPredicate(format: "date >= %@ AND date <= %@", startDate as NSDate, today as NSDate)
-        } else {
-            request.predicate = NSPredicate(format: "date <= %@", today as NSDate)
+            request.predicate = NSPredicate(format: "date >= %@", startDate as NSDate)
         }
-        request.sortDescriptors = [NSSortDescriptor(keyPath: \DailyStats.date, ascending: true)]
 
         do {
             let stats = try coreDataService.context.fetch(request)
-            return stats.compactMap { stat in
-                guard let date = stat.date else { return nil }
-                return (date: date, studyTime: stat.totalStudyTime, cardsStudied: Int(stat.cardsStudied))
+            
+            // Group by date and sum the values
+            var groupedData: [Date: (studyTime: TimeInterval, cardsStudied: Int)] = [:]
+            
+            for stat in stats where stat.date != nil {
+                let date = stat.date!
+                let existing = groupedData[date] ?? (studyTime: 0, cardsStudied: 0)
+                groupedData[date] = (
+                    studyTime: existing.studyTime + stat.totalStudyTime,
+                    cardsStudied: existing.cardsStudied + Int(stat.cardsStudied)
+                )
             }
+            
+            // Convert to array and sort by date
+            return groupedData.map { (date, data) in
+                (date: date, studyTime: data.studyTime, cardsStudied: data.cardsStudied)
+            }.sorted { $0.date < $1.date }
+            
         } catch {
-            print("❌ Failed to get study data for \(timeRange): \(error)")
+            print("❌ Failed to fetch study data: \(error)")
             return []
         }
     }
@@ -987,20 +1016,20 @@ final class LearningAnalyticsService: ObservableObject {
             startDate = nil
         }
 
-        let request = DailyStats.fetchRequest()
+        let request = StudySession.fetchRequest()
         if let startDate = startDate {
-            request.predicate = NSPredicate(format: "date >= %@ AND date <= %@", startDate as NSDate, today as NSDate)
+            request.predicate = NSPredicate(format: "startTime >= %@ AND startTime <= %@", startDate as NSDate, today as NSDate)
         } else {
-            request.predicate = NSPredicate(format: "date <= %@", today as NSDate)
+            request.predicate = NSPredicate(format: "startTime <= %@", today as NSDate)
         }
 
         do {
-            let stats = try coreDataService.context.fetch(request)
-            let totalStudyTime = stats.reduce(0) { $0 + $1.totalStudyTime }
-            let totalSessions = stats.reduce(0) { $0 + $1.sessionsCompleted }
+            let sessions = try coreDataService.context.fetch(request)
+            let totalStudyTime = sessions.reduce(0) { $0 + $1.duration }
+            let totalSessions = sessions.count
             let averageSessionTime = totalSessions > 0 ? totalStudyTime / Double(totalSessions) : 0
 
-            return (totalStudyTime, averageSessionTime, Int(totalSessions))
+            return (totalStudyTime, averageSessionTime, totalSessions)
         } catch {
             print("❌ Failed to get time range study stats: \(error)")
             return (0, 0, 0)

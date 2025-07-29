@@ -178,6 +178,7 @@
 "stack" = "Stapel";
 "list" = "Liste";
 "study" = "Lernen";
+"practice" = "Üben";
 "analytics" = "Analysen";
 "settings" = "Einstellungen";
 
@@ -189,24 +190,33 @@
 
 // MARK: - Study
 "study" = "Lernen";
+"practice" = "Üben";
 "studyMode" = "Lernmodus";
+"practiceMode" = "Übungsmodus";
 "quickStats" = "Schnelle Statistiken";
 "studyOptions" = "Lernoptionen";
+"practiceOptions" = "Übungsoptionen";
 "recentActivity" = "Letzte Aktivität";
 "totalCards" = "Gesamtanzahl Karten";
 "mastered" = "Beherrscht";
 "difficultCards" = "Schwierige Karten";
 "studyTimeToday" = "Lernzeit heute";
+"practiceTimeToday" = "Übungszeit heute";
 "startStudySession" = "Lernsession starten (10 Karten)";
+"startPracticeSession" = "Übungssession starten (10 Karten)";
 "practiceAllCards" = "Alle Karten üben (%d)";
 "practiceDifficultCards" = "Schwierige Karten üben (%d)";
 "multipleChoiceQuiz" = "Multiple-Choice-Quiz";
 "fillInTheBlank" = "Lückentext (%d)";
 "unlockAllStudyModes" = "Alle Lernmodi freischalten";
+"unlockAllPracticeModes" = "Alle Übungsmodi freischalten";
 "noStudyData" = "Keine Lerndaten";
+"noPracticeData" = "Keine Übungsdaten";
 "startStudyingToSeeProgress" = "Beginnen Sie zu lernen, um Ihren Fortschritt zu sehen!";
+"startPracticingToSeeProgress" = "Beginnen Sie zu üben, um Ihren Fortschritt zu sehen!";
 "toCards" = "Zu den Karten";
 "totalStudyTime" = "Gesamte Lernzeit";
+"totalPracticeTime" = "Gesamte Übungszeit";
 "averageSession" = "Durchschnittliche Session";
 "learningProgress" = "Lernfortschritt";
 "exit" = "Beenden";
@@ -214,10 +224,13 @@
 "incorrect" = "Falsch";
 "correct" = "Richtig";
 "studySessionComplete" = "Lernsession abgeschlossen!";
+"practiceSessionComplete" = "Übungssession abgeschlossen!";
 "accuracy" = "Genauigkeit";
 "cardsStudied" = "Karten gelernt";
+"cardsPracticed" = "Karten geübt";
 "timeSpent" = "Zeitaufwand";
 "studyAgain" = "Erneut lernen";
+"practiceAgain" = "Erneut üben";
 "done" = "Fertig";
 "selectCorrectTranslation" = "Wählen Sie die richtige Übersetzung";
 "fillInMissingWord" = "Füllen Sie das fehlende Wort aus";
@@ -226,6 +239,7 @@
 "correctAnswer" = "Richtige Antwort";
 "translateTo" = "Übersetzen nach %@";
 "studyProgress" = "%d von %d";
+"practiceProgress" = "%d von %d";
 
 // MARK: - Analytics
 "analytics" = "Analysen";
@@ -256,6 +270,7 @@
 "sessions" = "Sessions";
 "accuracy" = "Genauigkeit";
 "studyTime" = "Lernzeit";
+"practiceTime" = "Übungszeit";
 "timeRange" = "Zeitraum";
 "masteryProgress" = "Beherrschungsfortschritt";
 "mastered" = "Beherrscht";
@@ -274,6 +289,7 @@
 // MARK: - Detailed Analytics
 "analyticsTab" = "Analyse-Tab";
 "studyTimeTitle" = "Lernzeit";
+"practiceTimeTitle" = "Übungszeit";
 "cardsMasteredTitle" = "Beherrschte Karten";
 "studyStreakTitle" = "Lernserie";
 "averageSessionTitle" = "Durchschnittliche Session";

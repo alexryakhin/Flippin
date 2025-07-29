@@ -178,6 +178,7 @@
 "stack" = "Ngăn Xếp";
 "list" = "Danh Sách";
 "study" = "Học";
+"practice" = "Luyện Tập";
 "analytics" = "Phân Tích";
 "settings" = "Cài đặt";
 
@@ -189,24 +190,33 @@
 
 // MARK: - Study
 "study" = "Học";
+"practice" = "Luyện Tập";
 "studyMode" = "Chế Độ Học";
+"practiceMode" = "Chế Độ Luyện Tập";
 "quickStats" = "Thống Kê Nhanh";
 "studyOptions" = "Tùy Chọn Học";
+"practiceOptions" = "Tùy Chọn Luyện Tập";
 "recentActivity" = "Hoạt Động Gần Đây";
 "totalCards" = "Tổng Số Thẻ";
 "mastered" = "Đã Thành Thạo";
 "difficultCards" = "Thẻ Khó";
 "studyTimeToday" = "Thời Gian Học Hôm Nay";
+"practiceTimeToday" = "Thời Gian Luyện Tập Hôm Nay";
 "startStudySession" = "Bắt Đầu Phiên Học (10 thẻ)";
+"startPracticeSession" = "Bắt Đầu Phiên Luyện Tập (10 thẻ)";
 "practiceAllCards" = "Luyện Tập Tất Cả Thẻ (%d)";
 "practiceDifficultCards" = "Luyện Tập Thẻ Khó (%d)";
 "multipleChoiceQuiz" = "Câu Đố Trắc Nghiệm";
 "fillInTheBlank" = "Điền Vào Chỗ Trống (%d)";
 "unlockAllStudyModes" = "Mở Khóa Tất Cả Chế Độ Học";
+"unlockAllPracticeModes" = "Mở Khóa Tất Cả Chế Độ Luyện Tập";
 "noStudyData" = "Không Có Dữ Liệu Học";
+"noPracticeData" = "Không Có Dữ Liệu Luyện Tập";
 "startStudyingToSeeProgress" = "Bắt đầu học để xem tiến độ của bạn!";
+"startPracticingToSeeProgress" = "Bắt đầu luyện tập để xem tiến độ của bạn!";
 "toCards" = "Đến thẻ";
 "totalStudyTime" = "Tổng Thời Gian Học";
+"totalPracticeTime" = "Tổng Thời Gian Luyện Tập";
 "averageSession" = "Phiên Trung Bình";
 "learningProgress" = "Tiến Độ Học";
 "exit" = "Thoát";
@@ -214,10 +224,13 @@
 "incorrect" = "Sai";
 "correct" = "Đúng";
 "studySessionComplete" = "Phiên Học Hoàn Tất!";
+"practiceSessionComplete" = "Phiên Luyện Tập Hoàn Tất!";
 "accuracy" = "Độ Chính Xác";
 "cardsStudied" = "Thẻ Đã Học";
+"cardsPracticed" = "Thẻ Đã Luyện Tập";
 "timeSpent" = "Thời Gian Đã Dùng";
 "studyAgain" = "Học Lại";
+"practiceAgain" = "Luyện Tập Lại";
 "done" = "Xong";
 "selectCorrectTranslation" = "Chọn bản dịch đúng";
 "fillInMissingWord" = "Điền từ còn thiếu";
@@ -226,6 +239,7 @@
 "correctAnswer" = "Câu Trả Lời Đúng";
 "translateTo" = "Dịch sang %@";
 "studyProgress" = "%d trong số %d";
+"practiceProgress" = "%d trong số %d";
 
 // MARK: - Analytics
 "analytics" = "Phân Tích";
@@ -256,6 +270,7 @@
 "sessions" = "Phiên";
 "accuracy" = "Độ Chính Xác";
 "studyTime" = "Thời Gian Học";
+"practiceTime" = "Thời Gian Luyện Tập";
 "timeRange" = "Phạm Vi Thời Gian";
 "masteryProgress" = "Tiến Độ Thành Thạo";
 "mastered" = "Đã Thành Thạo";
@@ -274,6 +289,7 @@
 // MARK: - Detailed Analytics
 "analyticsTab" = "Tab Phân Tích";
 "studyTimeTitle" = "Thời Gian Học";
+"practiceTimeTitle" = "Thời Gian Luyện Tập";
 "cardsMasteredTitle" = "Thẻ Đã Thành Thạo";
 "studyStreakTitle" = "Chuỗi Học";
 "averageSessionTitle" = "Phiên Trung Bình";
