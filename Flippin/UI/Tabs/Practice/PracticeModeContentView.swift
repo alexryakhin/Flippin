@@ -71,7 +71,6 @@ enum StudyMode: Int, Identifiable, Hashable {
             .navigation(
                 title: LocalizationKeys.Study.practiceMode.localized,
                 mode: .inline,
-                clipMode: .rectangle,
                 trailingContent: {
                     Button(LocalizationKeys.Study.exit.localized) {
                         HapticService.shared.buttonTapped()

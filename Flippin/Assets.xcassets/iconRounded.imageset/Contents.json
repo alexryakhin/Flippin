@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "Exported PNG image.png",
+      "filename" : "iconRounded.png",
       "idiom" : "universal"
     },
     {
@@ -11,7 +11,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "Exported PNG image 1.png",
+      "filename" : "iconRoundedDark.png",
       "idiom" : "universal"
     }
   ],

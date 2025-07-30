@@ -287,6 +287,29 @@ enum LocalizationKeys {
         static let ukrainian = "ukrainian"
     }
     
+    // MARK: - About App
+    enum AboutApp {
+        static let about = "about"
+        static let appInfo = "appInfo"
+        static let tagline = "tagline"
+        static let version = "version"
+        static let features = "features"
+        static let smartCards = "smartCards"
+        static let smartCardsDescription = "smartCardsDescription"
+        static let languages = "languages"
+        static let languagesDescription = "languagesDescription"
+        static let learningAnalytics = "learningAnalytics"
+        static let learningAnalyticsDescription = "learningAnalyticsDescription"
+        static let tts = "tts"
+        static let ttsDescription = "ttsDescription"
+        static let support = "support"
+        static let supportDescription = "supportDescription"
+        static let buyMeACoffee = "buyMeACoffee"
+        static let legal = "legal"
+        static let privacyPolicy = "privacyPolicy"
+        static let termsOfService = "termsOfService"
+    }
+    
     // MARK: - Background Styles
     enum BackgroundStyles {
         static let gradient = "gradient"

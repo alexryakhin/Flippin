@@ -125,11 +125,8 @@ struct MainTabView: View {
             }
         }
         .padding(vertical: 12, horizontal: 16)
-        .background(.regularMaterial)
-        .clipShape(Capsule())
-        .shadow(radius: 2)
-        .padding(.horizontal, 12)
-        .padding(.bottom, 12)
+        .clippedWithBackgroundMaterial(.regularMaterial, showShadow: true)
+        .padding(8)
     }
 }
 

@@ -74,7 +74,6 @@ struct PresetCollectionsView: View {
             .navigation(
                 title: LocalizationKeys.Presets.presetCollections.localized,
                 mode: .inline,
-                clipMode: .rectangle,
                 trailingContent: {
                     Button {
                         dismiss()

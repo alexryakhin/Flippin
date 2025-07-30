@@ -22,6 +22,7 @@ struct SettingsView: View {
     @State private var showingBackgroundDemo = false
     @State private var showingPurchaseTest = false
     @State private var showingCardManagement = false
+    @State private var showingAboutSheet = false
     @State private var premiumFeature: PremiumFeature?
 
     var body: some View {
@@ -43,7 +44,20 @@ struct SettingsView: View {
         .if(isPad) { view in
             view.frame(maxWidth: 500, alignment: .center)
         }
-        .navigation(title: LocalizationKeys.Settings.settings.localized)
+        .navigation(
+            title: LocalizationKeys.Settings.settings.localized,
+            trailingContent: {
+                Button {
+                    showingAboutSheet = true
+                } label: {
+                    Text(LocalizationKeys.AboutApp.about.localized)
+                        .font(.headline)
+                        .foregroundStyle(colorManager.borderedProminentForegroundColor)
+                }
+                .buttonStyle(.borderedProminent)
+                .clipShape(Capsule())
+            }
+        )
         .sheet(isPresented: $showingBackgroundPreview) {
             BackgroundPreviewView()
         }
@@ -52,6 +66,9 @@ struct SettingsView: View {
         }
         .sheet(isPresented: $showingCardManagement) {
             MyCardsListView()
+        }
+        .sheet(isPresented: $showingAboutSheet) {
+            AboutSheet()
         }
         .premiumAlert(feature: $premiumFeature)
         .onAppear {

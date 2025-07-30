@@ -489,3 +489,24 @@
 "accuracy" = "Nauwkeurigheid";
 "masteredCards" = "Beheerde Kaarten";
 "invalidJSON" = "Ongeldige JSON-gegevens";
+
+// MARK: - About App
+"about" = "Over";
+"appInfo" = "App-informatie";
+"tagline" = "Slimme kaarten voor taalonderwijs";
+"version" = "Versie";
+"features" = "Functies";
+"smartCards" = "Slimme Kaarten";
+"smartCardsDescription" = "Tweetalige kaarten met automatische vertaling en tekst-naar-spraak";
+"languages" = "18 Talen";
+"languagesDescription" = "Ondersteuning voor de belangrijkste wereldtalen";
+"learningAnalytics" = "Leeranalyse";
+"learningAnalyticsDescription" = "Volg je voortgang en krijg gepersonaliseerde inzichten";
+"tts" = "Tekst-naar-spraak";
+"ttsDescription" = "Luister naar uitspraak met TTS-technologie";
+"support" = "Steun de App";
+"supportDescription" = "Als je van Flippin geniet, overweeg dan om de ontwikkeling te steunen";
+"buyMeACoffee" = "Koop me een koffie";
+"legal" = "Juridisch";
+"privacyPolicy" = "Privacybeleid";
+"termsOfService" = "Gebruiksvoorwaarden";

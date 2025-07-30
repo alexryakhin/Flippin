@@ -489,3 +489,24 @@
 "accuracy" = "الدقة";
 "masteredCards" = "البطاقات التي تم إتقانها";
 "invalidJSON" = "بيانات JSON غير صالحة";
+
+// MARK: - About App
+"about" = "حول";
+"appInfo" = "معلومات التطبيق";
+"tagline" = "بطاقات ذكية لتعلم اللغات";
+"version" = "الإصدار";
+"features" = "الميزات";
+"smartCards" = "البطاقات الذكية";
+"smartCardsDescription" = "بطاقات ثنائية اللغة مع الترجمة التلقائية والتحويل النصي إلى كلام";
+"languages" = "18 لغة";
+"languagesDescription" = "دعم للغات العالم الرئيسية";
+"learningAnalytics" = "تحليلات التعلم";
+"learningAnalyticsDescription" = "تتبع تقدمك واحصل على رؤى مخصصة";
+"tts" = "تحويل النص إلى كلام";
+"ttsDescription" = "استمع إلى النطق بتقنية TTS";
+"support" = "ادعم التطبيق";
+"supportDescription" = "إذا كنت تستمتع بـ Flippin، ففكر في دعم تطويره";
+"buyMeACoffee" = "اشتر لي قهوة";
+"legal" = "القانونية";
+"privacyPolicy" = "سياسة الخصوصية";
+"termsOfService" = "شروط الخدمة";

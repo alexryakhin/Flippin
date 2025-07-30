@@ -489,3 +489,24 @@
 "accuracy" = "Точність";
 "masteredCards" = "Опановано Карток";
 "invalidJSON" = "Недійсні дані JSON";
+
+// MARK: - About App
+"about" = "Про додаток";
+"appInfo" = "Інформація про додаток";
+"tagline" = "Розумні картки для вивчення мов";
+"version" = "Версія";
+"features" = "Функції";
+"smartCards" = "Розумні Картки";
+"smartCardsDescription" = "Двомовні картки з автоматичним перекладом та перетворенням тексту в мову";
+"languages" = "18 Мов";
+"languagesDescription" = "Підтримка основних світових мов";
+"learningAnalytics" = "Аналітика навчання";
+"learningAnalyticsDescription" = "Відстежуйте свій прогрес і отримуйте персоналізовані інсайти";
+"tts" = "Перетворення тексту в мову";
+"ttsDescription" = "Слухайте вимову з технологією TTS";
+"support" = "Підтримайте додаток";
+"supportDescription" = "Якщо вам подобається Flippin, розгляньте можливість підтримки його розробки";
+"buyMeACoffee" = "Купіть мені каву";
+"legal" = "Правова інформація";
+"privacyPolicy" = "Політика конфіденційності";
+"termsOfService" = "Умови використання";

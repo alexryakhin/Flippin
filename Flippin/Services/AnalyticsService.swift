@@ -35,6 +35,8 @@ enum AnalyticsEvent: String, CaseIterable {
     case backgroundStyleChanged = "background_style_changed"
     case backgroundColorChanged = "background_color_changed"
     case travelModeToggled = "travel_mode_toggled"
+    case aboutScreenOpened = "about_screen_opened"
+    case donationLinkOpened = "donation_link_opened"
 
     // MARK: - Search Events
     case searchPerformed = "search_performed"

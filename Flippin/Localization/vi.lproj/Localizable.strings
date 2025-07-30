@@ -489,3 +489,24 @@
 "accuracy" = "Độ Chính Xác";
 "masteredCards" = "Thẻ Đã Thành Thạo";
 "invalidJSON" = "Dữ liệu JSON không hợp lệ";
+
+// MARK: - About App
+"about" = "Về ứng dụng";
+"appInfo" = "Thông tin ứng dụng";
+"tagline" = "Thẻ thông minh cho việc học ngôn ngữ";
+"version" = "Phiên bản";
+"features" = "Tính năng";
+"smartCards" = "Thẻ Thông Minh";
+"smartCardsDescription" = "Thẻ song ngữ với dịch thuật tự động và chuyển văn bản thành giọng nói";
+"languages" = "18 Ngôn ngữ";
+"languagesDescription" = "Hỗ trợ các ngôn ngữ chính của thế giới";
+"learningAnalytics" = "Phân tích học tập";
+"learningAnalyticsDescription" = "Theo dõi tiến độ của bạn và nhận thông tin chi tiết được cá nhân hóa";
+"tts" = "Chuyển văn bản thành giọng nói";
+"ttsDescription" = "Nghe phát âm với công nghệ TTS";
+"support" = "Hỗ trợ ứng dụng";
+"supportDescription" = "Nếu bạn thích Flippin, hãy cân nhắc hỗ trợ sự phát triển của nó";
+"buyMeACoffee" = "Mua cho tôi một ly cà phê";
+"legal" = "Pháp lý";
+"privacyPolicy" = "Chính sách bảo mật";
+"termsOfService" = "Điều khoản dịch vụ";

@@ -489,3 +489,24 @@
 "accuracy" = "정확도";
 "masteredCards" = "숙달한 카드";
 "invalidJSON" = "유효하지 않은 JSON 데이터";
+
+// MARK: - About App
+"about" = "정보";
+"appInfo" = "앱 정보";
+"tagline" = "언어 학습을 위한 스마트 플래시카드";
+"version" = "버전";
+"features" = "기능";
+"smartCards" = "스마트 카드";
+"smartCardsDescription" = "자동 번역과 텍스트 음성 변환이 있는 이중 언어 카드";
+"languages" = "18개 언어";
+"languagesDescription" = "주요 세계 언어 지원";
+"learningAnalytics" = "학습 분석";
+"learningAnalyticsDescription" = "진행 상황을 추적하고 개인화된 인사이트를 얻으세요";
+"tts" = "텍스트 음성 변환";
+"ttsDescription" = "TTS 기술로 발음을 들어보세요";
+"support" = "앱 지원";
+"supportDescription" = "Flippin을 즐기신다면 개발을 지원하는 것을 고려해보세요";
+"buyMeACoffee" = "커피 한 잔 사주세요";
+"legal" = "법적 정보";
+"privacyPolicy" = "개인정보 처리방침";
+"termsOfService" = "서비스 약관";

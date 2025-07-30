@@ -136,7 +136,6 @@ struct MyCardsListView: View {
         .navigation(
             title: LocalizationKeys.Navigation.myCards.localized,
             mode: .inline,
-            clipMode: .rectangle,
             trailingContent: {
                 HStack(spacing: 4) {
                     Button {

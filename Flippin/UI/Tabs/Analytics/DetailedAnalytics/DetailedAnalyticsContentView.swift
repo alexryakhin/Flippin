@@ -49,7 +49,6 @@ enum DetailedAnalytics {
             .navigation(
                 title: LocalizationKeys.Analytics.detailedAnalytics.localized,
                 mode: .inline,
-                clipMode: .rectangle,
                 trailingContent: {
                     HStack {
                         Picker(LocalizationKeys.Analytics.timeRange.localized, selection: $selectedTimeRange) {

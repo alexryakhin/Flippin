@@ -489,3 +489,24 @@
 "accuracy" = "Noggrannhet";
 "masteredCards" = "Bemästrade Kort";
 "invalidJSON" = "Ogiltiga JSON-data";
+
+// MARK: - About App
+"about" = "Om";
+"appInfo" = "App-information";
+"tagline" = "Smarta kort för språkinlärning";
+"version" = "Version";
+"features" = "Funktioner";
+"smartCards" = "Smarta Kort";
+"smartCardsDescription" = "Tvåspråkiga kort med automatisk översättning och text-till-tal";
+"languages" = "18 Språk";
+"languagesDescription" = "Stöd för världens huvudspråk";
+"learningAnalytics" = "Lärandeanalys";
+"learningAnalyticsDescription" = "Spåra din framsteg och få personliga insikter";
+"tts" = "Text-till-tal";
+"ttsDescription" = "Lyssna på uttal med TTS-teknik";
+"support" = "Stöd Appen";
+"supportDescription" = "Om du gillar Flippin, överväg att stödja dess utveckling";
+"buyMeACoffee" = "Köp mig en kaffe";
+"legal" = "Juridisk";
+"privacyPolicy" = "Integritetspolicy";
+"termsOfService" = "Användarvillkor";

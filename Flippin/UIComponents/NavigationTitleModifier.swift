@@ -12,15 +12,9 @@ enum NavigationTitleMode {
     case large
 }
 
-enum NavigationTitleClipMode {
-    case rectangle
-    case capsule
-}
-
 struct NavigationTitleModifier<TrailingContent: View, BottomContent: View>: ViewModifier {
     let title: String
     let mode: NavigationTitleMode
-    let clipMode: NavigationTitleClipMode
     let vPadding: CGFloat
     let hPadding: CGFloat
 
@@ -44,15 +38,7 @@ struct NavigationTitleModifier<TrailingContent: View, BottomContent: View>: View
 
                     bottomContent()
                 }
-                .if(clipMode == .rectangle) { view in
-                    view.clippedWithPaddingAndBackgroundMaterial(.regularMaterial, showShadow: true)
-                }
-                .if(clipMode == .capsule) { view in
-                    view.padding(vertical: 12, horizontal: 16)
-                        .background(.regularMaterial)
-                        .clipShape(Capsule())
-                        .shadow(color: Color(.separator), radius: 2)
-                }
+                .clippedWithPaddingAndBackgroundMaterial(.regularMaterial, showShadow: true)
                 .padding(vertical: vPadding, horizontal: hPadding)
             }
     }
@@ -62,9 +48,8 @@ extension View {
     func navigation<TrailingContent: View, BottomContent: View>(
         title: String,
         mode: NavigationTitleMode = .large,
-        clipMode: NavigationTitleClipMode = .capsule,
-        vPadding: CGFloat = 12,
-        hPadding: CGFloat = 12,
+        vPadding: CGFloat = 8,
+        hPadding: CGFloat = 8,
         @ViewBuilder trailingContent: @escaping () -> TrailingContent = { EmptyView() },
         @ViewBuilder bottomContent: @escaping () -> BottomContent = { EmptyView() }
     ) -> some View {
@@ -72,7 +57,6 @@ extension View {
             NavigationTitleModifier(
                 title: title,
                 mode: mode,
-                clipMode: clipMode,
                 vPadding: vPadding,
                 hPadding: hPadding,
                 trailingContent: trailingContent,

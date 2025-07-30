@@ -489,3 +489,24 @@
 "accuracy" = "Genauigkeit";
 "masteredCards" = "Beherrschte Karten";
 "invalidJSON" = "JSON-Daten ungültig";
+
+// MARK: - About App
+"about" = "Über";
+"appInfo" = "App-Informationen";
+"tagline" = "Intelligente Karten für das Sprachenlernen";
+"version" = "Version";
+"features" = "Funktionen";
+"smartCards" = "Intelligente Karten";
+"smartCardsDescription" = "Zweisprachige Karten mit automatischer Übersetzung und Sprachsynthese";
+"languages" = "18 Sprachen";
+"languagesDescription" = "Unterstützung für die wichtigsten Weltsprachen";
+"learningAnalytics" = "Lernanalysen";
+"learningAnalyticsDescription" = "Verfolgen Sie Ihren Fortschritt und erhalten Sie personalisierte Einblicke";
+"tts" = "Sprachsynthese";
+"ttsDescription" = "Hören Sie die Aussprache mit TTS-Technologie";
+"support" = "App unterstützen";
+"supportDescription" = "Wenn Ihnen Flippin gefällt, erwägen Sie die Unterstützung der Entwicklung";
+"buyMeACoffee" = "Spendieren Sie mir einen Kaffee";
+"legal" = "Rechtliches";
+"privacyPolicy" = "Datenschutzrichtlinie";
+"termsOfService" = "Nutzungsbedingungen";
