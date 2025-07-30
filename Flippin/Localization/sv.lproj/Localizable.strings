@@ -29,7 +29,7 @@
 "readyToStartDesc" = "Din språkinlärningsresa börjar nu";
 "featureLearning" = "Automatisk Översättning";
 "featureLearningDesc" = "Realtidsöversättning medan du skriver";
-"featureLanguages" = "18 Språk";
+"featureLanguages" = "17 Språk";
 "featureLanguagesDesc" = "Stöd för världens huvudspråk";
 "featureSmart" = "Text-till-tal";
 "featureSmartDesc" = "Lyssna på uttal med TTS-teknik";
@@ -503,7 +503,7 @@
 "features" = "Funktioner";
 "smartCards" = "Smarta Kort";
 "smartCardsDescription" = "Tvåspråkiga kort med automatisk översättning och text-till-tal";
-"languages" = "18 Språk";
+"languagesTitle" = "17 Språk";
 "languagesDescription" = "Stöd för världens huvudspråk";
 "learningAnalytics" = "Lärandeanalys";
 "learningAnalyticsDescription" = "Spåra din framsteg och få personliga insikter";

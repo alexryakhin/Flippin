@@ -50,14 +50,17 @@ final class LanguageManager: ObservableObject {
     }
 
     private init() {
+        var userLanguageTemp: Language = .english
         // Initialize user language from UserDefaults or detect from system
         let savedUserLanguage = UserDefaults.standard.string(forKey: UserDefaultsKey.userLanguage)
         if let savedUserLanguage = savedUserLanguage, let language = Language(rawValue: savedUserLanguage) {
             self.userLanguage = language
+            userLanguageTemp = language
         } else {
             // Detect from system locale
             let detectedLanguage = Language.fromSystemLocale()
             self.userLanguage = detectedLanguage
+            userLanguageTemp = detectedLanguage
             // Save the detected language
             UserDefaults.standard.set(detectedLanguage.rawValue, forKey: UserDefaultsKey.userLanguage)
         }
@@ -67,7 +70,7 @@ final class LanguageManager: ObservableObject {
         if let savedTargetLanguage = savedTargetLanguage, let language = Language(rawValue: savedTargetLanguage) {
             self.targetLanguage = language
         } else {
-            self.targetLanguage = .spanish
+            self.targetLanguage = userLanguageTemp == .spanish ? .english : .spanish
             UserDefaults.standard.set(Language.spanish.rawValue, forKey: UserDefaultsKey.targetLanguage)
         }
 

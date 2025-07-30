@@ -29,7 +29,7 @@
 "readyToStartDesc" = "您的语言学习之旅现在开始";
 "featureLearning" = "自动翻译";
 "featureLearningDesc" = "输入时实时翻译";
-"featureLanguages" = "18种语言";
+"featureLanguages" = "17种语言";
 "featureLanguagesDesc" = "支持世界主要语言";
 "featureSmart" = "文字转语音";
 "featureSmartDesc" = "使用TTS技术听发音";
@@ -503,7 +503,7 @@
 "features" = "功能";
 "smartCards" = "智能卡片";
 "smartCardsDescription" = "双语卡片，支持自动翻译和文字转语音";
-"languages" = "18种语言";
+"languagesTitle" = "17种语言";
 "languagesDescription" = "支持主要世界语言";
 "learningAnalytics" = "学习分析";
 "learningAnalyticsDescription" = "跟踪您的进度并获得个性化洞察";

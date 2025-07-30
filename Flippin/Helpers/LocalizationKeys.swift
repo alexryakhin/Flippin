@@ -301,7 +301,7 @@ enum LocalizationKeys {
         static let features = "features"
         static let smartCards = "smartCards"
         static let smartCardsDescription = "smartCardsDescription"
-        static let languages = "languages"
+        static let languagesTitle = "languagesTitle"
         static let languagesDescription = "languagesDescription"
         static let learningAnalytics = "learningAnalytics"
         static let learningAnalyticsDescription = "learningAnalyticsDescription"

@@ -29,7 +29,7 @@
 "readyToStartDesc" = "Vaše putovanje učenja jezika počinje sada";
 "featureLearning" = "Automatsko Prevođenje";
 "featureLearningDesc" = "Prevođenje u stvarnom vremenu dok tipkate";
-"featureLanguages" = "18 Jezika";
+"featureLanguages" = "17 Jezika";
 "featureLanguagesDesc" = "Podrška za glavne svjetske jezike";
 "featureSmart" = "Tekst-u-govor";
 "featureSmartDesc" = "Slušajte izgovor s TTS tehnologijom";
@@ -503,7 +503,7 @@
 "features" = "Značajke";
 "smartCards" = "Pametne Kartice";
 "smartCardsDescription" = "Dvojezične kartice s automatskim prijevodom i tekst-u-govor";
-"languages" = "18 Jezika";
+"languagesTitle" = "17 Jezika";
 "languagesDescription" = "Podrška za glavne svjetske jezike";
 "learningAnalytics" = "Analitika učenja";
 "learningAnalyticsDescription" = "Pratite svoj napredak i dobijte personalizirane uvide";

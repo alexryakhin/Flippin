@@ -29,7 +29,7 @@
 "readyToStartDesc" = "言語学習の旅が今始まります";
 "featureLearning" = "自動翻訳";
 "featureLearningDesc" = "入力時にリアルタイム翻訳";
-"featureLanguages" = "18言語";
+"featureLanguages" = "17言語";
 "featureLanguagesDesc" = "世界の主要言語をサポート";
 "featureSmart" = "テキスト読み上げ";
 "featureSmartDesc" = "TTS技術で発音を聞く";
@@ -503,7 +503,7 @@
 "features" = "機能";
 "smartCards" = "スマートカード";
 "smartCardsDescription" = "自動翻訳とテキスト読み上げ機能付きのバイリンガルカード";
-"languages" = "18言語";
+"languagesTitle" = "17言語";
 "languagesDescription" = "主要な世界言語のサポート";
 "learningAnalytics" = "学習分析";
 "learningAnalyticsDescription" = "進捗を追跡し、パーソナライズされた洞察を得る";

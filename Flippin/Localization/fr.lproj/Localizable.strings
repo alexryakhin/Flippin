@@ -29,7 +29,7 @@
 "readyToStartDesc" = "Votre voyage d'apprentissage commence maintenant";
 "featureLearning" = "Traduction Automatique";
 "featureLearningDesc" = "Traduction en temps réel pendant que vous tapez";
-"featureLanguages" = "18 Langues";
+"featureLanguages" = "17 Langues";
 "featureLanguagesDesc" = "Support pour les principales langues du monde";
 "featureSmart" = "Synthèse Vocale";
 "featureSmartDesc" = "Écoutez la prononciation avec la technologie TTS";
@@ -503,7 +503,7 @@
 "features" = "Fonctionnalités";
 "smartCards" = "Cartes Intelligentes";
 "smartCardsDescription" = "Cartes bilingues avec traduction automatique et synthèse vocale";
-"languages" = "18 Langues";
+"languagesTitle" = "17 Langues";
 "languagesDescription" = "Support pour les principales langues du monde";
 "learningAnalytics" = "Analyses d'Apprentissage";
 "learningAnalyticsDescription" = "Suivez vos progrès et obtenez des insights personnalisés";

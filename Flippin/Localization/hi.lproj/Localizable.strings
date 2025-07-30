@@ -29,7 +29,7 @@
 "readyToStartDesc" = "आपकी भाषा सीखने की यात्रा अब शुरू होती है";
 "featureLearning" = "स्वचालित अनुवाद";
 "featureLearningDesc" = "टाइप करते समय वास्तविक समय अनुवाद";
-"featureLanguages" = "18 भाषाएं";
+"featureLanguages" = "17 भाषाएं";
 "featureLanguagesDesc" = "प्रमुख विश्व भाषाओं का समर्थन";
 "featureSmart" = "टेक्स्ट-टू-स्पीच";
 "featureSmartDesc" = "TTS तकनीक के साथ उच्चारण सुनें";
@@ -503,7 +503,7 @@
 "features" = "सुविधाएं";
 "smartCards" = "स्मार्ट कार्ड";
 "smartCardsDescription" = "स्वचालित अनुवाद और टेक्स्ट-टू-स्पीच के साथ द्विभाषी कार्ड";
-"languages" = "18 भाषाएं";
+"languagesTitle" = "17 भाषाएं";
 "languagesDescription" = "प्रमुख विश्व भाषाओं का समर्थन";
 "learningAnalytics" = "सीखने का विश्लेषण";
 "learningAnalyticsDescription" = "अपनी प्रगति को ट्रैक करें और व्यक्तिगत अंतर्दृष्टि प्राप्त करें";

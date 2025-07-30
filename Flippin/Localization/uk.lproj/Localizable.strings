@@ -29,7 +29,7 @@
 "readyToStartDesc" = "Ваша подорож вивчення мови починається зараз";
 "featureLearning" = "Автоматичний Переклад";
 "featureLearningDesc" = "Переклад у реальному часі під час введення";
-"featureLanguages" = "18 Мов";
+"featureLanguages" = "17 Мов";
 "featureLanguagesDesc" = "Підтримка основних мов світу";
 "featureSmart" = "Перетворення тексту в мову";
 "featureSmartDesc" = "Слухайте вимову з технологією TTS";
@@ -503,7 +503,7 @@
 "features" = "Функції";
 "smartCards" = "Розумні Картки";
 "smartCardsDescription" = "Двомовні картки з автоматичним перекладом та перетворенням тексту в мову";
-"languages" = "18 Мов";
+"languagesTitle" = "17 Мов";
 "languagesDescription" = "Підтримка основних світових мов";
 "learningAnalytics" = "Аналітика навчання";
 "learningAnalyticsDescription" = "Відстежуйте свій прогрес і отримуйте персоналізовані інсайти";

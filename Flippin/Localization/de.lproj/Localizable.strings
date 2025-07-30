@@ -29,7 +29,7 @@
 "readyToStartDesc" = "Ihre Lernreise beginnt jetzt";
 "featureLearning" = "Automatische Übersetzung";
 "featureLearningDesc" = "Echtzeit-Übersetzung während Sie tippen";
-"featureLanguages" = "18 Sprachen";
+"featureLanguages" = "17 Sprachen";
 "featureLanguagesDesc" = "Unterstützung für die wichtigsten Weltsprachen";
 "featureSmart" = "Text-zu-Sprache";
 "featureSmartDesc" = "Hören Sie die Aussprache mit TTS-Technologie";
@@ -503,7 +503,7 @@
 "features" = "Funktionen";
 "smartCards" = "Intelligente Karten";
 "smartCardsDescription" = "Zweisprachige Karten mit automatischer Übersetzung und Sprachsynthese";
-"languages" = "18 Sprachen";
+"languagesTitle" = "17 Sprachen";
 "languagesDescription" = "Unterstützung für die wichtigsten Weltsprachen";
 "learningAnalytics" = "Lernanalysen";
 "learningAnalyticsDescription" = "Verfolgen Sie Ihren Fortschritt und erhalten Sie personalisierte Einblicke";

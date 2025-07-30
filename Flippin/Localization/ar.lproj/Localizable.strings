@@ -29,7 +29,7 @@
 "readyToStartDesc" = "رحلة تعلم اللغة تبدأ الآن";
 "featureLearning" = "ترجمة تلقائية";
 "featureLearningDesc" = "ترجمة فورية أثناء الكتابة";
-"featureLanguages" = "18 لغة";
+"featureLanguages" = "17 لغة";
 "featureLanguagesDesc" = "دعم للغات العالم الرئيسية";
 "featureSmart" = "تحويل النص إلى كلام";
 "featureSmartDesc" = "استمع إلى النطق بتقنية TTS";
@@ -503,7 +503,7 @@
 "features" = "الميزات";
 "smartCards" = "البطاقات الذكية";
 "smartCardsDescription" = "بطاقات ثنائية اللغة مع الترجمة التلقائية والتحويل النصي إلى كلام";
-"languages" = "18 لغة";
+"languagesTitle" = "17 لغة";
 "languagesDescription" = "دعم للغات العالم الرئيسية";
 "learningAnalytics" = "تحليلات التعلم";
 "learningAnalyticsDescription" = "تتبع تقدمك واحصل على رؤى مخصصة";

@@ -29,7 +29,7 @@
 "readyToStartDesc" = "Hành trình học ngôn ngữ của bạn bắt đầu ngay bây giờ";
 "featureLearning" = "Dịch Tự Động";
 "featureLearningDesc" = "Dịch thời gian thực khi bạn nhập";
-"featureLanguages" = "18 Ngôn Ngữ";
+"featureLanguages" = "17 Ngôn Ngữ";
 "featureLanguagesDesc" = "Hỗ trợ các ngôn ngữ chính của thế giới";
 "featureSmart" = "Chuyển văn bản thành giọng nói";
 "featureSmartDesc" = "Nghe phát âm với công nghệ TTS";
@@ -503,7 +503,7 @@
 "features" = "Tính năng";
 "smartCards" = "Thẻ Thông Minh";
 "smartCardsDescription" = "Thẻ song ngữ với dịch thuật tự động và chuyển văn bản thành giọng nói";
-"languages" = "18 Ngôn ngữ";
+"languagesTitle" = "17 Ngôn ngữ";
 "languagesDescription" = "Hỗ trợ các ngôn ngữ chính của thế giới";
 "learningAnalytics" = "Phân tích học tập";
 "learningAnalyticsDescription" = "Theo dõi tiến độ của bạn và nhận thông tin chi tiết được cá nhân hóa";

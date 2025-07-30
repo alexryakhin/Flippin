@@ -344,7 +344,7 @@ AnalyticsService.trackEvent(.cardPlayed)
 ## Supported Languages
 
 ### Translation Support
-All 18 supported languages can be translated between each other:
+All 17 supported languages can be translated between each other:
 - **Western**: English, Spanish, French, German, Italian, Portuguese, Dutch, Swedish
 - **Asian**: Chinese, Japanese, Korean, Vietnamese
 - **Other**: Russian, Arabic, Hindi, Croatian, Ukrainian

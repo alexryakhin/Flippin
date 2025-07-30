@@ -109,7 +109,7 @@ struct AboutSheet: View {
                 
                 FeatureRow(
                     icon: .init(systemName: "globe"),
-                    title: LocalizationKeys.AboutApp.languages.localized,
+                    title: LocalizationKeys.AboutApp.languagesTitle.localized,
                     description: LocalizationKeys.AboutApp.languagesDescription.localized
                 )
                 

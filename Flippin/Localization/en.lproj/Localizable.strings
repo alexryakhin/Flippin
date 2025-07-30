@@ -29,7 +29,7 @@
 "readyToStartDesc" = "Your language learning journey begins now";
 "featureLearning" = "Auto Translation";
 "featureLearningDesc" = "Real-time translation as you type";
-"featureLanguages" = "18 Languages";
+"featureLanguages" = "17 Languages";
 "featureLanguagesDesc" = "Support for major world languages";
 "featureSmart" = "Text-to-Speech";
 "featureSmartDesc" = "Hear pronunciation with TTS technology";
@@ -461,7 +461,7 @@
 "features" = "Features";
 "smartCards" = "Smart Flashcards";
 "smartCardsDescription" = "Bilingual cards with auto-translation and text-to-speech";
-"languages" = "18 Languages";
+"languagesTitle" = "17 Languages";
 "languagesDescription" = "Support for major world languages";
 "learningAnalytics" = "Learning Analytics";
 "learningAnalyticsDescription" = "Track your progress and get personalized insights";

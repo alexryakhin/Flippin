@@ -29,7 +29,7 @@
 "readyToStartDesc" = "Je taalreis begint nu";
 "featureLearning" = "Automatische Vertaling";
 "featureLearningDesc" = "Realtime vertaling terwijl je typt";
-"featureLanguages" = "18 Talen";
+"featureLanguages" = "17 Talen";
 "featureLanguagesDesc" = "Ondersteuning voor belangrijke wereldtalen";
 "featureSmart" = "Tekst-naar-spraak";
 "featureSmartDesc" = "Luister naar uitspraak met TTS-technologie";
@@ -503,7 +503,7 @@
 "features" = "Functies";
 "smartCards" = "Slimme Kaarten";
 "smartCardsDescription" = "Tweetalige kaarten met automatische vertaling en tekst-naar-spraak";
-"languages" = "18 Talen";
+"languagesTitle" = "17 Talen";
 "languagesDescription" = "Ondersteuning voor de belangrijkste wereldtalen";
 "learningAnalytics" = "Leeranalyse";
 "learningAnalyticsDescription" = "Volg je voortgang en krijg gepersonaliseerde inzichten";
