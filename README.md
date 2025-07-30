@@ -23,11 +23,12 @@ A beautiful, intelligent flashcard app for learning languages with automatic tra
 - **Preset Collections**: Ready-to-use phrase collections
 - **Tag System**: Organize cards with custom tags
 - **Progress Tracking**: Visual progress indicators
+- **Personalized Insights & Recommendations**: Get actionable tips and study recommendations based on your learning data. Actions you take on these recommendations are tracked to help improve your learning experience.
 
 ### 🔧 **Advanced Features**
 - **Core Data Integration**: Persistent storage with offline support
 - **Purchase System**: Premium features with StoreKit 2
-- **Analytics**: Comprehensive learning analytics
+- **Comprehensive Analytics**: Tracks all key user actions, including app lifecycle, navigation, card/tag/filter actions, settings changes, search, study sessions, errors, purchases, and personalized learning recommendations
 - **Haptic Feedback**: Immersive tactile responses
 - **Accessibility**: Full VoiceOver support
 
@@ -97,6 +98,18 @@ class TTSPlayer {
 }
 ```
 
+#### LearningAnalyticsService
+Comprehensive learning analytics and insights:
+```swift
+class LearningAnalyticsService: ObservableObject {
+    func startStudySession()
+    func endStudySession()
+    func recordCardReview(cardId: String, wasCorrect: Bool, timeSpent: TimeInterval)
+    func getPersonalizedInsights() -> [PersonalizedInsight]
+    func getPersonalizedRecommendations() -> [PersonalizedRecommendation]
+}
+```
+
 ### UI Components
 
 #### CardStack & InfiniteCardStack
@@ -148,6 +161,22 @@ let taggedCards = cards.filter { $0.tagNames.contains("basics") }
 try await TTSPlayer.shared.play("Hello", language: .english)
 ```
 
+### Track Learning Analytics
+```swift
+// Start a study session
+LearningAnalyticsService.shared.startStudySession()
+
+// Record a card review
+LearningAnalyticsService.shared.recordCardReview(
+    cardId: card.id,
+    wasCorrect: true,
+    timeSpent: 2.5
+)
+
+// End the session
+LearningAnalyticsService.shared.endStudySession()
+```
+
 ## 🎨 UI Features
 
 ### Card Interface
@@ -192,13 +221,21 @@ try await TTSPlayer.shared.play("Hello", language: .english)
 ### Progress Tracking
 - **Card Count**: Track total cards created
 - **Learning Stats**: Monitor learning progress
-- **Usage Analytics**: Understand learning patterns
+- **Usage Analytics**: Understand your learning patterns with detailed analytics, including session tracking, card review accuracy, streaks, and actions taken on personalized recommendations
 
 ### Preset Collections
 - **Essential Phrases**: Common expressions
 - **Travel Phrases**: Useful travel vocabulary
 - **Business Phrases**: Professional communication
 - **Custom Collections**: Create your own
+
+### Analytics & Insights
+- **Study Sessions**: Track session duration and performance
+- **Card Performance**: Monitor individual card mastery
+- **Learning Patterns**: Understand your study habits
+- **Personalized Recommendations**: Get actionable tips based on your data
+- **Achievement Badges**: Unlock badges for learning milestones
+- **Detailed Analytics**: Premium users get access to comprehensive analytics with multiple tabs (Overview, Performance, Progress, Insights)
 
 ## 🔧 Configuration
 
@@ -210,9 +247,9 @@ try await TTSPlayer.shared.play("Hello", language: .english)
 
 ### Premium Features
 - **Unlimited Cards**: Remove card creation limits
-- **Advanced Analytics**: Detailed learning insights
-- **Premium Backgrounds**: Exclusive background styles
-- **Priority Support**: Enhanced customer support
+- **Advanced Analytics**: Access detailed learning insights, including personalized recommendations and progress breakdowns
+- **Premium Backgrounds**: Unlock exclusive animated backgrounds
+- **Priority Support**: Get help faster with premium support
 
 ## 🧪 Testing
 
@@ -230,6 +267,7 @@ xcodebuild -scheme Flippin -destination 'platform=iOS Simulator,name=iPhone 15'
 - **Navigation**: Verify all UI interactions
 - **Language Switching**: Test RTL and LTR languages
 - **Purchase Flow**: Test premium features
+- **Analytics**: Verify tracking of user actions
 
 ## 📚 Documentation
 
@@ -237,6 +275,7 @@ xcodebuild -scheme Flippin -destination 'platform=iOS Simulator,name=iPhone 15'
 - **[Core Data & CloudKit Sync](Flippin/Documentation/CoreDataAndCloudKit.md)**: Data persistence and synchronization
 - **[Card Management](Flippin/Documentation/CardManagement.md)**: Card operations and limit management
 - **[Translation & TTS](Flippin/Documentation/TranslationAndTTS.md)**: Translation and text-to-speech functionality
+- **[Learning Analytics](Flippin/Documentation/LearningAnalytics.md)**: Comprehensive analytics and insights system
 
 ### Features
 - **[Purchase System](Flippin/Documentation/PurchaseSystem.md)**: In-app purchase and subscription management
