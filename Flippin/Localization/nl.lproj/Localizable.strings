@@ -78,6 +78,10 @@
 "travelMode" = "Reismodus";
 "learningModeDescription" = "Toon doeltaal eerst (voor leren)";
 "travelModeDescription" = "Toon moedertaal eerst (voor reizen)";
+"previewBackgrounds" = "Achtergronden bekijken";
+"cardManagement" = "Kaartbeheer";
+"cardManagementDescription" = "Zoek, bewerk en organiseer je studiekaarten";
+"manageCards" = "Kaarten beheren";
 
 // MARK: - Preset Collections
 "presetCollections" = "Vooraf Gedefinieerde Collecties";
@@ -400,47 +404,6 @@
 "tryToStudyDaily" = "Probeer dagelijks te studeren om een solide studiegewoonte op te bouwen.";
 "improveAccuracy" = "Nauwkeurigheid Verbeteren";
 "accuracyPercentageFocusQuality" = "Je nauwkeurigheid is %d%%. Focus op kwaliteit in plaats van snelheid.";
-
-// MARK: - Settings
-"previewBackgrounds" = "Voorvertoning Achtergronden";
-"subscriptionStatus" = "Abonnement Status";
-"activeSubscription" = "Actief Abonnement";
-"manageSubscription" = "Abonnement Beheren";
-"purchaseTesting" = "Aankoop Testen";
-"testInAppPurchases" = "Test in-app aankopen en ontvang transactie-ID's";
-"openPurchaseTest" = "Open Aankoop Test";
-"testPurchase" = "Test Aankoop";
-"performTestPurchase" = "Voer een test aankoop uit om een transactie-ID te ontvangen";
-"transactionListenerActive" = "Transactie Listener Actief";
-"transactionListenerNotActive" = "Transactie Listener Niet Actief";
-"startTestPurchase" = "Start Test Aankoop";
-"lastTransactionId" = "Laatste Transactie-ID";
-"transactionId" = "Transactie-ID:";
-"copyToClipboard" = "Kopiëren naar Klembord";
-"copied" = "Gekopieerd!";
-"transactionIdCopied" = "Transactie-ID gekopieerd naar klembord";
-"availableProducts" = "Beschikbare Producten";
-"noProductsAvailable" = "Geen producten beschikbaar";
-"purchasedProducts" = "Aangekochte Producten";
-"noProductsPurchasedYet" = "Nog geen producten aangekocht";
-"purchased" = "Aangekocht";
-"transactionHistory" = "Transactiegeschiedenis";
-"loadTransactionHistory" = "Laad Transactiegeschiedenis";
-"restorePurchases" = "Aankopen Herstellen";
-"success" = "Succes";
-"failed" = "Mislukt";
-"purchasesRestoredSuccessfully" = "Aankopen succesvol hersteld";
-"failedToRestorePurchases" = "Aankopen herstellen mislukt";
-"purchaseTestingTitle" = "Aankoop Testen";
-"ok" = "OK";
-"testPurchaseCompleted" = "Test aankoop voltooid! Transactie-ID: %@";
-"testPurchaseFailed" = "Test aankoop mislukt: %@";
-"purchaseCompleted" = "Aankoop voltooid! Transactie-ID: %@";
-"purchaseFailed" = "Aankoop mislukt: %@";
-"unknown" = "Onbekend";
-"unknownError" = "Onbekende Fout";
-"product" = "Product: %@";
-"date" = "Datum: %@";
 
 // MARK: - Paywall
 "upgradeToPremiumTitle" = "Upgraden naar Premium";

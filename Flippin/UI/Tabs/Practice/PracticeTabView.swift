@@ -232,7 +232,7 @@ enum PracticeTab {
                             .foregroundStyle(.secondary)
                     } actions: {
                         Button(LocalizationKeys.Study.toCards.localized) {
-                            NavigationManager.shared.switchToTab(.stack)
+                            NavigationManager.shared.switchToTab(.study)
                         }
                         .buttonStyle(.borderedProminent)
                         .clipShape(Capsule())

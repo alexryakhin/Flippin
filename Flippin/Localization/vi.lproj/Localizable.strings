@@ -78,6 +78,10 @@
 "travelMode" = "Chế Độ Du Lịch";
 "learningModeDescription" = "Hiển thị ngôn ngữ mục tiêu trước (để học)";
 "travelModeDescription" = "Hiển thị ngôn ngữ mẹ đẻ trước (để du lịch)";
+"previewBackgrounds" = "Xem trước nền";
+"cardManagement" = "Quản lý thẻ";
+"cardManagementDescription" = "Tìm kiếm, chỉnh sửa và tổ chức thẻ học của bạn";
+"manageCards" = "Quản lý thẻ";
 
 // MARK: - Preset Collections
 "presetCollections" = "Bộ Sưu Tập Định Sẵn";
@@ -400,47 +404,6 @@
 "tryToStudyDaily" = "Hãy thử học hàng ngày để xây dựng thói quen học tập vững chắc.";
 "improveAccuracy" = "Cải Thiện Độ Chính Xác";
 "accuracyPercentageFocusQuality" = "Độ chính xác của bạn là %d%%. Tập trung vào chất lượng thay vì tốc độ.";
-
-// MARK: - Settings
-"previewBackgrounds" = "Xem Trước Nền";
-"subscriptionStatus" = "Trạng Thái Đăng Ký";
-"activeSubscription" = "Đăng Ký Hoạt Động";
-"manageSubscription" = "Quản Lý Đăng Ký";
-"purchaseTesting" = "Kiểm Tra Mua Hàng";
-"testInAppPurchases" = "Kiểm tra mua hàng trong ứng dụng và nhận ID giao dịch";
-"openPurchaseTest" = "Mở Kiểm Tra Mua Hàng";
-"testPurchase" = "Mua Hàng Kiểm Tra";
-"performTestPurchase" = "Thực hiện mua hàng kiểm tra để nhận ID giao dịch";
-"transactionListenerActive" = "Trình Lắng Nghe Giao Dịch Hoạt Động";
-"transactionListenerNotActive" = "Trình Lắng Nghe Giao Dịch Không Hoạt Động";
-"startTestPurchase" = "Bắt Đầu Mua Hàng Kiểm Tra";
-"lastTransactionId" = "ID Giao Dịch Gần Nhất";
-"transactionId" = "ID Giao Dịch:";
-"copyToClipboard" = "Sao Chép Vào Bảng Tạm";
-"copied" = "Đã Sao Chép!";
-"transactionIdCopied" = "ID giao dịch đã được sao chép vào bảng tạm";
-"availableProducts" = "Sản Phẩm Khả Dụng";
-"noProductsAvailable" = "Không có sản phẩm nào khả dụng";
-"purchasedProducts" = "Sản Phẩm Đã Mua";
-"noProductsPurchasedYet" = "Chưa có sản phẩm nào được mua";
-"purchased" = "Đã Mua";
-"transactionHistory" = "Lịch Sử Giao Dịch";
-"loadTransactionHistory" = "Tải Lịch Sử Giao Dịch";
-"restorePurchases" = "Khôi Phục Mua Hàng";
-"success" = "Thành Công";
-"failed" = "Thất Bại";
-"purchasesRestoredSuccessfully" = "Mua hàng đã được khôi phục thành công";
-"failedToRestorePurchases" = "Không thể khôi phục mua hàng";
-"purchaseTestingTitle" = "Kiểm Tra Mua Hàng";
-"ok" = "OK";
-"testPurchaseCompleted" = "Mua hàng kiểm tra đã hoàn tất! ID giao dịch: %@";
-"testPurchaseFailed" = "Mua hàng kiểm tra thất bại: %@";
-"purchaseCompleted" = "Mua hàng hoàn tất! ID giao dịch: %@";
-"purchaseFailed" = "Mua hàng thất bại: %@";
-"unknown" = "Không Xác Định";
-"unknownError" = "Lỗi Không Xác Định";
-"product" = "Sản Phẩm: %@";
-"date" = "Ngày: %@";
 
 // MARK: - Paywall
 "upgradeToPremiumTitle" = "Nâng Cấp Lên Premium";

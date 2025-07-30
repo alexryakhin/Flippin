@@ -12,8 +12,8 @@ import SwiftUI
 final class NavigationManager: ObservableObject {
     static let shared = NavigationManager()
     
-    @Published var selectedTab: MainTabView.Tab = .stack
-    
+    @Published var selectedTab: MainTabView.Tab = .study
+
     private init() {}
     
     func switchToTab(_ tab: MainTabView.Tab) {

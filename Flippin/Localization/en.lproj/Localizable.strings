@@ -78,6 +78,10 @@
 "travelMode" = "Travel Mode";
 "learningModeDescription" = "Show target language first (for learning)";
 "travelModeDescription" = "Show native language first (for travel)";
+"previewBackgrounds" = "Preview Backgrounds";
+"cardManagement" = "Card Management";
+"cardManagementDescription" = "Search, edit, and organize your flashcards";
+"manageCards" = "Manage Cards";
 
 // MARK: - Preset Collections
 "presetCollections" = "Preset Collections";
@@ -400,47 +404,6 @@
 "tryToStudyDaily" = "Try to study daily to build a strong learning habit.";
 "improveAccuracy" = "Improve accuracy";
 "accuracyPercentageFocusQuality" = "Your accuracy is %d%%. Focus on quality over speed.";
-
-// MARK: - Settings
-"previewBackgrounds" = "Preview Backgrounds";
-"subscriptionStatus" = "Subscription Status";
-"activeSubscription" = "Active Subscription";
-"manageSubscription" = "Manage Subscription";
-"purchaseTesting" = "Purchase Testing";
-"testInAppPurchases" = "Test in-app purchases and get transaction IDs";
-"openPurchaseTest" = "Open Purchase Test";
-"testPurchase" = "Test Purchase";
-"performTestPurchase" = "Perform a test purchase to get transaction ID";
-"transactionListenerActive" = "Transaction listener active";
-"transactionListenerNotActive" = "Transaction listener not active";
-"startTestPurchase" = "Start Test Purchase";
-"lastTransactionId" = "Last Transaction ID";
-"transactionId" = "Transaction ID:";
-"copyToClipboard" = "Copy to Clipboard";
-"copied" = "Copied!";
-"transactionIdCopied" = "Transaction ID copied to clipboard";
-"availableProducts" = "Available Products";
-"noProductsAvailable" = "No products available";
-"purchasedProducts" = "Purchased Products";
-"noProductsPurchasedYet" = "No products purchased yet";
-"purchased" = "Purchased";
-"transactionHistory" = "Transaction History";
-"loadTransactionHistory" = "Load Transaction History";
-"restorePurchases" = "Restore Purchases";
-"success" = "Success";
-"failed" = "Failed";
-"purchasesRestoredSuccessfully" = "Purchases restored successfully";
-"failedToRestorePurchases" = "Failed to restore purchases";
-"purchaseTestingTitle" = "Purchase Testing";
-"ok" = "OK";
-"testPurchaseCompleted" = "Test purchase completed! Transaction ID: %@";
-"testPurchaseFailed" = "Test purchase failed: %@";
-"purchaseCompleted" = "Purchase completed! Transaction ID: %@";
-"purchaseFailed" = "Purchase failed: %@";
-"unknown" = "Unknown";
-"unknownError" = "Unknown error";
-"product" = "Product: %@";
-"date" = "Date: %@";
 
 // MARK: - Paywall
 "upgradeToPremiumTitle" = "Upgrade to Premium";

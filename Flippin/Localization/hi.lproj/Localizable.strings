@@ -78,6 +78,10 @@
 "travelMode" = "यात्रा मोड";
 "learningModeDescription" = "लक्ष्य भाषा पहले दिखाएं (सीखने के लिए)";
 "travelModeDescription" = "मातृभाषा पहले दिखाएं (यात्रा के लिए)";
+"previewBackgrounds" = "पृष्ठभूमि पूर्वावलोकन";
+"cardManagement" = "कार्ड प्रबंधन";
+"cardManagementDescription" = "अपने अध्ययन कार्डों को खोजें, संपादित करें और व्यवस्थित करें";
+"manageCards" = "कार्ड प्रबंधित करें";
 
 // MARK: - Preset Collections
 "presetCollections" = "पूर्व-निर्धारित संग्रह";
@@ -400,47 +404,6 @@
 "tryToStudyDaily" = "मजबूत सीखने की आदत बनाने के लिए रोजाना पढ़ने की कोशिश करें।";
 "improveAccuracy" = "सटीकता सुधारें";
 "accuracyPercentageFocusQuality" = "आपकी सटीकता %d%% है। गति के बजाय गुणवत्ता पर ध्यान दें।";
-
-// MARK: - Settings
-"previewBackgrounds" = "पृष्ठभूमि पूर्वावलोकन";
-"subscriptionStatus" = "सदस्यता स्थिति";
-"activeSubscription" = "सक्रिय सदस्यता";
-"manageSubscription" = "सदस्यता प्रबंधन";
-"purchaseTesting" = "खरीद परीक्षण";
-"testInAppPurchases" = "ऐप में खरीदारी का परीक्षण करें और लेनदेन आईडी प्राप्त करें";
-"openPurchaseTest" = "खरीद परीक्षण खोलें";
-"testPurchase" = "परीक्षण खरीद";
-"performTestPurchase" = "लेनदेन आईडी प्राप्त करने के लिए परीक्षण खरीद करें";
-"transactionListenerActive" = "लेनदेन श्रोता सक्रिय";
-"transactionListenerNotActive" = "लेनदेन श्रोता निष्क्रिय";
-"startTestPurchase" = "परीक्षण खरीद शुरू करें";
-"lastTransactionId" = "अंतिम लेनदेन आईडी";
-"transactionId" = "लेनदेन आईडी:";
-"copyToClipboard" = "क्लिपबोर्ड पर कॉपी करें";
-"copied" = "कॉपी किया गया!";
-"transactionIdCopied" = "लेनदेन आईडी क्लिपबोर्ड पर कॉपी की गई";
-"availableProducts" = "उपलब्ध उत्पाद";
-"noProductsAvailable" = "कोई उत्पाद उपलब्ध नहीं";
-"purchasedProducts" = "खरीदे गए उत्पाद";
-"noProductsPurchasedYet" = "अभी तक कोई उत्पाद खरीदा नहीं गया";
-"purchased" = "खरीदा गया";
-"transactionHistory" = "लेनदेन इतिहास";
-"loadTransactionHistory" = "लेनदेन इतिहास लोड करें";
-"restorePurchases" = "खरीदारी पुनर्स्थापित करें";
-"success" = "सफलता";
-"failed" = "विफल";
-"purchasesRestoredSuccessfully" = "खरीदारी सफलतापूर्वक पुनर्स्थापित की गई";
-"failedToRestorePurchases" = "खरीदारी पुनर्स्थापित करने में विफल";
-"purchaseTestingTitle" = "खरीद परीक्षण";
-"ok" = "ठीक है";
-"testPurchaseCompleted" = "परीक्षण खरीद पूरी हुई! लेनदेन आईडी: %@";
-"testPurchaseFailed" = "परीक्षण खरीद विफल: %@";
-"purchaseCompleted" = "खरीद पूरी हुई! लेनदेन आईडी: %@";
-"purchaseFailed" = "खरीद विफल: %@";
-"unknown" = "अज्ञात";
-"unknownError" = "अज्ञात त्रुटि";
-"product" = "उत्पाद: %@";
-"date" = "तारीख: %@";
 
 // MARK: - Paywall
 "upgradeToPremiumTitle" = "प्रीमियम में अपग्रेड करें";

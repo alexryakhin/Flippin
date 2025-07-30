@@ -78,6 +78,10 @@
 "travelMode" = "Modo de Viagem";
 "learningModeDescription" = "Mostrar idioma alvo primeiro (para aprender)";
 "travelModeDescription" = "Mostrar idioma nativo primeiro (para viajar)";
+"previewBackgrounds" = "Visualizar fundos";
+"cardManagement" = "Gerenciamento de cartões";
+"cardManagementDescription" = "Pesquise, edite e organize seus cartões de estudo";
+"manageCards" = "Gerenciar cartões";
 
 // MARK: - Preset Collections
 "presetCollections" = "Coleções Pré-definidas";
@@ -400,47 +404,6 @@
 "tryToStudyDaily" = "Tente estudar diariamente para construir um hábito de aprendizado sólido.";
 "improveAccuracy" = "Melhorar a Precisão";
 "accuracyPercentageFocusQuality" = "Sua precisão é de %d%%. Concentre-se na qualidade em vez da velocidade.";
-
-// MARK: - Settings
-"previewBackgrounds" = "Visualizar Fundos";
-"subscriptionStatus" = "Status da Assinatura";
-"activeSubscription" = "Assinatura Ativa";
-"manageSubscription" = "Gerenciar Assinatura";
-"purchaseTesting" = "Teste de Compra";
-"testInAppPurchases" = "Teste compras no aplicativo e obtenha IDs de transação";
-"openPurchaseTest" = "Abrir Teste de Compra";
-"testPurchase" = "Compra de Teste";
-"performTestPurchase" = "Realize uma compra de teste para obter o ID da transação";
-"transactionListenerActive" = "Ouvinte de Transação Ativo";
-"transactionListenerNotActive" = "Ouvinte de Transação Não Ativo";
-"startTestPurchase" = "Iniciar Compra de Teste";
-"lastTransactionId" = "Último ID de Transação";
-"transactionId" = "ID da Transação:";
-"copyToClipboard" = "Copiar para a Área de Transferência";
-"copied" = "Copiado!";
-"transactionIdCopied" = "ID da transação copiado para a área de transferência";
-"availableProducts" = "Produtos Disponíveis";
-"noProductsAvailable" = "Nenhum produto disponível";
-"purchasedProducts" = "Produtos Comprados";
-"noProductsPurchasedYet" = "Nenhum produto comprado ainda";
-"purchased" = "Comprado";
-"transactionHistory" = "Histórico de Transações";
-"loadTransactionHistory" = "Carregar Histórico de Transações";
-"restorePurchases" = "Restaurar Compras";
-"success" = "Sucesso";
-"failed" = "Falhou";
-"purchasesRestoredSuccessfully" = "Compras restauradas com sucesso";
-"failedToRestorePurchases" = "Falha ao restaurar compras";
-"purchaseTestingTitle" = "Teste de Compra";
-"ok" = "OK";
-"testPurchaseCompleted" = "Compra de teste concluída! ID da transação: %@";
-"testPurchaseFailed" = "Compra de teste falhou: %@";
-"purchaseCompleted" = "Compra concluída! ID da transação: %@";
-"purchaseFailed" = "Compra falhou: %@";
-"unknown" = "Desconhecido";
-"unknownError" = "Erro desconhecido";
-"product" = "Produto: %@";
-"date" = "Data: %@";
 
 // MARK: - Paywall
 "upgradeToPremiumTitle" = "Fazer Upgrade para Premium";

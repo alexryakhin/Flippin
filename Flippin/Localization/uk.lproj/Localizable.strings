@@ -78,6 +78,10 @@
 "travelMode" = "Режим Подорожі";
 "learningModeDescription" = "Показувати цільову мову спочатку (для навчання)";
 "travelModeDescription" = "Показувати рідну мову спочатку (для подорожей)";
+"previewBackgrounds" = "Попередній перегляд фонів";
+"cardManagement" = "Управління картками";
+"cardManagementDescription" = "Шукайте, редагуйте та організовуйте ваші картки для вивчення";
+"manageCards" = "Керувати картками";
 
 // MARK: - Preset Collections
 "presetCollections" = "Попередньо Визначені Колекції";
@@ -400,47 +404,6 @@
 "tryToStudyDaily" = "Спробуйте вчитися щодня, щоб сформувати міцну звичку навчання.";
 "improveAccuracy" = "Покращити Точність";
 "accuracyPercentageFocusQuality" = "Ваша точність становить %d%%. Зосередьтеся на якості, а не на швидкості.";
-
-// MARK: - Settings
-"previewBackgrounds" = "Попередній Перегляд Фонів";
-"subscriptionStatus" = "Статус Підписки";
-"activeSubscription" = "Активна Підписка";
-"manageSubscription" = "Керувати Підпискою";
-"purchaseTesting" = "Тестування Покупок";
-"testInAppPurchases" = "Тестуйте покупки в додатку та отримуйте ID транзакцій";
-"openPurchaseTest" = "Відкрити Тест Покупки";
-"testPurchase" = "Тестова Покупка";
-"performTestPurchase" = "Виконайте тестову покупку, щоб отримати ID транзакції";
-"transactionListenerActive" = "Слухач Транзакцій Активний";
-"transactionListenerNotActive" = "Слухач Транзакцій Неактивний";
-"startTestPurchase" = "Розпочати Тестову Покупку";
-"lastTransactionId" = "Останній ID Транзакції";
-"transactionId" = "ID Транзакції:";
-"copyToClipboard" = "Копіювати до Буфера Обміну";
-"copied" = "Скопійовано!";
-"transactionIdCopied" = "ID транзакції скопійовано до буфера обміну";
-"availableProducts" = "Доступні Продукти";
-"noProductsAvailable" = "Немає доступних продуктів";
-"purchasedProducts" = "Придбані Продукти";
-"noProductsPurchasedYet" = "Ще немає придбаних продуктів";
-"purchased" = "Придбано";
-"transactionHistory" = "Історія Транзакцій";
-"loadTransactionHistory" = "Завантажити Історію Транзакцій";
-"restorePurchases" = "Відновити Покупки";
-"success" = "Успіх";
-"failed" = "Невдача";
-"purchasesRestoredSuccessfully" = "Покупки успішно відновлено";
-"failedToRestorePurchases" = "Не вдалося відновити покупки";
-"purchaseTestingTitle" = "Тестування Покупок";
-"ok" = "OK";
-"testPurchaseCompleted" = "Тестова покупка завершена! ID транзакції: %@";
-"testPurchaseFailed" = "Тестова покупка не вдалася: %@";
-"purchaseCompleted" = "Покупка завершена! ID транзакції: %@";
-"purchaseFailed" = "Покупка не вдалася: %@";
-"unknown" = "Невідомо";
-"unknownError" = "Невідома Помилка";
-"product" = "Продукт: %@";
-"date" = "Дата: %@";
 
 // MARK: - Paywall
 "upgradeToPremiumTitle" = "Перейти на Преміум";

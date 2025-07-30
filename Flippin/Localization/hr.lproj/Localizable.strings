@@ -78,6 +78,10 @@
 "travelMode" = "Način Putovanja";
 "learningModeDescription" = "Prikaži ciljni jezik prvo (za učenje)";
 "travelModeDescription" = "Prikaži materinski jezik prvo (za putovanje)";
+"previewBackgrounds" = "Pregled Pozadina";
+"cardManagement" = "Upravljanje karticama";
+"cardManagementDescription" = "Pretražujte, uređujte i organizirajte svoje kartice za učenje";
+"manageCards" = "Upravljaj karticama";
 
 // MARK: - Preset Collections
 "presetCollections" = "Unaprijed Definirane Kolekcije";
@@ -400,47 +404,6 @@
 "tryToStudyDaily" = "Pokušaj učiti svakodnevno kako bi izgradio čvrstu naviku učenja.";
 "improveAccuracy" = "Poboljšaj Točnost";
 "accuracyPercentageFocusQuality" = "Tvoja točnost je %d%%. Fokusiraj se na kvalitetu umjesto na brzinu.";
-
-// MARK: - Settings
-"previewBackgrounds" = "Pregled Pozadina";
-"subscriptionStatus" = "Status Pretplate";
-"activeSubscription" = "Aktivna Pretplata";
-"manageSubscription" = "Upravljanje Pretplatom";
-"purchaseTesting" = "Testiranje Kupnje";
-"testInAppPurchases" = "Testiraj kupnje unutar aplikacije i dobij ID-ove transakcija";
-"openPurchaseTest" = "Otvori Test Kupnje";
-"testPurchase" = "Testna Kupnja";
-"performTestPurchase" = "Izvrši testnu kupnju za dobivanje ID-a transakcije";
-"transactionListenerActive" = "Slušač transakcija aktivan";
-"transactionListenerNotActive" = "Slušač transakcija nije aktivan";
-"startTestPurchase" = "Započni Testnu Kupnju";
-"lastTransactionId" = "Posljednji ID Transakcije";
-"transactionId" = "ID Transakcije:";
-"copyToClipboard" = "Kopiraj u Međuspremnik";
-"copied" = "Kopirano!";
-"transactionIdCopied" = "ID transakcije kopiran u međuspremnik";
-"availableProducts" = "Dostupni Proizvodi";
-"noProductsAvailable" = "Nema dostupnih proizvoda";
-"purchasedProducts" = "Kupljeni Proizvodi";
-"noProductsPurchasedYet" = "Još nema kupljenih proizvoda";
-"purchased" = "Kupljeno";
-"transactionHistory" = "Povijest Transakcija";
-"loadTransactionHistory" = "Učitaj Povijest Transakcija";
-"restorePurchases" = "Vraćanje Kupnji";
-"success" = "Uspjeh";
-"failed" = "Neuspjelo";
-"purchasesRestoredSuccessfully" = "Kupnje uspješno vraćene";
-"failedToRestorePurchases" = "Neuspjelo vraćanje kupnji";
-"purchaseTestingTitle" = "Testiranje Kupnje";
-"ok" = "U redu";
-"testPurchaseCompleted" = "Testna kupnja završena! ID transakcije: %@";
-"testPurchaseFailed" = "Testna kupnja neuspjela: %@";
-"purchaseCompleted" = "Kupnja završena! ID transakcije: %@";
-"purchaseFailed" = "Kupnja neuspjela: %@";
-"unknown" = "Nepoznato";
-"unknownError" = "Nepoznata Greška";
-"product" = "Proizvod: %@";
-"date" = "Datum: %@";
 
 // MARK: - Paywall
 "upgradeToPremiumTitle" = "Nadogradi na Premium";

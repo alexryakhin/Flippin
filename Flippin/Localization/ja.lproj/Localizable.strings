@@ -78,6 +78,10 @@
 "travelMode" = "旅行モード";
 "learningModeDescription" = "目標言語を最初に表示（学習用）";
 "travelModeDescription" = "母国語を最初に表示（旅行用）";
+"previewBackgrounds" = "背景のプレビュー";
+"cardManagement" = "カード管理";
+"cardManagementDescription" = "学習カードを検索、編集、整理します";
+"manageCards" = "カードを管理";
 
 // MARK: - Preset Collections
 "presetCollections" = "プリセットコレクション";
@@ -400,47 +404,6 @@
 "tryToStudyDaily" = "強固な学習習慣を築くために毎日学習してみてください。";
 "improveAccuracy" = "正確性を向上";
 "accuracyPercentageFocusQuality" = "あなたの正確性は%d%%です。速度よりも品質に焦点を当ててください。";
-
-// MARK: - Settings
-"previewBackgrounds" = "背景のプレビュー";
-"subscriptionStatus" = "サブスクリプション状態";
-"activeSubscription" = "アクティブなサブスクリプション";
-"manageSubscription" = "サブスクリプション管理";
-"purchaseTesting" = "購入テスト";
-"testInAppPurchases" = "アプリ内購入をテストしてトランザクションIDを取得";
-"openPurchaseTest" = "購入テストを開く";
-"testPurchase" = "テスト購入";
-"performTestPurchase" = "トランザクションIDを取得するためにテスト購入を実行";
-"transactionListenerActive" = "トランザクションリスナー有効";
-"transactionListenerNotActive" = "トランザクションリスナー無効";
-"startTestPurchase" = "テスト購入を開始";
-"lastTransactionId" = "最後のトランザクションID";
-"transactionId" = "トランザクションID：";
-"copyToClipboard" = "クリップボードにコピー";
-"copied" = "コピーしました！";
-"transactionIdCopied" = "トランザクションIDがクリップボードにコピーされました";
-"availableProducts" = "利用可能な製品";
-"noProductsAvailable" = "利用可能な製品がありません";
-"purchasedProducts" = "購入済み製品";
-"noProductsPurchasedYet" = "まだ購入済みの製品はありません";
-"purchased" = "購入済み";
-"transactionHistory" = "トランザクション履歴";
-"loadTransactionHistory" = "トランザクション履歴をロード";
-"restorePurchases" = "購入を復元";
-"success" = "成功";
-"failed" = "失敗";
-"purchasesRestoredSuccessfully" = "購入が正常に復元されました";
-"failedToRestorePurchases" = "購入の復元に失敗しました";
-"purchaseTestingTitle" = "購入テスト";
-"ok" = "OK";
-"testPurchaseCompleted" = "テスト購入が完了しました！トランザクションID：%@";
-"testPurchaseFailed" = "テスト購入が失敗しました：%@";
-"purchaseCompleted" = "購入が完了しました！トランザクションID：%@";
-"purchaseFailed" = "購入が失敗しました：%@";
-"unknown" = "不明";
-"unknownError" = "不明なエラー";
-"product" = "製品：%@";
-"date" = "日付：%@";
 
 // MARK: - Paywall
 "upgradeToPremiumTitle" = "プレミアムにアップグレード";

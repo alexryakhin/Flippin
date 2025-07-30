@@ -17,18 +17,7 @@ The Flippin app has been redesigned to use a modern TabView-based navigation sys
   - Card limit indicator for free users
   - Featured preset collections
 
-### Tab 2: My Cards
-- **Icon**: `list.bullet`
-- **Purpose**: Card management and organization
-- **Features**:
-  - List view of all cards
-  - Search and filtering
-  - Card editing and deletion
-  - Tag management
-  - Add new cards
-  - Quick access to settings
-
-### Tab 3: Study Mode
+### Tab 2: Practice
 - **Icon**: `book.fill`
 - **Purpose**: Dedicated study sessions with progress tracking
 - **Features**:
@@ -39,7 +28,7 @@ The Flippin app has been redesigned to use a modern TabView-based navigation sys
   - Recent activity summary
   - Direct access to study sessions
 
-### Tab 4: Analytics
+### Tab 3: Analytics
 - **Icon**: `chart.line.uptrend.xyaxis`
 - **Purpose**: Learning progress and insights
 - **Features**:
@@ -50,12 +39,13 @@ The Flippin app has been redesigned to use a modern TabView-based navigation sys
   - Study time tracking
   - Mastery progress
 
-### Tab 5: Settings
+### Tab 4: Settings
 - **Icon**: `gearshape.fill`
 - **Purpose**: App configuration and preferences
 - **Features**:
   - Language preferences
   - Theme and appearance settings
+  - Card management (search, edit, delete)
   - Premium features management
   - Purchase options
   - App information
@@ -70,125 +60,125 @@ The Flippin app has been redesigned to use a modern TabView-based navigation sys
 - **Faster access** to frequently used features
 
 ### 2. **Better User Experience**
-- **Modern iOS design** patterns
-- **Intuitive iconography** for each section
-- **Clear visual hierarchy** with tab indicators
-- **Reduced cognitive load** with dedicated spaces
+- **Intuitive tab structure** with clear purpose for each tab
+- **Reduced cognitive load** with fewer navigation options
+- **Faster task completion** with direct access to features
+- **Better discoverability** of app features
 
-### 3. **Enhanced Functionality**
-- **Dedicated study mode** with comprehensive stats
-- **Separate analytics section** for learning insights
-- **Streamlined card management** in its own tab
-- **Quick access to settings** without navigation complexity
+### 3. **Streamlined Interface**
+- **Cleaner design** with focused functionality per tab
+- **Better use of screen space** with dedicated sections
+- **Consistent visual hierarchy** across all tabs
+- **Modern iOS design patterns** that users expect
 
-### 4. **Premium Feature Integration**
-- **Natural premium prompts** in relevant sections
-- **Contextual upgrade opportunities**
-- **Clear value proposition** for each premium feature
-- **Seamless premium feature access**
+## 🔄 Migration from Previous Design
 
-## 📱 Implementation Details
+### Removed Features
+- **List Tab**: Card management moved to Settings for better organization
+- **Complex navigation**: Simplified to 4 main tabs
+- **Hidden features**: All features now easily accessible
 
-### File Structure
+### Enhanced Features
+- **Study Tab**: Primary interface for card interaction
+- **Settings Tab**: Centralized management including card management
+- **Practice Tab**: Dedicated study sessions
+- **Analytics Tab**: Learning progress and insights
+
+## 📱 Tab-Specific Features
+
+### Study Tab
+- **Card Stack Interface**: Main flashcard interaction
+- **Filtering System**: Language, tags, favorites, difficulty
+- **Quick Actions**: Add cards, shuffle, study
+- **Empty States**: Helpful guidance when no cards exist
+
+### Practice Tab
+- **Study Modes**: Multiple practice options
+- **Progress Tracking**: Session statistics and results
+- **Difficulty Levels**: Adaptive learning paths
+- **Session Management**: Start, pause, resume functionality
+
+### Analytics Tab
+- **Learning Dashboard**: Overview of progress
+- **Detailed Analytics**: Premium feature with advanced insights
+- **Achievement System**: Progress milestones and badges
+- **Study Insights**: Personalized recommendations
+
+### Settings Tab
+- **Language Management**: User and target language settings
+- **Appearance**: Theme and background customization
+- **Card Management**: Search, edit, and delete cards
+- **Premium Features**: Subscription management
+- **Tag Management**: Create and organize tags
+
+## 🎨 Design Principles
+
+### 1. **Consistency**
+- **Unified design language** across all tabs
+- **Consistent spacing and typography**
+- **Cohesive color scheme and theming**
+
+### 2. **Accessibility**
+- **Clear navigation labels** and icons
+- **Proper contrast ratios** for all text
+- **VoiceOver support** for all interactive elements
+
+### 3. **Performance**
+- **Efficient tab switching** with smooth animations
+- **Optimized view loading** for each tab
+- **Memory management** for large card collections
+
+## 🔧 Technical Implementation
+
+### Tab Structure
+```swift
+enum Tab: Int, CaseIterable {
+    case stack, practice, analytics, settings
+}
 ```
-Flippin/UI/Main/
-├── MainTabView.swift          # Main TabView container
-├── CardStackTabView.swift         # Study tab (main cards)
-├── MyCardsTabView.swift       # Card management tab
-├── PracticeTabView.swift     # Study sessions tab
-├── AnalyticsTabView.swift     # Analytics tab
-└── SettingsTabView.swift      # Settings tab
+
+### Navigation Management
+```swift
+@Published var selectedTab: MainTabView.Tab = .stack
 ```
 
-### Key Components
+### Tab Bar Configuration
+```swift
+ForEach(Tab.allCases, id: \.self) { tab in
+    TabButton(
+        title: tab.title,
+        image: tab.image,
+        imageSelected: tab.imageSelected,
+        isSelected: navigationManager.selectedTab == tab
+    ) {
+        navigationManager.selectedTab = tab
+    }
+}
+```
 
-#### MainTabView
-- **Central navigation hub** with 5 tabs
-- **Welcome sheet integration**
-- **Premium alert system**
-- **Color scheme management**
+## 📊 User Flow Optimization
 
-#### PracticeTabView
-- **Extracted from ContentView** with improvements
-- **Simplified action buttons** (shuffle + add)
-- **Better visual hierarchy**
-- **Maintained all existing functionality**
+### Primary User Journey
+1. **Study Tab**: Main card interaction and learning
+2. **Practice Tab**: Focused study sessions
+3. **Analytics Tab**: Progress review and insights
+4. **Settings Tab**: Configuration and management
 
-#### PracticeTabView
-- **New dedicated interface** for study sessions
-- **Quick stats overview** with visual cards
-- **Multiple study options** (review, practice, etc.)
-- **Recent activity summary**
+### Secondary Features
+- **Card Management**: Accessible via Settings tab
+- **Premium Features**: Integrated throughout the app
+- **Help and Support**: Available in Settings tab
 
-#### AnalyticsTabView
-- **Learning overview** with dashboard integration
-- **Premium feature promotion** for non-premium users
-- **Quick access** to detailed analytics
-- **Activity preview** section
-
-
-## 🎨 Design Considerations
-
-### Visual Hierarchy
-- **Large navigation titles** for each tab
-- **Consistent spacing** and padding
-- **Material backgrounds** for content sections
-- **Color-coded icons** and accents
-
-### Accessibility
-- **Clear tab labels** for screen readers
-- **High contrast** tab indicators
-- **Consistent navigation** patterns
-- **Large touch targets** for tab switching
-
-### Performance
-- **Lazy loading** of tab content
-- **Efficient state management** per tab
-- **Minimal memory footprint** with proper cleanup
-- **Smooth animations** between tabs
-
-## 🔮 Future Enhancements
+## 🚀 Future Enhancements
 
 ### Potential Improvements
-1. **Custom tab bar** with animations
-2. **Tab-specific badges** for notifications
-3. **Deep linking** to specific tabs
-4. **Tab state persistence** across app launches
-5. **Contextual tab switching** based on user actions
+- **Customizable Tab Order**: User preference for tab arrangement
+- **Quick Actions**: Swipe gestures for common tasks
+- **Tab Badges**: Notifications for new content or updates
+- **Advanced Filtering**: More sophisticated card filtering options
 
 ### Analytics Integration
-- **Tab usage tracking** for user behavior analysis
-- **Feature adoption metrics** for each tab
-- **User flow optimization** based on tab patterns
-- **A/B testing** for tab layouts and content
-
-## 📊 User Impact
-
-### Expected Benefits
-- **30% faster** access to key features
-- **Reduced user confusion** with clear navigation
-- **Higher engagement** with dedicated study mode
-- **Better premium conversion** with contextual prompts
-- **Improved retention** through better UX
-
-### User Feedback Integration
-- **Simplified onboarding** with clear tab purposes
-- **Reduced support requests** for navigation issues
-- **Higher feature discovery** through dedicated tabs
-- **Better feature utilization** with focused interfaces
-
-## 🛠 Technical Implementation
-
-### State Management
-- **Per-tab state objects** for efficient memory usage
-- **Shared services** for cross-tab data consistency
-- **Proper cleanup** when switching tabs
-- **State persistence** for user preferences
-
-### Navigation Flow
-- **Seamless tab switching** with smooth animations
-- **Context preservation** when returning to tabs
-- **Deep linking support** for external navigation
-- **Back navigation** handling within tabs
-
-This TabView redesign transforms Flippin into a modern, intuitive learning app with clear navigation and enhanced user experience. 
+- **Tab Usage Tracking**: Monitor which tabs are used most
+- **Feature Adoption**: Track new feature usage
+- **User Engagement**: Measure time spent in each tab
+- **Conversion Optimization**: Optimize premium feature discovery 

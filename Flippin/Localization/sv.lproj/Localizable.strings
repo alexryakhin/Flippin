@@ -78,6 +78,10 @@
 "travelMode" = "Reseläge";
 "learningModeDescription" = "Visa målspråk först (för lärande)";
 "travelModeDescription" = "Visa modersmål först (för resor)";
+"previewBackgrounds" = "Förhandsvisa bakgrunder";
+"cardManagement" = "Korthantering";
+"cardManagementDescription" = "Sök, redigera och organisera dina studiekaort";
+"manageCards" = "Hantera kort";
 
 // MARK: - Preset Collections
 "presetCollections" = "Fördefinierade Samlingar";
@@ -400,47 +404,6 @@
 "tryToStudyDaily" = "Försök att studera dagligen för att bygga en stabil studievanan.";
 "improveAccuracy" = "Förbättra Noggrannhet";
 "accuracyPercentageFocusQuality" = "Din noggrannhet är %d%%. Fokusera på kvalitet snarare än hastighet.";
-
-// MARK: - Settings
-"previewBackgrounds" = "Förhandsgranska Bakgrunder";
-"subscriptionStatus" = "Prenumerationsstatus";
-"activeSubscription" = "Aktiv Prenumeration";
-"manageSubscription" = "Hantera Prenumeration";
-"purchaseTesting" = "Köpprov";
-"testInAppPurchases" = "Testa köp i appen och få transaktions-ID:n";
-"openPurchaseTest" = "Öppna Köpprov";
-"testPurchase" = "Testköp";
-"performTestPurchase" = "Utför ett testköp för att få ett transaktions-ID";
-"transactionListenerActive" = "Transaktionslyssnare Aktiv";
-"transactionListenerNotActive" = "Transaktionslyssnare Inte Aktiv";
-"startTestPurchase" = "Starta Testköp";
-"lastTransactionId" = "Senaste Transaktions-ID";
-"transactionId" = "Transaktions-ID:";
-"copyToClipboard" = "Kopiera till Urklipp";
-"copied" = "Kopierat!";
-"transactionIdCopied" = "Transaktions-ID kopierat till urklipp";
-"availableProducts" = "Tillgängliga Produkter";
-"noProductsAvailable" = "Inga produkter tillgängliga";
-"purchasedProducts" = "Köpta Produkter";
-"noProductsPurchasedYet" = "Inga produkter köpta ännu";
-"purchased" = "Köpt";
-"transactionHistory" = "Transaktionshistorik";
-"loadTransactionHistory" = "Ladda Transaktionshistorik";
-"restorePurchases" = "Återställ Köp";
-"success" = "Lyckades";
-"failed" = "Misslyckades";
-"purchasesRestoredSuccessfully" = "Köp återställda framgångsrikt";
-"failedToRestorePurchases" = "Misslyckades med att återställa köp";
-"purchaseTestingTitle" = "Köpprov";
-"ok" = "OK";
-"testPurchaseCompleted" = "Testköp slutfört! Transaktions-ID: %@";
-"testPurchaseFailed" = "Testköp misslyckades: %@";
-"purchaseCompleted" = "Köp slutfört! Transaktions-ID: %@";
-"purchaseFailed" = "Köp misslyckades: %@";
-"unknown" = "Okänd";
-"unknownError" = "Okänt Fel";
-"product" = "Produkt: %@";
-"date" = "Datum: %@";
 
 // MARK: - Paywall
 "upgradeToPremiumTitle" = "Uppgradera till Premium";

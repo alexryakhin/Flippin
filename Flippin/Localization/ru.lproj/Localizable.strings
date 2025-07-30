@@ -78,6 +78,10 @@
 "travelMode" = "Режим путешествия";
 "learningModeDescription" = "Показывать целевой язык первым (для обучения)";
 "travelModeDescription" = "Показывать родной язык первым (для путешествий)";
+"previewBackgrounds" = "Предварительный просмотр фонов";
+"cardManagement" = "Управление карточками";
+"cardManagementDescription" = "Ищите, редактируйте и организуйте ваши карточки для изучения";
+"manageCards" = "Управлять карточками";
 
 // MARK: - Preset Collections
 "presetCollections" = "Предустановленные коллекции";
@@ -400,47 +404,6 @@
 "tryToStudyDaily" = "Попробуйте изучать ежедневно, чтобы построить сильную привычку обучения.";
 "improveAccuracy" = "Улучшите точность";
 "accuracyPercentageFocusQuality" = "Ваша точность %d%%. Сосредоточьтесь на качестве, а не на скорости.";
-
-// MARK: - Settings
-"previewBackgrounds" = "Предварительный просмотр фонов";
-"subscriptionStatus" = "Статус подписки";
-"activeSubscription" = "Активная подписка";
-"manageSubscription" = "Управление подпиской";
-"purchaseTesting" = "Тестирование покупок";
-"testInAppPurchases" = "Тестируйте покупки в приложении и получайте ID транзакций";
-"openPurchaseTest" = "Открыть тест покупок";
-"testPurchase" = "Тест покупки";
-"performTestPurchase" = "Выполните тестовую покупку для получения ID транзакции";
-"transactionListenerActive" = "Слушатель транзакций активен";
-"transactionListenerNotActive" = "Слушатель транзакций не активен";
-"startTestPurchase" = "Начать тестовую покупку";
-"lastTransactionId" = "Последний ID транзакции";
-"transactionId" = "ID транзакции:";
-"copyToClipboard" = "Копировать в буфер обмена";
-"copied" = "Скопировано!";
-"transactionIdCopied" = "ID транзакции скопирован в буфер обмена";
-"availableProducts" = "Доступные продукты";
-"noProductsAvailable" = "Нет доступных продуктов";
-"purchasedProducts" = "Купленные продукты";
-"noProductsPurchasedYet" = "Пока не куплено ни одного продукта";
-"purchased" = "Куплено";
-"transactionHistory" = "История транзакций";
-"loadTransactionHistory" = "Загрузить историю транзакций";
-"restorePurchases" = "Восстановить покупки";
-"success" = "Успех";
-"failed" = "Неудача";
-"purchasesRestoredSuccessfully" = "Покупки успешно восстановлены";
-"failedToRestorePurchases" = "Не удалось восстановить покупки";
-"purchaseTestingTitle" = "Тестирование покупок";
-"ok" = "ОК";
-"testPurchaseCompleted" = "Тестовая покупка завершена! ID транзакции: %@";
-"testPurchaseFailed" = "Тестовая покупка не удалась: %@";
-"purchaseCompleted" = "Покупка завершена! ID транзакции: %@";
-"purchaseFailed" = "Покупка не удалась: %@";
-"unknown" = "Неизвестно";
-"unknownError" = "Неизвестная ошибка";
-"product" = "Продукт: %@";
-"date" = "Дата: %@";
 
 // MARK: - Paywall
 "upgradeToPremiumTitle" = "Обновить до премиум";

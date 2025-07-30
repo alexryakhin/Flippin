@@ -78,6 +78,10 @@
 "travelMode" = "Mode Voyage";
 "learningModeDescription" = "Afficher la langue cible en premier (pour apprendre)";
 "travelModeDescription" = "Afficher la langue native en premier (pour voyager)";
+"previewBackgrounds" = "Aperçu des arrière-plans";
+"cardManagement" = "Gestion des cartes";
+"cardManagementDescription" = "Recherchez, modifiez et organisez vos cartes d'étude";
+"manageCards" = "Gérer les cartes";
 
 // MARK: - Preset Collections
 "presetCollections" = "Collections Prédéfinies";
@@ -400,47 +404,6 @@
 "tryToStudyDaily" = "Essayez d'étudier quotidiennement pour construire une habitude d'apprentissage solide.";
 "improveAccuracy" = "Améliorer la précision";
 "accuracyPercentageFocusQuality" = "Votre précision est de %d%%. Concentrez-vous sur la qualité plutôt que sur la vitesse.";
-
-// MARK: - Settings
-"previewBackgrounds" = "Aperçu des Arrière-plans";
-"subscriptionStatus" = "Statut de l'Abonnement";
-"activeSubscription" = "Abonnement Actif";
-"manageSubscription" = "Gérer l'Abonnement";
-"purchaseTesting" = "Test d'Achat";
-"testInAppPurchases" = "Testez les achats in-app et obtenez des ID de transaction";
-"openPurchaseTest" = "Ouvrir le Test d'Achat";
-"testPurchase" = "Achat Test";
-"performTestPurchase" = "Effectuez un achat test pour obtenir l'ID de transaction";
-"transactionListenerActive" = "Écouteur de transactions actif";
-"transactionListenerNotActive" = "Écouteur de transactions non actif";
-"startTestPurchase" = "Démarrer l'Achat Test";
-"lastTransactionId" = "Dernier ID de Transaction";
-"transactionId" = "ID de Transaction :";
-"copyToClipboard" = "Copier dans le Presse-papiers";
-"copied" = "Copié !";
-"transactionIdCopied" = "ID de transaction copié dans le presse-papiers";
-"availableProducts" = "Produits Disponibles";
-"noProductsAvailable" = "Aucun produit disponible";
-"purchasedProducts" = "Produits Achetés";
-"noProductsPurchasedYet" = "Aucun produit acheté pour le moment";
-"purchased" = "Acheté";
-"transactionHistory" = "Historique des Transactions";
-"loadTransactionHistory" = "Charger l'Historique des Transactions";
-"restorePurchases" = "Restaurer les Achats";
-"success" = "Succès";
-"failed" = "Échoué";
-"purchasesRestoredSuccessfully" = "Achats restaurés avec succès";
-"failedToRestorePurchases" = "Échec de la restauration des achats";
-"purchaseTestingTitle" = "Test d'Achat";
-"ok" = "OK";
-"testPurchaseCompleted" = "Achat test terminé ! ID de transaction : %@";
-"testPurchaseFailed" = "Échec de l'achat test : %@";
-"purchaseCompleted" = "Achat terminé ! ID de transaction : %@";
-"purchaseFailed" = "Échec de l'achat : %@";
-"unknown" = "Inconnu";
-"unknownError" = "Erreur inconnue";
-"product" = "Produit : %@";
-"date" = "Date : %@";
 
 // MARK: - Paywall
 "upgradeToPremiumTitle" = "Passer à Premium";

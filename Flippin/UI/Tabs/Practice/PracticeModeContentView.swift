@@ -68,17 +68,22 @@ enum StudyMode: Int, Identifiable, Hashable {
             .background {
                 AnimatedBackground(style: colorManager.backgroundStyle)
             }
-            .navigation(title: LocalizationKeys.Study.studyMode.localized, mode: .inline, clipMode: .rectangle, trailingContent: {
-                Button(LocalizationKeys.Study.exit.localized) {
-                    HapticService.shared.buttonTapped()
-                    endStudySession()
-                    analyticsService.refreshAnalytics()
-                    dismiss()
-                }
-                .buttonStyle(.bordered)
-                .foregroundStyle(.secondary)
-                .clipShape(Capsule())
-            }, bottomContent: {
+            .navigation(
+                title: LocalizationKeys.Study.practiceMode.localized,
+                mode: .inline,
+                clipMode: .rectangle,
+                trailingContent: {
+                    Button(LocalizationKeys.Study.exit.localized) {
+                        HapticService.shared.buttonTapped()
+                        endStudySession()
+                        analyticsService.refreshAnalytics()
+                        dismiss()
+                    }
+                    .buttonStyle(.bordered)
+                    .foregroundStyle(.secondary)
+                    .clipShape(Capsule())
+                },
+                bottomContent: {
                 HStack(spacing: 8) {
                     // Progress text
                     Text(LocalizationKeys.Study.studyProgress.localized(with: currentCardIndex + 1, studyCards.count))
@@ -199,7 +204,7 @@ enum StudyMode: Int, Identifiable, Hashable {
                             .font(.system(size: 60))
                             .foregroundColor(.green)
 
-                        Text(LocalizationKeys.Study.studySessionComplete.localized)
+                        Text(LocalizationKeys.Study.practiceSessionComplete.localized)
                             .font(.title)
                             .fontWeight(.bold)
                             .multilineTextAlignment(.center)
@@ -234,7 +239,7 @@ enum StudyMode: Int, Identifiable, Hashable {
 
                     // Action buttons
                     VStack(spacing: 12) {
-                        Button(LocalizationKeys.Study.studyAgain.localized) {
+                        Button(LocalizationKeys.Study.practiceAgain.localized) {
                             setupStudySession()
                         }
                         .foregroundStyle(colorManager.borderedProminentForegroundColor)

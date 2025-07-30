@@ -78,6 +78,10 @@
 "travelMode" = "وضع السفر";
 "learningModeDescription" = "عرض اللغة المستهدفة أولاً (للتعلم)";
 "travelModeDescription" = "عرض اللغة الأصلية أولاً (للسفر)";
+"previewBackgrounds" = "معاينة الخلفيات";
+"cardManagement" = "إدارة البطاقات";
+"cardManagementDescription" = "ابحث وحرر ونظم بطاقات الدراسة الخاصة بك";
+"manageCards" = "إدارة البطاقات";
 
 // MARK: - Preset Collections
 "presetCollections" = "المجموعات المحددة مسبقاً";
@@ -400,47 +404,6 @@
 "tryToStudyDaily" = "حاول الدراسة يوميًا لبناء عادة تعلم قوية.";
 "improveAccuracy" = "تحسين الدقة";
 "accuracyPercentageFocusQuality" = "دقتك هي %d%%. ركز على الجودة على السرعة.";
-
-// MARK: - Settings
-"previewBackgrounds" = "معاينة الخلفيات";
-"subscriptionStatus" = "حالة الاشتراك";
-"activeSubscription" = "اشتراك نشط";
-"manageSubscription" = "إدارة الاشتراك";
-"purchaseTesting" = "اختبار الشراء";
-"testInAppPurchases" = "اختبار المشتريات داخل التطبيق والحصول على معرفات المعاملات";
-"openPurchaseTest" = "فتح اختبار الشراء";
-"testPurchase" = "اختبار الشراء";
-"performTestPurchase" = "إجراء شراء اختباري للحصول على معرف المعاملة";
-"transactionListenerActive" = "مستمع المعاملات نشط";
-"transactionListenerNotActive" = "مستمع المعاملات غير نشط";
-"startTestPurchase" = "بدء اختبار الشراء";
-"lastTransactionId" = "آخر معرف معاملة";
-"transactionId" = "معرف المعاملة:";
-"copyToClipboard" = "نسخ إلى الحافظة";
-"copied" = "تم النسخ!";
-"transactionIdCopied" = "تم نسخ معرف المعاملة إلى الحافظة";
-"availableProducts" = "المنتجات المتاحة";
-"noProductsAvailable" = "لا توجد منتجات متاحة";
-"purchasedProducts" = "المنتجات المشتراة";
-"noProductsPurchasedYet" = "لم يتم شراء أي منتجات بعد";
-"purchased" = "تم الشراء";
-"transactionHistory" = "سجل المعاملات";
-"loadTransactionHistory" = "تحميل سجل المعاملات";
-"restorePurchases" = "استعادة المشتريات";
-"success" = "نجاح";
-"failed" = "فشل";
-"purchasesRestoredSuccessfully" = "تم استعادة المشتريات بنجاح";
-"failedToRestorePurchases" = "فشل في استعادة المشتريات";
-"purchaseTestingTitle" = "اختبار الشراء";
-"ok" = "موافق";
-"testPurchaseCompleted" = "اكتمل اختبار الشراء! معرف المعاملة: %@";
-"testPurchaseFailed" = "فشل اختبار الشراء: %@";
-"purchaseCompleted" = "اكتمل الشراء! معرف المعاملة: %@";
-"purchaseFailed" = "فشل الشراء: %@";
-"unknown" = "غير معروف";
-"unknownError" = "خطأ غير معروف";
-"product" = "المنتج: %@";
-"date" = "التاريخ: %@";
 
 // MARK: - Paywall
 "upgradeToPremiumTitle" = "الترقية إلى بريميوم";

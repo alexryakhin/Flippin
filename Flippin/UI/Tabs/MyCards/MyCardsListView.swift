@@ -121,19 +121,13 @@ struct MyCardsListView: View {
                                         cardToEdit = card
                                     }
                                 )
-                                .listRowBackground(
-                                    Color.clear
-                                        .background(.regularMaterial)
-                                )
                             }
                         } header: {
                             Text(group.language.displayName)
-                                .foregroundStyle(colorManager.foregroundColor)
                         }
                     }
                 }
                 .listStyle(.insetGrouped)
-                .scrollContentBackground(.hidden)
             }
         }
         .if(isPad) { view in
@@ -141,18 +135,28 @@ struct MyCardsListView: View {
         }
         .navigation(
             title: LocalizationKeys.Navigation.myCards.localized,
-            mode: .large,
+            mode: .inline,
             clipMode: .rectangle,
             trailingContent: {
-                Button {
-                    showAddCardSheet = true
-                } label: {
-                    Image(systemName: "plus")
-                        .font(.headline)
-                        .foregroundStyle(colorManager.borderedProminentForegroundColor)
+                HStack(spacing: 4) {
+                    Button {
+                        showAddCardSheet = true
+                    } label: {
+                        Image(systemName: "plus")
+                            .font(.headline)
+                            .foregroundStyle(colorManager.borderedProminentForegroundColor)
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .clipShape(Capsule())
+
+                    Button {
+                        dismiss()
+                    } label: {
+                        Image(systemName: "xmark")
+                    }
+                    .buttonStyle(.bordered)
+                    .clipShape(Capsule())
                 }
-                .buttonStyle(.borderedProminent)
-                .clipShape(Capsule())
             },
             bottomContent: {
                 VStack(spacing: 8) {

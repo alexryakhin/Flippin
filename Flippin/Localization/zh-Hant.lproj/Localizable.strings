@@ -78,6 +78,10 @@
 "travelMode" = "旅行模式";
 "learningModeDescription" = "首先顯示目標語言（用於學習）";
 "travelModeDescription" = "首先顯示母語（用於旅行）";
+"previewBackgrounds" = "預覽背景";
+"cardManagement" = "卡片管理";
+"cardManagementDescription" = "搜尋、編輯和組織您的學習卡片";
+"manageCards" = "管理卡片";
 
 // MARK: - Preset Collections
 "presetCollections" = "預設集合";
@@ -400,47 +404,6 @@
 "tryToStudyDaily" = "嘗試每天學習以建立穩固的學習習慣。";
 "improveAccuracy" = "提高準確率";
 "accuracyPercentageFocusQuality" = "您的準確率為%d%%。注重品質而非速度。";
-
-// MARK: - Settings
-"previewBackgrounds" = "預覽背景";
-"subscriptionStatus" = "訂閱狀態";
-"activeSubscription" = "活躍訂閱";
-"manageSubscription" = "管理訂閱";
-"purchaseTesting" = "購買測試";
-"testInAppPurchases" = "測試應用內購買並獲取交易ID";
-"openPurchaseTest" = "開啟購買測試";
-"testPurchase" = "測試購買";
-"performTestPurchase" = "執行測試購買以獲取交易ID";
-"transactionListenerActive" = "交易監聽器活躍";
-"transactionListenerNotActive" = "交易監聽器不活躍";
-"startTestPurchase" = "開始測試購買";
-"lastTransactionId" = "最後交易ID";
-"transactionId" = "交易ID：";
-"copyToClipboard" = "複製到剪貼板";
-"copied" = "已複製！";
-"transactionIdCopied" = "交易ID已複製到剪貼板";
-"availableProducts" = "可用產品";
-"noProductsAvailable" = "無可用產品";
-"purchasedProducts" = "已購買產品";
-"noProductsPurchasedYet" = "尚未購買任何產品";
-"purchased" = "已購買";
-"transactionHistory" = "交易歷史";
-"loadTransactionHistory" = "載入交易歷史";
-"restorePurchases" = "恢復購買";
-"success" = "成功";
-"failed" = "失敗";
-"purchasesRestoredSuccessfully" = "購買恢復成功";
-"failedToRestorePurchases" = "恢復購買失敗";
-"purchaseTestingTitle" = "購買測試";
-"ok" = "確定";
-"testPurchaseCompleted" = "測試購買完成！交易ID：%@";
-"testPurchaseFailed" = "測試購買失敗：%@";
-"purchaseCompleted" = "購買完成！交易ID：%@";
-"purchaseFailed" = "購買失敗：%@";
-"unknown" = "未知";
-"unknownError" = "未知錯誤";
-"product" = "產品：%@";
-"date" = "日期：%@";
 
 // MARK: - Paywall
 "upgradeToPremiumTitle" = "升級到進階版";

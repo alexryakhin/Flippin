@@ -21,6 +21,7 @@ struct SettingsView: View {
     @State private var showingBackgroundPreview = false
     @State private var showingBackgroundDemo = false
     @State private var showingPurchaseTest = false
+    @State private var showingCardManagement = false
     @State private var premiumFeature: PremiumFeature?
 
     var body: some View {
@@ -29,6 +30,7 @@ struct SettingsView: View {
                 languagesSection
                 themeSection
                 cardDisplaySection
+                cardManagementSection
                 tagsManagementSection
                 subscriptionManagementSection
 
@@ -47,6 +49,9 @@ struct SettingsView: View {
         }
         .sheet(isPresented: $showingBackgroundDemo) {
             BackgroundDemoView()
+        }
+        .sheet(isPresented: $showingCardManagement) {
+            MyCardsListView()
         }
         .premiumAlert(feature: $premiumFeature)
         .onAppear {
@@ -265,6 +270,31 @@ struct SettingsView: View {
         }
     }
     
+    // MARK: - Card Management Section
+    private var cardManagementSection: some View {
+        CustomSectionView(
+            header: LocalizationKeys.Settings.cardManagement.localized
+        ) {
+            VStack(alignment: .leading, spacing: 12) {
+                Text(LocalizationKeys.Settings.cardManagementDescription.localized)
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                Button {
+                    showingCardManagement = true
+                } label: {
+                    Label(
+                        LocalizationKeys.Settings.manageCards.localized,
+                        systemImage: "list.bullet.rectangle"
+                    )
+                }
+                .buttonStyle(.bordered)
+                .clipShape(Capsule())
+            }
+        }
+    }
+    
     // MARK: - Tags Management Section
     private var tagsManagementSection: some View {
         CustomSectionView(
@@ -336,14 +366,14 @@ struct SettingsView: View {
     #if DEBUG
     private var purchaseTestingSection: some View {
         CustomSectionView(
-            header: LocalizationKeys.Settings.purchaseTesting.localized
+            header: "Purchase Testing"
         ) {
             VStack(alignment: .leading, spacing: 12) {
-                Text(LocalizationKeys.Settings.testInAppPurchases.localized)
+                Text("Test in-app purchases and get transaction IDs")
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
 
-                Button(LocalizationKeys.Settings.openPurchaseTest.localized) {
+                Button("Open Purchase Test") {
                     showingPurchaseTest = true
                 }
                 .buttonStyle(.bordered)

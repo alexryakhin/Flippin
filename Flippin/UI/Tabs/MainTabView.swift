@@ -2,19 +2,17 @@ import SwiftUI
 
 /**
  Main TabView for the Flippin app.
- Provides modern tab-based navigation with 5 main sections.
+ Provides modern tab-based navigation with 4 main sections.
  */
 struct MainTabView: View {
 
     enum Tab: Int, CaseIterable {
-        case stack, list, practice, analytics, settings
+        case study, practice, analytics, settings
 
         var title: String {
             switch self {
-            case .stack:
-                return LocalizationKeys.Navigation.stack.localized
-            case .list:
-                return LocalizationKeys.Navigation.list.localized
+            case .study:
+                return LocalizationKeys.Navigation.study.localized
             case .practice:
                 return LocalizationKeys.Navigation.practice.localized
             case .analytics:
@@ -26,10 +24,8 @@ struct MainTabView: View {
 
         var image: Image {
             switch self {
-            case .stack:
+            case .study:
                 Image(.icCardStack)
-            case .list:
-                Image(systemName: "list.bullet.rectangle")
             case .practice:
                 Image(systemName: "book")
             case .analytics:
@@ -41,10 +37,8 @@ struct MainTabView: View {
 
         var imageSelected: Image {
             switch self {
-            case .stack:
+            case .study:
                 Image(.icCardStackFill)
-            case .list:
-                Image(systemName: "list.bullet.rectangle.fill")
             case .practice:
                 Image(systemName: "book.fill")
             case .analytics:
@@ -53,8 +47,6 @@ struct MainTabView: View {
                 Image(systemName: "gearshape.fill")
             }
         }
-
-        static let allCasesIfEmpty: [Tab] = [.stack, .practice, .analytics, .settings]
     }
 
     // MARK: - State Objects
@@ -82,10 +74,8 @@ struct MainTabView: View {
             AnimatedBackground(style: colorManager.backgroundStyle)
             VStack {
                 switch navigationManager.selectedTab {
-                case .stack:
+                case .study:
                     CardStackTab.ContentView()
-                case .list:
-                    MyCardsListView()
                 case .practice:
                     PracticeTab.ContentView()
                 case .analytics:
@@ -123,7 +113,7 @@ struct MainTabView: View {
 
     private var tabBarView: some View {
         HStack {
-            ForEach(cardsProvider.cards.isEmpty ? Tab.allCasesIfEmpty : Tab.allCases, id: \.self) { tab in
+            ForEach(Tab.allCases, id: \.self) { tab in
                 TabButton(
                     title: tab.title,
                     image: tab.image,

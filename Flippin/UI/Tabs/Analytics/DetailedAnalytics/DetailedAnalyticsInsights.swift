@@ -139,7 +139,7 @@ extension DetailedAnalytics {
             case .studyNow:
                 onDismiss()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
-                    navigationManager.switchToTab(.stack)
+                    navigationManager.switchToTab(.study)
                 })
             case .startReview:
                 tagManager.isDifficultFilterOn = true
@@ -147,7 +147,7 @@ extension DetailedAnalytics {
                 tagManager.isFavoriteFilterOn = false
                 onDismiss()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
-                    navigationManager.switchToTab(.stack)
+                    navigationManager.switchToTab(.study)
                 })
             case .browseCollections:
                 showingPresetCollections = true
