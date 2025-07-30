@@ -14,6 +14,7 @@ import TipKit
 @main
 struct FlippinApp: App {
     @Environment(\.colorScheme) var colorScheme
+    @Environment(\.scenePhase) var scenePhase
     @StateObject private var coreDataService = CoreDataService.shared
     @StateObject private var cardsProvider = CardsProvider.shared
     @StateObject private var languageManager = LanguageManager.shared
@@ -40,6 +41,18 @@ struct FlippinApp: App {
                 .task {
                     // Ensure purchase status is properly loaded at startup
                     await ensurePurchaseStatusLoaded()
+                }
+                .onChange(of: scenePhase) { _, newPhase in
+                    switch newPhase {
+                    case .background:
+                        AnalyticsService.trackEvent(.appBackgrounded)
+                    case .active:
+                        AnalyticsService.trackEvent(.appForegrounded)
+                    case .inactive:
+                        break
+                    @unknown default:
+                        break
+                    }
                 }
         }
     }

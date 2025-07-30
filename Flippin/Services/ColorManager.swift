@@ -86,6 +86,9 @@ final class ColorManager: ObservableObject {
                 userColor = rgbaColor.color
                 tintColor = adjustedTintColor()
                 foregroundColor = adjustedForegroundColor()
+                
+                // Track background color change
+                AnalyticsService.trackEvent(.backgroundColorChanged)
             }
             .store(in: &cancellables)
 

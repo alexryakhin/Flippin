@@ -103,16 +103,18 @@ enum Paywall {
                     // Footer with links
                     VStack(spacing: 8) {
                         Text(LocalizationKeys.Paywall.cancelAnytime.localized)
-                            .font(.system(size: 12, weight: .regular, design: .rounded))
-                            .foregroundColor(.secondary)
 
-                        HStack(spacing: 20) {
-                            Link(LocalizationKeys.Paywall.terms.localized, destination: URL(string: "https://example.com/terms")!)
-                            Link(LocalizationKeys.Paywall.privacy.localized, destination: URL(string: "https://example.com/privacy")!)
-                        }
-                        .font(.system(size: 12, weight: .regular, design: .rounded))
-                        .foregroundColor(.secondary.opacity(0.8))
+                        Link(
+                            LocalizationKeys.AboutApp.termsOfService.localized,
+                            destination: URL(string: "https://www.flippin.app/terms-of-use")!
+                        )
+                        Link(
+                            LocalizationKeys.AboutApp.privacyPolicy.localized,
+                            destination: URL(string: "https://www.flippin.app/privacy-policy")!
+                        )
                     }
+                    .font(.system(size: 12, weight: .regular, design: .rounded))
+                    .foregroundStyle(.secondary)
                     .padding(.bottom, 20)
                 }
                 .multilineTextAlignment(.center)

@@ -46,6 +46,7 @@ final class PurchaseService: ObservableObject {
             print("📦 Loaded \(products.count) products")
         } catch {
             print("❌ Failed to load products: \(error)")
+            AnalyticsService.trackErrorEvent(.errorOccurred, errorMessage: error.localizedDescription, errorCode: "load_products_failed")
         }
     }
 

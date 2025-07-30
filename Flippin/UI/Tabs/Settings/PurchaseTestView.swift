@@ -29,6 +29,7 @@ struct PurchaseTestView: View {
                     
                     Button {
                         HapticService.shared.buttonTapped()
+                        AnalyticsService.trackEvent(.purchaseTestOpened)
                         performTestPurchase()
                     } label: {
                         HStack {

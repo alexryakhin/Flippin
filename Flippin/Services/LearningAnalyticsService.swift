@@ -352,8 +352,17 @@ final class LearningAnalyticsService: ObservableObject {
                 }
             }
 
+            let oldStreak = studyStreak
             studyStreak = consecutiveDays
             print("📊 Study streak calculated: \(consecutiveDays) days")
+            
+            // Track study streak extended if it increased
+            if studyStreak > oldStreak {
+                AnalyticsService.trackEvent(.studyStreakExtended, parameters: [
+                    "new_streak": studyStreak,
+                    "previous_streak": oldStreak
+                ])
+            }
         } catch {
             print("❌ Failed to calculate study streak: \(error)")
         }
@@ -447,7 +456,17 @@ final class LearningAnalyticsService: ObservableObject {
         }
         
         // Ensure mastery stays within bounds
+        let oldMasteryLevel = performance.masteryLevel
         performance.masteryLevel = max(0, min(100, mastery))
+        
+        // Track mastery level reached if it increased significantly
+        if performance.masteryLevel >= 80 && oldMasteryLevel < 80 {
+            AnalyticsService.trackEvent(.masteryLevelReached, parameters: [
+                "card_id": performance.cardId ?? "unknown",
+                "mastery_level": performance.masteryLevel,
+                "accuracy_rate": performance.accuracyRate
+            ])
+        }
     }
 
     /// Update average response time for a card
@@ -607,8 +626,17 @@ final class LearningAnalyticsService: ObservableObject {
                     }
                 }
 
+                let oldStreak = studyStreak
                 studyStreak = consecutiveDays
                 print("📊 Study streak calculated with current stats: \(consecutiveDays) days")
+                
+                // Track study streak extended if it increased
+                if studyStreak > oldStreak {
+                    AnalyticsService.trackEvent(.studyStreakExtended, parameters: [
+                        "new_streak": studyStreak,
+                        "previous_streak": oldStreak
+                    ])
+                }
             } catch {
                 print("❌ Failed to calculate streak with current stats: \(error)")
             }

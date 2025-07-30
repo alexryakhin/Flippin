@@ -283,6 +283,9 @@ struct SettingsView: View {
                 }
                 .pickerStyle(.segmented)
                 .padding(.top, 8)
+                .onChange(of: isTravelMode) { _, newValue in
+                    AnalyticsService.trackEvent(.travelModeToggled)
+                }
             }
         }
     }

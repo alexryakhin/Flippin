@@ -60,6 +60,7 @@ public class CoreDataService: ObservableObject {
                 print("☁️ Triggered CloudKit sync check")
             } catch {
                 print("❌ Failed to trigger CloudKit sync: \(error)")
+                AnalyticsService.trackErrorEvent(.errorOccurred, errorMessage: error.localizedDescription, errorCode: "cloudkit_sync_failed")
             }
         }
     }
