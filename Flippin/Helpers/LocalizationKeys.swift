@@ -45,6 +45,9 @@ enum LocalizationKeys {
         static let finalFeatureAdd = "finalFeatureAdd"
         static let finalFeaturePractice = "finalFeaturePractice"
         static let finalFeatureProgress = "finalFeatureProgress"
+        static let finalFeatureModes = "finalFeatureModes"
+        static let featureAnalytics = "featureAnalytics"
+        static let featureAnalyticsDesc = "featureAnalyticsDesc"
     }
     
     // MARK: - Card
@@ -216,6 +219,8 @@ enum LocalizationKeys {
         static let premiumBackgroundsDescription = "premiumBackgroundsDescription"
         static let changeLanguages = "changeLanguages"
         static let changeLanguagesDescription = "changeLanguagesDescription"
+        static let multipleLanguagesTitle = "multipleLanguagesTitle"
+        static let multipleLanguagesDescription = "multipleLanguagesDescription"
         static let restorePurchases = "restorePurchases"
         static let cancelAnytime = "cancelAnytime"
         static let terms = "terms"

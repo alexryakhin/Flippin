@@ -16,72 +16,83 @@ extension WelcomeSheet {
         let onContinue: () -> Void
 
         var body: some View {
-            VStack(spacing: 0) {
-                Spacer()
-
-                // App icon and title
+            ScrollView {
                 VStack(spacing: 24) {
-                    // Animated app icon
-                    Image(.iconRounded)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 144, height: 144)
-                        .foregroundColor(.white)
-                        .scaleEffect(animateContent ? 1 : 0.8)
-                        .opacity(animateContent ? 1 : 0)
-                        .animation(.easeInOut(duration: 0.5).delay(0.2), value: animateContent)
-
-                    VStack(spacing: 16) {
-                        Text(title)
-                            .font(.system(size: 32, weight: .bold, design: .rounded))
-                            .multilineTextAlignment(.center)
-                            .offset(y: animateContent ? 0 : 20)
+                    Spacer()
+                    // App icon and title
+                    VStack(spacing: 24) {
+                        // Animated app icon
+                        Image(.iconRounded)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 144, height: 144)
+                            .foregroundColor(.white)
+                            .scaleEffect(animateContent ? 1 : 0.8)
                             .opacity(animateContent ? 1 : 0)
+                            .animation(.easeInOut(duration: 0.5).delay(0.2), value: animateContent)
 
-                        Text(message)
-                            .font(.body)
-                            .foregroundColor(.secondary)
-                            .multilineTextAlignment(.center)
-                            .lineLimit(nil)
-                            .offset(y: animateContent ? 0 : 20)
-                            .opacity(animateContent ? 1 : 0)
+                        VStack(spacing: 16) {
+                            Text(title)
+                                .font(.system(size: 32, weight: .bold, design: .rounded))
+                                .multilineTextAlignment(.center)
+                                .offset(y: animateContent ? 0 : 20)
+                                .opacity(animateContent ? 1 : 0)
+
+                            Text(message)
+                                .font(.body)
+                                .foregroundColor(.secondary)
+                                .multilineTextAlignment(.center)
+                                .lineLimit(nil)
+                                .offset(y: animateContent ? 0 : 20)
+                                .opacity(animateContent ? 1 : 0)
+                        }
+                        .animation(.easeInOut(duration: 0.5).delay(0.4), value: animateContent)
                     }
-                    .animation(.easeInOut(duration: 0.5).delay(0.4), value: animateContent)
+
+                    // Feature highlights
+                    VStack(spacing: 20) {
+                        FeatureRow(
+                            icon: "translate",
+                            title: LocalizationKeys.Welcome.featureLearning.localized,
+                            description: LocalizationKeys.Welcome.featureLearningDesc.localized,
+                            animateContent: animateContent,
+                            delay: 0.7
+                        )
+
+                        FeatureRow(
+                            icon: "globe",
+                            title: LocalizationKeys.Welcome.featureLanguages.localized,
+                            description: LocalizationKeys.Welcome.featureLanguagesDesc.localized,
+                            animateContent: animateContent,
+                            delay: 0.9
+                        )
+
+                        FeatureRow(
+                            icon: "speaker.wave.2.bubble.fill",
+                            title: LocalizationKeys.Welcome.featureSmart.localized,
+                            description: LocalizationKeys.Welcome.featureSmartDesc.localized,
+                            animateContent: animateContent,
+                            delay: 1.1
+                        )
+
+                        FeatureRow(
+                            icon: "chart.line.uptrend.xyaxis",
+                            title: LocalizationKeys.Welcome.featureAnalytics.localized,
+                            description: LocalizationKeys.Welcome.featureAnalyticsDesc.localized,
+                            animateContent: animateContent,
+                            delay: 1.3
+                        )
+                    }
+                    .padding(.horizontal, 20)
                 }
-
-                Spacer()
-
-                // Feature highlights
-                VStack(spacing: 20) {
-                    FeatureRow(
-                        icon: "translate",
-                        title: LocalizationKeys.Welcome.featureLearning.localized,
-                        description: LocalizationKeys.Welcome.featureLearningDesc.localized,
-                        animateContent: animateContent,
-                        delay: 0.7
-                    )
-
-                    FeatureRow(
-                        icon: "globe",
-                        title: LocalizationKeys.Welcome.featureLanguages.localized,
-                        description: LocalizationKeys.Welcome.featureLanguagesDesc.localized,
-                        animateContent: animateContent,
-                        delay: 0.9
-                    )
-
-                    FeatureRow(
-                        icon: "speaker.wave.2.bubble.fill",
-                        title: LocalizationKeys.Welcome.featureSmart.localized,
-                        description: LocalizationKeys.Welcome.featureSmartDesc.localized,
-                        animateContent: animateContent,
-                        delay: 1.1
-                    )
+                .padding(vertical: 12, horizontal: 16)
+                .onAppear {
+                    withAnimation(.easeInOut(duration: 0.6).delay(0.1)) {
+                        animateContent = true
+                    }
                 }
-                .padding(.horizontal, 20)
-
-                Spacer()
-
-                // Navigation button
+            }
+            .safeAreaInset(edge: .bottom) {
                 NavigationLink(
                     destination: LanguageSelectionStepView(onContinue: onContinue)
                 ) {
@@ -93,12 +104,11 @@ extension WelcomeSheet {
                 .foregroundStyle(colorManager.borderedProminentForegroundColor)
                 .buttonStyle(.borderedProminent)
                 .clipShape(Capsule())
+                .padding(vertical: 12, horizontal: 16)
             }
-            .padding(vertical: 12, horizontal: 16)
-            .onAppear {
-                withAnimation(.easeInOut(duration: 0.6).delay(0.1)) {
-                    animateContent = true
-                }
+            .background {
+                AnimatedBackground()
+                    .ignoresSafeArea()
             }
         }
     }

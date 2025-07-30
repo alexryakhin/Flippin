@@ -15,7 +15,7 @@
 
 // MARK: - Welcome Screen
 "welcomeScreenTitle" = "Ласкаво просимо до Flippin!";
-"welcomeScreenMessage" = "Flippin допомагає вам вивчати мови для подорожей, навчання або щоденних розмов за допомогою розумних карток. Виберіть свою рідну мову та мову, яку ви хочете оволодіти.";
+"welcomeScreenMessage" = "Flippin допомагає вам вивчати мови для подорожей, навчання або щоденних розмов за допомогою розумних карток.";
 "myLanguage" = "Моя мова";
 "myLanguageDesc" = "Ваша рідна мова";
 "imLearning" = "Я вивчаю";
@@ -31,11 +31,14 @@
 "featureLearningDesc" = "Переклад у реальному часі під час введення";
 "featureLanguages" = "18 Мов";
 "featureLanguagesDesc" = "Підтримка основних мов світу";
-"featureSmart" = "Перетворення Тексту в Мовлення";
+"featureSmart" = "Перетворення тексту в мову";
 "featureSmartDesc" = "Слухайте вимову з технологією TTS";
+"featureAnalytics" = "Аналітика навчання";
+"featureAnalyticsDesc" = "Відстежуйте свій прогрес і отримуйте персоналізовані інсайти";
 "finalFeatureAdd" = "Створюйте власні картки";
-"finalFeaturePractice" = "Практикуйтеся з аудіо вимовою";
-"finalFeatureProgress" = "Організовуйте за допомогою тегів та улюблених";
+"finalFeaturePractice" = "Практикуйтесь з аудіо вимовою";
+"finalFeatureProgress" = "Організовуйте з тегами та улюбленими";
+"finalFeatureModes" = "Декілька режимів практики";
 
 // MARK: - Content Views
 "noCardsYet" = "Поки що немає карток";
@@ -164,6 +167,8 @@
 "premiumBackgroundsDescription" = "Красиві анімовані фони";
 "changeLanguages" = "Змінити Мови";
 "changeLanguagesDescription" = "Перемикайтеся між різними мовними парами в будь-який час";
+"multipleLanguagesTitle" = "Декілька Мов";
+"multipleLanguagesDescription" = "Можливість вивчати кілька мов одночасно";
 "restorePurchases" = "Відновити Покупки";
 "cancelAnytime" = "Скасувати в будь-який час • Без зобов’язань";
 "terms" = "Умови";

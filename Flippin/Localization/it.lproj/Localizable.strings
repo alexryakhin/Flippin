@@ -15,7 +15,7 @@
 
 // MARK: - Welcome Screen
 "welcomeScreenTitle" = "Benvenuto su Flippin!";
-"welcomeScreenMessage" = "Flippin ti aiuta ad imparare lingue per viaggi, studio o conversazione quotidiana usando carte intelligenti. Seleziona la tua lingua madre e la lingua che vuoi padroneggiare.";
+"welcomeScreenMessage" = "Flippin ti aiuta ad imparare lingue per viaggi, studio o conversazione quotidiana usando carte intelligenti.";
 "myLanguage" = "La mia lingua";
 "myLanguageDesc" = "La tua lingua madre";
 "imLearning" = "Sto imparando";
@@ -32,10 +32,13 @@
 "featureLanguages" = "18 Lingue";
 "featureLanguagesDesc" = "Supporto per le principali lingue del mondo";
 "featureSmart" = "Sintesi Vocale";
-"featureSmartDesc" = "Ascolta la pronuncia con tecnologia TTS";
-"finalFeatureAdd" = "Crea carte personalizzate";
+"featureSmartDesc" = "Ascolta la pronuncia con la tecnologia TTS";
+"featureAnalytics" = "Analisi di Apprendimento";
+"featureAnalyticsDesc" = "Traccia i tuoi progressi con approfondimenti dettagliati";
+"finalFeatureAdd" = "Crea flashcard personalizzate";
 "finalFeaturePractice" = "Pratica con pronuncia audio";
 "finalFeatureProgress" = "Organizza con tag e preferiti";
+"finalFeatureModes" = "Modalità di pratica multiple";
 
 // MARK: - Content Views
 "noCardsYet" = "Nessuna carta ancora";
@@ -164,6 +167,8 @@
 "premiumBackgroundsDescription" = "Bellissimi sfondi animati";
 "changeLanguages" = "Cambia Lingue";
 "changeLanguagesDescription" = "Passa tra diverse coppie di lingue in qualsiasi momento";
+"multipleLanguagesTitle" = "Lingue Multiple";
+"multipleLanguagesDescription" = "Capacità di imparare più lingue contemporaneamente";
 "restorePurchases" = "Ripristina Acquisti";
 "cancelAnytime" = "Cancella in qualsiasi momento • Nessun impegno";
 "terms" = "Termini";

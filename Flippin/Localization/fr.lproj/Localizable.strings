@@ -15,7 +15,7 @@
 
 // MARK: - Welcome Screen
 "welcomeScreenTitle" = "Bienvenue sur Flippin !";
-"welcomeScreenMessage" = "Flippin vous aide à apprendre des langues pour voyager, étudier ou converser au quotidien en utilisant des cartes intelligentes. Sélectionnez votre langue maternelle et la langue que vous voulez maîtriser.";
+"welcomeScreenMessage" = "Flippin vous aide à apprendre des langues pour voyager, étudier ou converser au quotidien en utilisant des cartes intelligentes.";
 "myLanguage" = "Ma langue";
 "myLanguageDesc" = "Votre langue maternelle";
 "imLearning" = "J'apprends";
@@ -33,9 +33,12 @@
 "featureLanguagesDesc" = "Support pour les principales langues du monde";
 "featureSmart" = "Synthèse Vocale";
 "featureSmartDesc" = "Écoutez la prononciation avec la technologie TTS";
-"finalFeatureAdd" = "Créez des cartes personnalisées";
+"featureAnalytics" = "Analyses d'Apprentissage";
+"featureAnalyticsDesc" = "Suivez vos progrès avec des insights détaillés";
+"finalFeatureAdd" = "Créer des cartes personnalisées";
 "finalFeaturePractice" = "Pratiquez avec la prononciation audio";
 "finalFeatureProgress" = "Organisez avec des étiquettes et favoris";
+"finalFeatureModes" = "Modes de pratique multiples";
 
 // MARK: - Content Views
 "noCardsYet" = "Aucune carte pour le moment";
@@ -164,6 +167,8 @@
 "premiumBackgroundsDescription" = "De beaux arrière-plans animés";
 "changeLanguages" = "Changer de Langues";
 "changeLanguagesDescription" = "Changez entre différentes paires de langues à tout moment";
+"multipleLanguagesTitle" = "Langues Multiples";
+"multipleLanguagesDescription" = "Capacité d'apprendre plusieurs langues en même temps";
 "restorePurchases" = "Restaurer les Achats";
 "cancelAnytime" = "Annulez à tout moment • Aucun engagement";
 "terms" = "Conditions";

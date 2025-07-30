@@ -15,7 +15,7 @@
 
 // MARK: - Welcome Screen
 "welcomeScreenTitle" = "Flippin में आपका स्वागत है!";
-"welcomeScreenMessage" = "Flippin आपको यात्रा, अध्ययन या दैनिक बातचीत के लिए स्मार्ट फ्लैशकार्ड का उपयोग करके भाषाएं सीखने में मदद करता है। अपनी मातृभाषा और जिस भाषा को आप महारत हासिल करना चाहते हैं उसे चुनें।";
+"welcomeScreenMessage" = "Flippin आपको यात्रा, अध्ययन या दैनिक बातचीत के लिए स्मार्ट फ्लैशकार्ड का उपयोग करके भाषाएं सीखने में मदद करता है।";
 "myLanguage" = "मेरी भाषा";
 "myLanguageDesc" = "आपकी मातृभाषा";
 "imLearning" = "मैं सीख रहा हूं";
@@ -33,9 +33,12 @@
 "featureLanguagesDesc" = "प्रमुख विश्व भाषाओं का समर्थन";
 "featureSmart" = "टेक्स्ट-टू-स्पीच";
 "featureSmartDesc" = "TTS तकनीक के साथ उच्चारण सुनें";
+"featureAnalytics" = "सीखने का विश्लेषण";
+"featureAnalyticsDesc" = "विस्तृत अंतर्दृष्टि के साथ अपनी प्रगति को ट्रैक करें";
 "finalFeatureAdd" = "कस्टम फ्लैशकार्ड बनाएं";
 "finalFeaturePractice" = "ऑडियो उच्चारण के साथ अभ्यास करें";
 "finalFeatureProgress" = "टैग और पसंदीदा के साथ व्यवस्थित करें";
+"finalFeatureModes" = "एकाधिक अभ्यास मोड";
 
 // MARK: - Content Views
 "noCardsYet" = "अभी तक कोई कार्ड नहीं";
@@ -164,6 +167,8 @@
 "premiumBackgroundsDescription" = "सुंदर एनिमेटेड पृष्ठभूमि";
 "changeLanguages" = "भाषाएं बदलें";
 "changeLanguagesDescription" = "किसी भी समय विभिन्न भाषा जोड़ों के बीच स्विच करें";
+"multipleLanguagesTitle" = "एकाधिक भाषाएँ";
+"multipleLanguagesDescription" = "एक ही समय में कई भाषाएँ सीखने की क्षमता";
 "restorePurchases" = "खरीदारी पुनर्स्थापित करें";
 "cancelAnytime" = "किसी भी समय रद्द करें • कोई प्रतिबद्धता नहीं";
 "terms" = "शर्तें";

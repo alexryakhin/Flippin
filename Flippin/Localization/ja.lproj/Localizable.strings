@@ -15,7 +15,7 @@
 
 // MARK: - Welcome Screen
 "welcomeScreenTitle" = "Flippinへようこそ！";
-"welcomeScreenMessage" = "Flippinは旅行、勉強、日常会話のためにスマートフラッシュカードを使って言語を学ぶのに役立ちます。母国語と習得したい言語を選択してください。";
+"welcomeScreenMessage" = "Flippinは旅行、勉強、日常会話のためにスマートフラッシュカードを使って言語を学ぶのに役立ちます。";
 "myLanguage" = "私の言語";
 "myLanguageDesc" = "あなたの母国語";
 "imLearning" = "学習中";
@@ -33,9 +33,12 @@
 "featureLanguagesDesc" = "世界の主要言語をサポート";
 "featureSmart" = "テキスト読み上げ";
 "featureSmartDesc" = "TTS技術で発音を聞く";
+"featureAnalytics" = "学習分析";
+"featureAnalyticsDesc" = "詳細な洞察で進捗を追跡";
 "finalFeatureAdd" = "カスタムフラッシュカードを作成";
 "finalFeaturePractice" = "音声発音で練習";
 "finalFeatureProgress" = "タグとお気に入りで整理";
+"finalFeatureModes" = "複数の練習モード";
 
 // MARK: - Content Views
 "noCardsYet" = "まだカードがありません";
@@ -164,6 +167,8 @@
 "premiumBackgroundsDescription" = "美しいアニメーション背景";
 "changeLanguages" = "言語変更";
 "changeLanguagesDescription" = "いつでも異なる言語ペアを切り替え";
+"multipleLanguagesTitle" = "複数言語";
+"multipleLanguagesDescription" = "複数の言語を同時に学習する能力";
 "restorePurchases" = "購入を復元";
 "cancelAnytime" = "いつでもキャンセル可能 • 契約なし";
 "terms" = "利用規約";

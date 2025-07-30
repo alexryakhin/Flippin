@@ -15,7 +15,7 @@
 
 // MARK: - Welcome Screen
 "welcomeScreenTitle" = "¡Bienvenido a Flippin!";
-"welcomeScreenMessage" = "Flippin te ayuda a aprender idiomas para viajes, estudio o conversación diaria usando tarjetas inteligentes. Selecciona tu idioma nativo y el idioma que quieres dominar.";
+"welcomeScreenMessage" = "Flippin te ayuda a aprender idiomas para viajes, estudio o conversación diaria usando tarjetas inteligentes.";
 "myLanguage" = "Mi idioma";
 "myLanguageDesc" = "Tu idioma nativo";
 "imLearning" = "Estoy aprendiendo";
@@ -33,9 +33,12 @@
 "featureLanguagesDesc" = "Soporte para idiomas principales del mundo";
 "featureSmart" = "Texto a Voz";
 "featureSmartDesc" = "Escucha la pronunciación con tecnología TTS";
-"finalFeatureAdd" = "Crea tarjetas personalizadas";
+"featureAnalytics" = "Análisis de Aprendizaje";
+"featureAnalyticsDesc" = "Rastrea tu progreso con insights detallados";
+"finalFeatureAdd" = "Crear tarjetas personalizadas";
 "finalFeaturePractice" = "Practica con pronunciación de audio";
 "finalFeatureProgress" = "Organiza con etiquetas y favoritos";
+"finalFeatureModes" = "Múltiples modos de práctica";
 
 // MARK: - Content Views
 "noCardsYet" = "Aún no hay tarjetas";
@@ -164,6 +167,8 @@
 "premiumBackgroundsDescription" = "Hermosos fondos animados";
 "changeLanguages" = "Cambiar Idiomas";
 "changeLanguagesDescription" = "Cambia entre diferentes pares de idiomas en cualquier momento";
+"multipleLanguagesTitle" = "Múltiples Idiomas";
+"multipleLanguagesDescription" = "Capacidad de aprender múltiples idiomas al mismo tiempo";
 "restorePurchases" = "Restaurar Compras";
 "cancelAnytime" = "Cancela en cualquier momento • Sin compromiso";
 "terms" = "Términos";

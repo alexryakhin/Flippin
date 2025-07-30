@@ -15,7 +15,7 @@
 
 // MARK: - Welcome Screen
 "welcomeScreenTitle" = "Välkommen till Flippin!";
-"welcomeScreenMessage" = "Flippin hjälper dig att lära dig språk för resor, studier eller vardagliga konversationer med smarta flashcards. Välj ditt modersmål och språket du vill bemästra.";
+"welcomeScreenMessage" = "Flippin hjälper dig att lära dig språk för resor, studier eller vardagliga konversationer med smarta flashcards.";
 "myLanguage" = "Mitt språk";
 "myLanguageDesc" = "Ditt modersmål";
 "imLearning" = "Jag lär mig";
@@ -31,11 +31,14 @@
 "featureLearningDesc" = "Realtidsöversättning medan du skriver";
 "featureLanguages" = "18 Språk";
 "featureLanguagesDesc" = "Stöd för världens huvudspråk";
-"featureSmart" = "Text till Tal";
+"featureSmart" = "Text-till-tal";
 "featureSmartDesc" = "Lyssna på uttal med TTS-teknik";
+"featureAnalytics" = "Lärandeanalys";
+"featureAnalyticsDesc" = "Spåra din framsteg och få personliga insikter";
 "finalFeatureAdd" = "Skapa anpassade flashcards";
 "finalFeaturePractice" = "Öva med ljuduttal";
 "finalFeatureProgress" = "Organisera med taggar och favoriter";
+"finalFeatureModes" = "Flera övningslägen";
 
 // MARK: - Content Views
 "noCardsYet" = "Inga kort ännu";
@@ -164,6 +167,8 @@
 "premiumBackgroundsDescription" = "Vackra animerade bakgrunder";
 "changeLanguages" = "Ändra Språk";
 "changeLanguagesDescription" = "Byt mellan olika språkpar när som helst";
+"multipleLanguagesTitle" = "Flera Språk";
+"multipleLanguagesDescription" = "Möjlighet att lära sig flera språk samtidigt";
 "restorePurchases" = "Återställ Köp";
 "cancelAnytime" = "Avbryt när som helst • Inget åtagande";
 "terms" = "Villkor";

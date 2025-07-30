@@ -15,7 +15,7 @@
 
 // MARK: - Welcome Screen
 "welcomeScreenTitle" = "Добро пожаловать в Flippin!";
-"welcomeScreenMessage" = "Flippin помогает вам изучать языки для путешествий, учебы или повседневного общения с помощью умных карточек. Выберите свой родной язык и язык, который вы хотите освоить.";
+"welcomeScreenMessage" = "Flippin помогает вам изучать языки для путешествий, учебы или повседневного общения с помощью умных карточек.";
 "myLanguage" = "Мой язык";
 "myLanguageDesc" = "Ваш родной язык";
 "imLearning" = "Я изучаю";
@@ -31,11 +31,14 @@
 "featureLearningDesc" = "Перевод в реальном времени при вводе";
 "featureLanguages" = "18 языков";
 "featureLanguagesDesc" = "Поддержка основных языков мира";
-"featureSmart" = "Преобразование текста в речь";
-"featureSmartDesc" = "Слушайте произношение с технологией TTS";
+"featureSmart" = "Синтез речи";
+"featureSmartDesc" = "Слушайте произношение с помощью технологии TTS";
+"featureAnalytics" = "Аналитика обучения";
+"featureAnalyticsDesc" = "Отслеживайте свой прогресс с подробными инсайтами";
 "finalFeatureAdd" = "Создавайте пользовательские карточки";
 "finalFeaturePractice" = "Практикуйтесь с аудио произношением";
-"finalFeatureProgress" = "Организуйте с помощью тегов и избранного";
+"finalFeatureProgress" = "Организуйте с тегами и избранным";
+"finalFeatureModes" = "Множественные режимы практики";
 
 // MARK: - Content Views
 "noCardsYet" = "Пока нет карточек";
@@ -85,7 +88,7 @@
 
 // MARK: - Preset Collections
 "presetCollections" = "Предустановленные коллекции";
-"seeAllCollections" = "Посмотреть все";
+"seeAllCollections" = "Все";
 "importCollection" = "Импортировать коллекцию";
 "importButton" = "Импортировать";
 "importCollectionMessage" = "Импортировать %@ с %d карточками в вашу коллекцию?";
@@ -164,6 +167,8 @@
 "premiumBackgroundsDescription" = "Красивые анимированные фоны";
 "changeLanguages" = "Изменение языков";
 "changeLanguagesDescription" = "Переключайтесь между различными языковыми парами в любое время";
+"multipleLanguagesTitle" = "Множественные языки";
+"multipleLanguagesDescription" = "Возможность изучать несколько языков одновременно";
 "restorePurchases" = "Восстановить покупки";
 "cancelAnytime" = "Отменить в любое время • Без обязательств";
 "terms" = "Условия";

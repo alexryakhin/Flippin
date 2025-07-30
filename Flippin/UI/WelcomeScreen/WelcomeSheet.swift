@@ -17,17 +17,11 @@ enum WelcomeSheet {
 
         var body: some View {
             NavigationView {
-                ZStack {
-                    // Animated background
-                    AnimatedBackground()
-                        .ignoresSafeArea()
-
-                    WelcomeStepView(
-                        title: LocalizationKeys.Welcome.welcomeScreenTitle.localized,
-                        message: LocalizationKeys.Welcome.welcomeScreenMessage.localized,
-                        onContinue: onContinue
-                    )
-                }
+                WelcomeStepView(
+                    title: LocalizationKeys.Welcome.welcomeScreenTitle.localized,
+                    message: LocalizationKeys.Welcome.welcomeScreenMessage.localized,
+                    onContinue: onContinue
+                )
                 .navigationBarHidden(true)
             }
             .onAppear {

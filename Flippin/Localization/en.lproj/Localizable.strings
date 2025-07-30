@@ -15,7 +15,7 @@
 
 // MARK: - Welcome Screen
 "welcomeScreenTitle" = "Welcome to Flippin!";
-"welcomeScreenMessage" = "Flippin helps you learn languages for travel, study, or daily conversation using smart flashcards. Select your native language and the language you want to master.";
+"welcomeScreenMessage" = "Flippin helps you learn languages for travel, study, or daily conversation using smart flashcards.";
 "myLanguage" = "My language";
 "myLanguageDesc" = "Your native language";
 "imLearning" = "I'm learning";
@@ -33,9 +33,12 @@
 "featureLanguagesDesc" = "Support for major world languages";
 "featureSmart" = "Text-to-Speech";
 "featureSmartDesc" = "Hear pronunciation with TTS technology";
+"featureAnalytics" = "Learning Analytics";
+"featureAnalyticsDesc" = "Track your progress with detailed insights";
 "finalFeatureAdd" = "Create custom flashcards";
 "finalFeaturePractice" = "Practice with audio pronunciation";
 "finalFeatureProgress" = "Organize with tags and favorites";
+"finalFeatureModes" = "Multiple practice modes";
 
 // MARK: - Content Views
 "noCardsYet" = "No cards yet";
@@ -164,6 +167,8 @@
 "premiumBackgroundsDescription" = "Beautiful animated backgrounds";
 "changeLanguages" = "Change Languages";
 "changeLanguagesDescription" = "Switch between different language pairs anytime";
+"multipleLanguagesTitle" = "Multiple Languages";
+"multipleLanguagesDescription" = "Ability to learn multiple languages at the same time";
 "restorePurchases" = "Restore Purchases";
 "cancelAnytime" = "Cancel anytime • No commitment";
 "terms" = "Terms";

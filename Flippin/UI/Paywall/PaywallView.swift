@@ -169,7 +169,8 @@ enum Paywall {
                 FeatureModel(icon: "infinity", title: LocalizationKeys.Paywall.unlimitedCards.localized, description: LocalizationKeys.Paywall.unlimitedCardsDescription.localized),
                 FeatureModel(icon: "folder.fill", title: LocalizationKeys.Paywall.collections.localized, description: LocalizationKeys.Paywall.collectionsDescription.localized),
                 FeatureModel(icon: "sparkles", title: LocalizationKeys.Paywall.premiumBackgrounds.localized, description: LocalizationKeys.Paywall.premiumBackgroundsDescription.localized),
-                FeatureModel(icon: "globe", title: LocalizationKeys.Paywall.changeLanguages.localized, description: LocalizationKeys.Paywall.changeLanguagesDescription.localized)
+                FeatureModel(icon: "globe", title: LocalizationKeys.Paywall.multipleLanguagesTitle.localized, description: LocalizationKeys.Paywall.multipleLanguagesDescription.localized),
+                FeatureModel(icon: "chart.line.uptrend.xyaxis", title: LocalizationKeys.Paywall.advancedAnalyticsTitle.localized, description: LocalizationKeys.Paywall.advancedAnalyticsMessage.localized)
             ]
         }
     }

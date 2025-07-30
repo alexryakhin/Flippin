@@ -15,7 +15,7 @@
 
 // MARK: - Welcome Screen
 "welcomeScreenTitle" = "Chào mừng đến với Flippin!";
-"welcomeScreenMessage" = "Flippin giúp bạn học ngôn ngữ cho du lịch, học tập hoặc trò chuyện hàng ngày bằng cách sử dụng thẻ thông minh. Chọn ngôn ngữ mẹ đẻ và ngôn ngữ bạn muốn thành thạo.";
+"welcomeScreenMessage" = "Flippin giúp bạn học ngôn ngữ cho du lịch, học tập hoặc trò chuyện hàng ngày bằng cách sử dụng thẻ thông minh.";
 "myLanguage" = "Ngôn ngữ của tôi";
 "myLanguageDesc" = "Ngôn ngữ mẹ đẻ của bạn";
 "imLearning" = "Tôi đang học";
@@ -31,11 +31,14 @@
 "featureLearningDesc" = "Dịch thời gian thực khi bạn nhập";
 "featureLanguages" = "18 Ngôn Ngữ";
 "featureLanguagesDesc" = "Hỗ trợ các ngôn ngữ chính của thế giới";
-"featureSmart" = "Chuyển Văn Bản Thành Giọng Nói";
+"featureSmart" = "Chuyển văn bản thành giọng nói";
 "featureSmartDesc" = "Nghe phát âm với công nghệ TTS";
+"featureAnalytics" = "Phân tích học tập";
+"featureAnalyticsDesc" = "Theo dõi tiến độ của bạn và nhận thông tin chi tiết được cá nhân hóa";
 "finalFeatureAdd" = "Tạo thẻ ghi nhớ tùy chỉnh";
-"finalFeaturePractice" = "Thực hành với phát âm âm thanh";
-"finalFeatureProgress" = "Tổ chức với nhãn và yêu thích";
+"finalFeaturePractice" = "Luyện tập với phát âm âm thanh";
+"finalFeatureProgress" = "Tổ chức với thẻ và yêu thích";
+"finalFeatureModes" = "Nhiều chế độ luyện tập";
 
 // MARK: - Content Views
 "noCardsYet" = "Chưa có thẻ nào";
@@ -164,6 +167,8 @@
 "premiumBackgroundsDescription" = "Nền hoạt ảnh đẹp mắt";
 "changeLanguages" = "Thay Đổi Ngôn Ngữ";
 "changeLanguagesDescription" = "Chuyển đổi giữa các cặp ngôn ngữ khác nhau bất cứ lúc nào";
+"multipleLanguagesTitle" = "Nhiều Ngôn Ngữ";
+"multipleLanguagesDescription" = "Khả năng học nhiều ngôn ngữ cùng lúc";
 "restorePurchases" = "Khôi Phục Mua Hàng";
 "cancelAnytime" = "Hủy bất cứ lúc nào • Không cam kết";
 "terms" = "Điều khoản";

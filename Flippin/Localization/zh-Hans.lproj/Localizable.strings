@@ -15,7 +15,7 @@
 
 // MARK: - Welcome Screen
 "welcomeScreenTitle" = "欢迎使用Flippin！";
-"welcomeScreenMessage" = "Flippin帮助您学习语言用于旅行、学习或日常对话，使用智能闪卡。选择您的母语和您想掌握的语言。";
+"welcomeScreenMessage" = "Flippin帮助您学习语言用于旅行、学习或日常对话，使用智能闪卡。";
 "myLanguage" = "我的语言";
 "myLanguageDesc" = "您的母语";
 "imLearning" = "我正在学习";
@@ -33,9 +33,12 @@
 "featureLanguagesDesc" = "支持世界主要语言";
 "featureSmart" = "文字转语音";
 "featureSmartDesc" = "使用TTS技术听发音";
+"featureAnalytics" = "学习分析";
+"featureAnalyticsDesc" = "通过详细洞察跟踪您的进度";
 "finalFeatureAdd" = "创建自定义闪卡";
-"finalFeaturePractice" = "练习音频发音";
-"finalFeatureProgress" = "使用标签和收藏整理";
+"finalFeaturePractice" = "使用音频发音练习";
+"finalFeatureProgress" = "使用标签和收藏夹整理";
+"finalFeatureModes" = "多种练习模式";
 
 // MARK: - Content Views
 "noCardsYet" = "还没有卡片";
@@ -164,6 +167,8 @@
 "premiumBackgroundsDescription" = "精美的动画背景";
 "changeLanguages" = "更改语言";
 "changeLanguagesDescription" = "随时在不同语言对之间切换";
+"multipleLanguagesTitle" = "多语言";
+"multipleLanguagesDescription" = "能够同时学习多种语言";
 "restorePurchases" = "恢复购买";
 "cancelAnytime" = "随时取消 • 无承诺";
 "terms" = "条款";

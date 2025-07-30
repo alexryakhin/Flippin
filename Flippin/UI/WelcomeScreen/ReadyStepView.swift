@@ -86,6 +86,13 @@ extension WelcomeSheet {
                             animateContent: animateContent,
                             delay: 1.1
                         )
+
+                        FinalFeatureRow(
+                            icon: "brain.head.profile",
+                            text: LocalizationKeys.Welcome.finalFeatureModes.localized,
+                            animateContent: animateContent,
+                            delay: 1.3
+                        )
                     }
                     .padding(.horizontal, 20)
 

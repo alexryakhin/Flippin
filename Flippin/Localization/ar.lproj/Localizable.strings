@@ -15,7 +15,7 @@
 
 // MARK: - Welcome Screen
 "welcomeScreenTitle" = "مرحباً بك في Flippin!";
-"welcomeScreenMessage" = "يساعدك Flippin على تعلم اللغات للسفر أو الدراسة أو المحادثة اليومية باستخدام بطاقات ذكية. اختر لغتك الأم واللغة التي تريد إتقانها.";
+"welcomeScreenMessage" = "يساعدك Flippin على تعلم اللغات للسفر أو الدراسة أو المحادثة اليومية باستخدام بطاقات ذكية.";
 "myLanguage" = "لغتي";
 "myLanguageDesc" = "لغتك الأم";
 "imLearning" = "أنا أتعلم";
@@ -32,10 +32,13 @@
 "featureLanguages" = "18 لغة";
 "featureLanguagesDesc" = "دعم للغات العالم الرئيسية";
 "featureSmart" = "تحويل النص إلى كلام";
-"featureSmartDesc" = "استمع للنطق بتقنية TTS";
-"finalFeatureAdd" = "أنشئ بطاقات مخصصة";
-"finalFeaturePractice" = "تدرب مع نطق صوتي";
-"finalFeatureProgress" = "نظم بالوسوم والمفضلة";
+"featureSmartDesc" = "استمع إلى النطق بتقنية TTS";
+"featureAnalytics" = "تحليلات التعلم";
+"featureAnalyticsDesc" = "تتبع تقدمك مع رؤى مفصلة";
+"finalFeatureAdd" = "إنشاء بطاقات مخصصة";
+"finalFeaturePractice" = "تدرب مع نطق الصوت";
+"finalFeatureProgress" = "نظم مع العلامات والمفضلة";
+"finalFeatureModes" = "أوضاع تدريب متعددة";
 
 // MARK: - Content Views
 "noCardsYet" = "لا توجد بطاقات بعد";
@@ -164,6 +167,8 @@
 "premiumBackgroundsDescription" = "خلفيات متحركة جميلة";
 "changeLanguages" = "تغيير اللغات";
 "changeLanguagesDescription" = "تبديل بين أزواج اللغات المختلفة في أي وقت";
+"multipleLanguagesTitle" = "لغات متعددة";
+"multipleLanguagesDescription" = "القدرة على تعلم عدة لغات في نفس الوقت";
 "restorePurchases" = "استعادة المشتريات";
 "cancelAnytime" = "إلغاء في أي وقت • بدون التزام";
 "terms" = "الشروط";
