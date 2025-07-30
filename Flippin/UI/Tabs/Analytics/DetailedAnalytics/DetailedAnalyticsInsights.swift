@@ -135,6 +135,11 @@ extension DetailedAnalytics {
         }
         
         private func handleRecommendationAction(_ recommendation: PersonalizedRecommendation) {
+            AnalyticsService.trackInsightRecommendationAction(
+                action: String(describing: recommendation.action),
+                title: recommendation.title,
+                description: recommendation.description
+            )
             switch recommendation.action {
             case .studyNow:
                 onDismiss()

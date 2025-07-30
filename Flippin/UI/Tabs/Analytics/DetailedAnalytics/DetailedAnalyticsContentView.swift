@@ -74,6 +74,9 @@ enum DetailedAnalytics {
             .ifLet(colorManager.colorScheme) { view, scheme in
                 view.colorScheme(scheme)
             }
+            .onAppear {
+                AnalyticsService.trackEvent(.detailedAnalyticsViewed)
+            }
         }
     }
 }

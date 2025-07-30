@@ -57,6 +57,7 @@ enum AnalyticsEvent: String, CaseIterable {
     case studyStreakExtended = "study_streak_extended"
     case analyticsViewed = "analytics_viewed"
     case detailedAnalyticsViewed = "detailed_analytics_viewed"
+    case insightRecommendationAction = "insight_recommendation_action"
 
     // MARK: - Error Events
     case errorOccurred = "error_occurred"
@@ -268,6 +269,22 @@ final class AnalyticsService {
         }
 
         trackEvent(event, parameters: parameters)
+    }
+
+    /// Track insight recommendation action
+    /// - Parameters:
+    ///   - action: The action type (e.g., studyNow, startReview, etc.)
+    ///   - title: The recommendation title
+    ///   - description: The recommendation description (optional)
+    static func trackInsightRecommendationAction(action: String, title: String, description: String? = nil) {
+        var parameters: [String: Any] = [
+            "action": action,
+            "title": title
+        ]
+        if let description = description {
+            parameters["description"] = description
+        }
+        trackEvent(.insightRecommendationAction, parameters: parameters)
     }
 
     // MARK: - User Properties

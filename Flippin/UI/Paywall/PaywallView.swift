@@ -140,6 +140,7 @@ enum Paywall {
                 view.colorScheme(scheme)
             }
             .onAppear {
+                AnalyticsService.trackEvent(.paywallOpened)
                 isAnimating = true
                 Task {
                     await purchaseService.loadProducts()

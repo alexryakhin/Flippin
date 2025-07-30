@@ -61,6 +61,9 @@ enum AnalyticsTab {
                 DetailedAnalytics.ContentView()
             }
             .premiumAlert(feature: $premiumFeature)
+            .onAppear {
+                AnalyticsService.trackEvent(.analyticsViewed)
+            }
         }
 
         // MARK: - UI Components
