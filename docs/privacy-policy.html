@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Flippin</title>
+    <link rel="icon" type="image/png" href="images/flippin-icon.png">
+    <link rel="apple-touch-icon" href="images/flippin-icon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 50%, #90caf9 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #1976d2, #42a5f5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #1976d2;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #42a5f5;
+        }
+
+        /* Header */
+        .header {
+            padding: 8rem 0 4rem 0;
+            text-align: center;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 50%, #90caf9 100%);
+            margin-bottom: 3rem;
+        }
+
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem auto;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(25, 118, 210, 0.3);
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #1976d2, #42a5f5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: #424242;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .last-updated {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Main Content */
+        .main-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            color: #1565c0;
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            color: #1976d2;
+            margin: 2rem 0 1rem 0;
+            font-size: 1.8rem;
+            border-left: 4px solid #1976d2;
+            padding-left: 1rem;
+        }
+
+        h3 {
+            color: #1976d2;
+            margin: 1.5rem 0 0.5rem 0;
+            font-size: 1.3rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+            color: #424242;
+        }
+
+        ul {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            color: #424242;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8f2ff 100%);
+            border: 1px solid #e1e8ff;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #1976d2, #42a5f5);
+            color: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .contact-info h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .contact-info a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .data-table th {
+            background: linear-gradient(135deg, #1976d2, #42a5f5);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .data-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .data-table tr:hover {
+            background-color: #f8f9ff;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1565c0;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .footer p {
+            color: #90caf9;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .main-content {
+                padding: 2rem;
+                margin: 1rem;
+            }
+
+            .logo {
+                font-size: 2rem;
+            }
+
+            .app-icon {
+                width: 60px;
+                height: 60px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .data-table {
+                font-size: 0.9rem;
+            }
+
+            .data-table th,
+            .data-table td {
+                padding: 0.75rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Flippin</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Main</a></li>
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="index.html#languages">Languages</a></li>
+                <li><a href="index.html#premium">Premium</a></li>
+                <li><a href="support.html">Support</a></li>
+                <li><a href="terms-of-use.html">Terms</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="header">
+        <div class="container">
+            <img src="images/flippin-icon.png" alt="Flippin App Icon" class="app-icon fade-in-up">
+            <div class="logo fade-in-up">Flippin</div>
+            <div class="subtitle fade-in-up">Privacy Policy</div>
+            <div class="last-updated fade-in-up">Last Updated: July 2025</div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="main-content">
+            <h1 class="fade-in-up">Privacy Policy</h1>
+
+        <p>Welcome to Flippin! We respect your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, and safeguard your data when you use our language learning application.</p>
+
+        <div class="highlight-box">
+            <strong>Key Points:</strong>
+            <ul>
+                <li>We collect minimal personal data necessary for app functionality</li>
+                <li>Your learning data is stored locally and synced via iCloud (optional)</li>
+                <li>We use Google Translate API for translations (text only)</li>
+                <li>We do not sell or share your personal information</li>
+                <li>You have full control over your data</li>
+            </ul>
+        </div>
+
+        <h2>Information We Collect</h2>
+
+        <h3>Personal Information</h3>
+        <p>We collect minimal personal information to provide you with the best learning experience:</p>
+        <ul>
+            <li><strong>Language Preferences:</strong> Your selected native and target languages</li>
+            <li><strong>Learning Data:</strong> Flashcards you create, study progress, and preferences</li>
+            <li><strong>App Settings:</strong> Background styles, color themes, and other customization options</li>
+        </ul>
+
+        <h3>Usage Data</h3>
+        <p>We collect anonymous usage analytics to improve our app and provide personalized learning insights:</p>
+        <ul>
+            <li><strong>App Lifecycle:</strong> App launch, background, and foreground events</li>
+            <li><strong>Navigation:</strong> Screen opens and user navigation patterns</li>
+            <li><strong>Learning Actions:</strong> Card interactions (flip, play, favorite), study sessions, and learning progress</li>
+            <li><strong>Content Management:</strong> Card creation, editing, deletion, and tag management</li>
+            <li><strong>Search and Filtering:</strong> Search terms and filter usage</li>
+            <li><strong>Settings Changes:</strong> Language preferences, background styles, and app customization</li>
+            <li><strong>Premium Features:</strong> Purchase events and paywall interactions</li>
+            <li><strong>Error Tracking:</strong> Translation failures, TTS errors, and app crashes</li>
+            <li><strong>Personalized Insights:</strong> Actions taken on learning recommendations</li>
+            <li><strong>Performance Metrics:</strong> App performance and feature usage statistics</li>
+        </ul>
+
+        <h2>How We Use Your Information</h2>
+
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Purpose</th>
+                        <th>Data Used</th>
+                        <th>Legal Basis</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Provide language learning features</td>
+                        <td>Learning data, language preferences</td>
+                        <td>Contract performance</td>
+                    </tr>
+                    <tr>
+                        <td>Translate text content</td>
+                        <td>Text you input for translation</td>
+                        <td>Legitimate interest</td>
+                    </tr>
+                    <tr>
+                        <td>Sync data across devices</td>
+                        <td>Your flashcards and progress</td>
+                        <td>Consent (iCloud)</td>
+                    </tr>
+                    <tr>
+                        <td>Provide personalized learning insights</td>
+                        <td>Study patterns, card performance, learning progress</td>
+                        <td>Legitimate interest</td>
+                    </tr>
+                    <tr>
+                        <td>Improve app performance and features</td>
+                        <td>Anonymous usage analytics, error reports</td>
+                        <td>Legitimate interest</td>
+                    </tr>
+                    <tr>
+                        <td>Process premium purchases</td>
+                        <td>Purchase information</td>
+                        <td>Contract performance</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>Learning Analytics and Insights</h2>
+
+        <p>To provide you with personalized learning experiences and insights, we collect and analyze your learning data:</p>
+
+        <h3>Study Sessions</h3>
+        <p>We track your study sessions to help you understand your learning patterns:</p>
+        <ul>
+            <li>Session duration and frequency</li>
+            <li>Cards reviewed and accuracy rates</li>
+            <li>Study streaks and consistency</li>
+            <li>Learning progress over time</li>
+        </ul>
+
+        <h3>Card Performance</h3>
+        <p>We analyze individual card performance to optimize your learning:</p>
+        <ul>
+            <li>Card mastery levels and difficulty</li>
+            <li>Review intervals and spacing</li>
+            <li>Accuracy trends and improvement</li>
+            <li>Personalized review recommendations</li>
+        </ul>
+
+        <h3>Personalized Insights</h3>
+        <p>Based on your learning data, we provide personalized recommendations and insights:</p>
+        <ul>
+            <li>Study recommendations and tips</li>
+            <li>Learning pattern analysis</li>
+            <li>Progress milestones and achievements</li>
+            <li>Actionable learning suggestions</li>
+        </ul>
+
+        <h3>Data Anonymization</h3>
+        <p>All analytics data is anonymized and aggregated to protect your privacy. We do not identify individual users in our analytics reports.</p>
+
+        <h2>Data Storage and Security</h2>
+
+        <h3>Local Storage</h3>
+        <p>Your learning data is primarily stored locally on your device using Apple's Core Data framework. This includes:</p>
+        <ul>
+            <li>Your created flashcards</li>
+            <li>Study progress and statistics</li>
+            <li>Learning analytics and study sessions</li>
+            <li>Card performance and mastery data</li>
+            <li>Personalized insights and recommendations</li>
+            <li>App preferences and settings</li>
+            <li>Custom tags and categories</li>
+        </ul>
+
+        <h3>Cloud Storage (Optional)</h3>
+        <p>If you enable iCloud sync, your data is securely stored in Apple's iCloud:</p>
+        <ul>
+            <li>Data is encrypted in transit and at rest</li>
+            <li>You can disable sync at any time</li>
+            <li>Data is only accessible to you</li>
+            <li>Apple's privacy standards apply</li>
+        </ul>
+
+        <h3>Third-Party Services</h3>
+        <p>We use the following third-party services:</p>
+        <ul>
+            <li><strong>Google Translate API:</strong> For text translation (text is not stored)</li>
+            <li><strong>Firebase Analytics:</strong> For anonymous usage analytics and learning insights (data is anonymized)</li>
+            <li><strong>Apple StoreKit:</strong> For in-app purchases</li>
+        </ul>
+
+        <h2>Your Rights and Choices</h2>
+
+        <h3>Data Control</h3>
+        <p>You have full control over your data:</p>
+        <ul>
+            <li><strong>Access:</strong> View all your data within the app</li>
+            <li><strong>Modify:</strong> Edit or delete your flashcards anytime</li>
+            <li><strong>Analytics:</strong> View your learning analytics and insights</li>
+            <li><strong>Export:</strong> Export your data (coming soon)</li>
+            <li><strong>Delete:</strong> Remove your account and all data</li>
+        </ul>
+
+        <h3>Privacy Settings</h3>
+        <p>You can manage your privacy through:</p>
+        <ul>
+            <li>iOS Settings > Privacy & Security</li>
+            <li>App-specific privacy controls</li>
+            <li>iCloud sync preferences</li>
+            <li>Analytics opt-out options</li>
+        </ul>
+
+        <h2>Data Sharing and Disclosure</h2>
+
+        <p>We do not sell, trade, or rent your personal information to third parties. We may share data only in these limited circumstances:</p>
+        <ul>
+            <li><strong>Legal Requirements:</strong> When required by law or legal process</li>
+            <li><strong>Service Providers:</strong> With trusted partners who help us operate the app</li>
+            <li><strong>Safety:</strong> To protect user safety or prevent fraud</li>
+            <li><strong>Consent:</strong> With your explicit consent</li>
+        </ul>
+
+        <h2>Children's Privacy</h2>
+
+        <p>Flippin is not intended for children under 13. We do not knowingly collect personal information from children under 13. If you are a parent and believe your child has provided us with personal information, please contact us immediately.</p>
+
+        <h2>International Data Transfers</h2>
+
+        <p>Your data may be processed in countries other than your own. We ensure appropriate safeguards are in place to protect your data in accordance with this Privacy Policy and applicable laws.</p>
+
+        <h2>Data Retention</h2>
+
+        <p>We retain your data for as long as you use the app and for a reasonable period afterward:</p>
+        <ul>
+            <li><strong>Active Use:</strong> Data is retained while you actively use the app</li>
+            <li><strong>Account Deletion:</strong> Data is deleted when you delete your account</li>
+            <li><strong>Legal Requirements:</strong> Some data may be retained for legal compliance</li>
+        </ul>
+
+        <h2>Updates to This Policy</h2>
+
+        <p>We may update this Privacy Policy from time to time. We will notify you of any material changes by:</p>
+        <ul>
+            <li>Posting the updated policy in the app</li>
+            <li>Sending a notification through the app</li>
+            <li>Updating the "Last Updated" date</li>
+        </ul>
+
+        <div class="contact-info">
+            <h3>Contact Us</h3>
+            <p>If you have any questions about this Privacy Policy or our data practices, please contact us:</p>
+            <p><strong>Email:</strong> <a href="mailto:bonney977@gmail.com">bonney977@gmail.com</a></p>
+            <p><strong>Developer:</strong> Alexander Riakhin</p>
+            <p>We're committed to protecting your privacy and will respond to your inquiries promptly.</p>
+        </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Flippin. Developed by Alexander Riakhin. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html> 
+</html> 

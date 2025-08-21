@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Use - Flippin</title>
+    <link rel="icon" type="image/png" href="images/flippin-icon.png">
+    <link rel="apple-touch-icon" href="images/flippin-icon.png">
     <style>
         * {
             margin: 0;
@@ -15,65 +17,126 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 50%, #90caf9 100%);
             min-height: 100vh;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
-            background: white;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            border-radius: 20px;
-            margin-top: 2rem;
-            margin-bottom: 2rem;
+            padding: 0 2rem;
         }
 
-        .header {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding-bottom: 2rem;
-            border-bottom: 3px solid #f0f0f0;
+        /* Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .logo {
-            font-size: 3rem;
+            font-size: 2rem;
             font-weight: bold;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #1976d2, #42a5f5);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #1976d2;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #42a5f5;
+        }
+
+        /* Header */
+        .header {
+            padding: 8rem 0 4rem 0;
+            text-align: center;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 50%, #90caf9 100%);
+            margin-bottom: 3rem;
+        }
+
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem auto;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(25, 118, 210, 0.3);
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #1976d2, #42a5f5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
         }
 
         .subtitle {
-            color: #666;
+            color: #424242;
             font-size: 1.2rem;
             margin-bottom: 1rem;
         }
 
         .last-updated {
-            color: #999;
+            color: #666;
             font-size: 0.9rem;
         }
 
+        /* Main Content */
+        .main-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 3rem;
+        }
+
         h1 {
-            color: #333;
+            color: #1565c0;
             margin-bottom: 1.5rem;
             font-size: 2.5rem;
         }
 
         h2 {
-            color: #667eea;
+            color: #1976d2;
             margin: 2rem 0 1rem 0;
             font-size: 1.8rem;
-            border-left: 4px solid #667eea;
+            border-left: 4px solid #1976d2;
             padding-left: 1rem;
         }
 
         h3 {
-            color: #555;
+            color: #1976d2;
             margin: 1.5rem 0 0.5rem 0;
             font-size: 1.3rem;
         }
@@ -81,6 +144,7 @@
         p {
             margin-bottom: 1rem;
             text-align: justify;
+            color: #424242;
         }
 
         ul {
@@ -90,12 +154,13 @@
 
         li {
             margin-bottom: 0.5rem;
+            color: #424242;
         }
 
         .highlight-box {
             background: linear-gradient(135deg, #f8f9ff 0%, #e8f2ff 100%);
             border: 1px solid #e1e8ff;
-            border-radius: 10px;
+            border-radius: 15px;
             padding: 1.5rem;
             margin: 1.5rem 0;
         }
@@ -103,16 +168,16 @@
         .warning-box {
             background: linear-gradient(135deg, #fff5f5 0%, #ffe8e8 100%);
             border: 1px solid #ffd1d1;
-            border-radius: 10px;
+            border-radius: 15px;
             padding: 1.5rem;
             margin: 1.5rem 0;
         }
 
         .contact-info {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1976d2, #42a5f5);
             color: white;
             padding: 2rem;
-            border-radius: 15px;
+            border-radius: 20px;
             text-align: center;
             margin: 2rem 0;
         }
@@ -124,6 +189,7 @@
 
         .contact-info p {
             margin-bottom: 0.5rem;
+            color: white;
         }
 
         .contact-info a {
@@ -141,13 +207,13 @@
             border-collapse: collapse;
             margin: 1rem 0;
             background: white;
-            border-radius: 10px;
+            border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         .terms-table th {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1976d2, #42a5f5);
             color: white;
             padding: 1rem;
             text-align: left;
@@ -167,22 +233,41 @@
             background-color: #f8f9ff;
         }
 
+        /* Footer */
         .footer {
+            background: #1565c0;
+            color: white;
+            padding: 2rem 0;
             text-align: center;
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 2px solid #f0f0f0;
-            color: #666;
+            border-radius: 20px 20px 0 0;
         }
 
+        .footer p {
+            color: #90caf9;
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
             .container {
+                padding: 0 1rem;
+            }
+
+            .main-content {
+                padding: 2rem;
                 margin: 1rem;
-                padding: 1.5rem;
             }
 
             .logo {
-                font-size: 2.5rem;
+                font-size: 2rem;
+            }
+
+            .app-icon {
+                width: 60px;
+                height: 60px;
             }
 
             h1 {
@@ -202,17 +287,53 @@
                 padding: 0.75rem;
             }
         }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
             <div class="logo">Flippin</div>
-            <div class="subtitle">Terms of Use</div>
-            <div class="last-updated">Last Updated: July 2025</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Main</a></li>
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="index.html#languages">Languages</a></li>
+                <li><a href="index.html#premium">Premium</a></li>
+                <li><a href="support.html">Support</a></li>
+                <li><a href="privacy-policy.html">Privacy</a></li>
+            </ul>
         </div>
+    </nav>
 
-        <h1>Terms of Use</h1>
+    <!-- Header -->
+    <section class="header">
+        <div class="container">
+            <img src="images/flippin-icon.png" alt="Flippin App Icon" class="app-icon fade-in-up">
+            <div class="logo fade-in-up">Flippin</div>
+            <div class="subtitle fade-in-up">Terms of Use</div>
+            <div class="last-updated fade-in-up">Last Updated: July 2025</div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="main-content">
+            <h1 class="fade-in-up">Terms of Use</h1>
 
         <p>Welcome to Flippin! These Terms of Use ("Terms") govern your use of the Flippin language learning application ("App") developed by Alexander Riakhin ("Developer," "we," "us," or "our"). By downloading, installing, or using the App, you agree to be bound by these Terms.</p>
 
@@ -433,15 +554,19 @@
         <div class="contact-info">
             <h3>Contact Us</h3>
             <p>If you have any questions about these Terms of Use, please contact us:</p>
-            <p><strong>Email:</strong> <a href="mailto:bonney977@gmail.com">bonney977@gmail.com</a></p>
+            <p><strong>Email:</strong> <a href="mailto:support@flippin.app">support@flippin.app</a></p>
             <p><strong>Developer:</strong> Alexander Riakhin</p>
             <p>We're here to help and will respond to your inquiries promptly.</p>
         </div>
-
-        <div class="footer">
-            <p>&copy; 2025 Alexander Riakhin. All rights reserved.</p>
-            <p>Flippin - Making language learning beautiful and effective</p>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Flippin. Developed by Alexander Riakhin. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
+</html> 
 </html> 
