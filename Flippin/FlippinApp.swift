@@ -26,6 +26,8 @@ struct FlippinApp: App {
     @StateObject private var colorManager = ColorManager.shared
     @StateObject private var purchaseService = PurchaseService.shared
     @StateObject private var notificationService = NotificationService.shared
+    @StateObject private var speechifyService = SpeechifyService.shared
+    @StateObject private var remoteConfigService = RemoteConfigService.shared
 
     init() {
         FirebaseApp.configure()
@@ -46,10 +48,18 @@ struct FlippinApp: App {
             MainTabView()
                 .observeColorScheme()
                 .tint(colorManager.tintColor)
-                .task {
-                    // Ensure purchase status is properly loaded at startup
-                    await ensurePurchaseStatusLoaded()
-                }
+                        .task {
+            // Ensure purchase status is properly loaded at startup
+            await ensurePurchaseStatusLoaded()
+            
+            // Fetch Remote Config for API keys
+            await remoteConfigService.fetchConfig()
+            
+            // Load Speechify voices for premium users if Remote Config is ready
+            if purchaseService.hasPremiumAccess && remoteConfigService.isRemoteConfigReady() {
+                await speechifyService.loadVoices()
+            }
+        }
                 .onChange(of: scenePhase) { _, newPhase in
                     switch newPhase {
                     case .background:

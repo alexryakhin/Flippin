@@ -12,12 +12,15 @@ protocol TTSPlayerInterface {
     func play(_ text: String, language: Language) async throws
 }
 
+@MainActor
 final class TTSPlayer: TTSPlayerInterface {
 
     static let shared: TTSPlayerInterface = TTSPlayer()
 
     private var player: AVAudioPlayer?
     private var speechSynthesizer: AVSpeechSynthesizer?
+    private let speechifyService = SpeechifyService.shared
+    private let purchaseService = PurchaseService.shared
 
     private init() {
         speechSynthesizer = AVSpeechSynthesizer()
@@ -26,13 +29,29 @@ final class TTSPlayer: TTSPlayerInterface {
     func play(_ text: String, language: Language) async throws {
         guard !text.isEmpty else { return }
 
-        // Try online TTS first, fallback to offline if it fails
+        // Try Speechify first for premium users, then Google TTS, then offline
+        if purchaseService.hasPremiumAccess {
+            do {
+                try await playSpeechifyTTS(text, language: language)
+                return
+            } catch {
+                print("🎤 Speechify TTS failed, falling back to Google TTS: \(error)")
+            }
+        }
+        
+        // Try Google TTS, fallback to offline if it fails
         do {
             try await playOnlineTTS(text, language: language)
         } catch {
             // Fallback to offline TTS
             try await playOfflineTTS(text, language: language)
         }
+    }
+    
+    // MARK: - Speechify TTS
+    
+    private func playSpeechifyTTS(_ text: String, language: Language) async throws {
+        try await speechifyService.playText(text, language: language)
     }
     
     // MARK: - Online TTS (Google Translate)

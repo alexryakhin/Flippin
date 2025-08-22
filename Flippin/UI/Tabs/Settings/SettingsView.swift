@@ -28,6 +28,7 @@ struct SettingsView: View {
                 themeSection
                 cardDisplaySection
                 notificationsSection
+                ttsDashboardSection
                 cardManagementSection
                 tagsManagementSection
                 subscriptionManagementSection
@@ -260,6 +261,31 @@ struct SettingsView: View {
                         }
                     ))
                     .labelsHidden()
+                }
+            }
+        }
+    }
+    
+    // MARK: - TTS Dashboard Section
+    private var ttsDashboardSection: some View {
+        Group {
+            if purchaseService.hasPremiumAccess {
+                CustomSectionView(
+                    header: "Text-to-Speech"
+                ) {
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text("Configure Speechify TTS for premium voice quality")
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+
+                        HeaderButton(
+                            "TTS Dashboard",
+                            icon: "speaker.wave.3"
+                        ) {
+                            navigationManager.navigate(to: .ttsDashboard)
+                        }
+                    }
                 }
             }
         }

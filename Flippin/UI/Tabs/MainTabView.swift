@@ -128,6 +128,8 @@ struct MainTabView: View {
                     BackgroundDemoView()
                 case .about:
                     AboutView()
+                case .ttsDashboard:
+                    TTSDashboardView()
                 }
             }
         }

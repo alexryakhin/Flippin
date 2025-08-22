@@ -18,6 +18,7 @@ enum NavigationDestination: Hashable {
     case backgroundPreview
     case backgroundDemo
     case about
+    case ttsDashboard
 }
 
 @MainActor

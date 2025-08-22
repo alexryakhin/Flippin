@@ -10,6 +10,7 @@
 		53BEAE352E23A3C8003E07F0 /* Flow in Frameworks */ = {isa = PBXBuildFile; productRef = 53BEAE342E23A3C8003E07F0 /* Flow */; };
 		53BEF19D2E24E1D4002F2A76 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 53BEF19C2E24E1D4002F2A76 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		53BEF19F2E24E1D4002F2A76 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 53BEF19E2E24E1D4002F2A76 /* FirebaseCrashlytics */; };
+		53F6489D2E584E1D0088C3B7 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 53F6489C2E584E1D0088C3B7 /* FirebaseRemoteConfig */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 				53BEF19F2E24E1D4002F2A76 /* FirebaseCrashlytics in Frameworks */,
 				53BEAE352E23A3C8003E07F0 /* Flow in Frameworks */,
 				53BEF19D2E24E1D4002F2A76 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				53F6489D2E584E1D0088C3B7 /* FirebaseRemoteConfig in Frameworks */,
 			);
 		};
 /* End PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				533792E32E110B250097F5BF /* Flippin */,
+				53F6489B2E584E1D0088C3B7 /* Frameworks */,
 				533792E22E110B250097F5BF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,6 +66,13 @@
 				533792E12E110B250097F5BF /* Flippin.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		53F6489B2E584E1D0088C3B7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,6 +96,7 @@
 				53BEAE342E23A3C8003E07F0 /* Flow */,
 				53BEF19C2E24E1D4002F2A76 /* FirebaseAnalyticsWithoutAdIdSupport */,
 				53BEF19E2E24E1D4002F2A76 /* FirebaseCrashlytics */,
+				53F6489C2E584E1D0088C3B7 /* FirebaseRemoteConfig */,
 			);
 			productName = SpeakCards;
 			productReference = 533792E12E110B250097F5BF /* Flippin.app */;
@@ -416,6 +427,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 53BEF19B2E24E1D4002F2A76 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseCrashlytics;
+		};
+		53F6489C2E584E1D0088C3B7 /* FirebaseRemoteConfig */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53BEF19B2E24E1D4002F2A76 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseRemoteConfig;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -12,6 +12,7 @@ struct DebugView: View {
     @StateObject private var purchaseService = PurchaseService.shared
     @StateObject private var cardsProvider = CardsProvider.shared
     @StateObject private var analyticsService = LearningAnalyticsService.shared
+    @StateObject private var remoteConfigService = RemoteConfigService.shared
 
     var body: some View {
         NavigationView {
@@ -26,9 +27,12 @@ struct DebugView: View {
                     // Analytics Debug
                     analyticsSection
 
-                    // Cards Debug
-                    cardsSection
-                }
+                                         // Cards Debug
+                     cardsSection
+                     
+                     // Remote Config Debug
+                     remoteConfigSection
+                 }
                 .padding(16)
             }
             .navigationTitle("Debug")
@@ -233,6 +237,74 @@ struct DebugView: View {
     private func clearAllCards() {
         cardsProvider.deleteAllCards()
         print("🔧 Cleared all cards")
+    }
+    
+    // MARK: - Remote Config Section
+    private var remoteConfigSection: some View {
+        CustomSectionView(header: "Remote Config") {
+            FormWithDivider {
+                HStack {
+                    Text("Remote Config")
+                        .font(.subheadline)
+                        .foregroundStyle(.primary)
+                    
+                    Spacer()
+                    
+                    Text(remoteConfigService.isConfigured ? "Connected" : "Not Connected")
+                        .font(.subheadline)
+                        .foregroundStyle(remoteConfigService.isConfigured ? .green : .red)
+                }
+                
+                HStack {
+                    Text("Speechify Enabled")
+                        .font(.subheadline)
+                        .foregroundStyle(.primary)
+                    
+                    Spacer()
+                    
+                    Text(remoteConfigService.getSpeechifyEnabled() ? "Yes" : "No")
+                        .font(.subheadline)
+                        .foregroundStyle(remoteConfigService.getSpeechifyEnabled() ? .green : .red)
+                }
+                
+                HStack {
+                    Text("API Key Configured")
+                        .font(.subheadline)
+                        .foregroundStyle(.primary)
+                    
+                    Spacer()
+                    
+                    Text(!remoteConfigService.getSpeechifyAPIKey().isEmpty ? "Yes" : "No")
+                        .font(.subheadline)
+                        .foregroundStyle(!remoteConfigService.getSpeechifyAPIKey().isEmpty ? .green : .red)
+                }
+                
+                if let lastFetch = remoteConfigService.lastFetchTime {
+                    HStack {
+                        Text("Last Updated")
+                            .font(.subheadline)
+                            .foregroundStyle(.primary)
+                        
+                        Spacer()
+                        
+                        Text(lastFetch, style: .relative)
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                    }
+                }
+                
+                Button {
+                    Task {
+                        await remoteConfigService.forceRefresh()
+                    }
+                } label: {
+                    Label("Refresh Config", systemImage: "arrow.clockwise")
+                }
+                .buttonStyle(.bordered)
+                .clipShape(Capsule())
+                .frame(maxWidth: .infinity, alignment: .leading)
+            }
+        }
     }
 }
 

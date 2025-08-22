@@ -18,4 +18,7 @@ enum UserDefaultsKey {
     static let studyRemindersEnabled = "studyRemindersEnabled"
     static let difficultCardRemindersEnabled = "difficultCardRemindersEnabled"
     static let debugModeEnabled = "debugModeEnabled"
+    static let speechifySelectedVoice = "speechifySelectedVoice"
+    static let speechifyCharactersUsed = "speechifyCharactersUsed"
+    static let speechifyCharactersLimit = "speechifyCharactersLimit"
 }

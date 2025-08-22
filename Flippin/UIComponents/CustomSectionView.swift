@@ -60,7 +60,8 @@ struct CustomSectionView<Content: View, TrailingContent: View>: View {
             }
             content()
         }
-        .padding(top: 20, leading: 16, bottom: 16, trailing: 16)
+        .padding(16)
+        .padding(.top, 6)
         .if(backgroundStyle == .material) { view in
             view.clippedWithBackgroundMaterial(.regularMaterial)
         }
