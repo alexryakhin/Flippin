@@ -49,17 +49,7 @@ struct AddCardSheet: View {
         .background(Color(.systemGroupedBackground))
         .navigation(
             title: LocalizationKeys.Card.addNewCard.localized,
-            mode: .inline,
-            trailingContent: {
-                Button {
-                    dismiss()
-                    HapticService.shared.buttonTapped()
-                } label: {
-                    Image(systemName: "xmark")
-                }
-                .buttonStyle(.bordered)
-                .clipShape(Capsule())
-            }
+            mode: .inline(withBackButton: true)
         )
         .onAppear {
             AnalyticsService.trackEvent(.addCardScreenOpened)
@@ -73,18 +63,13 @@ struct AddCardSheet: View {
     // MARK: - UI Components
     
     private var saveButton: some View {
-        Button {
+        ActionButton(
+            LocalizationKeys.General.save.localized,
+            style: .borderedProminent
+        ) {
             viewModel.createCard()
             dismiss()
-        } label: {
-            Text(LocalizationKeys.General.save.localized)
-                .font(.headline)
-                .foregroundStyle(colorManager.borderedProminentForegroundColor)
-                .frame(maxWidth: .infinity)
-                .padding(vertical: 12, horizontal: 16)
         }
-        .buttonStyle(.borderedProminent)
-        .clipShape(Capsule())
         .padding(.horizontal)
         .padding(.bottom)
         .disabled(viewModel.nativeText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ||
@@ -141,17 +126,18 @@ struct AddCardSheet: View {
             if !viewModel.availableTags.isEmpty {
                 HFlow(spacing: 6) {
                     ForEach(viewModel.availableTags, id: \.self) { tag in
-                        TagButton(
+                        TagView(
                             title: tag.name.orEmpty,
-                            isSelected: viewModel.selectedTags.contains(tag),
-                            isDisabled: viewModel.selectedTags.count >= 5
-                        ) {
+                            isSelected: viewModel.selectedTags.contains(tag)
+                        )
+                        .onTap {
                             if viewModel.selectedTags.contains(tag) {
                                 viewModel.removeTag(tag)
                             } else {
                                 viewModel.addTag(tag)
                             }
                         }
+                        .disabled(viewModel.selectedTags.count >= 5)
                     }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)

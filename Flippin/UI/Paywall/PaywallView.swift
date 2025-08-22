@@ -126,16 +126,12 @@ enum Paywall {
             )
             .navigation(
                 title: LocalizationKeys.Paywall.goPremium.localized,
-                mode: .inline,
+                mode: .inline(withBackButton: false),
                 trailingContent: {
-                    Button {
+                    HeaderButton(icon: "xmark") {
                         dismiss()
                         HapticService.shared.buttonTapped()
-                    } label: {
-                        Image(systemName: "xmark")
                     }
-                    .buttonStyle(.bordered)
-                    .clipShape(Capsule())
                 }
             )
             .ifLet(colorManager.colorScheme) { view, scheme in

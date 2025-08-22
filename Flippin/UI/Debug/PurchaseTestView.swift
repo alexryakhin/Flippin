@@ -27,24 +27,17 @@ struct PurchaseTestView: View {
                             .foregroundColor(.secondary)
                     }
                     
-                    Button {
+                    ActionButton(
+                        "Start Test Purchase",
+                        systemImage: "cart.badge.plus",
+                        style: .borderedProminent,
+                        isLoading: purchaseService.isPurchasing
+                    ) {
                         HapticService.shared.buttonTapped()
                         AnalyticsService.trackEvent(.purchaseTestOpened)
                         performTestPurchase()
-                    } label: {
-                        HStack {
-                            if purchaseService.isPurchasing {
-                                ProgressView()
-                                    .scaleEffect(0.8)
-                            } else {
-                                Image(systemName: "cart.badge.plus")
-                            }
-                            Text("Start Test Purchase")
-                        }
                     }
                     .disabled(purchaseService.isPurchasing || purchaseService.products.isEmpty)
-                    .buttonStyle(.borderedProminent)
-                    .clipShape(Capsule())
                 }
                 .padding(.vertical, 8)
             }
@@ -59,12 +52,10 @@ struct PurchaseTestView: View {
                             .foregroundColor(.secondary)
                             .textSelection(.enabled)
                         
-                        Button("Copy to Clipboard") {
+                        HeaderButton("Copy to Clipboard", style: .borderedProminent) {
                             UIPasteboard.general.string = lastTransactionId
                             showAlert(title: "Copied!", message: "Transaction ID copied to clipboard")
                         }
-                        .buttonStyle(.borderedProminent)
-                        .clipShape(Capsule())
                     }
                     .padding(.vertical, 4)
                 }
@@ -233,26 +224,19 @@ struct ProductRowView: View {
             }
             
             if !isPurchased {
-                Button {
+                ActionButton(
+                    "Purchase",
+                    systemImage: "cart",
+                    style: .borderedProminent,
+                    isLoading: isPurchasing
+                ) {
                     Task {
                         isPurchasing = true
                         await onPurchase()
                         isPurchasing = false
                     }
-                } label: {
-                    HStack {
-                        if isPurchasing {
-                            ProgressView()
-                                .scaleEffect(0.8)
-                        } else {
-                            Image(systemName: "cart")
-                        }
-                        Text("Purchase")
-                    }
                 }
                 .disabled(isPurchasing)
-                .buttonStyle(.borderedProminent)
-                .clipShape(Capsule())
             } else {
                 HStack {
                     Image(systemName: "checkmark.circle.fill")

@@ -14,15 +14,11 @@ struct SettingsView: View {
     @StateObject private var colorManager =  ColorManager.shared
     @StateObject private var tagManager = TagManager.shared
     @StateObject private var purchaseService = PurchaseService.shared
+    @StateObject private var notificationService = NotificationService.shared
+    @StateObject private var navigationManager = NavigationManager.shared
     @AppStorage(UserDefaultsKey.cardDisplayMode) private var isTravelMode = false
 
     @State private var newTagText = ""
-    @State private var showingAddTagAlert = false
-    @State private var showingBackgroundPreview = false
-    @State private var showingBackgroundDemo = false
-    @State private var showingPurchaseTest = false
-    @State private var showingCardManagement = false
-    @State private var showingAboutSheet = false
     @State private var premiumFeature: PremiumFeature?
 
     var body: some View {
@@ -31,45 +27,28 @@ struct SettingsView: View {
                 languagesSection
                 themeSection
                 cardDisplaySection
+                notificationsSection
                 cardManagementSection
                 tagsManagementSection
                 subscriptionManagementSection
-
-                #if DEBUG
-                purchaseTestingSection
-                #endif
             }
             .padding(16)
-        }
-        .if(isPad) { view in
-            view.frame(maxWidth: 500, alignment: .center)
+            .if(isPad) { view in
+                view.frame(maxWidth: 500, alignment: .center)
+            }
         }
         .navigation(
             title: LocalizationKeys.Settings.settings.localized,
             trailingContent: {
-                Button {
-                    showingAboutSheet = true
-                } label: {
-                    Text(LocalizationKeys.AboutApp.about.localized)
-                        .font(.headline)
-                        .foregroundStyle(colorManager.borderedProminentForegroundColor)
+                HeaderButton(
+                    LocalizationKeys.AboutApp.about.localized,
+                    size: .large,
+                    style: .borderedProminent
+                ) {
+                    navigationManager.navigate(to: .about)
                 }
-                .buttonStyle(.borderedProminent)
-                .clipShape(Capsule())
             }
         )
-        .sheet(isPresented: $showingBackgroundPreview) {
-            BackgroundPreviewView()
-        }
-        .sheet(isPresented: $showingBackgroundDemo) {
-            BackgroundDemoView()
-        }
-        .sheet(isPresented: $showingCardManagement) {
-            MyCardsListView()
-        }
-        .sheet(isPresented: $showingAboutSheet) {
-            AboutSheet()
-        }
         .premiumAlert(feature: $premiumFeature)
         .onAppear {
             AnalyticsService.trackEvent(.settingsScreenOpened)
@@ -77,13 +56,6 @@ struct SettingsView: View {
         .ifLet(colorManager.colorScheme) { view, scheme in
             view.colorScheme(scheme)
         }
-        #if DEBUG
-        .sheet(isPresented: $showingPurchaseTest) {
-            NavigationView {
-                PurchaseTestView()
-            }
-        }
-        #endif
     }
     
     // MARK: - Languages Section
@@ -100,27 +72,24 @@ struct SettingsView: View {
                     Spacer()
 
                     if purchaseService.hasPremiumAccess {
-                        Picker(LocalizationKeys.Settings.myLanguageSettings.localized, selection: $languageManager.userLanguageRaw) {
-                            ForEach(Language.sortedByDisplayNameWithSystemFirst) { lang in
-                                Text(lang.displayName).tag(lang.rawValue)
+                        HeaderButtonMenu(languageManager.userLanguage.displayName) {
+                            Picker(
+                                LocalizationKeys.Settings.myLanguageSettings.localized,
+                                selection: $languageManager.userLanguageRaw
+                            ) {
+                                ForEach(Language.sortedByDisplayNameWithSystemFirst) { lang in
+                                    Text(lang.displayName).tag(lang.rawValue)
+                                }
                             }
+                            .pickerStyle(.inline)
                         }
-                        .pickerStyle(.menu)
-                        .buttonStyle(.bordered)
-                        .clipShape(Capsule())
                     } else {
-                        Button {
+                        HeaderButton(
+                            languageManager.userLanguage.displayName,
+                            icon: "crown.fill"
+                        ) {
                             premiumFeature = .languageChange
-                        } label: {
-                            HStack {
-                                Text(languageManager.userLanguage.displayName)
-                                Image(systemName: "crown.fill")
-                                    .foregroundStyle(.yellow)
-                                    .font(.caption)
-                            }
                         }
-                        .buttonStyle(.bordered)
-                        .clipShape(Capsule())
                     }
                 }
 
@@ -131,27 +100,21 @@ struct SettingsView: View {
 
                     Spacer()
                     if purchaseService.hasPremiumAccess {
-                        Picker(LocalizationKeys.Settings.targetLanguage.localized, selection: $languageManager.targetLanguageRaw) {
-                            ForEach(Language.sortedByDisplayNameWithSystemFirst) { lang in
-                                Text(lang.displayName).tag(lang.rawValue)
+                        HeaderButtonMenu(languageManager.targetLanguage.displayName) {
+                            Picker(LocalizationKeys.Settings.targetLanguage.localized, selection: $languageManager.targetLanguageRaw) {
+                                ForEach(Language.sortedByDisplayNameWithSystemFirst) { lang in
+                                    Text(lang.displayName).tag(lang.rawValue)
+                                }
                             }
+                            .pickerStyle(.inline)
                         }
-                        .pickerStyle(.menu)
-                        .buttonStyle(.bordered)
-                        .clipShape(Capsule())
                     } else {
-                        Button {
+                        HeaderButton(
+                            languageManager.targetLanguage.displayName,
+                            icon: "crown.fill"
+                        ) {
                             premiumFeature = .languageChange
-                        } label: {
-                            HStack {
-                                Text(languageManager.targetLanguage.displayName)
-                                Image(systemName: "crown.fill")
-                                    .foregroundStyle(.yellow)
-                                    .font(.caption)
-                            }
                         }
-                        .buttonStyle(.bordered)
-                        .clipShape(Capsule())
                     }
                 }
                 .onAppear {
@@ -200,20 +163,9 @@ struct SettingsView: View {
                         ColorPicker("", selection: $colorManager.userColor)
                             .labelsHidden()
                     } else {
-                        Button {
+                        HeaderButton(LocalizationKeys.Settings.color.localized, icon: "crown.fill") {
                             premiumFeature = .customThemes
-                        } label: {
-                            HStack {
-                                Circle()
-                                    .fill(colorManager.userColor)
-                                    .frame(width: 20, height: 20)
-                                Image(systemName: "crown.fill")
-                                    .foregroundStyle(.yellow)
-                                    .font(.caption)
-                            }
                         }
-                        .buttonStyle(.bordered)
-                        .clipShape(Capsule())
                     }
                 }
 
@@ -225,20 +177,15 @@ struct SettingsView: View {
                     Spacer()
 
                     if purchaseService.hasPremiumAccess {
-                        Button(colorManager.backgroundStyle.displayName) {
-                            showingBackgroundPreview = true
+                        HeaderButton(colorManager.backgroundStyle.displayName) {
+                            navigationManager.navigate(to: .backgroundPreview)
                             AnalyticsService.trackEvent(.backgroundPreviewOpened)
                         }
-                        .buttonStyle(.bordered)
-                        .clipShape(Capsule())
                     } else {
-                        Button(LocalizationKeys.Settings.previewBackgrounds.localized) {
-                            showingBackgroundDemo = true
+                        HeaderButton(LocalizationKeys.Settings.previewBackgrounds.localized) {
+                            navigationManager.navigate(to: .backgroundDemo)
                             AnalyticsService.trackEvent(.backgroundDemoOpened)
                         }
-                        .buttonStyle(.bordered)
-                        .clipShape(Capsule())
-                        .foregroundStyle(.secondary)
                     }
                 }
 
@@ -249,15 +196,70 @@ struct SettingsView: View {
 
                     Spacer()
 
-                    Picker(LocalizationKeys.Settings.colorScheme.localized, selection: $colorManager.userColorSchemePreference) {
-                        ForEach(ColorSchemeInternal.allCases, id: \.self) { scheme in
-                            Text(scheme.localizedName)
-                                .tag(scheme)
+                    HeaderButtonMenu(colorManager.userColorSchemePreference.localizedName) {
+                        Picker(LocalizationKeys.Settings.colorScheme.localized, selection: $colorManager.userColorSchemePreference) {
+                            ForEach(ColorSchemeInternal.allCases, id: \.self) { scheme in
+                                Text(scheme.localizedName)
+                                    .tag(scheme)
+                            }
                         }
+                        .pickerStyle(.inline)
                     }
-                    .pickerStyle(.menu)
-                    .buttonStyle(.bordered)
-                    .clipShape(Capsule())
+                }
+            }
+        }
+    }
+    
+    // MARK: - Notifications Section
+    private var notificationsSection: some View {
+        CustomSectionView(
+            header: LocalizationKeys.Settings.notifications.localized
+        ) {
+            FormWithDivider {
+                HStack(spacing: 2) {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(LocalizationKeys.Settings.studyReminders.localized)
+                            .font(.subheadline)
+                            .foregroundStyle(.primary)
+                        Text(LocalizationKeys.Settings.studyRemindersDescription.localized)
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+
+                    Spacer()
+
+                    Toggle("", isOn: Binding(
+                        get: { notificationService.isStudyRemindersEnabled },
+                        set: { _ in
+                            Task {
+                                await notificationService.toggleStudyReminders()
+                            }
+                        }
+                    ))
+                    .labelsHidden()
+                }
+
+                HStack(spacing: 2) {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(LocalizationKeys.Settings.difficultCardReminders.localized)
+                            .font(.subheadline)
+                            .foregroundStyle(.primary)
+                        Text(LocalizationKeys.Settings.difficultCardRemindersDescription.localized)
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+
+                    Spacer()
+
+                    Toggle("", isOn: Binding(
+                        get: { notificationService.isDifficultCardRemindersEnabled },
+                        set: { _ in
+                            Task {
+                                await notificationService.toggleDifficultCardReminders()
+                            }
+                        }
+                    ))
+                    .labelsHidden()
                 }
             }
         }
@@ -301,16 +303,12 @@ struct SettingsView: View {
                     .foregroundStyle(.secondary)
                     .frame(maxWidth: .infinity, alignment: .leading)
 
-                Button {
-                    showingCardManagement = true
-                } label: {
-                    Label(
-                        LocalizationKeys.Settings.manageCards.localized,
-                        systemImage: "list.bullet.rectangle"
-                    )
+                HeaderButton(
+                    LocalizationKeys.Settings.manageCards.localized,
+                    icon: "list.bullet.rectangle"
+                ) {
+                    navigationManager.navigate(to: .cardManagement)
                 }
-                .buttonStyle(.bordered)
-                .clipShape(Capsule())
             }
         }
     }
@@ -350,12 +348,13 @@ struct SettingsView: View {
                         
                         HFlow(spacing: 6) {
                             ForEach(tagManager.availableTags, id: \.self) { tag in
-                                SettingsTagButton(
-                                    title: tag.name.orEmpty,
-                                    onDelete: {
+                                Menu {
+                                    Button(LocalizationKeys.General.delete.localized, role: .destructive) {
                                         tagManager.removeTag(tag)
                                     }
-                                )
+                                } label: {
+                                    TagView(title: tag.name.orEmpty, isSelected: false)
+                                }
                             }
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -382,28 +381,6 @@ struct SettingsView: View {
         }
     }
 
-    // MARK: - Purchase Testing Section (Debug Only)
-    #if DEBUG
-    private var purchaseTestingSection: some View {
-        CustomSectionView(
-            header: "Purchase Testing"
-        ) {
-            VStack(alignment: .leading, spacing: 12) {
-                Text("Test in-app purchases and get transaction IDs")
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
-
-                Button("Open Purchase Test") {
-                    showingPurchaseTest = true
-                }
-                .buttonStyle(.bordered)
-                .clipShape(Capsule())
-                .frame(maxWidth: .infinity, alignment: .leading)
-            }
-        }
-    }
-    #endif
-    
     // MARK: - Subscription Management Section
     private var subscriptionManagementSection: some View {
         Group {
@@ -424,13 +401,11 @@ struct SettingsView: View {
                                 .font(.title2)
                         }
                         
-                        Button(LocalizationKeys.Settings.manageSubscription.localized) {
+                        HeaderButton(LocalizationKeys.Settings.manageSubscription.localized) {
                             if let url = URL(string: "https://apps.apple.com/account/subscriptions") {
                                 UIApplication.shared.open(url)
                             }
                         }
-                        .buttonStyle(.bordered)
-                        .clipShape(Capsule())
                         .frame(maxWidth: .infinity, alignment: .leading)
                     }
                 }

@@ -33,6 +33,10 @@ extension DetailedAnalytics {
                     learningSpeedSection
                 }
                 .padding(16)
+                .if(isPad) { view in
+                    view.frame(maxWidth: 500, alignment: .center)
+                        .frame(maxWidth: .infinity)
+                }
             }
             .background(Color(.systemGroupedBackground))
         }

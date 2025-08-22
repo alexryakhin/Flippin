@@ -86,6 +86,17 @@
 "cardManagementDescription" = "Search, edit, and organize your flashcards";
 "manageCards" = "Manage Cards";
 
+// MARK: - Notifications
+"notifications" = "Notifications";
+"studyReminders" = "Study Reminders";
+"studyRemindersDescription" = "Get reminded to study at 8:30 PM the following day";
+"difficultCardReminders" = "Difficult Card Reminders";
+"difficultCardRemindersDescription" = "Get reminded about difficult cards at 4:30 PM daily";
+"studyReminderTitle" = "Time to Study!";
+"studyReminderBody" = "Keep your learning streak going. Open Flippin to practice your flashcards.";
+"difficultCardReminderTitle" = "Practice Difficult Cards";
+"difficultCardReminderBody" = "You have some challenging cards that need attention. Time to review them!";
+
 // MARK: - Preset Collections
 "presetCollections" = "Preset Collections";
 "seeAllCollections" = "See All";

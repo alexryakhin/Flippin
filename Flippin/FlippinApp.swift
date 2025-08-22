@@ -13,6 +13,10 @@ import TipKit
 
 @main
 struct FlippinApp: App {
+    #if DEBUG
+    @State private var isDebugViewPresented: Bool = false
+    #endif
+
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.scenePhase) var scenePhase
     @StateObject private var coreDataService = CoreDataService.shared
@@ -21,6 +25,7 @@ struct FlippinApp: App {
     @StateObject private var tagManager = TagManager.shared
     @StateObject private var colorManager = ColorManager.shared
     @StateObject private var purchaseService = PurchaseService.shared
+    @StateObject private var notificationService = NotificationService.shared
 
     init() {
         FirebaseApp.configure()
@@ -31,6 +36,9 @@ struct FlippinApp: App {
             .displayFrequency(.immediate),
             .datastoreLocation(.applicationDefault)
         ])
+        
+        // Configure notification center delegate
+        UNUserNotificationCenter.current().delegate = NotificationService.shared
     }
 
     var body: some Scene {
@@ -46,14 +54,24 @@ struct FlippinApp: App {
                     switch newPhase {
                     case .background:
                         AnalyticsService.trackEvent(.appBackgrounded)
+                        notificationService.scheduleNotificationsWhenLeavingApp()
                     case .active:
                         AnalyticsService.trackEvent(.appForegrounded)
+                        notificationService.rescheduleStudyReminderIfNeeded()
                     case .inactive:
                         break
                     @unknown default:
                         break
                     }
                 }
+                #if DEBUG
+                .onShake {
+                    isDebugViewPresented = true
+                }
+                .sheet(isPresented: $isDebugViewPresented) {
+                    DebugView()
+                }
+                #endif
         }
     }
     

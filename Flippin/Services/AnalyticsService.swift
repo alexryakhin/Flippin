@@ -76,6 +76,13 @@ enum AnalyticsEvent: String, CaseIterable {
     // MARK: - Preset Collection Events
     case presetCollectionImported = "preset_collection_imported"
     case presetCollectionViewed = "preset_collection_viewed"
+    
+    // MARK: - Notification Events
+    case studyRemindersEnabled = "study_reminders_enabled"
+    case studyRemindersDisabled = "study_reminders_disabled"
+    case difficultCardRemindersEnabled = "difficult_card_reminders_enabled"
+    case difficultCardRemindersDisabled = "difficult_card_reminders_disabled"
+    case difficultCardReminderScheduled = "difficult_card_reminder_scheduled"
 }
 
 // MARK: - Analytics Service

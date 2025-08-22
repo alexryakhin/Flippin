@@ -7,12 +7,33 @@
 
 import SwiftUI
 
-enum NavigationTitleMode {
-    case inline
+enum NavigationTitleMode: Hashable {
+    case inline(withBackButton: Bool = true)
     case large
+
+    var font: Font {
+        switch self {
+        case .inline:
+            return .system(.headline, design: .rounded, weight: .semibold)
+        case .large:
+            return .system(.largeTitle, design: .rounded, weight: .bold)
+        }
+    }
+
+    var spacing: CGFloat {
+        switch self {
+        case .inline:
+            return 8
+        case .large:
+            return 12
+        }
+    }
 }
 
 struct NavigationTitleModifier<TrailingContent: View, BottomContent: View>: ViewModifier {
+
+    @Environment(\.dismiss) var dismiss
+
     let title: String
     let mode: NavigationTitleMode
     let vPadding: CGFloat
@@ -23,22 +44,30 @@ struct NavigationTitleModifier<TrailingContent: View, BottomContent: View>: View
 
     func body(content: Content) -> some View {
         content
+            .toolbar(.hidden)
             .safeAreaInset(edge: .top) {
-                VStack(spacing: mode == .large ? 12 : 8) {
-                    HStack(spacing: 2) {
+                VStack(spacing: mode.spacing) {
+                    HStack(spacing: mode.spacing) {
+                        if case .inline(let withBackButton) = mode, withBackButton {
+                            HeaderButton(icon: "chevron.left") {
+                                dismiss()
+                                HapticService.shared.buttonTapped()
+                            }
+                        }
                         Text(title)
-                            .font(mode == .inline ? .headline : .largeTitle)
-                            .bold()
+                            .font(mode.font)
                             .foregroundStyle(.secondary)
+                            .frame(maxWidth: .infinity, alignment: .leading)
 
-                        Spacer()
-
-                        trailingContent()
+                        HStack(spacing: 6) {
+                            trailingContent()
+                                .fixedSize(horizontal: true, vertical: false)
+                        }
                     }
 
                     bottomContent()
                 }
-                .clippedWithPaddingAndBackgroundMaterial(.regularMaterial, showShadow: true)
+                .clippedWithPaddingAndBackgroundMaterial(.thinMaterial, cornerRadius: 32, showShadow: true)
                 .padding(vertical: vPadding, horizontal: hPadding)
             }
     }

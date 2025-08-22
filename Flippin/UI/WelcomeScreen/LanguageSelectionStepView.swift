@@ -86,15 +86,15 @@ extension WelcomeSheet {
 
                     Spacer()
 
+
+
                     NavigationLink(destination: ReadyStepView(onContinue: onContinue)) {
-                        Text(LocalizationKeys.Welcome.continueButton.localized)
-                            .font(.headline)
-                            .frame(maxWidth: .infinity)
-                            .padding(vertical: 12, horizontal: 16)
+                        ActionButton(
+                            LocalizationKeys.Welcome.continueButton.localized,
+                            style: .borderedProminent,
+                            action: {}
+                        )
                     }
-                    .foregroundStyle(colorManager.borderedProminentForegroundColor)
-                    .buttonStyle(.borderedProminent)
-                    .clipShape(Capsule())
                 }
                 .padding(vertical: 12, horizontal: 16)
                 .onAppear {

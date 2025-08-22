@@ -32,18 +32,13 @@ struct EditCardSheet: View {
             .padding(16)
         }
         .safeAreaInset(edge: .bottom) {
-            Button {
+            ActionButton(
+                LocalizationKeys.General.save.localized,
+                style: .borderedProminent
+            ) {
                 viewModel.updateCard()
                 dismiss()
-            } label: {
-                Text(LocalizationKeys.General.save.localized)
-                    .font(.headline)
-                    .foregroundStyle(colorManager.borderedProminentForegroundColor)
-                    .frame(maxWidth: .infinity)
-                    .padding(vertical: 12, horizontal: 16)
             }
-            .buttonStyle(.borderedProminent)
-            .clipShape(Capsule())
             .padding(.horizontal)
             .padding(.bottom)
             .disabled(viewModel.nativeText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || viewModel.targetText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
@@ -52,17 +47,7 @@ struct EditCardSheet: View {
         .background(Color(.systemGroupedBackground))
         .navigation(
             title: LocalizationKeys.Card.editCard.localized,
-            mode: .inline,
-            trailingContent: {
-                Button {
-                    viewModel.cancel()
-                    dismiss()
-                } label: {
-                    Image(systemName: "xmark")
-                }
-                .buttonStyle(.bordered)
-                .clipShape(Capsule())
-            }
+            mode: .inline(withBackButton: true)
         )
         .ifLet(colorManager.colorScheme) { view, scheme in
             view.colorScheme(scheme)
@@ -123,17 +108,18 @@ struct EditCardSheet: View {
             if !viewModel.availableTags.isEmpty {
                 HFlow(spacing: 6) {
                     ForEach(viewModel.availableTags, id: \.self) { tag in
-                        TagButton(
+                        TagView(
                             title: tag.name.orEmpty,
-                            isSelected: viewModel.card.tagArray.contains(tag),
-                            isDisabled: viewModel.card.tagArray.count >= 5
-                        ) {
+                            isSelected: viewModel.card.tagArray.contains(tag)
+                        )
+                        .onTap {
                             if viewModel.card.tagArray.contains(tag) {
                                 viewModel.removeTag(tag)
                             } else {
                                 viewModel.addTag(tag)
                             }
                         }
+                        .disabled(viewModel.card.tagArray.count >= 5)
                     }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)

@@ -73,17 +73,7 @@ struct PresetCollectionsView: View {
             .background(Color(.systemGroupedBackground))
             .navigation(
                 title: LocalizationKeys.Presets.presetCollections.localized,
-                mode: .inline,
-                trailingContent: {
-                    Button {
-                        dismiss()
-                    } label: {
-                        Image(systemName: "xmark")
-                    }
-                    .foregroundStyle(.secondary)
-                    .buttonStyle(.bordered)
-                    .clipShape(Capsule())
-                },
+                mode: .inline(withBackButton: true),
                 bottomContent: {
                     VStack(spacing: 8) {
                         InputView.searchView(
@@ -131,16 +121,21 @@ struct PresetCollectionsView: View {
     private var categoryFilterView: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 8) {
-                TagButton(title: LocalizationKeys.Presets.allCategories.localized, isSelected: selectedCategory == nil) {
+                TagView(
+                    title: LocalizationKeys.Presets.allCategories.localized,
+                    isSelected: selectedCategory == nil
+                )
+                .onTap {
                     selectedCategory = nil
                 }
 
                 ForEach(PresetModel.Category.allCases, id: \.self) { category in
-                    TagButton(
+                    TagView(
                         title: category.displayTitle,
                         imageSystemName: category.icon,
                         isSelected: selectedCategory?.rawValue == category.rawValue
-                    ) {
+                    )
+                    .onTap {
                         selectedCategory = selectedCategory?.rawValue == category.rawValue ? nil : category
                     }
                 }

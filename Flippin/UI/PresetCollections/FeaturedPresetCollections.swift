@@ -14,7 +14,6 @@ struct FeaturedPresetCollections: View {
     @StateObject private var presetService = PresetCollectionService.shared
     @StateObject private var purchaseService = PurchaseService.shared
 
-    @State private var showingAllCollections = false
     @State private var showingImportAlert = false
     @State private var collectionToImport: PresetCollection?
     @State private var showingLimitAlert = false
@@ -58,20 +57,14 @@ struct FeaturedPresetCollections: View {
                     .scrollClipDisabled()
                 }
             } trailingContent: {
-                Button(LocalizationKeys.Presets.seeAllCollections.localized) {
+                HeaderButton(LocalizationKeys.Presets.seeAllCollections.localized, style: .borderedProminent) {
                     if purchaseService.hasPremiumAccess {
-                        showingAllCollections = true
+                        NavigationManager.shared.navigate(to: .presetCollections)
                         AnalyticsService.trackEvent(.presetCollectionsOpened)
                     } else {
                         premiumFeature = .cardPresets
                     }
                 }
-                .foregroundStyle(colorManager.borderedProminentForegroundColor)
-                .buttonStyle(.borderedProminent)
-                .clipShape(Capsule())
-            }
-            .sheet(isPresented: $showingAllCollections) {
-                PresetCollectionsView()
             }
             .premiumAlert(feature: $premiumFeature)
             .alert(LocalizationKeys.Presets.importCollection.localized, isPresented: $showingImportAlert) {

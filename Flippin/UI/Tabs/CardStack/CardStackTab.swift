@@ -17,7 +17,6 @@ enum CardStackTab {
         // MARK: - State Variables
 
         @State private var shuffledItems: [CardItem] = []
-        @State private var showAddCardSheet = false
         @State private var premiumFeature: PremiumFeature?
 
         // MARK: - Computed Properties
@@ -64,24 +63,26 @@ enum CardStackTab {
                     // Action buttons
                     HStack(spacing: 16) {
                         // Shuffle button
-                        Button {
+                        ActionButton(
+                            LocalizationKeys.Navigation.shuffle.localized,
+                            systemImage: "shuffle",
+                            style: .borderedProminent
+                        ) {
                             shuffleCards()
-                        } label: {
-                            Label(LocalizationKeys.Navigation.shuffle.localized, systemImage: "shuffle")
-                                .foregroundStyle(colorManager.borderedProminentForegroundColor)
                         }
-                        .buttonStyle(.borderedProminent)
-                        .clipShape(Capsule())
 
                         // Add card button
-                        Button {
-                            showAddCardSheet = true
-                        } label: {
-                            Label(LocalizationKeys.Navigation.addCardLabel.localized, systemImage: "plus")
-                                .foregroundStyle(colorManager.borderedProminentForegroundColor)
+                        ActionButton(
+                            LocalizationKeys.Navigation.addCardLabel.localized,
+                            systemImage: "plus",
+                            style: .borderedProminent
+                        ) {
+                            NavigationManager.shared.navigate(to: .addCard)
                         }
-                        .buttonStyle(.borderedProminent)
-                        .clipShape(Capsule())
+                    }
+                    .if(isPad) { view in
+                        view
+                            .frame(maxWidth: 500, alignment: .center)
                     }
                 }
             }
@@ -109,9 +110,6 @@ enum CardStackTab {
             }
             .onChange(of: languageManager.targetLanguage) { _, _ in
                 resetShuffle()
-            }
-            .sheet(isPresented: $showAddCardSheet) {
-                AddCardSheet()
             }
             .onDisappear {
                 LearningAnalyticsService.shared.endStudySession()
@@ -167,13 +165,12 @@ enum CardStackTab {
 
                     Spacer()
 
-                    Button(LocalizationKeys.Paywall.upgrade.localized) {
+                    HeaderButton(
+                        LocalizationKeys.Paywall.upgrade.localized,
+                        style: .borderedProminent
+                    ) {
                         premiumFeature = .unlimitedCards
                     }
-                    .font(.caption)
-                    .foregroundStyle(colorManager.borderedProminentForegroundColor)
-                    .buttonStyle(.borderedProminent)
-                    .clipShape(Capsule())
                 }
                 .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
                 .if(isPad) { view in
@@ -197,14 +194,13 @@ enum CardStackTab {
                     Text(LocalizationKeys.Card.tapToAddFirstCard.localized)
                         .foregroundStyle(.secondary)
                 } actions: {
-                    Button {
-                        showAddCardSheet = true
-                    } label: {
-                        Label(LocalizationKeys.Card.addCard.localized, systemImage: "plus")
-                            .foregroundStyle(colorManager.borderedProminentForegroundColor)
+                    HeaderButton(
+                        LocalizationKeys.Card.addCard.localized,
+                        icon: "plus",
+                        style: .borderedProminent
+                    ) {
+                        NavigationManager.shared.navigate(to: .addCard)
                     }
-                    .buttonStyle(.borderedProminent)
-                    .clipShape(Capsule())
                 }
                 .foregroundColor(colorManager.foregroundColor)
 
@@ -225,13 +221,13 @@ enum CardStackTab {
                     Text(LocalizationKeys.Card.noCardsFoundWithTag.localized(with: selectedFilterTag.name.orEmpty))
                         .foregroundStyle(.secondary)
                 } actions: {
-                    Button(LocalizationKeys.General.clearFilter.localized) {
+                    HeaderButton(
+                        LocalizationKeys.General.clearFilter.localized,
+                        style: .borderedProminent
+                    ) {
                         HapticService.shared.buttonTapped()
                         tagManager.clearFilter()
                     }
-                    .foregroundStyle(colorManager.borderedProminentForegroundColor)
-                    .buttonStyle(.borderedProminent)
-                    .clipShape(Capsule())
                 }
                 .foregroundColor(colorManager.foregroundColor)
             }

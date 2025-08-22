@@ -1,5 +1,5 @@
 //
-//  TagButton.swift
+//  TabButton.swift
 //  Flippin
 //
 //  Created by Alexander Riakhin on 7/13/25.
@@ -7,12 +7,8 @@
 
 import SwiftUI
 
-/**
- Interactive tag button with selection state and optional icon.
- Supports both string and LocalizedStringKey titles with consistent styling.
- Provides visual feedback for selected, disabled, and normal states.
- */
 struct TabButton: View {
+
     // MARK: - State Objects
     
     @StateObject private var tagManager = TagManager.shared

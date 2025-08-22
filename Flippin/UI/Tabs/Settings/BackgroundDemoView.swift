@@ -66,18 +66,7 @@ struct BackgroundDemoView: View {
         .background(Color(.systemGroupedBackground))
         .navigation(
             title: LocalizationKeys.Settings.backgroundDemo.localized,
-            mode: .inline,
-            trailingContent: {
-                Button {
-                    HapticService.shared.buttonTapped()
-                    dismiss()
-                } label: {
-                    Image(systemName: "xmark")
-                }
-                .buttonStyle(.bordered)
-                .foregroundStyle(.secondary)
-                .clipShape(Capsule())
-            }
+            mode: .inline(withBackButton: true)
         )
         .sheet(isPresented: $showPaywall) {
             Paywall.ContentView()

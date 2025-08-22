@@ -131,12 +131,14 @@ enum AnalyticsDashboard {
                         tintColor: colorManager.tintColor
                     )
                 } trailingContent: {
-                    Picker(LocalizationKeys.Analytics.timeRange.localized, selection: $selectedTimeRange) {
-                        ForEach(TimeRange.chartCases, id: \.self) { range in
-                            Text(range.name).tag(range)
+                    HeaderButtonMenu(selectedTimeRange.name) {
+                        Picker(LocalizationKeys.Analytics.timeRange.localized, selection: $selectedTimeRange) {
+                            ForEach(TimeRange.chartCases, id: \.self) { range in
+                                Text(range.name).tag(range)
+                            }
                         }
+                        .pickerStyle(.inline)
                     }
-                    .pickerStyle(.segmented)
                 }
             }
         }

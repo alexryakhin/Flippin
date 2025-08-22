@@ -1,5 +1,5 @@
 //
-//  AboutSheet.swift
+//  AboutView.swift
 //  Flippin
 //
 //  Created by Alexander Riakhin on 7/28/25.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AboutSheet: View {
+struct AboutView: View {
     @Environment(\.dismiss) var dismiss
     @StateObject private var colorManager = ColorManager.shared
     
@@ -26,26 +26,18 @@ struct AboutSheet: View {
                 legalSection
             }
             .padding(16)
+            .if(isPad) { view in
+                view.frame(maxWidth: 500, alignment: .center)
+                    .frame(maxWidth: .infinity)
+            }
         }
         .background {
             AnimatedBackground(style: colorManager.backgroundStyle)
                 .ignoresSafeArea()
         }
-        .if(isPad) { view in
-            view.frame(maxWidth: 500, alignment: .center)
-        }
         .navigation(
             title: LocalizationKeys.AboutApp.about.localized,
-            mode: .inline,
-            trailingContent: {
-                Button {
-                    dismiss()
-                } label: {
-                    Image(systemName: "xmark")
-                }
-                .buttonStyle(.bordered)
-                .clipShape(Capsule())
-            }
+            mode: .inline(withBackButton: true)
         )
         .ifLet(colorManager.colorScheme) { view, scheme in
             view.colorScheme(scheme)
@@ -139,16 +131,13 @@ struct AboutSheet: View {
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.leading)
 
-                Button {
+                HeaderButton(
+                    LocalizationKeys.AboutApp.buyMeACoffee.localized,
+                    icon: "cup.and.saucer.fill",
+                    style: .borderedProminent
+                ) {
                     openDonationLink()
-                } label: {
-                    Label(
-                        LocalizationKeys.AboutApp.buyMeACoffee.localized,
-                        systemImage: "cup.and.saucer.fill"
-                    )
                 }
-                .buttonStyle(.borderedProminent)
-                .clipShape(Capsule())
             }
             .frame(maxWidth: .infinity, alignment: .leading)
         }
@@ -160,27 +149,19 @@ struct AboutSheet: View {
             header: LocalizationKeys.AboutApp.legal.localized
         ) {
             VStack(alignment: .leading, spacing: 12) {
-                Button {
+                HeaderButton(
+                    LocalizationKeys.AboutApp.privacyPolicy.localized,
+                    icon: "arrow.up.right"
+                ) {
                     openPrivacyPolicy()
-                } label: {
-                    Label(
-                        LocalizationKeys.AboutApp.privacyPolicy.localized,
-                        systemImage: "arrow.up.right"
-                    )
                 }
-                .buttonStyle(.bordered)
-                .clipShape(Capsule())
-                
-                Button {
+
+                HeaderButton(
+                    LocalizationKeys.AboutApp.termsOfService.localized,
+                    icon: "arrow.up.right"
+                ) {
                     openTermsOfService()
-                } label: {
-                    Label(
-                        LocalizationKeys.AboutApp.termsOfService.localized,
-                        systemImage: "arrow.up.right"
-                    )
                 }
-                .buttonStyle(.bordered)
-                .clipShape(Capsule())
             }
             .frame(maxWidth: .infinity, alignment: .leading)
         }
@@ -236,5 +217,5 @@ struct FeatureRow: View {
 }
 
 #Preview {
-    AboutSheet()
-} 
+    AboutView()
+}

@@ -23,9 +23,7 @@ struct MyCardsListView: View {
     @State private var searchText = ""
     @State private var showingDeleteAlert = false
     @State private var cardToDelete: CardItem?
-    @State private var cardToEdit: CardItem?
-    @State private var showingTagFilter = false
-    @State private var showAddCardSheet = false
+//    @State private var cardToEdit: CardItem?
     @State private var lastSearchText = ""
 
     var filteredCards: [CardItem] {
@@ -118,7 +116,7 @@ struct MyCardsListView: View {
                                         showingDeleteAlert = true
                                     },
                                     onEdit: {
-                                        cardToEdit = card
+                                        NavigationManager.shared.navigate(to: .editCard(card))
                                     }
                                 )
                             }
@@ -135,26 +133,12 @@ struct MyCardsListView: View {
         }
         .navigation(
             title: LocalizationKeys.Navigation.myCards.localized,
-            mode: .inline,
+            mode: .inline(withBackButton: true),
             trailingContent: {
                 HStack(spacing: 4) {
-                    Button {
-                        showAddCardSheet = true
-                    } label: {
-                        Image(systemName: "plus")
-                            .font(.headline)
-                            .foregroundStyle(colorManager.borderedProminentForegroundColor)
+                    HeaderButton(icon: "plus") {
+                        NavigationManager.shared.navigate(to: .addCard)
                     }
-                    .buttonStyle(.borderedProminent)
-                    .clipShape(Capsule())
-
-                    Button {
-                        dismiss()
-                    } label: {
-                        Image(systemName: "xmark")
-                    }
-                    .buttonStyle(.bordered)
-                    .clipShape(Capsule())
                 }
             },
             bottomContent: {
@@ -172,14 +156,6 @@ struct MyCardsListView: View {
         }
         .onAppear {
             AnalyticsService.trackEvent(.myCardsScreenOpened)
-        }
-        .sheet(isPresented: $showAddCardSheet) {
-            AddCardSheet()
-        }
-        .sheet(item: $cardToEdit) {
-            cardsProvider.objectWillChange.send()
-        } content: { card in
-            EditCardSheet(card: card)
         }
         .alert(cardToDelete == nil ? LocalizationKeys.Card.deleteAllCards.localized : LocalizationKeys.Card.deleteCard.localized, isPresented: $showingDeleteAlert) {
             Button(LocalizationKeys.General.delete.localized, role: .destructive) {
@@ -283,14 +259,14 @@ struct MyCardsListView: View {
                 Text(LocalizationKeys.Card.noCardsFoundWithTag.localized(with: selectedFilterTag.name.orEmpty))
                     .foregroundStyle(.secondary)
             } actions: {
-                Button(LocalizationKeys.General.clearFilter.localized) {
+                HeaderButton(
+                    LocalizationKeys.General.clearFilter.localized,
+                    style: .borderedProminent
+                ) {
                     HapticService.shared.buttonTapped()
                     tagManager.clearFilter()
                     AnalyticsService.trackFilterEvent(.tagFilterCleared, filterType: "tag", filterValue: "")
                 }
-                .foregroundStyle(colorManager.borderedProminentForegroundColor)
-                .buttonStyle(.borderedProminent)
-                .clipShape(Capsule())
             }
         }
     }

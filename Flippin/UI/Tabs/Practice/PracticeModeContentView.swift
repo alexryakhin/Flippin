@@ -70,17 +70,14 @@ enum StudyMode: Int, Identifiable, Hashable {
             }
             .navigation(
                 title: LocalizationKeys.Study.practiceMode.localized,
-                mode: .inline,
+                mode: .inline(withBackButton: false),
                 trailingContent: {
-                    Button(LocalizationKeys.Study.exit.localized) {
+                    HeaderButton(LocalizationKeys.Study.exit.localized) {
                         HapticService.shared.buttonTapped()
                         endStudySession()
                         analyticsService.refreshAnalytics()
                         dismiss()
                     }
-                    .buttonStyle(.bordered)
-                    .foregroundStyle(.secondary)
-                    .clipShape(Capsule())
                 },
                 bottomContent: {
                 HStack(spacing: 8) {
@@ -160,29 +157,33 @@ enum StudyMode: Int, Identifiable, Hashable {
                 VStack(spacing: 16) {
                     if !showingAnswer {
                         // Show answer button
-                        Button(LocalizationKeys.Study.showAnswer.localized) {
+                        HeaderButton(
+                            LocalizationKeys.Study.showAnswer.localized,
+                            style: .borderedProminent
+                        ) {
                             withAnimation(.easeInOut(duration: 0.3)) {
                                 showingAnswer = true
                             }
                         }
-                        .buttonStyle(.borderedProminent)
-                        .clipShape(Capsule())
                     } else {
                         // Correct/Incorrect buttons
                         HStack(spacing: 16) {
-                            Button(LocalizationKeys.Study.incorrect.localized) {
+                            HeaderButton(
+                                LocalizationKeys.Study.incorrect.localized,
+                                size: .large,
+                                style: .borderedProminent,
+                                role: .destructive
+                            ) {
                                 recordAnswer(wasCorrect: false)
                             }
-                            .tint(.red)
-                            .buttonStyle(.borderedProminent)
-                            .clipShape(Capsule())
 
-                            Button(LocalizationKeys.Study.correct.localized) {
+                            HeaderButton(
+                                LocalizationKeys.Study.correct.localized,
+                                size: .large,
+                                style: .borderedProminent
+                            ) {
                                 recordAnswer(wasCorrect: true)
                             }
-                            .tint(.green)
-                            .buttonStyle(.borderedProminent)
-                            .clipShape(Capsule())
                         }
                     }
                 }
@@ -238,22 +239,18 @@ enum StudyMode: Int, Identifiable, Hashable {
 
                     // Action buttons
                     VStack(spacing: 12) {
-                        Button(LocalizationKeys.Study.practiceAgain.localized) {
+                        HeaderButton(
+                            LocalizationKeys.Study.practiceAgain.localized,
+                            style: .borderedProminent
+                        ) {
                             setupStudySession()
                         }
-                        .foregroundStyle(colorManager.borderedProminentForegroundColor)
-                        .buttonStyle(.borderedProminent)
-                        .clipShape(Capsule())
 
-                        Button(LocalizationKeys.Study.done.localized) {
+                        HeaderButton(LocalizationKeys.Study.done.localized) {
                             // Force refresh analytics data and notify UI
                             analyticsService.refreshAnalytics()
-
                             dismiss()
                         }
-                        .buttonStyle(.borderedProminent)
-                        .tint(.secondary)
-                        .clipShape(Capsule())
                     }
                 }
                 .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)

@@ -93,17 +93,13 @@ extension WelcomeSheet {
                 }
             }
             .safeAreaInset(edge: .bottom) {
-                NavigationLink(
-                    destination: LanguageSelectionStepView(onContinue: onContinue)
-                ) {
-                    Text(LocalizationKeys.Welcome.continueButton.localized)
-                        .font(.headline)
-                        .frame(maxWidth: .infinity)
-                        .padding(vertical: 12, horizontal: 16)
+                NavigationLink(destination: LanguageSelectionStepView(onContinue: onContinue)) {
+                    ActionButton(
+                        LocalizationKeys.Welcome.continueButton.localized,
+                        style: .borderedProminent,
+                        action: {}
+                    )
                 }
-                .foregroundStyle(colorManager.borderedProminentForegroundColor)
-                .buttonStyle(.borderedProminent)
-                .clipShape(Capsule())
                 .padding(vertical: 12, horizontal: 16)
             }
             .background {

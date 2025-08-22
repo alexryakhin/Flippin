@@ -99,18 +99,13 @@ extension WelcomeSheet {
                     Spacer()
 
                     // Final button
-                    Button {
+                    ActionButton(
+                        LocalizationKeys.Welcome.getStarted.localized,
+                        style: .borderedProminent
+                    ) {
                         HapticService.shared.buttonTapped()
                         onContinue()
-                    } label: {
-                        Text(LocalizationKeys.Welcome.getStarted.localized)
-                            .font(.headline)
-                            .frame(maxWidth: .infinity)
-                            .padding(vertical: 12, horizontal: 16)
                     }
-                    .foregroundStyle(colorManager.borderedProminentForegroundColor)
-                    .buttonStyle(.borderedProminent)
-                    .clipShape(Capsule())
                 }
                 .padding(vertical: 12, horizontal: 16)
                 .onAppear {

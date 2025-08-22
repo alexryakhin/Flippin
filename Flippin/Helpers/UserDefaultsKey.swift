@@ -15,4 +15,7 @@ enum UserDefaultsKey {
     static let cardDisplayMode = "cardDisplayMode"
     static let colorSchemePreference = "colorSchemePreference"
     static let cachedPurchasedProducts = "cachedPurchasedProducts"
+    static let studyRemindersEnabled = "studyRemindersEnabled"
+    static let difficultCardRemindersEnabled = "difficultCardRemindersEnabled"
+    static let debugModeEnabled = "debugModeEnabled"
 }

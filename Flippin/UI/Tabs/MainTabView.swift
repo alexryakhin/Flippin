@@ -70,45 +70,67 @@ struct MainTabView: View {
     // MARK: - Body
 
     var body: some View {
-        ZStack {
-            AnimatedBackground(style: colorManager.backgroundStyle)
-            VStack {
-                switch navigationManager.selectedTab {
-                case .study:
-                    CardStackTab.ContentView()
-                case .practice:
-                    PracticeTab.ContentView()
-                case .analytics:
-                    AnalyticsTab.ContentView()
-                case .settings:
-                    SettingsView()
+        NavigationStack(path: $navigationManager.navigationPath) {
+            ZStack {
+                AnimatedBackground(style: colorManager.backgroundStyle)
+                VStack {
+                    switch navigationManager.selectedTab {
+                    case .study:
+                        CardStackTab.ContentView()
+                    case .practice:
+                        PracticeTab.ContentView()
+                    case .analytics:
+                        AnalyticsTab.ContentView()
+                    case .settings:
+                        SettingsView()
+                    }
+                }
+            }
+            .safeAreaInset(edge: .bottom) {
+                tabBarView
+            }
+            .animation(.easeInOut, value: navigationManager.selectedTab)
+            .ifLet(colorManager.colorScheme) { view, scheme in
+                view.colorScheme(scheme)
+            }
+            .tint(colorManager.tintColor)
+            .onAppear {
+                if !didShowWelcomeSheet {
+                    showWelcomeSheet = true
+                    AnalyticsService.trackEvent(.welcomeScreenOpened)
+                }
+            }
+            .sheet(isPresented: $showWelcomeSheet) {
+                WelcomeSheet.ContentView(
+                    onContinue: {
+                        didShowWelcomeSheet = true
+                        showWelcomeSheet = false
+                    }
+                )
+                .interactiveDismissDisabled()
+            }
+            .premiumAlert(feature: $premiumFeature)
+            .navigationDestination(for: NavigationDestination.self) { destination in
+                switch destination {
+                case .addCard:
+                    AddCardSheet()
+                case .editCard(let card):
+                    EditCardSheet(card: card)
+                case .cardManagement:
+                    MyCardsListView()
+                case .presetCollections:
+                    PresetCollectionsView()
+                case .detailedAnalytics:
+                    DetailedAnalytics.ContentView()
+                case .backgroundPreview:
+                    BackgroundPreviewView()
+                case .backgroundDemo:
+                    BackgroundDemoView()
+                case .about:
+                    AboutView()
                 }
             }
         }
-        .safeAreaInset(edge: .bottom) {
-            tabBarView
-        }
-        .animation(.easeInOut, value: navigationManager.selectedTab)
-        .ifLet(colorManager.colorScheme) { view, scheme in
-            view.colorScheme(scheme)
-        }
-        .tint(colorManager.tintColor)
-        .onAppear {
-            if !didShowWelcomeSheet {
-                showWelcomeSheet = true
-                AnalyticsService.trackEvent(.welcomeScreenOpened)
-            }
-        }
-        .sheet(isPresented: $showWelcomeSheet) {
-            WelcomeSheet.ContentView(
-                onContinue: {
-                    didShowWelcomeSheet = true
-                    showWelcomeSheet = false
-                }
-            )
-            .interactiveDismissDisabled()
-        }
-        .premiumAlert(feature: $premiumFeature)
     }
 
     private var tabBarView: some View {
@@ -125,7 +147,7 @@ struct MainTabView: View {
             }
         }
         .padding(vertical: 12, horizontal: 16)
-        .clippedWithBackgroundMaterial(.regularMaterial, showShadow: true)
+        .clippedWithBackgroundMaterial(.thinMaterial, cornerRadius: 32, showShadow: true)
         .padding(8)
     }
 }

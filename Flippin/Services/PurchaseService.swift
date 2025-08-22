@@ -12,33 +12,38 @@ struct PurchaseResult {
 @MainActor
 final class PurchaseService: ObservableObject {
     static let shared = PurchaseService()
-    
+
     @Published var products: [Product] = []
     @Published var isPurchasing = false
     @Published var lastTransactionId: String?
     @Published var isListeningForUpdates = false
     @Published var purchasedProductIds: Set<String> = []
     @Published var hasPremiumAccess: Bool = false
-    
+
+    // MARK: - Debug Properties
+    #if DEBUG
+    @Published var isDebugModeEnabled: Bool = false
+    #endif
+
     private var productIds = [
         "com.dor.flippin.premium_monthly",
         "com.dor.flippin.premium_yearly"
     ]
-    
+
     // Cached purchase state for faster loading at app launch
     private var cachedPurchasedProductIds: Set<String> = []
-    
+
     private init() {
         // Load cached purchase state immediately for faster access
         loadCachedPurchaseState()
-        
+
         Task {
             await loadProducts()
             await listenForTransactionUpdates()
             await loadPurchasedProducts()
         }
     }
-    
+
     // MARK: - Product Loading
     func loadProducts() async {
         do {
@@ -60,10 +65,10 @@ final class PurchaseService: ObservableObject {
                 productId: productId
             )
         }
-        
+
         isPurchasing = true
         defer { isPurchasing = false }
-        
+
         do {
             let storeProduct = try await Product.products(for: [productId]).first
             guard let storeProduct = storeProduct else {
@@ -74,35 +79,35 @@ final class PurchaseService: ObservableObject {
                     productId: productId
                 )
             }
-            
+
             let result = try await storeProduct.purchase()
-            
+
             switch result {
             case .success(let verification):
                 let transaction = try checkVerified(verification)
-                
+
                 // Note: Transaction will be finished in the updates listener
                 // We don't call transaction.finish() here to avoid double-finishing
-                
+
                 lastTransactionId = transaction.id.description
-                
+
                 // Track purchase analytics
                 AnalyticsService.trackEvent(.purchaseCompleted, parameters: [
                     "product_id": productId,
                     "transaction_id": transaction.id.description,
                     "price": product.displayPrice
                 ])
-                
+
                 // Haptic feedback for successful purchase
                 HapticService.shared.purchaseSuccess()
-                
+
                 return PurchaseResult(
                     success: true,
                     transactionId: transaction.id.description,
                     error: nil,
                     productId: productId
                 )
-                
+
             case .userCancelled:
                 return PurchaseResult(
                     success: false,
@@ -110,7 +115,7 @@ final class PurchaseService: ObservableObject {
                     error: "Purchase cancelled by user",
                     productId: productId
                 )
-                
+
             case .pending:
                 return PurchaseResult(
                     success: false,
@@ -118,7 +123,7 @@ final class PurchaseService: ObservableObject {
                     error: "Purchase pending approval",
                     productId: productId
                 )
-                
+
             @unknown default:
                 return PurchaseResult(
                     success: false,
@@ -127,14 +132,14 @@ final class PurchaseService: ObservableObject {
                     productId: productId
                 )
             }
-            
+
         } catch {
             print("❌ Purchase failed: \(error)")
             AnalyticsService.trackErrorEvent(.purchaseFailed, errorMessage: error.localizedDescription)
-            
+
             // Haptic feedback for failed purchase
             HapticService.shared.purchaseFailed()
-            
+
             return PurchaseResult(
                 success: false,
                 transactionId: nil,
@@ -143,7 +148,7 @@ final class PurchaseService: ObservableObject {
             )
         }
     }
-    
+
     // MARK: - Test Purchase
     func performTestPurchase() async -> PurchaseResult {
         // Use the first available product for testing
@@ -155,20 +160,20 @@ final class PurchaseService: ObservableObject {
                 productId: "test"
             )
         }
-        
+
         print("🧪 Starting test purchase for: \(firstProduct.id)")
-        
+
         // Wait a bit for the transaction to be processed by the updates listener
         let result = await purchaseProduct(firstProduct.id)
-        
+
         if result.success {
             // Give the transaction updates listener time to process
             try? await Task.sleep(nanoseconds: 500_000_000) // 0.5 seconds
         }
-        
+
         return result
     }
-    
+
     // MARK: - Transaction Verification
     private func checkVerified<T>(_ result: VerificationResult<T>) throws -> T {
         switch result {
@@ -178,11 +183,11 @@ final class PurchaseService: ObservableObject {
             return safe
         }
     }
-    
+
     // MARK: - Transaction History
     func getTransactionHistory() async -> [Transaction] {
         var transactions: [Transaction] = []
-        
+
         for await result in Transaction.currentEntitlements {
             do {
                 let transaction = try checkVerified(result)
@@ -191,50 +196,50 @@ final class PurchaseService: ObservableObject {
                 print("❌ Failed to verify transaction: \(error)")
             }
         }
-        
+
         return transactions
     }
-    
+
     // MARK: - Transaction Updates Listener
     private func listenForTransactionUpdates() async {
         print("🔔 Starting transaction updates listener...")
         isListeningForUpdates = true
-        
+
         for await result in Transaction.updates {
             do {
                 let transaction = try checkVerified(result)
-                
+
                 // Update last transaction ID
                 lastTransactionId = transaction.id.description
-                
+
                 // Add to purchased products
                 await addToPurchasedProducts(transaction.productID)
-                
+
                 // Track transaction update
                 AnalyticsService.trackEvent(.transactionUpdated, parameters: [
                     "transaction_id": transaction.id.description,
                     "product_id": transaction.productID,
                     "purchase_date": transaction.purchaseDate.description
                 ])
-                
+
                 print("📋 Transaction update received: \(transaction.id.description)")
                 print("🛍️ Product: \(transaction.productID)")
                 print("✅ Added to purchased products")
-                
+
                 // Finish the transaction
                 await transaction.finish()
-                
+
             } catch {
                 print("❌ Failed to verify transaction update: \(error)")
                 AnalyticsService.trackErrorEvent(.transactionVerificationFailed, errorMessage: error.localizedDescription)
             }
         }
     }
-    
+
     // MARK: - Purchased Products Management
     private func loadPurchasedProducts() async {
         print("📦 Loading purchased products...")
-        
+
         for await result in Transaction.currentEntitlements {
             do {
                 let transaction = try checkVerified(result)
@@ -243,15 +248,15 @@ final class PurchaseService: ObservableObject {
                 print("❌ Failed to verify transaction: \(error)")
             }
         }
-        
+
         // Save the final state after loading from StoreKit
         await MainActor.run {
             saveCachedPurchaseState()
         }
-        
+
         print("✅ Loaded \(purchasedProductIds.count) purchased products")
     }
-    
+
     private func addToPurchasedProducts(_ productId: String) async {
         await MainActor.run {
             purchasedProductIds.insert(productId)
@@ -260,15 +265,15 @@ final class PurchaseService: ObservableObject {
             print("✅ Added \(productId) to purchased products")
         }
     }
-    
+
     func isProductPurchased(_ productId: String) -> Bool {
         return purchasedProductIds.contains(productId)
     }
-    
+
     func getPurchasedProducts() -> [String] {
         return Array(purchasedProductIds)
     }
-    
+
     // MARK: - Restore Purchases
     func restorePurchases() async -> Bool {
         do {
@@ -281,7 +286,7 @@ final class PurchaseService: ObservableObject {
             return false
         }
     }
-    
+
     // MARK: - Cached Purchase State Management
     private func loadCachedPurchaseState() {
         if let cachedIds = UserDefaults.standard.array(forKey: UserDefaultsKey.cachedPurchasedProducts) as? [String] {
@@ -291,26 +296,59 @@ final class PurchaseService: ObservableObject {
             print("📦 Loaded cached purchase state: \(cachedPurchasedProductIds)")
         }
     }
-    
+
     private func saveCachedPurchaseState() {
         let idsArray = Array(purchasedProductIds)
         UserDefaults.standard.set(idsArray, forKey: UserDefaultsKey.cachedPurchasedProducts)
         print("💾 Saved cached purchase state: \(purchasedProductIds)")
     }
-    
+
     // MARK: - Public Purchase Status Management
     func reloadPurchaseStatus() async {
         print("🔄 Reloading purchase status...")
         await loadPurchasedProducts()
         print("✅ Purchase status reloaded")
     }
-    
+
     // MARK: - Premium Access Helper
     /// Updates the premium access status based on current purchased products
     private func updatePremiumAccessStatus() {
+        #if DEBUG
+        if isDebugModeEnabled {
+            hasPremiumAccess = true
+        } else {
+            hasPremiumAccess = isProductPurchased("com.dor.flippin.premium_monthly") ||
+            isProductPurchased("com.dor.flippin.premium_yearly")
+        }
+        #else
         hasPremiumAccess = isProductPurchased("com.dor.flippin.premium_monthly") ||
-                          isProductPurchased("com.dor.flippin.premium_yearly")
+        isProductPurchased("com.dor.flippin.premium_yearly")
+        #endif
     }
+
+    // MARK: - Debug Methods
+    #if DEBUG
+    /// Toggle debug mode to enable premium access locally
+    func toggleDebugMode() {
+        isDebugModeEnabled.toggle()
+        updatePremiumAccessStatus()
+        print("🔧 Debug mode \(isDebugModeEnabled ? "enabled" : "disabled")")
+    }
+
+    /// Enable debug mode
+    func enableDebugMode() {
+        isDebugModeEnabled = true
+        updatePremiumAccessStatus()
+        print("🔧 Debug mode enabled")
+    }
+
+    /// Disable debug mode
+    func disableDebugMode() {
+        isDebugModeEnabled = false
+        updatePremiumAccessStatus()
+        print("🔧 Debug mode disabled")
+    }
+    #endif
 }
 
 // MARK: - Purchase Errors
@@ -318,7 +356,7 @@ enum PurchaseError: Error, LocalizedError {
     case verificationFailed
     case productNotFound
     case purchaseFailed
-    
+
     var errorDescription: String? {
         switch self {
         case .verificationFailed:

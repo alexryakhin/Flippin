@@ -54,9 +54,9 @@ enum PracticeTab {
                     recentActivitySection
                 }
                 .padding(16)
-            }
-            .if(isPad) { view in
-                view.frame(maxWidth: 500, alignment: .center)
+                .if(isPad) { view in
+                    view.frame(maxWidth: 500, alignment: .center)
+                }
             }
             .navigation(title: LocalizationKeys.Study.practice.localized)
             .ifLet(colorManager.colorScheme) { view, scheme in
@@ -231,11 +231,12 @@ enum PracticeTab {
                         Text(LocalizationKeys.Study.startStudyingToSeeProgress.localized)
                             .foregroundStyle(.secondary)
                     } actions: {
-                        Button(LocalizationKeys.Study.toCards.localized) {
+                        HeaderButton(
+                            LocalizationKeys.Study.toCards.localized,
+                            style: .borderedProminent
+                        ) {
                             NavigationManager.shared.switchToTab(.study)
                         }
-                        .buttonStyle(.borderedProminent)
-                        .clipShape(Capsule())
                     }
                 } else {
                     VStack(spacing: 12) {

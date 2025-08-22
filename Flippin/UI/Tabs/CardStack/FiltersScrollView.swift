@@ -27,45 +27,49 @@ struct FiltersScrollView: View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 8) {
                 // Show all cards filter
-                TagButton(
-                    title: LocalizationKeys.Settings.showAllCards,
+                TagView(
+                    title: LocalizationKeys.Settings.showAllCards.localized,
                     isSelected: tagManager.selectedFilterTag == nil && !tagManager.isFavoriteFilterOn && !tagManager.isDifficultFilterOn,
                     isMaterialBackground: isMaterialBackground
-                ) {
+                )
+                .onTap {
                     tagManager.selectedFilterTag = nil
                     tagManager.isFavoriteFilterOn = false
                     tagManager.isDifficultFilterOn = false
                 }
 
                 // Favorite filter button
-                TagButton(
-                    title: LocalizationKeys.Settings.showFavoritesOnly,
+                TagView(
+                    title: LocalizationKeys.Settings.showFavoritesOnly.localized,
                     imageSystemName: "heart.fill",
                     isSelected: tagManager.isFavoriteFilterOn,
                     isMaterialBackground: isMaterialBackground
-                ) {
+                )
+                .onTap {
                     tagManager.isFavoriteFilterOn.toggle()
                 }
 
                 // Difficult cards filter button
-                TagButton(
+                TagView(
                     title: LocalizationKeys.Card.difficultCards.localized,
                     imageSystemName: "exclamationmark.triangle.fill",
                     isSelected: tagManager.isDifficultFilterOn,
                     isMaterialBackground: isMaterialBackground
-                ) {
+                )
+                .onTap {
                     tagManager.isDifficultFilterOn.toggle()
                 }
 
                 // Tag filter buttons
                 ForEach(tagManager.availableTags, id: \.self) { tag in
                     let isSelected = tagManager.selectedFilterTag == tag
-                    TagButton(
+                    TagView(
                         title: tag.name.orEmpty,
                         imageSystemName: "tag.fill",
                         isSelected: isSelected,
                         isMaterialBackground: isMaterialBackground
-                    ) {
+                    )
+                    .onTap {
                         tagManager.selectedFilterTag = isSelected ? nil : tag
                     }
                 }

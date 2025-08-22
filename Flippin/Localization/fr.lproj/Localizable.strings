@@ -86,6 +86,17 @@
 "cardManagementDescription" = "Recherchez, modifiez et organisez vos cartes d'étude";
 "manageCards" = "Gérer les cartes";
 
+// MARK: - Notifications
+"notifications" = "Notifications";
+"studyReminders" = "Rappels d'Étude";
+"studyRemindersDescription" = "Recevez des rappels pour étudier à 20h30 le lendemain";
+"difficultCardReminders" = "Rappels de Cartes Difficiles";
+"difficultCardRemindersDescription" = "Recevez des rappels sur les cartes difficiles à 16h30 quotidiennement";
+"studyReminderTitle" = "Heure d'Étudier !";
+"studyReminderBody" = "Maintenez votre série d'apprentissage. Ouvrez Flippin pour pratiquer vos cartes.";
+"difficultCardReminderTitle" = "Pratiquez les Cartes Difficiles";
+"difficultCardReminderBody" = "Vous avez des cartes difficiles qui nécessitent attention. Il est temps de les réviser !";
+
 // MARK: - Preset Collections
 "presetCollections" = "Collections Prédéfinies";
 "seeAllCollections" = "Voir Tout";

@@ -73,9 +73,9 @@ public struct InputView: View {
                             .foregroundStyle(.secondary)
                         }
                     }
-                    .onChange(of: isFocused) { newValue in
+                    .onChange(of: isFocused) {
                         withAnimation {
-                            showsTrailingButton = newValue
+                            showsTrailingButton = isFocused
                         }
                     }
             }
@@ -84,13 +84,11 @@ public struct InputView: View {
             .clipShape(Capsule())
 
             if showsTrailingButton, let trailingButtonLabel {
-                Button(trailingButtonLabel) {
+                HeaderButton(trailingButtonLabel) {
                     HapticService.shared.buttonTapped()
                     UIApplication.shared.endEditing()
                     onTrailingButtonTap?()
                 }
-                .buttonStyle(.bordered)
-                .clipShape(Capsule())
                 .transition(.move(edge: .trailing))
                 .opacity(isFocused ? 1 : 0)
             }

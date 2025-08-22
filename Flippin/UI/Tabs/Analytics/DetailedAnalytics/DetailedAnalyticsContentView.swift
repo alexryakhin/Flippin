@@ -37,29 +37,30 @@ enum DetailedAnalytics {
         var body: some View {
             VStack(spacing: 0) {
                 switch selectedTab {
-                case .overview: OverviewTab(selectedTimeRange: selectedTimeRange)
-                case .performance: PerformanceTab(selectedTimeRange: selectedTimeRange)
-                case .progress: ProgressTab(selectedTimeRange: selectedTimeRange)
-                case .insights: InsightsTab(
-                    selectedTimeRange: selectedTimeRange,
-                    onDismiss: { dismiss() }
-                )
+                case .overview:
+                    OverviewTab(selectedTimeRange: selectedTimeRange)
+                case .performance:
+                    PerformanceTab(selectedTimeRange: selectedTimeRange)
+                case .progress:
+                    ProgressTab(selectedTimeRange: selectedTimeRange)
+                case .insights:
+                    InsightsTab(
+                        selectedTimeRange: selectedTimeRange,
+                        onDismiss: { dismiss() }
+                    )
                 }
             }
             .navigation(
                 title: LocalizationKeys.Analytics.detailedAnalytics.localized,
-                mode: .inline,
+                mode: .inline(withBackButton: true),
                 trailingContent: {
-                    HStack {
+                    HeaderButtonMenu(selectedTimeRange.name) {
                         Picker(LocalizationKeys.Analytics.timeRange.localized, selection: $selectedTimeRange) {
                             ForEach(TimeRange.allCases, id: \.self) { range in
                                 Text(range.name).tag(range)
                             }
                         }
-                        .pickerStyle(.menu)
-                        .buttonStyle(.bordered)
-                        .foregroundStyle(.secondary)
-                        .clipShape(Capsule())
+                        .pickerStyle(.inline)
                     }
                 },
                 bottomContent: {

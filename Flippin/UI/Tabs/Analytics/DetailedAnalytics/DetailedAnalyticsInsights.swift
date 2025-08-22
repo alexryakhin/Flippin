@@ -18,7 +18,6 @@ extension DetailedAnalytics {
         @StateObject private var colorManager = ColorManager.shared
         @StateObject private var tagManager = TagManager.shared
         @StateObject private var navigationManager = NavigationManager.shared
-        @State private var showingPresetCollections = false
 
         var body: some View {
             ScrollView {
@@ -33,11 +32,12 @@ extension DetailedAnalytics {
                     learningTipsSection
                 }
                 .padding(16)
+                .if(isPad) { view in
+                    view.frame(maxWidth: 500, alignment: .center)
+                        .frame(maxWidth: .infinity)
+                }
             }
             .background(Color(.systemGroupedBackground))
-            .sheet(isPresented: $showingPresetCollections) {
-                PresetCollectionsView()
-            }
         }
 
         private var personalizedInsightsSection: some View {
@@ -155,7 +155,7 @@ extension DetailedAnalytics {
                     navigationManager.switchToTab(.study)
                 })
             case .browseCollections:
-                showingPresetCollections = true
+                NavigationManager.shared.navigate(to: .presetCollections)
             case .practiceMode:
                 onDismiss()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {

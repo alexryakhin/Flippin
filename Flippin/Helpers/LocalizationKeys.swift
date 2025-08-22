@@ -178,6 +178,19 @@ enum LocalizationKeys {
         static let unknownError = "unknownError"
         static let product = "product"
         static let date = "date"
+        static let notifications = "notifications"
+        static let studyReminders = "studyReminders"
+        static let studyRemindersDescription = "studyRemindersDescription"
+        static let difficultCardReminders = "difficultCardReminders"
+        static let difficultCardRemindersDescription = "difficultCardRemindersDescription"
+    }
+    
+    // MARK: - Notifications
+    enum Notifications {
+        static let studyReminderTitle = "studyReminderTitle"
+        static let studyReminderBody = "studyReminderBody"
+        static let difficultCardReminderTitle = "difficultCardReminderTitle"
+        static let difficultCardReminderBody = "difficultCardReminderBody"
     }
     
     // MARK: - Presets

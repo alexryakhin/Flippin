@@ -16,7 +16,6 @@ enum AnalyticsTab {
 
         // MARK: - State Variables
 
-        @State private var showDetailedAnalytics = false
         @State private var premiumFeature: PremiumFeature?
 
         // MARK: - Body
@@ -33,32 +32,27 @@ enum AnalyticsTab {
                     }
                 }
                 .padding(16)
-            }
-            .if(isPad) { view in
-                view.frame(maxWidth: 500, alignment: .center)
+                .if(isPad) { view in
+                    view.frame(maxWidth: 500, alignment: .center)
+                }
             }
             .navigation(
                 title: LocalizationKeys.Analytics.analytics.localized,
                 mode: .large,
                 trailingContent: {
                     if purchaseService.hasPremiumAccess {
-                        Button {
-                            showDetailedAnalytics = true
-                        } label: {
-                            Image(systemName: "chart.line.uptrend.xyaxis")
-                                .font(.headline)
-                                .foregroundStyle(colorManager.borderedProminentForegroundColor)
+                        HeaderButton(
+                            icon: "chart.line.uptrend.xyaxis",
+                            size: .large,
+                            style: .borderedProminent
+                        ) {
+                            NavigationManager.shared.navigate(to: .detailedAnalytics)
                         }
-                        .buttonStyle(.borderedProminent)
-                        .clipShape(Capsule())
                     }
                 }
             )
             .ifLet(colorManager.colorScheme) { view, scheme in
                 view.colorScheme(scheme)
-            }
-            .sheet(isPresented: $showDetailedAnalytics) {
-                DetailedAnalytics.ContentView()
             }
             .premiumAlert(feature: $premiumFeature)
             .onAppear {
@@ -114,17 +108,13 @@ enum AnalyticsTab {
                 }
                 .padding(.horizontal, 16)
 
-                Button {
+                ActionButton(
+                    LocalizationKeys.Analytics.upgradeToPremium.localized,
+                    systemImage: "crown.fill",
+                    style: .borderedProminent
+                ) {
                     premiumFeature = .advancedAnalytics
-                } label: {
-                    Text(LocalizationKeys.Analytics.upgradeToPremium.localized)
-                        .font(.headline)
-                        .padding(.vertical, 12)
-                        .frame(maxWidth: .infinity)
-                        .foregroundStyle(colorManager.borderedProminentForegroundColor)
                 }
-                .buttonStyle(.borderedProminent)
-                .clipShape(Capsule())
             }
         }
 
@@ -139,7 +129,7 @@ enum AnalyticsTab {
 
                     if purchaseService.hasPremiumAccess {
                         Button(LocalizationKeys.Analytics.viewAll.localized) {
-                            showDetailedAnalytics = true
+                            NavigationManager.shared.navigate(to: .detailedAnalytics)
                         }
                         .font(.subheadline)
                         .foregroundColor(colorManager.tintColor)
