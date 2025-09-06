@@ -1,0 +1,6 @@
+Nya funktioner:
+• Notifieringar - Få dagliga studiepåminnelser och övningsvarningar för dina svåraste fraser.
+• Premium Speechify Integration - Högkvalitativ text-till-tal med 50k tecken månadsgräns
+• TTS Dashboard - Röstval, användningsspårning och lyssningsanalyser
+
+Tack för att du använder Flippin! Din feedback hjälper oss att göra språkinlärning ännu bättre.

@@ -1,0 +1,6 @@
+Tính năng mới:
+• Thông báo - Nhận lời nhắc học hàng ngày và cảnh báo luyện tập cho những cụm từ khó nhất của bạn.
+• Tích hợp Premium Speechify - Chuyển văn bản thành giọng nói chất lượng cao với giới hạn 50k ký tự hàng tháng
+• Bảng điều khiển TTS - Lựa chọn giọng nói, theo dõi sử dụng và phân tích nghe
+
+Cảm ơn bạn đã sử dụng Flippin! Phản hồi của bạn giúp chúng tôi làm cho việc học ngôn ngữ trở nên tốt hơn.

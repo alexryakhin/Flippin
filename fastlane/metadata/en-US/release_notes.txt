@@ -1,1 +1,6 @@
+New Features:
+• Notifications - Get daily study reminders and practice alerts for your most difficult phrases.
+• Premium Speechify Integration - High-quality text-to-speech with 50k character monthly limit
+• TTS Dashboard - Voice selection, usage tracking, and listening analytics
 
+Thank you for using Flippin! Your feedback helps us make language learning even better.

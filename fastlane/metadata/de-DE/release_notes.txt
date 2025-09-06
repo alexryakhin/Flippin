@@ -1,0 +1,6 @@
+Neue Features:
+• Benachrichtigungen - Erhalten Sie tägliche Lern-Erinnerungen und Übungs-Alerts für Ihre schwierigsten Phrasen.
+• Premium Speechify Integration - Hochwertige Text-zu-Sprache mit 50k Zeichen monatlichem Limit
+• TTS Dashboard - Sprachauswahl, Nutzungsverfolgung und Hör-Analysen
+
+Danke für die Nutzung von Flippin! Ihr Feedback hilft uns, das Sprachenlernen noch besser zu machen.

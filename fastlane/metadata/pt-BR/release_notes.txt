@@ -1,0 +1,6 @@
+Novas Funcionalidades:
+• Notificações - Receba lembretes de estudo diários e alertas de prática para suas frases mais difíceis.
+• Integração Premium Speechify - Texto para fala de alta qualidade com limite mensal de 50k caracteres
+• Dashboard TTS - Seleção de voz, rastreamento de uso e análises de audição
+
+Obrigado por usar o Flippin! Seu feedback nos ajuda a tornar o aprendizado de idiomas ainda melhor.
