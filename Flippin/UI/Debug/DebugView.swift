@@ -27,7 +27,7 @@ struct DebugView: View {
                     // Analytics Debug
                     analyticsSection
 
-                                         // Cards Debug
+                    // Cards Debug
                      cardsSection
                      
                      // Remote Config Debug

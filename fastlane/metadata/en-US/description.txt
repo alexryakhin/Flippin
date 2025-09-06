@@ -1,0 +1,44 @@
+Transform your language learning journey with Flippin - the beautiful, intelligent flashcard app designed to make language acquisition effortless and enjoyable.
+
+SMART LEARNING FEATURES
+• Automatic translation as you type with Google Translate integration
+• Text-to-speech pronunciation for 18 supported languages
+• Travel mode for reverse language practice
+• Smart filtering by tags, favorites, and language pairs
+
+BEAUTIFUL & IMMERSIVE
+• 12 stunning animated backgrounds (Gradient, Lava Lamp, Snow, Rain, Stars, Bubbles, Waves, Particles, Aurora, Fireflies, Ocean, Galaxy)
+• Smooth 3D card flip animations with physics
+• Dark/Light mode with automatic theme switching
+• Full RTL support for Arabic and other right-to-left languages
+• Customizable colors and themes
+
+COMPREHENSIVE LEARNING TOOLS
+• Infinite card stack for smooth scrolling through large collections
+• Preset vocabulary collections for common phrases and expressions
+• Tag system for organizing your learning content
+• Progress tracking with visual indicators
+• Personalized insights and study recommendations
+
+ADVANCED FEATURES
+• Core Data integration with offline support
+• iCloud sync for seamless cross-device learning
+• Comprehensive learning analytics and progress tracking
+• Haptic feedback for immersive experience
+
+SUPPORTED LANGUAGES
+Western: English, Spanish, French, German, Italian, Portuguese, Dutch, Swedish
+Asian: Chinese (Simplified/Traditional), Japanese, Korean, Vietnamese
+Other: Russian, Arabic, Hindi, Croatian, Ukrainian
+
+LEARNING ANALYTICS
+• Study session tracking and performance analysis
+• Card mastery levels and difficulty assessment
+• Learning patterns and progress insights
+• Personalized study recommendations
+• Achievement badges for learning milestones
+
+Perfect for students, travelers, language enthusiasts, and anyone looking to expand their linguistic horizons. Start your language learning journey today with Flippin!
+
+Terms of Use: https://www.flippin.app/terms-of-use
+Privacy Policy: https://www.flippin.app/privacy-policy
