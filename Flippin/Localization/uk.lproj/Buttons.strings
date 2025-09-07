@@ -1,0 +1,28 @@
+/*
+  buttons.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: uk
+  Section: buttons
+*/
+
+"done" = "Готово";
+"cancel" = "Скасувати";
+"save" = "Зберегти";
+"close" = "Закрити";
+"clear" = "Очистити";
+"clearFilter" = "Очистити Фільтр";
+"clearSearch" = "Очистити Пошук";
+"addCardButton" = "Додати Картку";
+"edit" = "Редагувати";
+"editCard" = "Редагувати Картку";
+"delete" = "Видалити";
+"deleteCard" = "Видалити Картку";
+"deleteCardConfirmation" = "Ви впевнені, що хочете видалити цю картку? Цю дію неможливо скасувати.";
+"deleteAll" = "Видалити Все";
+"deleteAllCards" = "Видалити Всі Картки";
+"deleteAllCardsConfirmation" = "Ви впевнені, що хочете видалити всі картки? Цю дію неможливо скасувати.";
+"ok" = "OK";
+
+

@@ -1,0 +1,17 @@
+/*
+  card_limits.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ko
+  Section: card_limits
+*/
+
+"cardsUsedOfLimit" = "%d개 중 %d개";
+"cardLimitExceeded" = "카드 한도 초과. 허용된 %d개 중 %d개를 사용했습니다. 무제한 카드를 위해 프리미엄으로 업그레이드하세요.";
+"freeUsersLimitedTo" = "무료 사용자는 %d개 카드로 제한됩니다";
+"purchaseUnlimitedCards" = "컬렉션에 더 많은 카드를 추가하려면 무제한 카드를 구매하세요";
+"upgrade" = "업그레이드";
+"unlimitedCards" = "무제한 카드";
+
+

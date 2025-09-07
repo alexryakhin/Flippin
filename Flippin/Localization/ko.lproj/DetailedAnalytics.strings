@@ -1,0 +1,67 @@
+/*
+  detailed_analytics.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ko
+  Section: detailed_analytics
+*/
+
+"analyticsTab" = "분석 탭";
+"studyTimeTitle" = "공부 시간";
+"practiceTimeTitle" = "연습 시간";
+"cardsMasteredTitle" = "숙달한 카드";
+"studyStreakTitle" = "공부 연속";
+"averageSessionTitle" = "평균 세션";
+"consecutiveDays" = "연속 일수";
+"perSession" = "세션당";
+"studyPatterns" = "공부 패턴";
+"mostActiveTime" = "가장 활동적인 시간";
+"preferredSessionLength" = "선호 세션 길이";
+"studyFrequency" = "공부 빈도";
+"languageProgress" = "언어 진행";
+"collectionSize" = "컬렉션 크기";
+"cards" = "카드";
+"achievements" = "업적";
+"firstSteps" = "첫걸음";
+"weekWarrior" = "주간 전사";
+"masterLearner" = "마스터 학습자";
+"dedicated" = "헌신";
+"vocabularyMaster" = "어휘 마스터";
+"timeMaster" = "시간 마스터";
+"accuracyTrends" = "정확도 추세";
+"sessionPerformance" = "세션 성과";
+"averageSessionDuration" = "평균 세션 시간";
+"basedOnData" = "%@ 데이터 기반";
+"cardsPerSession" = "세션당 카드";
+"average" = "평균";
+"sessionFrequency" = "세션 빈도";
+"cardDifficultyAnalysis" = "카드 난이도 분석";
+"noDifficultyDataAvailable" = "난이도 데이터 없음";
+"learningSpeed" = "학습 속도";
+"cardsPerHour" = "시간당 카드";
+"vsAverage" = "평균 대비";
+"masteryTimeline" = "숙달 타임라인";
+"vocabularyGrowth" = "어휘 성장";
+"totalVocabulary" = "총 어휘";
+"thisWeek" = "이번 주";
+"thisMonth" = "이번 달";
+"thisYear" = "올해";
+"learningMilestones" = "학습 이정표";
+"personalizedInsights" = "맞춤형 통찰";
+"noInsightsAvailableYet" = "아직 통찰이 없습니다";
+"recommendations" = "추천";
+"noRecommendationsAtThisTime" = "현재 추천 없음";
+"learningTips" = "학습 팁";
+"spacedRepetition" = "간격 반복";
+"spacedRepetitionDescription" = "더 나은 기억을 위해 간격을 두고 카드를 검토";
+"activeRecall" = "능동 회상";
+"activeRecallDescription" = "카드를 뒤집기 전에 답을 떠올려 보세요";
+"contextLearning" = "맥락 학습";
+"contextLearningDescription" = "단어를 따로 배우는 대신 문구로 배우세요";
+"studyNow" = "지금 공부";
+"startReview" = "검토 시작";
+"browseCollections" = "컬렉션 탐색";
+"practiceMode" = "연습 모드";
+
+

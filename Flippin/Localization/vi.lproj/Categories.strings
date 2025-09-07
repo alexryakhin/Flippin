@@ -1,0 +1,22 @@
+/*
+  categories.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: vi
+  Section: categories
+*/
+
+"categoryBasics" = "Cơ Bản";
+"categoryTravel" = "Du Lịch";
+"categoryEntertainment" = "Giải Trí";
+"categoryFood" = "Thức Ăn";
+"categoryShopping" = "Mua Sắm";
+"categorySocial" = "Xã Hội";
+"categoryWeather" = "Thời Tiết";
+"categoryTechnology" = "Công Nghệ";
+"categoryLifestyle" = "Lối Sống";
+"categoryProfessional" = "Chuyên Nghiệp";
+"categoryEmergency" = "Khẩn Cấp";
+
+

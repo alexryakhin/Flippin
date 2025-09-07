@@ -1,0 +1,27 @@
+/*
+  paywall.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: it
+  Section: paywall
+*/
+
+"upgradeToPremiumTitle" = "Passa a Premium";
+"upgradeToPremiumMessage" = "Passa a Premium per sbloccare tutte le funzionalità!";
+"cancel" = "Annulla";
+"viewOptions" = "Vedi Opzioni";
+"unlimitedCardsTitle" = "Carte Illimitate";
+"unlimitedCardsMessage" = "Passa a Premium per creare carte illimitate e sbloccare tutte le funzionalità!";
+"advancedAnalyticsTitle" = "Analisi Avanzate";
+"advancedAnalyticsMessage" = "Ottieni approfondimenti dettagliati sull'apprendimento, grafici di progresso e analisi delle prestazioni con Premium!";
+"customThemesTitle" = "Temi Personalizzati";
+"customThemesMessage" = "Sblocca bellissimi temi e sfondi personalizzati con Premium!";
+"languageChangeTitle" = "Cambio Lingua";
+"languageChangeMessage" = "Scegli tra oltre 15 lingue per migliorare la tua esperienza di apprendimento con Premium!";
+"cardPresetsTitle" = "Preimpostazioni Carte";
+"cardPresetsMessage" = "Esplora un'ampia collezione di preimpostazioni di carte pre-progettate con Premium!";
+"studyModesTitle" = "Modalità di Studio";
+"studyModesMessage" = "Accedi a modalità di studio avanzate e tecniche di apprendimento con Premium!";
+
+

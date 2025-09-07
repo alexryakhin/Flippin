@@ -1,0 +1,15 @@
+/*
+  card_management.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: hi
+  Section: card_management
+*/
+
+"noDifficultCards" = "कोई कठिन कार्ड नहीं";
+"noDifficultCardsDescription" = "आपने अभी तक किसी कार्ड को कठिन के रूप में चिह्नित नहीं किया है। कठिनाई स्तर देखने के लिए और कार्ड पढ़ें।";
+"difficultCards" = "कठिन कार्ड";
+"failedToCreateCard" = "कार्ड बनाने में विफल: %@";
+
+

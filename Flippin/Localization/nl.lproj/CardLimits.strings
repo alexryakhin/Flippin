@@ -1,0 +1,17 @@
+/*
+  card_limits.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: nl
+  Section: card_limits
+*/
+
+"cardsUsedOfLimit" = "%d van %d kaarten";
+"cardLimitExceeded" = "Kaartlimiet bereikt. Je hebt %d van %d toegestane kaarten gebruikt. Upgrade naar Premium voor onbeperkte kaarten.";
+"freeUsersLimitedTo" = "Gratis gebruikers zijn beperkt tot %d kaarten";
+"purchaseUnlimitedCards" = "Koop onbeperkte kaarten om meer kaarten aan je collectie toe te voegen";
+"upgrade" = "Upgraden";
+"unlimitedCards" = "Onbeperkte Kaarten";
+
+

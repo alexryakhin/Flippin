@@ -1,0 +1,27 @@
+/*
+  preset_collections.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: hr
+  Section: preset_collections
+*/
+
+"presetCollections" = "Unaprijed Definirane Kolekcije";
+"seeAllCollections" = "Pogledaj Sve";
+"importCollection" = "Uvezi Kolekciju";
+"importButton" = "Uvezi";
+"importCollectionMessage" = "Uvezi %@ s %d kartica u tvoju kolekciju?";
+"noCollectionsFound" = "Nisu pronađene kolekcije";
+"tryAdjustingSearch" = "Pokušaj prilagoditi pretragu ili kriterije filtriranja";
+"getStartedWithCollections" = "Započni s kuriranim setovima kartica za uobičajene teme i situacije";
+"searchCollections" = "Pretraži kolekcije...";
+"allCategories" = "Sve";
+"myLanguageSettings" = "Moj Jezik";
+"targetLanguage" = "Ciljni Jezik";
+"theme" = "Tema";
+"color" = "Boja";
+"backgroundStyle" = "Stil Pozadine";
+"tapToSeeFullScreen" = "Dodirnite za prikaz punog zaslona";
+
+

@@ -1,0 +1,29 @@
+/*
+  about_app.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ru
+  Section: about_app
+*/
+
+"about" = "О приложении";
+"appInfo" = "Информация о приложении";
+"tagline" = "Умные карточки для изучения языков";
+"version" = "Версия";
+"features" = "Возможности";
+"smartCards" = "Умные карточки";
+"smartCardsDescription" = "Двуязычные карточки с автоматическим переводом и синтезом речи";
+"languagesTitle" = "17 языков";
+"languagesDescription" = "Поддержка основных мировых языков";
+"learningAnalytics" = "Аналитика обучения";
+"learningAnalyticsDescription" = "Отслеживайте свой прогресс и получайте персонализированные инсайты";
+"tts" = "Синтез речи";
+"ttsDescription" = "Слушайте произношение с помощью технологии TTS";
+"support" = "Поддержите приложение";
+"supportDescription" = "Если вам нравится Flippin, рассмотрите возможность поддержки его разработки";
+"buyMeACoffee" = "Купите мне кофе";
+"legal" = "Правовая информация";
+"privacyPolicy" = "Политика конфиденциальности";
+"termsOfService" = "Условия использования";
+

@@ -1,0 +1,27 @@
+/*
+  tag_management.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ar
+  Section: tag_management
+*/
+
+"availableTags" = "الوسوم المتاحة";
+"noTagsAvailable" = "لا توجد وسوم متاحة";
+"manageTagsInSettings" = "إدارة الوسوم في الإعدادات.";
+"toSettings" = "إلى الإعدادات";
+"newTagName" = "اسم الوسم الجديد";
+"add" = "إضافة";
+"addTag" = "إضافة وسم";
+"tagsManagement" = "إدارة الوسوم";
+"filterByTag" = "تصفية حسب الوسم";
+"filterByLanguage" = "تصفية حسب اللغة";
+"filterByLanguageDescription" = "عرض البطاقات التي تطابق لغاتك المختارة فقط";
+"filterByFavorites" = "تصفية حسب المفضلة";
+"showAllCards" = "عرض جميع البطاقات";
+"showFavoritesOnly" = "عرض المفضلة فقط";
+"noFavoriteCards" = "لا توجد بطاقات مفضلة";
+"noFavoriteCardsDescription" = "لم تقم بوضع أي بطاقة كمفضلة بعد";
+
+

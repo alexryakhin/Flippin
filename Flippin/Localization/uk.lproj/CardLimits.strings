@@ -1,0 +1,17 @@
+/*
+  card_limits.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: uk
+  Section: card_limits
+*/
+
+"cardsUsedOfLimit" = "%d з %d карток";
+"cardLimitExceeded" = "Ліміт карток досягнуто. Ви використали %d з %d дозволених карток. Оновіть до Преміум для необмежених карток.";
+"freeUsersLimitedTo" = "Безкоштовні користувачі обмежені %d картками";
+"purchaseUnlimitedCards" = "Придбайте необмежені картки, щоб додати більше карток до вашої колекції";
+"upgrade" = "Оновити";
+"unlimitedCards" = "Необмежені Картки";
+
+

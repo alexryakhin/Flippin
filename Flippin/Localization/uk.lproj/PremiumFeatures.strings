@@ -1,0 +1,39 @@
+/*
+  premium_features.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: uk
+  Section: premium_features
+*/
+
+"premiumFeature" = "Преміум Функція";
+"premiumRequired" = "Потрібен Преміум";
+"upgradeToPremium" = "Перейти на Преміум";
+"premiumFeatureDescription" = "Отримайте доступ до всіх попередньо визначених колекцій та розблокуйте необмежений потенціал для вивчення мов";
+"previewBackgrounds" = "Попередній Перегляд";
+"colorScheme" = "Кольорова Схема";
+"colorSchemeSystem" = "Система";
+"colorSchemeLight" = "Світла";
+"colorSchemeDark" = "Темна";
+"unlockPremium" = "Розблокувати Преміум";
+"masterLanguageLearning" = "Опануйте вивчення мов з ексклюзивними функціями";
+"usedCardsOfLimit" = "Ви використали %d з %d безкоштовних карток";
+"whatYouGetWithPremium" = "Що ви отримуєте з Преміум";
+"unlimitedCardsDescription" = "Створюйте скільки карток для вивчення, скільки хочете";
+"collections" = "30+ Колекцій";
+"collectionsDescription" = "Доступ до всіх попередньо визначених колекцій словника";
+"premiumBackgrounds" = "Преміум Фони";
+"premiumBackgroundsDescription" = "Красиві анімовані фони";
+"changeLanguages" = "Змінити Мови";
+"changeLanguagesDescription" = "Перемикайтеся між різними мовними парами в будь-який час";
+"multipleLanguagesTitle" = "Декілька Мов";
+"multipleLanguagesDescription" = "Можливість вивчати кілька мов одночасно";
+"restorePurchases" = "Відновити Покупки";
+"cancelAnytime" = "Скасувати в будь-який час • Без зобов’язань";
+"terms" = "Умови";
+"privacy" = "Конфіденційність";
+"goPremium" = "Перейти на Преміум";
+"premium" = "Преміум";
+
+

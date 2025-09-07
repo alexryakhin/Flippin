@@ -1,0 +1,62 @@
+/*
+  study.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ar
+  Section: study
+*/
+
+"study" = "دراسة";
+"practice" = "ممارسة";
+"studyMode" = "وضع الدراسة";
+"practiceMode" = "وضع الممارسة";
+"quickStats" = "إحصائيات سريعة";
+"studyOptions" = "خيارات الدراسة";
+"practiceOptions" = "خيارات الممارسة";
+"recentActivity" = "النشاط الأخير";
+"totalCards" = "إجمالي البطاقات";
+"mastered" = "تم إتقانها";
+"difficultCards" = "بطاقات صعبة";
+"studyTimeToday" = "وقت الدراسة اليوم";
+"practiceTimeToday" = "وقت الممارسة اليوم";
+"startStudySession" = "بدء جلسة دراسة (10 بطاقات)";
+"startPracticeSession" = "بدء جلسة ممارسة (10 بطاقات)";
+"practiceAllCards" = "مارس جميع البطاقات (%d)";
+"practiceDifficultCards" = "مارس البطاقات الصعبة (%d)";
+"multipleChoiceQuiz" = "اختبار متعدد الخيارات";
+"fillInTheBlank" = "املأ الفراغ (%d)";
+"unlockAllStudyModes" = "فتح جميع أوضاع الدراسة";
+"unlockAllPracticeModes" = "فتح جميع أوضاع الممارسة";
+"noStudyData" = "لا توجد بيانات دراسة";
+"noPracticeData" = "لا توجد بيانات ممارسة";
+"startStudyingToSeeProgress" = "ابدأ الدراسة لرؤية تقدمك!";
+"startPracticingToSeeProgress" = "ابدأ الممارسة لرؤية تقدمك!";
+"toCards" = "إلى البطاقات";
+"totalStudyTime" = "إجمالي وقت الدراسة";
+"totalPracticeTime" = "إجمالي وقت الممارسة";
+"averageSession" = "متوسط الجلسة";
+"learningProgress" = "تقدم التعلم";
+"exit" = "خروج";
+"showAnswer" = "إظهار الإجابة";
+"incorrect" = "غير صحيح";
+"correct" = "صحيح";
+"studySessionComplete" = "اكتملت جلسة الدراسة!";
+"practiceSessionComplete" = "اكتملت جلسة الممارسة!";
+"accuracy" = "الدقة";
+"cardsStudied" = "البطاقات التي تمت دراستها";
+"cardsPracticed" = "البطاقات التي تمت ممارستها";
+"timeSpent" = "الوقت المستغرق";
+"studyAgain" = "دراسة مرة أخرى";
+"practiceAgain" = "ممارسة مرة أخرى";
+"done" = "تم";
+"selectCorrectTranslation" = "اختر الترجمة الصحيحة";
+"fillInMissingWord" = "املأ الكلمة المفقودة";
+"completeSentence" = "أكمل الجملة";
+"chooseCorrectWord" = "اختر الكلمة الصحيحة:";
+"correctAnswer" = "الإجابة الصحيحة";
+"translateTo" = "ترجم إلى %@";
+"studyProgress" = "%d من %d";
+"practiceProgress" = "%d من %d";
+
+

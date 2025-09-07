@@ -1,0 +1,140 @@
+// MARK: - TTS Voice Filters
+"filters.all_use_cases" = "Все случаи использования";
+"filters.all_ages" = "Все возраста";
+"filters.all_timbres" = "Все тембры";
+"filters.all_accents" = "Все акценты";
+"filters.all_languages" = "Все языки";
+"filters.all_genders" = "Все полы";
+"filters.filters" = "Фильтры";
+"filters.reset" = "Сбросить";
+"filters.select_voice" = "Выбрать голос";
+"filters.available_voices" = "Доступные голоса";
+"filters.no_voices_available" = "Нет доступных голосов";
+"filters.no_voices_found" = "Голоса не найдены";
+"filters.no_voices_found_message" = "Попробуйте изменить параметры поиска или фильтры";
+
+"usage.monthly_limit_exceeded" = "Месячный лимит превышен";
+"usage.monthly_limit_exceeded_message" = "Вы достигли месячного лимита в 50 000 символов для Speechify TTS. Попробуйте снова в следующем месяце или используйте Google TTS.";
+"usage.remaining_characters" = "Оставшиеся символы";
+"usage.monthly_usage" = "Месячное использование";
+"usage.monthly_limit" = "Месячный лимит";
+
+// TTS Voice Filter Values
+"advertisement" = "Реклама";
+"animation" = "Анимация";
+"audiobook" = "Аудиокнига";
+"audiobook-and-narration" = "Аудиокнига и повествование";
+"audiobooks-and-narration" = "Аудиокниги и повествование";
+"conversational" = "Разговорный";
+"e-learning" = "Электронное обучение";
+"gaming" = "Игры";
+"meditation" = "Медитация";
+"movie" = "Фильм";
+"movies-acting-and-gaming" = "Фильмы, актёрская игра и игры";
+"narration" = "Повествование";
+"podcast" = "Подкаст";
+"social-media" = "Социальные сети";
+
+"middle-aged" = "Средний возраст";
+"senior" = "Пожилой";
+"teen" = "Подросток";
+"young-adult" = "Молодой взрослый";
+
+"female" = "Женский";
+"male" = "Мужской";
+
+"angry" = "Злой";
+"assertive-or-confident" = "Уверенный или решительный";
+"bright" = "Яркий";
+"calm-or-relaxed" = "Спокойный или расслабленный";
+"cheerful" = "Весёлый";
+"crisp" = "Чёткий";
+"deep" = "Глубокий";
+"direct" = "Прямой";
+"energetic" = "Энергичный";
+"fearful" = "Испуганный";
+"high-pitch" = "Высокий тон";
+"neutral" = "Нейтральный";
+"professional" = "Профессиональный";
+"relaxed" = "Расслабленный";
+"sad" = "Грустный";
+"suprised" = "Удивлённый";
+"surprised" = "Удивлённый";
+"terrified" = "Перепуганный";
+"warm" = "Тёплый";
+"warm-or-friendly" = "Тёплый или дружелюбный";
+
+"american-neutral" = "Американский нейтральный";
+"australian" = "Австралийский";
+"british" = "Британский";
+"indian" = "Индийский";
+"nigerian" = "Нигерийский";
+
+
+
+
+// TTS Dashboard
+"dashboard" = "Панель TTS";
+"premium_tts_dashboard" = "Премиум-панель TTS";
+"customize_tts_experience" = "Настройте свой опыт преобразования текста в речь";
+"playing" = "Воспроизводится";
+"ready" = "Готово";
+"provider" = "Провайдер";
+"tts_provider" = "Провайдер TTS";
+"voice_customization" = "Настройка голоса";
+"current_voice" = "Текущий голос";
+"default_voice" = "Голос по умолчанию";
+"preview_current_voice" = "Предпрослушать текущий голос";
+"change_voice" = "Изменить голос";
+"audio_settings" = "Настройки аудио";
+"speech_rate" = "Скорость речи";
+"volume" = "Громкость";
+"test_your_settings" = "Протестируйте настройки";
+"enter_text_to_test" = "Введите текст для тестирования...";
+"stop" = "Остановить";
+"test" = "Тест";
+"usage_statistics" = "Статистика использования";
+"speechify_monthly_usage" = "Месячное использование Speechify";
+"monthly_limit" = "Месячный лимит";
+"used_this_month" = "Использовано в этом месяце";
+"remaining" = "Осталось";
+"usage_progress" = "Прогресс использования";
+"characters" = "символов";
+
+// TTS Analytics
+"analytics.characters_used" = "Использовано символов";
+"analytics.sessions" = "Сессии";
+"analytics.favorite_voice" = "Любимый голос";
+"analytics.time_saved" = "Сэкономленное время";
+"analytics.total_characters" = "Всего символов";
+"analytics.total_sessions" = "Всего сессий";
+"analytics.total_duration" = "Общая длительность";
+"analytics.favorite_language" = "Любимый язык";
+"analytics.premium_usage" = "Премиум-использование";
+
+// TTS Settings
+"settings.text_to_speech" = "Преобразование текста в речь";
+"settings.speechify" = "Speechify";
+"settings.speechify_description" = "Модель преобразования текста в речь от Speechify доступна для всех пользователей как премиум-функция. Она позволяет выбирать из широкого спектра голосов и акцентов, чтобы настроить ваш опыт обучения.";
+"settings.speechify_pro_description" = "Модель преобразования текста в речь от Speechify включена в вашу подписку.";
+"settings.dashboard" = "Панель";
+"pro" = "PRO";
+"free_google_tts_description" = "Бесплатный Google TTS с базовыми голосами и надёжной производительностью";
+
+// TTS Models
+"models.english" = "Английский";
+"models.multilingual" = "Многоязычный";
+"models.english_description" = "Модель преобразования текста в речь на английском языке от Speechify предлагает стандартные возможности, разработанные для обеспечения чёткого и естественного голосового вывода при чтении текстов. Модель сосредоточена на предоставлении стабильного пользовательского опыта.";
+"models.multilingual_description" = "Многоязычная модель позволяет использовать все поддерживаемые языки и поддерживает использование нескольких языков в одном предложении. Аудиовыход этой модели заметно отличается от других моделей.";
+
+// MARK: - English Accents
+"english_accents.australian" = "Австралийский";
+"english_accents.canadian" = "Канадский";
+"english_accents.british" = "Британский";
+"english_accents.indian" = "Индийский";
+"english_accents.american" = "Американский";
+"english_accents.belgian" = "Бельгийский";
+"english_accents.singaporean" = "Сингапурский";
+"english_accents.irish" = "Ирландский";
+"english_accents.south_african" = "Южноафриканский";
+

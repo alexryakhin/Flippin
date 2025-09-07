@@ -1,0 +1,54 @@
+/*
+  analytics.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: en
+  Section: analytics
+*/
+
+"analytics" = "Analytics";
+"detailedAnalytics" = "Detailed Analytics";
+"today" = "Today";
+"noAnalyticsData" = "No Analytics Data";
+"startStudyingToSeeProgress" = "Start studying to see your learning progress!";
+"unlockAdvancedAnalytics" = "Unlock Advanced Analytics";
+"detailedProgressReports" = "Detailed Progress Reports";
+"detailedProgressReportsDescription" = "Track your learning patterns and improvement over time";
+"performanceInsights" = "Performance Insights";
+"performanceInsightsDescription" = "Get personalized recommendations to improve your study habits";
+"studyTimeAnalytics" = "Study Time Analytics";
+"studyTimeAnalyticsDescription" = "Analyze your study sessions and optimize your learning";
+"upgradeToPremium" = "Upgrade to Premium";
+"recentActivity" = "Recent Activity";
+"viewAll" = "View All";
+"noRecentActivity" = "No Recent Activity";
+"studySessionsWillAppearHere" = "Your study sessions will appear here";
+"lastStudySession" = "Last Study Session";
+"cardsStudiedToday" = "Cards Studied Today";
+"studyStreak" = "Study Streak";
+"totalStudyTime" = "Total Study Time";
+"cardsMastered" = "Cards Mastered";
+"todaysStudy" = "Today's Study";
+"time" = "Time";
+"cardsStudied" = "Cards Studied";
+"sessions" = "Sessions";
+"accuracy" = "Accuracy";
+"studyTime" = "Study Time";
+"practiceTime" = "Practice Time";
+"timeRange" = "Time Range";
+"masteryProgress" = "Mastery Progress";
+"mastered" = "Mastered";
+"learning" = "Learning";
+"needsReview" = "Needs Review";
+"week" = "Week";
+"month" = "Month";
+"year" = "Year";
+"allTime" = "All Time";
+"overview" = "Overview";
+"performance" = "Performance";
+"progress" = "Progress";
+"insights" = "Insights";
+"noStudyDataAvailable" = "No study data available";
+
+

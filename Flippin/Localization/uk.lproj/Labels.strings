@@ -1,0 +1,16 @@
+/*
+  labels.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: uk
+  Section: labels
+*/
+
+"settingsLabel" = "Налаштування";
+"menu" = "Меню";
+"tagFilter" = "Фільтр тегів";
+"shuffle" = "Перемішати";
+"addCardLabel" = "Додати картку";
+
+

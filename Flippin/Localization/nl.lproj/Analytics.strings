@@ -1,0 +1,54 @@
+/*
+  analytics.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: nl
+  Section: analytics
+*/
+
+"analytics" = "Analyse";
+"detailedAnalytics" = "Gedetailleerde Analyse";
+"today" = "Vandaag";
+"noAnalyticsData" = "Geen Analytische Gegevens";
+"startStudyingToSeeProgress" = "Begin met studeren om je leerprogressie te zien!";
+"unlockAdvancedAnalytics" = "Ontgrendel Geavanceerde Analyse";
+"detailedProgressReports" = "Gedetailleerde Voortgangsrapporten";
+"detailedProgressReportsDescription" = "Volg je leerpatronen en verbeteringen in de tijd";
+"performanceInsights" = "Prestaties Inzichten";
+"performanceInsightsDescription" = "Krijg gepersonaliseerde aanbevelingen om je studiegewoonten te verbeteren";
+"studyTimeAnalytics" = "Studietijd Analyse";
+"studyTimeAnalyticsDescription" = "Analyseer je studiesessies en optimaliseer je leren";
+"upgradeToPremium" = "Upgraden naar Premium";
+"recentActivity" = "Recente Activiteit";
+"viewAll" = "Alles Bekijken";
+"noRecentActivity" = "Geen Recente Activiteit";
+"studySessionsWillAppearHere" = "Je studiesessies verschijnen hier";
+"lastStudySession" = "Laatste Studiesessie";
+"cardsStudiedToday" = "Kaarten Bestudeerd Vandaag";
+"studyStreak" = "Studie Streak";
+"totalStudyTime" = "Totale Studietijd";
+"cardsMastered" = "Beheerde Kaarten";
+"todaysStudy" = "Studie Vandaag";
+"time" = "Tijd";
+"cardsStudied" = "Bestudeerde Kaarten";
+"sessions" = "Sessies";
+"accuracy" = "Nauwkeurigheid";
+"studyTime" = "Studietijd";
+"practiceTime" = "Oefentijd";
+"timeRange" = "Tijdbereik";
+"masteryProgress" = "Beheersingsprogressie";
+"mastered" = "Beheerst";
+"learning" = "Leren";
+"needsReview" = "Moet Herzien Worden";
+"week" = "Week";
+"month" = "Maand";
+"year" = "Jaar";
+"allTime" = "Alle Tijd";
+"overview" = "Overzicht";
+"performance" = "Prestaties";
+"progress" = "Voortgang";
+"insights" = "Inzichten";
+"noStudyDataAvailable" = "Geen studiegegevens beschikbaar";
+
+

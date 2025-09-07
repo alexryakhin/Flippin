@@ -1,0 +1,67 @@
+/*
+  detailed_analytics.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: hr
+  Section: detailed_analytics
+*/
+
+"analyticsTab" = "Kartica Analitike";
+"studyTimeTitle" = "Vrijeme Učenja";
+"practiceTimeTitle" = "Vrijeme Vježbanja";
+"cardsMasteredTitle" = "Savladane Kartice";
+"studyStreakTitle" = "Niz Učenja";
+"averageSessionTitle" = "Prosječna Sesija";
+"consecutiveDays" = "uzastopni dani";
+"perSession" = "po sesiji";
+"studyPatterns" = "Obrasci Učenja";
+"mostActiveTime" = "Najaktivnije Vrijeme";
+"preferredSessionLength" = "Željena Duljina Sesije";
+"studyFrequency" = "Frekvencija Učenja";
+"languageProgress" = "Napredak Jezika";
+"collectionSize" = "Veličina Kolekcije";
+"cards" = "kartice";
+"achievements" = "Postignuća";
+"firstSteps" = "Prvi Koraci";
+"weekWarrior" = "Tjedni Ratnik";
+"masterLearner" = "Majstor Učenja";
+"dedicated" = "Posvećen";
+"vocabularyMaster" = "Majstor Vokabulara";
+"timeMaster" = "Majstor Vremena";
+"accuracyTrends" = "Trendovi Točnosti";
+"sessionPerformance" = "Performanse Sesije";
+"averageSessionDuration" = "Prosječna Trajanja Sesije";
+"basedOnData" = "Bazirano na podacima od %@";
+"cardsPerSession" = "Kartice po Sesiji";
+"average" = "Prosjek";
+"sessionFrequency" = "Frekvencija Sesije";
+"cardDifficultyAnalysis" = "Analiza Težine Kartica";
+"noDifficultyDataAvailable" = "Nema dostupnih podataka o težini";
+"learningSpeed" = "Brzina Učenja";
+"cardsPerHour" = "Kartice po Satu";
+"vsAverage" = "nasuprot prosjeku";
+"masteryTimeline" = "Vremenska Linija Savladavanja";
+"vocabularyGrowth" = "Rast Vokabulara";
+"totalVocabulary" = "Ukupan Vokabular";
+"thisWeek" = "Ovaj Tjedan";
+"thisMonth" = "Ovaj Mjesec";
+"thisYear" = "Ova Godina";
+"learningMilestones" = "Prekretnice Učenja";
+"personalizedInsights" = "Personalizirani Uvidi";
+"noInsightsAvailableYet" = "Još nema dostupnih uvida";
+"recommendations" = "Preporuke";
+"noRecommendationsAtThisTime" = "Trenutno nema preporuka";
+"learningTips" = "Savjeti za Učenje";
+"spacedRepetition" = "Prostorna Repeticija";
+"spacedRepetitionDescription" = "Pregledavaj kartice u sve većim intervalima za bolje zadržavanje.";
+"activeRecall" = "Aktivno Pripovijedanje";
+"activeRecallDescription" = "Pokušaj se sjetiti odgovora prije nego okreneš karticu.";
+"contextLearning" = "Kontekstualno Učenje";
+"contextLearningDescription" = "Uči riječi u frazama umjesto izolovano.";
+"studyNow" = "Uči Sada";
+"startReview" = "Započni Pregled";
+"browseCollections" = "Pregledaj Kolekcije";
+"practiceMode" = "Način Vježbanja";
+
+

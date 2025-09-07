@@ -1,0 +1,17 @@
+/*
+  navigation.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ru
+  Section: navigation
+*/
+
+"stack" = "Стек";
+"list" = "Список";
+"study" = "Изучение";
+"practice" = "Практика";
+"analytics" = "Аналитика";
+"settings" = "Настройки";
+
+

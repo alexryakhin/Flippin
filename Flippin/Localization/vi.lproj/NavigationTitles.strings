@@ -1,0 +1,17 @@
+/*
+  navigation_titles.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: vi
+  Section: navigation_titles
+*/
+
+"addCard" = "Thêm Thẻ";
+"addNewCard" = "Thêm Thẻ Mới";
+"settings" = "Cài đặt";
+"myCards" = "Thẻ của Tôi";
+"backgroundStyles" = "Kiểu Nền";
+"backgroundDemo" = "Demo Nền";
+
+

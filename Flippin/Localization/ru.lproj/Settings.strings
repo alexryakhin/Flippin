@@ -1,0 +1,22 @@
+/*
+  settings.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ru
+  Section: settings
+*/
+
+"languages" = "Языки";
+"cardDisplay" = "Отображение карточек";
+"cardDisplayMode" = "Режим отображения карточек";
+"learningMode" = "Режим обучения";
+"travelMode" = "Режим путешествия";
+"learningModeDescription" = "Показывать целевой язык первым (для обучения)";
+"travelModeDescription" = "Показывать родной язык первым (для путешествий)";
+"previewBackgrounds" = "Предварительный просмотр фонов";
+"cardManagement" = "Управление карточками";
+"cardManagementDescription" = "Ищите, редактируйте и организуйте ваши карточки для изучения";
+"manageCards" = "Управлять карточками";
+
+

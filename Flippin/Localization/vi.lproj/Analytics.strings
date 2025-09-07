@@ -1,0 +1,54 @@
+/*
+  analytics.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: vi
+  Section: analytics
+*/
+
+"analytics" = "Phân Tích";
+"detailedAnalytics" = "Phân Tích Chi Tiết";
+"today" = "Hôm Nay";
+"noAnalyticsData" = "Không Có Dữ Liệu Phân Tích";
+"startStudyingToSeeProgress" = "Bắt đầu học để xem tiến độ học tập của bạn!";
+"unlockAdvancedAnalytics" = "Mở Khóa Phân Tích Nâng Cao";
+"detailedProgressReports" = "Báo Cáo Tiến Độ Chi Tiết";
+"detailedProgressReportsDescription" = "Theo dõi mô hình học tập và cải thiện của bạn qua thời gian";
+"performanceInsights" = "Thông Tin Hiệu Suất";
+"performanceInsightsDescription" = "Nhận đề xuất cá nhân hóa để cải thiện thói quen học tập";
+"studyTimeAnalytics" = "Phân Tích Thời Gian Học";
+"studyTimeAnalyticsDescription" = "Phân tích các phiên học của bạn và tối ưu hóa việc học";
+"upgradeToPremium" = "Nâng Cấp Lên Premium";
+"recentActivity" = "Hoạt Động Gần Đây";
+"viewAll" = "Xem Tất Cả";
+"noRecentActivity" = "Không Có Hoạt Động Gần Đây";
+"studySessionsWillAppearHere" = "Các phiên học của bạn sẽ xuất hiện tại đây";
+"lastStudySession" = "Phiên Học Cuối Cùng";
+"cardsStudiedToday" = "Thẻ Đã Học Hôm Nay";
+"studyStreak" = "Chuỗi Học";
+"totalStudyTime" = "Tổng Thời Gian Học";
+"cardsMastered" = "Thẻ Đã Thành Thạo";
+"todaysStudy" = "Học Hôm Nay";
+"time" = "Thời Gian";
+"cardsStudied" = "Thẻ Đã Học";
+"sessions" = "Phiên";
+"accuracy" = "Độ Chính Xác";
+"studyTime" = "Thời Gian Học";
+"practiceTime" = "Thời Gian Luyện Tập";
+"timeRange" = "Phạm Vi Thời Gian";
+"masteryProgress" = "Tiến Độ Thành Thạo";
+"mastered" = "Đã Thành Thạo";
+"learning" = "Đang Học";
+"needsReview" = "Cần Xem Lại";
+"week" = "Tuần";
+"month" = "Tháng";
+"year" = "Năm";
+"allTime" = "Tất Cả Thời Gian";
+"overview" = "Tổng Quan";
+"performance" = "Hiệu Suất";
+"progress" = "Tiến Độ";
+"insights" = "Thông Tin Chi Tiết";
+"noStudyDataAvailable" = "Không có dữ liệu học tập";
+
+

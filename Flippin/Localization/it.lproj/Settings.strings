@@ -1,0 +1,22 @@
+/*
+  settings.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: it
+  Section: settings
+*/
+
+"languages" = "Lingue";
+"cardDisplay" = "Visualizzazione Carte";
+"cardDisplayMode" = "Modalità Visualizzazione Carte";
+"learningMode" = "Modalità Apprendimento";
+"travelMode" = "Modalità Viaggio";
+"learningModeDescription" = "Mostra lingua obiettivo prima (per imparare)";
+"travelModeDescription" = "Mostra lingua madre prima (per viaggiare)";
+"previewBackgrounds" = "Anteprima sfondi";
+"cardManagement" = "Gestione carte";
+"cardManagementDescription" = "Cerca, modifica e organizza le tue carte di studio";
+"manageCards" = "Gestisci carte";
+
+

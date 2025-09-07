@@ -1,0 +1,28 @@
+/*
+  buttons.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: sv
+  Section: buttons
+*/
+
+"done" = "Klar";
+"cancel" = "Avbryt";
+"save" = "Spara";
+"close" = "Stäng";
+"clear" = "Rensa";
+"clearFilter" = "Rensa Filter";
+"clearSearch" = "Rensa Sökning";
+"addCardButton" = "Lägg till Kort";
+"edit" = "Redigera";
+"editCard" = "Redigera Kort";
+"delete" = "Radera";
+"deleteCard" = "Radera Kort";
+"deleteCardConfirmation" = "Är du säker på att du vill radera detta kort? Denna åtgärd kan inte ångras.";
+"deleteAll" = "Radera Allt";
+"deleteAllCards" = "Radera Alla Kort";
+"deleteAllCardsConfirmation" = "Är du säker på att du vill radera alla kort? Denna åtgärd kan inte ångras.";
+"ok" = "OK";
+
+

@@ -1,0 +1,17 @@
+/*
+  card_limits.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: zh-Hans
+  Section: card_limits
+*/
+
+"cardsUsedOfLimit" = "%d 张卡片中的 %d 张";
+"cardLimitExceeded" = "卡片限制已达。您已使用 %d 张中的 %d 张允许卡片。升级到高级版以获得无限卡片。";
+"freeUsersLimitedTo" = "免费用户限制为 %d 张卡片";
+"purchaseUnlimitedCards" = "购买无限卡片以向您的集合添加更多卡片";
+"upgrade" = "升级";
+"unlimitedCards" = "无限卡片";
+
+

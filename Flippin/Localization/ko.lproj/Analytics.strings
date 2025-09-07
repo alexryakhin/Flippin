@@ -1,0 +1,54 @@
+/*
+  analytics.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ko
+  Section: analytics
+*/
+
+"analytics" = "분석";
+"detailedAnalytics" = "상세 분석";
+"today" = "오늘";
+"noAnalyticsData" = "분석 데이터 없음";
+"startStudyingToSeeProgress" = "학습 진행 상황을 보려면 공부를 시작하세요!";
+"unlockAdvancedAnalytics" = "고급 분석 잠금 해제";
+"detailedProgressReports" = "상세 진행 보고서";
+"detailedProgressReportsDescription" = "시간에 따른 학습 패턴과 개선 사항을 추적";
+"performanceInsights" = "성과 통찰";
+"performanceInsightsDescription" = "공부 습관을 개선하기 위한 맞춤형 제안";
+"studyTimeAnalytics" = "공부 시간 분석";
+"studyTimeAnalyticsDescription" = "공부 세션을 분석하고 학습을 최적화";
+"upgradeToPremium" = "프리미엄으로 업그레이드";
+"recentActivity" = "최근 활동";
+"viewAll" = "모두 보기";
+"noRecentActivity" = "최근 활동 없음";
+"studySessionsWillAppearHere" = "공부 세션이 여기에 표시됩니다";
+"lastStudySession" = "마지막 공부 세션";
+"cardsStudiedToday" = "오늘 공부한 카드";
+"studyStreak" = "공부 연속";
+"totalStudyTime" = "총 공부 시간";
+"cardsMastered" = "숙달한 카드";
+"todaysStudy" = "오늘의 공부";
+"time" = "시간";
+"cardsStudied" = "공부한 카드";
+"sessions" = "세션";
+"accuracy" = "정확도";
+"studyTime" = "공부 시간";
+"practiceTime" = "연습 시간";
+"timeRange" = "시간 범위";
+"masteryProgress" = "숙달 진행";
+"mastered" = "숙달";
+"learning" = "학습";
+"needsReview" = "검토 필요";
+"week" = "주";
+"month" = "월";
+"year" = "년";
+"allTime" = "전체 기간";
+"overview" = "개요";
+"performance" = "성과";
+"progress" = "진행";
+"insights" = "통찰";
+"noStudyDataAvailable" = "공부 데이터가 없습니다";
+
+

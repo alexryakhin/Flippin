@@ -1,0 +1,17 @@
+/*
+  navigation_titles.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: uk
+  Section: navigation_titles
+*/
+
+"addCard" = "Додати Картку";
+"addNewCard" = "Додати Нову Картку";
+"settings" = "Налаштування";
+"myCards" = "Мої Картки";
+"backgroundStyles" = "Стилі Фону";
+"backgroundDemo" = "Демо Фону";
+
+

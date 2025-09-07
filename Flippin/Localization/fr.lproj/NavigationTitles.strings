@@ -1,0 +1,17 @@
+/*
+  navigation_titles.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: fr
+  Section: navigation_titles
+*/
+
+"addCard" = "Ajouter une Carte";
+"addNewCard" = "Ajouter une Nouvelle Carte";
+"settings" = "Paramètres";
+"myCards" = "Mes Cartes";
+"backgroundStyles" = "Styles d'Arrière-plan";
+"backgroundDemo" = "Démo d'Arrière-plan";
+
+

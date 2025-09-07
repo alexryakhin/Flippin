@@ -1,0 +1,62 @@
+/*
+  study.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: uk
+  Section: study
+*/
+
+"study" = "Вчити";
+"practice" = "Практикувати";
+"studyMode" = "Режим Вивчення";
+"practiceMode" = "Режим Практики";
+"quickStats" = "Швидка Статистика";
+"studyOptions" = "Варіанти Вивчення";
+"practiceOptions" = "Варіанти Практики";
+"recentActivity" = "Остання Активність";
+"totalCards" = "Загальна Кількість Карток";
+"mastered" = "Опановано";
+"difficultCards" = "Складні Картки";
+"studyTimeToday" = "Час Вивчення Сьогодні";
+"practiceTimeToday" = "Час Практики Сьогодні";
+"startStudySession" = "Розпочати Сесію Вивчення (10 карток)";
+"startPracticeSession" = "Розпочати Сесію Практики (10 карток)";
+"practiceAllCards" = "Практикувати Всі Картки (%d)";
+"practiceDifficultCards" = "Практикувати Складні Картки (%d)";
+"multipleChoiceQuiz" = "Тест із Багатьма Варіантами";
+"fillInTheBlank" = "Заповнити Пропуск (%d)";
+"unlockAllStudyModes" = "Розблокувати Всі Режими Вивчення";
+"unlockAllPracticeModes" = "Розблокувати Всі Режими Практики";
+"noStudyData" = "Немає Даних Вивчення";
+"noPracticeData" = "Немає Даних Практики";
+"startStudyingToSeeProgress" = "Почніть вивчати, щоб побачити свій прогрес!";
+"startPracticingToSeeProgress" = "Почніть практикувати, щоб побачити свій прогрес!";
+"toCards" = "До карток";
+"totalStudyTime" = "Загальний Час Вивчення";
+"totalPracticeTime" = "Загальний Час Практики";
+"averageSession" = "Середня Сесія";
+"learningProgress" = "Прогрес Вивчення";
+"exit" = "Вийти";
+"showAnswer" = "Показати Відповідь";
+"incorrect" = "Неправильно";
+"correct" = "Правильно";
+"studySessionComplete" = "Сесію Вивчення Завершено!";
+"practiceSessionComplete" = "Сесію Практики Завершено!";
+"accuracy" = "Точність";
+"cardsStudied" = "Вивчені Картки";
+"cardsPracticed" = "Практиковані Картки";
+"timeSpent" = "Витрачений Час";
+"studyAgain" = "Вчити Знову";
+"practiceAgain" = "Практикувати Знову";
+"done" = "Готово";
+"selectCorrectTranslation" = "Виберіть правильний переклад";
+"fillInMissingWord" = "Заповніть пропущене слово";
+"completeSentence" = "Завершіть речення";
+"chooseCorrectWord" = "Виберіть правильне слово:";
+"correctAnswer" = "Правильна Відповідь";
+"translateTo" = "Перекласти на %@";
+"studyProgress" = "%d з %d";
+"practiceProgress" = "%d з %d";
+
+

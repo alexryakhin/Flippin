@@ -1,0 +1,27 @@
+/*
+  preset_collections.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: zh-Hant
+  Section: preset_collections
+*/
+
+"presetCollections" = "預設集合";
+"seeAllCollections" = "查看全部";
+"importCollection" = "匯入集合";
+"importButton" = "匯入";
+"importCollectionMessage" = "將 %@ 的 %d 張卡片匯入到您的集合中？";
+"noCollectionsFound" = "未找到集合";
+"tryAdjustingSearch" = "請嘗試調整搜尋或篩選條件";
+"getStartedWithCollections" = "從常見主題和情況的精選卡片集開始";
+"searchCollections" = "搜尋集合...";
+"allCategories" = "全部";
+"myLanguageSettings" = "我的語言";
+"targetLanguage" = "目標語言";
+"theme" = "主題";
+"color" = "顏色";
+"backgroundStyle" = "背景樣式";
+"tapToSeeFullScreen" = "點擊查看全螢幕";
+
+

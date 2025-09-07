@@ -1,0 +1,16 @@
+/*
+  labels.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ko
+  Section: labels
+*/
+
+"settingsLabel" = "설정";
+"menu" = "메뉴";
+"tagFilter" = "태그 필터";
+"shuffle" = "섞기";
+"addCardLabel" = "카드 추가";
+
+

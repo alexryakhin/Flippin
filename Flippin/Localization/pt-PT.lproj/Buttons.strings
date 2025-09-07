@@ -1,0 +1,28 @@
+/*
+  buttons.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: pt-PT
+  Section: buttons
+*/
+
+"done" = "Concluído";
+"cancel" = "Cancelar";
+"save" = "Guardar";
+"close" = "Fechar";
+"clear" = "Limpar";
+"clearFilter" = "Limpar Filtro";
+"clearSearch" = "Limpar Pesquisa";
+"addCardButton" = "Adicionar Cartão";
+"edit" = "Editar";
+"editCard" = "Editar Cartão";
+"delete" = "Eliminar";
+"deleteCard" = "Eliminar Cartão";
+"deleteCardConfirmation" = "Tens a certeza de que queres eliminar este cartão? Esta ação não pode ser desfeita.";
+"deleteAll" = "Eliminar Tudo";
+"deleteAllCards" = "Eliminar Todos os Cartões";
+"deleteAllCardsConfirmation" = "Tens a certeza de que queres eliminar todos os cartões? Esta ação não pode ser desfeita.";
+"ok" = "OK";
+
+

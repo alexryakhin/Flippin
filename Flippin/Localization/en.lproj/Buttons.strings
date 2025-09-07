@@ -1,0 +1,28 @@
+/*
+  buttons.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: en
+  Section: buttons
+*/
+
+"done" = "Done";
+"cancel" = "Cancel";
+"save" = "Save";
+"close" = "Close";
+"clear" = "Clear";
+"clearFilter" = "Clear Filter";
+"clearSearch" = "Clear Search";
+"addCardButton" = "Add Card";
+"edit" = "Edit";
+"editCard" = "Edit Card";
+"delete" = "Delete";
+"deleteCard" = "Delete Card";
+"deleteCardConfirmation" = "Are you sure you want to delete this card? This action cannot be undone.";
+"deleteAll" = "Delete All";
+"deleteAllCards" = "Delete All Cards";
+"deleteAllCardsConfirmation" = "Are you sure you want to delete all cards? This action cannot be undone.";
+"ok" = "OK";
+
+

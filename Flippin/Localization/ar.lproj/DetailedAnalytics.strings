@@ -1,0 +1,67 @@
+/*
+  detailed_analytics.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ar
+  Section: detailed_analytics
+*/
+
+"analyticsTab" = "علامة تبويب التحليلات";
+"studyTimeTitle" = "وقت الدراسة";
+"practiceTimeTitle" = "وقت الممارسة";
+"cardsMasteredTitle" = "البطاقات التي تم إتقانها";
+"studyStreakTitle" = "سلسلة الدراسة";
+"averageSessionTitle" = "متوسط الجلسة";
+"consecutiveDays" = "أيام متتالية";
+"perSession" = "لكل جلسة";
+"studyPatterns" = "أنماط الدراسة";
+"mostActiveTime" = "الوقت الأكثر نشاطاً";
+"preferredSessionLength" = "طول الجلسة المفضل";
+"studyFrequency" = "تكرار الدراسة";
+"languageProgress" = "تقدم اللغة";
+"collectionSize" = "حجم المجموعة";
+"cards" = "بطاقات";
+"achievements" = "الإنجازات";
+"firstSteps" = "الخطوات الأولى";
+"weekWarrior" = "محارب الأسبوع";
+"masterLearner" = "متعلم رئيسي";
+"dedicated" = "مكرس";
+"vocabularyMaster" = "سيد المفردات";
+"timeMaster" = "سيد الوقت";
+"accuracyTrends" = "اتجاهات الدقة";
+"sessionPerformance" = "أداء الجلسة";
+"averageSessionDuration" = "متوسط مدة الجلسة";
+"basedOnData" = "بناءً على بيانات %@";
+"cardsPerSession" = "بطاقات لكل جلسة";
+"average" = "المتوسط";
+"sessionFrequency" = "تكرار الجلسة";
+"cardDifficultyAnalysis" = "تحليل صعوبة البطاقة";
+"noDifficultyDataAvailable" = "لا توجد بيانات صعوبة متاحة";
+"learningSpeed" = "سرعة التعلم";
+"cardsPerHour" = "بطاقات في الساعة";
+"vsAverage" = "مقابل المتوسط";
+"masteryTimeline" = "الجدول الزمني للإتقان";
+"vocabularyGrowth" = "نمو المفردات";
+"totalVocabulary" = "إجمالي المفردات";
+"thisWeek" = "هذا الأسبوع";
+"thisMonth" = "هذا الشهر";
+"thisYear" = "هذا العام";
+"learningMilestones" = "معالم التعلم";
+"personalizedInsights" = "رؤى مخصصة";
+"noInsightsAvailableYet" = "لا توجد رؤى متاحة بعد";
+"recommendations" = "التوصيات";
+"noRecommendationsAtThisTime" = "لا توجد توصيات في الوقت الحالي";
+"learningTips" = "نصائح التعلم";
+"spacedRepetition" = "التكرار المتباعد";
+"spacedRepetitionDescription" = "راجع البطاقات على فترات متزايدة لتحسين الاحتفاظ.";
+"activeRecall" = "الاستدعاء النشط";
+"activeRecallDescription" = "حاول تذكر الإجابة قبل قلب البطاقة.";
+"contextLearning" = "التعلم السياقي";
+"contextLearningDescription" = "تعلم الكلمات في عبارات بدلاً من العزلة.";
+"studyNow" = "ادرس الآن";
+"startReview" = "بدء المراجعة";
+"browseCollections" = "تصفح المجموعات";
+"practiceMode" = "وضع التدريب";
+
+

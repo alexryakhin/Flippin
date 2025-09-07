@@ -1,0 +1,29 @@
+/*
+  subscription_management.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ja
+  Section: subscription_management
+*/
+
+"subscription" = "サブスクリプション";
+"subscriptionStatus" = "サブスクリプション状態";
+"activeSubscription" = "アクティブなサブスクリプション";
+"manageSubscription" = "サブスクリプション管理";
+
+"done" = "完了";
+"cancel" = "キャンセル";
+"delete" = "削除";
+"edit" = "編集";
+"save" = "保存";
+"searchCards" = "カードを検索...";
+"noCardsAvailable" = "利用可能なカードがありません";
+"noAccuracyDataAvailable" = "正確性データが利用できません";
+"noGrowthDataAvailable" = "成長データが利用できません";
+"date" = "日付";
+"accuracy" = "正確性";
+"masteredCards" = "習得したカード";
+"invalidJSON" = "無効なJSONデータ";
+
+

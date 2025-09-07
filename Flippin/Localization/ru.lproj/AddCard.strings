@@ -1,0 +1,19 @@
+/*
+  add_card.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ru
+  Section: add_card
+*/
+
+"enterTextInYourLanguage" = "Введите текст на вашем языке";
+"enterTextInTargetLanguage" = "Введите текст на целевом языке";
+"addNotesOptional" = "Добавить заметки (необязательно)";
+"notes" = "Заметки";
+"tagsCount" = "Теги (%d/5)";
+"noTagsAvailableAddInSettings" = "Нет доступных тегов. Добавьте теги в Настройках.";
+"translating" = "Переводится...";
+"translationWillAppearHere" = "Перевод появится здесь";
+
+

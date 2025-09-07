@@ -1,0 +1,17 @@
+/*
+  navigation.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: nl
+  Section: navigation
+*/
+
+"stack" = "Stapel";
+"list" = "Lijst";
+"study" = "Studeren";
+"practice" = "Oefenen";
+"analytics" = "Analyse";
+"settings" = "Instellingen";
+
+

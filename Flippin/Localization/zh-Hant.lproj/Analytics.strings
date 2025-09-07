@@ -1,0 +1,54 @@
+/*
+  analytics.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: zh-Hant
+  Section: analytics
+*/
+
+"analytics" = "分析";
+"detailedAnalytics" = "詳細分析";
+"today" = "今天";
+"noAnalyticsData" = "無分析數據";
+"startStudyingToSeeProgress" = "開始學習以查看您的學習進度！";
+"unlockAdvancedAnalytics" = "解鎖高級分析";
+"detailedProgressReports" = "詳細進度報告";
+"detailedProgressReportsDescription" = "追蹤您的學習模式和隨時間改進";
+"performanceInsights" = "性能洞察";
+"performanceInsightsDescription" = "獲取個性化推薦以改進您的學習習慣";
+"studyTimeAnalytics" = "學習時間分析";
+"studyTimeAnalyticsDescription" = "分析您的學習會話並優化您的學習";
+"upgradeToPremium" = "升級到進階版";
+"recentActivity" = "最近活動";
+"viewAll" = "查看全部";
+"noRecentActivity" = "無最近活動";
+"studySessionsWillAppearHere" = "您的學習會話將顯示在此處";
+"lastStudySession" = "最後學習會話";
+"cardsStudiedToday" = "今日學習的卡片";
+"studyStreak" = "學習連勝";
+"totalStudyTime" = "總學習時間";
+"cardsMastered" = "已掌握卡片";
+"todaysStudy" = "今日學習";
+"time" = "時間";
+"cardsStudied" = "已學習卡片";
+"sessions" = "會話";
+"accuracy" = "準確率";
+"studyTime" = "學習時間";
+"practiceTime" = "練習時間";
+"timeRange" = "時間範圍";
+"masteryProgress" = "掌握進度";
+"mastered" = "已掌握";
+"learning" = "學習中";
+"needsReview" = "需要複習";
+"week" = "週";
+"month" = "月";
+"year" = "年";
+"allTime" = "全部時間";
+"overview" = "概覽";
+"performance" = "性能";
+"progress" = "進度";
+"insights" = "洞察";
+"noStudyDataAvailable" = "無學習數據可用";
+
+

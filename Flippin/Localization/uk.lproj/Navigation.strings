@@ -1,0 +1,17 @@
+/*
+  navigation.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: uk
+  Section: navigation
+*/
+
+"stack" = "Стос";
+"list" = "Список";
+"study" = "Вчити";
+"practice" = "Практикувати";
+"analytics" = "Аналіз";
+"settings" = "Налаштування";
+
+

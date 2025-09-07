@@ -1,0 +1,54 @@
+/*
+  analytics.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: hi
+  Section: analytics
+*/
+
+"analytics" = "विश्लेषण";
+"detailedAnalytics" = "विस्तृत विश्लेषण";
+"today" = "आज";
+"noAnalyticsData" = "कोई विश्लेषण डेटा नहीं";
+"startStudyingToSeeProgress" = "अपनी सीखने की प्रगति देखने के लिए अध्ययन शुरू करें!";
+"unlockAdvancedAnalytics" = "उन्नत विश्लेषण अनलॉक करें";
+"detailedProgressReports" = "विस्तृत प्रगति रिपोर्ट";
+"detailedProgressReportsDescription" = "समय के साथ अपने सीखने के पैटर्न और सुधारों को ट्रैक करें";
+"performanceInsights" = "प्रदर्शन अंतर्दृष्टि";
+"performanceInsightsDescription" = "अपनी अध्ययन आदतों को बेहतर बनाने के लिए व्यक्तिगत सिफारिशें प्राप्त करें";
+"studyTimeAnalytics" = "अध्ययन समय विश्लेषण";
+"studyTimeAnalyticsDescription" = "अपने अध्ययन सत्रों का विश्लेषण करें और अपने सीखने को अनुकूलित करें";
+"upgradeToPremium" = "प्रीमियम में अपग्रेड करें";
+"recentActivity" = "हाल की गतिविधि";
+"viewAll" = "सभी देखें";
+"noRecentActivity" = "कोई हाल की गतिविधि नहीं";
+"studySessionsWillAppearHere" = "आपके अध्ययन सत्र यहां दिखाई देंगे";
+"lastStudySession" = "आखिरी अध्ययन सत्र";
+"cardsStudiedToday" = "आज पढ़े गए कार्ड";
+"studyStreak" = "अध्ययन की र streak";
+"totalStudyTime" = "कुल अध्ययन समय";
+"cardsMastered" = "निपुण कार्ड";
+"todaysStudy" = "आज का अध्ययन";
+"time" = "समय";
+"cardsStudied" = "पढ़े गए कार्ड";
+"sessions" = "सत्र";
+"accuracy" = "सटीकता";
+"studyTime" = "अध्ययन समय";
+"practiceTime" = "अभ्यास समय";
+"timeRange" = "समय सीमा";
+"masteryProgress" = "निपुणता प्रगति";
+"mastered" = "निपुण";
+"learning" = "सीखना";
+"needsReview" = "समीक्षा की आवश्यकता";
+"week" = "सप्ताह";
+"month" = "महीना";
+"year" = "वर्ष";
+"allTime" = "हर समय";
+"overview" = "अवलोकन";
+"performance" = "प्रदर्शन";
+"progress" = "प्रगति";
+"insights" = "अंतर्दृष्टि";
+"noStudyDataAvailable" = "कोई अध्ययन डेटा उपलब्ध नहीं";
+
+

@@ -1,0 +1,29 @@
+/*
+  about_app.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: pt-BR
+  Section: about_app
+*/
+
+"about" = "Sobre";
+"appInfo" = "Informações do App";
+"tagline" = "Cartões inteligentes para aprendizado de idiomas";
+"version" = "Versão";
+"features" = "Recursos";
+"smartCards" = "Cartões Inteligentes";
+"smartCardsDescription" = "Cartões bilíngues com tradução automática e texto para voz";
+"languagesTitle" = "17 Idiomas";
+"languagesDescription" = "Suporte para os principais idiomas do mundo";
+"learningAnalytics" = "Análise de Aprendizado";
+"learningAnalyticsDescription" = "Acompanhe seu progresso e obtenha insights personalizados";
+"tts" = "Texto para Voz";
+"ttsDescription" = "Ouça a pronúncia com tecnologia TTS";
+"support" = "Apoie o App";
+"supportDescription" = "Se você gosta do Flippin, considere apoiar seu desenvolvimento";
+"buyMeACoffee" = "Compre-me um café";
+"legal" = "Legal";
+"privacyPolicy" = "Política de Privacidade";
+"termsOfService" = "Termos de Serviço";
+

@@ -1,0 +1,36 @@
+/*
+  welcome_screen.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ar
+  Section: welcome_screen
+*/
+
+"welcomeScreenTitle" = "مرحباً بك في Flippin!";
+"welcomeScreenMessage" = "يساعدك Flippin على تعلم اللغات للسفر أو الدراسة أو المحادثة اليومية باستخدام بطاقات ذكية.";
+"myLanguage" = "لغتي";
+"myLanguageDesc" = "لغتك الأم";
+"imLearning" = "أنا أتعلم";
+"imLearningDesc" = "اللغة التي تريد تعلمها";
+"continueButton" = "متابعة";
+"back" = "رجوع";
+"getStarted" = "ابدأ";
+"chooseLanguages" = "اختر لغاتك";
+"chooseLanguagesDesc" = "اختر لغتك الأم واللغة التي تريد تعلمها";
+"readyToStart" = "كل شيء جاهز!";
+"readyToStartDesc" = "رحلة تعلم اللغة تبدأ الآن";
+"featureLearning" = "ترجمة تلقائية";
+"featureLearningDesc" = "ترجمة فورية أثناء الكتابة";
+"featureLanguages" = "17 لغة";
+"featureLanguagesDesc" = "دعم للغات العالم الرئيسية";
+"featureSmart" = "تحويل النص إلى كلام";
+"featureSmartDesc" = "استمع إلى النطق بتقنية TTS";
+"featureAnalytics" = "تحليلات التعلم";
+"featureAnalyticsDesc" = "تتبع تقدمك مع رؤى مفصلة";
+"finalFeatureAdd" = "إنشاء بطاقات مخصصة";
+"finalFeaturePractice" = "تدرب مع نطق الصوت";
+"finalFeatureProgress" = "نظم مع العلامات والمفضلة";
+"finalFeatureModes" = "أوضاع تدريب متعددة";
+
+

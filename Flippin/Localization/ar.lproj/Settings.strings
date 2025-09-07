@@ -1,0 +1,22 @@
+/*
+  settings.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ar
+  Section: settings
+*/
+
+"languages" = "اللغات";
+"cardDisplay" = "عرض البطاقة";
+"cardDisplayMode" = "وضع عرض البطاقة";
+"learningMode" = "وضع التعلم";
+"travelMode" = "وضع السفر";
+"learningModeDescription" = "عرض اللغة المستهدفة أولاً (للتعلم)";
+"travelModeDescription" = "عرض اللغة الأصلية أولاً (للسفر)";
+"previewBackgrounds" = "معاينة الخلفيات";
+"cardManagement" = "إدارة البطاقات";
+"cardManagementDescription" = "ابحث وحرر ونظم بطاقات الدراسة الخاصة بك";
+"manageCards" = "إدارة البطاقات";
+
+

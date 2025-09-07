@@ -1,0 +1,17 @@
+/*
+  navigation_titles.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: sv
+  Section: navigation_titles
+*/
+
+"addCard" = "Lägg till Kort";
+"addNewCard" = "Lägg till Nytt Kort";
+"settings" = "Inställningar";
+"myCards" = "Mina Kort";
+"backgroundStyles" = "Bakgrundsstilar";
+"backgroundDemo" = "Bakgrund Demo";
+
+

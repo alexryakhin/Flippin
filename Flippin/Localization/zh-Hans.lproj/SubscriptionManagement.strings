@@ -1,0 +1,29 @@
+/*
+  subscription_management.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: zh-Hans
+  Section: subscription_management
+*/
+
+"subscription" = "订阅";
+"subscriptionStatus" = "订阅状态";
+"activeSubscription" = "活跃订阅";
+"manageSubscription" = "管理订阅";
+
+"done" = "完成";
+"cancel" = "取消";
+"delete" = "删除";
+"edit" = "编辑";
+"save" = "保存";
+"searchCards" = "搜索卡片...";
+"noCardsAvailable" = "没有可用的卡片";
+"noAccuracyDataAvailable" = "无准确率数据";
+"noGrowthDataAvailable" = "无增长数据";
+"date" = "日期";
+"accuracy" = "准确率";
+"masteredCards" = "已掌握卡片";
+"invalidJSON" = "无效JSON数据";
+
+

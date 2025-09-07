@@ -1,0 +1,29 @@
+/*
+  subscription_management.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ar
+  Section: subscription_management
+*/
+
+"subscription" = "الاشتراك";
+"subscriptionStatus" = "حالة الاشتراك";
+"activeSubscription" = "اشتراك نشط";
+"manageSubscription" = "إدارة الاشتراك";
+
+"done" = "تم";
+"cancel" = "إلغاء";
+"delete" = "حذف";
+"edit" = "تعديل";
+"save" = "حفظ";
+"searchCards" = "البحث في البطاقات...";
+"noCardsAvailable" = "لا توجد بطاقات متاحة";
+"noAccuracyDataAvailable" = "لا توجد بيانات دقة متاحة";
+"noGrowthDataAvailable" = "لا توجد بيانات نمو متاحة";
+"date" = "التاريخ";
+"accuracy" = "الدقة";
+"masteredCards" = "البطاقات التي تم إتقانها";
+"invalidJSON" = "بيانات JSON غير صالحة";
+
+

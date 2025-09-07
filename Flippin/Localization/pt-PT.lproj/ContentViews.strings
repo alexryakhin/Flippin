@@ -1,0 +1,20 @@
+/*
+  content_views.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: pt-PT
+  Section: content_views
+*/
+
+"noCardsYet" = "Ainda não há cartões";
+"tapToAddFirstCard" = "Toca no botão + para adicionares o teu primeiro cartão";
+"noCardsWithSelectedTag" = "Nenhum cartão com a etiqueta selecionada";
+"noCardsFoundWithTag" = "Nenhum cartão encontrado com a etiqueta \"%@\"";
+"noCardsAvailable" = "Nenhum cartão disponível";
+"noCardsFound" = "Nenhum cartão encontrado";
+"addFirstCardToStartLearning" = "Adiciona o teu primeiro cartão para começares a aprender";
+"noCardsMatchSearch" = "Nenhum cartão corresponde à tua pesquisa";
+"noCardsForLanguagePair" = "Nenhum cartão para este par de idiomas";
+
+

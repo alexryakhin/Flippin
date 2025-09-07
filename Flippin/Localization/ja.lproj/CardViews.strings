@@ -1,0 +1,13 @@
+/*
+  card_views.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ja
+  Section: card_views
+*/
+
+"flip" = "めくる";
+"tapToGoBack" = "タップして戻る";
+
+

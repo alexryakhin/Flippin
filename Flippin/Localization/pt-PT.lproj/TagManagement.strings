@@ -1,0 +1,27 @@
+/*
+  tag_management.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: pt-PT
+  Section: tag_management
+*/
+
+"availableTags" = "Etiquetas Disponíveis";
+"noTagsAvailable" = "Nenhuma etiqueta disponível";
+"manageTagsInSettings" = "Gerencia as etiquetas nas definições.";
+"toSettings" = "Para definições";
+"newTagName" = "Nome da nova etiqueta";
+"add" = "Adicionar";
+"addTag" = "Adicionar Etiqueta";
+"tagsManagement" = "Gestão de Etiquetas";
+"filterByTag" = "Filtrar por Etiqueta";
+"filterByLanguage" = "Filtrar por Idioma";
+"filterByLanguageDescription" = "Mostrar apenas cartões que correspondam aos seus idiomas selecionados";
+"filterByFavorites" = "Filtrar por Favoritos";
+"showAllCards" = "Mostrar Todos os Cartões";
+"showFavoritesOnly" = "Mostrar Apenas Favoritos";
+"noFavoriteCards" = "Nenhum Cartão Favorito";
+"noFavoriteCardsDescription" = "Ainda não marcou nenhum cartão como favorito";
+
+

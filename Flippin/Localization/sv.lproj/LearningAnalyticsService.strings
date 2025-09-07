@@ -1,0 +1,66 @@
+/*
+  learning_analytics_service.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: sv
+  Section: learning_analytics_service
+*/
+
+"notEnoughData" = "Inte tillräckligt med data";
+"morning" = "Morgon (6-12)";
+"afternoon" = "Eftermiddag (12-17)";
+"evening" = "Kväll (17-21)";
+"night" = "Natt (21-6)";
+"under10Minutes" = "Under 10 minuter";
+"tenTo20Minutes" = "10-20 minuter";
+"twentyTo30Minutes" = "20-30 minuter";
+"thirtyTo60Minutes" = "30-60 minuter";
+"over60Minutes" = "Över 60 minuter";
+"onceThisWeek" = "En gång denna vecka";
+"fewTimesThisWeek" = "Några gånger denna vecka";
+"mostDaysThisWeek" = "De flesta dagar denna vecka";
+"daily" = "Dagligen";
+"veryEasy" = "Mycket Lätt";
+"easy" = "Lätt";
+"medium" = "Medel";
+"hard" = "Svår";
+"veryHard" = "Mycket Svår";
+"unknown" = "Okänd";
+"completedStudySession" = "Studiesession Avslutad";
+"reviewedCardsInTime" = "Granskade %d kort på %@";
+"recent" = "Nyligen";
+"reachedCardsMastered" = "Bemästrade %d kort";
+"greatProgressBuildingFoundation" = "Fantastiska framsteg! Du bygger en stabil grund.";
+"first10CardsMastered" = "Första 10 korten bemästrade";
+"sevenDayStudyStreak" = "Sju dagars studierad";
+"fiftyCardsMastered" = "Femtio kort bemästrade";
+"thirtyDayStudyStreak" = "Trettio dagars studierad";
+"completed" = "Avslutad";
+"inProgress" = "Pågående";
+"youreMostProductiveIn" = "Du är mest produktiv under %@";
+"studySessionsDuringThisTime" = "Dina studiesessioner under denna tid visar bättre fokus och retention.";
+"optimalSessionLength" = "Optimal Sessionslängd";
+"yourSessionsShowBestResults" = "Dina sessioner på %@ visar bäst resultat.";
+"consistentLearningPattern" = "Konsekvent Inlärningsmönster";
+"yourStudyRoutineWorkingWell" = "Din studierutin på %@ fungerar bra.";
+"improvingAccuracy" = "Förbättrar Noggrannhet";
+"recentAccuracyHigherThanBefore" = "Din senaste noggrannhet är %d%% högre än tidigare.";
+"focusOnAccuracy" = "Fokusera på Noggrannhet";
+"recentAccuracyDecreased" = "Din senaste noggrannhet har minskat. Överväg att granska svåra kort.";
+"excellentProgress" = "Utmärkt Framsteg";
+"masteredVocabularyPercentage" = "Du har bemästrat %d%% av ditt vokabulär!";
+"goodFoundation" = "Bra Grund";
+"masteredVocabularyKeepGoing" = "Du har bemästrat %d%% av ditt vokabulär. Fortsätt så!";
+"reviewDifficultCards" = "Granska Svåra Kort";
+"cardsNeedMorePractice" = "%d kort behöver mer övning. Fokusera på dessa för att förbättra noggrannheten.";
+"addMoreVocabulary" = "Lägg till Mer Vokabulär";
+"masteredMostCurrentCards" = "Du har bemästrat de flesta av dina aktuella kort. Redo för nya utmaningar!";
+"extendYourStreak" = "Förläng Din Rad";
+"daysAwayFromAchievement" = "Du är %d dagar från en ny prestation!";
+"buildConsistency" = "Bygg Konsekvens";
+"tryToStudyDaily" = "Försök att studera dagligen för att bygga en stabil studievanan.";
+"improveAccuracy" = "Förbättra Noggrannhet";
+"accuracyPercentageFocusQuality" = "Din noggrannhet är %d%%. Fokusera på kvalitet snarare än hastighet.";
+
+

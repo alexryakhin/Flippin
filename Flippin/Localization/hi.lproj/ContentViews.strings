@@ -1,0 +1,20 @@
+/*
+  content_views.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: hi
+  Section: content_views
+*/
+
+"noCardsYet" = "अभी तक कोई कार्ड नहीं";
+"tapToAddFirstCard" = "अपना पहला कार्ड जोड़ने के लिए + बटन पर टैप करें";
+"noCardsWithSelectedTag" = "चयनित टैग के साथ कोई कार्ड नहीं";
+"noCardsFoundWithTag" = "\"%@\" टैग के साथ कोई कार्ड नहीं मिला";
+"noCardsAvailable" = "कोई कार्ड उपलब्ध नहीं";
+"noCardsFound" = "कोई कार्ड नहीं मिला";
+"addFirstCardToStartLearning" = "सीखना शुरू करने के लिए अपना पहला कार्ड जोड़ें";
+"noCardsMatchSearch" = "आपकी खोज से मेल खाने वाला कोई कार्ड नहीं";
+"noCardsForLanguagePair" = "इस भाषा जोड़ी के लिए कोई कार्ड नहीं";
+
+

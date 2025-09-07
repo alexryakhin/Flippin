@@ -1,0 +1,29 @@
+/*
+  about_app.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ja
+  Section: about_app
+*/
+
+"about" = "アプリについて";
+"appInfo" = "アプリ情報";
+"tagline" = "言語学習のためのスマートフラッシュカード";
+"version" = "バージョン";
+"features" = "機能";
+"smartCards" = "スマートカード";
+"smartCardsDescription" = "自動翻訳とテキスト読み上げ機能付きのバイリンガルカード";
+"languagesTitle" = "17言語";
+"languagesDescription" = "主要な世界言語のサポート";
+"learningAnalytics" = "学習分析";
+"learningAnalyticsDescription" = "進捗を追跡し、パーソナライズされた洞察を得る";
+"tts" = "テキスト読み上げ";
+"ttsDescription" = "TTS技術で発音を聞く";
+"support" = "アプリをサポート";
+"supportDescription" = "Flippinを楽しんでいる場合は、開発をサポートすることをご検討ください";
+"buyMeACoffee" = "コーヒーをおごる";
+"legal" = "法的情報";
+"privacyPolicy" = "プライバシーポリシー";
+"termsOfService" = "利用規約";
+

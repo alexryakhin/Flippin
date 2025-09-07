@@ -1,0 +1,29 @@
+/*
+  about_app.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: hr
+  Section: about_app
+*/
+
+"about" = "O aplikaciji";
+"appInfo" = "Informacije o aplikaciji";
+"tagline" = "Pametne kartice za učenje jezika";
+"version" = "Verzija";
+"features" = "Značajke";
+"smartCards" = "Pametne Kartice";
+"smartCardsDescription" = "Dvojezične kartice s automatskim prijevodom i tekst-u-govor";
+"languagesTitle" = "17 Jezika";
+"languagesDescription" = "Podrška za glavne svjetske jezike";
+"learningAnalytics" = "Analitika učenja";
+"learningAnalyticsDescription" = "Pratite svoj napredak i dobijte personalizirane uvide";
+"tts" = "Tekst-u-govor";
+"ttsDescription" = "Slušajte izgovor s TTS tehnologijom";
+"support" = "Podržite aplikaciju";
+"supportDescription" = "Ako uživate u Flippinu, razmislite o podržavanju njegovog razvoja";
+"buyMeACoffee" = "Kupi mi kavu";
+"legal" = "Pravno";
+"privacyPolicy" = "Politika privatnosti";
+"termsOfService" = "Uvjeti korištenja";
+

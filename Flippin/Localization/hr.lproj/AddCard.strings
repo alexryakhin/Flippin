@@ -1,0 +1,19 @@
+/*
+  add_card.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: hr
+  Section: add_card
+*/
+
+"enterTextInYourLanguage" = "Unesite tekst na svom jeziku";
+"enterTextInTargetLanguage" = "Unesite tekst na ciljnom jeziku";
+"addNotesOptional" = "Dodajte bilješke (opcija)";
+"notes" = "Bilješke";
+"tagsCount" = "Oznake (%d/5)";
+"noTagsAvailableAddInSettings" = "Nema dostupnih oznaka. Dodajte neke oznake u Postavke.";
+"translating" = "Prevođenje...";
+"translationWillAppearHere" = "Prijevod će se pojaviti ovdje";
+
+

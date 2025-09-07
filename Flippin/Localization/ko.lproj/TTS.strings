@@ -1,0 +1,140 @@
+// MARK: - TTS Voice Filters
+"filters.all_use_cases" = "모든 사용 사례";
+"filters.all_ages" = "모든 연령";
+"filters.all_timbres" = "모든 음색";
+"filters.all_accents" = "모든 억양";
+"filters.all_languages" = "모든 언어";
+"filters.all_genders" = "모든 성별";
+"filters.filters" = "필터";
+"filters.reset" = "초기화";
+"filters.select_voice" = "음성 선택";
+"filters.available_voices" = "사용 가능한 음성";
+"filters.no_voices_available" = "사용 가능한 음성이 없습니다";
+"filters.no_voices_found" = "음성을 찾을 수 없습니다";
+"filters.no_voices_found_message" = "검색 또는 필터를 조정해 보세요";
+
+"usage.monthly_limit_exceeded" = "월간 한도 초과";
+"usage.monthly_limit_exceeded_message" = "Speechify TTS의 월간 50,000자 제한에 도달했습니다. 다음 달에 다시 시도하거나 Google TTS를 사용하세요.";
+"usage.remaining_characters" = "남은 글자 수";
+"usage.monthly_usage" = "월간 사용량";
+"usage.monthly_limit" = "월간 한도";
+
+// TTS Voice Filter Values
+"advertisement" = "광고";
+"animation" = "애니메이션";
+"audiobook" = "오디오북";
+"audiobook-and-narration" = "오디오북 및 내레이션";
+"audiobooks-and-narration" = "오디오북 및 내레이션";
+"conversational" = "대화형";
+"e-learning" = "e-러닝";
+"gaming" = "게이밍";
+"meditation" = "명상";
+"movie" = "영화";
+"movies-acting-and-gaming" = "영화, 연기 및 게이밍";
+"narration" = "내레이션";
+"podcast" = "팟캐스트";
+"social-media" = "소셜 미디어";
+
+"middle-aged" = "중년";
+"senior" = "노인";
+"teen" = "청소년";
+"young-adult" = "젊은 성인";
+
+"female" = "여성";
+"male" = "남성";
+
+"angry" = "화난";
+"assertive-or-confident" = "단호하거나 자신감 있는";
+"bright" = "밝은";
+"calm-or-relaxed" = "차분하거나 편안한";
+"cheerful" = "명랑한";
+"crisp" = "선명한";
+"deep" = "깊은";
+"direct" = "직접적인";
+"energetic" = "활기찬";
+"fearful" = "두려워하는";
+"high-pitch" = "높은 음높이";
+"neutral" = "중립";
+"professional" = "전문적인";
+"relaxed" = "편안한";
+"sad" = "슬픈";
+"suprised" = "놀란";
+"surprised" = "놀란";
+"terrified" = "겁에 질린";
+"warm" = "따뜻한";
+"warm-or-friendly" = "따뜻하거나 친근한";
+
+"american-neutral" = "미국 중립";
+"australian" = "호주";
+"british" = "영국";
+"indian" = "인도";
+"nigerian" = "나이지리아";
+
+
+
+
+// TTS Dashboard
+"dashboard" = "TTS 대시보드";
+"premium_tts_dashboard" = "프리미엄 TTS 대시보드";
+"customize_tts_experience" = "텍스트 음성 변환 경험을 사용자 정의";
+"playing" = "재생 중";
+"ready" = "준비 완료";
+"provider" = "제공자";
+"tts_provider" = "TTS 제공자";
+"voice_customization" = "음성 사용자 정의";
+"current_voice" = "현재 음성";
+"default_voice" = "기본 음성";
+"preview_current_voice" = "현재 음성 미리 듣기";
+"change_voice" = "음성 변경";
+"audio_settings" = "오디오 설정";
+"speech_rate" = "말하기 속도";
+"volume" = "음량";
+"test_your_settings" = "설정 테스트";
+"enter_text_to_test" = "테스트할 텍스트 입력...";
+"stop" = "중지";
+"test" = "테스트";
+"usage_statistics" = "사용 통계";
+"speechify_monthly_usage" = "Speechify 월간 사용량";
+"monthly_limit" = "월간 한도";
+"used_this_month" = "이번 달 사용량";
+"remaining" = "남은 양";
+"usage_progress" = "사용 진행";
+"characters" = "글자";
+
+// TTS Analytics
+"analytics.characters_used" = "사용된 글자 수";
+"analytics.sessions" = "세션";
+"analytics.favorite_voice" = "선호 음성";
+"analytics.time_saved" = "절약된 시간";
+"analytics.total_characters" = "총 글자 수";
+"analytics.total_sessions" = "총 세션 수";
+"analytics.total_duration" = "총 시간";
+"analytics.favorite_language" = "선호 언어";
+"analytics.premium_usage" = "프리미엄 사용";
+
+// TTS Settings
+"settings.text_to_speech" = "텍스트 음성 변환";
+"settings.speechify" = "Speechify";
+"settings.speechify_description" = "Speechify의 텍스트 음성 변환 모델은 모든 사용자에게 프리미엄 기능으로 제공됩니다. 다양한 음성과 억양을 선택하여 학습 경험을 사용자 정의할 수 있습니다.";
+"settings.speechify_pro_description" = "Speechify의 텍스트 음성 변환 모델은 구독에 포함되어 있습니다.";
+"settings.dashboard" = "대시보드";
+"pro" = "프로";
+"free_google_tts_description" = "기본 음성과 안정적인 성능을 제공하는 무료 Google TTS";
+
+// TTS Models
+"models.english" = "영어";
+"models.multilingual" = "다국어";
+"models.english_description" = "Speechify의 영어 텍스트 음성 변환 모델은 텍스트 읽기에 명확하고 자연스러운 음성 출력을 제공하도록 설계된 표준 기능을 제공합니다. 이 모델은 일관된 사용자 경험에 초점을 맞춥니다.";
+"models.multilingual_description" = "다국어 모델은 지원되는 모든 언어를 사용할 수 있으며, 한 문장 내에서 여러 언어를 사용하는 것을 지원합니다. 이 모델의 오디오 출력은 다른 모델과 뚜렷이 다릅니다.";
+
+// MARK: - English Accents
+"english_accents.australian" = "호주";
+"english_accents.canadian" = "캐나다";
+"english_accents.british" = "영국";
+"english_accents.indian" = "인도";
+"english_accents.american" = "미국";
+"english_accents.belgian" = "벨기에";
+"english_accents.singaporean" = "싱가포르";
+"english_accents.irish" = "아일랜드";
+"english_accents.south_african" = "남아프리카";
+

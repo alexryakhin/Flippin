@@ -1,0 +1,17 @@
+/*
+  navigation_titles.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: hi
+  Section: navigation_titles
+*/
+
+"addCard" = "कार्ड जोड़ें";
+"addNewCard" = "नया कार्ड जोड़ें";
+"settings" = "सेटिंग्स";
+"myCards" = "मेरे कार्ड";
+"backgroundStyles" = "पृष्ठभूमि शैलियां";
+"backgroundDemo" = "पृष्ठभूमि डेमो";
+
+

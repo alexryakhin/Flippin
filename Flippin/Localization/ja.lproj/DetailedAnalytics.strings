@@ -1,0 +1,67 @@
+/*
+  detailed_analytics.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ja
+  Section: detailed_analytics
+*/
+
+"analyticsTab" = "分析タブ";
+"studyTimeTitle" = "学習時間";
+"practiceTimeTitle" = "練習時間";
+"cardsMasteredTitle" = "習得したカード";
+"studyStreakTitle" = "学習継続日数";
+"averageSessionTitle" = "平均セッション";
+"consecutiveDays" = "連続日数";
+"perSession" = "セッションごと";
+"studyPatterns" = "学習パターン";
+"mostActiveTime" = "最もアクティブな時間";
+"preferredSessionLength" = "好みのセッション長";
+"studyFrequency" = "学習頻度";
+"languageProgress" = "言語進捗";
+"collectionSize" = "コレクションサイズ";
+"cards" = "カード";
+"achievements" = "実績";
+"firstSteps" = "最初のステップ";
+"weekWarrior" = "週の戦士";
+"masterLearner" = "マスター学習者";
+"dedicated" = "専念";
+"vocabularyMaster" = "語彙マスター";
+"timeMaster" = "タイムマスター";
+"accuracyTrends" = "正確性の傾向";
+"sessionPerformance" = "セッションパフォーマンス";
+"averageSessionDuration" = "平均セッション時間";
+"basedOnData" = "%@のデータに基づく";
+"cardsPerSession" = "セッションごとのカード";
+"average" = "平均";
+"sessionFrequency" = "セッション頻度";
+"cardDifficultyAnalysis" = "カード難易度分析";
+"noDifficultyDataAvailable" = "難易度データが利用できません";
+"learningSpeed" = "学習速度";
+"cardsPerHour" = "1時間あたりのカード";
+"vsAverage" = "平均と比較";
+"masteryTimeline" = "習得タイムライン";
+"vocabularyGrowth" = "語彙の成長";
+"totalVocabulary" = "総語彙";
+"thisWeek" = "今週";
+"thisMonth" = "今月";
+"thisYear" = "今年";
+"learningMilestones" = "学習のマイルストーン";
+"personalizedInsights" = "パーソナライズされたインサイト";
+"noInsightsAvailableYet" = "まだインサイトが利用できません";
+"recommendations" = "推奨事項";
+"noRecommendationsAtThisTime" = "現時点で推奨事項はありません";
+"learningTips" = "学習のヒント";
+"spacedRepetition" = "間隔反復";
+"spacedRepetitionDescription" = "より良い保持のために間隔を空けてカードを復習";
+"activeRecall" = "アクティブリコール";
+"activeRecallDescription" = "カードをめくる前に答えを思い出してみる";
+"contextLearning" = "コンテキスト学習";
+"contextLearningDescription" = "単語を個別にではなくフレーズで学ぶ";
+"studyNow" = "今すぐ学習";
+"startReview" = "復習を開始";
+"browseCollections" = "コレクションを閲覧";
+"practiceMode" = "練習モード";
+
+

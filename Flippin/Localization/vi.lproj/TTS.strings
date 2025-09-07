@@ -1,0 +1,140 @@
+// MARK: - TTS Voice Filters
+"filters.all_use_cases" = "Tất cả các trường hợp sử dụng";
+"filters.all_ages" = "Tất cả các độ tuổi";
+"filters.all_timbres" = "Tất cả các âm sắc";
+"filters.all_accents" = "Tất cả các giọng nói";
+"filters.all_languages" = "Tất cả các ngôn ngữ";
+"filters.all_genders" = "Tất cả các giới tính";
+"filters.filters" = "Bộ lọc";
+"filters.reset" = "Đặt lại";
+"filters.select_voice" = "Chọn giọng nói";
+"filters.available_voices" = "Giọng nói có sẵn";
+"filters.no_voices_available" = "Không có giọng nói nào có sẵn";
+"filters.no_voices_found" = "Không tìm thấy giọng nói";
+"filters.no_voices_found_message" = "Hãy thử điều chỉnh tìm kiếm hoặc bộ lọc của bạn";
+
+"usage.monthly_limit_exceeded" = "Vượt quá giới hạn hàng tháng";
+"usage.monthly_limit_exceeded_message" = "Bạn đã đạt đến giới hạn hàng tháng 50.000 ký tự cho Speechify TTS. Vui lòng thử lại vào tháng tới hoặc sử dụng Google TTS.";
+"usage.remaining_characters" = "Số ký tự còn lại";
+"usage.monthly_usage" = "Sử dụng hàng tháng";
+"usage.monthly_limit" = "Giới hạn hàng tháng";
+
+// TTS Voice Filter Values
+"advertisement" = "Quảng cáo";
+"animation" = "Hoạt hình";
+"audiobook" = "Sách nói";
+"audiobook-and-narration" = "Sách nói và tường thuật";
+"audiobooks-and-narration" = "Sách nói và tường thuật";
+"conversational" = "Đàm thoại";
+"e-learning" = "Học trực tuyến";
+"gaming" = "Trò chơi";
+"meditation" = "Thiền";
+"movie" = "Phim";
+"movies-acting-and-gaming" = "Phim, diễn xuất và trò chơi";
+"narration" = "Tường thuật";
+"podcast" = "Podcast";
+"social-media" = "Mạng xã hội";
+
+"middle-aged" = "Trung niên";
+"senior" = "Người cao tuổi";
+"teen" = "Thiếu niên";
+"young-adult" = "Người trưởng thành trẻ";
+
+"female" = "Nữ";
+"male" = "Nam";
+
+"angry" = "Tức giận";
+"assertive-or-confident" = "Quả quyết hoặc tự tin";
+"bright" = "Sáng sủa";
+"calm-or-relaxed" = "Bình tĩnh hoặc thư giãn";
+"cheerful" = "Vui vẻ";
+"crisp" = "Rõ ràng";
+"deep" = "Trầm";
+"direct" = "Trực tiếp";
+"energetic" = "Năng động";
+"fearful" = "Sợ hãi";
+"high-pitch" = "Giọng cao";
+"neutral" = "Trung tính";
+"professional" = "Chuyên nghiệp";
+"relaxed" = "Thư giãn";
+"sad" = "Buồn";
+"suprised" = "Ngạc nhiên";
+"surprised" = "Ngạc nhiên";
+"terrified" = "Hoảng sợ";
+"warm" = "Ấm áp";
+"warm-or-friendly" = "Ấm áp hoặc thân thiện";
+
+"american-neutral" = "Mỹ trung tính";
+"australian" = "Úc";
+"british" = "Anh";
+"indian" = "Ấn Độ";
+"nigerian" = "Nigeria";
+
+
+
+
+// TTS Dashboard
+"dashboard" = "Bảng điều khiển TTS";
+"premium_tts_dashboard" = "Bảng điều khiển TTS cao cấp";
+"customize_tts_experience" = "Tùy chỉnh trải nghiệm chuyển đổi văn bản thành giọng nói của bạn";
+"playing" = "Đang phát";
+"ready" = "Sẵn sàng";
+"provider" = "Nhà cung cấp";
+"tts_provider" = "Nhà cung cấp TTS";
+"voice_customization" = "Tùy chỉnh giọng nói";
+"current_voice" = "Giọng nói hiện tại";
+"default_voice" = "Giọng nói mặc định";
+"preview_current_voice" = "Xem trước giọng nói hiện tại";
+"change_voice" = "Thay đổi giọng nói";
+"audio_settings" = "Cài đặt âm thanh";
+"speech_rate" = "Tốc độ nói";
+"volume" = "Âm lượng";
+"test_your_settings" = "Kiểm tra cài đặt của bạn";
+"enter_text_to_test" = "Nhập văn bản để kiểm tra...";
+"stop" = "Dừng";
+"test" = "Kiểm tra";
+"usage_statistics" = "Thống kê sử dụng";
+"speechify_monthly_usage" = "Sử dụng hàng tháng của Speechify";
+"monthly_limit" = "Giới hạn hàng tháng";
+"used_this_month" = "Đã sử dụng trong tháng này";
+"remaining" = "Còn lại";
+"usage_progress" = "Tiến độ sử dụng";
+"characters" = "ký tự";
+
+// TTS Analytics
+"analytics.characters_used" = "Ký tự đã sử dụng";
+"analytics.sessions" = "Phiên";
+"analytics.favorite_voice" = "Giọng nói yêu thích";
+"analytics.time_saved" = "Thời gian tiết kiệm";
+"analytics.total_characters" = "Tổng số ký tự";
+"analytics.total_sessions" = "Tổng số phiên";
+"analytics.total_duration" = "Tổng thời lượng";
+"analytics.favorite_language" = "Ngôn ngữ yêu thích";
+"analytics.premium_usage" = "Sử dụng cao cấp";
+
+// TTS Settings
+"settings.text_to_speech" = "Chuyển đổi văn bản thành giọng nói";
+"settings.speechify" = "Speechify";
+"settings.speechify_description" = "Mô hình chuyển đổi văn bản thành giọng nói của Speechify có sẵn cho tất cả người dùng như một tính năng cao cấp. Nó cho phép bạn chọn từ nhiều giọng nói và giọng điệu để tùy chỉnh trải nghiệm học tập của bạn.";
+"settings.speechify_pro_description" = "Mô hình chuyển đổi văn bản thành giọng nói của Speechify được bao gồm trong đăng ký của bạn.";
+"settings.dashboard" = "Bảng điều khiển";
+"pro" = "Pro";
+"free_google_tts_description" = "Google TTS miễn phí với các giọng nói cơ bản và hiệu suất đáng tin cậy";
+
+// TTS Models
+"models.english" = "Tiếng Anh";
+"models.multilingual" = "Đa ngôn ngữ";
+"models.english_description" = "Mô hình chuyển đổi văn bản thành giọng nói tiếng Anh của Speechify cung cấp các tính năng tiêu chuẩn được thiết kế để mang lại đầu ra âm thanh rõ ràng và tự nhiên cho việc đọc văn bản. Mô hình tập trung vào việc cung cấp trải nghiệm người dùng nhất quán.";
+"models.multilingual_description" = "Mô hình đa ngôn ngữ cho phép sử dụng tất cả các ngôn ngữ được hỗ trợ và hỗ trợ sử dụng nhiều ngôn ngữ trong một câu. Đầu ra âm thanh của mô hình này khác biệt đáng kể so với các mô hình khác.";
+
+// MARK: - English Accents
+"english_accents.australian" = "Úc";
+"english_accents.canadian" = "Canada";
+"english_accents.british" = "Anh";
+"english_accents.indian" = "Ấn Độ";
+"english_accents.american" = "Mỹ";
+"english_accents.belgian" = "Bỉ";
+"english_accents.singaporean" = "Singapore";
+"english_accents.irish" = "Ireland";
+"english_accents.south_african" = "Nam Phi";
+

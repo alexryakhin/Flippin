@@ -1,0 +1,22 @@
+/*
+  categories.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: pt-BR
+  Section: categories
+*/
+
+"categoryBasics" = "Básicos";
+"categoryTravel" = "Viagem";
+"categoryEntertainment" = "Entretenimento";
+"categoryFood" = "Comida";
+"categoryShopping" = "Compras";
+"categorySocial" = "Social";
+"categoryWeather" = "Clima";
+"categoryTechnology" = "Tecnologia";
+"categoryLifestyle" = "Estilo de Vida";
+"categoryProfessional" = "Profissional";
+"categoryEmergency" = "Emergência";
+
+

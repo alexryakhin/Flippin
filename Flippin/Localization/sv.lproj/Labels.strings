@@ -1,0 +1,16 @@
+/*
+  labels.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: sv
+  Section: labels
+*/
+
+"settingsLabel" = "Inställningar";
+"menu" = "Meny";
+"tagFilter" = "Taggfilter";
+"shuffle" = "Blanda";
+"addCardLabel" = "Lägg till kort";
+
+

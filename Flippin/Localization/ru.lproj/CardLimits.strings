@@ -1,0 +1,17 @@
+/*
+  card_limits.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ru
+  Section: card_limits
+*/
+
+"cardsUsedOfLimit" = "%d из %d карточек";
+"cardLimitExceeded" = "Лимит карточек превышен. У вас %d карточек из %d разрешенных. Обновите до премиум для неограниченных карточек.";
+"freeUsersLimitedTo" = "Бесплатные пользователи ограничены %d карточками";
+"purchaseUnlimitedCards" = "Купите неограниченные карточки, чтобы добавить больше карточек в вашу коллекцию";
+"upgrade" = "Обновить";
+"unlimitedCards" = "Неограниченные карточки";
+
+

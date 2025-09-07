@@ -1,0 +1,27 @@
+/*
+  preset_collections.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ru
+  Section: preset_collections
+*/
+
+"presetCollections" = "Предустановленные коллекции";
+"seeAllCollections" = "Все";
+"importCollection" = "Импортировать коллекцию";
+"importButton" = "Импортировать";
+"importCollectionMessage" = "Импортировать %@ с %d карточками в вашу коллекцию?";
+"noCollectionsFound" = "Коллекции не найдены";
+"tryAdjustingSearch" = "Попробуйте изменить поиск или критерии фильтра";
+"getStartedWithCollections" = "Начните с курированных наборов карточек для общих тем и ситуаций";
+"searchCollections" = "Поиск коллекций...";
+"allCategories" = "Все";
+"myLanguageSettings" = "Мой язык";
+"targetLanguage" = "Целевой язык";
+"theme" = "Тема";
+"color" = "Цвет";
+"backgroundStyle" = "Стиль фона";
+"tapToSeeFullScreen" = "Нажмите, чтобы увидеть полноэкранный режим";
+
+

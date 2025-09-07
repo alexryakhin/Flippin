@@ -1,0 +1,66 @@
+/*
+  learning_analytics_service.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ru
+  Section: learning_analytics_service
+*/
+
+"notEnoughData" = "Недостаточно данных";
+"morning" = "Утро (6-12)";
+"afternoon" = "День (12-17)";
+"evening" = "Вечер (17-21)";
+"night" = "Ночь (21-6)";
+"under10Minutes" = "Менее 10 минут";
+"tenTo20Minutes" = "10-20 минут";
+"twentyTo30Minutes" = "20-30 минут";
+"thirtyTo60Minutes" = "30-60 минут";
+"over60Minutes" = "Более 60 минут";
+"onceThisWeek" = "Раз в неделю";
+"fewTimesThisWeek" = "Несколько раз в неделю";
+"mostDaysThisWeek" = "Большинство дней недели";
+"daily" = "Ежедневно";
+"veryEasy" = "Очень легко";
+"easy" = "Легко";
+"medium" = "Средне";
+"hard" = "Сложно";
+"veryHard" = "Очень сложно";
+"unknown" = "Неизвестно";
+"completedStudySession" = "Завершена сессия изучения";
+"reviewedCardsInTime" = "Просмотрено %d карточек за %@";
+"recent" = "Недавно";
+"reachedCardsMastered" = "Достигнуто %d освоенных карточек";
+"greatProgressBuildingFoundation" = "Отличный прогресс! Вы строите прочную основу.";
+"first10CardsMastered" = "Первые 10 карточек освоены";
+"sevenDayStudyStreak" = "7-дневная серия изучения";
+"fiftyCardsMastered" = "50 карточек освоено";
+"thirtyDayStudyStreak" = "30-дневная серия изучения";
+"completed" = "Завершено";
+"inProgress" = "В процессе";
+"youreMostProductiveIn" = "Вы наиболее продуктивны в %@";
+"studySessionsDuringThisTime" = "Ваши сессии изучения в это время показывают лучшую концентрацию и запоминание.";
+"optimalSessionLength" = "Оптимальная длина сессии";
+"yourSessionsShowBestResults" = "Ваши %@ сессии показывают лучшие результаты.";
+"consistentLearningPattern" = "Последовательная модель обучения";
+"yourStudyRoutineWorkingWell" = "Ваша %@ рутина изучения работает хорошо.";
+"improvingAccuracy" = "Улучшение точности";
+"recentAccuracyHigherThanBefore" = "Ваша недавняя точность на %d%% выше, чем раньше.";
+"focusOnAccuracy" = "Сосредоточьтесь на точности";
+"recentAccuracyDecreased" = "Ваша недавняя точность снизилась. Рассмотрите повторение сложных карточек.";
+"excellentProgress" = "Отличный прогресс";
+"masteredVocabularyPercentage" = "Вы освоили %d%% вашего словарного запаса!";
+"goodFoundation" = "Хорошая основа";
+"masteredVocabularyKeepGoing" = "Вы освоили %d%% вашего словарного запаса. Продолжайте!";
+"reviewDifficultCards" = "Повторите сложные карточки";
+"cardsNeedMorePractice" = "%d карточек требуют больше практики. Сосредоточьтесь на них для улучшения точности.";
+"addMoreVocabulary" = "Добавьте больше словарного запаса";
+"masteredMostCurrentCards" = "Вы освоили большую часть ваших текущих карточек. Готовы к новым вызовам!";
+"extendYourStreak" = "Продлите вашу серию";
+"daysAwayFromAchievement" = "Вам осталось %d дней до нового достижения!";
+"buildConsistency" = "Стройте последовательность";
+"tryToStudyDaily" = "Попробуйте изучать ежедневно, чтобы построить сильную привычку обучения.";
+"improveAccuracy" = "Улучшите точность";
+"accuracyPercentageFocusQuality" = "Ваша точность %d%%. Сосредоточьтесь на качестве, а не на скорости.";
+
+

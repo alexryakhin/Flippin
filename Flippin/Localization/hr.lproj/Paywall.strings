@@ -1,0 +1,27 @@
+/*
+  paywall.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: hr
+  Section: paywall
+*/
+
+"upgradeToPremiumTitle" = "Nadogradi na Premium";
+"upgradeToPremiumMessage" = "Nadogradi na Premium kako bi otključao sve značajke!";
+"cancel" = "Odustani";
+"viewOptions" = "Pogledaj Opcije";
+"unlimitedCardsTitle" = "Neograničene Kartice";
+"unlimitedCardsMessage" = "Nadogradi na Premium za stvaranje neograničenih kartica i otključavanje svih značajki!";
+"advancedAnalyticsTitle" = "Napredna Analitika";
+"advancedAnalyticsMessage" = "Dobij detaljne uvide u učenje, grafikone napretka i analize performansi s Premium!";
+"customThemesTitle" = "Prilagođene Teme";
+"customThemesMessage" = "Otključaj lijepe prilagođene teme i pozadine s Premium!";
+"languageChangeTitle" = "Promjena Jezika";
+"languageChangeMessage" = "Odaberi između više od 15 jezika za poboljšanje svog iskustva učenja s Premium!";
+"cardPresetsTitle" = "Unaprijed Postavljene Kartice";
+"cardPresetsMessage" = "Istraži opsežnu kolekciju unaprijed dizajniranih postavki kartica s Premium!";
+"studyModesTitle" = "Načini Učenja";
+"studyModesMessage" = "Pristupi naprednim načinima učenja i tehnikama učenja s Premium!";
+
+

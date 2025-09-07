@@ -1,0 +1,62 @@
+/*
+  study.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: en
+  Section: study
+*/
+
+"study" = "Study";
+"practice" = "Practice";
+"studyMode" = "Study Mode";
+"practiceMode" = "Practice Mode";
+"quickStats" = "Quick Stats";
+"studyOptions" = "Study Options";
+"practiceOptions" = "Practice Options";
+"recentActivity" = "Recent Activity";
+"totalCards" = "Total Cards";
+"mastered" = "Mastered";
+"difficultCards" = "Difficult Cards";
+"studyTimeToday" = "Study Time Today";
+"practiceTimeToday" = "Practice Time Today";
+"startStudySession" = "Start Study Session (10 cards)";
+"startPracticeSession" = "Start Practice Session (10 cards)";
+"practiceAllCards" = "Practice All Cards (%d)";
+"practiceDifficultCards" = "Practice Difficult Cards (%d)";
+"multipleChoiceQuiz" = "Multiple Choice Quiz";
+"fillInTheBlank" = "Fill in the Blank (%d)";
+"unlockAllStudyModes" = "Unlock All Study Modes";
+"unlockAllPracticeModes" = "Unlock All Practice Modes";
+"noStudyData" = "No Study Data";
+"noPracticeData" = "No Practice Data";
+"startStudyingToSeeProgress" = "Start studying to see your progress!";
+"startPracticingToSeeProgress" = "Start practicing to see your progress!";
+"toCards" = "To cards";
+"totalStudyTime" = "Total Study Time";
+"totalPracticeTime" = "Total Practice Time";
+"averageSession" = "Average Session";
+"learningProgress" = "Learning Progress";
+"exit" = "Exit";
+"showAnswer" = "Show Answer";
+"incorrect" = "Incorrect";
+"correct" = "Correct";
+"studySessionComplete" = "Study Session Complete!";
+"practiceSessionComplete" = "Practice Session Complete!";
+"accuracy" = "Accuracy";
+"cardsStudied" = "Cards Studied";
+"cardsPracticed" = "Cards Practiced";
+"timeSpent" = "Time Spent";
+"studyAgain" = "Study Again";
+"practiceAgain" = "Practice Again";
+"done" = "Done";
+"selectCorrectTranslation" = "Select the correct translation";
+"fillInMissingWord" = "Fill in the missing word";
+"completeSentence" = "Complete the sentence";
+"chooseCorrectWord" = "Choose the correct word:";
+"correctAnswer" = "Correct Answer";
+"translateTo" = "Translate to %@";
+"studyProgress" = "%d of %d";
+"practiceProgress" = "%d of %d";
+
+

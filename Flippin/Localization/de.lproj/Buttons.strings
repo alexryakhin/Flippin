@@ -1,0 +1,28 @@
+/*
+  buttons.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: de
+  Section: buttons
+*/
+
+"done" = "Fertig";
+"cancel" = "Abbrechen";
+"save" = "Speichern";
+"close" = "Schließen";
+"clear" = "Löschen";
+"clearFilter" = "Filter Löschen";
+"clearSearch" = "Suche Löschen";
+"addCardButton" = "Karte Hinzufügen";
+"edit" = "Bearbeiten";
+"editCard" = "Karte Bearbeiten";
+"delete" = "Löschen";
+"deleteCard" = "Karte Löschen";
+"deleteCardConfirmation" = "Sind Sie sicher, dass Sie diese Karte löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden.";
+"deleteAll" = "Alle Löschen";
+"deleteAllCards" = "Alle Karten Löschen";
+"deleteAllCardsConfirmation" = "Sind Sie sicher, dass Sie alle Karten löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden.";
+"ok" = "OK";
+
+

@@ -1,0 +1,27 @@
+/*
+  preset_collections.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: pt-PT
+  Section: preset_collections
+*/
+
+"presetCollections" = "Coleções Pré-definidas";
+"seeAllCollections" = "Ver Todas";
+"importCollection" = "Importar Coleção";
+"importButton" = "Importar";
+"importCollectionMessage" = "Importar %@ com %d cartões para a sua coleção?";
+"noCollectionsFound" = "Nenhuma coleção encontrada";
+"tryAdjustingSearch" = "Tente ajustar a sua pesquisa ou critérios de filtro";
+"getStartedWithCollections" = "Comece com conjuntos de cartões curados para tópicos e situações comuns";
+"searchCollections" = "Pesquisar coleções...";
+"allCategories" = "Todas";
+"myLanguageSettings" = "A Minha Língua";
+"targetLanguage" = "Idioma Alvo";
+"theme" = "Tema";
+"color" = "Cor";
+"backgroundStyle" = "Estilo de Fundo";
+"tapToSeeFullScreen" = "Toca para ver em ecrã completo";
+
+

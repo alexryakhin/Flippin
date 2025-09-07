@@ -1,0 +1,67 @@
+/*
+  detailed_analytics.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: en
+  Section: detailed_analytics
+*/
+
+"analyticsTab" = "Analytics Tab";
+"studyTimeTitle" = "Study Time";
+"practiceTimeTitle" = "Practice Time";
+"cardsMasteredTitle" = "Cards Mastered";
+"studyStreakTitle" = "Study Streak";
+"averageSessionTitle" = "Average Session";
+"consecutiveDays" = "consecutive days";
+"perSession" = "per session";
+"studyPatterns" = "Study Patterns";
+"mostActiveTime" = "Most Active Time";
+"preferredSessionLength" = "Preferred Session Length";
+"studyFrequency" = "Study Frequency";
+"languageProgress" = "Language Progress";
+"collectionSize" = "Collection Size";
+"cards" = "cards";
+"achievements" = "Achievements";
+"firstSteps" = "First Steps";
+"weekWarrior" = "Week Warrior";
+"masterLearner" = "Master Learner";
+"dedicated" = "Dedicated";
+"vocabularyMaster" = "Vocabulary Master";
+"timeMaster" = "Time Master";
+"accuracyTrends" = "Accuracy Trends";
+"sessionPerformance" = "Session Performance";
+"averageSessionDuration" = "Average Session Duration";
+"basedOnData" = "Based on %@ data";
+"cardsPerSession" = "Cards per Session";
+"average" = "Average";
+"sessionFrequency" = "Session Frequency";
+"cardDifficultyAnalysis" = "Card Difficulty Analysis";
+"noDifficultyDataAvailable" = "No difficulty data available";
+"learningSpeed" = "Learning Speed";
+"cardsPerHour" = "Cards per Hour";
+"vsAverage" = "vs. Average";
+"masteryTimeline" = "Mastery Timeline";
+"vocabularyGrowth" = "Vocabulary Growth";
+"totalVocabulary" = "Total Vocabulary";
+"thisWeek" = "This Week";
+"thisMonth" = "This Month";
+"thisYear" = "This Year";
+"learningMilestones" = "Learning Milestones";
+"personalizedInsights" = "Personalized Insights";
+"noInsightsAvailableYet" = "No insights available yet";
+"recommendations" = "Recommendations";
+"noRecommendationsAtThisTime" = "No recommendations at this time";
+"learningTips" = "Learning Tips";
+"spacedRepetition" = "Spaced Repetition";
+"spacedRepetitionDescription" = "Review cards at increasing intervals for better retention.";
+"activeRecall" = "Active Recall";
+"activeRecallDescription" = "Try to recall the answer before flipping the card.";
+"contextLearning" = "Context Learning";
+"contextLearningDescription" = "Learn words in phrases rather than isolation.";
+"studyNow" = "Study Now";
+"startReview" = "Start Review";
+"browseCollections" = "Browse Collections";
+"practiceMode" = "Practice Mode";
+
+

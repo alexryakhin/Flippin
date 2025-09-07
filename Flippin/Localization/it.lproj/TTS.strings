@@ -1,0 +1,140 @@
+// MARK: - TTS Voice Filters
+"filters.all_use_cases" = "Tutti i casi d'uso";
+"filters.all_ages" = "Tutte le età";
+"filters.all_timbres" = "Tutti i timbri";
+"filters.all_accents" = "Tutti gli accenti";
+"filters.all_languages" = "Tutte le lingue";
+"filters.all_genders" = "Tutti i generi";
+"filters.filters" = "Filtri";
+"filters.reset" = "Ripristina";
+"filters.select_voice" = "Seleziona voce";
+"filters.available_voices" = "Voci disponibili";
+"filters.no_voices_available" = "Nessuna voce disponibile";
+"filters.no_voices_found" = "Nessuna voce trovata";
+"filters.no_voices_found_message" = "Prova a modificare la ricerca o i filtri";
+
+"usage.monthly_limit_exceeded" = "Limite mensile superato";
+"usage.monthly_limit_exceeded_message" = "Hai raggiunto il limite mensile di 50.000 caratteri per Speechify TTS. Riprova il mese prossimo o utilizza Google TTS.";
+"usage.remaining_characters" = "Caratteri rimanenti";
+"usage.monthly_usage" = "Utilizzo mensile";
+"usage.monthly_limit" = "Limite mensile";
+
+// TTS Voice Filter Values
+"advertisement" = "Pubblicità";
+"animation" = "Animazione";
+"audiobook" = "Audiolibro";
+"audiobook-and-narration" = "Audiolibro e narrazione";
+"audiobooks-and-narration" = "Audiolibri e narrazione";
+"conversational" = "Conversazionale";
+"e-learning" = "E-learning";
+"gaming" = "Gaming";
+"meditation" = "Meditazione";
+"movie" = "Film";
+"movies-acting-and-gaming" = "Film, recitazione e gaming";
+"narration" = "Narrazione";
+"podcast" = "Podcast";
+"social-media" = "Social media";
+
+"middle-aged" = "Mezza età";
+"senior" = "Anziano";
+"teen" = "Adolescente";
+"young-adult" = "Giovane adulto";
+
+"female" = "Femminile";
+"male" = "Maschile";
+
+"angry" = "Arrabbiato";
+"assertive-or-confident" = "Assertivo o fiducioso";
+"bright" = "Vivace";
+"calm-or-relaxed" = "Calmo o rilassato";
+"cheerful" = "Allegro";
+"crisp" = "Nitido";
+"deep" = "Profondo";
+"direct" = "Diretto";
+"energetic" = "Energico";
+"fearful" = "Spaventato";
+"high-pitch" = "Tono alto";
+"neutral" = "Neutrale";
+"professional" = "Professionale";
+"relaxed" = "Rilassato";
+"sad" = "Triste";
+"suprised" = "Sorpreso";
+"surprised" = "Sorpreso";
+"terrified" = "Terrorizzato";
+"warm" = "Caldo";
+"warm-or-friendly" = "Caldo o amichevole";
+
+"american-neutral" = "Americano neutrale";
+"australian" = "Australiano";
+"british" = "Britannico";
+"indian" = "Indiano";
+"nigerian" = "Nigeriano";
+
+
+
+
+// TTS Dashboard
+"dashboard" = "Dashboard TTS";
+"premium_tts_dashboard" = "Dashboard TTS premium";
+"customize_tts_experience" = "Personalizza la tua esperienza di sintesi vocale";
+"playing" = "In riproduzione";
+"ready" = "Pronto";
+"provider" = "Fornitore";
+"tts_provider" = "Fornitore TTS";
+"voice_customization" = "Personalizzazione della voce";
+"current_voice" = "Voce attuale";
+"default_voice" = "Voce predefinita";
+"preview_current_voice" = "Anteprima della voce attuale";
+"change_voice" = "Cambia voce";
+"audio_settings" = "Impostazioni audio";
+"speech_rate" = "Velocità di parlata";
+"volume" = "Volume";
+"test_your_settings" = "Testa le tue impostazioni";
+"enter_text_to_test" = "Inserisci il testo da testare...";
+"stop" = "Ferma";
+"test" = "Test";
+"usage_statistics" = "Statistiche di utilizzo";
+"speechify_monthly_usage" = "Utilizzo mensile di Speechify";
+"monthly_limit" = "Limite mensile";
+"used_this_month" = "Utilizzato questo mese";
+"remaining" = "Rimanente";
+"usage_progress" = "Progresso utilizzo";
+"characters" = "caratteri";
+
+// TTS Analytics
+"analytics.characters_used" = "Caratteri utilizzati";
+"analytics.sessions" = "Sessioni";
+"analytics.favorite_voice" = "Voce preferita";
+"analytics.time_saved" = "Tempo risparmiato";
+"analytics.total_characters" = "Totale caratteri";
+"analytics.total_sessions" = "Totale sessioni";
+"analytics.total_duration" = "Durata totale";
+"analytics.favorite_language" = "Lingua preferita";
+"analytics.premium_usage" = "Utilizzo premium";
+
+// TTS Settings
+"settings.text_to_speech" = "Sintesi vocale";
+"settings.speechify" = "Speechify";
+"settings.speechify_description" = "Il modello di sintesi vocale di Speechify è disponibile per tutti gli utenti come funzionalità premium. Ti consente di scegliere tra un'ampia gamma di voci e accenti, per personalizzare la tua esperienza di studio.";
+"settings.speechify_pro_description" = "Il modello di sintesi vocale di Speechify è incluso nel tuo abbonamento.";
+"settings.dashboard" = "Dashboard";
+"pro" = "PRO";
+"free_google_tts_description" = "Google TTS gratuito con voci di base e prestazioni affidabili";
+
+// TTS Models
+"models.english" = "Inglese";
+"models.multilingual" = "Multilingue";
+"models.english_description" = "Il modello di sintesi vocale in inglese di Speechify offre capacità standard progettate per fornire un output vocale chiaro e naturale per la lettura di testi. Il modello si concentra su un'esperienza utente coerente.";
+"models.multilingual_description" = "Il modello multilingue consente l'uso di tutte le lingue supportate e supporta l'uso di più lingue all'interno di una singola frase. L'output audio di questo modello è distintamente diverso dagli altri modelli.";
+
+// MARK: - English Accents
+"english_accents.australian" = "Australiano";
+"english_accents.canadian" = "Canadese";
+"english_accents.british" = "Britannico";
+"english_accents.indian" = "Indiano";
+"english_accents.american" = "Americano";
+"english_accents.belgian" = "Belga";
+"english_accents.singaporean" = "Singaporeano";
+"english_accents.irish" = "Irlandese";
+"english_accents.south_african" = "Sudafricano";
+

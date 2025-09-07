@@ -1,0 +1,54 @@
+/*
+  analytics.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: de
+  Section: analytics
+*/
+
+"analytics" = "Analysen";
+"detailedAnalytics" = "Detaillierte Analysen";
+"today" = "Heute";
+"noAnalyticsData" = "Keine Analysedaten";
+"startStudyingToSeeProgress" = "Beginnen Sie zu lernen, um Ihren Lernfortschritt zu sehen!";
+"unlockAdvancedAnalytics" = "Erweiterte Analysen freischalten";
+"detailedProgressReports" = "Detaillierte Fortschrittsberichte";
+"detailedProgressReportsDescription" = "Verfolgen Sie Ihre Lernmuster und Verbesserungen über die Zeit";
+"performanceInsights" = "Leistungseinblicke";
+"performanceInsightsDescription" = "Erhalten Sie personalisierte Empfehlungen zur Verbesserung Ihrer Lerngewohnheiten";
+"studyTimeAnalytics" = "Lernzeit-Analysen";
+"studyTimeAnalyticsDescription" = "Analysieren Sie Ihre Lernsessions und optimieren Sie Ihr Lernen";
+"upgradeToPremium" = "Zu Premium upgraden";
+"recentActivity" = "Letzte Aktivität";
+"viewAll" = "Alle anzeigen";
+"noRecentActivity" = "Keine kürzliche Aktivität";
+"studySessionsWillAppearHere" = "Ihre Lernsessions erscheinen hier";
+"lastStudySession" = "Letzte Lernsession";
+"cardsStudiedToday" = "Heute gelernte Karten";
+"studyStreak" = "Lernserie";
+"totalStudyTime" = "Gesamte Lernzeit";
+"cardsMastered" = "Beherrschte Karten";
+"todaysStudy" = "Heutiges Lernen";
+"time" = "Zeit";
+"cardsStudied" = "Karten gelernt";
+"sessions" = "Sessions";
+"accuracy" = "Genauigkeit";
+"studyTime" = "Lernzeit";
+"practiceTime" = "Übungszeit";
+"timeRange" = "Zeitraum";
+"masteryProgress" = "Beherrschungsfortschritt";
+"mastered" = "Beherrscht";
+"learning" = "Lernen";
+"needsReview" = "Muss überprüft werden";
+"week" = "Woche";
+"month" = "Monat";
+"year" = "Jahr";
+"allTime" = "Gesamte Zeit";
+"overview" = "Übersicht";
+"performance" = "Leistung";
+"progress" = "Fortschritt";
+"insights" = "Einblicke";
+"noStudyDataAvailable" = "Keine Lerndaten verfügbar";
+
+

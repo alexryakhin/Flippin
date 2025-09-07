@@ -1,0 +1,22 @@
+/*
+  categories.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ja
+  Section: categories
+*/
+
+"categoryBasics" = "基本";
+"categoryTravel" = "旅行";
+"categoryEntertainment" = "エンターテイメント";
+"categoryFood" = "食べ物";
+"categoryShopping" = "買い物";
+"categorySocial" = "社交";
+"categoryWeather" = "天気";
+"categoryTechnology" = "テクノロジー";
+"categoryLifestyle" = "ライフスタイル";
+"categoryProfessional" = "職業";
+"categoryEmergency" = "緊急";
+
+

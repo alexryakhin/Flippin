@@ -1,0 +1,19 @@
+/*
+  add_card.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ar
+  Section: add_card
+*/
+
+"enterTextInYourLanguage" = "أدخل النص بلغتك";
+"enterTextInTargetLanguage" = "أدخل النص باللغة المستهدفة";
+"addNotesOptional" = "إضافة ملاحظات (اختياري)";
+"notes" = "الملاحظات";
+"tagsCount" = "الوسوم (%d/5)";
+"noTagsAvailableAddInSettings" = "لا توجد وسوم متاحة. أضف بعض الوسوم في الإعدادات.";
+"translating" = "جاري الترجمة...";
+"translationWillAppearHere" = "ستظهر الترجمة هنا";
+
+

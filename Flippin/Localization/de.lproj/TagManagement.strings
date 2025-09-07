@@ -1,0 +1,27 @@
+/*
+  tag_management.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: de
+  Section: tag_management
+*/
+
+"availableTags" = "Verfügbare Tags";
+"noTagsAvailable" = "Keine Tags verfügbar";
+"manageTagsInSettings" = "Verwalten Sie Tags in den Einstellungen.";
+"toSettings" = "Zu den Einstellungen";
+"newTagName" = "Neuer Tag-Name";
+"add" = "Hinzufügen";
+"addTag" = "Tag Hinzufügen";
+"tagsManagement" = "Tag-Verwaltung";
+"filterByTag" = "Nach Tag Filtern";
+"filterByLanguage" = "Nach Sprache filtern";
+"filterByLanguageDescription" = "Nur Karten anzeigen, die Ihren ausgewählten Sprachen entsprechen";
+"filterByFavorites" = "Nach Favoriten filtern";
+"showAllCards" = "Alle Karten anzeigen";
+"showFavoritesOnly" = "Nur Favoriten anzeigen";
+"noFavoriteCards" = "Keine Favoriten-Karten";
+"noFavoriteCardsDescription" = "Sie haben noch keine Karten als Favoriten markiert";
+
+

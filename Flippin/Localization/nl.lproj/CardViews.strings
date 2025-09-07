@@ -1,0 +1,13 @@
+/*
+  card_views.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: nl
+  Section: card_views
+*/
+
+"flip" = "Omdraaien";
+"tapToGoBack" = "Tik om terug te gaan";
+
+

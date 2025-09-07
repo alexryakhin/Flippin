@@ -1,0 +1,23 @@
+/*
+  background_styles.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ja
+  Section: background_styles
+*/
+
+"gradient" = "グラデーション";
+"lavaLamp" = "ラバランプ";
+"snow" = "雪";
+"rain" = "雨";
+"stars" = "星";
+"bubbles" = "泡";
+"waves" = "波";
+"particles" = "粒子";
+"aurora" = "オーロラ";
+"fireflies" = "蛍";
+"ocean" = "海";
+"galaxy" = "銀河";
+
+

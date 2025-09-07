@@ -1,0 +1,27 @@
+/*
+  preset_collections.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: uk
+  Section: preset_collections
+*/
+
+"presetCollections" = "Попередньо Визначені Колекції";
+"seeAllCollections" = "Переглянути Всі";
+"importCollection" = "Імпортувати Колекцію";
+"importButton" = "Імпортувати";
+"importCollectionMessage" = "Імпортувати %@ з %d картками до вашої колекції?";
+"noCollectionsFound" = "Колекції не знайдено";
+"tryAdjustingSearch" = "Спробуйте налаштувати пошук або критерії фільтра";
+"getStartedWithCollections" = "Почніть з курованих наборів карток для поширених тем і ситуацій";
+"searchCollections" = "Пошук колекцій...";
+"allCategories" = "Всі";
+"myLanguageSettings" = "Моя Мова";
+"targetLanguage" = "Цільова Мова";
+"theme" = "Тема";
+"color" = "Колір";
+"backgroundStyle" = "Стиль Фону";
+"tapToSeeFullScreen" = "Натисніть, щоб побачити повний екран";
+
+

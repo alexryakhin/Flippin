@@ -1,0 +1,28 @@
+/*
+  buttons.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: hi
+  Section: buttons
+*/
+
+"done" = "हो गया";
+"cancel" = "रद्द करें";
+"save" = "सहेजें";
+"close" = "बंद करें";
+"clear" = "साफ़ करें";
+"clearFilter" = "फ़िल्टर साफ़ करें";
+"clearSearch" = "खोज साफ़ करें";
+"addCardButton" = "कार्ड जोड़ें";
+"edit" = "संपादित करें";
+"editCard" = "कार्ड संपादित करें";
+"delete" = "हटाएं";
+"deleteCard" = "कार्ड हटाएं";
+"deleteCardConfirmation" = "क्या आप वाकई इस कार्ड को हटाना चाहते हैं? यह क्रिया पूर्ववत नहीं की जा सकती।";
+"deleteAll" = "सभी हटाएं";
+"deleteAllCards" = "सभी कार्ड हटाएं";
+"deleteAllCardsConfirmation" = "क्या आप वाकई सभी कार्ड हटाना चाहते हैं? यह क्रिया पूर्ववत नहीं की जा सकती।";
+"ok" = "ठीक है";
+
+

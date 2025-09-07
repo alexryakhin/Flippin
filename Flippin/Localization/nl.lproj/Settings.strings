@@ -1,0 +1,22 @@
+/*
+  settings.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: nl
+  Section: settings
+*/
+
+"languages" = "Talen";
+"cardDisplay" = "Kaartweergave";
+"cardDisplayMode" = "Kaartweergavemodus";
+"learningMode" = "Leermodus";
+"travelMode" = "Reismodus";
+"learningModeDescription" = "Toon doeltaal eerst (voor leren)";
+"travelModeDescription" = "Toon moedertaal eerst (voor reizen)";
+"previewBackgrounds" = "Achtergronden bekijken";
+"cardManagement" = "Kaartbeheer";
+"cardManagementDescription" = "Zoek, bewerk en organiseer je studiekaarten";
+"manageCards" = "Kaarten beheren";
+
+

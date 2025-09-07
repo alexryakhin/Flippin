@@ -1,0 +1,29 @@
+/*
+  subscription_management.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ru
+  Section: subscription_management
+*/
+
+"subscription" = "Подписка";
+"subscriptionStatus" = "Статус подписки";
+"activeSubscription" = "Активная подписка";
+"manageSubscription" = "Управление подпиской";
+
+"done" = "Готово";
+"cancel" = "Отмена";
+"delete" = "Удалить";
+"edit" = "Изменить";
+"save" = "Сохранить";
+"searchCards" = "Поиск карточек...";
+"noCardsAvailable" = "Нет доступных карточек";
+"noAccuracyDataAvailable" = "Нет доступных данных о точности";
+"noGrowthDataAvailable" = "Нет доступных данных о росте";
+"date" = "Дата";
+"accuracy" = "Точность";
+"masteredCards" = "Освоенные карточки";
+"invalidJSON" = "Данные JSON недействительны";
+
+

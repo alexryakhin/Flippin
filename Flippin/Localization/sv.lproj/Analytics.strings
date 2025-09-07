@@ -1,0 +1,54 @@
+/*
+  analytics.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: sv
+  Section: analytics
+*/
+
+"analytics" = "Analys";
+"detailedAnalytics" = "Detaljerad Analys";
+"today" = "Idag";
+"noAnalyticsData" = "Inga Analysdata";
+"startStudyingToSeeProgress" = "Börja studera för att se dina inlärningsframsteg!";
+"unlockAdvancedAnalytics" = "Lås upp Avancerad Analys";
+"detailedProgressReports" = "Detaljerade Framstegsrapport";
+"detailedProgressReportsDescription" = "Följ dina inlärningsmönster och förbättringar över tid";
+"performanceInsights" = "Prestationsinsikter";
+"performanceInsightsDescription" = "Få personliga rekommendationer för att förbättra dina studievanor";
+"studyTimeAnalytics" = "Studietidsanalys";
+"studyTimeAnalyticsDescription" = "Analysera dina studiesessioner och optimera ditt lärande";
+"upgradeToPremium" = "Uppgradera till Premium";
+"recentActivity" = "Senaste Aktivitet";
+"viewAll" = "Visa Alla";
+"noRecentActivity" = "Ingen Senaste Aktivitet";
+"studySessionsWillAppearHere" = "Dina studiesessioner kommer att visas här";
+"lastStudySession" = "Senaste Studiesession";
+"cardsStudiedToday" = "Kort Studerade Idag";
+"studyStreak" = "Studierad";
+"totalStudyTime" = "Total Studietid";
+"cardsMastered" = "Bemästrade Kort";
+"todaysStudy" = "Dagens Studier";
+"time" = "Tid";
+"cardsStudied" = "Studerade Kort";
+"sessions" = "Sessioner";
+"accuracy" = "Noggrannhet";
+"studyTime" = "Studietid";
+"practiceTime" = "Övetid";
+"timeRange" = "Tidsintervall";
+"masteryProgress" = "Bemästringsframsteg";
+"mastered" = "Bemästrade";
+"learning" = "Lärande";
+"needsReview" = "Behöver Granskas";
+"week" = "Vecka";
+"month" = "Månad";
+"year" = "År";
+"allTime" = "All Tid";
+"overview" = "Översikt";
+"performance" = "Prestation";
+"progress" = "Framsteg";
+"insights" = "Insikter";
+"noStudyDataAvailable" = "Inga studiedata tillgängliga";
+
+

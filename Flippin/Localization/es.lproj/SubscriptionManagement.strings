@@ -1,0 +1,29 @@
+/*
+  subscription_management.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: es
+  Section: subscription_management
+*/
+
+"subscription" = "Suscripción";
+"subscriptionStatus" = "Estado de Suscripción";
+"activeSubscription" = "Suscripción Activa";
+"manageSubscription" = "Gestionar Suscripción";
+
+"done" = "Hecho";
+"cancel" = "Cancelar";
+"delete" = "Eliminar";
+"edit" = "Editar";
+"save" = "Guardar";
+"searchCards" = "Buscar tarjetas...";
+"noCardsAvailable" = "No hay tarjetas disponibles";
+"noAccuracyDataAvailable" = "No hay datos de precisión disponibles";
+"noGrowthDataAvailable" = "No hay datos de crecimiento disponibles";
+"date" = "Fecha";
+"accuracy" = "Precisión";
+"masteredCards" = "Tarjetas Dominadas";
+"invalidJSON" = "Datos JSON no válidos";
+
+

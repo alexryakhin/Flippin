@@ -1,0 +1,27 @@
+/*
+  paywall.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: hi
+  Section: paywall
+*/
+
+"upgradeToPremiumTitle" = "प्रीमियम में अपग्रेड करें";
+"upgradeToPremiumMessage" = "सभी सुविधाओं को अनलॉक करने के लिए प्रीमियम में अपग्रेड करें!";
+"cancel" = "रद्द करें";
+"viewOptions" = "विकल्प देखें";
+"unlimitedCardsTitle" = "असीमित कार्ड";
+"unlimitedCardsMessage" = "असीमित कार्ड बनाने और सभी सुविधाओं को अनलॉक करने के लिए प्रीमियम में अपग्रेड करें!";
+"advancedAnalyticsTitle" = "उन्नत विश्लेषण";
+"advancedAnalyticsMessage" = "प्रीमियम के साथ विस्तृत सीखने की अंतर्दृष्टि, प्रगति चार्ट और प्रदर्शन विश्लेषण प्राप्त करें!";
+"customThemesTitle" = "कस्टम थीम";
+"customThemesMessage" = "प्रीमियम के साथ सुंदर कस्टम थीम और पृष्ठभूमि अनलॉक करें!";
+"languageChangeTitle" = "भाषा बदलें";
+"languageChangeMessage" = "प्रीमियम के साथ अपनी सीखने की अनुभव को बेहतर बनाने के लिए 15 से अधिक भाषाओं में से चुनें!";
+"cardPresetsTitle" = "कार्ड प्रीसेट";
+"cardPresetsMessage" = "प्रीमियम के साथ पूर्व-डिज़ाइन किए गए कार्ड प्रीसेट की विस्तृत संग्रह का अन्वेषण करें!";
+"studyModesTitle" = "अध्ययन मोड";
+"studyModesMessage" = "प्रीमियम के साथ उन्नत अध्ययन मोड और सीखने की तकनीकों तक पहुंचें!";
+
+

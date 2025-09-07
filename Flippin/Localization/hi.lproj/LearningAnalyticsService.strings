@@ -1,0 +1,66 @@
+/*
+  learning_analytics_service.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: hi
+  Section: learning_analytics_service
+*/
+
+"notEnoughData" = "पर्याप्त डेटा नहीं";
+"morning" = "सुबह (6-12 बजे)";
+"afternoon" = "दोपहर (12-5 बजे)";
+"evening" = "शाम (5-9 बजे)";
+"night" = "रात (9 बजे-6 बजे)";
+"under10Minutes" = "10 मिनट से कम";
+"tenTo20Minutes" = "10-20 मिनट";
+"twentyTo30Minutes" = "20-30 मिनट";
+"thirtyTo60Minutes" = "30-60 मिनट";
+"over60Minutes" = "60 मिनट से अधिक";
+"onceThisWeek" = "इस सप्ताह एक बार";
+"fewTimesThisWeek" = "इस सप्ताह कुछ बार";
+"mostDaysThisWeek" = "इस सप्ताह अधिकांश दिन";
+"daily" = "दैनिक";
+"veryEasy" = "बहुत आसान";
+"easy" = "आसान";
+"medium" = "मध्यम";
+"hard" = "कठिन";
+"veryHard" = "बहुत कठिन";
+"unknown" = "अज्ञात";
+"completedStudySession" = "अध्ययन सत्र पूरा हुआ";
+"reviewedCardsInTime" = "%@ में %d कार्ड की समीक्षा की";
+"recent" = "हाल ही में";
+"reachedCardsMastered" = "%d निपुण कार्ड तक पहुंचा";
+"greatProgressBuildingFoundation" = "शानदार प्रगति! आप एक मजबूत नींव बना रहे हैं।";
+"first10CardsMastered" = "पहले 10 कार्ड निपुण";
+"sevenDayStudyStreak" = "7 दिन की अध्ययन र streak";
+"fiftyCardsMastered" = "50 कार्ड निपुण";
+"thirtyDayStudyStreak" = "30 दिन की अध्ययन र streak";
+"completed" = "पूरा हुआ";
+"inProgress" = "प्रगति में";
+"youreMostProductiveIn" = "आप %@ में सबसे अधिक उत्पादक हैं";
+"studySessionsDuringThisTime" = "इस समय के दौरान आपके अध्ययन सत्र बेहतर ध्यान और प्रतिधारण दिखाते हैं।";
+"optimalSessionLength" = "इष्टतम सत्र लंबाई";
+"yourSessionsShowBestResults" = "आपके %@ सत्र सर्वश्रेष्ठ परिणाम दिखाते हैं।";
+"consistentLearningPattern" = "निरंतर सीखने का पैटर्न";
+"yourStudyRoutineWorkingWell" = "आपकी %@ अध्ययन दिनचर्या अच्छी तरह से काम कर रही है।";
+"improvingAccuracy" = "सटीकता में सुधार";
+"recentAccuracyHigherThanBefore" = "आपकी हाल की सटीकता पहले की तुलना में %d%% अधिक है।";
+"focusOnAccuracy" = "सटीकता पर ध्यान दें";
+"recentAccuracyDecreased" = "आपकी हाल की सटीकता कम हो गई है। कठिन कार्ड की समीक्षा करने पर विचार करें।";
+"excellentProgress" = "उत्कृष्ट प्रगति";
+"masteredVocabularyPercentage" = "आपने अपनी शब्दावली का %d%% निपुण कर लिया है!";
+"goodFoundation" = "अच्छी नींव";
+"masteredVocabularyKeepGoing" = "आपने अपनी शब्दावली का %d%% निपुण कर लिया है। आगे बढ़ते रहें!";
+"reviewDifficultCards" = "कठिन कार्ड की समीक्षा करें";
+"cardsNeedMorePractice" = "%d कार्ड को और अभ्यास की आवश्यकता है। सटीकता सुधारने के लिए इन पर ध्यान दें।";
+"addMoreVocabulary" = "अधिक शब्दावली जोड़ें";
+"masteredMostCurrentCards" = "आपने अपने वर्तमान कार्डों के अधिकांश को निपुण कर लिया है। नई चुनौतियों के लिए तैयार!";
+"extendYourStreak" = "अपनी र streak बढ़ाएं";
+"daysAwayFromAchievement" = "आप नई उपलब्धि से %d दिन दूर हैं!";
+"buildConsistency" = "निरंतरता बनाएं";
+"tryToStudyDaily" = "मजबूत सीखने की आदत बनाने के लिए रोजाना पढ़ने की कोशिश करें।";
+"improveAccuracy" = "सटीकता सुधारें";
+"accuracyPercentageFocusQuality" = "आपकी सटीकता %d%% है। गति के बजाय गुणवत्ता पर ध्यान दें।";
+
+

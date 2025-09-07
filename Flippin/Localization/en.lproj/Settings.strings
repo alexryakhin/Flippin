@@ -1,0 +1,22 @@
+/*
+  settings.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: en
+  Section: settings
+*/
+
+"languages" = "Languages";
+"cardDisplay" = "Card Display";
+"cardDisplayMode" = "Card Display Mode";
+"learningMode" = "Learning Mode";
+"travelMode" = "Travel Mode";
+"learningModeDescription" = "Show target language first (for learning)";
+"travelModeDescription" = "Show native language first (for travel)";
+"previewBackgrounds" = "Preview Backgrounds";
+"cardManagement" = "Card Management";
+"cardManagementDescription" = "Search, edit, and organize your flashcards";
+"manageCards" = "Manage Cards";
+
+

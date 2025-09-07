@@ -1,0 +1,29 @@
+/*
+  subscription_management.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: hi
+  Section: subscription_management
+*/
+
+"subscription" = "सदस्यता";
+"subscriptionStatus" = "सदस्यता स्थिति";
+"activeSubscription" = "सक्रिय सदस्यता";
+"manageSubscription" = "सदस्यता प्रबंधन";
+
+"done" = "हो गया";
+"cancel" = "रद्द करें";
+"delete" = "हटाएं";
+"edit" = "संपादित करें";
+"save" = "सहेजें";
+"searchCards" = "कार्ड खोजें...";
+"noCardsAvailable" = "कोई कार्ड उपलब्ध नहीं";
+"noAccuracyDataAvailable" = "कोई सटीकता डेटा उपलब्ध नहीं";
+"noGrowthDataAvailable" = "कोई वृद्धि डेटा उपलब्ध नहीं";
+"date" = "तारीख";
+"accuracy" = "सटीकता";
+"masteredCards" = "निपुण कार्ड";
+"invalidJSON" = "अमान्य JSON डेटा";
+
+

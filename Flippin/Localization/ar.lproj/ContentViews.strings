@@ -1,0 +1,20 @@
+/*
+  content_views.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ar
+  Section: content_views
+*/
+
+"noCardsYet" = "لا توجد بطاقات بعد";
+"tapToAddFirstCard" = "انقر على الزر + لإضافة بطاقتك الأولى";
+"noCardsWithSelectedTag" = "لا توجد بطاقات بالوسم المحدد";
+"noCardsFoundWithTag" = "لم يتم العثور على بطاقات بالوسم \"%@\"";
+"noCardsAvailable" = "لا توجد بطاقات متاحة";
+"noCardsFound" = "لم يتم العثور على بطاقات";
+"addFirstCardToStartLearning" = "أضف بطاقتك الأولى لبدء التعلم";
+"noCardsMatchSearch" = "لا توجد بطاقات تطابق بحثك";
+"noCardsForLanguagePair" = "لا توجد بطاقات لهذا الزوج من اللغات";
+
+

@@ -1,0 +1,17 @@
+/*
+  navigation_titles.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: hr
+  Section: navigation_titles
+*/
+
+"addCard" = "Dodaj Karticu";
+"addNewCard" = "Dodaj Novu Karticu";
+"settings" = "Postavke";
+"myCards" = "Moje Kartice";
+"backgroundStyles" = "Stilovi Pozadine";
+"backgroundDemo" = "Demo Pozadine";
+
+

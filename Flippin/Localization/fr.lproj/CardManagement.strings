@@ -1,0 +1,15 @@
+/*
+  card_management.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: fr
+  Section: card_management
+*/
+
+"noDifficultCards" = "Aucune Carte Difficile";
+"noDifficultCardsDescription" = "Vous n'avez pas encore marqué de cartes comme difficiles. Étudiez plus de cartes pour voir les niveaux de difficulté.";
+"difficultCards" = "Cartes Difficiles";
+"failedToCreateCard" = "Échec de la création de la carte : %@";
+
+

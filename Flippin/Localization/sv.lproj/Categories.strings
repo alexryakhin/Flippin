@@ -1,0 +1,22 @@
+/*
+  categories.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: sv
+  Section: categories
+*/
+
+"categoryBasics" = "Grundläggande";
+"categoryTravel" = "Resor";
+"categoryEntertainment" = "Underhållning";
+"categoryFood" = "Mat";
+"categoryShopping" = "Shopping";
+"categorySocial" = "Socialt";
+"categoryWeather" = "Väder";
+"categoryTechnology" = "Teknologi";
+"categoryLifestyle" = "Livsstil";
+"categoryProfessional" = "Professionellt";
+"categoryEmergency" = "Nödsituation";
+
+

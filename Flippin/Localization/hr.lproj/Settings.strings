@@ -1,0 +1,22 @@
+/*
+  settings.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: hr
+  Section: settings
+*/
+
+"languages" = "Jezici";
+"cardDisplay" = "Prikaz Kartica";
+"cardDisplayMode" = "Način Prikaza Kartica";
+"learningMode" = "Način Učenja";
+"travelMode" = "Način Putovanja";
+"learningModeDescription" = "Prikaži ciljni jezik prvo (za učenje)";
+"travelModeDescription" = "Prikaži materinski jezik prvo (za putovanje)";
+"previewBackgrounds" = "Pregled Pozadina";
+"cardManagement" = "Upravljanje karticama";
+"cardManagementDescription" = "Pretražujte, uređujte i organizirajte svoje kartice za učenje";
+"manageCards" = "Upravljaj karticama";
+
+

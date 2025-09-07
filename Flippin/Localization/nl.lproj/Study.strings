@@ -1,0 +1,62 @@
+/*
+  study.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: nl
+  Section: study
+*/
+
+"study" = "Studeren";
+"practice" = "Oefenen";
+"studyMode" = "Studiemodus";
+"practiceMode" = "Oefenmodus";
+"quickStats" = "Snelle Statistieken";
+"studyOptions" = "Studie-opties";
+"practiceOptions" = "Oefen-opties";
+"recentActivity" = "Recente Activiteit";
+"totalCards" = "Totaal Kaarten";
+"mastered" = "Beheerst";
+"difficultCards" = "Moeilijke Kaarten";
+"studyTimeToday" = "Studietijd Vandaag";
+"practiceTimeToday" = "Oefentijd Vandaag";
+"startStudySession" = "Start Studiesessie (10 kaarten)";
+"startPracticeSession" = "Start Oefensessie (10 kaarten)";
+"practiceAllCards" = "Oefen Alle Kaarten (%d)";
+"practiceDifficultCards" = "Oefen Moeilijke Kaarten (%d)";
+"multipleChoiceQuiz" = "Meerkeuzequiz";
+"fillInTheBlank" = "Vul de Lege Plek (%d)";
+"unlockAllStudyModes" = "Ontgrendel Alle Studiemodi";
+"unlockAllPracticeModes" = "Ontgrendel Alle Oefenmodi";
+"noStudyData" = "Geen Studiegegevens";
+"noPracticeData" = "Geen Oefengegevens";
+"startStudyingToSeeProgress" = "Begin met studeren om je voortgang te zien!";
+"startPracticingToSeeProgress" = "Begin met oefenen om je voortgang te zien!";
+"toCards" = "Naar kaarten";
+"totalStudyTime" = "Totale Studietijd";
+"totalPracticeTime" = "Totale Oefentijd";
+"averageSession" = "Gemiddelde Sessie";
+"learningProgress" = "Leerprogressie";
+"exit" = "Afsluiten";
+"showAnswer" = "Antwoord Tonen";
+"incorrect" = "Onjuist";
+"correct" = "Juist";
+"studySessionComplete" = "Studiesessie Voltooid!";
+"practiceSessionComplete" = "Oefensessie Voltooid!";
+"accuracy" = "Nauwkeurigheid";
+"cardsStudied" = "Bestudeerde Kaarten";
+"cardsPracticed" = "Geoefende Kaarten";
+"timeSpent" = "Bestede Tijd";
+"studyAgain" = "Opnieuw Studeren";
+"practiceAgain" = "Opnieuw Oefenen";
+"done" = "Klaar";
+"selectCorrectTranslation" = "Selecteer de juiste vertaling";
+"fillInMissingWord" = "Vul het ontbrekende woord in";
+"completeSentence" = "Maak de zin af";
+"chooseCorrectWord" = "Kies het juiste woord:";
+"correctAnswer" = "Juist Antwoord";
+"translateTo" = "Vertaal naar %@";
+"studyProgress" = "%d van %d";
+"practiceProgress" = "%d van %d";
+
+

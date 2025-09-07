@@ -1,0 +1,16 @@
+/*
+  labels.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: zh-Hans
+  Section: labels
+*/
+
+"settingsLabel" = "设置";
+"menu" = "菜单";
+"tagFilter" = "标签筛选";
+"shuffle" = "随机";
+"addCardLabel" = "添加卡片";
+
+

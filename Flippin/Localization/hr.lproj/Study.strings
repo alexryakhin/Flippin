@@ -1,0 +1,62 @@
+/*
+  study.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: hr
+  Section: study
+*/
+
+"study" = "Uči";
+"practice" = "Vježbaj";
+"studyMode" = "Način Učenja";
+"practiceMode" = "Način Vježbanja";
+"quickStats" = "Brza Statistika";
+"studyOptions" = "Opcije Učenja";
+"practiceOptions" = "Opcije Vježbanja";
+"recentActivity" = "Nedavna Aktivnost";
+"totalCards" = "Ukupno Kartica";
+"mastered" = "Savladano";
+"difficultCards" = "Teške kartice";
+"studyTimeToday" = "Vrijeme Učenja Danas";
+"practiceTimeToday" = "Vrijeme Vježbanja Danas";
+"startStudySession" = "Započni Sesiju Učenja (10 kartica)";
+"startPracticeSession" = "Započni Sesiju Vježbanja (10 kartica)";
+"practiceAllCards" = "Vježbaj Sve Kartice (%d)";
+"practiceDifficultCards" = "Vježbaj Teške Kartice (%d)";
+"multipleChoiceQuiz" = "Kviz Višestrukog Izbora";
+"fillInTheBlank" = "Ispuni Prazninu (%d)";
+"unlockAllStudyModes" = "Otključaj Sve Načine Učenja";
+"unlockAllPracticeModes" = "Otključaj Sve Načine Vježbanja";
+"noStudyData" = "Nema Podataka o Učenju";
+"noPracticeData" = "Nema Podataka o Vježbanju";
+"startStudyingToSeeProgress" = "Počni učiti da vidiš svoj napredak!";
+"startPracticingToSeeProgress" = "Počni vježbati da vidiš svoj napredak!";
+"toCards" = "Na kartice";
+"totalStudyTime" = "Ukupno Vrijeme Učenja";
+"totalPracticeTime" = "Ukupno Vrijeme Vježbanja";
+"averageSession" = "Prosječna Sesija";
+"learningProgress" = "Napredak Učenja";
+"exit" = "Izađi";
+"showAnswer" = "Prikaži Odgovor";
+"incorrect" = "Netočno";
+"correct" = "Točno";
+"studySessionComplete" = "Sesija Učenja Završena!";
+"practiceSessionComplete" = "Sesija Vježbanja Završena!";
+"accuracy" = "Točnost";
+"cardsStudied" = "Proučene Kartice";
+"cardsPracticed" = "Vježbane Kartice";
+"timeSpent" = "Potrošeno Vrijeme";
+"studyAgain" = "Uči Ponovno";
+"practiceAgain" = "Vježbaj Ponovno";
+"done" = "Gotovo";
+"selectCorrectTranslation" = "Odaberi točan prijevod";
+"fillInMissingWord" = "Ispuni nedostajuću riječ";
+"completeSentence" = "Dovrši rečenicu";
+"chooseCorrectWord" = "Odaberi točnu riječ:";
+"correctAnswer" = "Točan Odgovor";
+"translateTo" = "Prevedi na %@";
+"studyProgress" = "%d od %d";
+"practiceProgress" = "%d od %d";
+
+

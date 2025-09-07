@@ -1,0 +1,13 @@
+/*
+  card_views.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ru
+  Section: card_views
+*/
+
+"flip" = "Перевернуть";
+"tapToGoBack" = "Нажмите, чтобы вернуться";
+
+

@@ -1,0 +1,17 @@
+/*
+  navigation_titles.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: zh-Hans
+  Section: navigation_titles
+*/
+
+"addCard" = "添加卡片";
+"addNewCard" = "添加新卡片";
+"settings" = "设置";
+"myCards" = "我的卡片";
+"backgroundStyles" = "背景样式";
+"backgroundDemo" = "背景演示";
+
+

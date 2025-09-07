@@ -1,0 +1,28 @@
+/*
+  languages.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ja
+  Section: languages
+*/
+
+"english" = "英語";
+"spanish" = "スペイン語";
+"french" = "フランス語";
+"german" = "ドイツ語";
+"italian" = "イタリア語";
+"portuguese" = "ポルトガル語";
+"dutch" = "オランダ語";
+"swedish" = "スウェーデン語";
+"chinese" = "中国語";
+"japanese" = "日本語";
+"korean" = "韓国語";
+"vietnamese" = "ベトナム語";
+"russian" = "ロシア語";
+"arabic" = "アラビア語";
+"hindi" = "ヒンディー語";
+"croatian" = "クロアチア語";
+"ukrainian" = "ウクライナ語";
+
+

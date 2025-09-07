@@ -1,0 +1,19 @@
+/*
+  add_card.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: uk
+  Section: add_card
+*/
+
+"enterTextInYourLanguage" = "Введіть текст своєю мовою";
+"enterTextInTargetLanguage" = "Введіть текст цільовою мовою";
+"addNotesOptional" = "Додати нотатки (необов’язково)";
+"notes" = "Нотатки";
+"tagsCount" = "Теги (%d/5)";
+"noTagsAvailableAddInSettings" = "Немає доступних тегів. Додайте кілька тегів у Налаштування.";
+"translating" = "Переклад...";
+"translationWillAppearHere" = "Переклад з’явиться тут";
+
+

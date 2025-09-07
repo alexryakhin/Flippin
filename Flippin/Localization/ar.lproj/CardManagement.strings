@@ -1,0 +1,15 @@
+/*
+  card_management.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ar
+  Section: card_management
+*/
+
+"noDifficultCards" = "لا توجد بطاقات صعبة";
+"noDifficultCardsDescription" = "لم تقم بوضع أي بطاقات كصعبة بعد. ادرس المزيد من البطاقات لرؤية مستويات الصعوبة.";
+"difficultCards" = "بطاقات صعبة";
+"failedToCreateCard" = "فشل في إنشاء البطاقة: %@";
+
+

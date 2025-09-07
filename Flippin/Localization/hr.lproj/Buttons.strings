@@ -1,0 +1,28 @@
+/*
+  buttons.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: hr
+  Section: buttons
+*/
+
+"done" = "Gotovo";
+"cancel" = "Odustani";
+"save" = "Spremi";
+"close" = "Zatvori";
+"clear" = "Očisti";
+"clearFilter" = "Očisti Filter";
+"clearSearch" = "Očisti Pretragu";
+"addCardButton" = "Dodaj Karticu";
+"edit" = "Uredi";
+"editCard" = "Uredi Karticu";
+"delete" = "Obriši";
+"deleteCard" = "Obriši Karticu";
+"deleteCardConfirmation" = "Jeste li sigurni da želite obrisati ovu karticu? Ova radnja se ne može poništiti.";
+"deleteAll" = "Obriši Sve";
+"deleteAllCards" = "Obriši Sve Kartice";
+"deleteAllCardsConfirmation" = "Jeste li sigurni da želite obrisati sve kartice? Ova radnja se ne može poništiti.";
+"ok" = "U redu";
+
+

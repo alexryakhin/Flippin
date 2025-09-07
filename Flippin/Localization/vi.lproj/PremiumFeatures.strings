@@ -1,0 +1,39 @@
+/*
+  premium_features.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: vi
+  Section: premium_features
+*/
+
+"premiumFeature" = "Tính Năng Premium";
+"premiumRequired" = "Yêu Cầu Premium";
+"upgradeToPremium" = "Nâng Cấp Lên Premium";
+"premiumFeatureDescription" = "Truy cập tất cả các bộ sưu tập được định sẵn và mở khóa tiềm năng vô hạn cho việc học ngôn ngữ";
+"previewBackgrounds" = "Xem Trước";
+"colorScheme" = "Bảng Màu";
+"colorSchemeSystem" = "Hệ Thống";
+"colorSchemeLight" = "Sáng";
+"colorSchemeDark" = "Tối";
+"unlockPremium" = "Mở Khóa Premium";
+"masterLanguageLearning" = "Làm chủ việc học ngôn ngữ với các tính năng độc quyền";
+"usedCardsOfLimit" = "Bạn đã sử dụng %d trong số %d thẻ miễn phí";
+"whatYouGetWithPremium" = "Những gì bạn nhận được với Premium";
+"unlimitedCardsDescription" = "Tạo bao nhiêu thẻ học tùy ý";
+"collections" = "30+ Bộ Sưu Tập";
+"collectionsDescription" = "Truy cập tất cả các bộ sưu tập từ vựng được định sẵn";
+"premiumBackgrounds" = "Nền Premium";
+"premiumBackgroundsDescription" = "Nền hoạt ảnh đẹp mắt";
+"changeLanguages" = "Thay Đổi Ngôn Ngữ";
+"changeLanguagesDescription" = "Chuyển đổi giữa các cặp ngôn ngữ khác nhau bất cứ lúc nào";
+"multipleLanguagesTitle" = "Nhiều Ngôn Ngữ";
+"multipleLanguagesDescription" = "Khả năng học nhiều ngôn ngữ cùng lúc";
+"restorePurchases" = "Khôi Phục Mua Hàng";
+"cancelAnytime" = "Hủy bất cứ lúc nào • Không cam kết";
+"terms" = "Điều khoản";
+"privacy" = "Quyền riêng tư";
+"goPremium" = "Chuyển sang Premium";
+"premium" = "Premium";
+
+

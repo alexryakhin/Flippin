@@ -1,0 +1,66 @@
+/*
+  learning_analytics_service.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ja
+  Section: learning_analytics_service
+*/
+
+"notEnoughData" = "データが不足しています";
+"morning" = "朝（6時-12時）";
+"afternoon" = "午後（12時-17時）";
+"evening" = "夕方（17時-21時）";
+"night" = "夜（21時-6時）";
+"under10Minutes" = "10分未満";
+"tenTo20Minutes" = "10-20分";
+"twentyTo30Minutes" = "20-30分";
+"thirtyTo60Minutes" = "30-60分";
+"over60Minutes" = "60分以上";
+"onceThisWeek" = "今週1回";
+"fewTimesThisWeek" = "今週数回";
+"mostDaysThisWeek" = "今週のほとんどの日";
+"daily" = "毎日";
+"veryEasy" = "とても簡単";
+"easy" = "簡単";
+"medium" = "中程度";
+"hard" = "難しい";
+"veryHard" = "非常に難しい";
+"unknown" = "不明";
+"completedStudySession" = "学習セッション完了";
+"reviewedCardsInTime" = "%@で%d枚のカードを復習";
+"recent" = "最近";
+"reachedCardsMastered" = "%d枚のカードを習得";
+"greatProgressBuildingFoundation" = "素晴らしい進捗！強固な基盤を築いています。";
+"first10CardsMastered" = "最初の10枚のカードを習得";
+"sevenDayStudyStreak" = "7日間の学習継続";
+"fiftyCardsMastered" = "50枚のカードを習得";
+"thirtyDayStudyStreak" = "30日間の学習継続";
+"completed" = "完了";
+"inProgress" = "進行中";
+"youreMostProductiveIn" = "あなたは%@で最も生産的です";
+"studySessionsDuringThisTime" = "この時間帯の学習セッションはより高い集中力と保持力を示します。";
+"optimalSessionLength" = "最適なセッション長";
+"yourSessionsShowBestResults" = "%@のセッションが最高の結果を示します。";
+"consistentLearningPattern" = "一貫した学習パターン";
+"yourStudyRoutineWorkingWell" = "%@の学習ルーチンがうまく機能しています。";
+"improvingAccuracy" = "正確性の向上";
+"recentAccuracyHigherThanBefore" = "最近の正確性が以前より%d%%高くなっています。";
+"focusOnAccuracy" = "正確性に焦点を当てる";
+"recentAccuracyDecreased" = "最近の正確性が低下しています。難しいカードの復習を検討してください。";
+"excellentProgress" = "素晴らしい進捗";
+"masteredVocabularyPercentage" = "語彙の%d%%を習得しました！";
+"goodFoundation" = "良い基盤";
+"masteredVocabularyKeepGoing" = "語彙の%d%%を習得しました。続けてください！";
+"reviewDifficultCards" = "難しいカードを復習";
+"cardsNeedMorePractice" = "%d枚のカードにさらなる練習が必要です。正確性を向上させるためにこれらに焦点を当ててください。";
+"addMoreVocabulary" = "さらに語彙を追加";
+"masteredMostCurrentCards" = "現在のカードのほとんどを習得しました。新しい挑戦の準備はできています！";
+"extendYourStreak" = "継続を延ばす";
+"daysAwayFromAchievement" = "新しい実績まであと%d日です！";
+"buildConsistency" = "一貫性を築く";
+"tryToStudyDaily" = "強固な学習習慣を築くために毎日学習してみてください。";
+"improveAccuracy" = "正確性を向上";
+"accuracyPercentageFocusQuality" = "あなたの正確性は%d%%です。速度よりも品質に焦点を当ててください。";
+
+

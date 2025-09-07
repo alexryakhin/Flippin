@@ -1,0 +1,19 @@
+/*
+  add_card.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: en
+  Section: add_card
+*/
+
+"enterTextInYourLanguage" = "Enter text in your language";
+"enterTextInTargetLanguage" = "Enter text in target language";
+"addNotesOptional" = "Add notes (optional)";
+"notes" = "Notes";
+"tagsCount" = "Tags (%d/5)";
+"noTagsAvailableAddInSettings" = "No tags available. Add some tags in Settings.";
+"translating" = "Translating...";
+"translationWillAppearHere" = "Translation will appear here";
+
+

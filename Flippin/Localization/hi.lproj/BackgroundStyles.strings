@@ -1,0 +1,23 @@
+/*
+  background_styles.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: hi
+  Section: background_styles
+*/
+
+"gradient" = "ग्रेडिएंट";
+"lavaLamp" = "लावा लैंप";
+"snow" = "बर्फ";
+"rain" = "बारिश";
+"stars" = "तारे";
+"bubbles" = "बुलबुले";
+"waves" = "लहरें";
+"particles" = "कण";
+"aurora" = "अरोरा";
+"fireflies" = "जुगनू";
+"ocean" = "समुद्र";
+"galaxy" = "आकाशगंगा";
+
+

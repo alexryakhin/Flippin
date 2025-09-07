@@ -1,0 +1,15 @@
+/*
+  card_management.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ru
+  Section: card_management
+*/
+
+"noDifficultCards" = "Нет сложных карточек";
+"noDifficultCardsDescription" = "У вас пока нет карточек, отмеченных как сложные. Изучайте больше карточек, чтобы увидеть уровни сложности.";
+"difficultCards" = "Сложные карточки";
+"failedToCreateCard" = "Не удалось создать карточку: %@";
+
+

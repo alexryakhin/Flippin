@@ -1,0 +1,16 @@
+/*
+  labels.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: hi
+  Section: labels
+*/
+
+"settingsLabel" = "सेटिंग्स";
+"menu" = "मेनू";
+"tagFilter" = "टैग फ़िल्टर";
+"shuffle" = "फेरबदल";
+"addCardLabel" = "कार्ड जोड़ें";
+
+

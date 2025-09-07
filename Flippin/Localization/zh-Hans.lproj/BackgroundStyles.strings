@@ -1,0 +1,23 @@
+/*
+  background_styles.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: zh-Hans
+  Section: background_styles
+*/
+
+"gradient" = "渐变";
+"lavaLamp" = "熔岩灯";
+"snow" = "雪";
+"rain" = "雨";
+"stars" = "星星";
+"bubbles" = "气泡";
+"waves" = "波浪";
+"particles" = "粒子";
+"aurora" = "极光";
+"fireflies" = "萤火虫";
+"ocean" = "海洋";
+"galaxy" = "银河";
+
+

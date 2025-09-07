@@ -1,0 +1,22 @@
+/*
+  categories.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: nl
+  Section: categories
+*/
+
+"categoryBasics" = "Basis";
+"categoryTravel" = "Reizen";
+"categoryEntertainment" = "Vermakelijkheden";
+"categoryFood" = "Eten";
+"categoryShopping" = "Winkelen";
+"categorySocial" = "Sociaal";
+"categoryWeather" = "Weer";
+"categoryTechnology" = "Technologie";
+"categoryLifestyle" = "Levensstijl";
+"categoryProfessional" = "Professioneel";
+"categoryEmergency" = "Noodgeval";
+
+

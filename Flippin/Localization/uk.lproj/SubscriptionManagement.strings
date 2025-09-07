@@ -1,0 +1,29 @@
+/*
+  subscription_management.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: uk
+  Section: subscription_management
+*/
+
+"subscription" = "Підписка";
+"subscriptionStatus" = "Статус Підписки";
+"activeSubscription" = "Активна Підписка";
+"manageSubscription" = "Керувати Підпискою";
+
+"done" = "Готово";
+"cancel" = "Скасувати";
+"delete" = "Видалити";
+"edit" = "Редагувати";
+"save" = "Зберегти";
+"searchCards" = "Пошук карток...";
+"noCardsAvailable" = "Немає доступних карток";
+"noAccuracyDataAvailable" = "Немає даних про точність";
+"noGrowthDataAvailable" = "Немає даних про зростання";
+"date" = "Дата";
+"accuracy" = "Точність";
+"masteredCards" = "Опановано Карток";
+"invalidJSON" = "Недійсні дані JSON";
+
+

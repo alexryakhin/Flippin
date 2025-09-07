@@ -1,0 +1,39 @@
+/*
+  premium_features.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: en
+  Section: premium_features
+*/
+
+"premiumFeature" = "Premium Feature";
+"premiumRequired" = "Premium Required";
+"upgradeToPremium" = "Upgrade to Premium";
+"premiumFeatureDescription" = "Access all preset collections and unlock unlimited language learning potential";
+"previewBackgrounds" = "Preview";
+"colorScheme" = "Color Scheme";
+"colorSchemeSystem" = "System";
+"colorSchemeLight" = "Light";
+"colorSchemeDark" = "Dark";
+"unlockPremium" = "Unlock Premium";
+"masterLanguageLearning" = "Master your language learning with exclusive features";
+"usedCardsOfLimit" = "You've used %d of %d free cards";
+"whatYouGetWithPremium" = "What You Get with Premium";
+"unlimitedCardsDescription" = "Create as many flashcards as you want";
+"collections" = "30+ Collections";
+"collectionsDescription" = "Access all preset vocabulary collections";
+"premiumBackgrounds" = "Premium Backgrounds";
+"premiumBackgroundsDescription" = "Beautiful animated backgrounds";
+"changeLanguages" = "Change Languages";
+"changeLanguagesDescription" = "Switch between different language pairs anytime";
+"multipleLanguagesTitle" = "Multiple Languages";
+"multipleLanguagesDescription" = "Ability to learn multiple languages at the same time";
+"restorePurchases" = "Restore Purchases";
+"cancelAnytime" = "Cancel anytime • No commitment";
+"terms" = "Terms";
+"privacy" = "Privacy";
+"goPremium" = "Go Premium";
+"premium" = "Premium";
+
+

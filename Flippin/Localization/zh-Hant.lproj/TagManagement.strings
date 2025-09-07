@@ -1,0 +1,27 @@
+/*
+  tag_management.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: zh-Hant
+  Section: tag_management
+*/
+
+"availableTags" = "可用標籤";
+"noTagsAvailable" = "沒有可用標籤";
+"manageTagsInSettings" = "在設定中管理標籤。";
+"toSettings" = "前往設定";
+"newTagName" = "新標籤名稱";
+"add" = "新增";
+"addTag" = "新增標籤";
+"tagsManagement" = "標籤管理";
+"filterByTag" = "依標籤篩選";
+"filterByLanguage" = "依語言篩選";
+"filterByLanguageDescription" = "僅顯示與您選擇的語言相符的卡片";
+"filterByFavorites" = "按收藏篩選";
+"showAllCards" = "顯示所有卡片";
+"showFavoritesOnly" = "僅顯示收藏";
+"noFavoriteCards" = "沒有收藏卡片";
+"noFavoriteCardsDescription" = "您還沒有將任何卡片標記為收藏";
+
+

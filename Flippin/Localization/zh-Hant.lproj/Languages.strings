@@ -1,0 +1,28 @@
+/*
+  languages.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: zh-Hant
+  Section: languages
+*/
+
+"english" = "英語";
+"spanish" = "西班牙語";
+"french" = "法語";
+"german" = "德語";
+"italian" = "義大利語";
+"portuguese" = "葡萄牙語";
+"dutch" = "荷蘭語";
+"swedish" = "瑞典語";
+"chinese" = "中文";
+"japanese" = "日語";
+"korean" = "韓語";
+"vietnamese" = "越南語";
+"russian" = "俄語";
+"arabic" = "阿拉伯語";
+"hindi" = "印地語";
+"croatian" = "克羅埃西亞語";
+"ukrainian" = "烏克蘭語";
+
+

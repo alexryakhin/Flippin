@@ -1,0 +1,19 @@
+/*
+  add_card.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: zh-Hans
+  Section: add_card
+*/
+
+"enterTextInYourLanguage" = "用您的语言输入文本";
+"enterTextInTargetLanguage" = "用目标语言输入文本";
+"addNotesOptional" = "添加备注（可选）";
+"notes" = "备注";
+"tagsCount" = "标签（%d/5）";
+"noTagsAvailableAddInSettings" = "没有可用标签。在设置中添加一些标签。";
+"translating" = "翻译中...";
+"translationWillAppearHere" = "翻译将在此显示";
+
+

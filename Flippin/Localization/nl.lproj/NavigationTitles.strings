@@ -1,0 +1,17 @@
+/*
+  navigation_titles.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: nl
+  Section: navigation_titles
+*/
+
+"addCard" = "Kaart Toevoegen";
+"addNewCard" = "Nieuwe Kaart Toevoegen";
+"settings" = "Instellingen";
+"myCards" = "Mijn Kaarten";
+"backgroundStyles" = "Achtergrondstijlen";
+"backgroundDemo" = "Achtergrond Demo";
+
+

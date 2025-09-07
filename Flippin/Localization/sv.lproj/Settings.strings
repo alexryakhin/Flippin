@@ -1,0 +1,22 @@
+/*
+  settings.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: sv
+  Section: settings
+*/
+
+"languages" = "Språk";
+"cardDisplay" = "Kortvisning";
+"cardDisplayMode" = "Kortvisningsläge";
+"learningMode" = "Lärläge";
+"travelMode" = "Reseläge";
+"learningModeDescription" = "Visa målspråk först (för lärande)";
+"travelModeDescription" = "Visa modersmål först (för resor)";
+"previewBackgrounds" = "Förhandsvisa bakgrunder";
+"cardManagement" = "Korthantering";
+"cardManagementDescription" = "Sök, redigera och organisera dina studiekaort";
+"manageCards" = "Hantera kort";
+
+

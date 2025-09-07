@@ -1,0 +1,27 @@
+/*
+  preset_collections.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ar
+  Section: preset_collections
+*/
+
+"presetCollections" = "المجموعات المحددة مسبقاً";
+"seeAllCollections" = "عرض الكل";
+"importCollection" = "استيراد المجموعة";
+"importButton" = "استيراد";
+"importCollectionMessage" = "استيراد %@ مع %d بطاقة إلى مجموعتك؟";
+"noCollectionsFound" = "لم يتم العثور على مجموعات";
+"tryAdjustingSearch" = "حاول تعديل البحث أو معايير التصفية";
+"getStartedWithCollections" = "ابدأ بمجموعات البطاقات المختارة للمواضيع والمواقف الشائعة";
+"searchCollections" = "البحث في المجموعات...";
+"allCategories" = "الكل";
+"myLanguageSettings" = "لغتي";
+"targetLanguage" = "اللغة المستهدفة";
+"theme" = "المظهر";
+"color" = "اللون";
+"backgroundStyle" = "نمط الخلفية";
+"tapToSeeFullScreen" = "انقر لرؤية الشاشة الكاملة";
+
+

@@ -1,0 +1,17 @@
+/*
+  card_limits.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ar
+  Section: card_limits
+*/
+
+"cardsUsedOfLimit" = "%d من %d بطاقة";
+"cardLimitExceeded" = "تم الوصول إلى حد البطاقات. لديك %d بطاقة من %d مسموح بها. قم بالترقية إلى بريميوم لبطاقات غير محدودة.";
+"freeUsersLimitedTo" = "المستخدمون المجانيون محدودون بـ %d بطاقة";
+"purchaseUnlimitedCards" = "اشترِ بطاقات غير محدودة لإضافة المزيد من البطاقات إلى مجموعتك";
+"upgrade" = "ترقية";
+"unlimitedCards" = "بطاقات غير محدودة";
+
+

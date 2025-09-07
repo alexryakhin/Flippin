@@ -1,0 +1,29 @@
+/*
+  subscription_management.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: nl
+  Section: subscription_management
+*/
+
+"subscription" = "Abonnement";
+"subscriptionStatus" = "Abonnement Status";
+"activeSubscription" = "Actief Abonnement";
+"manageSubscription" = "Abonnement Beheren";
+
+"done" = "Klaar";
+"cancel" = "Annuleren";
+"delete" = "Verwijderen";
+"edit" = "Bewerken";
+"save" = "Opslaan";
+"searchCards" = "Kaarten zoeken...";
+"noCardsAvailable" = "Geen kaarten beschikbaar";
+"noAccuracyDataAvailable" = "Geen nauwkeurigheidsgegevens beschikbaar";
+"noGrowthDataAvailable" = "Geen groeigegevens beschikbaar";
+"date" = "Datum";
+"accuracy" = "Nauwkeurigheid";
+"masteredCards" = "Beheerde Kaarten";
+"invalidJSON" = "Ongeldige JSON-gegevens";
+
+

@@ -1,0 +1,54 @@
+/*
+  analytics.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ru
+  Section: analytics
+*/
+
+"analytics" = "Аналитика";
+"detailedAnalytics" = "Детальная аналитика";
+"today" = "Сегодня";
+"noAnalyticsData" = "Нет данных аналитики";
+"startStudyingToSeeProgress" = "Начните изучать, чтобы увидеть свой прогресс обучения!";
+"unlockAdvancedAnalytics" = "Разблокировать расширенную аналитику";
+"detailedProgressReports" = "Детальные отчеты о прогрессе";
+"detailedProgressReportsDescription" = "Отслеживайте свои модели обучения и улучшения с течением времени";
+"performanceInsights" = "Анализ производительности";
+"performanceInsightsDescription" = "Получите персонализированные рекомендации для улучшения ваших привычек изучения";
+"studyTimeAnalytics" = "Аналитика времени изучения";
+"studyTimeAnalyticsDescription" = "Анализируйте свои сессии изучения и оптимизируйте обучение";
+"upgradeToPremium" = "Обновить до премиум";
+"recentActivity" = "Недавняя активность";
+"viewAll" = "Посмотреть все";
+"noRecentActivity" = "Нет недавней активности";
+"studySessionsWillAppearHere" = "Ваши сессии изучения появятся здесь";
+"lastStudySession" = "Последняя сессия изучения";
+"cardsStudiedToday" = "Карточки, изученные сегодня";
+"studyStreak" = "Серия изучения";
+"totalStudyTime" = "Общее время изучения";
+"cardsMastered" = "Освоенные карточки";
+"todaysStudy" = "Сегодняшнее изучение";
+"time" = "Время";
+"cardsStudied" = "Изученные карточки";
+"sessions" = "Сессии";
+"accuracy" = "Точность";
+"studyTime" = "Время изучения";
+"practiceTime" = "Время практики";
+"timeRange" = "Временной диапазон";
+"masteryProgress" = "Прогресс освоения";
+"mastered" = "Освоено";
+"learning" = "Изучение";
+"needsReview" = "Требует повторения";
+"week" = "Неделя";
+"month" = "Месяц";
+"year" = "Год";
+"allTime" = "Все время";
+"overview" = "Обзор";
+"performance" = "Производительность";
+"progress" = "Прогресс";
+"insights" = "Анализ";
+"noStudyDataAvailable" = "Нет доступных данных об изучении";
+
+

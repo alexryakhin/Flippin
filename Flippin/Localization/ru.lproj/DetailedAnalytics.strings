@@ -1,0 +1,67 @@
+/*
+  detailed_analytics.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ru
+  Section: detailed_analytics
+*/
+
+"analyticsTab" = "Вкладка аналитики";
+"studyTimeTitle" = "Время изучения";
+"practiceTimeTitle" = "Время практики";
+"cardsMasteredTitle" = "Освоенные карточки";
+"studyStreakTitle" = "Серия изучения";
+"averageSessionTitle" = "Средняя сессия";
+"consecutiveDays" = "дней подряд";
+"perSession" = "за сессию";
+"studyPatterns" = "Модели изучения";
+"mostActiveTime" = "Самое активное время";
+"preferredSessionLength" = "Предпочитаемая длина сессии";
+"studyFrequency" = "Частота изучения";
+"languageProgress" = "Прогресс языка";
+"collectionSize" = "Размер коллекции";
+"cards" = "карточек";
+"achievements" = "Достижения";
+"firstSteps" = "Первые шаги";
+"weekWarrior" = "Воин недели";
+"masterLearner" = "Мастер обучения";
+"dedicated" = "Преданный";
+"vocabularyMaster" = "Мастер словарного запаса";
+"timeMaster" = "Мастер времени";
+"accuracyTrends" = "Тенденции точности";
+"sessionPerformance" = "Производительность сессии";
+"averageSessionDuration" = "Средняя продолжительность сессии";
+"basedOnData" = "На основе данных %@";
+"cardsPerSession" = "Карточек за сессию";
+"average" = "Среднее";
+"sessionFrequency" = "Частота сессий";
+"cardDifficultyAnalysis" = "Анализ сложности карточек";
+"noDifficultyDataAvailable" = "Нет доступных данных о сложности";
+"learningSpeed" = "Скорость обучения";
+"cardsPerHour" = "Карточек в час";
+"vsAverage" = "по сравнению со средним";
+"masteryTimeline" = "Временная шкала освоения";
+"vocabularyGrowth" = "Рост словарного запаса";
+"totalVocabulary" = "Общий словарный запас";
+"thisWeek" = "На этой неделе";
+"thisMonth" = "В этом месяце";
+"thisYear" = "В этом году";
+"learningMilestones" = "Вехи обучения";
+"personalizedInsights" = "Персонализированный анализ";
+"noInsightsAvailableYet" = "Пока нет доступного анализа";
+"recommendations" = "Рекомендации";
+"noRecommendationsAtThisTime" = "Сейчас нет рекомендаций";
+"learningTips" = "Советы по обучению";
+"spacedRepetition" = "Интервальное повторение";
+"spacedRepetitionDescription" = "Повторяйте карточки с увеличивающимися интервалами для лучшего запоминания.";
+"activeRecall" = "Активное вспоминание";
+"activeRecallDescription" = "Попробуйте вспомнить ответ перед переворачиванием карточки.";
+"contextLearning" = "Обучение в контексте";
+"contextLearningDescription" = "Изучайте слова в фразах, а не изолированно.";
+"studyNow" = "Изучать сейчас";
+"startReview" = "Начать повторение";
+"browseCollections" = "Просматривать коллекции";
+"practiceMode" = "Режим практики";
+
+

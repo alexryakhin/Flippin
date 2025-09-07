@@ -1,0 +1,19 @@
+/*
+  add_card.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: sv
+  Section: add_card
+*/
+
+"enterTextInYourLanguage" = "Ange text på ditt språk";
+"enterTextInTargetLanguage" = "Ange text på målspråket";
+"addNotesOptional" = "Lägg till anteckningar (valfritt)";
+"notes" = "Anteckningar";
+"tagsCount" = "Taggar (%d/5)";
+"noTagsAvailableAddInSettings" = "Inga taggar tillgängliga. Lägg till några taggar i Inställningar.";
+"translating" = "Översätter...";
+"translationWillAppearHere" = "Översättningen kommer att visas här";
+
+

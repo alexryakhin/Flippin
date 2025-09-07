@@ -1,0 +1,20 @@
+/*
+  content_views.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: vi
+  Section: content_views
+*/
+
+"noCardsYet" = "Chưa có thẻ nào";
+"tapToAddFirstCard" = "Nhấn vào nút + để thêm thẻ đầu tiên của bạn";
+"noCardsWithSelectedTag" = "Không có thẻ nào với nhãn đã chọn";
+"noCardsFoundWithTag" = "Không tìm thấy thẻ nào với nhãn \"%@\"";
+"noCardsAvailable" = "Không có thẻ nào khả dụng";
+"noCardsFound" = "Không tìm thấy thẻ nào";
+"addFirstCardToStartLearning" = "Thêm thẻ đầu tiên của bạn để bắt đầu học";
+"noCardsMatchSearch" = "Không có thẻ nào khớp với tìm kiếm của bạn";
+"noCardsForLanguagePair" = "Không có thẻ nào cho cặp ngôn ngữ này";
+
+

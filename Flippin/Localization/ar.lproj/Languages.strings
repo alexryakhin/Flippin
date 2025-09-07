@@ -1,0 +1,28 @@
+/*
+  languages.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ar
+  Section: languages
+*/
+
+"english" = "الإنجليزية";
+"spanish" = "الإسبانية";
+"french" = "الفرنسية";
+"german" = "الألمانية";
+"italian" = "الإيطالية";
+"portuguese" = "البرتغالية";
+"dutch" = "الهولندية";
+"swedish" = "السويدية";
+"chinese" = "الصينية";
+"japanese" = "اليابانية";
+"korean" = "الكورية";
+"vietnamese" = "الفيتنامية";
+"russian" = "الروسية";
+"arabic" = "العربية";
+"hindi" = "الهندية";
+"croatian" = "الكرواتية";
+"ukrainian" = "الأوكرانية";
+
+

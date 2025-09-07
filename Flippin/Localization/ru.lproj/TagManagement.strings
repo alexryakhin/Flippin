@@ -1,0 +1,27 @@
+/*
+  tag_management.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ru
+  Section: tag_management
+*/
+
+"availableTags" = "Доступные теги";
+"noTagsAvailable" = "Нет доступных тегов";
+"manageTagsInSettings" = "Управляйте тегами в настройках.";
+"toSettings" = "В настройки";
+"newTagName" = "Название нового тега";
+"add" = "Добавить";
+"addTag" = "Добавить тег";
+"tagsManagement" = "Управление тегами";
+"filterByTag" = "Фильтровать по тегу";
+"filterByLanguage" = "Фильтровать по языку";
+"filterByLanguageDescription" = "Показывать только карточки, соответствующие вашим выбранным языкам";
+"filterByFavorites" = "Фильтровать по избранному";
+"showAllCards" = "Показать все карточки";
+"showFavoritesOnly" = "Показать только избранные";
+"noFavoriteCards" = "Нет избранных карточек";
+"noFavoriteCardsDescription" = "Вы еще не отметили ни одной карточки как избранную";
+
+

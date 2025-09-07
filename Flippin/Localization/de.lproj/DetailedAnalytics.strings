@@ -1,0 +1,67 @@
+/*
+  detailed_analytics.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: de
+  Section: detailed_analytics
+*/
+
+"analyticsTab" = "Analyse-Tab";
+"studyTimeTitle" = "Lernzeit";
+"practiceTimeTitle" = "Übungszeit";
+"cardsMasteredTitle" = "Beherrschte Karten";
+"studyStreakTitle" = "Lernserie";
+"averageSessionTitle" = "Durchschnittliche Session";
+"consecutiveDays" = "aufeinanderfolgende Tage";
+"perSession" = "pro Session";
+"studyPatterns" = "Lernmuster";
+"mostActiveTime" = "Aktivste Zeit";
+"preferredSessionLength" = "Bevorzugte Sessionslänge";
+"studyFrequency" = "Lernhäufigkeit";
+"languageProgress" = "Sprachfortschritt";
+"collectionSize" = "Sammlungsgröße";
+"cards" = "Karten";
+"achievements" = "Erfolge";
+"firstSteps" = "Erste Schritte";
+"weekWarrior" = "Wochenkrieger";
+"masterLearner" = "Meister-Lerner";
+"dedicated" = "Engagiert";
+"vocabularyMaster" = "Vokabelmeister";
+"timeMaster" = "Zeitmeister";
+"accuracyTrends" = "Genauigkeitstrends";
+"sessionPerformance" = "Sessionsleistung";
+"averageSessionDuration" = "Durchschnittliche Sessionsdauer";
+"basedOnData" = "Basierend auf %@ Daten";
+"cardsPerSession" = "Karten pro Session";
+"average" = "Durchschnitt";
+"sessionFrequency" = "Sessionshäufigkeit";
+"cardDifficultyAnalysis" = "Schwierigkeitsanalyse der Karten";
+"noDifficultyDataAvailable" = "Keine Schwierigkeitsdaten verfügbar";
+"learningSpeed" = "Lernspeed";
+"cardsPerHour" = "Karten pro Stunde";
+"vsAverage" = "gegen Durchschnitt";
+"masteryTimeline" = "Beherrschungszeitleiste";
+"vocabularyGrowth" = "Vokabelwachstum";
+"totalVocabulary" = "Gesamtes Vokabular";
+"thisWeek" = "Diese Woche";
+"thisMonth" = "Dieser Monat";
+"thisYear" = "Dieses Jahr";
+"learningMilestones" = "Lernmeilensteine";
+"personalizedInsights" = "Personalisierte Einblicke";
+"noInsightsAvailableYet" = "Noch keine Einblicke verfügbar";
+"recommendations" = "Empfehlungen";
+"noRecommendationsAtThisTime" = "Derzeit keine Empfehlungen";
+"learningTips" = "Lerntipps";
+"spacedRepetition" = "Abstandswiederholung";
+"spacedRepetitionDescription" = "Wiederholen Sie Karten in zunehmenden Abständen für bessere Behaltensleistung.";
+"activeRecall" = "Aktives Abrufen";
+"activeRecallDescription" = "Versuchen Sie, die Antwort zu erinnern, bevor Sie die Karte umdrehen.";
+"contextLearning" = "Kontextlernen";
+"contextLearningDescription" = "Lernen Sie Wörter in Phrasen statt isoliert.";
+"studyNow" = "Jetzt lernen";
+"startReview" = "Überprüfung starten";
+"browseCollections" = "Sammlungen durchsehen";
+"practiceMode" = "Übungsmodus";
+
+

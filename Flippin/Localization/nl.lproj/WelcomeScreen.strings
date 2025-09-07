@@ -1,0 +1,36 @@
+/*
+  welcome_screen.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: nl
+  Section: welcome_screen
+*/
+
+"welcomeScreenTitle" = "Welkom bij Flippin!";
+"welcomeScreenMessage" = "Flippin helpt je talen te leren voor reizen, studie of dagelijkse gesprekken met slimme flashcards.";
+"myLanguage" = "Mijn taal";
+"myLanguageDesc" = "Je moedertaal";
+"imLearning" = "Ik leer";
+"imLearningDesc" = "De taal die je wilt leren";
+"continueButton" = "Doorgaan";
+"back" = "Terug";
+"getStarted" = "Beginnen";
+"chooseLanguages" = "Kies Je Talen";
+"chooseLanguagesDesc" = "Selecteer je moedertaal en de taal die je wilt leren";
+"readyToStart" = "Alles Klaar!";
+"readyToStartDesc" = "Je taalreis begint nu";
+"featureLearning" = "Automatische Vertaling";
+"featureLearningDesc" = "Realtime vertaling terwijl je typt";
+"featureLanguages" = "17 Talen";
+"featureLanguagesDesc" = "Ondersteuning voor belangrijke wereldtalen";
+"featureSmart" = "Tekst-naar-spraak";
+"featureSmartDesc" = "Luister naar uitspraak met TTS-technologie";
+"featureAnalytics" = "Leeranalyse";
+"featureAnalyticsDesc" = "Volg je voortgang en krijg gepersonaliseerde inzichten";
+"finalFeatureAdd" = "Maak aangepaste flashcards";
+"finalFeaturePractice" = "Oefen met audio-uitspraak";
+"finalFeatureProgress" = "Organiseer met tags en favorieten";
+"finalFeatureModes" = "Meerdere oefenmodi";
+
+

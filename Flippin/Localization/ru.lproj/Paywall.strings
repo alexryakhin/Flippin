@@ -1,0 +1,27 @@
+/*
+  paywall.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ru
+  Section: paywall
+*/
+
+"upgradeToPremiumTitle" = "Обновить до премиум";
+"upgradeToPremiumMessage" = "Обновите до премиум, чтобы разблокировать все функции!";
+"cancel" = "Отмена";
+"viewOptions" = "Посмотреть варианты";
+"unlimitedCardsTitle" = "Неограниченные карточки";
+"unlimitedCardsMessage" = "Обновите до премиум, чтобы создавать неограниченное количество карточек и разблокировать все функции!";
+"advancedAnalyticsTitle" = "Расширенная аналитика";
+"advancedAnalyticsMessage" = "Получите детальную аналитику обучения, графики прогресса и аналитику производительности с премиум!";
+"customThemesTitle" = "Пользовательские темы";
+"customThemesMessage" = "Разблокируйте красивые пользовательские темы и фоны с премиум!";
+"languageChangeTitle" = "Изменение языка";
+"languageChangeMessage" = "Выбирайте из более чем 15 языков для улучшения вашего опыта обучения с премиум!";
+"cardPresetsTitle" = "Предустановки карточек";
+"cardPresetsMessage" = "Исследуйте обширную коллекцию предустановленных карточек с премиум!";
+"studyModesTitle" = "Режимы изучения";
+"studyModesMessage" = "Получите доступ к расширенным режимам изучения и техникам обучения с премиум!";
+
+

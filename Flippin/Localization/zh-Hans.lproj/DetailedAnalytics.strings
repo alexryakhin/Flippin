@@ -1,0 +1,67 @@
+/*
+  detailed_analytics.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: zh-Hans
+  Section: detailed_analytics
+*/
+
+"analyticsTab" = "分析选项卡";
+"studyTimeTitle" = "学习时间";
+"practiceTimeTitle" = "练习时间";
+"cardsMasteredTitle" = "已掌握卡片";
+"studyStreakTitle" = "学习连胜";
+"averageSessionTitle" = "平均会话";
+"consecutiveDays" = "连续天数";
+"perSession" = "每会话";
+"studyPatterns" = "学习模式";
+"mostActiveTime" = "最活跃时间";
+"preferredSessionLength" = "首选会话长度";
+"studyFrequency" = "学习频率";
+"languageProgress" = "语言进度";
+"collectionSize" = "集合大小";
+"cards" = "卡片";
+"achievements" = "成就";
+"firstSteps" = "第一步";
+"weekWarrior" = "周战士";
+"masterLearner" = "学习大师";
+"dedicated" = "专注";
+"vocabularyMaster" = "词汇大师";
+"timeMaster" = "时间大师";
+"accuracyTrends" = "准确率趋势";
+"sessionPerformance" = "会话性能";
+"averageSessionDuration" = "平均会话时长";
+"basedOnData" = "基于%@的数据";
+"cardsPerSession" = "每会话卡片数";
+"average" = "平均";
+"sessionFrequency" = "会话频率";
+"cardDifficultyAnalysis" = "卡片难度分析";
+"noDifficultyDataAvailable" = "无难度数据可用";
+"learningSpeed" = "学习速度";
+"cardsPerHour" = "每小时卡片数";
+"vsAverage" = "与平均值比较";
+"masteryTimeline" = "掌握时间线";
+"vocabularyGrowth" = "词汇增长";
+"totalVocabulary" = "总词汇量";
+"thisWeek" = "本周";
+"thisMonth" = "本月";
+"thisYear" = "今年";
+"learningMilestones" = "学习里程碑";
+"personalizedInsights" = "个性化洞察";
+"noInsightsAvailableYet" = "暂无洞察可用";
+"recommendations" = "推荐";
+"noRecommendationsAtThisTime" = "目前无推荐";
+"learningTips" = "学习建议";
+"spacedRepetition" = "间隔重复";
+"spacedRepetitionDescription" = "以逐渐增加的间隔复习卡片以获得更好的记忆。";
+"activeRecall" = "主动回忆";
+"activeRecallDescription" = "在翻转卡片前尝试回忆答案。";
+"contextLearning" = "语境学习";
+"contextLearningDescription" = "在句子中学习单词而非单独学习。";
+"studyNow" = "现在学习";
+"startReview" = "开始复习";
+"browseCollections" = "浏览集合";
+"practiceMode" = "练习模式";
+
+

@@ -1,0 +1,19 @@
+/*
+  add_card.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: nl
+  Section: add_card
+*/
+
+"enterTextInYourLanguage" = "Voer tekst in in je taal";
+"enterTextInTargetLanguage" = "Voer tekst in in de doeltaal";
+"addNotesOptional" = "Notities toevoegen (optioneel)";
+"notes" = "Notities";
+"tagsCount" = "Tags (%d/5)";
+"noTagsAvailableAddInSettings" = "Geen tags beschikbaar. Voeg enkele tags toe in Instellingen.";
+"translating" = "Vertalen...";
+"translationWillAppearHere" = "Vertaling verschijnt hier";
+
+

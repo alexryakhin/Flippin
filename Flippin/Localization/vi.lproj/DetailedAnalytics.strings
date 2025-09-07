@@ -1,0 +1,67 @@
+/*
+  detailed_analytics.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: vi
+  Section: detailed_analytics
+*/
+
+"analyticsTab" = "Tab Phân Tích";
+"studyTimeTitle" = "Thời Gian Học";
+"practiceTimeTitle" = "Thời Gian Luyện Tập";
+"cardsMasteredTitle" = "Thẻ Đã Thành Thạo";
+"studyStreakTitle" = "Chuỗi Học";
+"averageSessionTitle" = "Phiên Trung Bình";
+"consecutiveDays" = "ngày liên tục";
+"perSession" = "mỗi phiên";
+"studyPatterns" = "Mô Hình Học";
+"mostActiveTime" = "Thời Gian Hoạt Động Nhiều Nhất";
+"preferredSessionLength" = "Thời Lượng Phiên Ưa Thích";
+"studyFrequency" = "Tần Suất Học";
+"languageProgress" = "Tiến Độ Ngôn Ngữ";
+"collectionSize" = "Kích Thước Bộ Sưu Tập";
+"cards" = "thẻ";
+"achievements" = "Thành Tựu";
+"firstSteps" = "Những Bước Đầu Tiên";
+"weekWarrior" = "Chiến Binh Tuần";
+"masterLearner" = "Người Học Thành Thạo";
+"dedicated" = "Tận Tâm";
+"vocabularyMaster" = "Bậc Thầy Từ Vựng";
+"timeMaster" = "Bậc Thầy Thời Gian";
+"accuracyTrends" = "Xu Hướng Độ Chính Xác";
+"sessionPerformance" = "Hiệu Suất Phiên";
+"averageSessionDuration" = "Thời Lượng Phiên Trung Bình";
+"basedOnData" = "Dựa trên dữ liệu từ %@";
+"cardsPerSession" = "Thẻ Mỗi Phiên";
+"average" = "Trung Bình";
+"sessionFrequency" = "Tần Suất Phiên";
+"cardDifficultyAnalysis" = "Phân Tích Độ Khó Thẻ";
+"noDifficultyDataAvailable" = "Không có dữ liệu độ khó";
+"learningSpeed" = "Tốc Độ Học";
+"cardsPerHour" = "Thẻ Mỗi Giờ";
+"vsAverage" = "so với trung bình";
+"masteryTimeline" = "Dòng Thời Gian Thành Thạo";
+"vocabularyGrowth" = "Tăng Trưởng Từ Vựng";
+"totalVocabulary" = "Tổng Từ Vựng";
+"thisWeek" = "Tuần Này";
+"thisMonth" = "Tháng Này";
+"thisYear" = "Năm Này";
+"learningMilestones" = "Cột Mốc Học Tập";
+"personalizedInsights" = "Thông Tin Cá Nhân Hóa";
+"noInsightsAvailableYet" = "Chưa có thông tin chi tiết nào";
+"recommendations" = "Khuyến Nghị";
+"noRecommendationsAtThisTime" = "Không có khuyến nghị vào lúc này";
+"learningTips" = "Mẹo Học Tập";
+"spacedRepetition" = "Lặp Lại Có Khoảng Cách";
+"spacedRepetitionDescription" = "Xem lại thẻ với các khoảng thời gian tăng dần để ghi nhớ tốt hơn.";
+"activeRecall" = "Nhớ Chủ Động";
+"activeRecallDescription" = "Cố gắng nhớ câu trả lời trước khi lật thẻ.";
+"contextLearning" = "Học Theo Ngữ Cảnh";
+"contextLearningDescription" = "Học từ trong câu thay vì riêng lẻ.";
+"studyNow" = "Học Ngay";
+"startReview" = "Bắt Đầu Xem Lại";
+"browseCollections" = "Duyệt Bộ Sưu Tập";
+"practiceMode" = "Chế Độ Luyện Tập";
+
+

@@ -1,0 +1,13 @@
+/*
+  card_views.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: zh-Hant
+  Section: card_views
+*/
+
+"flip" = "翻轉";
+"tapToGoBack" = "點擊返回";
+
+

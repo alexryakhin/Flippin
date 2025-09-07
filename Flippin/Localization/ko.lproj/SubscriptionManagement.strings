@@ -1,0 +1,29 @@
+/*
+  subscription_management.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ko
+  Section: subscription_management
+*/
+
+"subscription" = "구독";
+"subscriptionStatus" = "구독 상태";
+"activeSubscription" = "활성 구독";
+"manageSubscription" = "구독 관리";
+
+"done" = "완료";
+"cancel" = "취소";
+"delete" = "삭제";
+"edit" = "편집";
+"save" = "저장";
+"searchCards" = "카드 검색...";
+"noCardsAvailable" = "사용 가능한 카드가 없습니다";
+"noAccuracyDataAvailable" = "정확도 데이터 없음";
+"noGrowthDataAvailable" = "성장 데이터 없음";
+"date" = "날짜";
+"accuracy" = "정확도";
+"masteredCards" = "숙달한 카드";
+"invalidJSON" = "유효하지 않은 JSON 데이터";
+
+

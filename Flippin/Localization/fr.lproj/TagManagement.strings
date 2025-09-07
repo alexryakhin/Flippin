@@ -1,0 +1,27 @@
+/*
+  tag_management.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: fr
+  Section: tag_management
+*/
+
+"availableTags" = "Étiquettes Disponibles";
+"noTagsAvailable" = "Aucune étiquette disponible";
+"manageTagsInSettings" = "Gérez les étiquettes dans les paramètres.";
+"toSettings" = "Vers les paramètres";
+"newTagName" = "Nom de la nouvelle étiquette";
+"add" = "Ajouter";
+"addTag" = "Ajouter une Étiquette";
+"tagsManagement" = "Gestion des Étiquettes";
+"filterByTag" = "Filtrer par Étiquette";
+"filterByLanguage" = "Filtrer par Langue";
+"filterByLanguageDescription" = "Afficher uniquement les cartes qui correspondent à vos langues sélectionnées";
+"filterByFavorites" = "Filtrer par Favoris";
+"showAllCards" = "Afficher Toutes les Cartes";
+"showFavoritesOnly" = "Afficher Seulement les Favoris";
+"noFavoriteCards" = "Aucune Carte Favorite";
+"noFavoriteCardsDescription" = "Vous n'avez pas encore marqué de cartes comme favorites";
+
+

@@ -1,0 +1,36 @@
+/*
+  welcome_screen.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: hr
+  Section: welcome_screen
+*/
+
+"welcomeScreenTitle" = "Dobrodošli u Flippin!";
+"welcomeScreenMessage" = "Flippin vam pomaže učiti jezike za putovanja, studij ili svakodnevni razgovor koristeći pametne kartice.";
+"myLanguage" = "Moj jezik";
+"myLanguageDesc" = "Vaš materinski jezik";
+"imLearning" = "Učim";
+"imLearningDesc" = "Jezik koji želite učiti";
+"continueButton" = "Nastavi";
+"back" = "Natrag";
+"getStarted" = "Započni";
+"chooseLanguages" = "Odaberite Svoje Jezike";
+"chooseLanguagesDesc" = "Odaberite svoj materinski jezik i jezik koji želite učiti";
+"readyToStart" = "Sve Je Spremno!";
+"readyToStartDesc" = "Vaše putovanje učenja jezika počinje sada";
+"featureLearning" = "Automatsko Prevođenje";
+"featureLearningDesc" = "Prevođenje u stvarnom vremenu dok tipkate";
+"featureLanguages" = "17 Jezika";
+"featureLanguagesDesc" = "Podrška za glavne svjetske jezike";
+"featureSmart" = "Tekst-u-govor";
+"featureSmartDesc" = "Slušajte izgovor s TTS tehnologijom";
+"featureAnalytics" = "Analitika učenja";
+"featureAnalyticsDesc" = "Pratite svoj napredak i dobijte personalizirane uvide";
+"finalFeatureAdd" = "Stvorite prilagođene kartice";
+"finalFeaturePractice" = "Vježbajte s audio izgovorom";
+"finalFeatureProgress" = "Organizirajte s oznakama i favoritima";
+"finalFeatureModes" = "Višestruki načini vježbanja";
+
+

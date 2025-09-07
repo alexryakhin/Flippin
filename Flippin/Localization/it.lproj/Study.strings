@@ -1,0 +1,62 @@
+/*
+  study.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: it
+  Section: study
+*/
+
+"study" = "Studia";
+"practice" = "Pratica";
+"studyMode" = "Modalità Studio";
+"practiceMode" = "Modalità Pratica";
+"quickStats" = "Statistiche Rapide";
+"studyOptions" = "Opzioni di Studio";
+"practiceOptions" = "Opzioni di Pratica";
+"recentActivity" = "Attività Recente";
+"totalCards" = "Totale Carte";
+"mastered" = "Padroneggiate";
+"difficultCards" = "Carte Difficili";
+"studyTimeToday" = "Tempo di Studio Oggi";
+"practiceTimeToday" = "Tempo di Pratica Oggi";
+"startStudySession" = "Inizia Sessione di Studio (10 carte)";
+"startPracticeSession" = "Inizia Sessione di Pratica (10 carte)";
+"practiceAllCards" = "Pratica Tutte le Carte (%d)";
+"practiceDifficultCards" = "Pratica Carte Difficili (%d)";
+"multipleChoiceQuiz" = "Quiz a Scelta Multipla";
+"fillInTheBlank" = "Riempi lo Spazio (%d)";
+"unlockAllStudyModes" = "Sblocca Tutte le Modalità di Studio";
+"unlockAllPracticeModes" = "Sblocca Tutte le Modalità di Pratica";
+"noStudyData" = "Nessun Dato di Studio";
+"noPracticeData" = "Nessun Dato di Pratica";
+"startStudyingToSeeProgress" = "Inizia a studiare per vedere i tuoi progressi!";
+"startPracticingToSeeProgress" = "Inizia a praticare per vedere i tuoi progressi!";
+"toCards" = "Alle carte";
+"totalStudyTime" = "Tempo Totale di Studio";
+"totalPracticeTime" = "Tempo Totale di Pratica";
+"averageSession" = "Sessione Media";
+"learningProgress" = "Progresso di Apprendimento";
+"exit" = "Esci";
+"showAnswer" = "Mostra Risposta";
+"incorrect" = "Sbagliato";
+"correct" = "Corretto";
+"studySessionComplete" = "Sessione di Studio Completata!";
+"practiceSessionComplete" = "Sessione di Pratica Completata!";
+"accuracy" = "Precisione";
+"cardsStudied" = "Carte Studiate";
+"cardsPracticed" = "Carte Praticate";
+"timeSpent" = "Tempo Trascorso";
+"studyAgain" = "Studia di Nuovo";
+"practiceAgain" = "Pratica di Nuovo";
+"done" = "Fatto";
+"selectCorrectTranslation" = "Seleziona la traduzione corretta";
+"fillInMissingWord" = "Completa la parola mancante";
+"completeSentence" = "Completa la frase";
+"chooseCorrectWord" = "Scegli la parola corretta:";
+"correctAnswer" = "Risposta Corretta";
+"translateTo" = "Traduci in %@";
+"studyProgress" = "%d di %d";
+"practiceProgress" = "%d di %d";
+
+

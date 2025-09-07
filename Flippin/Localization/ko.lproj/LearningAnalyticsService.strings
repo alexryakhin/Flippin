@@ -1,0 +1,66 @@
+/*
+  learning_analytics_service.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ko
+  Section: learning_analytics_service
+*/
+
+"notEnoughData" = "데이터 부족";
+"morning" = "아침 (6-12시)";
+"afternoon" = "오후 (12-17시)";
+"evening" = "저녁 (17-21시)";
+"night" = "밤 (21-6시)";
+"under10Minutes" = "10분 미만";
+"tenTo20Minutes" = "10-20분";
+"twentyTo30Minutes" = "20-30분";
+"thirtyTo60Minutes" = "30-60분";
+"over60Minutes" = "60분 초과";
+"onceThisWeek" = "이번 주 한 번";
+"fewTimesThisWeek" = "이번 주 몇 번";
+"mostDaysThisWeek" = "이번 주 대부분의 날";
+"daily" = "매일";
+"veryEasy" = "매우 쉬움";
+"easy" = "쉬움";
+"medium" = "중간";
+"hard" = "어려움";
+"veryHard" = "매우 어려움";
+"unknown" = "알 수 없음";
+"completedStudySession" = "공부 세션 완료";
+"reviewedCardsInTime" = "%@에 %d개 카드 검토";
+"recent" = "최근";
+"reachedCardsMastered" = "%d개 카드 숙달";
+"greatProgressBuildingFoundation" = "훌륭한 진전! 견고한 기반을 만들고 있습니다.";
+"first10CardsMastered" = "첫 10개 카드 숙달";
+"sevenDayStudyStreak" = "7일 연속 공부";
+"fiftyCardsMastered" = "50개 카드 숙달";
+"thirtyDayStudyStreak" = "30일 연속 공부";
+"completed" = "완료";
+"inProgress" = "진행 중";
+"youreMostProductiveIn" = "당신은 %@에 가장 생산적입니다";
+"studySessionsDuringThisTime" = "이 시간대의 공부 세션은 더 높은 집중력과 기억력을 보여줍니다.";
+"optimalSessionLength" = "최적 세션 길이";
+"yourSessionsShowBestResults" = "%@ 세션이 최고의 결과를 보여줍니다.";
+"consistentLearningPattern" = "일관된 학습 패턴";
+"yourStudyRoutineWorkingWell" = "%@의 공부 루틴이 잘 작동하고 있습니다.";
+"improvingAccuracy" = "정확도 향상";
+"recentAccuracyHigherThanBefore" = "최근 정확도가 이전보다 %d%% 높습니다.";
+"focusOnAccuracy" = "정확도에 집중";
+"recentAccuracyDecreased" = "최근 정확도가 감소했습니다. 어려운 카드를 검토해 보세요.";
+"excellentProgress" = "훌륭한 진행";
+"masteredVocabularyPercentage" = "어휘의 %d%%를 숙달했습니다!";
+"goodFoundation" = "좋은 기반";
+"masteredVocabularyKeepGoing" = "어휘의 %d%%를 숙달했습니다. 계속하세요!";
+"reviewDifficultCards" = "어려운 카드 검토";
+"cardsNeedMorePractice" = "%d개 카드가 더 많은 연습이 필요합니다. 정확도를 높이기 위해 이에 집중하세요.";
+"addMoreVocabulary" = "어휘 추가";
+"masteredMostCurrentCards" = "현재 카드의 대부분을 숙달했습니다. 새로운 도전에 준비되셨습니다!";
+"extendYourStreak" = "연속 유지";
+"daysAwayFromAchievement" = "새로운 업적까지 %d일 남았습니다!";
+"buildConsistency" = "일관성 구축";
+"tryToStudyDaily" = "견고한 학습 습관을 만들기 위해 매일 공부해 보세요.";
+"improveAccuracy" = "정확도 향상";
+"accuracyPercentageFocusQuality" = "당신의 정확도는 %d%%입니다. 속도보다 품질에 집중하세요.";
+
+

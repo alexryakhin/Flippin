@@ -1,0 +1,28 @@
+/*
+  languages.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: uk
+  Section: languages
+*/
+
+"english" = "Англійська";
+"spanish" = "Іспанська";
+"french" = "Французька";
+"german" = "Німецька";
+"italian" = "Італійська";
+"portuguese" = "Португальська";
+"dutch" = "Голландська";
+"swedish" = "Шведська";
+"chinese" = "Китайська";
+"japanese" = "Японська";
+"korean" = "Корейська";
+"vietnamese" = "В’єтнамська";
+"russian" = "Російська";
+"arabic" = "Арабська";
+"hindi" = "Гінді";
+"croatian" = "Хорватська";
+"ukrainian" = "Українська";
+
+

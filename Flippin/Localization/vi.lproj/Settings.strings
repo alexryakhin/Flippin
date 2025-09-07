@@ -1,0 +1,22 @@
+/*
+  settings.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: vi
+  Section: settings
+*/
+
+"languages" = "Ngôn ngữ";
+"cardDisplay" = "Hiển Thị Thẻ";
+"cardDisplayMode" = "Chế Độ Hiển Thị Thẻ";
+"learningMode" = "Chế Độ Học";
+"travelMode" = "Chế Độ Du Lịch";
+"learningModeDescription" = "Hiển thị ngôn ngữ mục tiêu trước (để học)";
+"travelModeDescription" = "Hiển thị ngôn ngữ mẹ đẻ trước (để du lịch)";
+"previewBackgrounds" = "Xem trước nền";
+"cardManagement" = "Quản lý thẻ";
+"cardManagementDescription" = "Tìm kiếm, chỉnh sửa và tổ chức thẻ học của bạn";
+"manageCards" = "Quản lý thẻ";
+
+

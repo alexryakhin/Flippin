@@ -1,0 +1,20 @@
+/*
+  content_views.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: sv
+  Section: content_views
+*/
+
+"noCardsYet" = "Inga kort ännu";
+"tapToAddFirstCard" = "Tryck på + knappen för att lägga till ditt första kort";
+"noCardsWithSelectedTag" = "Inga kort med vald tagg";
+"noCardsFoundWithTag" = "Inga kort hittades med taggen \"%@\"";
+"noCardsAvailable" = "Inga kort tillgängliga";
+"noCardsFound" = "Inga kort hittades";
+"addFirstCardToStartLearning" = "Lägg till ditt första kort för att börja lära dig";
+"noCardsMatchSearch" = "Inga kort matchar din sökning";
+"noCardsForLanguagePair" = "Inga kort för detta språkpar";
+
+

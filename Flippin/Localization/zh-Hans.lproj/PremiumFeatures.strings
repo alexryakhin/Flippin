@@ -1,0 +1,39 @@
+/*
+  premium_features.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: zh-Hans
+  Section: premium_features
+*/
+
+"premiumFeature" = "高级功能";
+"premiumRequired" = "需要高级版";
+"upgradeToPremium" = "升级到高级版";
+"premiumFeatureDescription" = "访问所有预设集合并解锁语言学习的无限潜力";
+"previewBackgrounds" = "预览";
+"colorScheme" = "颜色方案";
+"colorSchemeSystem" = "系统";
+"colorSchemeLight" = "浅色";
+"colorSchemeDark" = "深色";
+"unlockPremium" = "解锁高级版";
+"masterLanguageLearning" = "通过专属功能掌握语言学习";
+"usedCardsOfLimit" = "您已使用 %d 张免费卡片中的 %d 张";
+"whatYouGetWithPremium" = "高级版包含的内容";
+"unlimitedCardsDescription" = "创建任意数量的学习卡片";
+"collections" = "30+ 合集";
+"collectionsDescription" = "访问所有预设词汇合集";
+"premiumBackgrounds" = "高级背景";
+"premiumBackgroundsDescription" = "精美的动画背景";
+"changeLanguages" = "更改语言";
+"changeLanguagesDescription" = "随时在不同语言对之间切换";
+"multipleLanguagesTitle" = "多语言";
+"multipleLanguagesDescription" = "能够同时学习多种语言";
+"restorePurchases" = "恢复购买";
+"cancelAnytime" = "随时取消 • 无承诺";
+"terms" = "条款";
+"privacy" = "隐私";
+"goPremium" = "升级到高级版";
+"premium" = "高级版";
+
+

@@ -1,0 +1,54 @@
+/*
+  analytics.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: hr
+  Section: analytics
+*/
+
+"analytics" = "Analitika";
+"detailedAnalytics" = "Detaljna Analitika";
+"today" = "Danas";
+"noAnalyticsData" = "Nema Podataka Analitike";
+"startStudyingToSeeProgress" = "Počni učiti da vidiš svoj napredak u učenju!";
+"unlockAdvancedAnalytics" = "Otključaj Naprednu Analitiku";
+"detailedProgressReports" = "Detaljni Izvještaji o Napretku";
+"detailedProgressReportsDescription" = "Prati svoje obrasce učenja i poboljšanja tijekom vremena";
+"performanceInsights" = "Uvid u Performanse";
+"performanceInsightsDescription" = "Dobij personalizirane preporuke za poboljšanje svojih navika učenja";
+"studyTimeAnalytics" = "Analitika Vremena Učenja";
+"studyTimeAnalyticsDescription" = "Analiziraj svoje sesije učenja i optimiziraj svoje učenje";
+"upgradeToPremium" = "Nadogradi na Premium";
+"recentActivity" = "Nedavna Aktivnost";
+"viewAll" = "Pogledaj Sve";
+"noRecentActivity" = "Nema Nedavne Aktivnosti";
+"studySessionsWillAppearHere" = "Tvoje sesije učenja pojavit će se ovdje";
+"lastStudySession" = "Posljednja Sesija Učenja";
+"cardsStudiedToday" = "Kartice Proučene Danas";
+"studyStreak" = "Niz Učenja";
+"totalStudyTime" = "Ukupno Vrijeme Učenja";
+"cardsMastered" = "Savladane Kartice";
+"todaysStudy" = "Današnje Učenje";
+"time" = "Vrijeme";
+"cardsStudied" = "Proučene Kartice";
+"sessions" = "Sesije";
+"accuracy" = "Točnost";
+"studyTime" = "Vrijeme Učenja";
+"practiceTime" = "Vrijeme Vježbanja";
+"timeRange" = "Vremenski Raspon";
+"masteryProgress" = "Napredak Savladavanja";
+"mastered" = "Savladano";
+"learning" = "Učenje";
+"needsReview" = "Potrebna Revizija";
+"week" = "Tjedan";
+"month" = "Mjesec";
+"year" = "Godina";
+"allTime" = "Sve Vrijeme";
+"overview" = "Pregled";
+"performance" = "Performanse";
+"progress" = "Napredak";
+"insights" = "Uvidi";
+"noStudyDataAvailable" = "Nema dostupnih podataka o učenju";
+
+

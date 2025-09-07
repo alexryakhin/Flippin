@@ -1,0 +1,54 @@
+/*
+  analytics.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ja
+  Section: analytics
+*/
+
+"analytics" = "分析";
+"detailedAnalytics" = "詳細分析";
+"today" = "今日";
+"noAnalyticsData" = "分析データなし";
+"startStudyingToSeeProgress" = "学習の進捗を確認するために学習を開始してください！";
+"unlockAdvancedAnalytics" = "高度な分析をアンロック";
+"detailedProgressReports" = "詳細な進捗レポート";
+"detailedProgressReportsDescription" = "時間ごとの学習パターンと改善を追跡";
+"performanceInsights" = "パフォーマンスインサイト";
+"performanceInsightsDescription" = "学習習慣を改善するためのパーソナライズされた提案";
+"studyTimeAnalytics" = "学習時間分析";
+"studyTimeAnalyticsDescription" = "学習セッションを分析し、学習を最適化";
+"upgradeToPremium" = "プレミアムにアップグレード";
+"recentActivity" = "最近のアクティビティ";
+"viewAll" = "すべて表示";
+"noRecentActivity" = "最近のアクティビティなし";
+"studySessionsWillAppearHere" = "学習セッションはここに表示されます";
+"lastStudySession" = "最後の学習セッション";
+"cardsStudiedToday" = "今日学習したカード";
+"studyStreak" = "学習継続日数";
+"totalStudyTime" = "総学習時間";
+"cardsMastered" = "習得したカード";
+"todaysStudy" = "今日の学習";
+"time" = "時間";
+"cardsStudied" = "学習したカード";
+"sessions" = "セッション";
+"accuracy" = "正確性";
+"studyTime" = "学習時間";
+"practiceTime" = "練習時間";
+"timeRange" = "時間範囲";
+"masteryProgress" = "習得進捗";
+"mastered" = "習得済み";
+"learning" = "学習中";
+"needsReview" = "復習が必要";
+"week" = "週";
+"month" = "月";
+"year" = "年";
+"allTime" = "全期間";
+"overview" = "概要";
+"performance" = "パフォーマンス";
+"progress" = "進捗";
+"insights" = "インサイト";
+"noStudyDataAvailable" = "学習データが利用できません";
+
+

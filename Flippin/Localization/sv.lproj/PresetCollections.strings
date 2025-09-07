@@ -1,0 +1,27 @@
+/*
+  preset_collections.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: sv
+  Section: preset_collections
+*/
+
+"presetCollections" = "Fördefinierade Samlingar";
+"seeAllCollections" = "Se Alla";
+"importCollection" = "Importera Samling";
+"importButton" = "Importera";
+"importCollectionMessage" = "Importera %@ med %d kort till din samling?";
+"noCollectionsFound" = "Inga samlingar hittades";
+"tryAdjustingSearch" = "Försök att justera din sökning eller filterkriterier";
+"getStartedWithCollections" = "Börja med kuraterade kortuppsättningar för vanliga ämnen och situationer";
+"searchCollections" = "Sök samlingar...";
+"allCategories" = "Alla";
+"myLanguageSettings" = "Mitt Språk";
+"targetLanguage" = "Målspråk";
+"theme" = "Tema";
+"color" = "Färg";
+"backgroundStyle" = "Bakgrundsstil";
+"tapToSeeFullScreen" = "Tryck för att se helskärm";
+
+

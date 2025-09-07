@@ -1,0 +1,19 @@
+/*
+  add_card.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: vi
+  Section: add_card
+*/
+
+"enterTextInYourLanguage" = "Nhập văn bản bằng ngôn ngữ của bạn";
+"enterTextInTargetLanguage" = "Nhập văn bản bằng ngôn ngữ mục tiêu";
+"addNotesOptional" = "Thêm ghi chú (tùy chọn)";
+"notes" = "Ghi chú";
+"tagsCount" = "Nhãn (%d/5)";
+"noTagsAvailableAddInSettings" = "Không có nhãn nào khả dụng. Thêm một số nhãn trong Cài đặt.";
+"translating" = "Đang dịch...";
+"translationWillAppearHere" = "Bản dịch sẽ xuất hiện ở đây";
+
+

@@ -1,0 +1,13 @@
+/*
+  card_views.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: sv
+  Section: card_views
+*/
+
+"flip" = "Vänd";
+"tapToGoBack" = "Tryck för att gå tillbaka";
+
+

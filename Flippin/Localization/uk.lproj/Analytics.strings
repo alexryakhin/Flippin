@@ -1,0 +1,54 @@
+/*
+  analytics.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: uk
+  Section: analytics
+*/
+
+"analytics" = "Аналіз";
+"detailedAnalytics" = "Детальний Аналіз";
+"today" = "Сьогодні";
+"noAnalyticsData" = "Немає Аналітичних Даних";
+"startStudyingToSeeProgress" = "Почніть вивчати, щоб побачити ваш прогрес у навчанні!";
+"unlockAdvancedAnalytics" = "Розблокувати Розширений Аналіз";
+"detailedProgressReports" = "Детальні Звіти про Прогрес";
+"detailedProgressReportsDescription" = "Відстежуйте свої моделі навчання та покращення з часом";
+"performanceInsights" = "Інсайти Продуктивності";
+"performanceInsightsDescription" = "Отримуйте персоналізовані рекомендації для покращення ваших звичок навчання";
+"studyTimeAnalytics" = "Аналіз Часу Вивчення";
+"studyTimeAnalyticsDescription" = "Аналізуйте свої сесії вивчення та оптимізуйте ваше навчання";
+"upgradeToPremium" = "Перейти на Преміум";
+"recentActivity" = "Остання Активність";
+"viewAll" = "Переглянути Все";
+"noRecentActivity" = "Немає Останньої Активності";
+"studySessionsWillAppearHere" = "Ваші сесії вивчення з’являться тут";
+"lastStudySession" = "Остання Сесія Вивчення";
+"cardsStudiedToday" = "Картки, Вивчені Сьогодні";
+"studyStreak" = "Серія Вивчення";
+"totalStudyTime" = "Загальний Час Вивчення";
+"cardsMastered" = "Опановано Карток";
+"todaysStudy" = "Сьогоднішнє Вивчення";
+"time" = "Час";
+"cardsStudied" = "Вивчені Картки";
+"sessions" = "Сесії";
+"accuracy" = "Точність";
+"studyTime" = "Час Вивчення";
+"practiceTime" = "Час Практики";
+"timeRange" = "Часовий Діапазон";
+"masteryProgress" = "Прогрес Оволодіння";
+"mastered" = "Опановано";
+"learning" = "Навчання";
+"needsReview" = "Потрібен Перегляд";
+"week" = "Тиждень";
+"month" = "Місяць";
+"year" = "Рік";
+"allTime" = "Весь Час";
+"overview" = "Огляд";
+"performance" = "Продуктивність";
+"progress" = "Прогрес";
+"insights" = "Інсайти";
+"noStudyDataAvailable" = "Немає даних вивчення";
+
+

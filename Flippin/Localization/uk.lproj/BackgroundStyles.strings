@@ -1,0 +1,23 @@
+/*
+  background_styles.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: uk
+  Section: background_styles
+*/
+
+"gradient" = "Градієнт";
+"lavaLamp" = "Лавова Лампа";
+"snow" = "Сніг";
+"rain" = "Дощ";
+"stars" = "Зірки";
+"bubbles" = "Бульбашки";
+"waves" = "Хвилі";
+"particles" = "Частинки";
+"aurora" = "Північне Сяйво";
+"fireflies" = "Світлячки";
+"ocean" = "Океан";
+"galaxy" = "Галактика";
+
+

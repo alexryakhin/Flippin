@@ -1,0 +1,17 @@
+/*
+  card_limits.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: hr
+  Section: card_limits
+*/
+
+"cardsUsedOfLimit" = "%d od %d kartica";
+"cardLimitExceeded" = "Dostignuta granica kartica. Imate %d od %d dopuštenih kartica. Nadogradite na Premium za neograničene kartice.";
+"freeUsersLimitedTo" = "Besplatni korisnici ograničeni su na %d kartica";
+"purchaseUnlimitedCards" = "Kupite neograničene kartice za dodavanje više kartica u svoju kolekciju";
+"upgrade" = "Nadogradi";
+"unlimitedCards" = "Neograničene Kartice";
+
+

@@ -1,0 +1,66 @@
+/*
+  learning_analytics_service.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: uk
+  Section: learning_analytics_service
+*/
+
+"notEnoughData" = "Недостатньо даних";
+"morning" = "Ранок (6-12)";
+"afternoon" = "День (12-17)";
+"evening" = "Вечір (17-21)";
+"night" = "Ніч (21-6)";
+"under10Minutes" = "Менше 10 хвилин";
+"tenTo20Minutes" = "10-20 хвилин";
+"twentyTo30Minutes" = "20-30 хвилин";
+"thirtyTo60Minutes" = "30-60 хвилин";
+"over60Minutes" = "Понад 60 хвилин";
+"onceThisWeek" = "Один раз цього тижня";
+"fewTimesThisWeek" = "Кілька разів цього тижня";
+"mostDaysThisWeek" = "Більшість днів цього тижня";
+"daily" = "Щоденно";
+"veryEasy" = "Дуже Легко";
+"easy" = "Легко";
+"medium" = "Середньо";
+"hard" = "Складно";
+"veryHard" = "Дуже Складно";
+"unknown" = "Невідомо";
+"completedStudySession" = "Сесію Вивчення Завершено";
+"reviewedCardsInTime" = "Переглянуто %d карток за %@";
+"recent" = "Нещодавно";
+"reachedCardsMastered" = "Опановано %d карток";
+"greatProgressBuildingFoundation" = "Чудовий прогрес! Ви будуєте міцну основу.";
+"first10CardsMastered" = "Перші 10 карток опановано";
+"sevenDayStudyStreak" = "Семиденна серія вивчення";
+"fiftyCardsMastered" = "П’ятдесят карток опановано";
+"thirtyDayStudyStreak" = "Тридцятиденна серія вивчення";
+"completed" = "Завершено";
+"inProgress" = "В процесі";
+"youreMostProductiveIn" = "Ви найбільш продуктивні в %@";
+"studySessionsDuringThisTime" = "Ваші сесії вивчення в цей час показують кращий фокус і запам’ятовування.";
+"optimalSessionLength" = "Оптимальна Тривалість Сесії";
+"yourSessionsShowBestResults" = "Ваші сесії тривалістю %@ показують найкращі результати.";
+"consistentLearningPattern" = "Послідовний Шаблон Навчання";
+"yourStudyRoutineWorkingWell" = "Ваша рутина вивчення на %@ працює добре.";
+"improvingAccuracy" = "Покращення Точності";
+"recentAccuracyHigherThanBefore" = "Ваша остання точність на %d%% вища, ніж раніше.";
+"focusOnAccuracy" = "Фокус на Точності";
+"recentAccuracyDecreased" = "Ваша остання точність знизилася. Розгляньте повторення складних карток.";
+"excellentProgress" = "Відмінний Прогрес";
+"masteredVocabularyPercentage" = "Ви опанували %d%% вашого словникового запасу!";
+"goodFoundation" = "Хороша Основа";
+"masteredVocabularyKeepGoing" = "Ви опанували %d%% вашого словникового запасу. Продовжуйте!";
+"reviewDifficultCards" = "Переглянути Складні Картки";
+"cardsNeedMorePractice" = "%d карток потребують більше практики. Зосередьтеся на них для покращення точності.";
+"addMoreVocabulary" = "Додати Більше Словникового Запасу";
+"masteredMostCurrentCards" = "Ви опанували більшість поточних карток. Готові до нових викликів!";
+"extendYourStreak" = "Продовжити Серію";
+"daysAwayFromAchievement" = "Ви за %d днів від нової досягнення!";
+"buildConsistency" = "Побудувати Послідовність";
+"tryToStudyDaily" = "Спробуйте вчитися щодня, щоб сформувати міцну звичку навчання.";
+"improveAccuracy" = "Покращити Точність";
+"accuracyPercentageFocusQuality" = "Ваша точність становить %d%%. Зосередьтеся на якості, а не на швидкості.";
+
+

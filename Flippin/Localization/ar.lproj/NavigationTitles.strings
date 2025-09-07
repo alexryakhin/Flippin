@@ -1,0 +1,17 @@
+/*
+  navigation_titles.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ar
+  Section: navigation_titles
+*/
+
+"addCard" = "إضافة بطاقة";
+"addNewCard" = "إضافة بطاقة جديدة";
+"settings" = "الإعدادات";
+"myCards" = "بطاقاتي";
+"backgroundStyles" = "أنماط الخلفية";
+"backgroundDemo" = "عرض الخلفية";
+
+

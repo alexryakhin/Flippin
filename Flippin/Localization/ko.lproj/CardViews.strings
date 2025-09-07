@@ -1,0 +1,13 @@
+/*
+  card_views.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ko
+  Section: card_views
+*/
+
+"flip" = "뒤집기";
+"tapToGoBack" = "돌아가려면 탭하세요";
+
+

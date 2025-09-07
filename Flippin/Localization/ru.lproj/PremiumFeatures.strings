@@ -1,0 +1,39 @@
+/*
+  premium_features.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ru
+  Section: premium_features
+*/
+
+"premiumFeature" = "Премиум функция";
+"premiumRequired" = "Требуется премиум";
+"upgradeToPremium" = "Обновить до премиум";
+"premiumFeatureDescription" = "Получите доступ ко всем предустановленным коллекциям и откройте неограниченный потенциал изучения языков";
+"previewBackgrounds" = "Предварительный просмотр";
+"colorScheme" = "Цветовая схема";
+"colorSchemeSystem" = "Системная";
+"colorSchemeLight" = "Светлая";
+"colorSchemeDark" = "Темная";
+"unlockPremium" = "Разблокировать премиум";
+"masterLanguageLearning" = "Освойте изучение языков с эксклюзивными функциями";
+"usedCardsOfLimit" = "Вы использовали %d из %d бесплатных карточек";
+"whatYouGetWithPremium" = "Что вы получаете с премиум";
+"unlimitedCardsDescription" = "Создавайте столько карточек, сколько хотите";
+"collections" = "30+ коллекций";
+"collectionsDescription" = "Доступ ко всем предустановленным коллекциям слов";
+"premiumBackgrounds" = "Премиум фоны";
+"premiumBackgroundsDescription" = "Красивые анимированные фоны";
+"changeLanguages" = "Изменение языков";
+"changeLanguagesDescription" = "Переключайтесь между различными языковыми парами в любое время";
+"multipleLanguagesTitle" = "Множественные языки";
+"multipleLanguagesDescription" = "Возможность изучать несколько языков одновременно";
+"restorePurchases" = "Восстановить покупки";
+"cancelAnytime" = "Отменить в любое время • Без обязательств";
+"terms" = "Условия";
+"privacy" = "Конфиденциальность";
+"goPremium" = "Перейти на премиум";
+"premium" = "Премиум";
+
+

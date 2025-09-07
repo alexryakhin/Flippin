@@ -1,0 +1,28 @@
+/*
+  buttons.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ar
+  Section: buttons
+*/
+
+"done" = "تم";
+"cancel" = "إلغاء";
+"save" = "حفظ";
+"close" = "إغلاق";
+"clear" = "مسح";
+"clearFilter" = "مسح المرشح";
+"clearSearch" = "مسح البحث";
+"addCardButton" = "إضافة بطاقة";
+"edit" = "تعديل";
+"editCard" = "تعديل البطاقة";
+"delete" = "حذف";
+"deleteCard" = "حذف البطاقة";
+"deleteCardConfirmation" = "هل أنت متأكد من أنك تريد حذف هذه البطاقة؟ لا يمكن التراجع عن هذا الإجراء.";
+"deleteAll" = "حذف الكل";
+"deleteAllCards" = "حذف جميع البطاقات";
+"deleteAllCardsConfirmation" = "هل أنت متأكد من أنك تريد حذف جميع البطاقات؟ لا يمكن التراجع عن هذا الإجراء.";
+"ok" = "موافق";
+
+

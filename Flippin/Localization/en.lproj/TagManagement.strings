@@ -1,0 +1,27 @@
+/*
+  tag_management.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: en
+  Section: tag_management
+*/
+
+"availableTags" = "Available Tags";
+"noTagsAvailable" = "No tags available";
+"manageTagsInSettings" = "Manage tags in the settings.";
+"toSettings" = "To settings";
+"newTagName" = "New tag name";
+"add" = "Add";
+"addTag" = "Add Tag";
+"tagsManagement" = "Tags Management";
+"filterByTag" = "Filter by Tag";
+"filterByLanguage" = "Filter by Language";
+"filterByLanguageDescription" = "Show only cards that match your selected languages";
+"filterByFavorites" = "Filter by Favorites";
+"showAllCards" = "Show All Cards";
+"showFavoritesOnly" = "Show Favorites Only";
+"noFavoriteCards" = "No Favorite Cards";
+"noFavoriteCardsDescription" = "You haven't marked any cards as favorites yet";
+
+

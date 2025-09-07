@@ -1,0 +1,20 @@
+/*
+  content_views.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: uk
+  Section: content_views
+*/
+
+"noCardsYet" = "Поки що немає карток";
+"tapToAddFirstCard" = "Натисніть кнопку +, щоб додати свою першу картку";
+"noCardsWithSelectedTag" = "Немає карток з вибраним тегом";
+"noCardsFoundWithTag" = "Не знайдено карток з тегом \"%@\"";
+"noCardsAvailable" = "Немає доступних карток";
+"noCardsFound" = "Картки не знайдено";
+"addFirstCardToStartLearning" = "Додайте свою першу картку, щоб почати навчання";
+"noCardsMatchSearch" = "Немає карток, що відповідають вашому пошуку";
+"noCardsForLanguagePair" = "Немає карток для цієї пари мов";
+
+

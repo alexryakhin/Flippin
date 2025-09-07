@@ -1,0 +1,62 @@
+/*
+  study.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ja
+  Section: study
+*/
+
+"study" = "学習";
+"practice" = "練習";
+"studyMode" = "学習モード";
+"practiceMode" = "練習モード";
+"quickStats" = "クイック統計";
+"studyOptions" = "学習オプション";
+"practiceOptions" = "練習オプション";
+"recentActivity" = "最近のアクティビティ";
+"totalCards" = "総カード数";
+"mastered" = "習得済み";
+"difficultCards" = "難しいカード";
+"studyTimeToday" = "今日の学習時間";
+"practiceTimeToday" = "今日の練習時間";
+"startStudySession" = "学習セッションを開始（10枚のカード）";
+"startPracticeSession" = "練習セッションを開始（10枚のカード）";
+"practiceAllCards" = "すべてのカードを練習（%d）";
+"practiceDifficultCards" = "難しいカードを練習（%d）";
+"multipleChoiceQuiz" = "多肢選択クイズ";
+"fillInTheBlank" = "空欄を埋める（%d）";
+"unlockAllStudyModes" = "すべての学習モードをアンロック";
+"unlockAllPracticeModes" = "すべての練習モードをアンロック";
+"noStudyData" = "学習データなし";
+"noPracticeData" = "練習データなし";
+"startStudyingToSeeProgress" = "進捗を確認するために学習を開始してください！";
+"startPracticingToSeeProgress" = "進捗を確認するために練習を開始してください！";
+"toCards" = "カードへ";
+"totalStudyTime" = "総学習時間";
+"totalPracticeTime" = "総練習時間";
+"averageSession" = "平均セッション";
+"learningProgress" = "学習進捗";
+"exit" = "終了";
+"showAnswer" = "答えを表示";
+"incorrect" = "不正解";
+"correct" = "正解";
+"studySessionComplete" = "学習セッション完了！";
+"practiceSessionComplete" = "練習セッション完了！";
+"accuracy" = "正確性";
+"cardsStudied" = "学習したカード";
+"cardsPracticed" = "練習したカード";
+"timeSpent" = "費やした時間";
+"studyAgain" = "もう一度学習";
+"practiceAgain" = "もう一度練習";
+"done" = "完了";
+"selectCorrectTranslation" = "正しい翻訳を選択";
+"fillInMissingWord" = "欠けている単語を入力";
+"completeSentence" = "文を完成させる";
+"chooseCorrectWord" = "正しい単語を選択：";
+"correctAnswer" = "正しい答え";
+"translateTo" = "%@に翻訳";
+"studyProgress" = "%d / %d";
+"practiceProgress" = "%d / %d";
+
+

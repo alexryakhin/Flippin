@@ -1,0 +1,36 @@
+/*
+  welcome_screen.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ja
+  Section: welcome_screen
+*/
+
+"welcomeScreenTitle" = "Flippinへようこそ！";
+"welcomeScreenMessage" = "Flippinは旅行、勉強、日常会話のためにスマートフラッシュカードを使って言語を学ぶのに役立ちます。";
+"myLanguage" = "私の言語";
+"myLanguageDesc" = "あなたの母国語";
+"imLearning" = "学習中";
+"imLearningDesc" = "学習したい言語";
+"continueButton" = "続行";
+"back" = "戻る";
+"getStarted" = "始める";
+"chooseLanguages" = "言語を選択";
+"chooseLanguagesDesc" = "母国語と学習したい言語を選択してください";
+"readyToStart" = "準備完了！";
+"readyToStartDesc" = "言語学習の旅が今始まります";
+"featureLearning" = "自動翻訳";
+"featureLearningDesc" = "入力時にリアルタイム翻訳";
+"featureLanguages" = "17言語";
+"featureLanguagesDesc" = "世界の主要言語をサポート";
+"featureSmart" = "テキスト読み上げ";
+"featureSmartDesc" = "TTS技術で発音を聞く";
+"featureAnalytics" = "学習分析";
+"featureAnalyticsDesc" = "詳細な洞察で進捗を追跡";
+"finalFeatureAdd" = "カスタムフラッシュカードを作成";
+"finalFeaturePractice" = "音声発音で練習";
+"finalFeatureProgress" = "タグとお気に入りで整理";
+"finalFeatureModes" = "複数の練習モード";
+
+

@@ -1,0 +1,22 @@
+/*
+  categories.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: zh-Hant
+  Section: categories
+*/
+
+"categoryBasics" = "基礎";
+"categoryTravel" = "旅行";
+"categoryEntertainment" = "娛樂";
+"categoryFood" = "食物";
+"categoryShopping" = "購物";
+"categorySocial" = "社交";
+"categoryWeather" = "天氣";
+"categoryTechnology" = "科技";
+"categoryLifestyle" = "生活方式";
+"categoryProfessional" = "專業";
+"categoryEmergency" = "緊急";
+
+

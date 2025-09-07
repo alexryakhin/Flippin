@@ -1,0 +1,14 @@
+# SwiftGen Configuration File
+# https://github.com/SwiftGen/SwiftGen
+
+# Localizable strings - All split files by section
+strings:
+  inputs:
+    - Flippin/Localization/en.lproj/
+  outputs:
+    - templateName: structured-swift5
+      output: Flippin/Generated/L10n.swift
+      params:
+        enumName: Loc
+        publicAccess: true
+        bundle: Bundle.main

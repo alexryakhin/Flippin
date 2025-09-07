@@ -1,0 +1,27 @@
+/*
+  tag_management.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: nl
+  Section: tag_management
+*/
+
+"availableTags" = "Beschikbare Tags";
+"noTagsAvailable" = "Geen tags beschikbaar";
+"manageTagsInSettings" = "Beheer tags in de instellingen.";
+"toSettings" = "Naar instellingen";
+"newTagName" = "Nieuwe tag naam";
+"add" = "Toevoegen";
+"addTag" = "Tag Toevoegen";
+"tagsManagement" = "Tag Beheer";
+"filterByTag" = "Filteren op Tag";
+"filterByLanguage" = "Filteren op Taal";
+"filterByLanguageDescription" = "Toon alleen kaarten die overeenkomen met uw geselecteerde talen";
+"filterByFavorites" = "Filteren op Favorieten";
+"showAllCards" = "Alle Kaarten Tonen";
+"showFavoritesOnly" = "Alleen Favorieten Tonen";
+"noFavoriteCards" = "Geen Favoriete Kaarten";
+"noFavoriteCardsDescription" = "U heeft nog geen kaarten als favoriet gemarkeerd";
+
+

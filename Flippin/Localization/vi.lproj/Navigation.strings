@@ -1,0 +1,17 @@
+/*
+  navigation.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: vi
+  Section: navigation
+*/
+
+"stack" = "Ngăn Xếp";
+"list" = "Danh Sách";
+"study" = "Học";
+"practice" = "Luyện Tập";
+"analytics" = "Phân Tích";
+"settings" = "Cài đặt";
+
+

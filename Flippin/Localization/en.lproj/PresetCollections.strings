@@ -1,0 +1,27 @@
+/*
+  preset_collections.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: en
+  Section: preset_collections
+*/
+
+"presetCollections" = "Preset Collections";
+"seeAllCollections" = "See All";
+"importCollection" = "Import Collection";
+"importButton" = "Import";
+"importCollectionMessage" = "Import %@ with %d cards to your collection?";
+"noCollectionsFound" = "No collections found";
+"tryAdjustingSearch" = "Try adjusting your search or filter criteria";
+"getStartedWithCollections" = "Get started with curated card sets for common topics and situations";
+"searchCollections" = "Search collections...";
+"allCategories" = "All";
+"myLanguageSettings" = "My Language";
+"targetLanguage" = "Target Language";
+"theme" = "Theme";
+"color" = "Color";
+"backgroundStyle" = "Background Style";
+"tapToSeeFullScreen" = "Tap to see full screen";
+
+

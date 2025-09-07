@@ -1,0 +1,67 @@
+/*
+  detailed_analytics.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: it
+  Section: detailed_analytics
+*/
+
+"analyticsTab" = "Scheda Analisi";
+"studyTimeTitle" = "Tempo di Studio";
+"practiceTimeTitle" = "Tempo di Pratica";
+"cardsMasteredTitle" = "Carte Padroneggiate";
+"studyStreakTitle" = "Serie di Studio";
+"averageSessionTitle" = "Sessione Media";
+"consecutiveDays" = "giorni consecutivi";
+"perSession" = "per sessione";
+"studyPatterns" = "Modelli di Studio";
+"mostActiveTime" = "Orario Più Attivo";
+"preferredSessionLength" = "Durata Sessione Preferita";
+"studyFrequency" = "Frequenza di Studio";
+"languageProgress" = "Progresso Linguistico";
+"collectionSize" = "Dimensione Collezione";
+"cards" = "carte";
+"achievements" = "Obiettivi";
+"firstSteps" = "Primi Passi";
+"weekWarrior" = "Guerriero della Settimana";
+"masterLearner" = "Maestro dell'Apprendimento";
+"dedicated" = "Dedicato";
+"vocabularyMaster" = "Maestro del Vocabolario";
+"timeMaster" = "Maestro del Tempo";
+"accuracyTrends" = "Tendenze di Precisione";
+"sessionPerformance" = "Prestazioni Sessione";
+"averageSessionDuration" = "Durata Media Sessione";
+"basedOnData" = "Basato sui dati di %@";
+"cardsPerSession" = "Carte per Sessione";
+"average" = "Media";
+"sessionFrequency" = "Frequenza Sessione";
+"cardDifficultyAnalysis" = "Analisi Difficoltà Carte";
+"noDifficultyDataAvailable" = "Nessun dato di difficoltà disponibile";
+"learningSpeed" = "Velocità di Apprendimento";
+"cardsPerHour" = "Carte per Ora";
+"vsAverage" = "rispetto alla media";
+"masteryTimeline" = "Cronologia di Padronanza";
+"vocabularyGrowth" = "Crescita del Vocabolario";
+"totalVocabulary" = "Vocabolario Totale";
+"thisWeek" = "Questa Settimana";
+"thisMonth" = "Questo Mese";
+"thisYear" = "Quest'Anno";
+"learningMilestones" = "Tappe di Apprendimento";
+"personalizedInsights" = "Approfondimenti Personalizzati";
+"noInsightsAvailableYet" = "Nessun approfondimento disponibile al momento";
+"recommendations" = "Raccomandazioni";
+"noRecommendationsAtThisTime" = "Nessuna raccomandazione al momento";
+"learningTips" = "Consigli per l'Apprendimento";
+"spacedRepetition" = "Ripetizione Spaziata";
+"spacedRepetitionDescription" = "Rivedi le carte a intervalli crescenti per una migliore ritenzione.";
+"activeRecall" = "Richiamo Attivo";
+"activeRecallDescription" = "Prova a ricordare la risposta prima di girare la carta.";
+"contextLearning" = "Apprendimento Contestuale";
+"contextLearningDescription" = "Impara le parole in frasi invece che isolate.";
+"studyNow" = "Studia Ora";
+"startReview" = "Inizia Revisione";
+"browseCollections" = "Sfoglia Collezioni";
+"practiceMode" = "Modalità Pratica";
+
+

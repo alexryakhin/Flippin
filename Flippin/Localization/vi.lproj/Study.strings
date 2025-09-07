@@ -1,0 +1,62 @@
+/*
+  study.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: vi
+  Section: study
+*/
+
+"study" = "Học";
+"practice" = "Luyện Tập";
+"studyMode" = "Chế Độ Học";
+"practiceMode" = "Chế Độ Luyện Tập";
+"quickStats" = "Thống Kê Nhanh";
+"studyOptions" = "Tùy Chọn Học";
+"practiceOptions" = "Tùy Chọn Luyện Tập";
+"recentActivity" = "Hoạt Động Gần Đây";
+"totalCards" = "Tổng Số Thẻ";
+"mastered" = "Đã Thành Thạo";
+"difficultCards" = "Thẻ Khó";
+"studyTimeToday" = "Thời Gian Học Hôm Nay";
+"practiceTimeToday" = "Thời Gian Luyện Tập Hôm Nay";
+"startStudySession" = "Bắt Đầu Phiên Học (10 thẻ)";
+"startPracticeSession" = "Bắt Đầu Phiên Luyện Tập (10 thẻ)";
+"practiceAllCards" = "Luyện Tập Tất Cả Thẻ (%d)";
+"practiceDifficultCards" = "Luyện Tập Thẻ Khó (%d)";
+"multipleChoiceQuiz" = "Câu Đố Trắc Nghiệm";
+"fillInTheBlank" = "Điền Vào Chỗ Trống (%d)";
+"unlockAllStudyModes" = "Mở Khóa Tất Cả Chế Độ Học";
+"unlockAllPracticeModes" = "Mở Khóa Tất Cả Chế Độ Luyện Tập";
+"noStudyData" = "Không Có Dữ Liệu Học";
+"noPracticeData" = "Không Có Dữ Liệu Luyện Tập";
+"startStudyingToSeeProgress" = "Bắt đầu học để xem tiến độ của bạn!";
+"startPracticingToSeeProgress" = "Bắt đầu luyện tập để xem tiến độ của bạn!";
+"toCards" = "Đến thẻ";
+"totalStudyTime" = "Tổng Thời Gian Học";
+"totalPracticeTime" = "Tổng Thời Gian Luyện Tập";
+"averageSession" = "Phiên Trung Bình";
+"learningProgress" = "Tiến Độ Học";
+"exit" = "Thoát";
+"showAnswer" = "Hiển Thị Câu Trả Lời";
+"incorrect" = "Sai";
+"correct" = "Đúng";
+"studySessionComplete" = "Phiên Học Hoàn Tất!";
+"practiceSessionComplete" = "Phiên Luyện Tập Hoàn Tất!";
+"accuracy" = "Độ Chính Xác";
+"cardsStudied" = "Thẻ Đã Học";
+"cardsPracticed" = "Thẻ Đã Luyện Tập";
+"timeSpent" = "Thời Gian Đã Dùng";
+"studyAgain" = "Học Lại";
+"practiceAgain" = "Luyện Tập Lại";
+"done" = "Xong";
+"selectCorrectTranslation" = "Chọn bản dịch đúng";
+"fillInMissingWord" = "Điền từ còn thiếu";
+"completeSentence" = "Hoàn thành câu";
+"chooseCorrectWord" = "Chọn từ đúng:";
+"correctAnswer" = "Câu Trả Lời Đúng";
+"translateTo" = "Dịch sang %@";
+"studyProgress" = "%d trong số %d";
+"practiceProgress" = "%d trong số %d";
+
+

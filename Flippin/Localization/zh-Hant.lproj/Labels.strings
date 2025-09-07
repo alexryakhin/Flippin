@@ -1,0 +1,16 @@
+/*
+  labels.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: zh-Hant
+  Section: labels
+*/
+
+"settingsLabel" = "設定";
+"menu" = "選單";
+"tagFilter" = "標籤篩選";
+"shuffle" = "隨機";
+"addCardLabel" = "新增卡片";
+
+

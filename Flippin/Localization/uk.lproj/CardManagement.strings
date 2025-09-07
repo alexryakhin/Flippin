@@ -1,0 +1,15 @@
+/*
+  card_management.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: uk
+  Section: card_management
+*/
+
+"noDifficultCards" = "Немає Складних Карток";
+"noDifficultCardsDescription" = "Ви ще не позначили жодної картки як складну. Вивчайте більше карток, щоб побачити рівні складності.";
+"difficultCards" = "Складні Картки";
+"failedToCreateCard" = "Не вдалося створити картку: %@";
+
+

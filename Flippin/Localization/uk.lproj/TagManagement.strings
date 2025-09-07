@@ -1,0 +1,27 @@
+/*
+  tag_management.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: uk
+  Section: tag_management
+*/
+
+"availableTags" = "Доступні Теги";
+"noTagsAvailable" = "Немає доступних тегів";
+"manageTagsInSettings" = "Керуйте тегами в налаштуваннях.";
+"toSettings" = "До налаштувань";
+"newTagName" = "Назва нового тегу";
+"add" = "Додати";
+"addTag" = "Додати Тег";
+"tagsManagement" = "Управління Тегами";
+"filterByTag" = "Фільтрувати за Тегом";
+"filterByLanguage" = "Фільтрувати за Мовою";
+"filterByLanguageDescription" = "Показувати тільки картки, які відповідають вашим вибраним мовам";
+"filterByFavorites" = "Фільтрувати за Улюбленими";
+"showAllCards" = "Показати Всі Картки";
+"showFavoritesOnly" = "Показати Лише Улюблені";
+"noFavoriteCards" = "Немає Улюблених Карток";
+"noFavoriteCardsDescription" = "Ви ще не позначили жодної картки як улюблену";
+
+

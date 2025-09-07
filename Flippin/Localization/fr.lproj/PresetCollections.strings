@@ -1,0 +1,27 @@
+/*
+  preset_collections.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: fr
+  Section: preset_collections
+*/
+
+"presetCollections" = "Collections Prédéfinies";
+"seeAllCollections" = "Voir Tout";
+"importCollection" = "Importer la Collection";
+"importButton" = "Importer";
+"importCollectionMessage" = "Importer %@ avec %d cartes dans votre collection ?";
+"noCollectionsFound" = "Aucune collection trouvée";
+"tryAdjustingSearch" = "Essayez d'ajuster votre recherche ou critères de filtre";
+"getStartedWithCollections" = "Commencez avec des ensembles de cartes organisés pour des sujets et situations courants";
+"searchCollections" = "Rechercher des collections...";
+"allCategories" = "Toutes";
+"myLanguageSettings" = "Ma Langue";
+"targetLanguage" = "Langue Cible";
+"theme" = "Thème";
+"color" = "Couleur";
+"backgroundStyle" = "Style d'Arrière-plan";
+"tapToSeeFullScreen" = "Appuyez pour voir en plein écran";
+
+

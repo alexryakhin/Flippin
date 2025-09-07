@@ -1,0 +1,23 @@
+/*
+  background_styles.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: vi
+  Section: background_styles
+*/
+
+"gradient" = "Gradient";
+"lavaLamp" = "Đèn Lava";
+"snow" = "Tuyết";
+"rain" = "Mưa";
+"stars" = "Sao";
+"bubbles" = "Bong Bóng";
+"waves" = "Sóng";
+"particles" = "Hạt";
+"aurora" = "Cực Quang";
+"fireflies" = "Đom Đóm";
+"ocean" = "Đại Dương";
+"galaxy" = "Thiên Hà";
+
+

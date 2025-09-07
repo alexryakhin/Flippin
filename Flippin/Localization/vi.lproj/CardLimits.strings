@@ -1,0 +1,17 @@
+/*
+  card_limits.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: vi
+  Section: card_limits
+*/
+
+"cardsUsedOfLimit" = "%d trong số %d thẻ";
+"cardLimitExceeded" = "Đã đạt giới hạn thẻ. Bạn đã sử dụng %d trong số %d thẻ được phép. Nâng cấp lên Premium để có thẻ không giới hạn.";
+"freeUsersLimitedTo" = "Người dùng miễn phí bị giới hạn ở %d thẻ";
+"purchaseUnlimitedCards" = "Mua thẻ không giới hạn để thêm nhiều thẻ hơn vào bộ sưu tập của bạn";
+"upgrade" = "Nâng cấp";
+"unlimitedCards" = "Thẻ Không Giới Hạn";
+
+

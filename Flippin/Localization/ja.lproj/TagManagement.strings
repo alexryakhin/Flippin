@@ -1,0 +1,27 @@
+/*
+  tag_management.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ja
+  Section: tag_management
+*/
+
+"availableTags" = "利用可能なタグ";
+"noTagsAvailable" = "利用可能なタグがありません";
+"manageTagsInSettings" = "設定でタグを管理してください。";
+"toSettings" = "設定へ";
+"newTagName" = "新しいタグ名";
+"add" = "追加";
+"addTag" = "タグを追加";
+"tagsManagement" = "タグ管理";
+"filterByTag" = "タグでフィルター";
+"filterByLanguage" = "言語でフィルター";
+"filterByLanguageDescription" = "選択した言語に一致するカードのみを表示";
+"filterByFavorites" = "お気に入りでフィルター";
+"showAllCards" = "すべてのカードを表示";
+"showFavoritesOnly" = "お気に入りのみ表示";
+"noFavoriteCards" = "お気に入りカードなし";
+"noFavoriteCardsDescription" = "まだお気に入りにしたカードはありません";
+
+

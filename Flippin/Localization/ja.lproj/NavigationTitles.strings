@@ -1,0 +1,17 @@
+/*
+  navigation_titles.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ja
+  Section: navigation_titles
+*/
+
+"addCard" = "カードを追加";
+"addNewCard" = "新しいカードを追加";
+"settings" = "設定";
+"myCards" = "マイカード";
+"backgroundStyles" = "背景スタイル";
+"backgroundDemo" = "背景デモ";
+
+

@@ -1,0 +1,17 @@
+/*
+  navigation.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: zh-Hans
+  Section: navigation
+*/
+
+"stack" = "堆栈";
+"list" = "列表";
+"study" = "学习";
+"practice" = "练习";
+"analytics" = "分析";
+"settings" = "设置";
+
+

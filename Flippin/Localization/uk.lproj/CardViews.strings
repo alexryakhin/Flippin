@@ -1,0 +1,13 @@
+/*
+  card_views.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: uk
+  Section: card_views
+*/
+
+"flip" = "Перевернути";
+"tapToGoBack" = "Натисніть, щоб повернутися";
+
+

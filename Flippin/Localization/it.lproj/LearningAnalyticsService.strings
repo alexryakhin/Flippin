@@ -1,0 +1,66 @@
+/*
+  learning_analytics_service.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: it
+  Section: learning_analytics_service
+*/
+
+"notEnoughData" = "Dati insufficienti";
+"morning" = "Mattina (6-12)";
+"afternoon" = "Pomeriggio (12-17)";
+"evening" = "Sera (17-21)";
+"night" = "Notte (21-6)";
+"under10Minutes" = "Meno di 10 minuti";
+"tenTo20Minutes" = "10-20 minuti";
+"twentyTo30Minutes" = "20-30 minuti";
+"thirtyTo60Minutes" = "30-60 minuti";
+"over60Minutes" = "Oltre 60 minuti";
+"onceThisWeek" = "Una volta questa settimana";
+"fewTimesThisWeek" = "Qualche volta questa settimana";
+"mostDaysThisWeek" = "La maggior parte dei giorni questa settimana";
+"daily" = "Quotidiano";
+"veryEasy" = "Molto Facile";
+"easy" = "Facile";
+"medium" = "Medio";
+"hard" = "Difficile";
+"veryHard" = "Molto Difficile";
+"unknown" = "Sconosciuto";
+"completedStudySession" = "Sessione di Studio Completata";
+"reviewedCardsInTime" = "Rivedute %d carte in %@";
+"recent" = "Recente";
+"reachedCardsMastered" = "Raggiunte %d carte padroneggiate";
+"greatProgressBuildingFoundation" = "Ottimo progresso! Stai costruendo una solida base.";
+"first10CardsMastered" = "Prime 10 carte padroneggiate";
+"sevenDayStudyStreak" = "Serie di studio di 7 giorni";
+"fiftyCardsMastered" = "50 carte padroneggiate";
+"thirtyDayStudyStreak" = "Serie di studio di 30 giorni";
+"completed" = "Completato";
+"inProgress" = "In corso";
+"youreMostProductiveIn" = "Sei più produttivo in %@";
+"studySessionsDuringThisTime" = "Le tue sessioni di studio durante questo periodo mostrano maggiore concentrazione e ritenzione.";
+"optimalSessionLength" = "Durata ottimale della sessione";
+"yourSessionsShowBestResults" = "Le tue sessioni di %@ mostrano i migliori risultati.";
+"consistentLearningPattern" = "Modello di apprendimento coerente";
+"yourStudyRoutineWorkingWell" = "La tua routine di studio di %@ funziona bene.";
+"improvingAccuracy" = "Miglioramento della precisione";
+"recentAccuracyHigherThanBefore" = "La tua precisione recente è %d%% più alta rispetto a prima.";
+"focusOnAccuracy" = "Concentrati sulla precisione";
+"recentAccuracyDecreased" = "La tua precisione recente è diminuita. Considera di rivedere le carte difficili.";
+"excellentProgress" = "Progresso eccellente";
+"masteredVocabularyPercentage" = "Hai padroneggiato il %d%% del tuo vocabolario!";
+"goodFoundation" = "Buona base";
+"masteredVocabularyKeepGoing" = "Hai padroneggiato il %d%% del tuo vocabolario. Continua così!";
+"reviewDifficultCards" = "Rivedi carte difficili";
+"cardsNeedMorePractice" = "%d carte necessitano di più pratica. Concentrati su queste per migliorare la precisione.";
+"addMoreVocabulary" = "Aggiungi più vocabolario";
+"masteredMostCurrentCards" = "Hai padroneggiato la maggior parte delle tue carte attuali. Pronto per nuove sfide!";
+"extendYourStreak" = "Estendi la tua serie";
+"daysAwayFromAchievement" = "Sei a %d giorni da un nuovo traguardo!";
+"buildConsistency" = "Costruisci coerenza";
+"tryToStudyDaily" = "Prova a studiare quotidianamente per costruire una solida abitudine di apprendimento.";
+"improveAccuracy" = "Migliora la precisione";
+"accuracyPercentageFocusQuality" = "La tua precisione è del %d%%. Concentrati sulla qualità piuttosto che sulla velocità.";
+
+

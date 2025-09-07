@@ -1,0 +1,27 @@
+/*
+  preset_collections.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: nl
+  Section: preset_collections
+*/
+
+"presetCollections" = "Vooraf Gedefinieerde Collecties";
+"seeAllCollections" = "Alles Bekijken";
+"importCollection" = "Collectie Importeren";
+"importButton" = "Importeren";
+"importCollectionMessage" = "%@ met %d kaarten importeren naar je collectie?";
+"noCollectionsFound" = "Geen collecties gevonden";
+"tryAdjustingSearch" = "Probeer je zoekopdracht of filtercriteria aan te passen";
+"getStartedWithCollections" = "Begin met samengestelde kaartensets voor veelvoorkomende onderwerpen en situaties";
+"searchCollections" = "Collecties zoeken...";
+"allCategories" = "Alle";
+"myLanguageSettings" = "Mijn Taal";
+"targetLanguage" = "Doeltaal";
+"theme" = "Thema";
+"color" = "Kleur";
+"backgroundStyle" = "Achtergrondstijl";
+"tapToSeeFullScreen" = "Tik om volledig scherm te zien";
+
+

@@ -1,0 +1,28 @@
+/*
+  languages.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: vi
+  Section: languages
+*/
+
+"english" = "Tiếng Anh";
+"spanish" = "Tiếng Tây Ban Nha";
+"french" = "Tiếng Pháp";
+"german" = "Tiếng Đức";
+"italian" = "Tiếng Ý";
+"portuguese" = "Tiếng Bồ Đào Nha";
+"dutch" = "Tiếng Hà Lan";
+"swedish" = "Tiếng Thụy Điển";
+"chinese" = "Tiếng Trung";
+"japanese" = "Tiếng Nhật";
+"korean" = "Tiếng Hàn";
+"vietnamese" = "Tiếng Việt";
+"russian" = "Tiếng Nga";
+"arabic" = "Tiếng Ả Rập";
+"hindi" = "Tiếng Hindi";
+"croatian" = "Tiếng Croatia";
+"ukrainian" = "Tiếng Ukraine";
+
+

@@ -1,0 +1,28 @@
+/*
+  buttons.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: vi
+  Section: buttons
+*/
+
+"done" = "Xong";
+"cancel" = "Hủy";
+"save" = "Lưu";
+"close" = "Đóng";
+"clear" = "Xóa";
+"clearFilter" = "Xóa Bộ Lọc";
+"clearSearch" = "Xóa Tìm Kiếm";
+"addCardButton" = "Thêm Thẻ";
+"edit" = "Chỉnh sửa";
+"editCard" = "Chỉnh sửa Thẻ";
+"delete" = "Xóa";
+"deleteCard" = "Xóa Thẻ";
+"deleteCardConfirmation" = "Bạn có chắc chắn muốn xóa thẻ này không? Hành động này không thể hoàn tác.";
+"deleteAll" = "Xóa Tất Cả";
+"deleteAllCards" = "Xóa Tất Cả Thẻ";
+"deleteAllCardsConfirmation" = "Bạn có chắc chắn muốn xóa tất cả thẻ không? Hành động này không thể hoàn tác.";
+"ok" = "OK";
+
+

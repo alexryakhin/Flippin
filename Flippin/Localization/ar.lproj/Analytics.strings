@@ -1,0 +1,54 @@
+/*
+  analytics.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ar
+  Section: analytics
+*/
+
+"analytics" = "تحليلات";
+"detailedAnalytics" = "تحليلات مفصلة";
+"today" = "اليوم";
+"noAnalyticsData" = "لا توجد بيانات تحليلات";
+"startStudyingToSeeProgress" = "ابدأ الدراسة لرؤية تقدم تعلمك!";
+"unlockAdvancedAnalytics" = "فتح التحليلات المتقدمة";
+"detailedProgressReports" = "تقارير تقدم مفصلة";
+"detailedProgressReportsDescription" = "تتبع أنماط تعلمك والتحسينات على مر الزمن";
+"performanceInsights" = "رؤى الأداء";
+"performanceInsightsDescription" = "احصل على توصيات مخصصة لتحسين عادات الدراسة";
+"studyTimeAnalytics" = "تحليلات وقت الدراسة";
+"studyTimeAnalyticsDescription" = "حلل جلسات دراستك وقم بتحسين تعلمك";
+"upgradeToPremium" = "الترقية إلى بريميوم";
+"recentActivity" = "النشاط الأخير";
+"viewAll" = "عرض الكل";
+"noRecentActivity" = "لا يوجد نشاط أخير";
+"studySessionsWillAppearHere" = "ستظهر جلسات دراستك هنا";
+"lastStudySession" = "آخر جلسة دراسة";
+"cardsStudiedToday" = "البطاقات التي تمت دراستها اليوم";
+"studyStreak" = "سلسلة الدراسة";
+"totalStudyTime" = "إجمالي وقت الدراسة";
+"cardsMastered" = "البطاقات التي تم إتقانها";
+"todaysStudy" = "دراسة اليوم";
+"time" = "الوقت";
+"cardsStudied" = "البطاقات التي تمت دراستها";
+"sessions" = "الجلسات";
+"accuracy" = "الدقة";
+"studyTime" = "وقت الدراسة";
+"practiceTime" = "وقت الممارسة";
+"timeRange" = "النطاق الزمني";
+"masteryProgress" = "تقدم الإتقان";
+"mastered" = "تم إتقانها";
+"learning" = "التعلم";
+"needsReview" = "يحتاج إلى مراجعة";
+"week" = "أسبوع";
+"month" = "شهر";
+"year" = "سنة";
+"allTime" = "كل الوقت";
+"overview" = "نظرة عامة";
+"performance" = "الأداء";
+"progress" = "التقدم";
+"insights" = "الرؤى";
+"noStudyDataAvailable" = "لا توجد بيانات دراسة متاحة";
+
+

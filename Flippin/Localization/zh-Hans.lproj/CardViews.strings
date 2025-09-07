@@ -1,0 +1,13 @@
+/*
+  card_views.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: zh-Hans
+  Section: card_views
+*/
+
+"flip" = "翻转";
+"tapToGoBack" = "点击返回";
+
+

@@ -1,0 +1,22 @@
+/*
+  settings.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: zh-Hant
+  Section: settings
+*/
+
+"languages" = "語言";
+"cardDisplay" = "卡片顯示";
+"cardDisplayMode" = "卡片顯示模式";
+"learningMode" = "學習模式";
+"travelMode" = "旅行模式";
+"learningModeDescription" = "首先顯示目標語言（用於學習）";
+"travelModeDescription" = "首先顯示母語（用於旅行）";
+"previewBackgrounds" = "預覽背景";
+"cardManagement" = "卡片管理";
+"cardManagementDescription" = "搜尋、編輯和組織您的學習卡片";
+"manageCards" = "管理卡片";
+
+

@@ -1,0 +1,17 @@
+/*
+  navigation.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ar
+  Section: navigation
+*/
+
+"stack" = "مكدس";
+"list" = "قائمة";
+"study" = "دراسة";
+"practice" = "ممارسة";
+"analytics" = "تحليلات";
+"settings" = "الإعدادات";
+
+

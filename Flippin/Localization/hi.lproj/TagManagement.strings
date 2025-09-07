@@ -1,0 +1,27 @@
+/*
+  tag_management.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: hi
+  Section: tag_management
+*/
+
+"availableTags" = "उपलब्ध टैग";
+"noTagsAvailable" = "कोई टैग उपलब्ध नहीं";
+"manageTagsInSettings" = "सेटिंग्स में टैग प्रबंधित करें।";
+"toSettings" = "सेटिंग्स में";
+"newTagName" = "नया टैग नाम";
+"add" = "जोड़ें";
+"addTag" = "टैग जोड़ें";
+"tagsManagement" = "टैग प्रबंधन";
+"filterByTag" = "टैग द्वारा फ़िल्टर करें";
+"filterByLanguage" = "भाषा द्वारा फ़िल्टर करें";
+"filterByLanguageDescription" = "केवल उन कार्ड्स को दिखाएं जो आपकी चुनी हुई भाषाओं से मेल खाते हैं";
+"filterByFavorites" = "पसंदीदा द्वारा फ़िल्टर करें";
+"showAllCards" = "सभी कार्ड दिखाएँ";
+"showFavoritesOnly" = "केवल पसंदीदा दिखाएँ";
+"noFavoriteCards" = "कोई पसंदीदा कार्ड नहीं";
+"noFavoriteCardsDescription" = "आपने अभी तक कोई कार्ड पसंदीदा नहीं बनाया है";
+
+

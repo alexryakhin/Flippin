@@ -1,0 +1,17 @@
+/*
+  navigation.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ja
+  Section: navigation
+*/
+
+"stack" = "スタック";
+"list" = "リスト";
+"study" = "学習";
+"practice" = "練習";
+"analytics" = "分析";
+"settings" = "設定";
+
+

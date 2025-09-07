@@ -1,0 +1,28 @@
+/*
+  buttons.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ru
+  Section: buttons
+*/
+
+"done" = "Готово";
+"cancel" = "Отмена";
+"save" = "Сохранить";
+"close" = "Закрыть";
+"clear" = "Очистить";
+"clearFilter" = "Очистить фильтр";
+"clearSearch" = "Очистить поиск";
+"addCardButton" = "Добавить карточку";
+"edit" = "Изменить";
+"editCard" = "Изменить карточку";
+"delete" = "Удалить";
+"deleteCard" = "Удалить карточку";
+"deleteCardConfirmation" = "Вы уверены, что хотите удалить эту карточку? Это действие нельзя отменить.";
+"deleteAll" = "Удалить все";
+"deleteAllCards" = "Удалить все карточки";
+"deleteAllCardsConfirmation" = "Вы уверены, что хотите удалить все карточки? Это действие нельзя отменить.";
+"ok" = "ОК";
+
+

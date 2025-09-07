@@ -1,0 +1,27 @@
+/*
+  tag_management.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: vi
+  Section: tag_management
+*/
+
+"availableTags" = "Nhãn Khả Dụng";
+"noTagsAvailable" = "Không có nhãn nào khả dụng";
+"manageTagsInSettings" = "Quản lý nhãn trong cài đặt.";
+"toSettings" = "Đến cài đặt";
+"newTagName" = "Tên nhãn mới";
+"add" = "Thêm";
+"addTag" = "Thêm Nhãn";
+"tagsManagement" = "Quản Lý Nhãn";
+"filterByTag" = "Lọc theo Nhãn";
+"filterByLanguage" = "Lọc theo Ngôn ngữ";
+"filterByLanguageDescription" = "Chỉ hiển thị các thẻ phù hợp với ngôn ngữ bạn đã chọn";
+"filterByFavorites" = "Lọc theo Yêu thích";
+"showAllCards" = "Hiện Tất Cả Thẻ";
+"showFavoritesOnly" = "Chỉ Hiện Yêu Thích";
+"noFavoriteCards" = "Không Có Thẻ Yêu Thích";
+"noFavoriteCardsDescription" = "Bạn chưa đánh dấu thẻ nào là yêu thích";
+
+

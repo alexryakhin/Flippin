@@ -1,0 +1,20 @@
+/*
+  content_views.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ja
+  Section: content_views
+*/
+
+"noCardsYet" = "まだカードがありません";
+"tapToAddFirstCard" = "+ボタンをタップして最初のカードを追加";
+"noCardsWithSelectedTag" = "選択されたタグのカードがありません";
+"noCardsFoundWithTag" = "タグ「%@」のカードが見つかりません";
+"noCardsAvailable" = "利用可能なカードがありません";
+"noCardsFound" = "カードが見つかりません";
+"addFirstCardToStartLearning" = "最初のカードを追加して学習を開始";
+"noCardsMatchSearch" = "検索に一致するカードがありません";
+"noCardsForLanguagePair" = "この言語ペアのカードがありません";
+
+

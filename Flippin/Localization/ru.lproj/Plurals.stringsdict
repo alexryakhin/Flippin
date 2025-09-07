@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>cardsCount</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@cards@</string>
+		<key>cards</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>zero</key>
+			<string>0 карточек</string>
+			<key>one</key>
+			<string>1 карточка</string>
+			<key>few</key>
+			<string>%d карточки</string>
+			<key>many</key>
+			<string>%d карточек</string>
+			<key>other</key>
+			<string>%d карточек</string>
+		</dict>
+	</dict>
+	<key>sessionsPerDay</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@sessions@</string>
+		<key>sessions</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>zero</key>
+			<string>сессий/день</string>
+			<key>one</key>
+			<string>сессия/день</string>
+			<key>few</key>
+			<string>сессии/день</string>
+			<key>many</key>
+			<string>сессий/день</string>
+			<key>other</key>
+			<string>сессий/день</string>
+		</dict>
+	</dict>
+	<key>tagsCount</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@tags@</string>
+		<key>tags</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>zero</key>
+			<string>0 тегов</string>
+			<key>one</key>
+			<string>1 тег</string>
+			<key>few</key>
+			<string>%d тега</string>
+			<key>many</key>
+			<string>%d тегов</string>
+			<key>other</key>
+			<string>%d тегов</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

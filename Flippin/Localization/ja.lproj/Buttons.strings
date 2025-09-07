@@ -1,0 +1,28 @@
+/*
+  buttons.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ja
+  Section: buttons
+*/
+
+"done" = "完了";
+"cancel" = "キャンセル";
+"save" = "保存";
+"close" = "閉じる";
+"clear" = "クリア";
+"clearFilter" = "フィルターをクリア";
+"clearSearch" = "検索をクリア";
+"addCardButton" = "カードを追加";
+"edit" = "編集";
+"editCard" = "カードを編集";
+"delete" = "削除";
+"deleteCard" = "カードを削除";
+"deleteCardConfirmation" = "このカードを削除してもよろしいですか？この操作は元に戻せません。";
+"deleteAll" = "すべて削除";
+"deleteAllCards" = "すべてのカードを削除";
+"deleteAllCardsConfirmation" = "すべてのカードを削除してもよろしいですか？この操作は元に戻せません。";
+"ok" = "OK";
+
+

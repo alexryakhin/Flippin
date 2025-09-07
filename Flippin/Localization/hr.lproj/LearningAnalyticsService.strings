@@ -1,0 +1,66 @@
+/*
+  learning_analytics_service.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: hr
+  Section: learning_analytics_service
+*/
+
+"notEnoughData" = "Nema dovoljno podataka";
+"morning" = "Jutro (6-12 sati)";
+"afternoon" = "Poslijepodne (12-17 sati)";
+"evening" = "Večer (17-21 sat)";
+"night" = "Noć (21-6 sati)";
+"under10Minutes" = "Ispod 10 minuta";
+"tenTo20Minutes" = "10-20 minuta";
+"twentyTo30Minutes" = "20-30 minuta";
+"thirtyTo60Minutes" = "30-60 minuta";
+"over60Minutes" = "Preko 60 minuta";
+"onceThisWeek" = "Jednom ovaj tjedan";
+"fewTimesThisWeek" = "Nekoliko puta ovaj tjedan";
+"mostDaysThisWeek" = "Većinu dana ovaj tjedan";
+"daily" = "Dnevno";
+"veryEasy" = "Vrlo Lako";
+"easy" = "Lako";
+"medium" = "Srednje";
+"hard" = "Teško";
+"veryHard" = "Vrlo Teško";
+"unknown" = "Nepoznato";
+"completedStudySession" = "Završena Sesija Učenja";
+"reviewedCardsInTime" = "Pregledano %d kartica u %@";
+"recent" = "Nedavno";
+"reachedCardsMastered" = "Postignuto %d savladanih kartica";
+"greatProgressBuildingFoundation" = "Odličan napredak! Gradiš čvrstu osnovu.";
+"first10CardsMastered" = "Prvih 10 kartica savladano";
+"sevenDayStudyStreak" = "7-dnevni niz učenja";
+"fiftyCardsMastered" = "50 kartica savladano";
+"thirtyDayStudyStreak" = "30-dnevni niz učenja";
+"completed" = "Završeno";
+"inProgress" = "U tijeku";
+"youreMostProductiveIn" = "Najproduktivniji si u %@";
+"studySessionsDuringThisTime" = "Tvoje sesije učenja tijekom ovog vremena pokazuju bolji fokus i zadržavanje.";
+"optimalSessionLength" = "Optimalna Duljina Sesije";
+"yourSessionsShowBestResults" = "Tvoje sesije od %@ pokazuju najbolje rezultate.";
+"consistentLearningPattern" = "Dosljedan obrazac učenja";
+"yourStudyRoutineWorkingWell" = "Tvoja rutina učenja od %@ dobro funkcionira.";
+"improvingAccuracy" = "Poboljšanje Točnosti";
+"recentAccuracyHigherThanBefore" = "Tvoja nedavna točnost je %d%% viša nego prije.";
+"focusOnAccuracy" = "Fokusiraj se na točnost";
+"recentAccuracyDecreased" = "Tvoja nedavna točnost je smanjena. Razmotri pregled teških kartica.";
+"excellentProgress" = "Izvrstan Napredak";
+"masteredVocabularyPercentage" = "Savladao si %d%% svog vokabulara!";
+"goodFoundation" = "Dobra Osnova";
+"masteredVocabularyKeepGoing" = "Savladao si %d%% svog vokabulara. Nastavi dalje!";
+"reviewDifficultCards" = "Pregledaj teške kartice";
+"cardsNeedMorePractice" = "%d kartica treba više vježbe. Fokusiraj se na njih za poboljšanje točnosti.";
+"addMoreVocabulary" = "Dodaj više vokabulara";
+"masteredMostCurrentCards" = "Savladao si većinu svojih trenutnih kartica. Spreman za nove izazove!";
+"extendYourStreak" = "Produži svoj niz";
+"daysAwayFromAchievement" = "Udaljen si %d dana od novog postignuća!";
+"buildConsistency" = "Izgradi konzistentnost";
+"tryToStudyDaily" = "Pokušaj učiti svakodnevno kako bi izgradio čvrstu naviku učenja.";
+"improveAccuracy" = "Poboljšaj Točnost";
+"accuracyPercentageFocusQuality" = "Tvoja točnost je %d%%. Fokusiraj se na kvalitetu umjesto na brzinu.";
+
+

@@ -1,0 +1,22 @@
+/*
+  settings.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: zh-Hans
+  Section: settings
+*/
+
+"languages" = "语言";
+"cardDisplay" = "卡片显示";
+"cardDisplayMode" = "卡片显示模式";
+"learningMode" = "学习模式";
+"travelMode" = "旅行模式";
+"learningModeDescription" = "首先显示目标语言（用于学习）";
+"travelModeDescription" = "首先显示母语（用于旅行）";
+"previewBackgrounds" = "预览背景";
+"cardManagement" = "卡片管理";
+"cardManagementDescription" = "搜索、编辑和组织您的学习卡片";
+"manageCards" = "管理卡片";
+
+

@@ -1,0 +1,28 @@
+/*
+  buttons.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: zh-Hans
+  Section: buttons
+*/
+
+"done" = "完成";
+"cancel" = "取消";
+"save" = "保存";
+"close" = "关闭";
+"clear" = "清除";
+"clearFilter" = "清除筛选";
+"clearSearch" = "清除搜索";
+"addCardButton" = "添加卡片";
+"edit" = "编辑";
+"editCard" = "编辑卡片";
+"delete" = "删除";
+"deleteCard" = "删除卡片";
+"deleteCardConfirmation" = "您确定要删除这张卡片吗？此操作无法撤销。";
+"deleteAll" = "全部删除";
+"deleteAllCards" = "删除所有卡片";
+"deleteAllCardsConfirmation" = "您确定要删除所有卡片吗？此操作无法撤销。";
+"ok" = "确定";
+
+

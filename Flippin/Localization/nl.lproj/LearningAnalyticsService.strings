@@ -1,0 +1,66 @@
+/*
+  learning_analytics_service.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: nl
+  Section: learning_analytics_service
+*/
+
+"notEnoughData" = "Niet genoeg gegevens";
+"morning" = "Ochtend (6-12 uur)";
+"afternoon" = "Middag (12-17 uur)";
+"evening" = "Avond (17-21 uur)";
+"night" = "Nacht (21-6 uur)";
+"under10Minutes" = "Minder dan 10 minuten";
+"tenTo20Minutes" = "10-20 minuten";
+"twentyTo30Minutes" = "20-30 minuten";
+"thirtyTo60Minutes" = "30-60 minuten";
+"over60Minutes" = "Meer dan 60 minuten";
+"onceThisWeek" = "Eén keer deze week";
+"fewTimesThisWeek" = "Een paar keer deze week";
+"mostDaysThisWeek" = "De meeste dagen deze week";
+"daily" = "Dagelijks";
+"veryEasy" = "Zeer Gemakkelijk";
+"easy" = "Gemakkelijk";
+"medium" = "Gemiddeld";
+"hard" = "Moeilijk";
+"veryHard" = "Zeer Moeilijk";
+"unknown" = "Onbekend";
+"completedStudySession" = "Studiesessie Voltooid";
+"reviewedCardsInTime" = "%d kaarten herzien in %@";
+"recent" = "Recent";
+"reachedCardsMastered" = "%d kaarten beheerst";
+"greatProgressBuildingFoundation" = "Geweldige vooruitgang! Je bouwt een solide basis.";
+"first10CardsMastered" = "Eerste 10 kaarten beheerst";
+"sevenDayStudyStreak" = "Zeven dagen studie streak";
+"fiftyCardsMastered" = "Vijftig kaarten beheerst";
+"thirtyDayStudyStreak" = "Dertig dagen studie streak";
+"completed" = "Voltooid";
+"inProgress" = "In uitvoering";
+"youreMostProductiveIn" = "Je bent het meest productief in %@";
+"studySessionsDuringThisTime" = "Je studiesessies tijdens deze tijd tonen betere focus en retentie.";
+"optimalSessionLength" = "Optimale Sessielengte";
+"yourSessionsShowBestResults" = "Je sessies van %@ tonen de beste resultaten.";
+"consistentLearningPattern" = "Consistent Leerpatroon";
+"yourStudyRoutineWorkingWell" = "Je studieroutine van %@ werkt goed.";
+"improvingAccuracy" = "Nauwkeurigheid Verbeteren";
+"recentAccuracyHigherThanBefore" = "Je recente nauwkeurigheid is %d%% hoger dan voorheen.";
+"focusOnAccuracy" = "Focus op Nauwkeurigheid";
+"recentAccuracyDecreased" = "Je recente nauwkeurigheid is afgenomen. Overweeg moeilijke kaarten te herzien.";
+"excellentProgress" = "Uitstekende Vooruitgang";
+"masteredVocabularyPercentage" = "Je hebt %d%% van je woordenschat beheerst!";
+"goodFoundation" = "Goede Basis";
+"masteredVocabularyKeepGoing" = "Je hebt %d%% van je woordenschat beheerst. Ga zo door!";
+"reviewDifficultCards" = "Herzie Moeilijke Kaarten";
+"cardsNeedMorePractice" = "%d kaarten hebben meer oefening nodig. Focus hierop om je nauwkeurigheid te verbeteren.";
+"addMoreVocabulary" = "Voeg Meer Woordenschat Toe";
+"masteredMostCurrentCards" = "Je hebt de meeste van je huidige kaarten beheerst. Klaar voor nieuwe uitdagingen!";
+"extendYourStreak" = "Verleng Je Streak";
+"daysAwayFromAchievement" = "Je bent %d dagen verwijderd van een nieuwe prestatie!";
+"buildConsistency" = "Bouw Consistentie";
+"tryToStudyDaily" = "Probeer dagelijks te studeren om een solide studiegewoonte op te bouwen.";
+"improveAccuracy" = "Nauwkeurigheid Verbeteren";
+"accuracyPercentageFocusQuality" = "Je nauwkeurigheid is %d%%. Focus op kwaliteit in plaats van snelheid.";
+
+

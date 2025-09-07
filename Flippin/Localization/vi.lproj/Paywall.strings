@@ -1,0 +1,27 @@
+/*
+  paywall.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: vi
+  Section: paywall
+*/
+
+"upgradeToPremiumTitle" = "Nâng Cấp Lên Premium";
+"upgradeToPremiumMessage" = "Nâng cấp lên Premium để mở khóa tất cả các tính năng!";
+"cancel" = "Hủy";
+"viewOptions" = "Xem Tùy Chọn";
+"unlimitedCardsTitle" = "Thẻ Không Giới Hạn";
+"unlimitedCardsMessage" = "Nâng cấp lên Premium để tạo thẻ không giới hạn và mở khóa tất cả tính năng!";
+"advancedAnalyticsTitle" = "Phân Tích Nâng Cao";
+"advancedAnalyticsMessage" = "Nhận thông tin chi tiết về học tập, biểu đồ tiến độ và phân tích hiệu suất với Premium!";
+"customThemesTitle" = "Chủ Đề Tùy Chỉnh";
+"customThemesMessage" = "Mở khóa các chủ đề tùy chỉnh và nền đẹp với Premium!";
+"languageChangeTitle" = "Thay Đổi Ngôn Ngữ";
+"languageChangeMessage" = "Chọn từ hơn 15 ngôn ngữ để nâng cao trải nghiệm học tập với Premium!";
+"cardPresetsTitle" = "Mẫu Thẻ Định Sẵn";
+"cardPresetsMessage" = "Khám phá bộ sưu tập lớn các mẫu thẻ được thiết kế sẵn với Premium!";
+"studyModesTitle" = "Chế Độ Học";
+"studyModesMessage" = "Truy cập các chế độ học nâng cao và kỹ thuật học tập với Premium!";
+
+

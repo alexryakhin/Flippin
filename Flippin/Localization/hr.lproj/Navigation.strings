@@ -1,0 +1,17 @@
+/*
+  navigation.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: hr
+  Section: navigation
+*/
+
+"stack" = "Stog";
+"list" = "Popis";
+"study" = "Uči";
+"practice" = "Vježbaj";
+"analytics" = "Analitika";
+"settings" = "Postavke";
+
+

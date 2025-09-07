@@ -1,0 +1,28 @@
+/*
+  languages.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: sv
+  Section: languages
+*/
+
+"english" = "Engelska";
+"spanish" = "Spanska";
+"french" = "Franska";
+"german" = "Tyska";
+"italian" = "Italienska";
+"portuguese" = "Portugisiska";
+"dutch" = "Nederländska";
+"swedish" = "Svenska";
+"chinese" = "Kinesiska";
+"japanese" = "Japanska";
+"korean" = "Koreanska";
+"vietnamese" = "Vietnamesiska";
+"russian" = "Ryska";
+"arabic" = "Arabiska";
+"hindi" = "Hindi";
+"croatian" = "Kroatiska";
+"ukrainian" = "Ukrainska";
+
+

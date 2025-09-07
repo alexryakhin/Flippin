@@ -1,0 +1,17 @@
+/*
+  navigation.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ko
+  Section: navigation
+*/
+
+"stack" = "스택";
+"list" = "목록";
+"study" = "공부";
+"practice" = "연습";
+"analytics" = "분석";
+"settings" = "설정";
+
+

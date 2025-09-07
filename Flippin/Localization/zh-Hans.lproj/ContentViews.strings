@@ -1,0 +1,20 @@
+/*
+  content_views.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: zh-Hans
+  Section: content_views
+*/
+
+"noCardsYet" = "还没有卡片";
+"tapToAddFirstCard" = "点击+按钮添加您的第一张卡片";
+"noCardsWithSelectedTag" = "没有选中标签的卡片";
+"noCardsFoundWithTag" = "没有找到标签为\"%@\"的卡片";
+"noCardsAvailable" = "没有可用的卡片";
+"noCardsFound" = "没有找到卡片";
+"addFirstCardToStartLearning" = "添加您的第一张卡片开始学习";
+"noCardsMatchSearch" = "没有卡片匹配您的搜索";
+"noCardsForLanguagePair" = "没有此语言对的卡片";
+
+

@@ -1,0 +1,66 @@
+/*
+  learning_analytics_service.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: vi
+  Section: learning_analytics_service
+*/
+
+"notEnoughData" = "Không đủ dữ liệu";
+"morning" = "Buổi Sáng (6-12h)";
+"afternoon" = "Buổi Chiều (12-17h)";
+"evening" = "Buổi Tối (17-21h)";
+"night" = "Ban Đêm (21-6h)";
+"under10Minutes" = "Dưới 10 phút";
+"tenTo20Minutes" = "10-20 phút";
+"twentyTo30Minutes" = "20-30 phút";
+"thirtyTo60Minutes" = "30-60 phút";
+"over60Minutes" = "Hơn 60 phút";
+"onceThisWeek" = "Một lần tuần này";
+"fewTimesThisWeek" = "Vài lần tuần này";
+"mostDaysThisWeek" = "Hầu hết các ngày trong tuần này";
+"daily" = "Hàng ngày";
+"veryEasy" = "Rất Dễ";
+"easy" = "Dễ";
+"medium" = "Trung Bình";
+"hard" = "Khó";
+"veryHard" = "Rất Khó";
+"unknown" = "Không Xác Định";
+"completedStudySession" = "Phiên Học Đã Hoàn Tất";
+"reviewedCardsInTime" = "Đã xem lại %d thẻ trong %@";
+"recent" = "Gần Đây";
+"reachedCardsMastered" = "Đã thành thạo %d thẻ";
+"greatProgressBuildingFoundation" = "Tiến bộ tuyệt vời! Bạn đang xây dựng một nền tảng vững chắc.";
+"first10CardsMastered" = "10 thẻ đầu tiên đã thành thạo";
+"sevenDayStudyStreak" = "Chuỗi học 7 ngày";
+"fiftyCardsMastered" = "50 thẻ đã thành thạo";
+"thirtyDayStudyStreak" = "Chuỗi học 30 ngày";
+"completed" = "Hoàn Tất";
+"inProgress" = "Đang Tiến Hành";
+"youreMostProductiveIn" = "Bạn hiệu quả nhất vào %@";
+"studySessionsDuringThisTime" = "Các phiên học của bạn trong thời gian này cho thấy sự tập trung và ghi nhớ tốt hơn.";
+"optimalSessionLength" = "Thời Lượng Phiên Tối Ưu";
+"yourSessionsShowBestResults" = "Các phiên %@ của bạn cho thấy kết quả tốt nhất.";
+"consistentLearningPattern" = "Mô Hình Học Liên Tục";
+"yourStudyRoutineWorkingWell" = "Thói quen học %@ của bạn đang hoạt động tốt.";
+"improvingAccuracy" = "Cải Thiện Độ Chính Xác";
+"recentAccuracyHigherThanBefore" = "Độ chính xác gần đây của bạn cao hơn %d%% so với trước đây.";
+"focusOnAccuracy" = "Tập Trung vào Độ Chính Xác";
+"recentAccuracyDecreased" = "Độ chính xác gần đây của bạn đã giảm. Hãy xem lại các thẻ khó.";
+"excellentProgress" = "Tiến Bộ Xuất Sắc";
+"masteredVocabularyPercentage" = "Bạn đã thành thạo %d%% từ vựng của mình!";
+"goodFoundation" = "Nền Tảng Tốt";
+"masteredVocabularyKeepGoing" = "Bạn đã thành thạo %d%% từ vựng của mình. Tiếp tục nhé!";
+"reviewDifficultCards" = "Xem Lại Thẻ Khó";
+"cardsNeedMorePractice" = "%d thẻ cần luyện tập thêm. Tập trung vào chúng để cải thiện độ chính xác.";
+"addMoreVocabulary" = "Thêm Từ Vựng";
+"masteredMostCurrentCards" = "Bạn đã thành thạo hầu hết các thẻ hiện tại. Sẵn sàng cho thử thách mới!";
+"extendYourStreak" = "Kéo Dài Chuỗi Học";
+"daysAwayFromAchievement" = "Bạn còn %d ngày nữa để đạt được thành tựu mới!";
+"buildConsistency" = "Xây Dựng Tính Liên Tục";
+"tryToStudyDaily" = "Hãy thử học hàng ngày để xây dựng thói quen học tập vững chắc.";
+"improveAccuracy" = "Cải Thiện Độ Chính Xác";
+"accuracyPercentageFocusQuality" = "Độ chính xác của bạn là %d%%. Tập trung vào chất lượng thay vì tốc độ.";
+
+

@@ -1,0 +1,13 @@
+/*
+  card_views.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: it
+  Section: card_views
+*/
+
+"flip" = "Capovolgi";
+"tapToGoBack" = "Tocca per tornare indietro";
+
+

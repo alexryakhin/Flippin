@@ -1,0 +1,54 @@
+/*
+  analytics.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: fr
+  Section: analytics
+*/
+
+"analytics" = "Analytique";
+"detailedAnalytics" = "Analytique Détaillée";
+"today" = "Aujourd'hui";
+"noAnalyticsData" = "Aucune Donnée Analytique";
+"startStudyingToSeeProgress" = "Commencez à étudier pour voir votre progression d'apprentissage !";
+"unlockAdvancedAnalytics" = "Débloquer l'Analytique Avancée";
+"detailedProgressReports" = "Rapports de Progrès Détaillés";
+"detailedProgressReportsDescription" = "Suivez vos schémas d'apprentissage et améliorations au fil du temps";
+"performanceInsights" = "Perspectives de Performance";
+"performanceInsightsDescription" = "Obtenez des recommandations personnalisées pour améliorer vos habitudes d'étude";
+"studyTimeAnalytics" = "Analytique du Temps d'Étude";
+"studyTimeAnalyticsDescription" = "Analysez vos sessions d'étude et optimisez votre apprentissage";
+"upgradeToPremium" = "Passer à Premium";
+"recentActivity" = "Activité Récente";
+"viewAll" = "Voir Tout";
+"noRecentActivity" = "Aucune Activité Récente";
+"studySessionsWillAppearHere" = "Vos sessions d'étude apparaîtront ici";
+"lastStudySession" = "Dernière Session d'Étude";
+"cardsStudiedToday" = "Cartes Étudiées Aujourd'hui";
+"studyStreak" = "Série d'Étude";
+"totalStudyTime" = "Temps Total d'Étude";
+"cardsMastered" = "Cartes Maîtrisées";
+"todaysStudy" = "Étude d'Aujourd'hui";
+"time" = "Temps";
+"cardsStudied" = "Cartes Étudiées";
+"sessions" = "Sessions";
+"accuracy" = "Précision";
+"studyTime" = "Temps d'Étude";
+"practiceTime" = "Temps de Pratique";
+"timeRange" = "Plage de Temps";
+"masteryProgress" = "Progrès de Maîtrise";
+"mastered" = "Maîtrisées";
+"learning" = "Apprentissage";
+"needsReview" = "À Réviser";
+"week" = "Semaine";
+"month" = "Mois";
+"year" = "Année";
+"allTime" = "Tout le Temps";
+"overview" = "Aperçu";
+"performance" = "Performance";
+"progress" = "Progrès";
+"insights" = "Perspectives";
+"noStudyDataAvailable" = "Aucune donnée d'étude disponible";
+
+

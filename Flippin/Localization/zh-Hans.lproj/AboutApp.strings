@@ -1,0 +1,29 @@
+/*
+  about_app.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: zh-Hans
+  Section: about_app
+*/
+
+"about" = "关于";
+"appInfo" = "应用信息";
+"tagline" = "智能语言学习卡片";
+"version" = "版本";
+"features" = "功能";
+"smartCards" = "智能卡片";
+"smartCardsDescription" = "双语卡片，支持自动翻译和文字转语音";
+"languagesTitle" = "17种语言";
+"languagesDescription" = "支持主要世界语言";
+"learningAnalytics" = "学习分析";
+"learningAnalyticsDescription" = "跟踪您的进度并获得个性化洞察";
+"tts" = "文字转语音";
+"ttsDescription" = "使用TTS技术听发音";
+"support" = "支持应用";
+"supportDescription" = "如果您喜欢Flippin，请考虑支持其开发";
+"buyMeACoffee" = "请我喝咖啡";
+"legal" = "法律";
+"privacyPolicy" = "隐私政策";
+"termsOfService" = "服务条款";
+

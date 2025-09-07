@@ -1,0 +1,39 @@
+/*
+  premium_features.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: hi
+  Section: premium_features
+*/
+
+"premiumFeature" = "प्रीमियम सुविधा";
+"premiumRequired" = "प्रीमियम आवश्यक";
+"upgradeToPremium" = "प्रीमियम में अपग्रेड करें";
+"premiumFeatureDescription" = "सभी पूर्व-परिभाषित संग्रहों तक पहुंच प्राप्त करें और भाषा सीखने की असीमित क्षमता को अनलॉक करें";
+"previewBackgrounds" = "पूर्वावलोकन";
+"colorScheme" = "रंग योजना";
+"colorSchemeSystem" = "सिस्टम";
+"colorSchemeLight" = "हल्का";
+"colorSchemeDark" = "गहरा";
+"unlockPremium" = "प्रीमियम अनलॉक करें";
+"masterLanguageLearning" = "विशेष सुविधाओं के साथ अपनी भाषा सीखने में महारत हासिल करें";
+"usedCardsOfLimit" = "आपने %d में से %d मुफ्त कार्ड का उपयोग किया है";
+"whatYouGetWithPremium" = "प्रीमियम के साथ आपको क्या मिलता है";
+"unlimitedCardsDescription" = "जितने चाहें उतने फ्लैशकार्ड बनाएं";
+"collections" = "30+ संग्रह";
+"collectionsDescription" = "सभी पूर्व-परिभाषित शब्दावली संग्रहों तक पहुंच";
+"premiumBackgrounds" = "प्रीमियम पृष्ठभूमि";
+"premiumBackgroundsDescription" = "सुंदर एनिमेटेड पृष्ठभूमि";
+"changeLanguages" = "भाषाएं बदलें";
+"changeLanguagesDescription" = "किसी भी समय विभिन्न भाषा जोड़ों के बीच स्विच करें";
+"multipleLanguagesTitle" = "एकाधिक भाषाएँ";
+"multipleLanguagesDescription" = "एक ही समय में कई भाषाएँ सीखने की क्षमता";
+"restorePurchases" = "खरीदारी पुनर्स्थापित करें";
+"cancelAnytime" = "किसी भी समय रद्द करें • कोई प्रतिबद्धता नहीं";
+"terms" = "शर्तें";
+"privacy" = "गोपनीयता";
+"goPremium" = "प्रीमियम पर जाएं";
+"premium" = "प्रीमियम";
+
+

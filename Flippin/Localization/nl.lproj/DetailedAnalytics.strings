@@ -1,0 +1,67 @@
+/*
+  detailed_analytics.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: nl
+  Section: detailed_analytics
+*/
+
+"analyticsTab" = "Analyse Tab";
+"studyTimeTitle" = "Studietijd";
+"practiceTimeTitle" = "Oefentijd";
+"cardsMasteredTitle" = "Beheerde Kaarten";
+"studyStreakTitle" = "Studie Streak";
+"averageSessionTitle" = "Gemiddelde Sessie";
+"consecutiveDays" = "opeenvolgende dagen";
+"perSession" = "per sessie";
+"studyPatterns" = "Studiepatronen";
+"mostActiveTime" = "Meest Actieve Tijd";
+"preferredSessionLength" = "Voorkeurs Sessielengte";
+"studyFrequency" = "Studiefrequentie";
+"languageProgress" = "Taalprogressie";
+"collectionSize" = "Collectiegrootte";
+"cards" = "kaarten";
+"achievements" = "Prestaties";
+"firstSteps" = "Eerste Stappen";
+"weekWarrior" = "Week Krijger";
+"masterLearner" = "Meester Leraar";
+"dedicated" = "Toegewijd";
+"vocabularyMaster" = "Woordenschat Meester";
+"timeMaster" = "Tijd Meester";
+"accuracyTrends" = "Nauwkeurigheid Trends";
+"sessionPerformance" = "Sessie Prestaties";
+"averageSessionDuration" = "Gemiddelde Sessieduur";
+"basedOnData" = "Gebaseerd op gegevens van %@";
+"cardsPerSession" = "Kaarten Per Sessie";
+"average" = "Gemiddelde";
+"sessionFrequency" = "Sessie Frequentie";
+"cardDifficultyAnalysis" = "Kaart Moeilijkheidsanalyse";
+"noDifficultyDataAvailable" = "Geen moeilijkheidsgegevens beschikbaar";
+"learningSpeed" = "Leersnelheid";
+"cardsPerHour" = "Kaarten Per Uur";
+"vsAverage" = "versus gemiddelde";
+"masteryTimeline" = "Beheersingstijdlijn";
+"vocabularyGrowth" = "Woordenschat Groei";
+"totalVocabulary" = "Totale Woordenschat";
+"thisWeek" = "Deze Week";
+"thisMonth" = "Deze Maand";
+"thisYear" = "Dit Jaar";
+"learningMilestones" = "Leer Mijlpalen";
+"personalizedInsights" = "Gepersonaliseerde Inzichten";
+"noInsightsAvailableYet" = "Nog geen inzichten beschikbaar";
+"recommendations" = "Aanbevelingen";
+"noRecommendationsAtThisTime" = "Geen aanbevelingen op dit moment";
+"learningTips" = "Leertips";
+"spacedRepetition" = "Gespreide Herhaling";
+"spacedRepetitionDescription" = "Herzie kaarten met toenemende intervallen voor betere retentie.";
+"activeRecall" = "Actieve Herinnering";
+"activeRecallDescription" = "Probeer het antwoord te herinneren voordat je de kaart omdraait.";
+"contextLearning" = "Contextueel Leren";
+"contextLearningDescription" = "Leer woorden in zinnen in plaats van geïsoleerd.";
+"studyNow" = "Nu Studeren";
+"startReview" = "Begin Herziening";
+"browseCollections" = "Blader door Collecties";
+"practiceMode" = "Oefenmodus";
+
+

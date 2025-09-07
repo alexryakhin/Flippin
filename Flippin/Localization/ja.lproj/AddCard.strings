@@ -1,0 +1,19 @@
+/*
+  add_card.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ja
+  Section: add_card
+*/
+
+"enterTextInYourLanguage" = "あなたの言語でテキストを入力";
+"enterTextInTargetLanguage" = "目標言語でテキストを入力";
+"addNotesOptional" = "メモを追加（オプション）";
+"notes" = "メモ";
+"tagsCount" = "タグ（%d/5）";
+"noTagsAvailableAddInSettings" = "利用可能なタグがありません。設定でタグを追加してください。";
+"translating" = "翻訳中...";
+"translationWillAppearHere" = "翻訳がここに表示されます";
+
+

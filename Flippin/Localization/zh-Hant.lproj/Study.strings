@@ -1,0 +1,62 @@
+/*
+  study.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: zh-Hant
+  Section: study
+*/
+
+"study" = "學習";
+"practice" = "練習";
+"studyMode" = "學習模式";
+"practiceMode" = "練習模式";
+"quickStats" = "快速統計";
+"studyOptions" = "學習選項";
+"practiceOptions" = "練習選項";
+"recentActivity" = "最近活動";
+"totalCards" = "總卡片數";
+"mastered" = "已掌握";
+"difficultCards" = "困難卡片";
+"studyTimeToday" = "今日學習時間";
+"practiceTimeToday" = "今日練習時間";
+"startStudySession" = "開始學習會話（10張卡片）";
+"startPracticeSession" = "開始練習會話（10張卡片）";
+"practiceAllCards" = "練習所有卡片（%d）";
+"practiceDifficultCards" = "練習困難卡片（%d）";
+"multipleChoiceQuiz" = "多選測驗";
+"fillInTheBlank" = "填空（%d）";
+"unlockAllStudyModes" = "解鎖所有學習模式";
+"unlockAllPracticeModes" = "解鎖所有練習模式";
+"noStudyData" = "無學習數據";
+"noPracticeData" = "無練習數據";
+"startStudyingToSeeProgress" = "開始學習以查看您的進度！";
+"startPracticingToSeeProgress" = "開始練習以查看您的進度！";
+"toCards" = "前往卡片";
+"totalStudyTime" = "總學習時間";
+"totalPracticeTime" = "總練習時間";
+"averageSession" = "平均會話";
+"learningProgress" = "學習進度";
+"exit" = "退出";
+"showAnswer" = "顯示答案";
+"incorrect" = "錯誤";
+"correct" = "正確";
+"studySessionComplete" = "學習會話完成！";
+"practiceSessionComplete" = "練習會話完成！";
+"accuracy" = "準確率";
+"cardsStudied" = "已學習卡片";
+"cardsPracticed" = "已練習卡片";
+"timeSpent" = "花費時間";
+"studyAgain" = "再次學習";
+"practiceAgain" = "再次練習";
+"done" = "完成";
+"selectCorrectTranslation" = "選擇正確的翻譯";
+"fillInMissingWord" = "填入缺失的單詞";
+"completeSentence" = "完成句子";
+"chooseCorrectWord" = "選擇正確的單詞：";
+"correctAnswer" = "正確答案";
+"translateTo" = "翻譯為 %@";
+"studyProgress" = "%d / %d";
+"practiceProgress" = "%d / %d";
+
+

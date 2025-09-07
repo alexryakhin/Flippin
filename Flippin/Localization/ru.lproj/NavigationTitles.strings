@@ -1,0 +1,17 @@
+/*
+  navigation_titles.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ru
+  Section: navigation_titles
+*/
+
+"addCard" = "Добавить карточку";
+"addNewCard" = "Добавить новую карточку";
+"settings" = "Настройки";
+"myCards" = "Мои карточки";
+"backgroundStyles" = "Стили фона";
+"backgroundDemo" = "Демо просмотр фонов";
+
+

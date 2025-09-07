@@ -1,0 +1,67 @@
+/*
+  detailed_analytics.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: zh-Hant
+  Section: detailed_analytics
+*/
+
+"analyticsTab" = "分析選項卡";
+"studyTimeTitle" = "學習時間";
+"practiceTimeTitle" = "練習時間";
+"cardsMasteredTitle" = "已掌握卡片";
+"studyStreakTitle" = "學習連勝";
+"averageSessionTitle" = "平均會話";
+"consecutiveDays" = "連續天數";
+"perSession" = "每會話";
+"studyPatterns" = "學習模式";
+"mostActiveTime" = "最活躍時間";
+"preferredSessionLength" = "首選會話長度";
+"studyFrequency" = "學習頻率";
+"languageProgress" = "語言進度";
+"collectionSize" = "集合大小";
+"cards" = "卡片";
+"achievements" = "成就";
+"firstSteps" = "第一步";
+"weekWarrior" = "週戰士";
+"masterLearner" = "學習大師";
+"dedicated" = "專注";
+"vocabularyMaster" = "詞彙大師";
+"timeMaster" = "時間大師";
+"accuracyTrends" = "準確率趨勢";
+"sessionPerformance" = "會話性能";
+"averageSessionDuration" = "平均會話時長";
+"basedOnData" = "基於%@的數據";
+"cardsPerSession" = "每會話卡片數";
+"average" = "平均";
+"sessionFrequency" = "會話頻率";
+"cardDifficultyAnalysis" = "卡片難度分析";
+"noDifficultyDataAvailable" = "無難度數據可用";
+"learningSpeed" = "學習速度";
+"cardsPerHour" = "每小時卡片數";
+"vsAverage" = "與平均值比較";
+"masteryTimeline" = "掌握時間線";
+"vocabularyGrowth" = "詞彙增長";
+"totalVocabulary" = "總詞彙量";
+"thisWeek" = "本週";
+"thisMonth" = "本月";
+"thisYear" = "今年";
+"learningMilestones" = "學習里程碑";
+"personalizedInsights" = "個性化洞察";
+"noInsightsAvailableYet" = "暫無洞察可用";
+"recommendations" = "推薦";
+"noRecommendationsAtThisTime" = "目前無推薦";
+"learningTips" = "學習建議";
+"spacedRepetition" = "間隔重複";
+"spacedRepetitionDescription" = "以逐漸增加的間隔複習卡片以獲得更好的記憶。";
+"activeRecall" = "主動回憶";
+"activeRecallDescription" = "在翻轉卡片前嘗試回憶答案。";
+"contextLearning" = "語境學習";
+"contextLearningDescription" = "在句子中學習單詞而非單獨學習。";
+"studyNow" = "現在學習";
+"startReview" = "開始複習";
+"browseCollections" = "瀏覽集合";
+"practiceMode" = "練習模式";
+
+

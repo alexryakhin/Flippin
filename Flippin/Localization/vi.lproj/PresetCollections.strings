@@ -1,0 +1,27 @@
+/*
+  preset_collections.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: vi
+  Section: preset_collections
+*/
+
+"presetCollections" = "Bộ Sưu Tập Định Sẵn";
+"seeAllCollections" = "Xem Tất Cả";
+"importCollection" = "Nhập Bộ Sưu Tập";
+"importButton" = "Nhập";
+"importCollectionMessage" = "Nhập %@ với %d thẻ vào bộ sưu tập của bạn?";
+"noCollectionsFound" = "Không tìm thấy bộ sưu tập";
+"tryAdjustingSearch" = "Hãy thử điều chỉnh tìm kiếm hoặc tiêu chí lọc";
+"getStartedWithCollections" = "Bắt đầu với các bộ thẻ được tuyển chọn cho các chủ đề và tình huống phổ biến";
+"searchCollections" = "Tìm kiếm bộ sưu tập...";
+"allCategories" = "Tất Cả";
+"myLanguageSettings" = "Ngôn Ngữ Của Tôi";
+"targetLanguage" = "Ngôn Ngữ Mục Tiêu";
+"theme" = "Chủ đề";
+"color" = "Màu sắc";
+"backgroundStyle" = "Kiểu Nền";
+"tapToSeeFullScreen" = "Nhấn để xem toàn màn hình";
+
+

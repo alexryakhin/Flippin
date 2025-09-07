@@ -1,0 +1,20 @@
+/*
+  content_views.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: nl
+  Section: content_views
+*/
+
+"noCardsYet" = "Nog geen kaarten";
+"tapToAddFirstCard" = "Tik op de + knop om je eerste kaart toe te voegen";
+"noCardsWithSelectedTag" = "Geen kaarten met geselecteerde tag";
+"noCardsFoundWithTag" = "Geen kaarten gevonden met tag \"%@\"";
+"noCardsAvailable" = "Geen kaarten beschikbaar";
+"noCardsFound" = "Geen kaarten gevonden";
+"addFirstCardToStartLearning" = "Voeg je eerste kaart toe om te beginnen met leren";
+"noCardsMatchSearch" = "Geen kaarten die overeenkomen met je zoekopdracht";
+"noCardsForLanguagePair" = "Geen kaarten voor dit taalpaar";
+
+

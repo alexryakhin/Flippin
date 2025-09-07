@@ -1,0 +1,22 @@
+/*
+  settings.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: de
+  Section: settings
+*/
+
+"languages" = "Sprachen";
+"cardDisplay" = "Kartenanzeige";
+"cardDisplayMode" = "Kartenanzeigemodus";
+"learningMode" = "Lernmodus";
+"travelMode" = "Reisemodus";
+"learningModeDescription" = "Zielsprache zuerst anzeigen (zum Lernen)";
+"travelModeDescription" = "Muttersprache zuerst anzeigen (für Reisen)";
+"previewBackgrounds" = "Hintergründe anzeigen";
+"cardManagement" = "Kartenverwaltung";
+"cardManagementDescription" = "Durchsuchen, bearbeiten und organisieren Sie Ihre Lernkarten";
+"manageCards" = "Karten verwalten";
+
+

@@ -1,0 +1,36 @@
+/*
+  welcome_screen.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: hi
+  Section: welcome_screen
+*/
+
+"welcomeScreenTitle" = "Flippin में आपका स्वागत है!";
+"welcomeScreenMessage" = "Flippin आपको यात्रा, अध्ययन या दैनिक बातचीत के लिए स्मार्ट फ्लैशकार्ड का उपयोग करके भाषाएं सीखने में मदद करता है।";
+"myLanguage" = "मेरी भाषा";
+"myLanguageDesc" = "आपकी मातृभाषा";
+"imLearning" = "मैं सीख रहा हूं";
+"imLearningDesc" = "जिस भाषा को आप सीखना चाहते हैं";
+"continueButton" = "जारी रखें";
+"back" = "वापस";
+"getStarted" = "शुरू करें";
+"chooseLanguages" = "अपनी भाषाएं चुनें";
+"chooseLanguagesDesc" = "अपनी मातृभाषा और जिस भाषा को आप सीखना चाहते हैं उसे चुनें";
+"readyToStart" = "सब कुछ तैयार है!";
+"readyToStartDesc" = "आपकी भाषा सीखने की यात्रा अब शुरू होती है";
+"featureLearning" = "स्वचालित अनुवाद";
+"featureLearningDesc" = "टाइप करते समय वास्तविक समय अनुवाद";
+"featureLanguages" = "17 भाषाएं";
+"featureLanguagesDesc" = "प्रमुख विश्व भाषाओं का समर्थन";
+"featureSmart" = "टेक्स्ट-टू-स्पीच";
+"featureSmartDesc" = "TTS तकनीक के साथ उच्चारण सुनें";
+"featureAnalytics" = "सीखने का विश्लेषण";
+"featureAnalyticsDesc" = "विस्तृत अंतर्दृष्टि के साथ अपनी प्रगति को ट्रैक करें";
+"finalFeatureAdd" = "कस्टम फ्लैशकार्ड बनाएं";
+"finalFeaturePractice" = "ऑडियो उच्चारण के साथ अभ्यास करें";
+"finalFeatureProgress" = "टैग और पसंदीदा के साथ व्यवस्थित करें";
+"finalFeatureModes" = "एकाधिक अभ्यास मोड";
+
+

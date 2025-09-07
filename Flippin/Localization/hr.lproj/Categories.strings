@@ -1,0 +1,22 @@
+/*
+  categories.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: hr
+  Section: categories
+*/
+
+"categoryBasics" = "Osnove";
+"categoryTravel" = "Putovanje";
+"categoryEntertainment" = "Zabava";
+"categoryFood" = "Hrana";
+"categoryShopping" = "Kupovina";
+"categorySocial" = "Društveno";
+"categoryWeather" = "Vrijeme";
+"categoryTechnology" = "Tehnologija";
+"categoryLifestyle" = "Način Života";
+"categoryProfessional" = "Profesionalno";
+"categoryEmergency" = "Hitno";
+
+

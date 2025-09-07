@@ -1,0 +1,22 @@
+/*
+  categories.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ar
+  Section: categories
+*/
+
+"categoryBasics" = "الأساسيات";
+"categoryTravel" = "السفر";
+"categoryEntertainment" = "الترفيه";
+"categoryFood" = "الطعام";
+"categoryShopping" = "التسوق";
+"categorySocial" = "الاجتماعي";
+"categoryWeather" = "الطقس";
+"categoryTechnology" = "التكنولوجيا";
+"categoryLifestyle" = "نمط الحياة";
+"categoryProfessional" = "المهني";
+"categoryEmergency" = "الطوارئ";
+
+

@@ -1,0 +1,23 @@
+/*
+  background_styles.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: hr
+  Section: background_styles
+*/
+
+"gradient" = "Gradijent";
+"lavaLamp" = "Lava Lampa";
+"snow" = "Snijeg";
+"rain" = "Kiša";
+"stars" = "Zvijezde";
+"bubbles" = "Mjehurići";
+"waves" = "Valovi";
+"particles" = "Čestice";
+"aurora" = "Aurora";
+"fireflies" = "Krijesnice";
+"ocean" = "Ocean";
+"galaxy" = "Galaksija";
+
+

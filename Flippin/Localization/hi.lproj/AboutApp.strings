@@ -1,0 +1,29 @@
+/*
+  about_app.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: hi
+  Section: about_app
+*/
+
+"about" = "के बारे में";
+"appInfo" = "ऐप जानकारी";
+"tagline" = "भाषा सीखने के लिए स्मार्ट फ्लैशकार्ड";
+"version" = "संस्करण";
+"features" = "सुविधाएं";
+"smartCards" = "स्मार्ट कार्ड";
+"smartCardsDescription" = "स्वचालित अनुवाद और टेक्स्ट-टू-स्पीच के साथ द्विभाषी कार्ड";
+"languagesTitle" = "17 भाषाएं";
+"languagesDescription" = "प्रमुख विश्व भाषाओं का समर्थन";
+"learningAnalytics" = "सीखने का विश्लेषण";
+"learningAnalyticsDescription" = "अपनी प्रगति को ट्रैक करें और व्यक्तिगत अंतर्दृष्टि प्राप्त करें";
+"tts" = "टेक्स्ट-टू-स्पीच";
+"ttsDescription" = "TTS तकनीक के साथ उच्चारण सुनें";
+"support" = "ऐप का समर्थन करें";
+"supportDescription" = "यदि आप Flippin का आनंद लेते हैं, तो इसके विकास का समर्थन करने पर विचार करें";
+"buyMeACoffee" = "मुझे एक कॉफी खरीदें";
+"legal" = "कानूनी";
+"privacyPolicy" = "गोपनीयता नीति";
+"termsOfService" = "सेवा की शर्तें";
+

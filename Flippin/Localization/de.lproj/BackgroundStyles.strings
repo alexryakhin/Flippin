@@ -1,0 +1,23 @@
+/*
+  background_styles.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: de
+  Section: background_styles
+*/
+
+"gradient" = "Verlauf";
+"lavaLamp" = "Lavalampe";
+"snow" = "Schnee";
+"rain" = "Regen";
+"stars" = "Sterne";
+"bubbles" = "Blasen";
+"waves" = "Wellen";
+"particles" = "Partikel";
+"aurora" = "Aurora";
+"fireflies" = "Glühwürmchen";
+"ocean" = "Ozean";
+"galaxy" = "Galaxie";
+
+

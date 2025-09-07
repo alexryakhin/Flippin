@@ -1,0 +1,27 @@
+/*
+  paywall.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: uk
+  Section: paywall
+*/
+
+"upgradeToPremiumTitle" = "Перейти на Преміум";
+"upgradeToPremiumMessage" = "Оновіть до Преміум, щоб розблокувати всі функції!";
+"cancel" = "Скасувати";
+"viewOptions" = "Переглянути Варіанти";
+"unlimitedCardsTitle" = "Необмежені Картки";
+"unlimitedCardsMessage" = "Оновіть до Преміум, щоб створювати необмежені картки та розблокувати всі функції!";
+"advancedAnalyticsTitle" = "Розширений Аналіз";
+"advancedAnalyticsMessage" = "Отримуйте детальні інсайти навчання, графіки прогресу та аналізи продуктивності з Преміум!";
+"customThemesTitle" = "Користувацькі Теми";
+"customThemesMessage" = "Розблокуйте красиві користувацькі теми та фони з Преміум!";
+"languageChangeTitle" = "Зміна Мов";
+"languageChangeMessage" = "Вибирайте з-понад 15 мов для покращення вашого досвіду навчання з Преміум!";
+"cardPresetsTitle" = "Попередні Налаштування Карток";
+"cardPresetsMessage" = "Досліджуйте велику колекцію попередньо створених налаштувань карток з Преміум!";
+"studyModesTitle" = "Режими Вивчення";
+"studyModesMessage" = "Отримайте доступ до розширених режимів вивчення та технік навчання з Преміум!";
+
+

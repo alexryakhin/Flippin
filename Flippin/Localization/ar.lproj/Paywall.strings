@@ -1,0 +1,27 @@
+/*
+  paywall.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ar
+  Section: paywall
+*/
+
+"upgradeToPremiumTitle" = "الترقية إلى بريميوم";
+"upgradeToPremiumMessage" = "قم بالترقية إلى بريميوم لفتح جميع الميزات!";
+"cancel" = "إلغاء";
+"viewOptions" = "عرض الخيارات";
+"unlimitedCardsTitle" = "بطاقات غير محدودة";
+"unlimitedCardsMessage" = "قم بالترقية إلى بريميوم لإنشاء بطاقات غير محدودة وفتح جميع الميزات!";
+"advancedAnalyticsTitle" = "تحليلات متقدمة";
+"advancedAnalyticsMessage" = "احصل على رؤى تعليمية مفصلة، ومخططات التقدم، وتحليلات الأداء مع بريميوم!";
+"customThemesTitle" = "ثيمات مخصصة";
+"customThemesMessage" = "افتح ثيمات وخلفيات مخصصة جميلة مع بريميوم!";
+"languageChangeTitle" = "تغيير اللغة";
+"languageChangeMessage" = "اختر من بين أكثر من 15 لغة لتحسين تجربة التعلم مع بريميوم!";
+"cardPresetsTitle" = "إعدادات البطاقات";
+"cardPresetsMessage" = "استكشف مجموعة واسعة من إعدادات البطاقات المصممة مسبقًا مع بريميوم!";
+"studyModesTitle" = "أوضاع الدراسة";
+"studyModesMessage" = "احصل على أوضاع دراسة متقدمة وتقنيات تعلم مع بريميوم!";
+
+

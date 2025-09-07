@@ -1,0 +1,27 @@
+/*
+  paywall.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: pt-PT
+  Section: paywall
+*/
+
+"upgradeToPremiumTitle" = "Fazer Upgrade para Premium";
+"upgradeToPremiumMessage" = "Faz upgrade para Premium para desbloqueares todas as funcionalidades!";
+"cancel" = "Cancelar";
+"viewOptions" = "Ver Opções";
+"unlimitedCardsTitle" = "Cartões Ilimitados";
+"unlimitedCardsMessage" = "Faz upgrade para Premium para criares cartões ilimitados e desbloqueares todas as funcionalidades!";
+"advancedAnalyticsTitle" = "Análise Avançada";
+"advancedAnalyticsMessage" = "Obtém insights detalhados de aprendizagem, gráficos de progresso e análises de desempenho com Premium!";
+"customThemesTitle" = "Temas Personalizados";
+"customThemesMessage" = "Desbloqueia temas personalizados e fundos lindos com Premium!";
+"languageChangeTitle" = "Mudar Idiomas";
+"languageChangeMessage" = "Escolhe entre mais de 15 idiomas para melhorar a tua experiência de aprendizagem com Premium!";
+"cardPresetsTitle" = "Presets de Cartões";
+"cardPresetsMessage" = "Explora uma vasta coleção de presets de cartões pré-projetados com Premium!";
+"studyModesTitle" = "Modos de Estudo";
+"studyModesMessage" = "Acede a modos de estudo avançados e técnicas de aprendizagem com Premium!";
+
+

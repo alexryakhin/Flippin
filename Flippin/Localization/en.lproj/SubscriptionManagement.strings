@@ -1,0 +1,28 @@
+/*
+  subscription_management.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: en
+  Section: subscription_management
+*/
+
+"subscription" = "Subscription";
+"subscriptionStatus" = "Subscription Status";
+"activeSubscription" = "Active Subscription";
+"manageSubscription" = "Manage Subscription";
+
+"done" = "Done";
+"cancel" = "Cancel";
+"delete" = "Delete";
+"edit" = "Edit";
+"save" = "Save";
+"searchCards" = "Search cards...";
+"noCardsAvailable" = "No cards available";
+"noAccuracyDataAvailable" = "No accuracy data available";
+"noGrowthDataAvailable" = "No growth data available";
+"date" = "Date";
+"accuracy" = "Accuracy";
+"masteredCards" = "Mastered Cards";
+"invalidJSON" = "JSON data is invalid";
+

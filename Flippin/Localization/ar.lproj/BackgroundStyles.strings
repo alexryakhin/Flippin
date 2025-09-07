@@ -1,0 +1,23 @@
+/*
+  background_styles.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ar
+  Section: background_styles
+*/
+
+"gradient" = "التدرج";
+"lavaLamp" = "مصباح الحمم";
+"snow" = "الثلج";
+"rain" = "المطر";
+"stars" = "النجوم";
+"bubbles" = "الفقاعات";
+"waves" = "الأمواج";
+"particles" = "الجزيئات";
+"aurora" = "الشفق القطبي";
+"fireflies" = "اليراعات";
+"ocean" = "المحيط";
+"galaxy" = "المجرة";
+
+

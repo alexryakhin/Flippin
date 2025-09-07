@@ -1,0 +1,137 @@
+// MARK: - TTS Voice Filters
+"filters.all_use_cases" = "All Use Cases";
+"filters.all_ages" = "All Ages";
+"filters.all_timbres" = "All Timbres";
+"filters.all_accents" = "All Accents";
+"filters.all_languages" = "All Languages";
+"filters.all_genders" = "All Genders";
+"filters.filters" = "Filters";
+"filters.reset" = "Reset";
+"filters.select_voice" = "Select Voice";
+"filters.available_voices" = "Available Voices";
+"filters.no_voices_available" = "No voices available";
+"filters.no_voices_found" = "No voices found";
+"filters.no_voices_found_message" = "Try adjusting your search or filters";
+
+"usage.monthly_limit_exceeded" = "Monthly Limit Exceeded";
+"usage.monthly_limit_exceeded_message" = "You have reached your monthly limit of 50,000 characters for Speechify TTS. Please try again next month or use Google TTS instead.";
+"usage.remaining_characters" = "Remaining Characters";
+"usage.monthly_usage" = "Monthly Usage";
+
+// TTS Dashboard
+"dashboard" = "TTS Dashboard";
+"premium_tts_dashboard" = "Premium TTS Dashboard";
+"customize_tts_experience" = "Customize your text-to-speech experience";
+"playing" = "Playing";
+"ready" = "Ready";
+"provider" = "Provider";
+"tts_provider" = "TTS Provider";
+"voice_customization" = "Voice Customization";
+"current_voice" = "Current Voice";
+"default_voice" = "Default Voice";
+"preview_current_voice" = "Preview Current Voice";
+"change_voice" = "Change Voice";
+"audio_settings" = "Audio Settings";
+"speech_rate" = "Speech Rate";
+"volume" = "Volume";
+"test_your_settings" = "Test Your Settings";
+"enter_text_to_test" = "Enter text to test...";
+"stop" = "Stop";
+"test" = "Test";
+"usage_statistics" = "Usage Statistics";
+"speechify_monthly_usage" = "Speechify Monthly Usage";
+"monthly_limit" = "Monthly Limit";
+"used_this_month" = "Used This Month";
+"remaining" = "Remaining";
+"usage_progress" = "Usage Progress";
+"characters" = "characters";
+
+// TTS Analytics
+"analytics.characters_used" = "Characters Used";
+"analytics.sessions" = "Sessions";
+"analytics.favorite_voice" = "Favorite Voice";
+"analytics.time_saved" = "Time Saved";
+"analytics.total_characters" = "Total Characters";
+"analytics.total_sessions" = "Total Sessions";
+"analytics.total_duration" = "Total Duration";
+"analytics.favorite_language" = "Favorite Language";
+"analytics.premium_usage" = "Premium Usage";
+
+// TTS Settings
+"settings.text_to_speech" = "Text-to-Speech";
+"settings.speechify" = "Speechify";
+"settings.speechify_description" = "Speechify's Text-to-Speech AI model is available for all users as a premium feature. It allows you to choose from a wide range of voices and accents, so you can fine-tune your study experience.";
+"settings.speechify_pro_description" = "Speechify's Text-to-Speech AI model is included in your subscription.";
+"settings.dashboard" = "Dashboard";
+"pro" = "PRO";
+"free_google_tts_description" = "Free Google TTS with basic voices and reliable performance";
+
+// TTS Models
+"models.english" = "English";
+"models.multilingual" = "Multilingual";
+"models.english_description" = "Speechify's English text-to-speech model offers standard capabilities designed to deliver clear and natural voice output for reading texts. The model focuses on delivering a consistent user experience.";
+"models.multilingual_description" = "Multilingual model allows the usage of all supported languages and supports using multiple languages within a single sentence. The audio output of this model is distinctively different from other models.";
+"usage.monthly_limit" = "Monthly Limit";
+
+// TTS Voice Filter Values
+"advertisement" = "Advertisement";
+"animation" = "Animation";
+"audiobook" = "Audiobook";
+"audiobook-and-narration" = "Audiobook & Narration";
+"audiobooks-and-narration" = "Audiobooks & Narration";
+"conversational" = "Conversational";
+"e-learning" = "E-Learning";
+"gaming" = "Gaming";
+"meditation" = "Meditation";
+"movie" = "Movie";
+"movies-acting-and-gaming" = "Movies, Acting & Gaming";
+"narration" = "Narration";
+"podcast" = "Podcast";
+"social-media" = "Social Media";
+
+"middle-aged" = "Middle-aged";
+"senior" = "Senior";
+"teen" = "Teen";
+"young-adult" = "Young Adult";
+
+"female" = "Female";
+"male" = "Male";
+
+"angry" = "Angry";
+"assertive-or-confident" = "Assertive or Confident";
+"bright" = "Bright";
+"calm-or-relaxed" = "Calm or Relaxed";
+"cheerful" = "Cheerful";
+"crisp" = "Crisp";
+"deep" = "Deep";
+"direct" = "Direct";
+"energetic" = "Energetic";
+"fearful" = "Fearful";
+"high-pitch" = "High Pitch";
+"neutral" = "Neutral";
+"professional" = "Professional";
+"relaxed" = "Relaxed";
+"sad" = "Sad";
+"suprised" = "Surprised";
+"surprised" = "Surprised";
+"terrified" = "Terrified";
+"warm" = "Warm";
+"warm-or-friendly" = "Warm or Friendly";
+
+"american-neutral" = "American Neutral";
+"australian" = "Australian";
+"british" = "British";
+"indian" = "Indian";
+"nigerian" = "Nigerian";
+
+// MARK: - English Accents
+"english_accents.australian" = "Australian";
+"english_accents.canadian" = "Canadian";
+"english_accents.british" = "British";
+"english_accents.indian" = "Indian";
+"english_accents.american" = "American";
+"english_accents.belgian" = "Belgian";
+"english_accents.singaporean" = "Singaporean";
+"english_accents.irish" = "Irish";
+"english_accents.south_african" = "South African";
+

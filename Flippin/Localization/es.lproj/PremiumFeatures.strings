@@ -1,0 +1,39 @@
+/*
+  premium_features.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: es
+  Section: premium_features
+*/
+
+"premiumFeature" = "Función Premium";
+"premiumRequired" = "Premium Requerido";
+"upgradeToPremium" = "Actualizar a Premium";
+"premiumFeatureDescription" = "Accede a todas las colecciones preestablecidas y desbloquea el potencial ilimitado de aprendizaje de idiomas";
+"previewBackgrounds" = "Vista Previa";
+"colorScheme" = "Esquema de Color";
+"colorSchemeSystem" = "Sistema";
+"colorSchemeLight" = "Claro";
+"colorSchemeDark" = "Oscuro";
+"unlockPremium" = "Desbloquear Premium";
+"masterLanguageLearning" = "Domina tu aprendizaje de idiomas con funciones exclusivas";
+"usedCardsOfLimit" = "Has usado %d de %d tarjetas gratuitas";
+"whatYouGetWithPremium" = "Lo que obtienes con Premium";
+"unlimitedCardsDescription" = "Crea tantas tarjetas de estudio como quieras";
+"collections" = "30+ Colecciones";
+"collectionsDescription" = "Accede a todas las colecciones de vocabulario preestablecidas";
+"premiumBackgrounds" = "Fondos Premium";
+"premiumBackgroundsDescription" = "Hermosos fondos animados";
+"changeLanguages" = "Cambiar Idiomas";
+"changeLanguagesDescription" = "Cambia entre diferentes pares de idiomas en cualquier momento";
+"multipleLanguagesTitle" = "Múltiples Idiomas";
+"multipleLanguagesDescription" = "Capacidad de aprender múltiples idiomas al mismo tiempo";
+"restorePurchases" = "Restaurar Compras";
+"cancelAnytime" = "Cancela en cualquier momento • Sin compromiso";
+"terms" = "Términos";
+"privacy" = "Privacidad";
+"goPremium" = "Ir a Premium";
+"premium" = "Premium";
+
+

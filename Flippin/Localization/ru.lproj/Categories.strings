@@ -1,0 +1,22 @@
+/*
+  categories.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ru
+  Section: categories
+*/
+
+"categoryBasics" = "Основы";
+"categoryTravel" = "Путешествия";
+"categoryEntertainment" = "Развлечения";
+"categoryFood" = "Еда";
+"categoryShopping" = "Покупки";
+"categorySocial" = "Общение";
+"categoryWeather" = "Погода";
+"categoryTechnology" = "Технологии";
+"categoryLifestyle" = "Образ жизни";
+"categoryProfessional" = "Профессиональное";
+"categoryEmergency" = "Экстренные ситуации";
+
+

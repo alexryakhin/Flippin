@@ -1,0 +1,39 @@
+/*
+  premium_features.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: hr
+  Section: premium_features
+*/
+
+"premiumFeature" = "Premium Funkcija";
+"premiumRequired" = "Premium Potreban";
+"upgradeToPremium" = "Nadogradi na Premium";
+"premiumFeatureDescription" = "Pristupite svim unaprijed definiranim kolekcijama i otključajte neograničeni potencijal za učenje jezika";
+"previewBackgrounds" = "Pregled";
+"colorScheme" = "Shema Boja";
+"colorSchemeSystem" = "Sustav";
+"colorSchemeLight" = "Svijetlo";
+"colorSchemeDark" = "Tamno";
+"unlockPremium" = "Otključaj Premium";
+"masterLanguageLearning" = "Osvladajte svoje učenje jezika s ekskluzivnim značajkama";
+"usedCardsOfLimit" = "Koristili ste %d od %d besplatnih kartica";
+"whatYouGetWithPremium" = "Što dobivate s Premium";
+"unlimitedCardsDescription" = "Stvorite onoliko flashcards koliko želite";
+"collections" = "30+ Kolekcija";
+"collectionsDescription" = "Pristup svim unaprijed definiranim kolekcijama vokabulara";
+"premiumBackgrounds" = "Premium Pozadine";
+"premiumBackgroundsDescription" = "Lijepi animirani pozadini";
+"changeLanguages" = "Promijeni Jezike";
+"changeLanguagesDescription" = "Prebacujte između različitih parova jezika u bilo kojem trenutku";
+"multipleLanguagesTitle" = "Višestruki Jezici";
+"multipleLanguagesDescription" = "Mogućnost učenja više jezika istovremeno";
+"restorePurchases" = "Vraćanje Kupnji";
+"cancelAnytime" = "Otkažite u bilo kojem trenutku • Bez obveze";
+"terms" = "Uvjeti";
+"privacy" = "Privatnost";
+"goPremium" = "Idi na Premium";
+"premium" = "Premium";
+
+

@@ -1,0 +1,16 @@
+/*
+  labels.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: hr
+  Section: labels
+*/
+
+"settingsLabel" = "Postavke";
+"menu" = "Izbornik";
+"tagFilter" = "Filter oznaka";
+"shuffle" = "Promiješaj";
+"addCardLabel" = "Dodaj karticu";
+
+

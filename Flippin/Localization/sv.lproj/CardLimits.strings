@@ -1,0 +1,17 @@
+/*
+  card_limits.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: sv
+  Section: card_limits
+*/
+
+"cardsUsedOfLimit" = "%d av %d kort";
+"cardLimitExceeded" = "Kortgräns uppnådd. Du har använt %d av %d tillåtna kort. Uppgradera till Premium för obegränsade kort.";
+"freeUsersLimitedTo" = "Gratis användare är begränsade till %d kort";
+"purchaseUnlimitedCards" = "Köp obegränsade kort för att lägga till fler kort i din samling";
+"upgrade" = "Uppgradera";
+"unlimitedCards" = "Obegränsade Kort";
+
+

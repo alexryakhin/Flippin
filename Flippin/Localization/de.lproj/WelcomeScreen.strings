@@ -1,0 +1,36 @@
+/*
+  welcome_screen.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: de
+  Section: welcome_screen
+*/
+
+"welcomeScreenTitle" = "Willkommen bei Flippin!";
+"welcomeScreenMessage" = "Flippin hilft Ihnen dabei, Sprachen für Reisen, Studium oder tägliche Gespräche mit intelligenten Karteikarten zu lernen.";
+"myLanguage" = "Meine Sprache";
+"myLanguageDesc" = "Ihre Muttersprache";
+"imLearning" = "Ich lerne";
+"imLearningDesc" = "Die Sprache, die Sie lernen möchten";
+"continueButton" = "Weiter";
+"back" = "Zurück";
+"getStarted" = "Loslegen";
+"chooseLanguages" = "Wählen Sie Ihre Sprachen";
+"chooseLanguagesDesc" = "Wählen Sie Ihre Muttersprache und die Sprache, die Sie lernen möchten";
+"readyToStart" = "Alles Bereit!";
+"readyToStartDesc" = "Ihre Lernreise beginnt jetzt";
+"featureLearning" = "Automatische Übersetzung";
+"featureLearningDesc" = "Echtzeit-Übersetzung während Sie tippen";
+"featureLanguages" = "17 Sprachen";
+"featureLanguagesDesc" = "Unterstützung für die wichtigsten Weltsprachen";
+"featureSmart" = "Text-zu-Sprache";
+"featureSmartDesc" = "Hören Sie die Aussprache mit TTS-Technologie";
+"featureAnalytics" = "Lernanalyse";
+"featureAnalyticsDesc" = "Verfolgen Sie Ihren Fortschritt mit detaillierten Einblicken";
+"finalFeatureAdd" = "Erstellen Sie benutzerdefinierte Karteikarten";
+"finalFeaturePractice" = "Üben Sie mit Audio-Aussprache";
+"finalFeatureProgress" = "Organisieren Sie mit Tags und Favoriten";
+"finalFeatureModes" = "Mehrere Übungsmodi";
+
+

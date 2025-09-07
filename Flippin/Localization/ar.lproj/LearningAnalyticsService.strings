@@ -1,0 +1,66 @@
+/*
+  learning_analytics_service.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ar
+  Section: learning_analytics_service
+*/
+
+"notEnoughData" = "بيانات غير كافية";
+"morning" = "الصباح (6-12 صباحاً)";
+"afternoon" = "الظهيرة (12-5 مساءً)";
+"evening" = "المساء (5-9 مساءً)";
+"night" = "الليل (9 مساءً-6 صباحاً)";
+"under10Minutes" = "أقل من 10 دقائق";
+"tenTo20Minutes" = "10-20 دقيقة";
+"twentyTo30Minutes" = "20-30 دقيقة";
+"thirtyTo60Minutes" = "30-60 دقيقة";
+"over60Minutes" = "أكثر من 60 دقيقة";
+"onceThisWeek" = "مرة واحدة هذا الأسبوع";
+"fewTimesThisWeek" = "بضع مرات هذا الأسبوع";
+"mostDaysThisWeek" = "معظم أيام هذا الأسبوع";
+"daily" = "يومياً";
+"veryEasy" = "سهل جدًا";
+"easy" = "سهل";
+"medium" = "متوسط";
+"hard" = "صعب";
+"veryHard" = "صعب جدًا";
+"unknown" = "غير معروف";
+"completedStudySession" = "تم إكمال جلسة الدراسة";
+"reviewedCardsInTime" = "تم مراجعة %d بطاقة في %@";
+"recent" = "حديث";
+"reachedCardsMastered" = "تم الوصول إلى %d بطاقة تم إتقانها";
+"greatProgressBuildingFoundation" = "تقدم رائع! أنت تبني أساسًا قويًا.";
+"first10CardsMastered" = "تم إتقان أول 10 بطاقات";
+"sevenDayStudyStreak" = "سلسلة دراسة لمدة 7 أيام";
+"fiftyCardsMastered" = "تم إتقان 50 بطاقة";
+"thirtyDayStudyStreak" = "سلسلة دراسة لمدة 30 يومًا";
+"completed" = "مكتمل";
+"inProgress" = "قيد التقدم";
+"youreMostProductiveIn" = "أنت أكثر إنتاجية في %@";
+"studySessionsDuringThisTime" = "تظهر جلسات دراستك خلال هذا الوقت تركيزًا واحتفاظًا أفضل.";
+"optimalSessionLength" = "طول الجلسة المثالي";
+"yourSessionsShowBestResults" = "تظهر جلساتك %@ أفضل النتائج.";
+"consistentLearningPattern" = "نمط تعلم متسق";
+"yourStudyRoutineWorkingWell" = "روتين دراستك %@ يعمل بشكل جيد.";
+"improvingAccuracy" = "تحسين الدقة";
+"recentAccuracyHigherThanBefore" = "دقتك الأخيرة أعلى بنسبة %d%% من قبل.";
+"focusOnAccuracy" = "التركيز على الدقة";
+"recentAccuracyDecreased" = "انخفضت دقتك الأخيرة. فكر في مراجعة البطاقات الصعبة.";
+"excellentProgress" = "تقدم ممتاز";
+"masteredVocabularyPercentage" = "لقد أتقنت %d%% من مفرداتك!";
+"goodFoundation" = "أساس جيد";
+"masteredVocabularyKeepGoing" = "لقد أتقنت %d%% من مفرداتك. استمر!";
+"reviewDifficultCards" = "راجع البطاقات الصعبة";
+"cardsNeedMorePractice" = "%d بطاقة تحتاج إلى مزيد من التدريب. ركز على هذه لتحسين الدقة.";
+"addMoreVocabulary" = "أضف المزيد من المفردات";
+"masteredMostCurrentCards" = "لقد أتقنت معظم بطاقاتك الحالية. مستعد لتحديات جديدة!";
+"extendYourStreak" = "مدد سلسلتك";
+"daysAwayFromAchievement" = "أنت على بعد %d يوم من إنجاز جديد!";
+"buildConsistency" = "بناء الاتساق";
+"tryToStudyDaily" = "حاول الدراسة يوميًا لبناء عادة تعلم قوية.";
+"improveAccuracy" = "تحسين الدقة";
+"accuracyPercentageFocusQuality" = "دقتك هي %d%%. ركز على الجودة على السرعة.";
+
+

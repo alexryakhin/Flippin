@@ -1,0 +1,29 @@
+/*
+  subscription_management.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: hr
+  Section: subscription_management
+*/
+
+"subscription" = "Pretplata";
+"subscriptionStatus" = "Status pretplate";
+"activeSubscription" = "Aktivna pretplata";
+"manageSubscription" = "Upravljanje pretplatom";
+
+"done" = "Gotovo";
+"cancel" = "Odustani";
+"delete" = "Obriši";
+"edit" = "Uredi";
+"save" = "Spremi";
+"searchCards" = "Pretraži kartice...";
+"noCardsAvailable" = "Nema dostupnih kartica";
+"noAccuracyDataAvailable" = "Nema dostupnih podataka o točnosti";
+"noGrowthDataAvailable" = "Nema dostupnih podataka o rastu";
+"date" = "Datum";
+"accuracy" = "Točnost";
+"masteredCards" = "Savladane Kartice";
+"invalidJSON" = "Nevažeći JSON podaci";
+
+

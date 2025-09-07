@@ -1,0 +1,16 @@
+/*
+  labels.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: pt-BR
+  Section: labels
+*/
+
+"settingsLabel" = "Configurações";
+"menu" = "Menu";
+"tagFilter" = "Filtro de tags";
+"shuffle" = "Embaralhar";
+"addCardLabel" = "Adicionar cartão";
+
+

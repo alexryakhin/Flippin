@@ -1,0 +1,62 @@
+/*
+  study.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: pt-PT
+  Section: study
+*/
+
+"study" = "Estudar";
+"practice" = "Praticar";
+"studyMode" = "Modo de Estudo";
+"practiceMode" = "Modo de Prática";
+"quickStats" = "Estatísticas Rápidas";
+"studyOptions" = "Opções de Estudo";
+"practiceOptions" = "Opções de Prática";
+"recentActivity" = "Atividade Recente";
+"totalCards" = "Total de Cartões";
+"mastered" = "Dominados";
+"difficultCards" = "Cartões Difíceis";
+"studyTimeToday" = "Tempo de Estudo Hoje";
+"practiceTimeToday" = "Tempo de Prática Hoje";
+"startStudySession" = "Iniciar Sessão de Estudo (10 cartões)";
+"startPracticeSession" = "Iniciar Sessão de Prática (10 cartões)";
+"practiceAllCards" = "Praticar Todos os Cartões (%d)";
+"practiceDifficultCards" = "Praticar Cartões Difíceis (%d)";
+"multipleChoiceQuiz" = "Quiz de Escolha Múltipla";
+"fillInTheBlank" = "Preencher a Lacuna (%d)";
+"unlockAllStudyModes" = "Desbloquear Todos os Modos de Estudo";
+"unlockAllPracticeModes" = "Desbloquear Todos os Modos de Prática";
+"noStudyData" = "Nenhum Dado de Estudo";
+"noPracticeData" = "Nenhum Dado de Prática";
+"startStudyingToSeeProgress" = "Começa a estudar para veres o teu progresso!";
+"startPracticingToSeeProgress" = "Começa a praticar para veres o teu progresso!";
+"toCards" = "Para cartões";
+"totalStudyTime" = "Tempo Total de Estudo";
+"totalPracticeTime" = "Tempo Total de Prática";
+"averageSession" = "Sessão Média";
+"learningProgress" = "Progresso de Aprendizagem";
+"exit" = "Sair";
+"showAnswer" = "Mostrar Resposta";
+"incorrect" = "Incorreto";
+"correct" = "Correto";
+"studySessionComplete" = "Sessão de Estudo Concluída!";
+"practiceSessionComplete" = "Sessão de Prática Concluída!";
+"accuracy" = "Precisão";
+"cardsStudied" = "Cartões Estudados";
+"cardsPracticed" = "Cartões Praticados";
+"timeSpent" = "Tempo Gasto";
+"studyAgain" = "Estudar Novamente";
+"practiceAgain" = "Praticar Novamente";
+"done" = "Concluído";
+"selectCorrectTranslation" = "Seleciona a tradução correta";
+"fillInMissingWord" = "Preenche a palavra em falta";
+"completeSentence" = "Completar a frase";
+"chooseCorrectWord" = "Escolhe a palavra correta:";
+"correctAnswer" = "Resposta Correta";
+"translateTo" = "Traduzir para %@";
+"studyProgress" = "%d de %d";
+"practiceProgress" = "%d de %d";
+
+

@@ -1,0 +1,16 @@
+/*
+  labels.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ar
+  Section: labels
+*/
+
+"settingsLabel" = "الإعدادات";
+"menu" = "القائمة";
+"tagFilter" = "مرشح الوسوم";
+"shuffle" = "خلط";
+"addCardLabel" = "إضافة بطاقة";
+
+

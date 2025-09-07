@@ -1,0 +1,15 @@
+/*
+  card_management.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: sv
+  Section: card_management
+*/
+
+"noDifficultCards" = "Inga Svåra Kort";
+"noDifficultCardsDescription" = "Du har inte markerat några kort som svåra än. Studera fler kort för att se svårighetsgrader.";
+"difficultCards" = "Svåra Kort";
+"failedToCreateCard" = "Misslyckades med att skapa kort: %@";
+
+

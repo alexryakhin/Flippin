@@ -1,0 +1,54 @@
+/*
+  analytics.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: pt-PT
+  Section: analytics
+*/
+
+"analytics" = "Análise";
+"detailedAnalytics" = "Análise Detalhada";
+"today" = "Hoje";
+"noAnalyticsData" = "Nenhum Dado Analítico";
+"startStudyingToSeeProgress" = "Começa a estudar para veres o teu progresso de aprendizagem!";
+"unlockAdvancedAnalytics" = "Desbloquear Análise Avançada";
+"detailedProgressReports" = "Relatórios de Progresso Detalhados";
+"detailedProgressReportsDescription" = "Acompanha os teus padrões de aprendizagem e melhorias ao longo do tempo";
+"performanceInsights" = "Insights de Desempenho";
+"performanceInsightsDescription" = "Obtém recomendações personalizadas para melhorar os teus hábitos de estudo";
+"studyTimeAnalytics" = "Análise de Tempo de Estudo";
+"studyTimeAnalyticsDescription" = "Analisa as tuas sessões de estudo e otimiza a tua aprendizagem";
+"upgradeToPremium" = "Fazer Upgrade para Premium";
+"recentActivity" = "Atividade Recente";
+"viewAll" = "Ver Tudo";
+"noRecentActivity" = "Nenhuma Atividade Recente";
+"studySessionsWillAppearHere" = "As tuas sessões de estudo aparecerão aqui";
+"lastStudySession" = "Última Sessão de Estudo";
+"cardsStudiedToday" = "Cartões Estudados Hoje";
+"studyStreak" = "Sequência de Estudo";
+"totalStudyTime" = "Tempo Total de Estudo";
+"cardsMastered" = "Cartões Dominados";
+"todaysStudy" = "Estudo de Hoje";
+"time" = "Tempo";
+"cardsStudied" = "Cartões Estudados";
+"sessions" = "Sessões";
+"accuracy" = "Precisão";
+"studyTime" = "Tempo de Estudo";
+"practiceTime" = "Tempo de Prática";
+"timeRange" = "Intervalo de Tempo";
+"masteryProgress" = "Progresso de Domínio";
+"mastered" = "Dominados";
+"learning" = "A Aprender";
+"needsReview" = "Precisa de Revisão";
+"week" = "Semana";
+"month" = "Mês";
+"year" = "Ano";
+"allTime" = "Todo o Tempo";
+"overview" = "Visão Geral";
+"performance" = "Desempenho";
+"progress" = "Progresso";
+"insights" = "Insights";
+"noStudyDataAvailable" = "Nenhum dado de estudo disponível";
+
+

@@ -1,0 +1,22 @@
+/*
+  categories.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ko
+  Section: categories
+*/
+
+"categoryBasics" = "기본";
+"categoryTravel" = "여행";
+"categoryEntertainment" = "엔터테인먼트";
+"categoryFood" = "음식";
+"categoryShopping" = "쇼핑";
+"categorySocial" = "사회";
+"categoryWeather" = "날씨";
+"categoryTechnology" = "기술";
+"categoryLifestyle" = "라이프스타일";
+"categoryProfessional" = "전문";
+"categoryEmergency" = "비상";
+
+

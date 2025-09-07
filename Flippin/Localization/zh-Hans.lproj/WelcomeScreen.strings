@@ -1,0 +1,36 @@
+/*
+  welcome_screen.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: zh-Hans
+  Section: welcome_screen
+*/
+
+"welcomeScreenTitle" = "欢迎使用Flippin！";
+"welcomeScreenMessage" = "Flippin帮助您学习语言用于旅行、学习或日常对话，使用智能闪卡。";
+"myLanguage" = "我的语言";
+"myLanguageDesc" = "您的母语";
+"imLearning" = "我正在学习";
+"imLearningDesc" = "您想学习的语言";
+"continueButton" = "继续";
+"back" = "返回";
+"getStarted" = "开始使用";
+"chooseLanguages" = "选择您的语言";
+"chooseLanguagesDesc" = "选择您的母语和您想学习的语言";
+"readyToStart" = "一切就绪！";
+"readyToStartDesc" = "您的语言学习之旅现在开始";
+"featureLearning" = "自动翻译";
+"featureLearningDesc" = "输入时实时翻译";
+"featureLanguages" = "17种语言";
+"featureLanguagesDesc" = "支持世界主要语言";
+"featureSmart" = "文字转语音";
+"featureSmartDesc" = "使用TTS技术听发音";
+"featureAnalytics" = "学习分析";
+"featureAnalyticsDesc" = "通过详细洞察跟踪您的进度";
+"finalFeatureAdd" = "创建自定义闪卡";
+"finalFeaturePractice" = "使用音频发音练习";
+"finalFeatureProgress" = "使用标签和收藏夹整理";
+"finalFeatureModes" = "多种练习模式";
+
+

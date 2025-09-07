@@ -1,0 +1,19 @@
+/*
+  add_card.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: hi
+  Section: add_card
+*/
+
+"enterTextInYourLanguage" = "अपनी भाषा में पाठ दर्ज करें";
+"enterTextInTargetLanguage" = "लक्ष्य भाषा में पाठ दर्ज करें";
+"addNotesOptional" = "नोट्स जोड़ें (वैकल्पिक)";
+"notes" = "नोट्स";
+"tagsCount" = "टैग (%d/5)";
+"noTagsAvailableAddInSettings" = "कोई टैग उपलब्ध नहीं। सेटिंग्स में कुछ टैग जोड़ें।";
+"translating" = "अनुवाद कर रहा है...";
+"translationWillAppearHere" = "अनुवाद यहां दिखाई देगा";
+
+

@@ -1,0 +1,15 @@
+/*
+  card_management.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: zh-Hant
+  Section: card_management
+*/
+
+"noDifficultCards" = "沒有困難卡片";
+"noDifficultCardsDescription" = "您尚未將任何卡片標記為困難。學習更多卡片以查看難度等級。";
+"difficultCards" = "困難卡片";
+"failedToCreateCard" = "創建卡片失敗：%@";
+
+

@@ -1,0 +1,27 @@
+/*
+  paywall.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ja
+  Section: paywall
+*/
+
+"upgradeToPremiumTitle" = "プレミアムにアップグレード";
+"upgradeToPremiumMessage" = "すべての機能をアンロックするためにプレミアムにアップグレード！";
+"cancel" = "キャンセル";
+"viewOptions" = "オプションを表示";
+"unlimitedCardsTitle" = "無制限のカード";
+"unlimitedCardsMessage" = "無制限のカードを作成し、すべての機能をアンロックするためにプレミアムにアップグレード！";
+"advancedAnalyticsTitle" = "高度な分析";
+"advancedAnalyticsMessage" = "プレミアムで詳細な学習インサイト、進捗グラフ、パフォーマンス分析を取得！";
+"customThemesTitle" = "カスタムテーマ";
+"customThemesMessage" = "プレミアムで美しいカスタムテーマと背景をアンロック！";
+"languageChangeTitle" = "言語変更";
+"languageChangeMessage" = "プレミアムで15以上の言語から選んで学習体験を向上！";
+"cardPresetsTitle" = "カードプリセット";
+"cardPresetsMessage" = "プレミアムで事前にデザインされたカードプリセットの広範なコレクションを探る！";
+"studyModesTitle" = "学習モード";
+"studyModesMessage" = "プレミアムで高度な学習モードと学習テクニックにアクセス！";
+
+

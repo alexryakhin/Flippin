@@ -1,0 +1,36 @@
+/*
+  welcome_screen.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ru
+  Section: welcome_screen
+*/
+
+"welcomeScreenTitle" = "Добро пожаловать в Flippin!";
+"welcomeScreenMessage" = "Flippin помогает вам изучать языки для путешествий, учебы или повседневного общения с помощью умных карточек.";
+"myLanguage" = "Мой язык";
+"myLanguageDesc" = "Ваш родной язык";
+"imLearning" = "Я изучаю";
+"imLearningDesc" = "Язык, который вы хотите изучить";
+"continueButton" = "Продолжить";
+"back" = "Назад";
+"getStarted" = "Начать";
+"chooseLanguages" = "Выберите ваши языки";
+"chooseLanguagesDesc" = "Выберите свой родной язык и язык, который вы хотите изучить";
+"readyToStart" = "Все готово!";
+"readyToStartDesc" = "Ваше путешествие в изучении языков начинается сейчас";
+"featureLearning" = "Автоматический перевод";
+"featureLearningDesc" = "Перевод в реальном времени при вводе";
+"featureLanguages" = "17 языков";
+"featureLanguagesDesc" = "Поддержка основных языков мира";
+"featureSmart" = "Синтез речи";
+"featureSmartDesc" = "Слушайте произношение с помощью технологии TTS";
+"featureAnalytics" = "Аналитика обучения";
+"featureAnalyticsDesc" = "Отслеживайте свой прогресс с подробными инсайтами";
+"finalFeatureAdd" = "Создавайте пользовательские карточки";
+"finalFeaturePractice" = "Практикуйтесь с аудио произношением";
+"finalFeatureProgress" = "Организуйте с тегами и избранным";
+"finalFeatureModes" = "Множественные режимы практики";
+
+

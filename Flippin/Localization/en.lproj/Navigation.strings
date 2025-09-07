@@ -1,0 +1,17 @@
+/*
+  navigation.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: en
+  Section: navigation
+*/
+
+"stack" = "Stack";
+"list" = "List";
+"study" = "Study";
+"practice" = "Practice";
+"analytics" = "Analytics";
+"settings" = "Settings";
+
+

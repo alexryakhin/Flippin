@@ -1,0 +1,22 @@
+/*
+  categories.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: hi
+  Section: categories
+*/
+
+"categoryBasics" = "मूल बातें";
+"categoryTravel" = "यात्रा";
+"categoryEntertainment" = "मनोरंजन";
+"categoryFood" = "भोजन";
+"categoryShopping" = "खरीदारी";
+"categorySocial" = "सामाजिक";
+"categoryWeather" = "मौसम";
+"categoryTechnology" = "प्रौद्योगिकी";
+"categoryLifestyle" = "जीवनशैली";
+"categoryProfessional" = "पेशेवर";
+"categoryEmergency" = "आपातकाल";
+
+

@@ -1,0 +1,39 @@
+/*
+  premium_features.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ar
+  Section: premium_features
+*/
+
+"premiumFeature" = "ميزة بريميوم";
+"premiumRequired" = "مطلوب بريميوم";
+"upgradeToPremium" = "الترقية إلى بريميوم";
+"premiumFeatureDescription" = "احصل على الوصول إلى جميع المجموعات المعرفة مسبقاً وافتح الإمكانيات غير المحدودة لتعلم اللغات";
+"previewBackgrounds" = "معاينة";
+"colorScheme" = "مخطط الألوان";
+"colorSchemeSystem" = "النظام";
+"colorSchemeLight" = "فاتح";
+"colorSchemeDark" = "داكن";
+"unlockPremium" = "افتح بريميوم";
+"masterLanguageLearning" = "أتقن تعلم لغتك بميزات حصرية";
+"usedCardsOfLimit" = "لقد استخدمت %d من %d بطاقة مجانية";
+"whatYouGetWithPremium" = "ما تحصل عليه مع بريميوم";
+"unlimitedCardsDescription" = "أنشئ أكبر عدد تريده من البطاقات التعليمية";
+"collections" = "+30 مجموعة";
+"collectionsDescription" = "احصل على جميع مجموعات المفردات المعرفة مسبقاً";
+"premiumBackgrounds" = "خلفيات بريميوم";
+"premiumBackgroundsDescription" = "خلفيات متحركة جميلة";
+"changeLanguages" = "تغيير اللغات";
+"changeLanguagesDescription" = "تبديل بين أزواج اللغات المختلفة في أي وقت";
+"multipleLanguagesTitle" = "لغات متعددة";
+"multipleLanguagesDescription" = "القدرة على تعلم عدة لغات في نفس الوقت";
+"restorePurchases" = "استعادة المشتريات";
+"cancelAnytime" = "إلغاء في أي وقت • بدون التزام";
+"terms" = "الشروط";
+"privacy" = "الخصوصية";
+"goPremium" = "اذهب إلى بريميوم";
+"premium" = "بريميوم";
+
+

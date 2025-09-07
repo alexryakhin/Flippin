@@ -1,0 +1,22 @@
+/*
+  settings.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: hi
+  Section: settings
+*/
+
+"languages" = "भाषाएं";
+"cardDisplay" = "कार्ड प्रदर्शन";
+"cardDisplayMode" = "कार्ड प्रदर्शन मोड";
+"learningMode" = "सीखने का मोड";
+"travelMode" = "यात्रा मोड";
+"learningModeDescription" = "लक्ष्य भाषा पहले दिखाएं (सीखने के लिए)";
+"travelModeDescription" = "मातृभाषा पहले दिखाएं (यात्रा के लिए)";
+"previewBackgrounds" = "पृष्ठभूमि पूर्वावलोकन";
+"cardManagement" = "कार्ड प्रबंधन";
+"cardManagementDescription" = "अपने अध्ययन कार्डों को खोजें, संपादित करें और व्यवस्थित करें";
+"manageCards" = "कार्ड प्रबंधित करें";
+
+

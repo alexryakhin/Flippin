@@ -1,0 +1,30 @@
+/*
+  about_app.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: en
+  Section: about_app
+*/
+
+"about" = "About";
+"appInfo" = "App Information";
+"tagline" = "Smart flashcards for language learning";
+"version" = "Version";
+"features" = "Features";
+"smartCards" = "Smart Flashcards";
+"smartCardsDescription" = "Bilingual cards with auto-translation and text-to-speech";
+"languagesTitle" = "17 Languages";
+"languagesDescription" = "Support for major world languages";
+"learningAnalytics" = "Learning Analytics";
+"learningAnalyticsDescription" = "Track your progress and get personalized insights";
+"tts" = "Text-to-Speech";
+"ttsDescription" = "Hear pronunciation with TTS technology";
+"support" = "Support the App";
+"supportDescription" = "If you enjoy Flippin, consider supporting its development";
+"buyMeACoffee" = "Buy me a coffee";
+"legal" = "Legal";
+"privacyPolicy" = "Privacy Policy";
+"termsOfService" = "Terms of Service";
+
+

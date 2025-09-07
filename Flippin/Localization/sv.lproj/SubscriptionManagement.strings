@@ -1,0 +1,29 @@
+/*
+  subscription_management.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: sv
+  Section: subscription_management
+*/
+
+"subscription" = "Prenumeration";
+"subscriptionStatus" = "Prenumerationsstatus";
+"activeSubscription" = "Aktiv Prenumeration";
+"manageSubscription" = "Hantera Prenumeration";
+
+"done" = "Klar";
+"cancel" = "Avbryt";
+"delete" = "Radera";
+"edit" = "Redigera";
+"save" = "Spara";
+"searchCards" = "Sök kort...";
+"noCardsAvailable" = "Inga kort tillgängliga";
+"noAccuracyDataAvailable" = "Inga noggrannhetsdata tillgängliga";
+"noGrowthDataAvailable" = "Inga tillväxtdata tillgängliga";
+"date" = "Datum";
+"accuracy" = "Noggrannhet";
+"masteredCards" = "Bemästrade Kort";
+"invalidJSON" = "Ogiltiga JSON-data";
+
+

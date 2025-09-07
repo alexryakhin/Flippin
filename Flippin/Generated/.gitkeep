@@ -1,0 +1,2 @@
+# This file ensures the Generated directory is tracked by git
+# The actual generated files (L10n.swift) should be added to .gitignore

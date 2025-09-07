@@ -1,0 +1,17 @@
+/*
+  card_limits.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: hi
+  Section: card_limits
+*/
+
+"cardsUsedOfLimit" = "%d में से %d कार्ड";
+"cardLimitExceeded" = "कार्ड सीमा पार हो गई। आपके पास %d में से %d अनुमत कार्ड हैं। असीमित कार्ड के लिए प्रीमियम में अपग्रेड करें।";
+"freeUsersLimitedTo" = "मुफ्त उपयोगकर्ता %d कार्ड तक सीमित हैं";
+"purchaseUnlimitedCards" = "अपने संग्रह में और कार्ड जोड़ने के लिए असीमित कार्ड खरीदें";
+"upgrade" = "अपग्रेड";
+"unlimitedCards" = "असीमित कार्ड";
+
+

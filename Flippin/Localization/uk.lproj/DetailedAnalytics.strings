@@ -1,0 +1,67 @@
+/*
+  detailed_analytics.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: uk
+  Section: detailed_analytics
+*/
+
+"analyticsTab" = "Вкладка Аналізу";
+"studyTimeTitle" = "Час Вивчення";
+"practiceTimeTitle" = "Час Практики";
+"cardsMasteredTitle" = "Опановано Карток";
+"studyStreakTitle" = "Серія Вивчення";
+"averageSessionTitle" = "Середня Сесія";
+"consecutiveDays" = "послідовні дні";
+"perSession" = "за сесію";
+"studyPatterns" = "Моделі Вивчення";
+"mostActiveTime" = "Найактивніший Час";
+"preferredSessionLength" = "Бажана Тривалість Сесії";
+"studyFrequency" = "Частота Вивчення";
+"languageProgress" = "Прогрес Мови";
+"collectionSize" = "Розмір Колекції";
+"cards" = "картки";
+"achievements" = "Досягнення";
+"firstSteps" = "Перші Кроки";
+"weekWarrior" = "Тижневий Воїн";
+"masterLearner" = "Майстер Навчання";
+"dedicated" = "Відданий";
+"vocabularyMaster" = "Майстер Словникового Запасу";
+"timeMaster" = "Майстер Часу";
+"accuracyTrends" = "Тенденції Точності";
+"sessionPerformance" = "Продуктивність Сесії";
+"averageSessionDuration" = "Середня Тривалість Сесії";
+"basedOnData" = "На основі даних від %@";
+"cardsPerSession" = "Картки за Сесію";
+"average" = "Середнє";
+"sessionFrequency" = "Частота Сесій";
+"cardDifficultyAnalysis" = "Аналіз Складності Карток";
+"noDifficultyDataAvailable" = "Немає даних про складність";
+"learningSpeed" = "Швидкість Навчання";
+"cardsPerHour" = "Картки за Годину";
+"vsAverage" = "порівняно з середнім";
+"masteryTimeline" = "Часова Шкала Оволодіння";
+"vocabularyGrowth" = "Зростання Словникового Запасу";
+"totalVocabulary" = "Загальний Словниковий Запас";
+"thisWeek" = "Цей Тиждень";
+"thisMonth" = "Цей Місяць";
+"thisYear" = "Цей Рік";
+"learningMilestones" = "Міcтки Навчання";
+"personalizedInsights" = "Персоналізовані Інсайти";
+"noInsightsAvailableYet" = "Поки що немає доступних інсайтів";
+"recommendations" = "Рекомендації";
+"noRecommendationsAtThisTime" = "Наразі немає рекомендацій";
+"learningTips" = "Поради з Навчання";
+"spacedRepetition" = "Інтервальне Повторення";
+"spacedRepetitionDescription" = "Переглядайте картки з наростаючими інтервалами для кращого запам’ятовування.";
+"activeRecall" = "Активне Пригадування";
+"activeRecallDescription" = "Намагайтеся пригадати відповідь перед тим, як перевернути картку.";
+"contextLearning" = "Контекстне Навчання";
+"contextLearningDescription" = "Вивчайте слова в реченнях, а не ізольовано.";
+"studyNow" = "Вчити Зараз";
+"startReview" = "Почати Перегляд";
+"browseCollections" = "Переглянути Колекції";
+"practiceMode" = "Режим Практики";
+
+

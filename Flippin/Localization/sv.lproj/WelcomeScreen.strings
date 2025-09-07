@@ -1,0 +1,36 @@
+/*
+  welcome_screen.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: sv
+  Section: welcome_screen
+*/
+
+"welcomeScreenTitle" = "Välkommen till Flippin!";
+"welcomeScreenMessage" = "Flippin hjälper dig att lära dig språk för resor, studier eller vardagliga konversationer med smarta flashcards.";
+"myLanguage" = "Mitt språk";
+"myLanguageDesc" = "Ditt modersmål";
+"imLearning" = "Jag lär mig";
+"imLearningDesc" = "Språket du vill lära dig";
+"continueButton" = "Fortsätt";
+"back" = "Tillbaka";
+"getStarted" = "Kom igång";
+"chooseLanguages" = "Välj Dina Språk";
+"chooseLanguagesDesc" = "Välj ditt modersmål och språket du vill lära dig";
+"readyToStart" = "Allt Klart!";
+"readyToStartDesc" = "Din språkinlärningsresa börjar nu";
+"featureLearning" = "Automatisk Översättning";
+"featureLearningDesc" = "Realtidsöversättning medan du skriver";
+"featureLanguages" = "17 Språk";
+"featureLanguagesDesc" = "Stöd för världens huvudspråk";
+"featureSmart" = "Text-till-tal";
+"featureSmartDesc" = "Lyssna på uttal med TTS-teknik";
+"featureAnalytics" = "Lärandeanalys";
+"featureAnalyticsDesc" = "Spåra din framsteg och få personliga insikter";
+"finalFeatureAdd" = "Skapa anpassade flashcards";
+"finalFeaturePractice" = "Öva med ljuduttal";
+"finalFeatureProgress" = "Organisera med taggar och favoriter";
+"finalFeatureModes" = "Flera övningslägen";
+
+

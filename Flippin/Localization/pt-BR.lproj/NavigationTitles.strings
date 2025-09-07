@@ -1,0 +1,17 @@
+/*
+  navigation_titles.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: pt-BR
+  Section: navigation_titles
+*/
+
+"addCard" = "Adicionar Cartão";
+"addNewCard" = "Adicionar Novo Cartão";
+"settings" = "Configurações";
+"myCards" = "Meus Cartões";
+"backgroundStyles" = "Estilos de Fundo";
+"backgroundDemo" = "Demo de Fundo";
+
+

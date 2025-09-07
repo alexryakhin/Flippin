@@ -1,0 +1,22 @@
+/*
+  settings.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ja
+  Section: settings
+*/
+
+"languages" = "言語";
+"cardDisplay" = "カード表示";
+"cardDisplayMode" = "カード表示モード";
+"learningMode" = "学習モード";
+"travelMode" = "旅行モード";
+"learningModeDescription" = "目標言語を最初に表示（学習用）";
+"travelModeDescription" = "母国語を最初に表示（旅行用）";
+"previewBackgrounds" = "背景のプレビュー";
+"cardManagement" = "カード管理";
+"cardManagementDescription" = "学習カードを検索、編集、整理します";
+"manageCards" = "カードを管理";
+
+

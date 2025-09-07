@@ -1,0 +1,17 @@
+/*
+  card_limits.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: pt-PT
+  Section: card_limits
+*/
+
+"cardsUsedOfLimit" = "%d de %d cartões";
+"cardLimitExceeded" = "Limite de cartões atingido. Usaste %d de %d cartões permitidos. Faz upgrade para Premium para cartões ilimitados.";
+"freeUsersLimitedTo" = "Utilizadores gratuitos estão limitados a %d cartões";
+"purchaseUnlimitedCards" = "Compra cartões ilimitados para adicionares mais cartões à tua coleção";
+"upgrade" = "Atualizar";
+"unlimitedCards" = "Cartões Ilimitados";
+
+

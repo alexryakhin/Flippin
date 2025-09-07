@@ -1,0 +1,54 @@
+/*
+  analytics.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: it
+  Section: analytics
+*/
+
+"analytics" = "Analisi";
+"detailedAnalytics" = "Analisi Dettagliate";
+"today" = "Oggi";
+"noAnalyticsData" = "Nessun Dato Analitico";
+"startStudyingToSeeProgress" = "Inizia a studiare per vedere i tuoi progressi di apprendimento!";
+"unlockAdvancedAnalytics" = "Sblocca Analisi Avanzate";
+"detailedProgressReports" = "Rapporti di Progresso Dettagliati";
+"detailedProgressReportsDescription" = "Tieni traccia dei tuoi modelli di apprendimento e miglioramenti nel tempo";
+"performanceInsights" = "Approfondimenti sulle Prestazioni";
+"performanceInsightsDescription" = "Ottieni raccomandazioni personalizzate per migliorare le tue abitudini di studio";
+"studyTimeAnalytics" = "Analisi del Tempo di Studio";
+"studyTimeAnalyticsDescription" = "Analizza le tue sessioni di studio e ottimizza il tuo apprendimento";
+"upgradeToPremium" = "Passa a Premium";
+"recentActivity" = "Attività Recente";
+"viewAll" = "Vedi Tutto";
+"noRecentActivity" = "Nessuna Attività Recente";
+"studySessionsWillAppearHere" = "Le tue sessioni di studio appariranno qui";
+"lastStudySession" = "Ultima Sessione di Studio";
+"cardsStudiedToday" = "Carte Studiate Oggi";
+"studyStreak" = "Serie di Studio";
+"totalStudyTime" = "Tempo Totale di Studio";
+"cardsMastered" = "Carte Padroneggiate";
+"todaysStudy" = "Studio di Oggi";
+"time" = "Tempo";
+"cardsStudied" = "Carte Studiate";
+"sessions" = "Sessioni";
+"accuracy" = "Precisione";
+"studyTime" = "Tempo di Studio";
+"practiceTime" = "Tempo di Pratica";
+"timeRange" = "Intervallo di Tempo";
+"masteryProgress" = "Progresso di Padronanza";
+"mastered" = "Padroneggiate";
+"learning" = "Apprendimento";
+"needsReview" = "Necessita Revisione";
+"week" = "Settimana";
+"month" = "Mese";
+"year" = "Anno";
+"allTime" = "Tutto il Tempo";
+"overview" = "Panoramica";
+"performance" = "Prestazioni";
+"progress" = "Progresso";
+"insights" = "Approfondimenti";
+"noStudyDataAvailable" = "Nessun dato di studio disponibile";
+
+

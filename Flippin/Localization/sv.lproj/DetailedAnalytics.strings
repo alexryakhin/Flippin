@@ -1,0 +1,67 @@
+/*
+  detailed_analytics.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: sv
+  Section: detailed_analytics
+*/
+
+"analyticsTab" = "Analysflik";
+"studyTimeTitle" = "Studietid";
+"practiceTimeTitle" = "Övetid";
+"cardsMasteredTitle" = "Bemästrade Kort";
+"studyStreakTitle" = "Studierad";
+"averageSessionTitle" = "Genomsnittlig Session";
+"consecutiveDays" = "konsekutiva dagar";
+"perSession" = "per session";
+"studyPatterns" = "Studiemönster";
+"mostActiveTime" = "Mest Aktiva Tid";
+"preferredSessionLength" = "Föredragen Sessionslängd";
+"studyFrequency" = "Studiefrekvens";
+"languageProgress" = "Språkframsteg";
+"collectionSize" = "Samlingens Storlek";
+"cards" = "kort";
+"achievements" = "Prestationer";
+"firstSteps" = "Första Steg";
+"weekWarrior" = "Veckans Krigare";
+"masterLearner" = "Mästarlärare";
+"dedicated" = "Dedikerad";
+"vocabularyMaster" = "Vokabulärmästare";
+"timeMaster" = "Tidsmästare";
+"accuracyTrends" = "Noggrannhetstrender";
+"sessionPerformance" = "Sessionsprestation";
+"averageSessionDuration" = "Genomsnittlig Sessionslängd";
+"basedOnData" = "Baserat på data från %@";
+"cardsPerSession" = "Kort Per Session";
+"average" = "Genomsnitt";
+"sessionFrequency" = "Sessionsfrekvens";
+"cardDifficultyAnalysis" = "Kortsvårighetsanalys";
+"noDifficultyDataAvailable" = "Inga svårighetsdata tillgängliga";
+"learningSpeed" = "Inlärningshastighet";
+"cardsPerHour" = "Kort Per Timme";
+"vsAverage" = "jämfört med genomsnittet";
+"masteryTimeline" = "Bemästringstidslinje";
+"vocabularyGrowth" = "Vokabulärtillväxt";
+"totalVocabulary" = "Totalt Vokabulär";
+"thisWeek" = "Denna Vecka";
+"thisMonth" = "Denna Månad";
+"thisYear" = "Detta År";
+"learningMilestones" = "Inlärningsmilstolpar";
+"personalizedInsights" = "Personliga Insikter";
+"noInsightsAvailableYet" = "Inga insikter tillgängliga än";
+"recommendations" = "Rekommendationer";
+"noRecommendationsAtThisTime" = "Inga rekommendationer för tillfället";
+"learningTips" = "Inlärningstips";
+"spacedRepetition" = "Upprepning med Intervall";
+"spacedRepetitionDescription" = "Granska kort med ökande intervall för bättre retention.";
+"activeRecall" = "Aktiv Återkallelse";
+"activeRecallDescription" = "Försök att komma ihåg svaret innan du vänder på kortet.";
+"contextLearning" = "Kontextuellt Lärande";
+"contextLearningDescription" = "Lär dig ord i meningar istället för isolerat.";
+"studyNow" = "Studera Nu";
+"startReview" = "Börja Granska";
+"browseCollections" = "Bläddra i Samlingar";
+"practiceMode" = "Övningsläge";
+
+

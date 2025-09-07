@@ -1,0 +1,17 @@
+/*
+  navigation.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: pt-BR
+  Section: navigation
+*/
+
+"stack" = "Pilha";
+"list" = "Lista";
+"study" = "Estudar";
+"practice" = "Praticar";
+"analytics" = "Análise";
+"settings" = "Configurações";
+
+

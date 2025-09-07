@@ -1,0 +1,22 @@
+/*
+  categories.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: uk
+  Section: categories
+*/
+
+"categoryBasics" = "Основи";
+"categoryTravel" = "Подорожі";
+"categoryEntertainment" = "Розваги";
+"categoryFood" = "Їжа";
+"categoryShopping" = "Покупки";
+"categorySocial" = "Спілкування";
+"categoryWeather" = "Погода";
+"categoryTechnology" = "Технології";
+"categoryLifestyle" = "Спосіб Життя";
+"categoryProfessional" = "Професійне";
+"categoryEmergency" = "Надзвичайна Ситуація";
+
+

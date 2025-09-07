@@ -1,0 +1,67 @@
+/*
+  detailed_analytics.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: hi
+  Section: detailed_analytics
+*/
+
+"analyticsTab" = "विश्लेषण टैब";
+"studyTimeTitle" = "अध्ययन समय";
+"practiceTimeTitle" = "अभ्यास समय";
+"cardsMasteredTitle" = "निपुण कार्ड";
+"studyStreakTitle" = "अध्ययन की र streak";
+"averageSessionTitle" = "औसत सत्र";
+"consecutiveDays" = "लगातार दिन";
+"perSession" = "प्रति सत्र";
+"studyPatterns" = "अध्ययन पैटर्न";
+"mostActiveTime" = "सबसे सक्रिय समय";
+"preferredSessionLength" = "पसंदीदा सत्र लंबाई";
+"studyFrequency" = "अध्ययन आवृत्ति";
+"languageProgress" = "भाषा प्रगति";
+"collectionSize" = "संग्रह का आकार";
+"cards" = "कार्ड";
+"achievements" = "उपलब्धियां";
+"firstSteps" = "पहले कदम";
+"weekWarrior" = "सप्ताह योद्धा";
+"masterLearner" = "मास्टर शिक्षार्थी";
+"dedicated" = "समर्पित";
+"vocabularyMaster" = "शब्दावली मास्टर";
+"timeMaster" = "समय मास्टर";
+"accuracyTrends" = "सटीकता रुझान";
+"sessionPerformance" = "सत्र प्रदर्शन";
+"averageSessionDuration" = "औसत सत्र अवधि";
+"basedOnData" = "%@ डेटा के आधार पर";
+"cardsPerSession" = "प्रति सत्र कार्ड";
+"average" = "औसत";
+"sessionFrequency" = "सत्र आवृत्ति";
+"cardDifficultyAnalysis" = "कार्ड कठिनाई विश्लेषण";
+"noDifficultyDataAvailable" = "कोई कठिनाई डेटा उपलब्ध नहीं";
+"learningSpeed" = "सीखने की गति";
+"cardsPerHour" = "प्रति घंटा कार्ड";
+"vsAverage" = "बनाम औसत";
+"masteryTimeline" = "निपुणता समयरेखा";
+"vocabularyGrowth" = "शब्दावली वृद्धि";
+"totalVocabulary" = "कुल शब्दावली";
+"thisWeek" = "इस सप्ताह";
+"thisMonth" = "इस महीने";
+"thisYear" = "इस वर्ष";
+"learningMilestones" = "सीखने के मील के पत्थर";
+"personalizedInsights" = "व व्यक्तिगत अंतर्दृष्टि";
+"noInsightsAvailableYet" = "अभी तक कोई अंतर्दृष्टि उपलब्ध नहीं";
+"recommendations" = "सिफारिशें";
+"noRecommendationsAtThisTime" = "इस समय कोई सिफारिशें नहीं";
+"learningTips" = "सीखने के सुझाव";
+"spacedRepetition" = "अंतराल पुनरावृत्ति";
+"spacedRepetitionDescription" = "बेहतर प्रतिधारण के लिए बढ़ते अंतराल पर कार्ड की समीक्षा करें।";
+"activeRecall" = "सक्रिय स्मरण";
+"activeRecallDescription" = "कार्ड पलटने से पहले उत्तर याद करने की कोशिश करें।";
+"contextLearning" = "संदर्भ सीखना";
+"contextLearningDescription" = "शब्दों को अलग-थलग करने के बजाय वाक्यांशों में सीखें।";
+"studyNow" = "अब पढ़ें";
+"startReview" = "समीक्षा शुरू करें";
+"browseCollections" = "संग्रह ब्राउज़ करें";
+"practiceMode" = "अभ्यास मोड";
+
+

@@ -1,0 +1,22 @@
+/*
+  settings.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: uk
+  Section: settings
+*/
+
+"languages" = "Мови";
+"cardDisplay" = "Відображення Карток";
+"cardDisplayMode" = "Режим Відображення Карток";
+"learningMode" = "Режим Навчання";
+"travelMode" = "Режим Подорожі";
+"learningModeDescription" = "Показувати цільову мову спочатку (для навчання)";
+"travelModeDescription" = "Показувати рідну мову спочатку (для подорожей)";
+"previewBackgrounds" = "Попередній перегляд фонів";
+"cardManagement" = "Управління картками";
+"cardManagementDescription" = "Шукайте, редагуйте та організовуйте ваші картки для вивчення";
+"manageCards" = "Керувати картками";
+
+

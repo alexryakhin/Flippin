@@ -1,0 +1,29 @@
+/*
+  subscription_management.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: vi
+  Section: subscription_management
+*/
+
+"subscription" = "Đăng ký";
+"subscriptionStatus" = "Trạng Thái Đăng Ký";
+"activeSubscription" = "Đăng Ký Hoạt Động";
+"manageSubscription" = "Quản Lý Đăng Ký";
+
+"done" = "Xong";
+"cancel" = "Hủy";
+"delete" = "Xóa";
+"edit" = "Chỉnh sửa";
+"save" = "Lưu";
+"searchCards" = "Tìm kiếm thẻ...";
+"noCardsAvailable" = "Không có thẻ nào khả dụng";
+"noAccuracyDataAvailable" = "Không có dữ liệu độ chính xác";
+"noGrowthDataAvailable" = "Không có dữ liệu tăng trưởng";
+"date" = "Ngày";
+"accuracy" = "Độ Chính Xác";
+"masteredCards" = "Thẻ Đã Thành Thạo";
+"invalidJSON" = "Dữ liệu JSON không hợp lệ";
+
+

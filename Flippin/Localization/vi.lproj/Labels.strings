@@ -1,0 +1,16 @@
+/*
+  labels.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: vi
+  Section: labels
+*/
+
+"settingsLabel" = "Cài đặt";
+"menu" = "Menu";
+"tagFilter" = "Bộ lọc nhãn";
+"shuffle" = "Xáo trộn";
+"addCardLabel" = "Thêm thẻ";
+
+

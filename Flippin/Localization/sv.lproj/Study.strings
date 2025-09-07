@@ -1,0 +1,62 @@
+/*
+  study.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: sv
+  Section: study
+*/
+
+"study" = "Studera";
+"practice" = "Öva";
+"studyMode" = "Studieläge";
+"practiceMode" = "Öveläge";
+"quickStats" = "Snabba Statistik";
+"studyOptions" = "Studiealternativ";
+"practiceOptions" = "Övealternativ";
+"recentActivity" = "Senaste Aktivitet";
+"totalCards" = "Totalt Antal Kort";
+"mastered" = "Bemästrade";
+"difficultCards" = "Svåra Kort";
+"studyTimeToday" = "Studietid Idag";
+"practiceTimeToday" = "Övetid Idag";
+"startStudySession" = "Starta Studiesession (10 kort)";
+"startPracticeSession" = "Starta Övesession (10 kort)";
+"practiceAllCards" = "Öva Alla Kort (%d)";
+"practiceDifficultCards" = "Öva Svåra Kort (%d)";
+"multipleChoiceQuiz" = "Flervalsquiz";
+"fillInTheBlank" = "Fyll i Tomrummet (%d)";
+"unlockAllStudyModes" = "Lås upp Alla Studielägen";
+"unlockAllPracticeModes" = "Lås upp Alla Övelägen";
+"noStudyData" = "Inga Studiedata";
+"noPracticeData" = "Inga Övedata";
+"startStudyingToSeeProgress" = "Börja studera för att se dina framsteg!";
+"startPracticingToSeeProgress" = "Börja öva för att se dina framsteg!";
+"toCards" = "Till kort";
+"totalStudyTime" = "Total Studietid";
+"totalPracticeTime" = "Total Övetid";
+"averageSession" = "Genomsnittlig Session";
+"learningProgress" = "Inlärningsframsteg";
+"exit" = "Avsluta";
+"showAnswer" = "Visa Svar";
+"incorrect" = "Fel";
+"correct" = "Rätt";
+"studySessionComplete" = "Studiesession Avslutad!";
+"practiceSessionComplete" = "Övesession Avslutad!";
+"accuracy" = "Noggrannhet";
+"cardsStudied" = "Studerade Kort";
+"cardsPracticed" = "Övade Kort";
+"timeSpent" = "Tidsåtgång";
+"studyAgain" = "Studera Igen";
+"practiceAgain" = "Öva Igen";
+"done" = "Klar";
+"selectCorrectTranslation" = "Välj rätt översättning";
+"fillInMissingWord" = "Fyll i det saknade ordet";
+"completeSentence" = "Komplettera meningen";
+"chooseCorrectWord" = "Välj rätt ord:";
+"correctAnswer" = "Rätt Svar";
+"translateTo" = "Översätt till %@";
+"studyProgress" = "%d av %d";
+"practiceProgress" = "%d av %d";
+
+

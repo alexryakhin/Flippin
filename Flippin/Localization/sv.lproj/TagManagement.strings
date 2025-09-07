@@ -1,0 +1,27 @@
+/*
+  tag_management.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: sv
+  Section: tag_management
+*/
+
+"availableTags" = "Tillgängliga Taggar";
+"noTagsAvailable" = "Inga taggar tillgängliga";
+"manageTagsInSettings" = "Hantera taggar i inställningarna.";
+"toSettings" = "Till inställningar";
+"newTagName" = "Nytt taggnamn";
+"add" = "Lägg till";
+"addTag" = "Lägg till Tagg";
+"tagsManagement" = "Tagghantering";
+"filterByTag" = "Filtrera efter Tagg";
+"filterByLanguage" = "Filtrera efter Språk";
+"filterByLanguageDescription" = "Visa endast kort som matchar dina valda språk";
+"filterByFavorites" = "Filtrera efter Favoriter";
+"showAllCards" = "Visa Alla Kort";
+"showFavoritesOnly" = "Visa Endast Favoriter";
+"noFavoriteCards" = "Inga Favoritkort";
+"noFavoriteCardsDescription" = "Du har inte markerat några kort som favoriter än";
+
+

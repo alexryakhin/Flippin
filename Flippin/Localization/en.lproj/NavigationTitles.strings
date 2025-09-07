@@ -1,0 +1,17 @@
+/*
+  navigation_titles.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: en
+  Section: navigation_titles
+*/
+
+"addCard" = "Add Card";
+"addNewCard" = "Add New Card";
+"settings" = "Settings";
+"myCards" = "My Cards";
+"backgroundStyles" = "Background Styles";
+"backgroundDemo" = "Background Demo";
+
+

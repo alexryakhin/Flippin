@@ -1,0 +1,140 @@
+// MARK: - TTS Voice Filters
+"filters.all_use_cases" = "Усі випадки використання";
+"filters.all_ages" = "Усі вікові групи";
+"filters.all_timbres" = "Усі тембри голосу";
+"filters.all_accents" = "Усі акценти";
+"filters.all_languages" = "Усі мови";
+"filters.all_genders" = "Усі статі";
+"filters.filters" = "Фільтри";
+"filters.reset" = "Скинути";
+"filters.select_voice" = "Вибрати голос";
+"filters.available_voices" = "Доступні голоси";
+"filters.no_voices_available" = "Немає доступних голосів";
+"filters.no_voices_found" = "Голосів не знайдено";
+"filters.no_voices_found_message" = "Спробуйте скоригувати пошук або фільтри";
+
+"usage.monthly_limit_exceeded" = "Перевищено місячний ліміт";
+"usage.monthly_limit_exceeded_message" = "Ви досягли місячного ліміту в 50 000 символів для Speechify TTS. Спробуйте знову наступного місяця або використовуйте Google TTS.";
+"usage.remaining_characters" = "Залишилось символів";
+"usage.monthly_usage" = "Місячне використання";
+"usage.monthly_limit" = "Місячний ліміт";
+
+// TTS Voice Filter Values
+"advertisement" = "Реклама";
+"animation" = "Анімація";
+"audiobook" = "Аудіокнига";
+"audiobook-and-narration" = "Аудіокнига та оповідь";
+"audiobooks-and-narration" = "Аудіокниги та оповідь";
+"conversational" = "Розмовний";
+"e-learning" = "Е-навчання";
+"gaming" = "Ігри";
+"meditation" = "Медитація";
+"movie" = "Фільм";
+"movies-acting-and-gaming" = "Фільми, акторство та ігри";
+"narration" = "Оповідь";
+"podcast" = "Подкаст";
+"social-media" = "Соціальні мережі";
+
+"middle-aged" = "Середній вік";
+"senior" = "Старший";
+"teen" = "Підліток";
+"young-adult" = "Молодий дорослий";
+
+"female" = "Жінка";
+"male" = "Чоловік";
+
+"angry" = "Злий";
+"assertive-or-confident" = "Наполегливий або впевнений";
+"bright" = "Яскравий";
+"calm-or-relaxed" = "Спокійний або розслаблений";
+"cheerful" = "Веселий";
+"crisp" = "Чіткий";
+"deep" = "Глибокий";
+"direct" = "Прямий";
+"energetic" = "Енергійний";
+"fearful" = "Переляканий";
+"high-pitch" = "Високий тон";
+"neutral" = "Нейтральний";
+"professional" = "Професійний";
+"relaxed" = "Розслаблений";
+"sad" = "Сумний";
+"suprised" = "Здивований";
+"surprised" = "Здивований";
+"terrified" = "Налякний";
+"warm" = "Теплий";
+"warm-or-friendly" = "Теплий або дружній";
+
+"american-neutral" = "Американський нейтральний";
+"australian" = "Австралійський";
+"british" = "Британський";
+"indian" = "Індійський";
+"nigerian" = "Нігерійський";
+
+
+
+
+// TTS Dashboard
+"dashboard" = "Панель TTS";
+"premium_tts_dashboard" = "Преміум-панель TTS";
+"customize_tts_experience" = "Налаштуйте свій досвід перетворення тексту в мову";
+"playing" = "Відтворюється";
+"ready" = "Готово";
+"provider" = "Постачальник";
+"tts_provider" = "Постачальник TTS";
+"voice_customization" = "Налаштування голосу";
+"current_voice" = "Поточний голос";
+"default_voice" = "Голос за замовчуванням";
+"preview_current_voice" = "Попередній перегляд поточного голосу";
+"change_voice" = "Змінити голос";
+"audio_settings" = "Налаштування звуку";
+"speech_rate" = "Швидкість мовлення";
+"volume" = "Гучність";
+"test_your_settings" = "Перевірте свої налаштування";
+"enter_text_to_test" = "Введіть текст для тестування...";
+"stop" = "Зупинити";
+"test" = "Тест";
+"usage_statistics" = "Статистика використання";
+"speechify_monthly_usage" = "Місячне використання Speechify";
+"monthly_limit" = "Місячний ліміт";
+"used_this_month" = "Використано цього місяця";
+"remaining" = "Залишилось";
+"usage_progress" = "Прогрес використання";
+"characters" = "символи";
+
+// TTS Analytics
+"analytics.characters_used" = "Використані символи";
+"analytics.sessions" = "Сесії";
+"analytics.favorite_voice" = "Улюблений голос";
+"analytics.time_saved" = "Зекономлений час";
+"analytics.total_characters" = "Загальна кількість символів";
+"analytics.total_sessions" = "Загальна кількість сесій";
+"analytics.total_duration" = "Загальна тривалість";
+"analytics.favorite_language" = "Улюблена мова";
+"analytics.premium_usage" = "Преміум-використання";
+
+// TTS Settings
+"settings.text_to_speech" = "Перетворення тексту в мову";
+"settings.speechify" = "Speechify";
+"settings.speechify_description" = "Модель перетворення тексту в мову від Speechify доступна всім користувачам як преміум-функція. Вона дозволяє вибирати з широкого спектру голосів і акцентів, щоб налаштувати ваш досвід навчання.";
+"settings.speechify_pro_description" = "Модель перетворення тексту в мову від Speechify включена до вашої підписки.";
+"settings.dashboard" = "Панель";
+"pro" = "Про";
+"free_google_tts_description" = "Безкоштовний Google TTS з базовими голосами та надійною продуктивністю";
+
+// TTS Models
+"models.english" = "Англійська";
+"models.multilingual" = "Багатомовний";
+"models.english_description" = "Модель перетворення тексту в мову англійською мовою від Speechify пропонує стандартні функції, призначені для забезпечення чіткого та природного звукового виведення для читання текстів. Модель зосереджена на забезпеченні послідовного користувацького досвіду.";
+"models.multilingual_description" = "Багатомовна модель дозволяє використовувати всі підтримувані мови та підтримує використання кількох мов в одному реченні. Звукове виведення цієї моделі значно відрізняється від інших моделей.";
+
+// MARK: - English Accents
+"english_accents.australian" = "Австралійський";
+"english_accents.canadian" = "Канадський";
+"english_accents.british" = "Британський";
+"english_accents.indian" = "Індійський";
+"english_accents.american" = "Американський";
+"english_accents.belgian" = "Бельгійський";
+"english_accents.singaporean" = "Сінгапурський";
+"english_accents.irish" = "Ірландський";
+"english_accents.south_african" = "Південноафриканський";
+

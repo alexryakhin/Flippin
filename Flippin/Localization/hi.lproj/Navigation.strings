@@ -1,0 +1,17 @@
+/*
+  navigation.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: hi
+  Section: navigation
+*/
+
+"stack" = "ढेर";
+"list" = "सूची";
+"study" = "अध्ययन";
+"practice" = "अभ्यास";
+"analytics" = "विश्लेषण";
+"settings" = "सेटिंग्स";
+
+

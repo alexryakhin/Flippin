@@ -1,0 +1,62 @@
+/*
+  study.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: fr
+  Section: study
+*/
+
+"study" = "Étudier";
+"practice" = "Pratiquer";
+"studyMode" = "Mode d'Étude";
+"practiceMode" = "Mode de Pratique";
+"quickStats" = "Statistiques Rapides";
+"studyOptions" = "Options d'Étude";
+"practiceOptions" = "Options de Pratique";
+"recentActivity" = "Activité Récente";
+"totalCards" = "Total des Cartes";
+"mastered" = "Maîtrisées";
+"difficultCards" = "Cartes Difficiles";
+"studyTimeToday" = "Temps d'Étude Aujourd'hui";
+"practiceTimeToday" = "Temps de Pratique Aujourd'hui";
+"startStudySession" = "Démarrer une Session d'Étude (10 cartes)";
+"startPracticeSession" = "Démarrer une Session de Pratique (10 cartes)";
+"practiceAllCards" = "Pratiquer Toutes les Cartes (%d)";
+"practiceDifficultCards" = "Pratiquer les Cartes Difficiles (%d)";
+"multipleChoiceQuiz" = "Quiz à Choix Multiples";
+"fillInTheBlank" = "Compléter le Vide (%d)";
+"unlockAllStudyModes" = "Débloquer Tous les Modes d'Étude";
+"unlockAllPracticeModes" = "Débloquer Tous les Modes de Pratique";
+"noStudyData" = "Aucune Donnée d'Étude";
+"noPracticeData" = "Aucune Donnée de Pratique";
+"startStudyingToSeeProgress" = "Commencez à étudier pour voir votre progression !";
+"startPracticingToSeeProgress" = "Commencez à pratiquer pour voir votre progression !";
+"toCards" = "Vers les cartes";
+"totalStudyTime" = "Temps Total d'Étude";
+"totalPracticeTime" = "Temps Total de Pratique";
+"averageSession" = "Session Moyenne";
+"learningProgress" = "Progrès d'Apprentissage";
+"exit" = "Quitter";
+"showAnswer" = "Afficher la Réponse";
+"incorrect" = "Incorrect";
+"correct" = "Correct";
+"studySessionComplete" = "Session d'Étude Terminée !";
+"practiceSessionComplete" = "Session de Pratique Terminée !";
+"accuracy" = "Précision";
+"cardsStudied" = "Cartes Étudiées";
+"cardsPracticed" = "Cartes Pratiquées";
+"timeSpent" = "Temps Passé";
+"studyAgain" = "Étudier à Nouveau";
+"practiceAgain" = "Pratiquer à Nouveau";
+"done" = "Terminé";
+"selectCorrectTranslation" = "Sélectionnez la traduction correcte";
+"fillInMissingWord" = "Complétez le mot manquant";
+"completeSentence" = "Complétez la phrase";
+"chooseCorrectWord" = "Choisissez le mot correct :";
+"correctAnswer" = "Réponse Correcte";
+"translateTo" = "Traduisez en %@";
+"studyProgress" = "%d sur %d";
+"practiceProgress" = "%d sur %d";
+
+

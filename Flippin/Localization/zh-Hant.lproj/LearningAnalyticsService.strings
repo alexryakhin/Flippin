@@ -1,0 +1,66 @@
+/*
+  learning_analytics_service.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: zh-Hant
+  Section: learning_analytics_service
+*/
+
+"notEnoughData" = "數據不足";
+"morning" = "早晨（6-12點）";
+"afternoon" = "下午（12-17點）";
+"evening" = "傍晚（17-21點）";
+"night" = "夜間（21-6點）";
+"under10Minutes" = "不到10分鐘";
+"tenTo20Minutes" = "10-20分鐘";
+"twentyTo30Minutes" = "20-30分鐘";
+"thirtyTo60Minutes" = "30-60分鐘";
+"over60Minutes" = "超過60分鐘";
+"onceThisWeek" = "本週一次";
+"fewTimesThisWeek" = "本週幾次";
+"mostDaysThisWeek" = "本週大部分日子";
+"daily" = "每日";
+"veryEasy" = "非常簡單";
+"easy" = "簡單";
+"medium" = "中等";
+"hard" = "困難";
+"veryHard" = "非常困難";
+"unknown" = "未知";
+"completedStudySession" = "學習會話完成";
+"reviewedCardsInTime" = "在%@內複習了%d張卡片";
+"recent" = "最近";
+"reachedCardsMastered" = "已掌握%d張卡片";
+"greatProgressBuildingFoundation" = "進展出色！您正在建立堅實的基礎。";
+"first10CardsMastered" = "前10張卡片已掌握";
+"sevenDayStudyStreak" = "7天學習連勝";
+"fiftyCardsMastered" = "50張卡片已掌握";
+"thirtyDayStudyStreak" = "30天學習連勝";
+"completed" = "已完成";
+"inProgress" = "進行中";
+"youreMostProductiveIn" = "您在%@時最為高效";
+"studySessionsDuringThisTime" = "您在此時間段的學習會話顯示出更好的專注力和記憶力。";
+"optimalSessionLength" = "最佳會話長度";
+"yourSessionsShowBestResults" = "您的%@會話顯示出最佳結果。";
+"consistentLearningPattern" = "持續學習模式";
+"yourStudyRoutineWorkingWell" = "您的%@學習例程效果良好。";
+"improvingAccuracy" = "提高準確率";
+"recentAccuracyHigherThanBefore" = "您最近的準確率比之前高%d%%。";
+"focusOnAccuracy" = "專注準確率";
+"recentAccuracyDecreased" = "您最近的準確率下降了。考慮複習困難卡片。";
+"excellentProgress" = "出色進展";
+"masteredVocabularyPercentage" = "您已掌握%d%%的詞彙量！";
+"goodFoundation" = "良好基礎";
+"masteredVocabularyKeepGoing" = "您已掌握%d%%的詞彙量，繼續努力！";
+"reviewDifficultCards" = "複習困難卡片";
+"cardsNeedMorePractice" = "%d張卡片需要更多練習。專注於這些卡片以提高準確率。";
+"addMoreVocabulary" = "新增更多詞彙";
+"masteredMostCurrentCards" = "您已掌握大部分當前卡片。準備好迎接新挑戰！";
+"extendYourStreak" = "延長您的連勝";
+"daysAwayFromAchievement" = "您距離新成就還有%d天！";
+"buildConsistency" = "建立一致性";
+"tryToStudyDaily" = "嘗試每天學習以建立穩固的學習習慣。";
+"improveAccuracy" = "提高準確率";
+"accuracyPercentageFocusQuality" = "您的準確率為%d%%。注重品質而非速度。";
+
+

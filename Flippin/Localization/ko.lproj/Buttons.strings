@@ -1,0 +1,28 @@
+/*
+  buttons.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ko
+  Section: buttons
+*/
+
+"done" = "완료";
+"cancel" = "취소";
+"save" = "저장";
+"close" = "닫기";
+"clear" = "지우기";
+"clearFilter" = "필터 지우기";
+"clearSearch" = "검색 지우기";
+"addCardButton" = "카드 추가";
+"edit" = "편집";
+"editCard" = "카드 편집";
+"delete" = "삭제";
+"deleteCard" = "카드 삭제";
+"deleteCardConfirmation" = "이 카드를 삭제하시겠습니까? 이 작업은 취소할 수 없습니다.";
+"deleteAll" = "모두 삭제";
+"deleteAllCards" = "모든 카드 삭제";
+"deleteAllCardsConfirmation" = "모든 카드를 삭제하시겠습니까? 이 작업은 취소할 수 없습니다.";
+"ok" = "확인";
+
+

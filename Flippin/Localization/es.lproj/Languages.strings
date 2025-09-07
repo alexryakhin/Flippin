@@ -1,0 +1,28 @@
+/*
+  languages.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: es
+  Section: languages
+*/
+
+"english" = "Inglés";
+"spanish" = "Español";
+"french" = "Francés";
+"german" = "Alemán";
+"italian" = "Italiano";
+"portuguese" = "Portugués";
+"dutch" = "Holandés";
+"swedish" = "Sueco";
+"chinese" = "Chino";
+"japanese" = "Japonés";
+"korean" = "Coreano";
+"vietnamese" = "Vietnamita";
+"russian" = "Ruso";
+"arabic" = "Árabe";
+"hindi" = "Hindi";
+"croatian" = "Croata";
+"ukrainian" = "Ucraniano";
+
+
