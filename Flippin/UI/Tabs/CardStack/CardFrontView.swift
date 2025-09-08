@@ -19,14 +19,11 @@ struct CardFrontView: View {
     @StateObject private var cardsProvider = CardsProvider.shared
     @StateObject private var colorManager = ColorManager.shared
     @StateObject private var learningAnalytics = LearningAnalyticsService.shared
+    @StateObject private var ttsPlayer = TTSPlayer.shared
 
     // MARK: - App Storage
     
     @AppStorage(UserDefaultsKey.cardDisplayMode) private var isTravelMode = false
-
-    // MARK: - State Variables
-    
-    @State private var isPlayingTTS = false
 
     // MARK: - Properties
     
@@ -125,7 +122,7 @@ struct CardFrontView: View {
                 Button {
                     playTTS()
                 } label: {
-                    Image(systemName: isPlayingTTS ? "speaker.wave.2.fill" : "speaker.wave.2")
+                    Image(systemName: ttsPlayer.isPlaying ? "speaker.wave.2.fill" : "speaker.wave.2")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 24, height: 24)
@@ -146,7 +143,6 @@ struct CardFrontView: View {
         // Haptic feedback for TTS start
         HapticService.shared.ttsStarted()
 
-        isPlayingTTS = true
         Task {
             do {
                 guard let text = displayText.isEmpty ? nil : displayText,
@@ -155,7 +151,6 @@ struct CardFrontView: View {
             } catch {
                 print("TTS error: \(error)")
             }
-            isPlayingTTS = false
         }
     }
 }

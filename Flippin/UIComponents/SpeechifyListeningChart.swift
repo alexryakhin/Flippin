@@ -13,7 +13,7 @@ struct SpeechifyListeningChart: View {
     @StateObject private var colorManager = ColorManager.shared
     
     var body: some View {
-        CustomSectionView(header: "Listening Time Trend") {
+        CustomSectionView(header: "Listening Time Trend", backgroundStyle: .standard) {
             if usageHistory.isEmpty {
                 ContentUnavailableView(
                     "No Data",

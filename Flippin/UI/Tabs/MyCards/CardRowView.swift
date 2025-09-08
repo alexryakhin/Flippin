@@ -14,11 +14,11 @@ struct CardRowView: View {
 
     @StateObject private var colorManager = ColorManager.shared
     @StateObject private var cardsProvider = CardsProvider.shared
+    @StateObject private var ttsPlayer = TTSPlayer.shared
     @AppStorage(UserDefaultsKey.cardDisplayMode) private var isTravelMode = false
     
     @State private var isFlipped = false
-    @State private var isPlayingTTS = false
-    
+
     var body: some View {
         let isTargetLanguage = isTravelMode != isFlipped
         let text = isTargetLanguage ? card.backText : card.frontText
@@ -59,7 +59,6 @@ struct CardRowView: View {
                     // Haptic feedback for TTS start
                     HapticService.shared.ttsStarted()
                     
-                    isPlayingTTS = true
                     Task {
                         do {
                             guard let text, let language else { return }
@@ -69,10 +68,9 @@ struct CardRowView: View {
                             print("TTS error: \(error)")
                             AnalyticsService.trackErrorEvent(.ttsFailed, errorMessage: error.localizedDescription)
                         }
-                        isPlayingTTS = false
                     }
                 } label: {
-                    Image(systemName: isPlayingTTS ? "speaker.wave.2.fill" : "speaker.wave.2")
+                    Image(systemName: ttsPlayer.isPlaying ? "speaker.wave.2.fill" : "speaker.wave.2")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }

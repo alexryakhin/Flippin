@@ -76,7 +76,7 @@ struct VoicePickerView: View {
                                 voice: voice,
                                 isSelected: speechifyService.selectedVoiceId == voice.id,
                                 onSelect: {
-                                    speechifyService.selectedVoiceId = voice.id
+                                    speechifyService.selectVoice(voice.id)
                                 },
                                 onPreview: {
                                     previewVoice(voice)

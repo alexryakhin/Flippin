@@ -19,9 +19,6 @@ struct TTSDashboardView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 24) {
-                // Usage Section
-                usageSection
-
                 // Listening Statistics Chart
                 listeningChartSection
 
@@ -30,11 +27,14 @@ struct TTSDashboardView: View {
 
                 // Test Section
                 testSection
+
+                // Usage Section
+                usageSection
             }
             .padding(16)
         }
-        .navigationTitle("TTS Dashboard")
-        .navigationBarTitleDisplayMode(.large)
+        .navigation(title: Loc.Tts.dashboard, mode: .inline(withBackButton: true))
+        .groupedBackground()
         .onAppear {
             loadVoices()
             loadUsageHistory()
@@ -46,7 +46,7 @@ struct TTSDashboardView: View {
 
     // MARK: - Usage Section
     private var usageSection: some View {
-        CustomSectionView(header: "Monthly Usage") {
+        CustomSectionView(header: "Monthly Usage", backgroundStyle: .standard) {
             VStack(alignment: .leading, spacing: 16) {
                 // Usage Progress
                 VStack(alignment: .leading, spacing: 8) {
@@ -83,17 +83,6 @@ struct TTSDashboardView: View {
 
                     Spacer()
 
-                    VStack(alignment: .center, spacing: 4) {
-                        Text("Used")
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                        Text("\(speechifyService.charactersUsed)")
-                            .font(.headline)
-                            .foregroundStyle(.primary)
-                    }
-
-                    Spacer()
-
                     VStack(alignment: .trailing, spacing: 4) {
                         Text("Listening Time")
                             .font(.caption)
@@ -103,15 +92,13 @@ struct TTSDashboardView: View {
                             .foregroundStyle(.primary)
                     }
                 }
-
-
             }
         }
     }
 
     // MARK: - Voice Selection Section
     private var voiceSelectionSection: some View {
-        CustomSectionView(header: "Voice Selection") {
+        CustomSectionView(header: "Voice Selection", backgroundStyle: .standard) {
             VStack(alignment: .leading, spacing: 12) {
                 // Selected Voice Display
                 if let selectedVoice = speechifyService.selectedVoice {
@@ -170,7 +157,7 @@ struct TTSDashboardView: View {
 
     // MARK: - Test Section
     private var testSection: some View {
-        CustomSectionView(header: "Test TTS") {
+        CustomSectionView(header: "Test TTS", backgroundStyle: .standard) {
             VStack(alignment: .leading, spacing: 12) {
                 Text("Test your selected voice with a sample text.")
                     .font(.subheadline)

@@ -108,10 +108,11 @@ final class SpeechifyService: NSObject, ObservableObject {
         guard !text.isEmpty else { return }
         guard !isPlaying else { throw SpeechifyError.alreadyPlaying }
         guard hasEnoughCharacters(for: text) else { throw SpeechifyError.characterLimitExceeded }
-        
-        isPlaying = true
-        defer { isPlaying = false }
-        
+
+        await MainActor.run {
+            isPlaying = true
+        }
+
         do {
             let audioData = try await synthesizeSpeech(text: text, language: language)
             try await playAudio(audioData)
@@ -198,7 +199,9 @@ final class SpeechifyService: NSObject, ObservableObject {
         let ttsResponse = try JSONDecoder().decode(SpeechifyTTSResponse.self, from: data)
         
         // Update character usage with actual billable count from API
-        charactersUsed += ttsResponse.billableCharactersCount
+        await MainActor.run {
+            charactersUsed += ttsResponse.billableCharactersCount
+        }
         saveUsageToCoreData()
         
         // Decode base64 audio data

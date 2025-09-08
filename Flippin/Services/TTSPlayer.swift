@@ -232,8 +232,21 @@ final class TTSPlayer: NSObject, ObservableObject {
 
     private func temporaryDownloadURL(for url: URL) async throws -> URL {
         let request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy)
-        let (url, _) = try await URLSession.shared.download(for: request)
-        return url
+
+        do {
+            let (tempURL, _) = try await URLSession.shared.download(for: request)
+
+            // Copy the downloaded file to a more permanent temporary location
+            let tempDir = FileManager.default.temporaryDirectory
+            let permanentTempFile = tempDir.appendingPathComponent("preview_audio_\(UUID().uuidString).mp3")
+
+            try FileManager.default.copyItem(at: tempURL, to: permanentTempFile)
+            print("✅ [TTSPlayer] Successfully saved preview audio to \(permanentTempFile.path)")
+
+            return permanentTempFile
+        } catch {
+            throw URLError(.dataLengthExceedsMaximum)
+        }
     }
 
     @MainActor
