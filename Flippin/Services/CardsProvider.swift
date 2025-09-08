@@ -223,33 +223,33 @@ enum CardLimitError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .limitExceeded(let currentCount, let limit, _):
-            return LocalizationKeys.Card.cardLimitExceeded.localized(with: currentCount, limit)
+            return Loc.CardLimits.cardLimitExceeded(currentCount, limit)
         case .freeUserLimit(let limit):
-            return LocalizationKeys.Card.freeUsersLimitedTo.localized(with: limit)
+            return Loc.CardLimits.freeUsersLimitedTo(limit)
         case .purchaseRequired:
-            return LocalizationKeys.Card.purchaseUnlimitedCards.localized
+            return Loc.CardLimits.purchaseUnlimitedCards
         }
     }
     
     var failureReason: String? {
         switch self {
         case .limitExceeded(_, let limit, _):
-            return LocalizationKeys.Card.freeUsersLimitedTo.localized(with: limit)
+            return Loc.CardLimits.freeUsersLimitedTo(limit)
         case .freeUserLimit(let limit):
-            return LocalizationKeys.Card.freeUsersLimitedTo.localized(with: limit)
+            return Loc.CardLimits.freeUsersLimitedTo(limit)
         case .purchaseRequired:
-            return LocalizationKeys.Card.purchaseUnlimitedCards.localized
+            return Loc.CardLimits.purchaseUnlimitedCards
         }
     }
     
     var recoverySuggestion: String? {
         switch self {
         case .limitExceeded:
-            return LocalizationKeys.Card.purchaseUnlimitedCards.localized
+            return Loc.CardLimits.purchaseUnlimitedCards
         case .freeUserLimit:
-            return LocalizationKeys.Card.purchaseUnlimitedCards.localized
+            return Loc.CardLimits.purchaseUnlimitedCards
         case .purchaseRequired:
-            return LocalizationKeys.Card.purchaseUnlimitedCards.localized
+            return Loc.CardLimits.purchaseUnlimitedCards
         }
     }
 }

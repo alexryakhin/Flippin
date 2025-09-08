@@ -8,7 +8,7 @@ import SwiftUI
 
 enum WelcomeSheet {
     struct ContentView: View {
-            @Environment(\.dismiss) var dismiss
+        @Environment(\.dismiss) var dismiss
         @StateObject private var colorManager = ColorManager.shared
         @StateObject private var languageManager = LanguageManager.shared
         @State private var animateContent = false
@@ -18,8 +18,8 @@ enum WelcomeSheet {
         var body: some View {
             NavigationView {
                 WelcomeStepView(
-                    title: LocalizationKeys.Welcome.welcomeScreenTitle.localized,
-                    message: LocalizationKeys.Welcome.welcomeScreenMessage.localized,
+                    title: Loc.WelcomeScreen.welcomeScreenTitle,
+                    message: Loc.WelcomeScreen.welcomeScreenMessage,
                     onContinue: onContinue
                 )
                 .navigationBarHidden(true)

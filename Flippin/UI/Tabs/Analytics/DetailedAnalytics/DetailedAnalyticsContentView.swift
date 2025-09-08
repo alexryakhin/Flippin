@@ -14,13 +14,13 @@ enum DetailedAnalytics {
         var title: String {
             switch self {
             case .overview:
-                return LocalizationKeys.Analytics.overview.localized
+                return Loc.Analytics.overview
             case .performance:
-                return LocalizationKeys.Analytics.performance.localized
+                return Loc.Analytics.performance
             case .progress:
-                return LocalizationKeys.Analytics.progress.localized
+                return Loc.Analytics.progress
             case .insights:
-                return LocalizationKeys.Analytics.insights.localized
+                return Loc.Analytics.insights
             }
         }
     }
@@ -51,11 +51,11 @@ enum DetailedAnalytics {
                 }
             }
             .navigation(
-                title: LocalizationKeys.Analytics.detailedAnalytics.localized,
+                title: Loc.Analytics.detailedAnalytics,
                 mode: .inline(withBackButton: true),
                 trailingContent: {
                     HeaderButtonMenu(selectedTimeRange.name) {
-                        Picker(LocalizationKeys.Analytics.timeRange.localized, selection: $selectedTimeRange) {
+                        Picker(Loc.Analytics.timeRange, selection: $selectedTimeRange) {
                             ForEach(TimeRange.allCases, id: \.self) { range in
                                 Text(range.name).tag(range)
                             }
@@ -64,7 +64,7 @@ enum DetailedAnalytics {
                     }
                 },
                 bottomContent: {
-                    Picker(LocalizationKeys.Analytics.analyticsTab.localized, selection: $selectedTab) {
+                    Picker(Loc.DetailedAnalytics.analyticsTab, selection: $selectedTab) {
                         ForEach(Tab.allCases, id: \.self) { tab in
                             Text(tab.title)
                         }

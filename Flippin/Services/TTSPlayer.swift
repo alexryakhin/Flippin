@@ -5,25 +5,27 @@
 //  Created by Aleksandr Riakhin on 3/9/25.
 //
 
+import Combine
 import Foundation
 import AVFoundation
 
-protocol TTSPlayerInterface {
-    func play(_ text: String, language: Language) async throws
-}
+final class TTSPlayer: NSObject, ObservableObject {
 
-@MainActor
-final class TTSPlayer: TTSPlayerInterface {
+    static let shared = TTSPlayer()
 
-    static let shared: TTSPlayerInterface = TTSPlayer()
+    @Published var isPlaying = false
 
     private var player: AVAudioPlayer?
     private var speechSynthesizer: AVSpeechSynthesizer?
     private let speechifyService = SpeechifyService.shared
     private let purchaseService = PurchaseService.shared
+    private var cancellables: Set<AnyCancellable> = []
 
-    private init() {
+    private override init() {
         speechSynthesizer = AVSpeechSynthesizer()
+        super.init()
+        speechSynthesizer?.delegate = self
+        setupBindings()
     }
 
     func play(_ text: String, language: Language) async throws {
@@ -47,7 +49,23 @@ final class TTSPlayer: TTSPlayerInterface {
             try await playOfflineTTS(text, language: language)
         }
     }
-    
+
+    func previewSpeechifyVoice(_ voice: SpeechifyVoice) async throws {
+        // Use the actual preview audio if available
+        if let previewAudioURL = voice.bestPreviewAudioURL,
+           let url = URL(string: previewAudioURL) {
+            // Download the remote audio file first, then play it
+            let temporaryDownloadURL = try await temporaryDownloadURL(for: url)
+            try await play(from: temporaryDownloadURL)
+        } else {
+            // Fallback to text-to-speech if no preview audio is available
+            try await playSpeechifyTTS(
+                "Hello, world! This is a preview of your voice.",
+                language: .english
+            )
+        }
+    }
+
     // MARK: - Speechify TTS
     
     private func playSpeechifyTTS(_ text: String, language: Language) async throws {
@@ -102,7 +120,16 @@ final class TTSPlayer: TTSPlayerInterface {
         // Play the speech
         synthesizer.speak(utterance)
     }
-    
+
+    private func setupBindings() {
+        speechifyService.$isPlaying
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] isPlaying in
+                self?.isPlaying = isPlaying
+            }
+            .store(in: &cancellables)
+    }
+
     private func getVoiceForLanguage(_ language: Language) -> AVSpeechSynthesisVoice? {
         // Map our Language enum to iOS voice identifiers
         let voiceIdentifier = getVoiceIdentifier(for: language)
@@ -214,6 +241,41 @@ final class TTSPlayer: TTSPlayerInterface {
         player = try AVAudioPlayer(contentsOf: url)
         player?.prepareToPlay()
         player?.play()
+        player?.delegate = self
+    }
+}
+
+extension TTSPlayer: AVSpeechSynthesizerDelegate {
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+        Task { @MainActor in
+            isPlaying = false
+        }
+    }
+
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didCancel utterance: AVSpeechUtterance) {
+        Task { @MainActor in
+            isPlaying = false
+        }
+    }
+
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didPause utterance: AVSpeechUtterance) {
+        Task { @MainActor in
+            isPlaying = false
+        }
+    }
+}
+
+extension TTSPlayer: AVAudioPlayerDelegate {
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        Task { @MainActor in
+            isPlaying = false
+        }
+    }
+
+    func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?) {
+        Task { @MainActor in
+            isPlaying = false
+        }
     }
 }
 

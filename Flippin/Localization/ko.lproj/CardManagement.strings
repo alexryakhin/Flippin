@@ -10,6 +10,3 @@
 "noDifficultCards" = "어려운 카드 없음";
 "noDifficultCardsDescription" = "아직 어떤 카드도 어렵다고 표시하지 않았습니다. 난이도를 확인하려면 더 많은 카드를 공부하세요.";
 "difficultCards" = "어려운 카드";
-"failedToCreateCard" = "카드 생성 실패: %@";
-
-

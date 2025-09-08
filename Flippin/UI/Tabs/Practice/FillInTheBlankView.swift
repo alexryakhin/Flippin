@@ -23,11 +23,11 @@ extension StudyMode {
                 VStack(spacing: 24) {
                     // Instructions
                     VStack(spacing: 4) {
-                        Text(LocalizationKeys.Study.fillInMissingWord.localized)
+                        Text(Loc.Study.fillInMissingWord)
                             .font(.title2)
                             .fontWeight(.bold)
 
-                        Text(LocalizationKeys.Study.completeSentence.localized)
+                        Text(Loc.Study.completeSentence)
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
                     }
@@ -41,7 +41,7 @@ extension StudyMode {
 
                     // Answer options in capsules
                     VStack(alignment: .center, spacing: 16) {
-                        Text(LocalizationKeys.Study.chooseCorrectWord.localized)
+                        Text(Loc.Study.chooseCorrectWord)
                             .font(.subheadline)
                             .foregroundColor(.secondary)
 

@@ -51,7 +51,7 @@ struct AlertModel: Equatable {
     static func info(
         title: String,
         message: String? = nil,
-        actionText: String = Loc.Actions.ok,
+        actionText: String = Loc.Buttons.ok,
         action: @escaping VoidHandler = {}
     ) -> AlertModel {
         return AlertModel(
@@ -66,7 +66,7 @@ struct AlertModel: Equatable {
     static func warning(
         title: String,
         message: String? = nil,
-        actionText: String = Loc.Actions.ok,
+        actionText: String = Loc.Buttons.ok,
         action: @escaping VoidHandler = {}
     ) -> AlertModel {
         return AlertModel(
@@ -79,9 +79,9 @@ struct AlertModel: Equatable {
 
     /// Error alert
     static func error(
-        title: String = Loc.Errors.oops,
+        title: String = Loc.Errors.unknownError,
         message: String,
-        actionText: String = Loc.Actions.ok,
+        actionText: String = Loc.Buttons.ok,
         action: @escaping VoidHandler = {}
     ) -> AlertModel {
         return AlertModel(
@@ -96,8 +96,8 @@ struct AlertModel: Equatable {
     static func confirmation(
         title: String,
         message: String? = nil,
-        cancelText: String = Loc.Actions.cancel,
-        confirmText: String = Loc.Actions.confirm,
+        cancelText: String = Loc.Buttons.cancel,
+        confirmText: String = Loc.Buttons.ok,
         onCancel: @escaping VoidHandler = {},
         onConfirm: @escaping VoidHandler = {}
     ) -> AlertModel {
@@ -115,7 +115,7 @@ struct AlertModel: Equatable {
     static func choice(
         title: String,
         message: String? = nil,
-        cancelText: String = Loc.Actions.cancel,
+        cancelText: String = Loc.Buttons.cancel,
         primaryText: String,
         secondaryText: String,
         onCancel: @escaping VoidHandler = {},
@@ -136,10 +136,10 @@ struct AlertModel: Equatable {
 
     /// Delete confirmation alert
     static func deleteConfirmation(
-        title: String = Loc.Actions.delete,
+        title: String = Loc.Buttons.delete,
         message: String? = nil,
-        cancelText: String = Loc.Actions.cancel,
-        deleteText: String = Loc.Actions.delete,
+        cancelText: String = Loc.Buttons.cancel,
+        deleteText: String = Loc.Buttons.delete,
         onCancel: @escaping VoidHandler = {},
         onDelete: @escaping VoidHandler = {}
     ) -> AlertModel {

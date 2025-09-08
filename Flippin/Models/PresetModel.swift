@@ -66,17 +66,17 @@ extension PresetModel.Category {
 
     var displayTitle: String {
         switch self {
-        case .basics: return LocalizationKeys.Presets.categoryBasics.localized
-        case .travel: return LocalizationKeys.Presets.categoryTravel.localized
-        case .entertainment: return LocalizationKeys.Presets.categoryEntertainment.localized
-        case .food: return LocalizationKeys.Presets.categoryFood.localized
-        case .shopping: return LocalizationKeys.Presets.categoryShopping.localized
-        case .social: return LocalizationKeys.Presets.categorySocial.localized
-        case .weather: return LocalizationKeys.Presets.categoryWeather.localized
-        case .technology: return LocalizationKeys.Presets.categoryTechnology.localized
-        case .lifestyle: return LocalizationKeys.Presets.categoryLifestyle.localized
-        case .professional: return LocalizationKeys.Presets.categoryProfessional.localized
-        case .emergency: return LocalizationKeys.Presets.categoryEmergency.localized
+        case .basics: return Loc.Categories.categoryBasics
+        case .travel: return Loc.Categories.categoryTravel
+        case .entertainment: return Loc.Categories.categoryEntertainment
+        case .food: return Loc.Categories.categoryFood
+        case .shopping: return Loc.Categories.categoryShopping
+        case .social: return Loc.Categories.categorySocial
+        case .weather: return Loc.Categories.categoryWeather
+        case .technology: return Loc.Categories.categoryTechnology
+        case .lifestyle: return Loc.Categories.categoryLifestyle
+        case .professional: return Loc.Categories.categoryProfessional
+        case .emergency: return Loc.Categories.categoryEmergency
         }
     }
 }

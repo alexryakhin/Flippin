@@ -28,7 +28,7 @@ struct FiltersScrollView: View {
             HStack(spacing: 8) {
                 // Show all cards filter
                 TagView(
-                    title: LocalizationKeys.Settings.showAllCards.localized,
+                    title: Loc.TagManagement.showAllCards,
                     isSelected: tagManager.selectedFilterTag == nil && !tagManager.isFavoriteFilterOn && !tagManager.isDifficultFilterOn,
                     isMaterialBackground: isMaterialBackground
                 )
@@ -40,7 +40,7 @@ struct FiltersScrollView: View {
 
                 // Favorite filter button
                 TagView(
-                    title: LocalizationKeys.Settings.showFavoritesOnly.localized,
+                    title: Loc.TagManagement.showFavoritesOnly,
                     imageSystemName: "heart.fill",
                     isSelected: tagManager.isFavoriteFilterOn,
                     isMaterialBackground: isMaterialBackground
@@ -51,7 +51,7 @@ struct FiltersScrollView: View {
 
                 // Difficult cards filter button
                 TagView(
-                    title: LocalizationKeys.Card.difficultCards.localized,
+                    title: Loc.CardManagement.difficultCards,
                     imageSystemName: "exclamationmark.triangle.fill",
                     isSelected: tagManager.isDifficultFilterOn,
                     isMaterialBackground: isMaterialBackground

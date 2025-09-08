@@ -36,7 +36,7 @@ struct AboutView: View {
                 .ignoresSafeArea()
         }
         .navigation(
-            title: LocalizationKeys.AboutApp.about.localized,
+            title: Loc.AboutApp.about,
             mode: .inline(withBackButton: true)
         )
         .ifLet(colorManager.colorScheme) { view, scheme in
@@ -50,7 +50,7 @@ struct AboutView: View {
     // MARK: - App Info Section
     private var appInfoSection: some View {
         CustomSectionView(
-            header: LocalizationKeys.AboutApp.appInfo.localized
+            header: Loc.AboutApp.appInfo
         ) {
             VStack(spacing: 16) {
                 // App Icon and Name
@@ -66,7 +66,7 @@ struct AboutView: View {
                             .font(.title2)
                             .fontWeight(.bold)
                         
-                        Text(LocalizationKeys.AboutApp.tagline.localized)
+                        Text(Loc.AboutApp.tagline)
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
                             .multilineTextAlignment(.center)
@@ -75,7 +75,7 @@ struct AboutView: View {
                 
                 // Version Info
                 VStack(spacing: 8) {
-                    Text(LocalizationKeys.AboutApp.version.localized)
+                    Text(Loc.AboutApp.version)
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                     
@@ -90,31 +90,31 @@ struct AboutView: View {
     // MARK: - Features Section
     private var featuresSection: some View {
         CustomSectionView(
-            header: LocalizationKeys.AboutApp.features.localized
+            header: Loc.AboutApp.features
         ) {
             VStack(spacing: 12) {
                 FeatureRow(
                     icon: .init(.icCardStackFill),
-                    title: LocalizationKeys.AboutApp.smartCards.localized,
-                    description: LocalizationKeys.AboutApp.smartCardsDescription.localized
+                    title: Loc.AboutApp.smartCards,
+                    description: Loc.AboutApp.smartCardsDescription
                 )
                 
                 FeatureRow(
                     icon: .init(systemName: "globe"),
-                    title: LocalizationKeys.AboutApp.languagesTitle.localized,
-                    description: LocalizationKeys.AboutApp.languagesDescription.localized
+                    title: Loc.AboutApp.languagesTitle,
+                    description: Loc.AboutApp.languagesDescription
                 )
                 
                 FeatureRow(
                     icon: .init(systemName: "chart.line.uptrend.xyaxis"),
-                    title: LocalizationKeys.AboutApp.learningAnalytics.localized,
-                    description: LocalizationKeys.AboutApp.learningAnalyticsDescription.localized
+                    title: Loc.AboutApp.learningAnalytics,
+                    description: Loc.AboutApp.learningAnalyticsDescription
                 )
                 
                 FeatureRow(
                     icon: .init(systemName: "speaker.wave.2"),
-                    title: LocalizationKeys.AboutApp.tts.localized,
-                    description: LocalizationKeys.AboutApp.ttsDescription.localized
+                    title: Loc.AboutApp.tts,
+                    description: Loc.AboutApp.ttsDescription
                 )
             }
         }
@@ -123,16 +123,16 @@ struct AboutView: View {
     // MARK: - Donation Section
     private var donationSection: some View {
         CustomSectionView(
-            header: LocalizationKeys.AboutApp.support.localized
+            header: Loc.AboutApp.support
         ) {
             VStack(alignment: .leading, spacing: 12) {
-                Text(LocalizationKeys.AboutApp.supportDescription.localized)
+                Text(Loc.AboutApp.supportDescription)
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.leading)
 
                 HeaderButton(
-                    LocalizationKeys.AboutApp.buyMeACoffee.localized,
+                    Loc.AboutApp.buyMeACoffee,
                     icon: "cup.and.saucer.fill",
                     style: .borderedProminent
                 ) {
@@ -146,18 +146,18 @@ struct AboutView: View {
     // MARK: - Legal Section
     private var legalSection: some View {
         CustomSectionView(
-            header: LocalizationKeys.AboutApp.legal.localized
+            header: Loc.AboutApp.legal
         ) {
             VStack(alignment: .leading, spacing: 12) {
                 HeaderButton(
-                    LocalizationKeys.AboutApp.privacyPolicy.localized,
+                    Loc.AboutApp.privacyPolicy,
                     icon: "arrow.up.right"
                 ) {
                     openPrivacyPolicy()
                 }
 
                 HeaderButton(
-                    LocalizationKeys.AboutApp.termsOfService.localized,
+                    Loc.AboutApp.termsOfService,
                     icon: "arrow.up.right"
                 ) {
                     openTermsOfService()

@@ -13,9 +13,9 @@ import TipKit
 
 @main
 struct FlippinApp: App {
-    #if DEBUG
+#if DEBUG
     @State private var isDebugViewPresented: Bool = false
-    #endif
+#endif
 
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.scenePhase) var scenePhase
@@ -32,13 +32,13 @@ struct FlippinApp: App {
     init() {
         FirebaseApp.configure()
         AnalyticsService.trackEvent(.appLaunched)
-        
+
         // Configure TipKit
         try? Tips.configure([
             .displayFrequency(.immediate),
             .datastoreLocation(.applicationDefault)
         ])
-        
+
         // Configure notification center delegate
         UNUserNotificationCenter.current().delegate = NotificationService.shared
     }
@@ -48,18 +48,18 @@ struct FlippinApp: App {
             MainTabView()
                 .observeColorScheme()
                 .tint(colorManager.tintColor)
-                        .task {
-            // Ensure purchase status is properly loaded at startup
-            await ensurePurchaseStatusLoaded()
-            
-            // Fetch Remote Config for API keys
-            await remoteConfigService.fetchConfig()
-            
-            // Load Speechify voices for premium users if Remote Config is ready
-            if purchaseService.hasPremiumAccess && remoteConfigService.isRemoteConfigReady() {
-                await speechifyService.loadVoices()
-            }
-        }
+                .task {
+                    // Ensure purchase status is properly loaded at startup
+                    await ensurePurchaseStatusLoaded()
+
+                    // Fetch Remote Config for API keys
+                    await remoteConfigService.fetchConfig()
+
+                    // Load Speechify voices for premium users if Remote Config is ready
+                    if purchaseService.hasPremiumAccess && remoteConfigService.isRemoteConfigReady() {
+                        speechifyService.loadVoices()
+                    }
+                }
                 .onChange(of: scenePhase) { _, newPhase in
                     switch newPhase {
                     case .background:
@@ -84,25 +84,25 @@ struct FlippinApp: App {
                 #endif
         }
     }
-    
+
     private func ensurePurchaseStatusLoaded() async {
         print("🚀 App startup: Ensuring purchase status is loaded...")
-        
+
         // Ensure purchase status is properly loaded
         await purchaseService.loadProducts()
         await purchaseService.reloadPurchaseStatus()
-        
+
         // Log current status
         let purchasedProducts = purchaseService.getPurchasedProducts()
         print("📦 Startup: Found \(purchasedProducts.count) purchased products: \(purchasedProducts)")
-        
+
         // Check card limit status
         let cardLimit = cardsProvider.cardLimit
         let currentCards = cardsProvider.cards.count
         let hasUnlimited = cardsProvider.hasUnlimitedCards
-        
+
         print("🎯 Startup: Card limit status - Limit: \(cardLimit), Current: \(currentCards), Unlimited: \(hasUnlimited)")
-        
+
         AnalyticsService.trackEvent(.appLaunched, parameters: [
             "purchased_products_count": purchasedProducts.count,
             "card_limit": cardLimit,

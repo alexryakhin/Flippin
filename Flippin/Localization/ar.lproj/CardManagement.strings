@@ -10,6 +10,3 @@
 "noDifficultCards" = "لا توجد بطاقات صعبة";
 "noDifficultCardsDescription" = "لم تقم بوضع أي بطاقات كصعبة بعد. ادرس المزيد من البطاقات لرؤية مستويات الصعوبة.";
 "difficultCards" = "بطاقات صعبة";
-"failedToCreateCard" = "فشل في إنشاء البطاقة: %@";
-
-

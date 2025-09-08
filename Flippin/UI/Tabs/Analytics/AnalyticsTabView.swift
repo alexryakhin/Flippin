@@ -37,7 +37,7 @@ enum AnalyticsTab {
                 }
             }
             .navigation(
-                title: LocalizationKeys.Analytics.analytics.localized,
+                title: Loc.Analytics.analytics,
                 mode: .large,
                 trailingContent: {
                     if purchaseService.hasPremiumAccess {
@@ -65,15 +65,15 @@ enum AnalyticsTab {
         @ViewBuilder
         private var quickOverviewSection: some View {
             if cardsProvider.cards.isEmpty {
-                CustomSectionView(header: LocalizationKeys.Analytics.today.localized, headerFontStyle: .large) {
+                CustomSectionView(header: Loc.Analytics.today, headerFontStyle: .large) {
                     ContentUnavailableView {
                         VStack {
                             Image(systemName: "chart.bar.doc.horizontal")
                                 .font(.largeTitle)
-                            Text(LocalizationKeys.Analytics.noAnalyticsData.localized)
+                            Text(Loc.Analytics.noAnalyticsData)
                         }
                     } description: {
-                        Text(LocalizationKeys.Analytics.startStudyingToSeeProgress.localized)
+                        Text(Loc.Analytics.startStudyingToSeeProgress)
                             .foregroundStyle(.secondary)
                     }
                 }
@@ -83,25 +83,25 @@ enum AnalyticsTab {
         }
 
         private var premiumFeaturesSection: some View {
-            CustomSectionView(header: LocalizationKeys.Analytics.unlockAdvancedAnalytics.localized, headerFontStyle: .large) {
+            CustomSectionView(header: Loc.Analytics.unlockAdvancedAnalytics, headerFontStyle: .large) {
                 VStack(alignment: .leading, spacing: 12) {
                     PremiumFeatureRow(
-                        title: LocalizationKeys.Analytics.detailedProgressReports.localized,
-                        description: LocalizationKeys.Analytics.detailedProgressReportsDescription.localized,
+                        title: Loc.Analytics.detailedProgressReports,
+                        description: Loc.Analytics.detailedProgressReportsDescription,
                         icon: "chart.line.uptrend.xyaxis",
                         color: .blue
                     )
 
                     PremiumFeatureRow(
-                        title: LocalizationKeys.Analytics.performanceInsights.localized,
-                        description: LocalizationKeys.Analytics.performanceInsightsDescription.localized,
+                        title: Loc.Analytics.performanceInsights,
+                        description: Loc.Analytics.performanceInsightsDescription,
                         icon: "brain.head.profile",
                         color: .purple
                     )
 
                     PremiumFeatureRow(
-                        title: LocalizationKeys.Analytics.studyTimeAnalytics.localized,
-                        description: LocalizationKeys.Analytics.studyTimeAnalyticsDescription.localized,
+                        title: Loc.Analytics.studyTimeAnalytics,
+                        description: Loc.Analytics.studyTimeAnalyticsDescription,
                         icon: "clock.arrow.circlepath",
                         color: .green
                     )
@@ -109,7 +109,7 @@ enum AnalyticsTab {
                 .padding(.horizontal, 16)
 
                 ActionButton(
-                    LocalizationKeys.Analytics.upgradeToPremium.localized,
+                    Loc.Analytics.upgradeToPremium,
                     systemImage: "crown.fill",
                     style: .borderedProminent
                 ) {
@@ -121,14 +121,14 @@ enum AnalyticsTab {
         private var recentActivityPreviewSection: some View {
             VStack(spacing: 16) {
                 HStack {
-                    Text(LocalizationKeys.Analytics.recentActivity.localized)
+                    Text(Loc.Analytics.recentActivity)
                         .font(.title2)
                         .fontWeight(.bold)
 
                     Spacer()
 
                     if purchaseService.hasPremiumAccess {
-                        Button(LocalizationKeys.Analytics.viewAll.localized) {
+                        Button(Loc.Analytics.viewAll) {
                             NavigationManager.shared.navigate(to: .detailedAnalytics)
                         }
                         .font(.subheadline)
@@ -141,31 +141,31 @@ enum AnalyticsTab {
                         VStack {
                             Image(systemName: "clock.arrow.circlepath")
                                 .font(.largeTitle)
-                            Text(LocalizationKeys.Analytics.noRecentActivity.localized)
+                            Text(Loc.Analytics.noRecentActivity)
                         }
                     } description: {
-                        Text(LocalizationKeys.Analytics.studySessionsWillAppearHere.localized)
+                        Text(Loc.Analytics.studySessionsWillAppearHere)
                             .foregroundStyle(.secondary)
                     }
                     .foregroundColor(colorManager.foregroundColor)
                 } else {
                     VStack(spacing: 12) {
                         ActivityPreviewRow(
-                            title: LocalizationKeys.Analytics.lastStudySession.localized,
+                            title: Loc.Analytics.lastStudySession,
                             value: "2 hours ago",
                             icon: "book.fill",
                             color: .blue
                         )
 
                         ActivityPreviewRow(
-                            title: LocalizationKeys.Analytics.cardsStudiedToday.localized,
+                            title: Loc.Analytics.cardsStudiedToday,
                             value: "15 cards",
                             icon: "rectangle.stack.fill",
                             color: .purple
                         )
 
                         ActivityPreviewRow(
-                            title: LocalizationKeys.Analytics.studyStreak.localized,
+                            title: Loc.Analytics.studyStreak,
                             value: "5 days",
                             icon: "flame.fill",
                             color: .orange

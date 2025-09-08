@@ -10,6 +10,3 @@
 "noDifficultCards" = "Không Có Thẻ Khó";
 "noDifficultCardsDescription" = "Bạn chưa đánh dấu thẻ nào là khó. Học thêm thẻ để xem mức độ khó.";
 "difficultCards" = "Thẻ Khó";
-"failedToCreateCard" = "Không thể tạo thẻ: %@";
-
-

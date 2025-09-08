@@ -45,7 +45,7 @@ extension DetailedAnalytics {
             let accuracyData = analyticsService.getAccuracyTrends(for: selectedTimeRange)
             
             return CustomSectionView(
-                header: LocalizationKeys.Analytics.accuracyTrends.localized,
+                header: Loc.DetailedAnalytics.accuracyTrends,
                 backgroundStyle: .standard
             ) {
                 AccuracyTrendsChart(data: accuracyData, tintColor: colorManager.tintColor)
@@ -56,28 +56,28 @@ extension DetailedAnalytics {
             let sessionStats = analyticsService.getSessionPerformance(for: selectedTimeRange)
             
             return CustomSectionView(
-                header: LocalizationKeys.Analytics.sessionPerformance.localized,
+                header: Loc.DetailedAnalytics.sessionPerformance,
                 backgroundStyle: .standard
             ) {
                 FormWithDivider {
                     PerformanceMetricRow(
-                        title: LocalizationKeys.Analytics.averageSessionDuration.localized,
+                        title: Loc.DetailedAnalytics.averageSessionDuration,
                         value: sessionStats.averageDuration.formattedStudyTime,
-                        trend: LocalizationKeys.Analytics.basedOnData.localized(with: selectedTimeRange.name.lowercased()),
+                        trend: Loc.DetailedAnalytics.basedOnData(selectedTimeRange.name.lowercased()),
                         isPositive: true
                     )
 
                     PerformanceMetricRow(
-                        title: LocalizationKeys.Analytics.cardsPerSession.localized,
-                        value: LocalizationKeys.Analytics.cardsCount.localized(with: Int(sessionStats.cardsPerSession)),
-                        trend: LocalizationKeys.Analytics.average.localized,
+                        title: Loc.DetailedAnalytics.cardsPerSession,
+                        value: Loc.Plurals.cardsCount(Int(sessionStats.cardsPerSession)),
+                        trend: Loc.DetailedAnalytics.average,
                         isPositive: true
                     )
 
                     PerformanceMetricRow(
-                        title: LocalizationKeys.Analytics.sessionFrequency.localized,
-                        value: LocalizationKeys.Analytics.sessionsPerDay.localized(with: sessionStats.sessionFrequency),
-                        trend: LocalizationKeys.Analytics.basedOnData.localized(with: selectedTimeRange.name.lowercased()),
+                        title: Loc.DetailedAnalytics.sessionFrequency,
+                        value: Loc.Plurals.sessionsPerDay(Int(sessionStats.sessionFrequency)),
+                        trend: Loc.DetailedAnalytics.basedOnData(selectedTimeRange.name.lowercased()),
                         isPositive: sessionStats.sessionFrequency > 0
                     )
                 }
@@ -88,7 +88,7 @@ extension DetailedAnalytics {
             let difficultyDistribution = analyticsService.getCardDifficultyDistribution()
             
             return CustomSectionView(
-                header: LocalizationKeys.Analytics.cardDifficultyAnalysis.localized,
+                header: Loc.DetailedAnalytics.cardDifficultyAnalysis,
                 backgroundStyle: .standard
             ) {
                 if difficultyDistribution.isEmpty {
@@ -96,7 +96,7 @@ extension DetailedAnalytics {
                         Image(systemName: "chart.bar.xaxis")
                             .font(.title2)
                             .foregroundColor(.secondary)
-                        Text(LocalizationKeys.Analytics.noDifficultyDataAvailable.localized)
+                        Text(Loc.DetailedAnalytics.noDifficultyDataAvailable)
                             .font(.caption)
                             .foregroundColor(.secondary)
                     }
@@ -120,12 +120,12 @@ extension DetailedAnalytics {
             let learningSpeed = analyticsService.getLearningSpeedMetrics()
             
             return CustomSectionView(
-                header: LocalizationKeys.Analytics.learningSpeed.localized,
+                header: Loc.DetailedAnalytics.learningSpeed,
                 backgroundStyle: .standard
             ) {
                 HStack {
                     VStack(alignment: .leading, spacing: 4) {
-                        Text(LocalizationKeys.Analytics.cardsPerHour.localized)
+                        Text(Loc.DetailedAnalytics.cardsPerHour)
                             .font(.subheadline)
                             .foregroundColor(.secondary)
 
@@ -138,7 +138,7 @@ extension DetailedAnalytics {
                     Spacer()
 
                     VStack(alignment: .trailing, spacing: 4) {
-                        Text(LocalizationKeys.Analytics.vsAverage.localized)
+                        Text(Loc.DetailedAnalytics.vsAverage)
                             .font(.caption)
                             .foregroundColor(.secondary)
 
@@ -197,7 +197,7 @@ extension DetailedAnalytics {
 
                 Spacer()
 
-                Text(LocalizationKeys.Analytics.cardsCount.localized(with: count))
+                Text(Loc.Plurals.cardsCount(count))
                     .font(.subheadline)
                     .fontWeight(.semibold)
 

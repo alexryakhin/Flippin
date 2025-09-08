@@ -21,34 +21,34 @@ enum PremiumFeature: String, CaseIterable {
     var title: String {
         switch self {
         case .unlimitedCards:
-            return LocalizationKeys.Paywall.unlimitedCardsTitle.localized
+            return Loc.Paywall.unlimitedCardsTitle
         case .advancedAnalytics:
-            return LocalizationKeys.Paywall.advancedAnalyticsTitle.localized
+            return Loc.Paywall.advancedAnalyticsTitle
         case .customThemes:
-            return LocalizationKeys.Paywall.customThemesTitle.localized
+            return Loc.Paywall.customThemesTitle
         case .languageChange:
-            return LocalizationKeys.Paywall.languageChangeTitle.localized
+            return Loc.Paywall.languageChangeTitle
         case .cardPresets:
-            return LocalizationKeys.Paywall.cardPresetsTitle.localized
+            return Loc.Paywall.cardPresetsTitle
         case .studyModes:
-            return LocalizationKeys.Paywall.studyModesTitle.localized
+            return Loc.Paywall.studyModesTitle
         }
     }
     
     var message: String {
         switch self {
         case .unlimitedCards:
-            return LocalizationKeys.Paywall.unlimitedCardsMessage.localized
+            return Loc.Paywall.unlimitedCardsMessage
         case .advancedAnalytics:
-            return LocalizationKeys.Paywall.advancedAnalyticsMessage.localized
+            return Loc.Paywall.advancedAnalyticsMessage
         case .customThemes:
-            return LocalizationKeys.Paywall.customThemesMessage.localized
+            return Loc.Paywall.customThemesMessage
         case .cardPresets:
-            return LocalizationKeys.Paywall.cardPresetsMessage.localized
+            return Loc.Paywall.cardPresetsMessage
         case .languageChange:
-            return LocalizationKeys.Paywall.languageChangeMessage.localized
+            return Loc.Paywall.languageChangeMessage
         case .studyModes:
-            return LocalizationKeys.Paywall.studyModesMessage.localized
+            return Loc.Paywall.studyModesMessage
         }
     }
 }
@@ -68,16 +68,16 @@ struct PremiumAlertModifier: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-            .alert(feature?.title ?? LocalizationKeys.Paywall.upgradeToPremiumTitle.localized, isPresented: Binding(
+            .alert(feature?.title ?? Loc.Paywall.upgradeToPremiumTitle, isPresented: Binding(
                 get: { feature != nil },
                 set: { if !$0 { feature = nil } }
             )) {
-                Button(LocalizationKeys.Paywall.cancel.localized, role: .cancel) { }
-                Button(LocalizationKeys.Paywall.viewOptions.localized) {
+                Button(Loc.Paywall.cancel, role: .cancel) { }
+                Button(Loc.Paywall.viewOptions) {
                     showPaywall = true
                 }
             } message: {
-                Text(feature?.message ?? LocalizationKeys.Paywall.upgradeToPremiumMessage.localized)
+                Text(feature?.message ?? Loc.Paywall.upgradeToPremiumMessage)
             }
             .sheet(isPresented: $showPaywall) {
                 Paywall.ContentView()

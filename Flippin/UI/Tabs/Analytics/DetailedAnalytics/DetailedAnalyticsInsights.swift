@@ -44,7 +44,7 @@ extension DetailedAnalytics {
             let insights = analyticsService.getPersonalizedInsights(for: selectedTimeRange)
 
             return CustomSectionView(
-                header: LocalizationKeys.Analytics.personalizedInsights.localized,
+                header: Loc.DetailedAnalytics.personalizedInsights,
                 backgroundStyle: .standard
             ) {
                 if insights.isEmpty {
@@ -52,7 +52,7 @@ extension DetailedAnalytics {
                         Image(systemName: "lightbulb")
                             .font(.title2)
                             .foregroundColor(.secondary)
-                        Text(LocalizationKeys.Analytics.noInsightsAvailableYet.localized)
+                        Text(Loc.DetailedAnalytics.noInsightsAvailableYet)
                             .font(.caption)
                             .foregroundColor(.secondary)
                     }
@@ -76,7 +76,7 @@ extension DetailedAnalytics {
             let recommendations = analyticsService.getPersonalizedRecommendations()
 
             return CustomSectionView(
-                header: LocalizationKeys.Analytics.recommendations.localized,
+                header: Loc.DetailedAnalytics.recommendations,
                 backgroundStyle: .standard
             ) {
                 if recommendations.isEmpty {
@@ -84,7 +84,7 @@ extension DetailedAnalytics {
                         Image(systemName: "checkmark.circle")
                             .font(.title2)
                             .foregroundColor(.secondary)
-                        Text(LocalizationKeys.Analytics.noRecommendationsAtThisTime.localized)
+                        Text(Loc.DetailedAnalytics.noRecommendationsAtThisTime)
                             .font(.caption)
                             .foregroundColor(.secondary)
                     }
@@ -109,25 +109,25 @@ extension DetailedAnalytics {
 
         private var learningTipsSection: some View {
             return CustomSectionView(
-                header: LocalizationKeys.Analytics.learningTips.localized,
+                header: Loc.DetailedAnalytics.learningTips,
                 backgroundStyle: .standard
             ) {
                 VStack(spacing: 12) {
                     TipCard(
-                        title: LocalizationKeys.Analytics.spacedRepetition.localized,
-                        description: LocalizationKeys.Analytics.spacedRepetitionDescription.localized,
+                        title: Loc.DetailedAnalytics.spacedRepetition,
+                        description: Loc.DetailedAnalytics.spacedRepetitionDescription,
                         icon: "clock.arrow.circlepath"
                     )
 
                     TipCard(
-                        title: LocalizationKeys.Analytics.activeRecall.localized,
-                        description: LocalizationKeys.Analytics.activeRecallDescription.localized,
+                        title: Loc.DetailedAnalytics.activeRecall,
+                        description: Loc.DetailedAnalytics.activeRecallDescription,
                         icon: "brain.head.profile"
                     )
 
                     TipCard(
-                        title: LocalizationKeys.Analytics.contextLearning.localized,
-                        description: LocalizationKeys.Analytics.contextLearningDescription.localized,
+                        title: Loc.DetailedAnalytics.contextLearning,
+                        description: Loc.DetailedAnalytics.contextLearningDescription,
                         icon: "text.bubble"
                     )
                 }

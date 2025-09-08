@@ -8,7 +8,7 @@ final class PurchaseExample {
     static func performSimpleTestPurchase() async {
         print("🧪 Starting simple test purchase...")
         
-        let purchaseService = await PurchaseService.shared
+        let purchaseService = PurchaseService.shared
         let result = await purchaseService.performTestPurchase()
         
         if result.success {
@@ -24,7 +24,7 @@ final class PurchaseExample {
     static func purchaseSpecificProduct(productId: String) async {
         print("🛒 Purchasing product: \(productId)")
         
-        let purchaseService = await PurchaseService.shared
+        let purchaseService = PurchaseService.shared
         let result = await purchaseService.purchaseProduct(productId)
         
         if result.success {
@@ -42,7 +42,7 @@ final class PurchaseExample {
     static func getTransactionHistory() async {
         print("📜 Getting transaction history...")
         
-        let purchaseService = await PurchaseService.shared
+        let purchaseService = PurchaseService.shared
         let transactions = await purchaseService.getTransactionHistory()
         
         print("📊 Found \(transactions.count) transactions:")
@@ -59,7 +59,7 @@ final class PurchaseExample {
     static func restorePurchases() async {
         print("🔄 Restoring purchases...")
         
-        let purchaseService = await PurchaseService.shared
+        let purchaseService = PurchaseService.shared
         let success = await purchaseService.restorePurchases()
         
         if success {
@@ -74,10 +74,10 @@ final class PurchaseExample {
         print("🚀 Starting complete purchase flow...")
         
         // Step 1: Load products
-        let purchaseService = await PurchaseService.shared
+        let purchaseService = PurchaseService.shared
         await purchaseService.loadProducts()
 
-        let products = await purchaseService.products
+        let products = purchaseService.products
         print("📦 Loaded \(products.count) products")
 
         // Step 2: Perform test purchase
@@ -150,7 +150,7 @@ extension PurchaseExample {
     
     /// Check if user has made any purchases
     static func hasAnyPurchases() async -> Bool {
-        let purchaseService = await PurchaseService.shared
+        let purchaseService = PurchaseService.shared
         let transactions = await purchaseService.getTransactionHistory()
         return !transactions.isEmpty
     }

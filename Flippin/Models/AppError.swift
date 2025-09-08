@@ -13,7 +13,7 @@ enum AppError: Error, LocalizedError {
     var errorDescription: String? {
         switch self {
         case .invalidJSON:
-            return LocalizationKeys.General.invalidJSON.localized
+            return Loc.Errors.invalidJSON
         }
     }
 }

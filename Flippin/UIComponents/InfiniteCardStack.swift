@@ -47,12 +47,12 @@ public struct InfiniteCardStack<Data, Content>: View where Data: RandomAccessCol
                     Image(systemName: "rectangle.stack")
                         .font(.largeTitle)
                         .foregroundColor(.secondary)
-                    Text(LocalizationKeys.General.noCardsAvailable.localized)
+                    Text(Loc.ContentViews.noCardsAvailable)
                         .font(.headline)
                         .foregroundColor(.secondary)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .accessibilityLabel(LocalizationKeys.General.noCardsAvailable.localized)
+                .accessibilityLabel(Loc.ContentViews.noCardsAvailable)
             } else {
                 ZStack {
                     ForEach(visibleCards) { card in

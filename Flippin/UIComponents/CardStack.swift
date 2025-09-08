@@ -38,12 +38,12 @@ public struct CardStack<Data, Content>: View where Data: RandomAccessCollection 
                     Image(systemName: "rectangle.stack")
                         .font(.largeTitle)
                         .foregroundColor(.secondary)
-                    Text(LocalizationKeys.General.noCardsAvailable.localized)
+                    Text(Loc.ContentViews.noCardsAvailable)
                         .font(.headline)
                         .foregroundColor(.secondary)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .accessibilityLabel(LocalizationKeys.General.noCardsAvailable.localized)
+                .accessibilityLabel(Loc.ContentViews.noCardsAvailable)
             } else {
                 ZStack {
                     ForEach(Array(data.enumerated()), id: \.element.id) { (index, element) in

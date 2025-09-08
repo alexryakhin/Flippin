@@ -47,13 +47,13 @@ extension WelcomeSheet {
                         .animation(.easeInOut(duration: 0.5).delay(0.2), value: animateContent)
 
                         VStack(spacing: 16) {
-                            Text(LocalizationKeys.Welcome.chooseLanguages.localized)
+                            Text(Loc.WelcomeScreen.chooseLanguages)
                                 .font(.system(size: 28, weight: .bold, design: .rounded))
                                 .multilineTextAlignment(.center)
                                 .offset(y: animateContent ? 0 : 20)
                                 .opacity(animateContent ? 1 : 0)
 
-                            Text(LocalizationKeys.Welcome.chooseLanguagesDesc.localized)
+                            Text(Loc.WelcomeScreen.chooseLanguagesDesc)
                                 .font(.body)
                                 .foregroundColor(.secondary)
                                 .multilineTextAlignment(.center)
@@ -68,16 +68,16 @@ extension WelcomeSheet {
                     // Language pickers
                     VStack(spacing: 16) {
                         LanguagePickerCard(
-                            title: LocalizationKeys.Welcome.myLanguage.localized,
-                            subtitle: LocalizationKeys.Welcome.myLanguageDesc.localized,
+                            title: Loc.WelcomeScreen.myLanguage,
+                            subtitle: Loc.WelcomeScreen.myLanguageDesc,
                             selection: $languageManager.userLanguageRaw,
                             animateContent: animateContent,
                             delay: 0.7
                         )
 
                         LanguagePickerCard(
-                            title: LocalizationKeys.Welcome.imLearning.localized,
-                            subtitle: LocalizationKeys.Welcome.imLearningDesc.localized,
+                            title: Loc.WelcomeScreen.imLearning,
+                            subtitle: Loc.WelcomeScreen.imLearningDesc,
                             selection: $languageManager.targetLanguageRaw,
                             animateContent: animateContent,
                             delay: 0.9
@@ -90,10 +90,11 @@ extension WelcomeSheet {
 
                     NavigationLink(destination: ReadyStepView(onContinue: onContinue)) {
                         ActionButton(
-                            LocalizationKeys.Welcome.continueButton.localized,
+                            Loc.WelcomeScreen.continueButton,
                             style: .borderedProminent,
                             action: {}
                         )
+                        .allowsHitTesting(false)
                     }
                 }
                 .padding(vertical: 12, horizontal: 16)

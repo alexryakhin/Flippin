@@ -9,3 +9,6 @@
 "error" = "Error";
 "oops" = "Ooops...";
 "unknown_error" = "Unknown Error";
+
+"failedToCreateCard" = "Failed to create card: %@";
+"invalidJSON" = "JSON data is invalid";

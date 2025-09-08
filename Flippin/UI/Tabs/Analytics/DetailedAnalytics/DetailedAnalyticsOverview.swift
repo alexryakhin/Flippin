@@ -44,7 +44,7 @@ extension DetailedAnalytics {
             
             return LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 8), count: 2), spacing: 8) {
                 DetailedStatCard(
-                    title: LocalizationKeys.Analytics.practiceTimeTitle.localized,
+                    title: Loc.DetailedAnalytics.practiceTimeTitle,
                     value: timeRangeStats.totalStudyTime.formattedAnalyticsTime,
                     subtitle: selectedTimeRange.name,
                     icon: "clock.fill",
@@ -52,7 +52,7 @@ extension DetailedAnalytics {
                 )
 
                 DetailedStatCard(
-                    title: LocalizationKeys.Analytics.cardsMasteredTitle.localized,
+                    title: Loc.DetailedAnalytics.cardsMasteredTitle,
                     value: "\(analyticsService.totalCardsMastered)",
                     subtitle: "90%+ accuracy", // This is a static subtitle, not a calculated value
                     icon: "checkmark.circle.fill",
@@ -60,17 +60,17 @@ extension DetailedAnalytics {
                 )
 
                 DetailedStatCard(
-                    title: LocalizationKeys.Analytics.studyStreakTitle.localized,
+                    title: Loc.DetailedAnalytics.studyStreakTitle,
                     value: "\(analyticsService.studyStreak)",
-                    subtitle: LocalizationKeys.Analytics.consecutiveDays.localized,
+                    subtitle: Loc.DetailedAnalytics.consecutiveDays,
                     icon: "flame.fill",
                     color: .orange
                 )
 
                 DetailedStatCard(
-                    title: LocalizationKeys.Analytics.averageSessionTitle.localized,
+                    title: Loc.DetailedAnalytics.averageSessionTitle,
                     value: timeRangeStats.averageSessionTime.formattedStudyTime,
-                    subtitle: LocalizationKeys.Analytics.perSession.localized,
+                    subtitle: Loc.DetailedAnalytics.perSession,
                     icon: "timer",
                     color: .purple
                 )
@@ -81,26 +81,26 @@ extension DetailedAnalytics {
             let patterns = analyticsService.getStudyPatterns()
             
             return CustomSectionView(
-                header: LocalizationKeys.Analytics.studyPatterns.localized,
+                header: Loc.DetailedAnalytics.studyPatterns,
                 backgroundStyle: .standard
             ) {
                 FormWithDivider {
                     PatternRow(
-                        title: LocalizationKeys.Analytics.mostActiveTime.localized,
+                        title: Loc.DetailedAnalytics.mostActiveTime,
                         value: patterns.mostActiveTime,
                         icon: "moon.fill",
                         color: .blue
                     )
 
                     PatternRow(
-                        title: LocalizationKeys.Analytics.preferredSessionLength.localized,
+                        title: Loc.DetailedAnalytics.preferredSessionLength,
                         value: patterns.preferredSessionLength,
                         icon: "timer",
                         color: .green
                     )
 
                     PatternRow(
-                        title: LocalizationKeys.Analytics.studyFrequency.localized,
+                        title: Loc.DetailedAnalytics.studyFrequency,
                         value: patterns.studyFrequency,
                         icon: "calendar",
                         color: .orange
@@ -121,7 +121,7 @@ extension DetailedAnalytics {
             }.count
             
             return CustomSectionView(
-                header: LocalizationKeys.Analytics.languageProgress.localized,
+                header: Loc.DetailedAnalytics.languageProgress,
                 backgroundStyle: .standard
             ) {
                 VStack(alignment: .leading, spacing: 12) {
@@ -148,11 +148,11 @@ extension DetailedAnalytics {
                     // Vocabulary count
                     HStack {
                         VStack(alignment: .leading, spacing: 4) {
-                            Text(LocalizationKeys.Analytics.collectionSize.localized)
+                            Text(Loc.DetailedAnalytics.collectionSize)
                                 .font(.subheadline)
                                 .fontWeight(.medium)
                             
-                            Text("\(languageProgress.vocabularyCount) \(LocalizationKeys.Analytics.cards.localized)")
+                            Text(Loc.Plurals.cardsCount(languageProgress.vocabularyCount))
                                 .font(.title3)
                                 .fontWeight(.bold)
                                 .foregroundColor(colorManager.tintColor)
@@ -161,11 +161,11 @@ extension DetailedAnalytics {
                         Spacer()
                         
                         VStack(alignment: .trailing, spacing: 4) {
-                            Text(LocalizationKeys.Analytics.mastered.localized)
+                            Text(Loc.Analytics.mastered)
                                 .font(.caption)
                                 .foregroundColor(.secondary)
                             
-                            Text("\(currentLanguageMastered) \(LocalizationKeys.Analytics.cards.localized)")
+                            Text(Loc.Plurals.cardsCount(currentLanguageMastered))
                                 .font(.subheadline)
                                 .fontWeight(.semibold)
                                 .foregroundColor(.green)
@@ -177,45 +177,45 @@ extension DetailedAnalytics {
         }
 
         private var achievementBadgesSection: some View {
-            CustomSectionView(header: LocalizationKeys.Analytics.achievements.localized, backgroundStyle: .standard) {
+            CustomSectionView(header: Loc.DetailedAnalytics.achievements, backgroundStyle: .standard) {
                 LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 8), count: 3), spacing: 8) {
                     AchievementBadge(
-                        title: LocalizationKeys.Analytics.firstSteps.localized,
+                        title: Loc.DetailedAnalytics.firstSteps,
                         icon: "star",
                         isUnlocked: analyticsService.totalStudyTime > 0,
                         color: .green
                     )
 
                     AchievementBadge(
-                        title: LocalizationKeys.Analytics.weekWarrior.localized,
+                        title: Loc.DetailedAnalytics.weekWarrior,
                         icon: "7.circle.fill",
                         isUnlocked: analyticsService.studyStreak >= 7,
                         color: .blue
                     )
 
                     AchievementBadge(
-                        title: LocalizationKeys.Analytics.masterLearner.localized,
+                        title: Loc.DetailedAnalytics.masterLearner,
                         icon: "brain",
                         isUnlocked: analyticsService.totalCardsMastered >= 50,
                         color: .orange
                     )
 
                     AchievementBadge(
-                        title: LocalizationKeys.Analytics.dedicated.localized,
+                        title: Loc.DetailedAnalytics.dedicated,
                         icon: "30.circle.fill",
                         isUnlocked: analyticsService.studyStreak >= 30,
                         color: .purple
                     )
 
                     AchievementBadge(
-                        title: LocalizationKeys.Analytics.vocabularyMaster.localized,
+                        title: Loc.DetailedAnalytics.vocabularyMaster,
                         icon: "character.magnify",
                         isUnlocked: analyticsService.totalCardsMastered >= 100,
                         color: .red
                     )
 
                     AchievementBadge(
-                        title: LocalizationKeys.Analytics.timeMaster.localized,
+                        title: Loc.DetailedAnalytics.timeMaster,
                         icon: "clock.fill",
                         isUnlocked: analyticsService.totalStudyTime >= 3600 * 10, // 10 hours
                         color: .indigo

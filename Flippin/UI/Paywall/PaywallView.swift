@@ -14,13 +14,13 @@ enum Paywall {
                 VStack(spacing: 32) {
                     // Header with subtle animation
                     VStack(spacing: 12) {
-                        Text(LocalizationKeys.Paywall.unlockPremium.localized)
+                        Text(Loc.PremiumFeatures.unlockPremium)
                             .font(.system(size: 34, weight: .bold, design: .rounded))
                             .foregroundColor(.primary)
                             .scaleEffect(isAnimating ? 1.0 : 0.95)
                             .animation(.easeOut(duration: 0.6), value: isAnimating)
 
-                        Text(LocalizationKeys.Paywall.masterLanguageLearning.localized)
+                        Text(Loc.PremiumFeatures.masterLanguageLearning)
                             .font(.system(size: 18, weight: .medium, design: .rounded))
                             .foregroundColor(.secondary)
                             .multilineTextAlignment(.center)
@@ -28,9 +28,14 @@ enum Paywall {
 
                         // Progress indicator with gradient
                         VStack(spacing: 10) {
-                            Text(LocalizationKeys.Paywall.usedCardsOfLimit.localized(with: cardsProvider.cards.count, cardsProvider.cardLimit))
-                                .font(.system(size: 14, weight: .medium, design: .rounded))
-                                .foregroundColor(.secondary)
+                            Text(
+                                Loc.PremiumFeatures.usedCardsOfLimit(
+                                    cardsProvider.cards.count,
+                                    cardsProvider.cardLimit
+                                )
+                            )
+                            .font(.system(size: 14, weight: .medium, design: .rounded))
+                            .foregroundColor(.secondary)
 
                             ProgressView(value: Double(cardsProvider.cards.count), total: Double(cardsProvider.cardLimit))
                                 .progressViewStyle(.linear)
@@ -48,7 +53,7 @@ enum Paywall {
 
                     // Features with glassmorphism cards
                     VStack(spacing: 12) {
-                        Text(LocalizationKeys.Paywall.whatYouGetWithPremium.localized)
+                        Text(Loc.PremiumFeatures.whatYouGetWithPremium)
                             .font(.system(size: 24, weight: .semibold, design: .rounded))
                             .foregroundColor(.primary)
 
@@ -87,7 +92,7 @@ enum Paywall {
                             await restorePurchases()
                         }
                     }) {
-                        Text(LocalizationKeys.Paywall.restorePurchases.localized)
+                        Text(Loc.PremiumFeatures.restorePurchases)
                             .font(.system(size: 14, weight: .medium, design: .rounded))
                             .foregroundColor(.secondary)
                             .padding(.vertical, 8)
@@ -102,14 +107,14 @@ enum Paywall {
 
                     // Footer with links
                     VStack(spacing: 8) {
-                        Text(LocalizationKeys.Paywall.cancelAnytime.localized)
+                        Text(Loc.PremiumFeatures.cancelAnytime)
 
                         Link(
-                            LocalizationKeys.AboutApp.termsOfService.localized,
+                            Loc.AboutApp.termsOfService,
                             destination: URL(string: "https://www.flippin.app/terms-of-use")!
                         )
                         Link(
-                            LocalizationKeys.AboutApp.privacyPolicy.localized,
+                            Loc.AboutApp.privacyPolicy,
                             destination: URL(string: "https://www.flippin.app/privacy-policy")!
                         )
                     }
@@ -125,7 +130,7 @@ enum Paywall {
                     .ignoresSafeArea()
             )
             .navigation(
-                title: LocalizationKeys.Paywall.goPremium.localized,
+                title: Loc.PremiumFeatures.goPremium,
                 mode: .inline(withBackButton: false),
                 trailingContent: {
                     HeaderButton(icon: "xmark") {
@@ -165,11 +170,31 @@ enum Paywall {
         // Feature data
         private var features: [FeatureModel] {
             [
-                FeatureModel(icon: "infinity", title: LocalizationKeys.Paywall.unlimitedCards.localized, description: LocalizationKeys.Paywall.unlimitedCardsDescription.localized),
-                FeatureModel(icon: "folder.fill", title: LocalizationKeys.Paywall.collections.localized, description: LocalizationKeys.Paywall.collectionsDescription.localized),
-                FeatureModel(icon: "sparkles", title: LocalizationKeys.Paywall.premiumBackgrounds.localized, description: LocalizationKeys.Paywall.premiumBackgroundsDescription.localized),
-                FeatureModel(icon: "globe", title: LocalizationKeys.Paywall.multipleLanguagesTitle.localized, description: LocalizationKeys.Paywall.multipleLanguagesDescription.localized),
-                FeatureModel(icon: "chart.line.uptrend.xyaxis", title: LocalizationKeys.Paywall.advancedAnalyticsTitle.localized, description: LocalizationKeys.Paywall.advancedAnalyticsMessage.localized)
+                FeatureModel(
+                    icon: "infinity",
+                    title: Loc.CardLimits.unlimitedCards,
+                    description: Loc.PremiumFeatures.unlimitedCardsDescription
+                ),
+                FeatureModel(
+                    icon: "folder.fill",
+                    title: Loc.PremiumFeatures.collections,
+                    description: Loc.PremiumFeatures.collectionsDescription
+                ),
+                FeatureModel(
+                    icon: "sparkles",
+                    title: Loc.PremiumFeatures.premiumBackgrounds,
+                    description: Loc.PremiumFeatures.premiumBackgroundsDescription
+                ),
+                FeatureModel(
+                    icon: "globe",
+                    title: Loc.PremiumFeatures.multipleLanguagesTitle,
+                    description: Loc.PremiumFeatures.multipleLanguagesDescription
+                ),
+                FeatureModel(
+                    icon: "chart.line.uptrend.xyaxis",
+                    title: Loc.Paywall.advancedAnalyticsTitle,
+                    description: Loc.Paywall.advancedAnalyticsMessage
+                )
             ]
         }
     }

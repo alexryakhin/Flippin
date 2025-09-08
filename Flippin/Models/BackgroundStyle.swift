@@ -16,18 +16,18 @@ enum BgStyle: String, CaseIterable, Codable {
     
     var displayName: String {
         switch self {
-        case .gradient: return LocalizationKeys.BackgroundStyles.gradient.localized
-        case .lavaLamp: return LocalizationKeys.BackgroundStyles.lavaLamp.localized
-        case .snow: return LocalizationKeys.BackgroundStyles.snow.localized
-        case .rain: return LocalizationKeys.BackgroundStyles.rain.localized
-        case .stars: return LocalizationKeys.BackgroundStyles.stars.localized
-        case .bubbles: return LocalizationKeys.BackgroundStyles.bubbles.localized
-        case .waves: return LocalizationKeys.BackgroundStyles.waves.localized
-        case .particles: return LocalizationKeys.BackgroundStyles.particles.localized
-        case .aurora: return LocalizationKeys.BackgroundStyles.aurora.localized
-        case .fireflies: return LocalizationKeys.BackgroundStyles.fireflies.localized
-        case .ocean: return LocalizationKeys.BackgroundStyles.ocean.localized
-        case .galaxy: return LocalizationKeys.BackgroundStyles.galaxy.localized
+        case .gradient: return Loc.BackgroundStyles.gradient
+        case .lavaLamp: return Loc.BackgroundStyles.lavaLamp
+        case .snow: return Loc.BackgroundStyles.snow
+        case .rain: return Loc.BackgroundStyles.rain
+        case .stars: return Loc.BackgroundStyles.stars
+        case .bubbles: return Loc.BackgroundStyles.bubbles
+        case .waves: return Loc.BackgroundStyles.waves
+        case .particles: return Loc.BackgroundStyles.particles
+        case .aurora: return Loc.BackgroundStyles.aurora
+        case .fireflies: return Loc.BackgroundStyles.fireflies
+        case .ocean: return Loc.BackgroundStyles.ocean
+        case .galaxy: return Loc.BackgroundStyles.galaxy
         }
     }
     

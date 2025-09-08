@@ -10,6 +10,3 @@
 "noDifficultCards" = "難しいカードなし";
 "noDifficultCardsDescription" = "まだカードを難しいとマークしていません。難易度を見るためにさらにカードを学習してください。";
 "difficultCards" = "難しいカード";
-"failedToCreateCard" = "カードの作成に失敗しました：%@";
-
-

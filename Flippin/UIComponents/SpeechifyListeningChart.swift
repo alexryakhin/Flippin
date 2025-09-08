@@ -13,11 +13,7 @@ struct SpeechifyListeningChart: View {
     @StateObject private var colorManager = ColorManager.shared
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            Text("Listening Time Trend")
-                .font(.headline)
-                .foregroundStyle(.primary)
-            
+        CustomSectionView(header: "Listening Time Trend") {
             if usageHistory.isEmpty {
                 ContentUnavailableView(
                     "No Data",
@@ -32,7 +28,7 @@ struct SpeechifyListeningChart: View {
                     )
                     .foregroundStyle(colorManager.tintColor)
                     .lineStyle(StrokeStyle(lineWidth: 3))
-                    
+
                     AreaMark(
                         x: .value("Month", usage.monthYear),
                         y: .value("Minutes", usage.listeningTimeMinutes)
@@ -47,7 +43,7 @@ struct SpeechifyListeningChart: View {
                             endPoint: .bottom
                         )
                     )
-                    
+
                     PointMark(
                         x: .value("Month", usage.monthYear),
                         y: .value("Minutes", usage.listeningTimeMinutes)
@@ -78,7 +74,7 @@ struct SpeechifyListeningChart: View {
                     }
                 }
                 .frame(height: 200)
-                
+
                 // Summary Stats
                 HStack {
                     VStack(alignment: .leading, spacing: 4) {
@@ -89,9 +85,9 @@ struct SpeechifyListeningChart: View {
                             .font(.headline)
                             .foregroundStyle(.primary)
                     }
-                    
+
                     Spacer()
-                    
+
                     VStack(alignment: .trailing, spacing: 4) {
                         Text("Average/Month")
                             .font(.caption)
@@ -101,12 +97,8 @@ struct SpeechifyListeningChart: View {
                             .foregroundStyle(.primary)
                     }
                 }
-                .padding(.top, 8)
             }
         }
-        .padding()
-        .background(Color(.systemGroupedBackground))
-        .clipShape(RoundedRectangle(cornerRadius: 12))
     }
     
     // MARK: - Helper Methods

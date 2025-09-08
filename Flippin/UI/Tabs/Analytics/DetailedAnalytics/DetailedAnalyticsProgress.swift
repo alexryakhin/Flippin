@@ -41,7 +41,7 @@ extension DetailedAnalytics {
             let timelineEvents = analyticsService.getMasteryTimelineEvents(for: selectedTimeRange)
 
             return CustomSectionView(
-                header: LocalizationKeys.Analytics.masteryTimeline.localized,
+                header: Loc.DetailedAnalytics.masteryTimeline,
                 backgroundStyle: .standard
             ) {
                 if timelineEvents.isEmpty {
@@ -49,7 +49,7 @@ extension DetailedAnalytics {
                         Image(systemName: "timeline.selection")
                             .font(.title2)
                             .foregroundColor(.secondary)
-                        Text(LocalizationKeys.Analytics.noRecentActivity.localized)
+                        Text(Loc.Analytics.noRecentActivity)
                             .font(.caption)
                             .foregroundColor(.secondary)
                     }
@@ -73,13 +73,13 @@ extension DetailedAnalytics {
             let growthData = analyticsService.getVocabularyGrowthData(for: selectedTimeRange)
 
             return CustomSectionView(
-                header: LocalizationKeys.Analytics.vocabularyGrowth.localized,
+                header: Loc.DetailedAnalytics.vocabularyGrowth,
                 backgroundStyle: .standard
             ) {
                 VStack(spacing: 16) {
                     HStack {
                         VStack(alignment: .leading, spacing: 4) {
-                            Text(LocalizationKeys.Analytics.totalVocabulary.localized)
+                            Text(Loc.DetailedAnalytics.totalVocabulary)
                                 .font(.subheadline)
                                 .foregroundColor(.secondary)
 
@@ -113,7 +113,7 @@ extension DetailedAnalytics {
             let milestones = analyticsService.getLearningMilestones()
 
             return CustomSectionView(
-                header: LocalizationKeys.Analytics.learningMilestones.localized,
+                header: Loc.DetailedAnalytics.learningMilestones,
                 backgroundStyle: .standard
             ) {
                 FormWithDivider {

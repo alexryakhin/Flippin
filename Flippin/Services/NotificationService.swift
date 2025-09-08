@@ -152,8 +152,8 @@ final class NotificationService: NSObject, ObservableObject, UNUserNotificationC
 
     private func scheduleStudyReminder() {
         let content = UNMutableNotificationContent()
-        content.title = LocalizationKeys.Notifications.studyReminderTitle.localized
-        content.body = LocalizationKeys.Notifications.studyReminderBody.localized
+        content.title = Loc.Notifications.studyReminderTitle
+        content.body = Loc.Notifications.studyReminderBody
         content.sound = .default
 
         // Schedule for 8:30 PM tomorrow
@@ -181,8 +181,8 @@ final class NotificationService: NSObject, ObservableObject, UNUserNotificationC
 
     private func scheduleDifficultCardReminder() {
         let content = UNMutableNotificationContent()
-        content.title = LocalizationKeys.Notifications.difficultCardReminderTitle.localized
-        content.body = LocalizationKeys.Notifications.difficultCardReminderBody.localized
+        content.title = Loc.Notifications.difficultCardReminderTitle
+        content.body = Loc.Notifications.difficultCardReminderBody
         content.sound = .default
 
         // Schedule for 4:30 PM daily
@@ -204,8 +204,8 @@ final class NotificationService: NSObject, ObservableObject, UNUserNotificationC
 
     private func scheduleDifficultCardReminderForToday() {
         let content = UNMutableNotificationContent()
-        content.title = LocalizationKeys.Notifications.difficultCardReminderTitle.localized
-        content.body = LocalizationKeys.Notifications.difficultCardReminderBody.localized
+        content.title = Loc.Notifications.difficultCardReminderTitle
+        content.body = Loc.Notifications.difficultCardReminderBody
         content.sound = .default
 
         // Schedule for 4:30 PM today

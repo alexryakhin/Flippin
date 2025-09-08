@@ -18,7 +18,7 @@ struct VocabularyGrowthChart: View {
                 Image(systemName: "chart.line.uptrend.xyaxis")
                     .font(.title2)
                     .foregroundColor(.secondary)
-                Text(LocalizationKeys.General.noGrowthDataAvailable.localized)
+                Text(Loc.SubscriptionManagement.noGrowthDataAvailable)
                     .font(.caption)
                     .foregroundColor(.secondary)
             }

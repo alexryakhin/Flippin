@@ -52,13 +52,13 @@ struct PersonalizedRecommendation: Identifiable {
         var name: String {
             switch self {
             case .studyNow:
-                return LocalizationKeys.Analytics.studyNow.localized
+                return Loc.DetailedAnalytics.studyNow
             case .startReview:
-                return LocalizationKeys.Analytics.startReview.localized
+                return Loc.DetailedAnalytics.startReview
             case .browseCollections:
-                return LocalizationKeys.Analytics.browseCollections.localized
+                return Loc.DetailedAnalytics.browseCollections
             case .practiceMode:
-                return LocalizationKeys.Analytics.practiceMode.localized
+                return Loc.DetailedAnalytics.practiceMode
             }
         }
     }
@@ -685,12 +685,12 @@ final class LearningAnalyticsService: ObservableObject {
     /// Get difficulty level description
     func getDifficultyDescription(_ level: Int16) -> String {
         switch level {
-        case 1: return LocalizationKeys.Analytics.veryEasy.localized
-        case 2: return LocalizationKeys.Analytics.easy.localized
-        case 3: return LocalizationKeys.Analytics.medium.localized
-        case 4: return LocalizationKeys.Analytics.hard.localized
-        case 5: return LocalizationKeys.Analytics.veryHard.localized
-        default: return LocalizationKeys.Analytics.unknown.localized
+        case 1: return Loc.LearningAnalyticsService.veryEasy
+        case 2: return Loc.LearningAnalyticsService.easy
+        case 3: return Loc.LearningAnalyticsService.medium
+        case 4: return Loc.LearningAnalyticsService.hard
+        case 5: return Loc.LearningAnalyticsService.veryHard
+        default: return Loc.LearningAnalyticsService.unknown
         }
     }
 
@@ -916,13 +916,13 @@ final class LearningAnalyticsService: ObservableObject {
             return (mostActiveTime, preferredSessionLength, studyFrequency)
         } catch {
             print("❌ Failed to get study patterns: \(error)")
-            return (LocalizationKeys.Analytics.notEnoughData.localized, LocalizationKeys.Analytics.notEnoughData.localized, LocalizationKeys.Analytics.notEnoughData.localized)
+            return (Loc.LearningAnalyticsService.notEnoughData, Loc.LearningAnalyticsService.notEnoughData, Loc.LearningAnalyticsService.notEnoughData)
         }
     }
 
     /// Calculate most active study time
     private func calculateMostActiveTime(from sessions: [StudySession]) -> String {
-        guard !sessions.isEmpty else { return LocalizationKeys.Analytics.notEnoughData.localized }
+        guard !sessions.isEmpty else { return Loc.LearningAnalyticsService.notEnoughData }
 
         let calendar = Calendar.current
         var hourCounts: [Int: Int] = [:]
@@ -934,49 +934,49 @@ final class LearningAnalyticsService: ObservableObject {
         }
 
         guard let mostActiveHour = hourCounts.max(by: { $0.value < $1.value })?.key else {
-            return LocalizationKeys.Analytics.notEnoughData.localized
+            return Loc.LearningAnalyticsService.notEnoughData
         }
 
         switch mostActiveHour {
         case 6..<12:
-            return LocalizationKeys.Analytics.morning.localized
+            return Loc.LearningAnalyticsService.morning
         case 12..<17:
-            return LocalizationKeys.Analytics.afternoon.localized
+            return Loc.LearningAnalyticsService.afternoon
         case 17..<21:
-            return LocalizationKeys.Analytics.evening.localized
+            return Loc.LearningAnalyticsService.evening
         case 21..<24, 0..<6:
-            return LocalizationKeys.Analytics.night.localized
+            return Loc.LearningAnalyticsService.night
         default:
-            return LocalizationKeys.Analytics.evening.localized
+            return Loc.LearningAnalyticsService.evening
         }
     }
 
     /// Calculate preferred session length
     private func calculatePreferredSessionLength(from sessions: [StudySession]) -> String {
-        guard !sessions.isEmpty else { return LocalizationKeys.Analytics.notEnoughData.localized }
+        guard !sessions.isEmpty else { return Loc.LearningAnalyticsService.notEnoughData }
 
         let durations = sessions.compactMap { $0.duration }.filter { $0 > 0 }
-        guard !durations.isEmpty else { return LocalizationKeys.Analytics.notEnoughData.localized }
+        guard !durations.isEmpty else { return Loc.LearningAnalyticsService.notEnoughData }
 
         let averageDuration = durations.reduce(0, +) / Double(durations.count)
         let minutes = Int(averageDuration / 60)
 
         if minutes < 10 {
-            return LocalizationKeys.Analytics.under10Minutes.localized
+            return Loc.LearningAnalyticsService.under10Minutes
         } else if minutes < 20 {
-            return LocalizationKeys.Analytics.tenTo20Minutes.localized
+            return Loc.LearningAnalyticsService.tenTo20Minutes
         } else if minutes < 30 {
-            return LocalizationKeys.Analytics.twentyTo30Minutes.localized
+            return Loc.LearningAnalyticsService.twentyTo30Minutes
         } else if minutes < 60 {
-            return LocalizationKeys.Analytics.thirtyTo60Minutes.localized
+            return Loc.LearningAnalyticsService.thirtyTo60Minutes
         } else {
-            return LocalizationKeys.Analytics.over60Minutes.localized
+            return Loc.LearningAnalyticsService.over60Minutes
         }
     }
 
     /// Calculate study frequency
     private func calculateStudyFrequency(from sessions: [StudySession]) -> String {
-        guard !sessions.isEmpty else { return LocalizationKeys.Analytics.notEnoughData.localized }
+        guard !sessions.isEmpty else { return Loc.LearningAnalyticsService.notEnoughData }
 
         let calendar = Calendar.current
         let today = Date()
@@ -991,17 +991,17 @@ final class LearningAnalyticsService: ObservableObject {
 
         switch sessionCount {
         case 0:
-            return LocalizationKeys.Analytics.noRecentActivity.localized
+            return Loc.Analytics.noRecentActivity
         case 1:
-            return LocalizationKeys.Analytics.onceThisWeek.localized
+            return Loc.LearningAnalyticsService.onceThisWeek
         case 2...3:
-            return LocalizationKeys.Analytics.fewTimesThisWeek.localized
+            return Loc.LearningAnalyticsService.fewTimesThisWeek
         case 4...6:
-            return LocalizationKeys.Analytics.mostDaysThisWeek.localized
+            return Loc.LearningAnalyticsService.mostDaysThisWeek
         case 7...:
-            return LocalizationKeys.Analytics.daily.localized
+            return Loc.LearningAnalyticsService.daily
         default:
-            return LocalizationKeys.Analytics.notEnoughData.localized
+            return Loc.LearningAnalyticsService.notEnoughData
         }
     }
 
@@ -1196,9 +1196,9 @@ final class LearningAnalyticsService: ObservableObject {
         let hard = distribution[4, default: 0] + distribution[5, default: 0]
 
         return [
-            (LocalizationKeys.Analytics.easy.localized, easy, total > 0 ? Int(Double(easy) / Double(total) * 100) : 0, .green),
-            (LocalizationKeys.Analytics.medium.localized, medium, total > 0 ? Int(Double(medium) / Double(total) * 100) : 0, .orange),
-            (LocalizationKeys.Analytics.hard.localized, hard, total > 0 ? Int(Double(hard) / Double(total) * 100) : 0, .red)
+            (Loc.LearningAnalyticsService.easy, easy, total > 0 ? Int(Double(easy) / Double(total) * 100) : 0, .green),
+            (Loc.LearningAnalyticsService.medium, medium, total > 0 ? Int(Double(medium) / Double(total) * 100) : 0, .orange),
+            (Loc.LearningAnalyticsService.hard, hard, total > 0 ? Int(Double(hard) / Double(total) * 100) : 0, .red)
         ]
     }
 
@@ -1261,8 +1261,8 @@ final class LearningAnalyticsService: ObservableObject {
 
                 let event = TimelineEvent(
                     date: dateString,
-                    title: LocalizationKeys.Analytics.completedStudySession.localized,
-                    description: LocalizationKeys.Analytics.reviewedCardsInTime.localized(with: session.cardsReviewed, session.duration.formattedStudyTime),
+                    title: Loc.LearningAnalyticsService.completedStudySession,
+                    description: Loc.LearningAnalyticsService.reviewedCardsInTime(Int(session.cardsReviewed), session.duration.formattedStudyTime),
                     isCompleted: true
                 )
                 events.append(event)
@@ -1272,9 +1272,9 @@ final class LearningAnalyticsService: ObservableObject {
             let masteredCards = cardPerformances.values.filter { $0.isMastered }.count
             if masteredCards > 0 {
                 let event = TimelineEvent(
-                    date: LocalizationKeys.Analytics.recent.localized,
-                    title: LocalizationKeys.Analytics.reachedCardsMastered.localized(with: masteredCards),
-                    description: LocalizationKeys.Analytics.greatProgressBuildingFoundation.localized,
+                    date: Loc.LearningAnalyticsService.recent,
+                    title: Loc.LearningAnalyticsService.reachedCardsMastered(masteredCards),
+                    description: Loc.LearningAnalyticsService.greatProgressBuildingFoundation,
                     isCompleted: true
                 )
                 events.append(event)
@@ -1348,24 +1348,24 @@ final class LearningAnalyticsService: ObservableObject {
 
         return [
             LearningMilestone(
-                title: LocalizationKeys.Analytics.first10CardsMastered.localized,
+                title: Loc.LearningAnalyticsService.first10CardsMastered,
                 isCompleted: masteredCards >= 10,
-                date: masteredCards >= 10 ? LocalizationKeys.Analytics.completed.localized : LocalizationKeys.Analytics.inProgress.localized
+                date: masteredCards >= 10 ? Loc.LearningAnalyticsService.completed : Loc.LearningAnalyticsService.inProgress
             ),
             LearningMilestone(
-                title: LocalizationKeys.Analytics.sevenDayStudyStreak.localized,
+                title: Loc.LearningAnalyticsService.sevenDayStudyStreak,
                 isCompleted: studyStreak >= 7,
-                date: studyStreak >= 7 ? LocalizationKeys.Analytics.completed.localized : LocalizationKeys.Analytics.inProgress.localized
+                date: studyStreak >= 7 ? Loc.LearningAnalyticsService.completed : Loc.LearningAnalyticsService.inProgress
             ),
             LearningMilestone(
-                title: LocalizationKeys.Analytics.fiftyCardsMastered.localized,
+                title: Loc.LearningAnalyticsService.fiftyCardsMastered,
                 isCompleted: masteredCards >= 50,
-                date: masteredCards >= 50 ? LocalizationKeys.Analytics.completed.localized : LocalizationKeys.Analytics.inProgress.localized
+                date: masteredCards >= 50 ? Loc.LearningAnalyticsService.completed : Loc.LearningAnalyticsService.inProgress
             ),
             LearningMilestone(
-                title: LocalizationKeys.Analytics.thirtyDayStudyStreak.localized,
+                title: Loc.LearningAnalyticsService.thirtyDayStudyStreak,
                 isCompleted: studyStreak >= 30,
-                date: studyStreak >= 30 ? LocalizationKeys.Analytics.completed.localized : LocalizationKeys.Analytics.inProgress.localized
+                date: studyStreak >= 30 ? Loc.LearningAnalyticsService.completed : Loc.LearningAnalyticsService.inProgress
             )
         ]
     }
@@ -1380,8 +1380,8 @@ final class LearningAnalyticsService: ObservableObject {
         // Insight 1: Most productive time
         if !patterns.mostActiveTime.isEmpty {
             insights.append(PersonalizedInsight(
-                title: LocalizationKeys.Analytics.youreMostProductiveIn.localized(with: patterns.mostActiveTime.lowercased()),
-                description: LocalizationKeys.Analytics.studySessionsDuringThisTime.localized,
+                title: Loc.LearningAnalyticsService.youreMostProductiveIn(patterns.mostActiveTime.lowercased()),
+                description: Loc.LearningAnalyticsService.studySessionsDuringThisTime,
                 icon: "clock.fill",
                 color: .indigo
             ))
@@ -1390,8 +1390,8 @@ final class LearningAnalyticsService: ObservableObject {
         // Insight 2: Session length preference
         if !patterns.preferredSessionLength.isEmpty {
             insights.append(PersonalizedInsight(
-                title: LocalizationKeys.Analytics.optimalSessionLength.localized,
-                description: LocalizationKeys.Analytics.yourSessionsShowBestResults.localized(with: patterns.preferredSessionLength.lowercased()),
+                title: Loc.LearningAnalyticsService.optimalSessionLength,
+                description: Loc.LearningAnalyticsService.yourSessionsShowBestResults(patterns.preferredSessionLength.lowercased()),
                 icon: "timer",
                 color: .blue
             ))
@@ -1400,8 +1400,8 @@ final class LearningAnalyticsService: ObservableObject {
         // Insight 3: Study frequency
         if !patterns.studyFrequency.isEmpty {
             insights.append(PersonalizedInsight(
-                title: LocalizationKeys.Analytics.consistentLearningPattern.localized,
-                description: LocalizationKeys.Analytics.yourStudyRoutineWorkingWell.localized(with: patterns.studyFrequency.lowercased()),
+                title: Loc.LearningAnalyticsService.consistentLearningPattern,
+                description: Loc.LearningAnalyticsService.yourStudyRoutineWorkingWell(patterns.studyFrequency.lowercased()),
                 icon: "calendar",
                 color: .green
             ))
@@ -1415,15 +1415,15 @@ final class LearningAnalyticsService: ObservableObject {
 
             if recentAccuracy > olderAccuracy {
                 insights.append(PersonalizedInsight(
-                    title: LocalizationKeys.Analytics.improvingAccuracy.localized,
-                    description: LocalizationKeys.Analytics.recentAccuracyHigherThanBefore.localized(with: Int((recentAccuracy - olderAccuracy) * 100)),
+                    title: Loc.LearningAnalyticsService.improvingAccuracy,
+                    description: Loc.LearningAnalyticsService.recentAccuracyHigherThanBefore(Int((recentAccuracy - olderAccuracy) * 100)),
                     icon: "arrow.up.circle.fill",
                     color: .green
                 ))
             } else if recentAccuracy < olderAccuracy {
                 insights.append(PersonalizedInsight(
-                    title: LocalizationKeys.Analytics.focusOnAccuracy.localized,
-                    description: LocalizationKeys.Analytics.recentAccuracyDecreased.localized,
+                    title: Loc.LearningAnalyticsService.focusOnAccuracy,
+                    description: Loc.LearningAnalyticsService.recentAccuracyDecreased,
                     icon: "exclamationmark.triangle.fill",
                     color: .orange
                 ))
@@ -1437,15 +1437,15 @@ final class LearningAnalyticsService: ObservableObject {
             let masteryPercentage = Double(masteredCards) / Double(totalCards)
             if masteryPercentage >= 0.8 {
                 insights.append(PersonalizedInsight(
-                    title: LocalizationKeys.Analytics.excellentProgress.localized,
-                    description: LocalizationKeys.Analytics.masteredVocabularyPercentage.localized(with: Int(masteryPercentage * 100)),
+                    title: Loc.LearningAnalyticsService.excellentProgress,
+                    description: Loc.LearningAnalyticsService.masteredVocabularyPercentage(Int(masteryPercentage * 100)),
                     icon: "star.fill",
                     color: .yellow
                 ))
             } else if masteryPercentage >= 0.5 {
                 insights.append(PersonalizedInsight(
-                    title: LocalizationKeys.Analytics.goodFoundation.localized,
-                    description: LocalizationKeys.Analytics.masteredVocabularyKeepGoing.localized(with: Int(masteryPercentage * 100)),
+                    title: Loc.LearningAnalyticsService.goodFoundation,
+                    description: Loc.LearningAnalyticsService.masteredVocabularyKeepGoing(Int(masteryPercentage * 100)),
                     icon: "checkmark.circle.fill",
                     color: .green
                 ))
@@ -1463,8 +1463,8 @@ final class LearningAnalyticsService: ObservableObject {
         let difficultCards = getDifficultCardsNeedingReview()
         if !difficultCards.isEmpty {
             recommendations.append(PersonalizedRecommendation(
-                title: LocalizationKeys.Analytics.reviewDifficultCards.localized,
-                description: LocalizationKeys.Analytics.cardsNeedMorePractice.localized(with: difficultCards.count),
+                title: Loc.LearningAnalyticsService.reviewDifficultCards,
+                description: Loc.LearningAnalyticsService.cardsNeedMorePractice(difficultCards.count),
                 action: .startReview,
                 color: .orange
             ))
@@ -1475,8 +1475,8 @@ final class LearningAnalyticsService: ObservableObject {
         let totalCards = cardsProvider.cards.count
         if Double(masteredCards) >= Double(totalCards) * 0.7 && totalCards < 100 {
             recommendations.append(PersonalizedRecommendation(
-                title: LocalizationKeys.Analytics.addMoreVocabulary.localized,
-                description: LocalizationKeys.Analytics.masteredMostCurrentCards.localized,
+                title: Loc.LearningAnalyticsService.addMoreVocabulary,
+                description: Loc.LearningAnalyticsService.masteredMostCurrentCards,
                 action: .browseCollections,
                 color: .blue
             ))
@@ -1493,8 +1493,8 @@ final class LearningAnalyticsService: ObservableObject {
                 let nextStreakMilestone = getNextStreakMilestone()
                 if nextStreakMilestone > 0 {
                     recommendations.append(PersonalizedRecommendation(
-                        title: LocalizationKeys.Analytics.extendYourStreak.localized,
-                        description: LocalizationKeys.Analytics.daysAwayFromAchievement.localized(with: nextStreakMilestone),
+                        title: Loc.LearningAnalyticsService.extendYourStreak,
+                        description: Loc.LearningAnalyticsService.daysAwayFromAchievement(nextStreakMilestone),
                         action: .studyNow,
                         color: .green
                     ))
@@ -1505,8 +1505,8 @@ final class LearningAnalyticsService: ObservableObject {
         // Recommendation 4: Study more frequently
         if studyStreak < 3 {
             recommendations.append(PersonalizedRecommendation(
-                title: LocalizationKeys.Analytics.buildConsistency.localized,
-                description: LocalizationKeys.Analytics.tryToStudyDaily.localized,
+                title: Loc.LearningAnalyticsService.buildConsistency,
+                description: Loc.LearningAnalyticsService.tryToStudyDaily,
                 action: .studyNow,
                 color: .purple
             ))
@@ -1516,8 +1516,8 @@ final class LearningAnalyticsService: ObservableObject {
         let overallAccuracy = getOverallAccuracy()
         if overallAccuracy < 0.7 {
             recommendations.append(PersonalizedRecommendation(
-                title: LocalizationKeys.Analytics.improveAccuracy.localized,
-                description: LocalizationKeys.Analytics.accuracyPercentageFocusQuality.localized(with: Int(overallAccuracy * 100)),
+                title: Loc.LearningAnalyticsService.improveAccuracy,
+                description: Loc.LearningAnalyticsService.accuracyPercentageFocusQuality(Int(overallAccuracy * 100)),
                 action: .practiceMode,
                 color: .red
             ))

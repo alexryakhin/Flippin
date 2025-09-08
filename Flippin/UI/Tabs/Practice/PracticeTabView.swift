@@ -58,7 +58,7 @@ enum PracticeTab {
                     view.frame(maxWidth: 500, alignment: .center)
                 }
             }
-            .navigation(title: LocalizationKeys.Study.practice.localized)
+            .navigation(title: Loc.Study.practice)
             .ifLet(colorManager.colorScheme) { view, scheme in
                 view.colorScheme(scheme)
             }
@@ -71,34 +71,34 @@ enum PracticeTab {
         // MARK: - UI Components
 
         private var quickStatsSection: some View {
-            CustomSectionView(header: LocalizationKeys.Study.quickStats.localized, headerFontStyle: .large) {
+            CustomSectionView(header: Loc.Study.quickStats, headerFontStyle: .large) {
                 LazyVGrid(
                     columns: Array(repeating: GridItem(.flexible(), spacing: 8), count: 2),
                     spacing: 8
                 ) {
                     StatCard(
-                        title: LocalizationKeys.Study.totalCards.localized,
+                        title: Loc.Study.totalCards,
                         value: "\(cardsProvider.cards.count)",
                         icon: "rectangle.stack.fill",
                         color: .blue
                     )
 
                     StatCard(
-                        title: LocalizationKeys.Study.mastered.localized,
+                        title: Loc.Study.mastered,
                         value: "\(masteryStats.mastered)",
                         icon: "checkmark.circle.fill",
                         color: .green
                     )
 
                     StatCard(
-                        title: LocalizationKeys.Study.difficultCards.localized,
+                        title: Loc.Study.difficultCards,
                         value: "\(analyticsService.getDifficultCardsNeedingReview().count)",
                         icon: "exclamationmark.triangle.fill",
                         color: .red
                     )
 
                     StatCard(
-                        title: LocalizationKeys.Study.practiceTimeToday.localized,
+                        title: Loc.Study.practiceTimeToday,
                         value: practiceTimeStats.today.formattedStudyTime,
                         icon: "clock",
                         color: .purple
@@ -110,13 +110,13 @@ enum PracticeTab {
         @ViewBuilder
         private var practiceOptionsSection: some View {
             if !cardsProvider.cards.isEmpty {
-                CustomSectionView(header: LocalizationKeys.Study.practiceOptions.localized, headerFontStyle: .large) {
+                CustomSectionView(header: Loc.Study.practiceOptions, headerFontStyle: .large) {
                     VStack(spacing: 12) {
                         // Start practice session (only show if user has more than 10 cards)
                         if cardsProvider.cards.count > 10 {
                             practiceOptionButton(
                                 image: Image(systemName: "play.fill"),
-                                text: LocalizationKeys.Study.startPracticeSession.localized,
+                                text: Loc.Study.startPracticeSession,
                                 color: .green,
                                 isDisabled: cardsProvider.cards.isEmpty,
                                 action: {
@@ -128,7 +128,7 @@ enum PracticeTab {
                         // Practice all cards
                         practiceOptionButton(
                             image: Image(.icCardStackFill),
-                            text: LocalizationKeys.Study.practiceAllCards.localized(with: cardsProvider.cards.count),
+                            text: Loc.Study.practiceAllCards(cardsProvider.cards.count),
                             color: .blue,
                             action: {
                                 currentStudyMode = .practice
@@ -140,7 +140,7 @@ enum PracticeTab {
                         if !difficultCards.isEmpty {
                             practiceOptionButton(
                                 image: Image(systemName: "exclamationmark.triangle.fill"),
-                                text: LocalizationKeys.Study.practiceDifficultCards.localized(with: difficultCards.count),
+                                text: Loc.Study.practiceDifficultCards(difficultCards.count),
                                 color: .red,
                                 action: {
                                     currentStudyMode = .difficult
@@ -152,7 +152,7 @@ enum PracticeTab {
                             // Multiple choice quiz
                             practiceOptionButton(
                                 image: Image(systemName: "list.bullet.circle.fill"),
-                                text: LocalizationKeys.Study.multipleChoiceQuiz.localized,
+                                text: Loc.Study.multipleChoiceQuiz,
                                 color: .purple,
                                 action: {
                                     currentStudyMode = .multipleChoice
@@ -168,7 +168,7 @@ enum PracticeTab {
 
                             practiceOptionButton(
                                 image: Image(systemName: "pencil.circle.fill"),
-                                text: LocalizationKeys.Study.fillInTheBlank.localized(with: fillInTheBlankCards.count),
+                                text: Loc.Study.fillInTheBlank(fillInTheBlankCards.count),
                                 color: .orange,
                                 isDisabled: fillInTheBlankCards.isEmpty,
                                 action: {
@@ -178,7 +178,7 @@ enum PracticeTab {
                         } else {
                             practiceOptionButton(
                                 image: Image(systemName: "crown.fill"),
-                                text: LocalizationKeys.Study.unlockAllStudyModes.localized,
+                                text: Loc.Study.unlockAllStudyModes,
                                 color: .teal,
                                 action: {
                                     premiumFeature = .studyModes
@@ -219,20 +219,20 @@ enum PracticeTab {
         }
 
         private var recentActivitySection: some View {
-            CustomSectionView(header: LocalizationKeys.Study.recentActivity.localized, headerFontStyle: .large) {
+            CustomSectionView(header: Loc.Study.recentActivity, headerFontStyle: .large) {
                 if cardsProvider.cards.isEmpty {
                     ContentUnavailableView {
                         VStack {
                             Image(systemName: "book.closed")
                                 .font(.largeTitle)
-                            Text(LocalizationKeys.Study.noStudyData.localized)
+                            Text(Loc.Study.noStudyData)
                         }
                     } description: {
-                        Text(LocalizationKeys.Study.startStudyingToSeeProgress.localized)
+                        Text(Loc.Study.startStudyingToSeeProgress)
                             .foregroundStyle(.secondary)
                     } actions: {
                         HeaderButton(
-                            LocalizationKeys.Study.toCards.localized,
+                            Loc.Study.toCards,
                             style: .borderedProminent
                         ) {
                             NavigationManager.shared.switchToTab(.study)
@@ -241,22 +241,22 @@ enum PracticeTab {
                 } else {
                     VStack(spacing: 12) {
                         ActivityRow(
-                            title: LocalizationKeys.Study.totalPracticeTime.localized,
+                            title: Loc.Study.totalPracticeTime,
                             value: practiceTimeStats.total.formattedAnalyticsTime,
                             icon: "clock.fill",
                             color: .purple
                         )
 
                         ActivityRow(
-                            title: LocalizationKeys.Study.averageSession.localized,
+                            title: Loc.Study.averageSession,
                             value: practiceTimeStats.average.formattedStudyTime,
                             icon: "timer",
                             color: .blue
                         )
 
                         ActivityRow(
-                            title: LocalizationKeys.Study.learningProgress.localized,
-                            value: LocalizationKeys.Analytics.cardsCount.localized(with: Int(masteryStats.learning)),
+                            title: Loc.Study.learningProgress,
+                            value: Loc.Plurals.cardsCount(Int(masteryStats.learning)),
                             icon: "brain.head.profile",
                             color: .orange
                         )

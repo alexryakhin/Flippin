@@ -1,4 +1,11 @@
-// MARK: - Speechify Voice Model
+//
+//  SpeechifyVoice.swift
+//  Flippin
+//
+//  Created by Alexander Riakhin on 9/7/25.
+//
+
+import Foundation
 
 struct SpeechifyVoice: Codable, Identifiable {
     let id: String

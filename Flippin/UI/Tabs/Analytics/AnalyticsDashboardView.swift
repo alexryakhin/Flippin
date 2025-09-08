@@ -11,19 +11,19 @@ enum AnalyticsDashboard {
 
         var name: String {
             switch self {
-            case .week: LocalizationKeys.Analytics.week.localized
-            case .month: LocalizationKeys.Analytics.month.localized
-            case .year: LocalizationKeys.Analytics.year.localized
-            case .all: LocalizationKeys.Analytics.allTime.localized
+            case .week: Loc.Analytics.week
+            case .month: Loc.Analytics.month
+            case .year: Loc.Analytics.year
+            case .all: Loc.Analytics.allTime
             }
         }
 
         var growthPeriodLabel: String {
             switch self {
-            case .week: LocalizationKeys.Analytics.thisWeek.localized
-            case .month: LocalizationKeys.Analytics.thisMonth.localized
-            case .year: LocalizationKeys.Analytics.thisYear.localized
-            case .all: LocalizationKeys.Analytics.allTime.localized
+            case .week: Loc.DetailedAnalytics.thisWeek
+            case .month: Loc.DetailedAnalytics.thisMonth
+            case .year: Loc.DetailedAnalytics.thisYear
+            case .all: Loc.Analytics.allTime
             }
         }
 
@@ -61,7 +61,7 @@ enum AnalyticsDashboard {
         private var streakSection: some View {
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(LocalizationKeys.Analytics.studyStreak.localized)
+                    Text(Loc.Analytics.studyStreak)
                         .font(.subheadline)
                         .foregroundColor(.secondary)
 
@@ -86,31 +86,31 @@ enum AnalyticsDashboard {
         // MARK: - Overview Section
 
         private var overviewSection: some View {
-            CustomSectionView(header: LocalizationKeys.Analytics.overview.localized, headerFontStyle: .large) {
+            CustomSectionView(header: Loc.Analytics.overview, headerFontStyle: .large) {
                 LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 8), count: 2), spacing: 8) {
                     StatCard(
-                        title: LocalizationKeys.Analytics.totalStudyTime.localized,
+                        title: Loc.Analytics.totalStudyTime,
                         value: analyticsService.getTotalStudyTimeIncludingCardFlipping().formattedStudyTime,
                         icon: "clock.fill",
                         color: .blue
                     )
 
                     StatCard(
-                        title: LocalizationKeys.Analytics.cardsStudied.localized,
+                        title: Loc.Analytics.cardsStudied,
                         value: "\(analyticsService.dailyStats?.cardsStudied ?? 0)",
                         icon: "rectangle.stack.fill",
                         color: .purple
                     )
 
                     StatCard(
-                        title: LocalizationKeys.Analytics.sessions.localized,
+                        title: Loc.Analytics.sessions,
                         value: "\(analyticsService.dailyStats?.sessionsCompleted ?? 0)",
                         icon: "play.circle.fill",
                         color: .orange
                     )
 
                     StatCard(
-                        title: LocalizationKeys.Analytics.accuracy.localized,
+                        title: Loc.Analytics.accuracy,
                         value: analyticsService.getOverallAccuracy().asPercentage,
                         icon: "target",
                         color: .green
@@ -124,7 +124,7 @@ enum AnalyticsDashboard {
         @ViewBuilder
         private var studyTimeChartSection: some View {
             if purchaseService.hasPremiumAccess {
-                CustomSectionView(header: LocalizationKeys.Analytics.studyTime.localized) {
+                CustomSectionView(header: Loc.Analytics.studyTime) {
                     StudyTimeChart(
                         data: analyticsService.getStudyData(for: selectedTimeRange),
                         timeRange: selectedTimeRange,
@@ -132,7 +132,7 @@ enum AnalyticsDashboard {
                     )
                 } trailingContent: {
                     HeaderButtonMenu(selectedTimeRange.name) {
-                        Picker(LocalizationKeys.Analytics.timeRange.localized, selection: $selectedTimeRange) {
+                        Picker(Loc.Analytics.timeRange, selection: $selectedTimeRange) {
                             ForEach(TimeRange.chartCases, id: \.self) { range in
                                 Text(range.name).tag(range)
                             }
@@ -150,10 +150,10 @@ enum AnalyticsDashboard {
             if purchaseService.hasPremiumAccess {
                 let masteryStats = analyticsService.getMasteryStats()
 
-                CustomSectionView(header: LocalizationKeys.Analytics.masteryProgress.localized) {
+                CustomSectionView(header: Loc.Analytics.masteryProgress) {
                     FormWithDivider {
                         MasteryProgressRow(
-                            title: LocalizationKeys.Analytics.mastered.localized,
+                            title: Loc.Analytics.mastered,
                             count: masteryStats.mastered,
                             total: masteryStats.total,
                             color: .green,
@@ -161,7 +161,7 @@ enum AnalyticsDashboard {
                         )
 
                         MasteryProgressRow(
-                            title: LocalizationKeys.Analytics.learning.localized,
+                            title: Loc.Analytics.learning,
                             count: masteryStats.learning,
                             total: masteryStats.total,
                             color: .orange,
@@ -169,7 +169,7 @@ enum AnalyticsDashboard {
                         )
 
                         MasteryProgressRow(
-                            title: LocalizationKeys.Analytics.needsReview.localized,
+                            title: Loc.Analytics.needsReview,
                             count: masteryStats.needsReview,
                             total: masteryStats.total,
                             color: .red,

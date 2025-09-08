@@ -69,10 +69,10 @@ enum StudyMode: Int, Identifiable, Hashable {
                 AnimatedBackground(style: colorManager.backgroundStyle)
             }
             .navigation(
-                title: LocalizationKeys.Study.practiceMode.localized,
+                title: Loc.Study.practiceMode,
                 mode: .inline(withBackButton: false),
                 trailingContent: {
-                    HeaderButton(LocalizationKeys.Study.exit.localized) {
+                    HeaderButton(Loc.Study.exit) {
                         HapticService.shared.buttonTapped()
                         endStudySession()
                         analyticsService.refreshAnalytics()
@@ -82,7 +82,7 @@ enum StudyMode: Int, Identifiable, Hashable {
                 bottomContent: {
                 HStack(spacing: 8) {
                     // Progress text
-                    Text(LocalizationKeys.Study.studyProgress.localized(with: currentCardIndex + 1, studyCards.count))
+                    Text(Loc.Study.studyProgress(currentCardIndex + 1, studyCards.count))
                         .font(.subheadline)
                         .foregroundColor(.secondary)
 
@@ -158,7 +158,7 @@ enum StudyMode: Int, Identifiable, Hashable {
                     if !showingAnswer {
                         // Show answer button
                         HeaderButton(
-                            LocalizationKeys.Study.showAnswer.localized,
+                            Loc.Study.showAnswer,
                             style: .borderedProminent
                         ) {
                             withAnimation(.easeInOut(duration: 0.3)) {
@@ -169,7 +169,7 @@ enum StudyMode: Int, Identifiable, Hashable {
                         // Correct/Incorrect buttons
                         HStack(spacing: 16) {
                             HeaderButton(
-                                LocalizationKeys.Study.incorrect.localized,
+                                Loc.Study.incorrect,
                                 size: .large,
                                 style: .borderedProminent,
                                 role: .destructive
@@ -178,7 +178,7 @@ enum StudyMode: Int, Identifiable, Hashable {
                             }
 
                             HeaderButton(
-                                LocalizationKeys.Study.correct.localized,
+                                Loc.Study.correct,
                                 size: .large,
                                 style: .borderedProminent
                             ) {
@@ -204,7 +204,7 @@ enum StudyMode: Int, Identifiable, Hashable {
                             .font(.system(size: 60))
                             .foregroundColor(.green)
 
-                        Text(LocalizationKeys.Study.practiceSessionComplete.localized)
+                        Text(Loc.Study.practiceSessionComplete)
                             .font(.title)
                             .fontWeight(.bold)
                             .multilineTextAlignment(.center)
@@ -214,21 +214,21 @@ enum StudyMode: Int, Identifiable, Hashable {
                     if let results = sessionResults {
                         VStack(spacing: 16) {
                             ResultStatRow(
-                                title: LocalizationKeys.Study.accuracy.localized,
+                                title: Loc.Study.accuracy,
                                 value: results.accuracy.asPercentage,
                                 icon: "target",
                                 color: results.accuracy >= 0.8 ? .green : .orange
                             )
 
                             ResultStatRow(
-                                title: LocalizationKeys.Study.cardsStudied.localized,
+                                title: Loc.Study.cardsStudied,
                                 value: "\(results.totalCards)",
                                 icon: "rectangle.stack.fill",
                                 color: .blue
                             )
 
                             ResultStatRow(
-                                title: LocalizationKeys.Study.timeSpent.localized,
+                                title: Loc.Study.timeSpent,
                                 value: results.totalTime.formattedSessionTime,
                                 icon: "clock.fill",
                                 color: .purple
@@ -240,13 +240,13 @@ enum StudyMode: Int, Identifiable, Hashable {
                     // Action buttons
                     VStack(spacing: 12) {
                         HeaderButton(
-                            LocalizationKeys.Study.practiceAgain.localized,
+                            Loc.Study.practiceAgain,
                             style: .borderedProminent
                         ) {
                             setupStudySession()
                         }
 
-                        HeaderButton(LocalizationKeys.Study.done.localized) {
+                        HeaderButton(Loc.Study.done) {
                             // Force refresh analytics data and notify UI
                             analyticsService.refreshAnalytics()
                             dismiss()

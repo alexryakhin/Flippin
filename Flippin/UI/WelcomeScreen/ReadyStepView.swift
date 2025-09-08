@@ -46,13 +46,13 @@ extension WelcomeSheet {
                         .animation(.easeInOut(duration: 0.5).delay(0.2), value: animateContent)
 
                         VStack(spacing: 16) {
-                            Text(LocalizationKeys.Welcome.readyToStart.localized)
+                            Text(Loc.WelcomeScreen.readyToStart)
                                 .font(.system(size: 28, weight: .bold, design: .rounded))
                                 .multilineTextAlignment(.center)
                                 .offset(y: animateContent ? 0 : 20)
                                 .opacity(animateContent ? 1 : 0)
 
-                            Text(LocalizationKeys.Welcome.readyToStartDesc.localized)
+                            Text(Loc.WelcomeScreen.readyToStartDesc)
                                 .font(.body)
                                 .foregroundColor(.secondary)
                                 .multilineTextAlignment(.center)
@@ -68,28 +68,28 @@ extension WelcomeSheet {
                     VStack(spacing: 16) {
                         FinalFeatureRow(
                             icon: "plus.circle.fill",
-                            text: LocalizationKeys.Welcome.finalFeatureAdd.localized,
+                            text: Loc.WelcomeScreen.finalFeatureAdd,
                             animateContent: animateContent,
                             delay: 0.7
                         )
 
                         FinalFeatureRow(
                             icon: "play.circle.fill",
-                            text: LocalizationKeys.Welcome.finalFeaturePractice.localized,
+                            text: Loc.WelcomeScreen.finalFeaturePractice,
                             animateContent: animateContent,
                             delay: 0.9
                         )
 
                         FinalFeatureRow(
                             icon: "chart.line.uptrend.xyaxis.circle.fill",
-                            text: LocalizationKeys.Welcome.finalFeatureProgress.localized,
+                            text: Loc.WelcomeScreen.finalFeatureProgress,
                             animateContent: animateContent,
                             delay: 1.1
                         )
 
                         FinalFeatureRow(
                             icon: "brain.head.profile",
-                            text: LocalizationKeys.Welcome.finalFeatureModes.localized,
+                            text: Loc.WelcomeScreen.finalFeatureModes,
                             animateContent: animateContent,
                             delay: 1.3
                         )
@@ -100,7 +100,7 @@ extension WelcomeSheet {
 
                     // Final button
                     ActionButton(
-                        LocalizationKeys.Welcome.getStarted.localized,
+                        Loc.WelcomeScreen.getStarted,
                         style: .borderedProminent
                     ) {
                         HapticService.shared.buttonTapped()

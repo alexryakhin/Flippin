@@ -20,7 +20,7 @@ struct StudyTimeChart: View {
                     .font(.title2)
                     .foregroundColor(.secondary)
 
-                Text(LocalizationKeys.Analytics.noStudyDataAvailable.localized)
+                Text(Loc.Analytics.noStudyDataAvailable)
                     .font(.headline)
                     .foregroundColor(.secondary)
             }

@@ -1,0 +1,14 @@
+/* 
+  Errors.strings
+  Flippin
+
+  Created by Alexander Riakhin on 9/7/25.
+  
+*/
+
+"error" = "오류";
+"oops" = "앗...";
+"unknown_error" = "알 수 없는 오류";
+
+"failedToCreateCard" = "카드 생성 실패: %@";
+"invalidJSON" = "JSON 데이터가 유효하지 않습니다";

@@ -10,6 +10,3 @@
 "noDifficultCards" = "Nema teških kartica";
 "noDifficultCardsDescription" = "Još niste označili nijednu karticu kao tešku. Učite više kartica da biste vidjeli razine težine.";
 "difficultCards" = "Teške kartice";
-"failedToCreateCard" = "Neuspjelo stvaranje kartice: %@";
-
-

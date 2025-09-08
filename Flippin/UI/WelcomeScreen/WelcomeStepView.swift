@@ -53,32 +53,32 @@ extension WelcomeSheet {
                     VStack(spacing: 20) {
                         FeatureRow(
                             icon: "translate",
-                            title: LocalizationKeys.Welcome.featureLearning.localized,
-                            description: LocalizationKeys.Welcome.featureLearningDesc.localized,
+                            title: Loc.WelcomeScreen.featureLearning,
+                            description: Loc.WelcomeScreen.featureLearningDesc,
                             animateContent: animateContent,
                             delay: 0.7
                         )
 
                         FeatureRow(
                             icon: "globe",
-                            title: LocalizationKeys.Welcome.featureLanguages.localized,
-                            description: LocalizationKeys.Welcome.featureLanguagesDesc.localized,
+                            title: Loc.WelcomeScreen.featureLanguages,
+                            description: Loc.WelcomeScreen.featureLanguagesDesc,
                             animateContent: animateContent,
                             delay: 0.9
                         )
 
                         FeatureRow(
                             icon: "speaker.wave.2.bubble.fill",
-                            title: LocalizationKeys.Welcome.featureSmart.localized,
-                            description: LocalizationKeys.Welcome.featureSmartDesc.localized,
+                            title: Loc.WelcomeScreen.featureSmart,
+                            description: Loc.WelcomeScreen.featureSmartDesc,
                             animateContent: animateContent,
                             delay: 1.1
                         )
 
                         FeatureRow(
                             icon: "chart.line.uptrend.xyaxis",
-                            title: LocalizationKeys.Welcome.featureAnalytics.localized,
-                            description: LocalizationKeys.Welcome.featureAnalyticsDesc.localized,
+                            title: Loc.WelcomeScreen.featureAnalytics,
+                            description: Loc.WelcomeScreen.featureAnalyticsDesc,
                             animateContent: animateContent,
                             delay: 1.3
                         )
@@ -95,10 +95,11 @@ extension WelcomeSheet {
             .safeAreaInset(edge: .bottom) {
                 NavigationLink(destination: LanguageSelectionStepView(onContinue: onContinue)) {
                     ActionButton(
-                        LocalizationKeys.Welcome.continueButton.localized,
+                        Loc.WelcomeScreen.continueButton,
                         style: .borderedProminent,
                         action: {}
                     )
+                    .allowsHitTesting(false)
                 }
                 .padding(vertical: 12, horizontal: 16)
             }

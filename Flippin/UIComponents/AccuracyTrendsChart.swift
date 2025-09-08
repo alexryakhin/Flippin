@@ -18,7 +18,7 @@ struct AccuracyTrendsChart: View {
                 Image(systemName: "chart.line.uptrend.xyaxis")
                     .font(.title2)
                     .foregroundColor(.secondary)
-                Text(LocalizationKeys.General.noAccuracyDataAvailable.localized)
+                Text(Loc.SubscriptionManagement.noAccuracyDataAvailable)
                     .font(.caption)
                     .foregroundColor(.secondary)
             }

@@ -11,35 +11,6 @@ import CoreData
 
 // MARK: - Speechify Models
 
-struct SpeechifyVoice: Codable, Identifiable, Hashable {
-    let id: String
-    let displayName: String
-    let gender: String
-    let locale: String
-    let type: String
-    let avatarImage: String?
-    let previewAudio: String?
-    let tags: [String]?
-    
-    enum CodingKeys: String, CodingKey {
-        case id
-        case displayName = "display_name"
-        case gender
-        case locale
-        case type
-        case avatarImage = "avatar_image"
-        case previewAudio = "preview_audio"
-        case tags
-    }
-    
-    // Computed properties for compatibility
-    var name: String { displayName }
-    var language: String { locale }
-    var languageCode: String { locale }
-    var voiceType: String { type }
-    var sampleURL: String? { previewAudio }
-}
-
 struct SpeechifyTTSRequest: Codable {
     let input: String
     let voiceId: String
@@ -82,7 +53,6 @@ struct SpeechifyUsageResponse: Codable {
 
 // MARK: - Speechify Service
 
-@MainActor
 final class SpeechifyService: NSObject, ObservableObject {
     static let shared = SpeechifyService()
     
@@ -91,7 +61,6 @@ final class SpeechifyService: NSObject, ObservableObject {
     @Published var charactersUsed: Int = 0
     @Published var charactersLimit: Int = 50000
     @Published var listeningTimeMinutes: Double = 0.0
-    @Published var isLoadingVoices: Bool = false
     @Published var isPlaying: Bool = false
     
     private let coreDataService = CoreDataService.shared
@@ -114,15 +83,12 @@ final class SpeechifyService: NSObject, ObservableObject {
     
     // MARK: - Public Methods
     
-    /// Load available voices from Speechify API
-    func loadVoices() async {
+    /// Load available voices from Speechify json file
+    func loadVoices() {
         guard availableVoices.isEmpty else { return }
         
-        isLoadingVoices = true
-        defer { isLoadingVoices = false }
-        
         do {
-            let voices = try await fetchVoices()
+            let voices = try getAvailableVoices()
             availableVoices = voices
             
             // Set default voice if none selected
@@ -195,35 +161,12 @@ final class SpeechifyService: NSObject, ObservableObject {
         return availableVoices.first { $0.id == selectedVoiceId }
     }
     
-    /// Get voices for a specific language
-    func getVoices(for language: Language) -> [SpeechifyVoice] {
-        let languageCode = getLanguageCode(for: language)
-        return availableVoices.filter { $0.languageCode == languageCode }
-    }
-    
     // MARK: - Private Methods
     
-    private func fetchVoices() async throws -> [SpeechifyVoice] {
-        guard let apiKey = getAPIKey() else {
-            throw SpeechifyError.apiKeyNotConfigured
-        }
-        
-        let url = URL(string: "\(baseURL)/v1/voices")!
-        var request = URLRequest(url: url, cachePolicy: cachePolicy)
-        request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        let (data, response) = try await URLSession.shared.data(for: request)
-        
-        guard let httpResponse = response as? HTTPURLResponse,
-              httpResponse.statusCode == 200 else {
-            throw SpeechifyError.apiError("Failed to fetch voices")
-        }
-        
-        let voices = try JSONDecoder().decode([SpeechifyVoice].self, from: data)
-        return voices
+    func getAvailableVoices() throws -> [SpeechifyVoice] {
+        return try Bundle.main.decode("speechify-voices.json")
     }
-    
+
     private func synthesizeSpeech(text: String, language: Language) async throws -> Data {
         guard let apiKey = getAPIKey() else {
             throw SpeechifyError.apiKeyNotConfigured

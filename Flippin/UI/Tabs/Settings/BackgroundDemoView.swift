@@ -39,7 +39,7 @@ struct BackgroundDemoView: View {
                                 RoundedRectangle(cornerRadius: 16)
                                     .fill(.clear)
                                     .overlay(alignment: .bottomTrailing) {
-                                        Text(LocalizationKeys.Paywall.premium.localized)
+                                        Text(Loc.PremiumFeatures.premium)
                                             .font(.caption)
                                             .fontWeight(.semibold)
                                             .foregroundColor(.white)
@@ -65,7 +65,7 @@ struct BackgroundDemoView: View {
         }
         .background(Color(.systemGroupedBackground))
         .navigation(
-            title: LocalizationKeys.Settings.backgroundDemo.localized,
+            title: Loc.NavigationTitles.backgroundDemo,
             mode: .inline(withBackButton: true)
         )
         .sheet(isPresented: $showPaywall) {

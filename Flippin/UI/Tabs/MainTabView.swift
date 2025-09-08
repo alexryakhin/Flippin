@@ -12,13 +12,13 @@ struct MainTabView: View {
         var title: String {
             switch self {
             case .study:
-                return LocalizationKeys.Navigation.study.localized
+                return Loc.Navigation.study
             case .practice:
-                return LocalizationKeys.Navigation.practice.localized
+                return Loc.Navigation.practice
             case .analytics:
-                return LocalizationKeys.Navigation.analytics.localized
+                return Loc.Navigation.analytics
             case .settings:
-                return LocalizationKeys.Navigation.settings.localized
+                return Loc.Navigation.settings
             }
         }
 

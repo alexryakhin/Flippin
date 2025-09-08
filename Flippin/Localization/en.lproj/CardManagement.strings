@@ -10,6 +10,3 @@
 "noDifficultCards" = "No Difficult Cards";
 "noDifficultCardsDescription" = "You don't have any cards marked as difficult yet. Study more cards to see difficulty levels.";
 "difficultCards" = "Difficult Cards";
-"failedToCreateCard" = "Failed to create card: %@";
-
-

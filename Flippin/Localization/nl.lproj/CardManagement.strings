@@ -10,6 +10,3 @@
 "noDifficultCards" = "Geen Moeilijke Kaarten";
 "noDifficultCardsDescription" = "Je hebt nog geen kaarten als moeilijk gemarkeerd. Leer meer kaarten om moeilijkheidsgraden te zien.";
 "difficultCards" = "Moeilijke Kaarten";
-"failedToCreateCard" = "Kaart aanmaken mislukt: %@";
-
-

@@ -10,6 +10,3 @@
 "noDifficultCards" = "Keine schwierigen Karten";
 "noDifficultCardsDescription" = "Sie haben noch keine Karten als schwierig markiert. Lernen Sie mehr Karten, um Schwierigkeitsstufen zu sehen.";
 "difficultCards" = "Schwierige Karten";
-"failedToCreateCard" = "Karte konnte nicht erstellt werden: %@";
-
-

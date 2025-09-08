@@ -10,6 +10,3 @@
 "noDifficultCards" = "Nenhum Cartão Difícil";
 "noDifficultCardsDescription" = "Ainda não marcaste nenhum cartão como difícil. Estuda mais cartões para veres os níveis de dificuldade.";
 "difficultCards" = "Cartões Difíceis";
-"failedToCreateCard" = "Falha ao criar cartão: %@";
-
-

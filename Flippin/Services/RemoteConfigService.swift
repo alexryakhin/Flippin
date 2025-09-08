@@ -8,7 +8,6 @@
 import Foundation
 import FirebaseRemoteConfig
 
-@MainActor
 final class RemoteConfigService: ObservableObject {
     static let shared = RemoteConfigService()
 
@@ -52,17 +51,20 @@ final class RemoteConfigService: ObservableObject {
     /// Fetch latest configuration from Firebase
     func fetchConfig() async {
         do {
-            let status = try await remoteConfig.fetchAndActivate()
-            isConfigured = true
-            lastFetchTime = Date()
+            let _ = try await remoteConfig.fetchAndActivate()
+            await MainActor.run {
+                isConfigured = true
+                lastFetchTime = Date()
+            }
 
             print("✅ Remote Config fetched successfully")
             print("📊 Speechify enabled: \(getSpeechifyEnabled())")
             print("🔑 API Key configured: \(!getSpeechifyAPIKey().isEmpty)")
-
         } catch {
             print("❌ Failed to fetch Remote Config: \(error)")
-            isConfigured = false
+            await MainActor.run {
+                isConfigured = false
+            }
         }
     }
 
@@ -91,7 +93,7 @@ final class RemoteConfigService: ObservableObject {
     /// Force refresh configuration
     func forceRefresh() async {
         do {
-            let status = try await remoteConfig.fetch()
+            _ = try await remoteConfig.fetch()
             try await remoteConfig.activate()
             isConfigured = true
             lastFetchTime = Date()

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct VoicePickerView: View {
     @StateObject private var ttsPlayer = TTSPlayer.shared
+    @StateObject private var speechifyService = SpeechifyService.shared
     @State private var searchText = ""
     @State private var selectedLanguage: String?
     @State private var selectedGender: String?
@@ -34,7 +35,7 @@ struct VoicePickerView: View {
             bottomContent: {
                 VStack(spacing: 8) {
                     InputView.searchView(
-                        Loc.Actions.search,
+                        Loc.Search.search,
                         searchText: $searchText
                     )
                     FilterView(
@@ -53,7 +54,10 @@ struct VoicePickerView: View {
     // MARK: - Voice List
 
     private var voiceList: some View {
-        CustomSectionView(header: Loc.Tts.Filters.availableVoices) {
+        CustomSectionView(
+            header: Loc.Tts.Filters.availableVoices,
+            backgroundStyle: .standard
+        ) {
             Group {
                 if filteredVoices.isEmpty {
                     ContentUnavailableView(
@@ -70,9 +74,9 @@ struct VoicePickerView: View {
                         ForEach(filteredVoices, id: \.id) { voice in
                             VoiceRowView(
                                 voice: voice,
-                                isSelected: ttsPlayer.selectedSpeechifyVoice == voice.id,
+                                isSelected: speechifyService.selectedVoiceId == voice.id,
                                 onSelect: {
-                                    ttsPlayer.selectedSpeechifyVoice = voice.id
+                                    speechifyService.selectedVoiceId = voice.id
                                 },
                                 onPreview: {
                                     previewVoice(voice)
@@ -99,7 +103,7 @@ struct VoicePickerView: View {
     }
 
     private var filteredVoices: [SpeechifyVoice] {
-        var voices = ttsPlayer.availableVoices
+        var voices = speechifyService.availableVoices
 
         // Apply search filter
         if !searchText.isEmpty {
@@ -232,7 +236,7 @@ struct VoicePickerView: View {
                 }
             }
             .padding(vertical: 12, horizontal: 16)
-            .clippedWithBackground(isSelected ? Color.blue.opacity(0.1) : Color.tertiarySystemGroupedBackground, cornerRadius: 16)
+            .clippedWithBackground(isSelected ? Color.blue.opacity(0.1) : Color(.tertiarySystemGroupedBackground), cornerRadius: 16)
             .overlay(
                 RoundedRectangle(cornerRadius: 16)
                     .stroke(isSelected ? Color.blue : Color.clear, lineWidth: 2)
@@ -245,8 +249,8 @@ struct VoicePickerView: View {
 
         private func genderColor(for gender: String) -> Color {
             switch gender.lowercased() {
-            case "female": .systemPink
-            case "male": .systemBlue
+            case "female": Color(.systemPink)
+            case "male": Color(.systemBlue)
             default: .secondary
             }
         }
@@ -286,6 +290,7 @@ private struct FilterView: View {
     }
 
     @StateObject private var ttsPlayer: TTSPlayer = .shared
+    @StateObject private var speechifyService: SpeechifyService = .shared
 
     @Binding var selectedLanguage: String?
     @Binding var selectedGender: String?
@@ -296,36 +301,36 @@ private struct FilterView: View {
 
     // Voice categories for filtering
     private var availableLanguages: [String] {
-        Set(ttsPlayer.availableVoices.map { $0.language }).sorted()
+        Set(speechifyService.availableVoices.map { $0.language }).sorted()
     }
 
     private var availableGenders: [String] {
-        Set(ttsPlayer.availableVoices.compactMap { $0.gender }).sorted()
+        Set(speechifyService.availableVoices.compactMap { $0.gender }).sorted()
     }
 
     private var availableUseCases: [String] {
-        let useCases = ttsPlayer.availableVoices.flatMap { voice in
+        let useCases = speechifyService.availableVoices.flatMap { voice in
             voice.tagValues(for: "use-case")
         }
         return Array(Set(useCases)).sorted()
     }
 
     private var availableAges: [String] {
-        let ages = ttsPlayer.availableVoices.flatMap { voice in
+        let ages = speechifyService.availableVoices.flatMap { voice in
             voice.tagValues(for: "age")
         }
         return Array(Set(ages)).sorted()
     }
 
     private var availableTimbres: [String] {
-        let timbres = ttsPlayer.availableVoices.flatMap { voice in
+        let timbres = speechifyService.availableVoices.flatMap { voice in
             voice.tagValues(for: "timbre")
         }
         return Array(Set(timbres)).sorted()
     }
 
     private var availableAccents: [String] {
-        let accents = ttsPlayer.availableVoices.flatMap { voice in
+        let accents = speechifyService.availableVoices.flatMap { voice in
             voice.tagValues(for: "accent")
         }
         return Array(Set(accents)).sorted()
@@ -352,16 +357,8 @@ private struct FilterView: View {
                     .pickerStyle(.inline)
                 }
 
-                var genderColor: Color {
-                    switch selectedGender?.lowercased() {
-                    case "male": .systemBlue
-                    case "female": .systemPink
-                    default: .accent
-                    }
-                }
                 HeaderButtonMenu(
                     selectedGender?.localizedTtsFilter ?? FilterView.All.genders.displayName,
-                    color: genderColor,
                     size: .small
                 ) {
                     Picker("", selection: $selectedGender) {
@@ -376,7 +373,6 @@ private struct FilterView: View {
                 
                 HeaderButtonMenu(
                     selectedUseCase?.localizedTtsFilter ?? FilterView.All.useCases.displayName,
-                    color: .systemIndigo,
                     size: .small
                 ) {
                     Picker("", selection: $selectedUseCase) {
@@ -391,7 +387,6 @@ private struct FilterView: View {
                 
                 HeaderButtonMenu(
                     selectedAge?.localizedTtsFilter ?? FilterView.All.ages.displayName,
-                    color: .systemPurple,
                     size: .small
                 ) {
                     Picker("", selection: $selectedAge) {
@@ -406,7 +401,6 @@ private struct FilterView: View {
                 
                 HeaderButtonMenu(
                     selectedTimbre?.localizedTtsFilter ?? FilterView.All.timbres.displayName,
-                    color: .systemOrange,
                     size: .small
                 ) {
                     Picker("", selection: $selectedTimbre) {
@@ -421,7 +415,6 @@ private struct FilterView: View {
                 
                 HeaderButtonMenu(
                     selectedAccent?.localizedTtsFilter ?? FilterView.All.accents.displayName,
-                    color: .brown,
                     size: .small
                 ) {
                     Picker("", selection: $selectedAccent) {

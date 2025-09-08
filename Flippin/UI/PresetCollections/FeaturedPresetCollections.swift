@@ -29,12 +29,12 @@ struct FeaturedPresetCollections: View {
     var body: some View {
         if !featuredCollections.isEmpty {
             CustomSectionView(
-                header: LocalizationKeys.Presets.presetCollections.localized,
+                header: Loc.PresetCollections.presetCollections,
                 headerFontStyle: .large,
                 backgroundStyle: bgStyle
             ) {
                 VStack(alignment: .leading, spacing: 16) {
-                    Text(LocalizationKeys.Presets.getStartedWithCollections.localized)
+                    Text(Loc.PresetCollections.getStartedWithCollections)
                         .font(.caption)
                         .foregroundColor(.secondary)
 
@@ -57,7 +57,7 @@ struct FeaturedPresetCollections: View {
                     .scrollClipDisabled()
                 }
             } trailingContent: {
-                HeaderButton(LocalizationKeys.Presets.seeAllCollections.localized, style: .borderedProminent) {
+                HeaderButton(Loc.PresetCollections.seeAllCollections, style: .borderedProminent) {
                     if purchaseService.hasPremiumAccess {
                         NavigationManager.shared.navigate(to: .presetCollections)
                         AnalyticsService.trackEvent(.presetCollectionsOpened)
@@ -67,20 +67,20 @@ struct FeaturedPresetCollections: View {
                 }
             }
             .premiumAlert(feature: $premiumFeature)
-            .alert(LocalizationKeys.Presets.importCollection.localized, isPresented: $showingImportAlert) {
-                Button(LocalizationKeys.General.cancel.localized, role: .cancel) { }
-                Button(LocalizationKeys.Presets.importButton.localized) {
+            .alert(Loc.PresetCollections.importCollection, isPresented: $showingImportAlert) {
+                Button(Loc.Buttons.cancel, role: .cancel) { }
+                Button(Loc.PresetCollections.importButton) {
                     if let collection = collectionToImport {
                         importCollection(collection)
                     }
                 }
             } message: {
                 if let collection = collectionToImport {
-                    Text(LocalizationKeys.Presets.importCollectionMessage.localized(with: collection.name, collection.cardCount))
+                    Text(Loc.PresetCollections.importCollectionMessage(collection.name, collection.cardCount))
                 }
             }
-            .alert(LocalizationKeys.Card.cardLimitExceeded.localized, isPresented: $showingLimitAlert) {
-                Button(LocalizationKeys.General.ok.localized, role: .cancel) { }
+            .alert(Loc.CardLimits.unlimitedCards, isPresented: $showingLimitAlert) {
+                Button(Loc.Buttons.ok, role: .cancel) { }
             } message: {
                 Text(limitAlertMessage)
             }

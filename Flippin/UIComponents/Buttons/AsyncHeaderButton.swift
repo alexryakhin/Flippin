@@ -1,5 +1,5 @@
 //
-//  HeaderButton.swift
+//  AsyncHeaderButton.swift
 //  My Dictionary
 //
 //  Created by Alexander Riakhin on 8/9/25.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HeaderButton: View {
+struct AsyncHeaderButton: View {
 
     enum Size {
         case small
@@ -59,13 +59,14 @@ struct HeaderButton: View {
 
     @Environment(\.isEnabled) var isEnabled
     @StateObject private var colorManager = ColorManager.shared
+    @State private var isLoading: Bool = false
 
-    var text: String
-    var icon: String?
-    var size: Size
-    var style: Style
-    var role: Role
-    var action: VoidHandler
+    private let text: String
+    private let icon: String?
+    private let size: Size
+    private let style: Style
+    private let role: Role
+    private let action: AsyncVoidHandler
 
     init(
         _ text: String = "",
@@ -73,7 +74,7 @@ struct HeaderButton: View {
         size: Size = .medium,
         style: Style = .bordered,
         role: Role = .regular,
-        action: @escaping VoidHandler
+        action: @escaping AsyncVoidHandler
     ) {
         self.text = text
         self.icon = icon
@@ -85,8 +86,16 @@ struct HeaderButton: View {
 
     var body: some View {
         Button {
-            HapticService.shared.mediumImpact()
-            action()
+            Task { @MainActor in
+                HapticService.shared.mediumImpact()
+                isLoading = true
+                defer { isLoading = false }
+                do {
+                    try await action()
+                } catch {
+                    errorReceived(error)
+                }
+            }
         } label: {
             HStack(spacing: 8) {
                 if let icon {
@@ -101,10 +110,17 @@ struct HeaderButton: View {
                         .font(size.font)
                 }
             }
+            .opacity(isLoading ? 0 : 1)
             .padding(.horizontal, size.hPadding)
             .padding(.vertical, size.vPadding)
             .foregroundStyle(foregroundColor)
             .background(backgroundColor.gradient)
+            .overlay {
+                if isLoading {
+                    LoaderView(color: foregroundColor)
+                        .frame(width: size.imageSize, height: size.imageSize)
+                }
+            }
         }
         .clipShape(Capsule())
         .buttonStyle(.plain)

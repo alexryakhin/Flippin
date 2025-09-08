@@ -9,7 +9,6 @@ struct PurchaseResult {
 }
 
 // MARK: - Purchase Service
-@MainActor
 final class PurchaseService: ObservableObject {
     static let shared = PurchaseService()
 
@@ -47,7 +46,10 @@ final class PurchaseService: ObservableObject {
     // MARK: - Product Loading
     func loadProducts() async {
         do {
-            products = try await Product.products(for: productIds)
+            let products = try await Product.products(for: productIds)
+            await MainActor.run {
+                self.products = products
+            }
             print("📦 Loaded \(products.count) products")
         } catch {
             print("❌ Failed to load products: \(error)")
@@ -99,7 +101,7 @@ final class PurchaseService: ObservableObject {
                 ])
 
                 // Haptic feedback for successful purchase
-                HapticService.shared.purchaseSuccess()
+                await HapticService.shared.purchaseSuccess()
 
                 return PurchaseResult(
                     success: true,
@@ -138,7 +140,7 @@ final class PurchaseService: ObservableObject {
             AnalyticsService.trackErrorEvent(.purchaseFailed, errorMessage: error.localizedDescription)
 
             // Haptic feedback for failed purchase
-            HapticService.shared.purchaseFailed()
+            await HapticService.shared.purchaseFailed()
 
             return PurchaseResult(
                 success: false,
@@ -203,7 +205,9 @@ final class PurchaseService: ObservableObject {
     // MARK: - Transaction Updates Listener
     private func listenForTransactionUpdates() async {
         print("🔔 Starting transaction updates listener...")
-        isListeningForUpdates = true
+        await MainActor.run {
+            isListeningForUpdates = true
+        }
 
         for await result in Transaction.updates {
             do {

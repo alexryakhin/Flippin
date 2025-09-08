@@ -18,7 +18,7 @@ extension StudyMode {
             VStack(spacing: 24) {
                 // Instructions
                 VStack(spacing: 4) {
-                    Text(LocalizationKeys.Study.selectCorrectTranslation.localized)
+                    Text(Loc.Study.selectCorrectTranslation)
                         .font(.title2)
                         .fontWeight(.bold)
                 }

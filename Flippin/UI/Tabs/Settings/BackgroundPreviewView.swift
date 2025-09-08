@@ -24,7 +24,7 @@ struct BackgroundPreviewView: View {
         }
         .background(Color(.systemGroupedBackground))
         .navigation(
-            title: LocalizationKeys.Settings.backgroundStyles.localized,
+            title: Loc.NavigationTitles.backgroundStyles,
             mode: .inline(withBackButton: true)
         )
         .ifLet(colorManager.colorScheme) { view, scheme in

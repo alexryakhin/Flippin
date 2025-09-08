@@ -74,6 +74,32 @@ extension View {
             self
         }
     }
+
+    func errorReceived(title: String = Loc.Errors.unknownError, _ error: Error) {
+        Task { @MainActor in
+            AlertCenter.shared.showAlert(
+                with: .info(
+                    title: title,
+                    message: error.localizedDescription
+                )
+            )
+        }
+    }
+
+    func showAlertWithMessage(_ message: String) {
+        Task { @MainActor in
+            AlertCenter.shared.showAlert(
+                with: .info(
+                    title: Loc.Errors.unknownError,
+                    message: message
+                )
+            )
+        }
+    }
+
+    func groupedBackground() -> some View {
+        self.background(Color(.systemGroupedBackground).ignoresSafeArea())
+    }
 }
 
 extension Image {

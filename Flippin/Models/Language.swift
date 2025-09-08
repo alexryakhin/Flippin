@@ -61,23 +61,23 @@ enum Language: String, Codable, CaseIterable, Identifiable {
 
     var displayName: String {
         switch self {
-        case .english: return LocalizationKeys.Languages.english.localized
-        case .spanish: return LocalizationKeys.Languages.spanish.localized
-        case .french: return LocalizationKeys.Languages.french.localized
-        case .german: return LocalizationKeys.Languages.german.localized
-        case .italian: return LocalizationKeys.Languages.italian.localized
-        case .portuguese: return LocalizationKeys.Languages.portuguese.localized
-        case .dutch: return LocalizationKeys.Languages.dutch.localized
-        case .swedish: return LocalizationKeys.Languages.swedish.localized
-        case .chinese: return LocalizationKeys.Languages.chinese.localized
-        case .japanese: return LocalizationKeys.Languages.japanese.localized
-        case .korean: return LocalizationKeys.Languages.korean.localized
-        case .vietnamese: return LocalizationKeys.Languages.vietnamese.localized
-        case .russian: return LocalizationKeys.Languages.russian.localized
-        case .arabic: return LocalizationKeys.Languages.arabic.localized
-        case .hindi: return LocalizationKeys.Languages.hindi.localized
-        case .croatian: return LocalizationKeys.Languages.croatian.localized
-        case .ukranian: return LocalizationKeys.Languages.ukrainian.localized
+        case .english: return Loc.Languages.english
+        case .spanish: return Loc.Languages.spanish
+        case .french: return Loc.Languages.french
+        case .german: return Loc.Languages.german
+        case .italian: return Loc.Languages.italian
+        case .portuguese: return Loc.Languages.portuguese
+        case .dutch: return Loc.Languages.dutch
+        case .swedish: return Loc.Languages.swedish
+        case .chinese: return Loc.Languages.chinese
+        case .japanese: return Loc.Languages.japanese
+        case .korean: return Loc.Languages.korean
+        case .vietnamese: return Loc.Languages.vietnamese
+        case .russian: return Loc.Languages.russian
+        case .arabic: return Loc.Languages.arabic
+        case .hindi: return Loc.Languages.hindi
+        case .croatian: return Loc.Languages.croatian
+        case .ukranian: return Loc.Languages.ukrainian
         }
     }
     

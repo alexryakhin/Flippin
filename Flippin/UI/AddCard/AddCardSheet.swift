@@ -48,7 +48,7 @@ struct AddCardSheet: View {
         }
         .background(Color(.systemGroupedBackground))
         .navigation(
-            title: LocalizationKeys.Card.addNewCard.localized,
+            title: Loc.NavigationTitles.addNewCard,
             mode: .inline(withBackButton: true)
         )
         .onAppear {
@@ -64,7 +64,7 @@ struct AddCardSheet: View {
     
     private var saveButton: some View {
         ActionButton(
-            LocalizationKeys.General.save.localized,
+            Loc.Buttons.save,
             style: .borderedProminent
         ) {
             viewModel.createCard()
@@ -82,13 +82,13 @@ struct AddCardSheet: View {
             header: languageManager.userLanguage.displayName,
             backgroundStyle: .standard
         ) {
-            TextField(LocalizationKeys.Card.enterTextInYourLanguage.localized, text: $viewModel.nativeText, axis: .vertical)
+            TextField(Loc.AddCard.enterTextInYourLanguage, text: $viewModel.nativeText, axis: .vertical)
                 .autocapitalization(.sentences)
                 .focused($isUserLanguageTextFieldFocused)
                 .clippedWithPaddingAndBackground(colorManager.tintColor.opacity(0.1))
         } trailingContent: {
             if isUserLanguageTextFieldFocused {
-                SectionHeaderButton(LocalizationKeys.General.done.localized) {
+                SectionHeaderButton(Loc.Buttons.done) {
                     UIApplication.shared.endEditing()
                 }
             }
@@ -101,7 +101,7 @@ struct AddCardSheet: View {
             backgroundStyle: .standard
         ) {
             TextField(
-                LocalizationKeys.Card.translationWillAppearHere.localized,
+                Loc.AddCard.translationWillAppearHere,
                 text: $viewModel.targetText,
                 axis: .vertical
             )
@@ -111,7 +111,7 @@ struct AddCardSheet: View {
             .shimmering(when: viewModel.isTranslating)
         } trailingContent: {
             if isTargetLanguageTextFieldFocused {
-                SectionHeaderButton(LocalizationKeys.General.done.localized) {
+                SectionHeaderButton(Loc.Buttons.done) {
                     UIApplication.shared.endEditing()
                 }
             }
@@ -120,7 +120,7 @@ struct AddCardSheet: View {
 
     private var tagsSection: some View {
         CustomSectionView(
-            header: LocalizationKeys.Tag.tagsCount.localized(with: viewModel.selectedTags.count),
+            header: Loc.Plurals.tagsCount(viewModel.selectedTags.count),
             backgroundStyle: .standard
         ) {
             if !viewModel.availableTags.isEmpty {
@@ -142,7 +142,7 @@ struct AddCardSheet: View {
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
             } else {
-                Text(LocalizationKeys.Tag.noTagsAvailableAddInSettings.localized)
+                Text(Loc.AddCard.noTagsAvailableAddInSettings)
                     .foregroundStyle(.secondary)
                     .font(.caption)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -152,16 +152,16 @@ struct AddCardSheet: View {
 
     private var notesSection: some View {
         CustomSectionView(
-            header: LocalizationKeys.Card.notes.localized,
+            header: Loc.AddCard.notes,
             backgroundStyle: .standard
         ) {
-            TextField(LocalizationKeys.Card.addNotesOptional.localized, text: $viewModel.notes, axis: .vertical)
+            TextField(Loc.AddCard.addNotesOptional, text: $viewModel.notes, axis: .vertical)
                 .autocapitalization(.sentences)
                 .focused($isNotesTextFieldFocused)
                 .clippedWithPaddingAndBackground(colorManager.tintColor.opacity(0.1))
         } trailingContent: {
             if isNotesTextFieldFocused {
-                SectionHeaderButton(LocalizationKeys.General.done.localized) {
+                SectionHeaderButton(Loc.Buttons.done) {
                     UIApplication.shared.endEditing()
                 }
             }
