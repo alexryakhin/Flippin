@@ -36,7 +36,7 @@ extension DetailedAnalytics {
                         .frame(maxWidth: .infinity)
                 }
             }
-            .background(Color(.systemGroupedBackground))
+            .groupedBackground()
         }
 
         private var summaryCardsSection: some View {
@@ -308,7 +308,7 @@ extension DetailedAnalytics {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .clippedWithPaddingAndBackground(
                 isUnlocked ? color.opacity(0.1) : Color.gray.opacity(0.1),
-                cornerRadius: 8
+                in: .rect(cornerRadius: 8)
             )
         }
     }

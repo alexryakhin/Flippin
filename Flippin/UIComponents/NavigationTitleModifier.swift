@@ -8,7 +8,7 @@
 import SwiftUI
 
 enum NavigationTitleMode: Hashable {
-    case inline(withBackButton: Bool = true)
+    case inline
     case large
 
     var font: Font {
@@ -36,6 +36,7 @@ struct NavigationTitleModifier<TrailingContent: View, BottomContent: View>: View
 
     let title: String
     let mode: NavigationTitleMode
+    let showsBackButton: Bool
     let vPadding: CGFloat
     let hPadding: CGFloat
 
@@ -48,7 +49,7 @@ struct NavigationTitleModifier<TrailingContent: View, BottomContent: View>: View
             .safeAreaInset(edge: .top) {
                 VStack(spacing: mode.spacing) {
                     HStack(spacing: mode.spacing) {
-                        if case .inline(let withBackButton) = mode, withBackButton {
+                        if showsBackButton {
                             HeaderButton(icon: "chevron.left") {
                                 dismiss()
                                 HapticService.shared.buttonTapped()
@@ -56,7 +57,7 @@ struct NavigationTitleModifier<TrailingContent: View, BottomContent: View>: View
                         }
                         Text(title)
                             .font(mode.font)
-                            .foregroundStyle(.secondary)
+                            .foregroundStyle(.primary)
                             .frame(maxWidth: .infinity, alignment: .leading)
 
                         HStack(spacing: 6) {
@@ -67,7 +68,16 @@ struct NavigationTitleModifier<TrailingContent: View, BottomContent: View>: View
 
                     bottomContent()
                 }
-                .clippedWithPaddingAndBackgroundMaterial(.thinMaterial, cornerRadius: 32, showShadow: true)
+                .padding(vertical: 12, horizontal: 16)
+                .glassBackgroundEffectIfAvailable(.regular, in: RoundedRectangle(cornerRadius: 32))
+                .if(isGlassAvailable == false) {
+                    $0
+                        .clippedWithBackgroundMaterial(
+                            .regular,
+                            in: .rect(cornerRadius: 32)
+                        )
+                        .shadow(radius: 2)
+                }
                 .padding(vertical: vPadding, horizontal: hPadding)
             }
     }
@@ -77,6 +87,7 @@ extension View {
     func navigation<TrailingContent: View, BottomContent: View>(
         title: String,
         mode: NavigationTitleMode = .large,
+        showsBackButton: Bool = false,
         vPadding: CGFloat = 8,
         hPadding: CGFloat = 8,
         @ViewBuilder trailingContent: @escaping () -> TrailingContent = { EmptyView() },
@@ -86,6 +97,7 @@ extension View {
             NavigationTitleModifier(
                 title: title,
                 mode: mode,
+                showsBackButton: showsBackButton,
                 vPadding: vPadding,
                 hPadding: hPadding,
                 trailingContent: trailingContent,

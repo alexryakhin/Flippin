@@ -70,10 +70,11 @@ struct PresetCollectionsView: View {
                 .padding(.horizontal, 16)
                 .padding(.vertical, 12)
             }
-            .background(Color(.systemGroupedBackground))
+            .groupedBackground()
             .navigation(
                 title: Loc.PresetCollections.presetCollections,
-                mode: .inline(withBackButton: true),
+                mode: .inline,
+                showsBackButton: true,
                 bottomContent: {
                     VStack(spacing: 8) {
                         InputView.searchView(

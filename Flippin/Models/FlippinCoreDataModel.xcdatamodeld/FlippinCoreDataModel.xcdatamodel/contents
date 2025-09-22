@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23788.4" systemVersion="24F74" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="CardItem" representedClassName="CardItem" syncable="YES">
+        <attribute name="backAudioURL" optional="YES" attributeType="String"/>
         <attribute name="backLanguageRaw" optional="YES" attributeType="String"/>
         <attribute name="backText" optional="YES" attributeType="String"/>
+        <attribute name="frontAudioURL" optional="YES" attributeType="String"/>
         <attribute name="frontLanguageRaw" optional="YES" attributeType="String"/>
         <attribute name="frontText" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="String"/>

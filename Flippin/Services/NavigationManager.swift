@@ -25,12 +25,12 @@ enum NavigationDestination: Hashable {
 final class NavigationManager: ObservableObject {
     static let shared = NavigationManager()
     
-    @Published var selectedTab: MainTabView.Tab = .study
+    @Published var selectedTab: TabBarItem = .study
     @Published var navigationPath = NavigationPath()
 
     private init() {}
     
-    func switchToTab(_ tab: MainTabView.Tab) {
+    func switchToTab(_ tab: TabBarItem) {
         selectedTab = tab
     }
     

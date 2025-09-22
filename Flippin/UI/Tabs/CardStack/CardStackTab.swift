@@ -172,7 +172,8 @@ enum CardStackTab {
                         premiumFeature = .unlimitedCards
                     }
                 }
-                .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
+                .padding(vertical: 12, horizontal: 16)
+                .glassEffectIfAvailableWithBackup(in: .rect(cornerRadius: 24))
                 .if(isPad) { view in
                     view
                         .frame(maxWidth: 500, alignment: .center)

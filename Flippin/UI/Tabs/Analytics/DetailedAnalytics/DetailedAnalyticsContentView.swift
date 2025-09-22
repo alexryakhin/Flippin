@@ -52,7 +52,8 @@ enum DetailedAnalytics {
             }
             .navigation(
                 title: Loc.Analytics.detailedAnalytics,
-                mode: .inline(withBackButton: true),
+                mode: .inline,
+                showsBackButton: true,
                 trailingContent: {
                     HeaderButtonMenu(selectedTimeRange.name) {
                         Picker(Loc.Analytics.timeRange, selection: $selectedTimeRange) {

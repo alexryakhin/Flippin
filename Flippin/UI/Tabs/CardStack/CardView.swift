@@ -56,7 +56,7 @@ struct CardView: View {
                 }
             }
 
-            ZStack {
+            VStack {
                 if animatedAngle <= 90 {
                     CardFrontView(card: card)
                 } else {
@@ -66,10 +66,11 @@ struct CardView: View {
             }
             .padding(24)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(.regularMaterial)
-            .clipShape(RoundedRectangle(cornerRadius: 20))
+            .contentShape(.rect(cornerRadius: 20))
+            .glassBackgroundEffectIfAvailableWithBackup(.regular, in: .rect(cornerRadius: 20))
+            .clipShape(.rect(cornerRadius: 20))
             .rotation3DEffect(.degrees(animatedAngle), axis: (x: 0, y: 1, z: 0))
-            .shadow(radius: 1)
+            .shadow(color: Color(.separator), radius: 1)
             .onTapGesture {
                 if animationStart == nil {
                     animationDirection = isFlipped ? -1 : 1

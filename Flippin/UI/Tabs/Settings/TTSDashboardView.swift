@@ -33,7 +33,11 @@ struct TTSDashboardView: View {
             }
             .padding(16)
         }
-        .navigation(title: Loc.Tts.dashboard, mode: .inline(withBackButton: true))
+        .navigation(
+            title: Loc.Tts.dashboard,
+            mode: .inline,
+            showsBackButton: true
+        )
         .groupedBackground()
         .onAppear {
             loadVoices()
@@ -167,7 +171,7 @@ struct TTSDashboardView: View {
                 AsyncHeaderButton("Test Voice", icon: "play.circle") {
                     await testTTS()
                 }
-                .disabled(speechifyService.selectedVoice == nil || speechifyService.isPlaying)
+                .disabled(speechifyService.selectedVoice == nil)
             }
         }
     }
@@ -188,7 +192,7 @@ struct TTSDashboardView: View {
         let testText = "Hello, this is a test of the Speechify text-to-speech system."
 
         do {
-            try await speechifyService.playText(testText, language: .english)
+            try await TTSPlayer.shared.play(testText, language: .english)
         } catch {
             errorReceived(error)
         }
@@ -205,11 +209,7 @@ struct TTSDashboardView: View {
             return "\(hours)h \(remainingMinutes)m"
         }
     }
-
-
 }
-
-
 
 #Preview {
     NavigationView {

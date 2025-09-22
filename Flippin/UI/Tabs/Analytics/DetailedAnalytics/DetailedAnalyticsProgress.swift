@@ -34,7 +34,7 @@ extension DetailedAnalytics {
                         .frame(maxWidth: .infinity)
                 }
             }
-            .background(Color(.systemGroupedBackground))
+            .groupedBackground()
         }
 
         private var masteryTimelineSection: some View {

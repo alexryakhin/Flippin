@@ -20,6 +20,7 @@ final class CardsProvider: ObservableObject {
     private let coreDataService = CoreDataService.shared
     private let languageManager = LanguageManager.shared
     private let tagManager = TagManager.shared
+    private let audioCacheService = AudioCacheService.shared
     private var cancellables = Set<AnyCancellable>()
     private var hasCheckedInitialSync = false
 
@@ -121,6 +122,11 @@ final class CardsProvider: ObservableObject {
         saveContext()
         fetchCards()
 
+        // Cache audio for both front and back text
+        Task {
+            await cacheAudioForCard(card)
+        }
+
         // Haptic feedback for card addition
         HapticService.shared.cardAdded()
         
@@ -143,9 +149,16 @@ final class CardsProvider: ObservableObject {
                 remainingCards: remainingCards
             )
         }
-        let _ = convertPresetCardsToCardItems(cards)
+        let cardItems = convertPresetCardsToCardItems(cards)
         saveContext()
         fetchCards()
+        
+        // Cache audio for all preset cards
+        Task {
+            for card in cardItems {
+                await cacheAudioForCard(card)
+            }
+        }
     }
 
     /// Removes a card from Core Data
@@ -211,6 +224,59 @@ final class CardsProvider: ObservableObject {
 
             return item
         }
+    }
+    
+    /// Caches audio for all cards that don't have cached audio yet
+    func cacheAudioForAllCards() async {
+        let cardsNeedingAudio = cards.filter { card in
+            guard let frontText = card.frontText,
+                  let backText = card.backText else { return false }
+            return !frontText.isEmpty && !backText.isEmpty && 
+                   (card.frontAudioURL == nil || card.backAudioURL == nil)
+        }
+        
+        print("🎵 [CardsProvider] Caching audio for \(cardsNeedingAudio.count) cards...")
+        
+        for card in cardsNeedingAudio {
+            await cacheAudioForCard(card)
+        }
+        
+        print("✅ [CardsProvider] Finished caching audio for all cards")
+    }
+    
+    /// Caches audio for both front and back text of a card
+    private func cacheAudioForCard(_ card: CardItem) async {
+        guard let frontText = card.frontText,
+              let backText = card.backText,
+              let frontLanguage = card.frontLanguage,
+              let backLanguage = card.backLanguage else {
+            return
+        }
+        
+        // Cache front audio
+        if !frontText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            do {
+                let frontAudioURL = try await audioCacheService.cacheAudio(for: frontText, language: frontLanguage)
+                card.frontAudioURL = frontAudioURL.path
+                print("🎵 [CardsProvider] Cached front audio for card: \(frontText.prefix(30))...")
+            } catch {
+                print("❌ [CardsProvider] Failed to cache front audio: \(error)")
+            }
+        }
+        
+        // Cache back audio
+        if !backText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            do {
+                let backAudioURL = try await audioCacheService.cacheAudio(for: backText, language: backLanguage)
+                card.backAudioURL = backAudioURL.path
+                print("🎵 [CardsProvider] Cached back audio for card: \(backText.prefix(30))...")
+            } catch {
+                print("❌ [CardsProvider] Failed to cache back audio: \(error)")
+            }
+        }
+        
+        // Save the updated URLs to Core Data
+        saveContext()
     }
 }
 

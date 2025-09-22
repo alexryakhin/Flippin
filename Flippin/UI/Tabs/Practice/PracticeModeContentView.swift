@@ -70,7 +70,7 @@ enum StudyMode: Int, Identifiable, Hashable {
             }
             .navigation(
                 title: Loc.Study.practiceMode,
-                mode: .inline(withBackButton: false),
+                mode: .inline,
                 trailingContent: {
                     HeaderButton(Loc.Study.exit) {
                         HapticService.shared.buttonTapped()

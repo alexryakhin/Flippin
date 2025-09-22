@@ -97,6 +97,18 @@ struct DebugView: View {
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 }
+                
+                HStack {
+                    Text("Cards with Cached Audio")
+                        .font(.subheadline)
+                        .foregroundStyle(.primary)
+
+                    Spacer()
+
+                    Text("\(cardsProvider.cards.filter(\.hasCachedAudio).count)")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                }
 
                 HStack {
                     Text("Card Limit")
@@ -202,6 +214,20 @@ struct DebugView: View {
 
                 HeaderButton("Clear All Cards", role: .destructive) {
                     clearAllCards()
+                }
+
+                HeaderButton("Cache Audio for All Cards") {
+                    Task {
+                        await cardsProvider.cacheAudioForAllCards()
+                    }
+                }
+
+                HeaderButton("Clear Audio Cache", role: .destructive) {
+                    do {
+                        try AudioCacheService.shared.clearCache()
+                    } catch {
+                        print("Failed to clear audio cache: \(error)")
+                    }
                 }
 
                 HeaderButton("Refresh Analytics") {

@@ -55,7 +55,7 @@ struct AccuracyTrendsChart: View {
         tintColor: .blue
     )
     .padding(16)
-    .background(Color(.systemGroupedBackground))
+    .groupedBackground()
 }
 
 #Preview("Sample Data - Week") {
@@ -72,7 +72,7 @@ struct AccuracyTrendsChart: View {
         tintColor: .blue
     )
     .padding(16)
-    .background(Color(.systemGroupedBackground))
+    .groupedBackground()
 }
 
 #Preview("Sample Data - Month") {
@@ -89,7 +89,7 @@ struct AccuracyTrendsChart: View {
         tintColor: .green
     )
     .padding(16)
-    .background(Color(.systemGroupedBackground))
+    .groupedBackground()
 }
 
 #Preview("Sample Data - Year") {
@@ -108,7 +108,7 @@ struct AccuracyTrendsChart: View {
         tintColor: .purple
     )
     .padding(16)
-    .background(Color(.systemGroupedBackground))
+    .groupedBackground()
 }
 
 #Preview("Improving Trend") {
@@ -127,7 +127,7 @@ struct AccuracyTrendsChart: View {
         tintColor: .orange
     )
     .padding(16)
-    .background(Color(.systemGroupedBackground))
+    .groupedBackground()
 }
 
 #Preview("Declining Trend") {
@@ -146,7 +146,7 @@ struct AccuracyTrendsChart: View {
         tintColor: .red
     )
     .padding(16)
-    .background(Color(.systemGroupedBackground))
+    .groupedBackground()
 }
 
 #Preview("Consistent Performance") {
@@ -164,5 +164,5 @@ struct AccuracyTrendsChart: View {
         tintColor: .teal
     )
     .padding(16)
-    .background(Color(.systemGroupedBackground))
+    .groupedBackground()
 } 

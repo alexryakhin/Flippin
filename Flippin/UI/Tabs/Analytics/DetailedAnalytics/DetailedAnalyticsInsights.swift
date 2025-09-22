@@ -37,7 +37,7 @@ extension DetailedAnalytics {
                         .frame(maxWidth: .infinity)
                 }
             }
-            .background(Color(.systemGroupedBackground))
+            .groupedBackground()
         }
 
         private var personalizedInsightsSection: some View {
@@ -190,7 +190,7 @@ extension DetailedAnalytics {
             }
             .clippedWithPaddingAndBackground(
                 color.opacity(0.1),
-                cornerRadius: 8
+                in: .rect(cornerRadius: 8)
             )
         }
     }
@@ -225,7 +225,7 @@ extension DetailedAnalytics {
             .frame(maxWidth: .infinity, alignment: .leading)
             .clippedWithPaddingAndBackground(
                 Color(.tertiarySystemGroupedBackground).opacity(0.6),
-                cornerRadius: 8
+                in: .rect(cornerRadius: 8)
             )
         }
     }
@@ -254,7 +254,7 @@ extension DetailedAnalytics {
             }
             .clippedWithPaddingAndBackground(
                 Color(.tertiarySystemGroupedBackground).opacity(0.6),
-                cornerRadius: 8
+                in: .rect(cornerRadius: 8)
             )
         }
     }

@@ -19,6 +19,7 @@ final class TTSPlayer: NSObject, ObservableObject {
     private var speechSynthesizer: AVSpeechSynthesizer?
     private let speechifyService = SpeechifyService.shared
     private let purchaseService = PurchaseService.shared
+    private let audioCacheService = AudioCacheService.shared
     private var cancellables: Set<AnyCancellable> = []
 
     private override init() {
@@ -30,6 +31,12 @@ final class TTSPlayer: NSObject, ObservableObject {
 
     func play(_ text: String, language: Language) async throws {
         guard !text.isEmpty else { return }
+
+        // Check for cached audio first
+        if let cachedAudioURL = audioCacheService.getCachedAudioURL(for: text, language: language) {
+            try await playCachedAudio(from: cachedAudioURL)
+            return
+        }
 
         // Try Speechify first for premium users, then Google TTS, then offline
         if purchaseService.hasPremiumAccess {
@@ -49,14 +56,58 @@ final class TTSPlayer: NSObject, ObservableObject {
             try await playOfflineTTS(text, language: language)
         }
     }
+    
+    /// Stops all audio playback
+    func stop() {
+        Task { @MainActor in
+            // Stop AVAudioPlayer (for all audio types: cached, Google TTS, and Speechify)
+            player?.stop()
+            player = nil
+            
+            // Stop AVSpeechSynthesizer (for offline TTS)
+            speechSynthesizer?.stopSpeaking(at: .immediate)
+            
+            // Update isPlaying state
+            isPlaying = false
+        }
+    }
+    
+    /// Plays audio for a card's front or back text, using cached audio if available
+    func playCardText(_ card: CardItem, isFront: Bool) async throws {
+        let text = isFront ? card.frontText : card.backText
+        let language = isFront ? card.frontLanguage : card.backLanguage
+        let audioURL = isFront ? card.frontAudioURL : card.backAudioURL
+        
+        guard let text = text, let language = language, !text.isEmpty else {
+            throw TTSError.invalidURL
+        }
+        
+        // Check if we have cached audio URL
+        if let audioURLString = audioURL, let url = URL(string: audioURLString) {
+            try await playCachedAudio(from: url)
+            return
+        }
+        
+        // No cached audio - play and cache for future use
+        try await playAndCache(text, language: language, card: card, isFront: isFront)
+    }
 
     func previewSpeechifyVoice(_ voice: SpeechifyVoice) async throws {
         // Use the actual preview audio if available
         if let previewAudioURL = voice.bestPreviewAudioURL,
            let url = URL(string: previewAudioURL) {
             // Download the remote audio file first, then play it
-            let temporaryDownloadURL = try await temporaryDownloadURL(for: url)
-            try await play(from: temporaryDownloadURL)
+            let request = createAudioRequest(for: url)
+            let (tempURL, response) = try await URLSession.shared.download(for: request)
+            
+            // Verify the response
+            if let httpResponse = response as? HTTPURLResponse {
+                guard httpResponse.statusCode == 200 else {
+                    throw TTSError.networkError
+                }
+            }
+            
+            try await play(from: tempURL)
         } else {
             // Fallback to text-to-speech if no preview audio is available
             try await playSpeechifyTTS(
@@ -66,21 +117,9 @@ final class TTSPlayer: NSObject, ObservableObject {
         }
     }
 
-    // MARK: - Speechify TTS
+    // MARK: - Cached Audio
     
-    private func playSpeechifyTTS(_ text: String, language: Language) async throws {
-        try await speechifyService.playText(text, language: language)
-    }
-    
-    // MARK: - Online TTS (Google Translate)
-    
-    private func playOnlineTTS(_ text: String, language: Language) async throws {
-        let escapedText = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed).orEmpty
-        let urlString = "https://translate.google.com/translate_tts?ie=UTF-8&client=gtx&q=\(escapedText)&tl=\(language.voiceOverCode)"
-        guard let url = URL(string: urlString) else { 
-            throw TTSError.invalidURL 
-        }
-
+    private func playCachedAudio(from url: URL) async throws {
         guard player?.isPlaying == false || player == nil else { 
             throw TTSError.alreadyPlaying 
         }
@@ -89,8 +128,82 @@ final class TTSPlayer: NSObject, ObservableObject {
         let _ = try setupAudioSession()
         #endif
         
-        let temporaryDownloadURL = try await temporaryDownloadURL(for: url)
-        try await play(from: temporaryDownloadURL)
+        // Set isPlaying to true before starting playback
+        await MainActor.run {
+            isPlaying = true
+        }
+        
+        try await play(from: url)
+        print("🎵 [TTSPlayer] Playing cached audio from \(url.lastPathComponent)")
+    }
+    
+    /// Plays audio and caches it for future use
+    private func playAndCache(_ text: String, language: Language, card: CardItem, isFront: Bool) async throws {
+        // Play the audio (this will automatically cache it via playOnlineTTS)
+        try await play(text, language: language)
+        
+        // Update the card with the cached audio URL
+        if let cachedURL = audioCacheService.getCachedAudioURL(for: text, language: language) {
+            if isFront {
+                card.frontAudioURL = cachedURL.path
+            } else {
+                card.backAudioURL = cachedURL.path
+            }
+            
+            // Save the updated card to Core Data
+            try CoreDataService.shared.saveContext()
+            print("🎵 [TTSPlayer] Updated card with cached audio URL: \(text.prefix(30))...")
+        }
+    }
+    
+    // MARK: - Speechify TTS
+    
+    private func playSpeechifyTTS(_ text: String, language: Language) async throws {
+        // Get audio data from Speechify
+        let audioData = try await speechifyService.synthesizeText(text, language: language)
+        
+        guard player?.isPlaying == false || player == nil else { 
+            throw TTSError.alreadyPlaying 
+        }
+
+        #if os(iOS)
+        let _ = try setupAudioSession()
+        #endif
+        
+        // Set isPlaying to true before starting playback
+        await MainActor.run {
+            isPlaying = true
+        }
+        
+        // Create and play audio from data
+        player = try AVAudioPlayer(data: audioData)
+        player?.delegate = self
+        player?.prepareToPlay()
+        player?.play()
+        
+        print("🎤 [TTSPlayer] Playing Speechify audio")
+    }
+    
+    // MARK: - Online TTS (Google Translate)
+    
+    private func playOnlineTTS(_ text: String, language: Language) async throws {
+        // Use AudioCacheService to get or create cached audio
+        let cachedURL = try await audioCacheService.cacheAudio(for: text, language: language)
+        
+        guard player?.isPlaying == false || player == nil else { 
+            throw TTSError.alreadyPlaying 
+        }
+
+        #if os(iOS)
+        let _ = try setupAudioSession()
+        #endif
+        
+        // Set isPlaying to true before starting playback
+        await MainActor.run {
+            isPlaying = true
+        }
+        
+        try await play(from: cachedURL)
     }
     
     // MARK: - Offline TTS (AVSpeechSynthesizer)
@@ -117,17 +230,18 @@ final class TTSPlayer: NSObject, ObservableObject {
         let _ = try setupAudioSession()
         #endif
         
+        // Set isPlaying to true before starting speech
+        await MainActor.run {
+            isPlaying = true
+        }
+        
         // Play the speech
         synthesizer.speak(utterance)
     }
 
     private func setupBindings() {
-        speechifyService.$isPlaying
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] isPlaying in
-                self?.isPlaying = isPlaying
-            }
-            .store(in: &cancellables)
+        // No longer needed since SpeechifyService no longer manages playback state
+        // TTSPlayer is now the single source of truth for audio playback
     }
 
     private func getVoiceForLanguage(_ language: Language) -> AVSpeechSynthesisVoice? {
@@ -229,25 +343,17 @@ final class TTSPlayer: NSObject, ObservableObject {
         return session
     }
     #endif
-
-    private func temporaryDownloadURL(for url: URL) async throws -> URL {
-        let request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy)
-
-        do {
-            let (tempURL, _) = try await URLSession.shared.download(for: request)
-
-            // Copy the downloaded file to a more permanent temporary location
-            let tempDir = FileManager.default.temporaryDirectory
-            let permanentTempFile = tempDir.appendingPathComponent("preview_audio_\(UUID().uuidString).mp3")
-
-            try FileManager.default.copyItem(at: tempURL, to: permanentTempFile)
-            print("✅ [TTSPlayer] Successfully saved preview audio to \(permanentTempFile.path)")
-
-            return permanentTempFile
-        } catch {
-            throw URLError(.dataLengthExceedsMaximum)
-        }
+    
+    /// Creates a properly configured URLRequest for audio downloads
+    private func createAudioRequest(for url: URL) -> URLRequest {
+        var request = URLRequest(url: url)
+        request.cachePolicy = .useProtocolCachePolicy
+        request.setValue("Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X) AppleWebKit/605.1.15", forHTTPHeaderField: "User-Agent")
+        request.setValue("audio/mpeg", forHTTPHeaderField: "Accept")
+        request.timeoutInterval = 30.0
+        return request
     }
+
 
     @MainActor
     private func play(from url: URL) throws {

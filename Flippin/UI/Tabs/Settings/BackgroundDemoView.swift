@@ -63,10 +63,11 @@ struct BackgroundDemoView: View {
             }
             .padding(16)
         }
-        .background(Color(.systemGroupedBackground))
+        .groupedBackground()
         .navigation(
             title: Loc.NavigationTitles.backgroundDemo,
-            mode: .inline(withBackButton: true)
+            mode: .inline,
+            showsBackButton: true
         )
         .sheet(isPresented: $showPaywall) {
             Paywall.ContentView()

@@ -44,10 +44,11 @@ struct EditCardSheet: View {
             .disabled(viewModel.nativeText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || viewModel.targetText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
             .gradientStyle(.bottomButtonOnList)
         }
-        .background(Color(.systemGroupedBackground))
+        .groupedBackground()
         .navigation(
             title: Loc.Buttons.editCard,
-            mode: .inline(withBackButton: true)
+            mode: .inline,
+            showsBackButton: true
         )
         .ifLet(colorManager.colorScheme) { view, scheme in
             view.colorScheme(scheme)

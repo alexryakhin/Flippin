@@ -38,7 +38,7 @@ extension DetailedAnalytics {
                         .frame(maxWidth: .infinity)
                 }
             }
-            .background(Color(.systemGroupedBackground))
+            .groupedBackground()
         }
 
         private var accuracyTrendsSection: some View {

@@ -22,10 +22,11 @@ struct BackgroundPreviewView: View {
             }
             .padding(16)
         }
-        .background(Color(.systemGroupedBackground))
+        .groupedBackground()
         .navigation(
             title: Loc.NavigationTitles.backgroundStyles,
-            mode: .inline(withBackButton: true)
+            mode: .inline,
+            showsBackButton: true
         )
         .ifLet(colorManager.colorScheme) { view, scheme in
             view.colorScheme(scheme)

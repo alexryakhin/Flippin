@@ -132,7 +132,8 @@ struct MyCardsListView: View {
         }
         .navigation(
             title: Loc.NavigationTitles.myCards,
-            mode: .inline(withBackButton: true),
+            mode: .inline,
+            showsBackButton: true,
             trailingContent: {
                 HStack(spacing: 4) {
                     HeaderButton(icon: "plus") {

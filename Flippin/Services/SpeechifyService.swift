@@ -61,18 +61,11 @@ final class SpeechifyService: NSObject, ObservableObject {
     @Published var charactersUsed: Int = 0
     @Published var charactersLimit: Int = 50000
     @Published var listeningTimeMinutes: Double = 0.0
-    @Published var isPlaying: Bool = false
-    
     private let coreDataService = CoreDataService.shared
     
     private let baseURL = "https://api.sws.speechify.com" // Speechify API base URL
     private let cache = NSCache<NSString, NSData>()
     private let cachePolicy: URLRequest.CachePolicy = .returnCacheDataElseLoad
-    private let cacheTimeout: TimeInterval = 3600 // 1 hour
-    
-    private var player: AVAudioPlayer?
-    private var audioSession: AVAudioSession?
-    private var playStartTime: Date?
     
     private override init() {
         super.init()
@@ -103,21 +96,15 @@ final class SpeechifyService: NSObject, ObservableObject {
         }
     }
     
-    /// Play text using Speechify TTS
-    func playText(_ text: String, language: Language) async throws {
-        guard !text.isEmpty else { return }
-        guard !isPlaying else { throw SpeechifyError.alreadyPlaying }
+    /// Synthesize text using Speechify TTS and return audio data
+    func synthesizeText(_ text: String, language: Language) async throws -> Data {
+        guard !text.isEmpty else { throw SpeechifyError.emptyText }
         guard hasEnoughCharacters(for: text) else { throw SpeechifyError.characterLimitExceeded }
-
-        await MainActor.run {
-            isPlaying = true
-        }
 
         do {
             let audioData = try await synthesizeSpeech(text: text, language: language)
-            try await playAudio(audioData)
-            
-            print("🎤 Speechify TTS played: \(text.count) characters")
+            print("🎤 Speechify TTS synthesized: \(text.count) characters")
+            return audioData
         } catch {
             print("❌ Speechify TTS failed: \(error)")
             throw error
@@ -233,21 +220,6 @@ final class SpeechifyService: NSObject, ObservableObject {
         return usage
     }
     
-    private func playAudio(_ audioData: Data) async throws {
-        #if os(iOS)
-        let session = AVAudioSession.sharedInstance()
-        try session.setCategory(.playback)
-        try session.setActive(true)
-        #endif
-        
-        player = try AVAudioPlayer(data: audioData)
-        player?.delegate = self
-        player?.prepareToPlay()
-        
-        // Start tracking listening time
-        playStartTime = Date()
-        player?.play()
-    }
     
     private func setupCache() {
         cache.countLimit = 100 // Maximum 100 cached audio files
@@ -521,46 +493,12 @@ final class SpeechifyService: NSObject, ObservableObject {
     }
 }
 
-// MARK: - AVAudioPlayerDelegate
-
-extension SpeechifyService: AVAudioPlayerDelegate {
-    nonisolated func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-        Task { @MainActor in
-            isPlaying = false
-            updateListeningTime()
-        }
-    }
-    
-    nonisolated func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?) {
-        Task { @MainActor in
-            isPlaying = false
-        }
-        print("❌ Audio player error: \(error?.localizedDescription ?? "Unknown error")")
-    }
-    
-    private func updateListeningTime() {
-        guard let startTime = playStartTime else { return }
-        
-        let endTime = Date()
-        let duration = endTime.timeIntervalSince(startTime)
-        let minutes = duration / 60.0
-        
-        listeningTimeMinutes += minutes
-        saveUsageToCoreData()
-        
-        print("🎧 Added \(String(format: "%.2f", minutes)) minutes to listening time")
-        playStartTime = nil
-        
-        // Debug: Print current usage for verification
-        print("📊 Current usage - Characters: \(charactersUsed), Listening Time: \(String(format: "%.2f", listeningTimeMinutes)) minutes")
-    }
-}
 
 // MARK: - Speechify Errors
 
 enum SpeechifyError: Error, LocalizedError {
     case apiKeyNotConfigured
-    case alreadyPlaying
+    case emptyText
     case characterLimitExceeded
     case apiError(String)
     case networkError
@@ -570,8 +508,8 @@ enum SpeechifyError: Error, LocalizedError {
         switch self {
         case .apiKeyNotConfigured:
             return "Speechify API key not configured"
-        case .alreadyPlaying:
-            return "Speechify TTS is already playing"
+        case .emptyText:
+            return "Text cannot be empty"
         case .characterLimitExceeded:
             return "Character limit exceeded for this month"
         case .apiError(let message):

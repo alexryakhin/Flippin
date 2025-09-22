@@ -37,7 +37,8 @@ struct AboutView: View {
         }
         .navigation(
             title: Loc.AboutApp.about,
-            mode: .inline(withBackButton: true)
+            mode: .inline,
+            showsBackButton: true
         )
         .ifLet(colorManager.colorScheme) { view, scheme in
             view.colorScheme(scheme)

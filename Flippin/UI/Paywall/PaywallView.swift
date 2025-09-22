@@ -131,7 +131,7 @@ enum Paywall {
             )
             .navigation(
                 title: Loc.PremiumFeatures.goPremium,
-                mode: .inline(withBackButton: false),
+                mode: .inline,
                 trailingContent: {
                     HeaderButton(icon: "xmark") {
                         dismiss()

@@ -15,6 +15,8 @@ public final class CardItem: NSManagedObject, Identifiable {
     @NSManaged public var backText: String?
     @NSManaged public var frontLanguageRaw: String?
     @NSManaged public var backLanguageRaw: String?
+    @NSManaged public var frontAudioURL: String?
+    @NSManaged public var backAudioURL: String?
     @NSManaged public var notes: String?
     @NSManaged public var id: String?
     @NSManaged public var isFavorite: Bool
@@ -47,6 +49,21 @@ public final class CardItem: NSManagedObject, Identifiable {
 
     var tagNames: [String] {
         return tagArray.compactMap { $0.name }.sorted()
+    }
+    
+    /// Returns true if the card has cached audio for both front and back
+    var hasCachedAudio: Bool {
+        return frontAudioURL != nil && backAudioURL != nil
+    }
+    
+    /// Returns true if the card has cached audio for the front text
+    var hasCachedFrontAudio: Bool {
+        return frontAudioURL != nil
+    }
+    
+    /// Returns true if the card has cached audio for the back text
+    var hasCachedBackAudio: Bool {
+        return backAudioURL != nil
     }
 }
 

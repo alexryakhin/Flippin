@@ -46,10 +46,11 @@ struct AddCardSheet: View {
         .safeAreaInset(edge: .bottom) {
             saveButton
         }
-        .background(Color(.systemGroupedBackground))
+        .groupedBackground()
         .navigation(
             title: Loc.NavigationTitles.addNewCard,
-            mode: .inline(withBackButton: true)
+            mode: .inline,
+            showsBackButton: true
         )
         .onAppear {
             AnalyticsService.trackEvent(.addCardScreenOpened)

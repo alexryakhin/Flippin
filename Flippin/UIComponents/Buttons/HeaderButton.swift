@@ -105,8 +105,9 @@ struct HeaderButton: View {
             .padding(.vertical, size.vPadding)
             .foregroundStyle(foregroundColor)
             .background(backgroundColor.gradient)
+            .glassEffectIfAvailable(.regular, in: .capsule)
+            .clipShape(.capsule)
         }
-        .clipShape(Capsule())
         .buttonStyle(.plain)
         .animation(.easeInOut, value: style)
     }

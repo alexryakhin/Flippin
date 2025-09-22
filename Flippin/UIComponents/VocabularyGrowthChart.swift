@@ -60,7 +60,7 @@ struct VocabularyGrowthChart: View {
         tintColor: .blue
     )
     .padding(16)
-    .background(Color(.systemGroupedBackground))
+    .groupedBackground()
 }
 
 #Preview("Growing Vocabulary - Week") {
@@ -81,7 +81,7 @@ struct VocabularyGrowthChart: View {
         tintColor: .green
     )
     .padding(16)
-    .background(Color(.systemGroupedBackground))
+    .groupedBackground()
 }
 
 #Preview("Growing Vocabulary - Month") {
@@ -102,7 +102,7 @@ struct VocabularyGrowthChart: View {
         tintColor: .blue
     )
     .padding(16)
-    .background(Color(.systemGroupedBackground))
+    .groupedBackground()
 }
 
 #Preview("Steady Growth") {
@@ -123,7 +123,7 @@ struct VocabularyGrowthChart: View {
         tintColor: .orange
     )
     .padding(16)
-    .background(Color(.systemGroupedBackground))
+    .groupedBackground()
 }
 
 #Preview("Rapid Growth") {
@@ -144,5 +144,5 @@ struct VocabularyGrowthChart: View {
         tintColor: .purple
     )
     .padding(16)
-    .background(Color(.systemGroupedBackground))
+    .groupedBackground()
 } 

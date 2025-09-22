@@ -86,7 +86,7 @@ struct TagView: View {
         .if(isMaterialBackground) {
             $0.background(.thinMaterial)
         }
-        .clipShape(Capsule())
+        .clipShape(.capsule)
     }
 
     private var backgroundColor: Color {

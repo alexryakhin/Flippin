@@ -122,12 +122,13 @@ struct CardFrontView: View {
                 Button {
                     playTTS()
                 } label: {
-                    Image(systemName: ttsPlayer.isPlaying ? "speaker.wave.2.fill" : "speaker.wave.2")
+                    Image(systemName: "speaker.wave.2")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 24, height: 24)
                 }
-
+                .disabled(ttsPlayer.isPlaying)
+                
                 Spacer()
 
                 Text(Loc.CardViews.flip)
