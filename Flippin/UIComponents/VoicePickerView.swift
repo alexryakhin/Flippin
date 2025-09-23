@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct VoicePickerView: View {
-    @StateObject private var ttsPlayer = TTSPlayer.shared
+    @StateObject private var previewPlayer = SpeechifyTTSPreviewPlayer.shared
     @StateObject private var speechifyService = SpeechifyService.shared
+    @StateObject private var purchaseService = PurchaseService.shared
+
     @State private var searchText = ""
     @State private var selectedLanguage: String?
     @State private var selectedGender: String?
@@ -17,6 +19,13 @@ struct VoicePickerView: View {
     @State private var selectedAge: String?
     @State private var selectedTimbre: String?
     @State private var selectedAccent: String?
+    @State private var premiumFeature: PremiumFeature?
+
+    // Temporary voice selection (not saved until user taps Save)
+    @State private var tempSelectedVoiceId: String = ""
+    
+    // Environment for dismissing the view
+    @Environment(\.dismiss) private var dismiss
 
     var body: some View {
         ScrollView {
@@ -29,9 +38,24 @@ struct VoicePickerView: View {
                 }
         }
         .groupedBackground()
+        .onAppear {
+            // Initialize temporary selection with current voice
+            tempSelectedVoiceId = speechifyService.selectedVoiceId
+            speechifyService.loadVoices()
+        }
         .navigation(
             title: Loc.Tts.Filters.selectVoice,
-            mode: .large,
+            mode: .inline,
+            trailingContent: {
+                HeaderButton(Loc.Buttons.save) {
+                    if purchaseService.hasPremiumAccess {
+                        saveVoiceSelection()
+                    } else {
+                        premiumFeature = .premiumVoices
+                    }
+                }
+                .disabled(tempSelectedVoiceId == speechifyService.selectedVoiceId)
+            },
             bottomContent: {
                 VStack(spacing: 8) {
                     InputView.searchView(
@@ -49,6 +73,7 @@ struct VoicePickerView: View {
                 }
             }
         )
+        .premiumAlert(feature: $premiumFeature)
     }
 
     // MARK: - Voice List
@@ -74,9 +99,9 @@ struct VoicePickerView: View {
                         ForEach(filteredVoices, id: \.id) { voice in
                             VoiceRowView(
                                 voice: voice,
-                                isSelected: speechifyService.selectedVoiceId == voice.id,
+                                isSelected: tempSelectedVoiceId == voice.id,
                                 onSelect: {
-                                    speechifyService.selectVoice(voice.id)
+                                    tempSelectedVoiceId = voice.id
                                 },
                                 onPreview: {
                                     previewVoice(voice)
@@ -150,11 +175,44 @@ struct VoicePickerView: View {
     private func previewVoice(_ voice: SpeechifyVoice) {
         Task {
             do {
-                try await ttsPlayer.previewSpeechifyVoice(voice)
+                guard let previewAudioURL = voice.bestPreviewAudioURL,
+                      let url = URL(string: previewAudioURL) else {
+                    print("❌ No preview audio URL available for voice: \(voice.name)")
+                    return
+                }
+                
+                try await previewPlayer.downloadAndPlayPreview(from: url)
             } catch {
-                errorReceived(error)
+                print("❌ Voice preview failed for \(voice.name): \(error)")
+                // You could add a toast or alert here to show the error to the user
             }
         }
+    }
+    
+    private func saveVoiceSelection() {
+        // Only save if the selection has actually changed
+        guard tempSelectedVoiceId != speechifyService.selectedVoiceId else {
+            dismiss()
+            return
+        }
+        
+        print("🎤 [VoicePickerView] Saving voice selection: \(tempSelectedVoiceId)")
+        
+        // Save the new voice selection
+        speechifyService.selectVoice(tempSelectedVoiceId)
+        
+        // Clear all old Speechify cache since the voice has changed
+        Task {
+            do {
+                try AudioCacheService.shared.clearCache()
+                print("🗑️ [VoicePickerView] Cleared Speechify cache after voice change")
+            } catch {
+                print("❌ [VoicePickerView] Failed to clear Speechify cache: \(error)")
+            }
+        }
+        
+        // Dismiss the view
+        dismiss()
     }
     
     private func languageDisplayName(for language: String) -> String {
@@ -230,10 +288,11 @@ struct VoicePickerView: View {
 
                 // Preview button
                 Button(action: onPreview) {
-                    Image(systemName: "play.circle.fill")
+                    Image(systemName: voice.bestPreviewAudioURL != nil ? "play.circle.fill" : "play.circle.slash")
                         .font(.title2)
-                        .foregroundColor(.blue)
+                        .foregroundColor(voice.bestPreviewAudioURL != nil ? .blue : .secondary)
                 }
+                .disabled(voice.bestPreviewAudioURL == nil)
             }
             .padding(vertical: 12, horizontal: 16)
             .clippedWithBackground(

@@ -176,6 +176,11 @@ enum Paywall {
                     description: Loc.PremiumFeatures.unlimitedCardsDescription
                 ),
                 FeatureModel(
+                    icon: "waveform",
+                    title: "Speechify Premium Voices",
+                    description: "Thousands of high-quality voices to personalize your cards"
+                ),
+                FeatureModel(
                     icon: "folder.fill",
                     title: Loc.PremiumFeatures.collections,
                     description: Loc.PremiumFeatures.collectionsDescription

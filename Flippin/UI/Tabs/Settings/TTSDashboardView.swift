@@ -25,9 +25,6 @@ struct TTSDashboardView: View {
                 // Voice Selection Section
                 voiceSelectionSection
 
-                // Test Section
-                testSection
-
                 // Usage Section
                 usageSection
             }
@@ -96,6 +93,13 @@ struct TTSDashboardView: View {
                             .foregroundStyle(.primary)
                     }
                 }
+                
+                // Cache information
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("Preview Cache Size: \(formatBytes(SpeechifyTTSPreviewPlayer.shared.getCacheSize()))")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
             }
         }
     }
@@ -159,23 +163,6 @@ struct TTSDashboardView: View {
         SpeechifyListeningChart(usageHistory: usageHistory)
     }
 
-    // MARK: - Test Section
-    private var testSection: some View {
-        CustomSectionView(header: "Test TTS", backgroundStyle: .standard) {
-            VStack(alignment: .leading, spacing: 12) {
-                Text("Test your selected voice with a sample text.")
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-
-                AsyncHeaderButton("Test Voice", icon: "play.circle") {
-                    await testTTS()
-                }
-                .disabled(speechifyService.selectedVoice == nil)
-            }
-        }
-    }
-
     // MARK: - Helper Methods
 
     private func loadVoices() {
@@ -184,18 +171,6 @@ struct TTSDashboardView: View {
 
     private func loadUsageHistory() {
         usageHistory = speechifyService.getUsageHistory(months: 6)
-    }
-
-    private func testTTS() async {
-        guard speechifyService.selectedVoice != nil else { return }
-
-        let testText = "Hello, this is a test of the Speechify text-to-speech system."
-
-        do {
-            try await TTSPlayer.shared.play(testText, language: .english)
-        } catch {
-            errorReceived(error)
-        }
     }
 
     private func formatListeningTime(_ minutes: Double) -> String {
@@ -208,6 +183,13 @@ struct TTSDashboardView: View {
             let remainingMinutes = Int(minutes.truncatingRemainder(dividingBy: 60))
             return "\(hours)h \(remainingMinutes)m"
         }
+    }
+    
+    private func formatBytes(_ bytes: Int64) -> String {
+        let formatter = ByteCountFormatter()
+        formatter.allowedUnits = [.useKB, .useMB]
+        formatter.countStyle = .file
+        return formatter.string(fromByteCount: bytes)
     }
 }
 

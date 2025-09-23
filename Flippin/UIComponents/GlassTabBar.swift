@@ -41,7 +41,7 @@ struct GlassTabBar: View {
                             Capsule()
                                 .fill(Color.clear)
                                 .frame(width: tabItemWidth, height: tabItemHeight)
-                                .glassEffectIfAvailable(.regular, in: Capsule())
+                                .glassEffectIfAvailable(.tint(Color(.systemBackground).opacity(0.5)), in: .capsule)
                                 .scaleEffect(isActive ? 1.3 : 1)
                                 .offset(x: dragOffset)
                         } else {
@@ -149,7 +149,7 @@ struct GlassTabBar: View {
         if isGlassAvailable {
             Capsule()
                 .fill(Color.clear)
-                .glassEffectIfAvailable(.regular, in: .capsule)
+                .glassEffectIfAvailable(.tint(Color(.systemBackground).opacity(0.5)), in: .capsule)
         } else {
             ZStack {
                 Capsule()

@@ -59,6 +59,28 @@ enum Language: String, Codable, CaseIterable, Identifiable {
         }
     }
 
+    var speechifyCode: String {
+        switch self {
+        case .english: return "en"
+        case .spanish: return "es-ES"
+        case .french: return "fr-FR"
+        case .german: return "de-DE"
+        case .italian: return "it-IT"
+        case .portuguese: return "pt-BR"
+        case .dutch: return "nl-NL"
+        case .swedish: return "sv-SE"
+        case .chinese: return "zh-CN"
+        case .japanese: return "ja-JP"
+        case .korean: return "ko-KR"
+        case .vietnamese: return "vi-VN"
+        case .russian: return "ru-RU"
+        case .arabic: return "ar-SA"
+        case .hindi: return "hi-IN"
+        case .croatian: return "hr-HR"
+        case .ukranian: return "uk-UA"
+        }
+    }
+
     var displayName: String {
         switch self {
         case .english: return Loc.Languages.english

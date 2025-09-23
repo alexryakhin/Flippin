@@ -21,6 +21,7 @@ final class CardsProvider: ObservableObject {
     private let languageManager = LanguageManager.shared
     private let tagManager = TagManager.shared
     private let audioCacheService = AudioCacheService.shared
+    private let purchaseService = PurchaseService.shared
     private var cancellables = Set<AnyCancellable>()
     private var hasCheckedInitialSync = false
 
@@ -253,12 +254,15 @@ final class CardsProvider: ObservableObject {
             return
         }
         
+        // Determine which provider to use for caching
+        let provider: TTSProvider = purchaseService.hasPremiumAccess ? .speechify : .google
+        
         // Cache front audio
         if !frontText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
             do {
-                let frontAudioURL = try await audioCacheService.cacheAudio(for: frontText, language: frontLanguage)
+                let frontAudioURL = try await audioCacheService.cacheAudio(for: frontText, language: frontLanguage, provider: provider)
                 card.frontAudioURL = frontAudioURL.path
-                print("🎵 [CardsProvider] Cached front audio for card: \(frontText.prefix(30))...")
+                print("🎵 [CardsProvider] Cached front audio (\(provider.rawValue)) for card: \(frontText.prefix(30))...")
             } catch {
                 print("❌ [CardsProvider] Failed to cache front audio: \(error)")
             }
@@ -267,9 +271,9 @@ final class CardsProvider: ObservableObject {
         // Cache back audio
         if !backText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
             do {
-                let backAudioURL = try await audioCacheService.cacheAudio(for: backText, language: backLanguage)
+                let backAudioURL = try await audioCacheService.cacheAudio(for: backText, language: backLanguage, provider: provider)
                 card.backAudioURL = backAudioURL.path
-                print("🎵 [CardsProvider] Cached back audio for card: \(backText.prefix(30))...")
+                print("🎵 [CardsProvider] Cached back audio (\(provider.rawValue)) for card: \(backText.prefix(30))...")
             } catch {
                 print("❌ [CardsProvider] Failed to cache back audio: \(error)")
             }

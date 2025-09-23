@@ -191,9 +191,9 @@ enum GlassEffect {
         case .identity:
             return .identity
         case .tint(let color):
-            return Glass.clear.tint(color)
+            return Glass.regular.tint(color)
         case let .interactive(isEnabled):
-            return Glass.clear.interactive(isEnabled)
+            return Glass.regular.interactive(isEnabled)
         }
     }
 }

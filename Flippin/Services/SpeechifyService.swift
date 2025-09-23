@@ -98,17 +98,34 @@ final class SpeechifyService: NSObject, ObservableObject {
     
     /// Synthesize text using Speechify TTS and return audio data
     func synthesizeText(_ text: String, language: Language) async throws -> Data {
-        guard !text.isEmpty else { throw SpeechifyError.emptyText }
-        guard hasEnoughCharacters(for: text) else { throw SpeechifyError.characterLimitExceeded }
+        print("🎤 [SpeechifyService] synthesizeText() started - Thread: \(Thread.isMainThread ? "Main" : "Background")")
+        print("🎤 [SpeechifyService] Text: '\(text.prefix(50))...', Language: \(language.rawValue)")
+        
+        guard !text.isEmpty else { 
+            print("🎤 [SpeechifyService] Empty text error")
+            throw SpeechifyError.emptyText 
+        }
+        guard hasEnoughCharacters(for: text) else { 
+            print("🎤 [SpeechifyService] Character limit exceeded")
+            throw SpeechifyError.characterLimitExceeded 
+        }
 
         do {
+            print("🎤 [SpeechifyService] Calling synthesizeSpeech()...")
             let audioData = try await synthesizeSpeech(text: text, language: language)
-            print("🎤 Speechify TTS synthesized: \(text.count) characters")
+            print("🎤 [SpeechifyService] synthesizeSpeech() completed, got \(audioData.count) bytes")
+            print("🎤 [SpeechifyService] Speechify TTS synthesized: \(text.count) characters")
             return audioData
         } catch {
-            print("❌ Speechify TTS failed: \(error)")
+            print("❌ [SpeechifyService] Speechify TTS failed: \(error)")
             throw error
         }
+    }
+    
+    /// Check if we have enough characters without making an API call
+    func canSynthesizeText(_ text: String) -> Bool {
+        guard !text.isEmpty else { return false }
+        return hasEnoughCharacters(for: text)
     }
     
     /// Get current usage statistics and sync with CoreData
@@ -149,13 +166,10 @@ final class SpeechifyService: NSObject, ObservableObject {
         return availableVoices.first { $0.id == selectedVoiceId }
     }
     
-    // MARK: - Private Methods
-    
-    func getAvailableVoices() throws -> [SpeechifyVoice] {
-        return try Bundle.main.decode("speechify-voices.json")
-    }
-
-    private func synthesizeSpeech(text: String, language: Language) async throws -> Data {
+    /// Debug method to test API response parsing
+    func debugTestAPIResponse(_ text: String, language: Language) async throws {
+        print("🔍 [SpeechifyService] DEBUG: Testing API response parsing...")
+        
         guard let apiKey = getAPIKey() else {
             throw SpeechifyError.apiKeyNotConfigured
         }
@@ -165,25 +179,101 @@ final class SpeechifyService: NSObject, ObservableObject {
         request.httpMethod = "POST"
         request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.timeoutInterval = 10.0 // Short timeout for debugging
         
         let ttsRequest = SpeechifyTTSRequest(
             input: text,
             voiceId: selectedVoiceId,
-            audioFormat: "wav",
-            language: language.rawValue,
+            audioFormat: "mp3",
+            language: language.speechifyCode,
             model: "simba-multilingual"
         )
         
         request.httpBody = try JSONEncoder().encode(ttsRequest)
         
+        print("🔍 [SpeechifyService] DEBUG: Making API request...")
         let (data, response) = try await URLSession.shared.data(for: request)
+        
+        print("🔍 [SpeechifyService] DEBUG: Got response with \(data.count) bytes")
+        print("🔍 [SpeechifyService] DEBUG: Response preview: \(String(data: data.prefix(200), encoding: .utf8) ?? "Invalid UTF-8")")
+        
+        if let httpResponse = response as? HTTPURLResponse {
+            print("🔍 [SpeechifyService] DEBUG: HTTP status: \(httpResponse.statusCode)")
+        }
+    }
+    
+    // MARK: - Private Methods
+    
+    func getAvailableVoices() throws -> [SpeechifyVoice] {
+        return try Bundle.main.decode("speechify-voices.json")
+    }
+
+    private func synthesizeSpeech(text: String, language: Language) async throws -> Data {
+        print("🎤 [SpeechifyService] synthesizeSpeech() started - Thread: \(Thread.isMainThread ? "Main" : "Background")")
+        
+        guard let apiKey = getAPIKey() else {
+            print("🎤 [SpeechifyService] API key not configured")
+            throw SpeechifyError.apiKeyNotConfigured
+        }
+        
+        print("🎤 [SpeechifyService] API key found, creating request...")
+        let url = URL(string: "\(baseURL)/v1/audio/speech")!
+        var request = URLRequest(url: url, cachePolicy: cachePolicy)
+        request.httpMethod = "POST"
+        request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.timeoutInterval = 30.0 // 30 second timeout
+        
+        let ttsRequest = SpeechifyTTSRequest(
+            input: text,
+            voiceId: selectedVoiceId,
+            audioFormat: "mp3",
+            language: language.rawValue,
+            model: "simba-multilingual"
+        )
+        
+        print("🎤 [SpeechifyService] Encoding request body...")
+        request.httpBody = try JSONEncoder().encode(ttsRequest)
+        
+        print("🎤 [SpeechifyService] Making API request to Speechify...")
+        
+        // Add timeout protection to prevent UI freezing
+        let (data, response) = try await withThrowingTaskGroup(of: (Data, URLResponse).self) { group in
+            group.addTask {
+                try await URLSession.shared.data(for: request)
+            }
+            
+            group.addTask {
+                try await Task.sleep(nanoseconds: 15_000_000_000) // 15 second timeout
+                throw SpeechifyError.apiError("Request timeout after 15 seconds")
+            }
+            
+            guard let result = try await group.next() else {
+                throw SpeechifyError.apiError("No response received")
+            }
+            
+            group.cancelAll()
+            return result
+        }
+        print("🎤 [SpeechifyService] API request completed, got \(data.count) bytes")
         
         guard let httpResponse = response as? HTTPURLResponse,
               httpResponse.statusCode == 200 else {
+            print("🎤 [SpeechifyService] API request failed with status: \((response as? HTTPURLResponse)?.statusCode ?? -1)")
             throw SpeechifyError.apiError("Failed to synthesize speech")
         }
         
-        let ttsResponse = try JSONDecoder().decode(SpeechifyTTSResponse.self, from: data)
+        print("🎤 [SpeechifyService] Decoding response...")
+        print("🎤 [SpeechifyService] Response data size: \(data.count) bytes")
+        
+        let ttsResponse: SpeechifyTTSResponse
+        do {
+            ttsResponse = try JSONDecoder().decode(SpeechifyTTSResponse.self, from: data)
+        } catch {
+            print("🎤 [SpeechifyService] JSON decode failed: \(error)")
+            print("🎤 [SpeechifyService] Response preview: \(String(data: data.prefix(200), encoding: .utf8) ?? "Invalid UTF-8")")
+            throw SpeechifyError.apiError("Failed to decode API response: \(error.localizedDescription)")
+        }
         
         // Update character usage with actual billable count from API
         await MainActor.run {
@@ -193,10 +283,24 @@ final class SpeechifyService: NSObject, ObservableObject {
         
         // Decode base64 audio data
         guard let audioData = Data(base64Encoded: ttsResponse.audioData) else {
-            throw SpeechifyError.apiError("Failed to decode audio data")
+            print("🎤 [SpeechifyService] Base64 decode failed for audio data")
+            print("🎤 [SpeechifyService] Audio data string length: \(ttsResponse.audioData.count)")
+            print("🎤 [SpeechifyService] Audio data preview: \(ttsResponse.audioData.prefix(100))")
+            throw SpeechifyError.apiError("Failed to decode base64 audio data")
         }
         
-        return audioData
+        print("🎤 [SpeechifyService] Audio format: \(ttsResponse.audioFormat), Size: \(audioData.count) bytes")
+        
+        // Try to validate the audio data
+        do {
+            let testPlayer = try AVAudioPlayer(data: audioData)
+            print("🎤 [SpeechifyService] Audio data validation successful")
+            return audioData
+        } catch {
+            print("🎤 [SpeechifyService] Audio data validation failed: \(error)")
+            // Try to convert the audio format if possible
+            return try await convertAudioFormat(audioData, from: ttsResponse.audioFormat)
+        }
     }
     
     private func fetchUsageFromAPI() async throws -> SpeechifyUsageResponse {
@@ -218,6 +322,37 @@ final class SpeechifyService: NSObject, ObservableObject {
         
         let usage = try JSONDecoder().decode(SpeechifyUsageResponse.self, from: data)
         return usage
+    }
+    
+    /// Converts audio data to a format compatible with AVAudioPlayer
+    private func convertAudioFormat(_ audioData: Data, from format: String) async throws -> Data {
+        print("🎤 [SpeechifyService] Attempting to convert audio from \(format) to compatible format")
+        
+        // For now, we'll try to save the audio to a temporary file and re-read it
+        // This sometimes helps with format issues
+        let tempURL = FileManager.default.temporaryDirectory.appendingPathComponent("temp_audio_\(UUID().uuidString).\(format)")
+        
+        do {
+            // Write to temporary file
+            try audioData.write(to: tempURL)
+            
+            // Try to read it back with AVAudioPlayer
+            let convertedPlayer = try AVAudioPlayer(contentsOf: tempURL)
+            print("🎤 [SpeechifyService] Audio conversion successful")
+            
+            // Clean up temp file
+            try? FileManager.default.removeItem(at: tempURL)
+            
+            return audioData // Return original data if file-based player works
+        } catch {
+            print("🎤 [SpeechifyService] Audio conversion failed: \(error)")
+            
+            // Clean up temp file
+            try? FileManager.default.removeItem(at: tempURL)
+            
+            // If conversion fails, throw the original error
+            throw SpeechifyError.apiError("Audio format not supported: \(format)")
+        }
     }
     
     

@@ -33,6 +33,7 @@ enum NavigationTitleMode: Hashable {
 struct NavigationTitleModifier<TrailingContent: View, BottomContent: View>: ViewModifier {
 
     @Environment(\.dismiss) var dismiss
+    @StateObject private var colorManager: ColorManager = .shared
 
     let title: String
     let mode: NavigationTitleMode
@@ -69,15 +70,19 @@ struct NavigationTitleModifier<TrailingContent: View, BottomContent: View>: View
                     bottomContent()
                 }
                 .padding(vertical: 12, horizontal: 16)
-                .glassBackgroundEffectIfAvailable(.regular, in: RoundedRectangle(cornerRadius: 32))
+                .glassBackgroundEffectIfAvailable(
+                    .tint(Color(.systemBackground).opacity(0.5)),
+                    in: RoundedRectangle(cornerRadius: 32)
+                )
+                .clipShape(RoundedRectangle(cornerRadius: 32))
                 .if(isGlassAvailable == false) {
                     $0
                         .clippedWithBackgroundMaterial(
                             .regular,
                             in: .rect(cornerRadius: 32)
                         )
-                        .shadow(radius: 2)
                 }
+                .shadow(radius: 2)
                 .padding(vertical: vPadding, horizontal: hPadding)
             }
     }

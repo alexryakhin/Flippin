@@ -12,6 +12,7 @@ import SwiftUI
  */
 enum PremiumFeature: String, CaseIterable {
     case unlimitedCards = "unlimited_cards"
+    case premiumVoices = "premium_voices"
     case advancedAnalytics = "advanced_analytics"
     case customThemes = "custom_themes"
     case studyModes = "study_modes"
@@ -22,6 +23,8 @@ enum PremiumFeature: String, CaseIterable {
         switch self {
         case .unlimitedCards:
             return Loc.Paywall.unlimitedCardsTitle
+        case .premiumVoices:
+            return "Premium voices"
         case .advancedAnalytics:
             return Loc.Paywall.advancedAnalyticsTitle
         case .customThemes:
@@ -39,6 +42,8 @@ enum PremiumFeature: String, CaseIterable {
         switch self {
         case .unlimitedCards:
             return Loc.Paywall.unlimitedCardsMessage
+        case .premiumVoices:
+            return "Enjoy high-quality audio for all your flashcards!"
         case .advancedAnalytics:
             return Loc.Paywall.advancedAnalyticsMessage
         case .customThemes:

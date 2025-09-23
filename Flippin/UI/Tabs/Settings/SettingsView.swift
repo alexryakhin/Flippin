@@ -20,6 +20,7 @@ struct SettingsView: View {
 
     @State private var newTagText = ""
     @State private var premiumFeature: PremiumFeature?
+    @State private var showingVoicePicker = false
 
     var body: some View {
         ScrollView {
@@ -267,13 +268,12 @@ struct SettingsView: View {
     }
     
     // MARK: - TTS Dashboard Section
-    @ViewBuilder
     private var ttsDashboardSection: some View {
-        if purchaseService.hasPremiumAccess {
-            CustomSectionView(
-                header: "Text-to-Speech"
-            ) {
-                VStack(alignment: .leading, spacing: 12) {
+        CustomSectionView(
+            header: "Text-to-Speech"
+        ) {
+            VStack(alignment: .leading, spacing: 12) {
+                if purchaseService.hasPremiumAccess {
                     Text("Configure Speechify TTS for premium voice quality")
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
@@ -285,8 +285,23 @@ struct SettingsView: View {
                     ) {
                         navigationManager.navigate(to: .ttsDashboard)
                     }
+                } else {
+                    Text("Preview premium voices and configure TTS settings")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+
+                    HeaderButton(
+                        "TTS Preview",
+                        icon: "speaker.wave.3"
+                    ) {
+                        showingVoicePicker = true
+                    }
                 }
             }
+        }
+        .sheet(isPresented: $showingVoicePicker) {
+            VoicePickerView()
         }
     }
     
