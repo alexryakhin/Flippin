@@ -17,6 +17,8 @@ public final class CardItem: NSManagedObject, Identifiable {
     @NSManaged public var backLanguageRaw: String?
     @NSManaged public var frontAudioURL: String?
     @NSManaged public var backAudioURL: String?
+    @NSManaged public var imageURL: String?
+    @NSManaged public var imageCacheURL: String?
     @NSManaged public var notes: String?
     @NSManaged public var id: String?
     @NSManaged public var isFavorite: Bool
@@ -64,6 +66,16 @@ public final class CardItem: NSManagedObject, Identifiable {
     /// Returns true if the card has cached audio for the back text
     var hasCachedBackAudio: Bool {
         return backAudioURL != nil
+    }
+    
+    /// Returns true if the card has an image
+    var hasImage: Bool {
+        return imageURL != nil
+    }
+    
+    /// Returns true if the card has a cached image
+    var hasCachedImage: Bool {
+        return imageCacheURL != nil
     }
 }
 

@@ -96,7 +96,17 @@ final class CardsProvider: ObservableObject {
     }
 
     /// Adds a new card to Core Data with limit checking
-    func addCard(frontText: String, backText: String, notes: String, tags: [String] = []) throws {
+    /// - Parameters:
+    ///   - imageUrl: The web URL for the image (for fallback)
+    ///   - imageCacheURL: The local relative path for the cached image
+    func addCard(
+        frontText: String,
+        backText: String,
+        notes: String,
+        tags: [String] = [],
+        imageUrl: String? = nil,
+        imageCacheURL: String? = nil
+    ) throws {
         // Check if adding this card would exceed the limit
         if wouldExceedLimit {
             throw CardLimitError.limitExceeded(
@@ -120,6 +130,14 @@ final class CardsProvider: ObservableObject {
                 card.addToTags(tag)
             }
         }
+        
+        // Handle image if provided (both URLs should be set for proper fallback)
+        if let imageUrl = imageUrl, let imageCacheURL = imageCacheURL {
+            card.imageURL = imageUrl // Web URL for fallback
+            card.imageCacheURL = imageCacheURL // Local path for cache
+            print("🖼️ [CardsProvider] Image attached to card - URL: \(imageUrl), Cache: \(imageCacheURL)")
+        }
+        
         saveContext()
         fetchCards()
 
@@ -164,6 +182,17 @@ final class CardsProvider: ObservableObject {
 
     /// Removes a card from Core Data
     func deleteCard(_ card: CardItem) {
+        // Clean up cached image if it exists
+        if let imageCacheURL = card.imageCacheURL, !imageCacheURL.isEmpty {
+            do {
+                try PexelsService.shared.deleteImage(at: imageCacheURL)
+                print("🗑️ [CardsProvider] Deleted cached image: \(imageCacheURL)")
+            } catch {
+                print("⚠️ [CardsProvider] Failed to delete cached image: \(error)")
+                // Continue with card deletion even if image cleanup fails
+            }
+        }
+        
         coreDataService.context.delete(card)
         if let index = cards.firstIndex(of: card) {
             cards.remove(at: index)
@@ -176,6 +205,17 @@ final class CardsProvider: ObservableObject {
     /// Removes all cards from Core Data
     func deleteAllCards() {
         for card in cards {
+            // Clean up cached image if it exists
+            if let imageCacheURL = card.imageCacheURL, !imageCacheURL.isEmpty {
+                do {
+                    try PexelsService.shared.deleteImage(at: imageCacheURL)
+                    print("🗑️ [CardsProvider] Deleted cached image: \(imageCacheURL)")
+                } catch {
+                    print("⚠️ [CardsProvider] Failed to delete cached image: \(error)")
+                    // Continue with deletion even if image cleanup fails
+                }
+            }
+            
             coreDataService.context.delete(card)
         }
         saveContext()
@@ -282,6 +322,7 @@ final class CardsProvider: ObservableObject {
         // Save the updated URLs to Core Data
         saveContext()
     }
+    
 }
 
 // MARK: - Card Limit Error

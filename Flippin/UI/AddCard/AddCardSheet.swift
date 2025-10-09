@@ -29,6 +29,8 @@ struct AddCardSheet: View {
     @FocusState private var isUserLanguageTextFieldFocused: Bool
     @FocusState private var isTargetLanguageTextFieldFocused: Bool
     @FocusState private var isNotesTextFieldFocused: Bool
+    
+    @State private var showingImageSearch = false
 
     // MARK: - Body
     
@@ -38,6 +40,7 @@ struct AddCardSheet: View {
                 languageSelectionSection
                 translationSection
                 notesSection
+                imageSection
                 tagsSection
                 FeaturedPresetCollections(bgStyle: .standard)
             }
@@ -59,6 +62,13 @@ struct AddCardSheet: View {
             view.colorScheme(scheme)
         }
         .interactiveDismissDisabled()
+        .sheet(isPresented: $showingImageSearch) {
+            ImageSearchView(
+                cardIdentifier: viewModel.targetText.isEmpty ? "new_card" : viewModel.targetText
+            ) { imageUrl, localPath in
+                viewModel.setSelectedImage(imageUrl: imageUrl, localPath: localPath)
+            }
+        }
     }
 
     // MARK: - UI Components
@@ -164,6 +174,69 @@ struct AddCardSheet: View {
             if isNotesTextFieldFocused {
                 SectionHeaderButton(Loc.Buttons.done) {
                     UIApplication.shared.endEditing()
+                }
+            }
+        }
+    }
+    
+    private var imageSection: some View {
+        CustomSectionView(
+            header: "Image",
+            backgroundStyle: .standard
+        ) {
+            VStack(spacing: 12) {
+                if let imageCacheURL = viewModel.selectedImageCacheURL,
+                   let image = PexelsService.shared.getImageFromLocalPath(imageCacheURL) {
+                    // Show selected image from cache
+                    HStack(spacing: 12) {
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 60, height: 60)
+                            .cornerRadius(8)
+                            .clipped()
+                        
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("Image Attached")
+                                .font(.subheadline)
+                                .fontWeight(.medium)
+                            
+                            Text("Tap to change")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                        
+                        Spacer()
+                        
+                        Button("Remove") {
+                            viewModel.clearSelectedImage()
+                        }
+                        .font(.caption)
+                        .foregroundColor(.red)
+                    }
+                    .onTapGesture {
+                        showingImageSearch = true
+                    }
+                } else {
+                    // Show add image button
+                    Button(action: {
+                        showingImageSearch = true
+                    }) {
+                        HStack(spacing: 8) {
+                            Image(systemName: "photo")
+                                .font(.title2)
+                                .foregroundColor(colorManager.tintColor)
+                            
+                            Text("Add Image")
+                                .font(.subheadline)
+                                .foregroundColor(colorManager.tintColor)
+                        }
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 12)
+                        .background(colorManager.tintColor.opacity(0.1))
+                        .cornerRadius(8)
+                    }
+                    .buttonStyle(PlainButtonStyle())
                 }
             }
         }

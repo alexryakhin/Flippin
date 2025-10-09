@@ -21,84 +21,105 @@ struct CardView: View {
     // MARK: - State Variables
     
     @State private var isFlipped = false
-    @State private var animationStart: Date? = nil
-    @State private var animationDirection: CGFloat = 1 // 1 for forward, -1 for backward
+    @State private var cardRotation = 0.0
+    @State private var contentRotation = 0.0
+    @State private var showingDeleteAlert = false
 
-    // MARK: - Constants
-    
-    private let animationDuration: Double = 0.5 // seconds
-    
-    // MARK: - Properties
-    
-    private let card: CardItem
+    @StateObject private var card: CardItem
 
     // MARK: - Initialization
     
     init(card: CardItem) {
-        self.card = card
+        self._card = .init(wrappedValue: card)
     }
 
     // MARK: - Body
     
     var body: some View {
-        TimelineView(.animation) { context in
-            let now = context.date
-            let start = animationStart ?? now
-            let progress = min(max(now.timeIntervalSince(start) / animationDuration, 0), 1)
-            let baseAngle: CGFloat = isFlipped ? 180 : 0
-            let direction = animationDirection
-            
-            var animatedAngle: CGFloat {
-                if animationStart != nil && progress < 1 {
-                    baseAngle + direction * 180 * CGFloat(progress)
-                } else {
-                    isFlipped ? 180 : 0
-                }
-            }
-
-            VStack {
-                if animatedAngle <= 90 {
-                    CardFrontView(card: card)
-                } else {
-                    CardBackView(card: card)
-                        .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
-                }
-            }
-            .padding(24)
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .contentShape(.rect(cornerRadius: 20))
-            .glassBackgroundEffectIfAvailableWithBackup(.regular, in: .rect(cornerRadius: 20))
-            .clipShape(.rect(cornerRadius: 20))
-            .rotation3DEffect(.degrees(animatedAngle), axis: (x: 0, y: 1, z: 0))
-            .shadow(color: Color(.separator), radius: 1)
-            .onTapGesture {
-                if animationStart == nil {
-                    animationDirection = isFlipped ? -1 : 1
-                    animationStart = now
-                    
-                    // Haptic feedback for card flip
-                    HapticService.shared.cardFlipped()
-                    
-                    // Track card flip event
-                    AnalyticsService.trackCardEvent(
-                        .cardFlipped,
-                        cardLanguage: card.frontLanguage?.rawValue,
-                        hasTags: !card.tagNames.isEmpty,
-                        tagCount: card.tagNames.count
-                    )
-                    
-                    // Start study session if not already started
-                    if LearningAnalyticsService.shared.currentSession == nil {
-                        LearningAnalyticsService.shared.startStudySession()
-                    }
-                }
-            }
-            .onChange(of: progress) { _, newProgress in
-                if newProgress >= 1, animationStart != nil {
-                    isFlipped.toggle()
-                    animationStart = nil
-                }
+        ZStack {
+            if isFlipped {
+                CardBackView(card: card)
+            } else {
+                CardFrontView(card: card)
             }
         }
+        .padding(24)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .contentShape(.rect(cornerRadius: 20))
+        .glassBackgroundEffectIfAvailableWithBackup(.regular, in: .rect(cornerRadius: 20))
+        .clipShape(.rect(cornerRadius: 20))
+        .overlay {
+            if #unavailable(iOS 26.0) {
+                RoundedRectangle(cornerRadius: 20)
+                    .stroke(.separator, lineWidth: 1)
+            }
+        }
+        .rotation3DEffect(.degrees(contentRotation), axis: (x: 0, y: 1, z: 0))
+        .rotation3DEffect(.degrees(cardRotation), axis: (x: 0, y: 1, z: 0))
+        .onTapGesture {
+            flipCard()
+        }
+        .contextMenu {
+            Button {
+                HapticService.shared.buttonTapped()
+                editCard()
+            } label: {
+                Label(Loc.Buttons.edit, systemImage: "pencil")
+            }
+            Button {
+                HapticService.shared.buttonTapped()
+                showingDeleteAlert = true
+            } label: {
+                Label(Loc.Buttons.delete, systemImage: "trash")
+            }
+            .tint(.red)
+        }
+        .alert(Loc.Buttons.deleteCard, isPresented: $showingDeleteAlert) {
+            Button(Loc.Buttons.delete, role: .destructive) {
+                deleteCard()
+            }
+            Button(Loc.Buttons.cancel, role: .cancel) { }
+        } message: {
+            Text(Loc.Buttons.deleteCardConfirmation)
+        }
+    }
+    
+    // MARK: - Actions
+    
+    private func flipCard() {
+        let animationTime = 0.5
+
+        withAnimation(.easeInOut(duration: animationTime)) {
+            if isFlipped { cardRotation += 180 } else { cardRotation -= 180 }
+        }
+        
+        withAnimation(.easeInOut(duration: 0.001).delay(animationTime / 2)) {
+            if isFlipped { contentRotation += 180 } else { contentRotation -= 180 }
+            isFlipped.toggle()
+        }
+
+        // Haptic feedback for card flip
+        HapticService.shared.cardFlipped()
+
+        // Track card flip event
+        AnalyticsService.trackCardEvent(
+            .cardFlipped,
+            cardLanguage: card.frontLanguage?.rawValue,
+            hasTags: !card.tagNames.isEmpty,
+            tagCount: card.tagNames.count
+        )
+
+        // Start study session if not already started
+        if LearningAnalyticsService.shared.currentSession == nil {
+            LearningAnalyticsService.shared.startStudySession()
+        }
+    }
+    
+    private func editCard() {
+        NavigationManager.shared.navigate(to: .editCard(card))
+    }
+    
+    private func deleteCard() {
+        cardsProvider.deleteCard(card)
     }
 }

@@ -115,6 +115,9 @@ enum CardStackTab {
                 LearningAnalyticsService.shared.endStudySession()
             }
             .premiumAlert(feature: $premiumFeature)
+            .background {
+                AnimatedBackground(style: colorManager.backgroundStyle)
+            }
         }
 
         // MARK: - Card Stack Views

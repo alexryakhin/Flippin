@@ -55,6 +55,15 @@ struct CardFrontView: View {
 
         return color.opacity(0.5)
     }
+    
+    private var cardImageView: some View {
+        CachedCardImageView(
+            localPath: card.imageCacheURL,
+            webUrl: card.imageURL,
+            maxHeight: 200,
+            cornerRadius: 12
+        )
+    }
 
     // MARK: - Body
     
@@ -90,6 +99,11 @@ struct CardFrontView: View {
                 .foregroundStyle(.primary)
                 .fontWeight(.bold)
                 .multilineTextAlignment(.center)
+
+            // Image section
+            if card.hasImage {
+                cardImageView
+            }
 
             // Notes section
             if !card.notes.orEmpty.isEmpty {

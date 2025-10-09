@@ -19,6 +19,8 @@ final class AddCardSheetViewModel: ObservableObject {
     @Published var notes: String = ""
     @Published var showingLimitAlert = false
     @Published var limitAlertMessage = ""
+    @Published var selectedImageUrl: String?
+    @Published var selectedImageCacheURL: String?
 
     private var cancellables = Set<AnyCancellable>()
     private let tagManager = TagManager.shared
@@ -105,7 +107,9 @@ final class AddCardSheetViewModel: ObservableObject {
                 frontText: trimmedTarget,
                 backText: trimmedNative,
                 notes: trimmedNotes.isEmpty ? "" : trimmedNotes,
-                tags: selectedTags.map(\.name.orEmpty)
+                tags: selectedTags.map(\.name.orEmpty),
+                imageUrl: selectedImageUrl,
+                imageCacheURL: selectedImageCacheURL
             )
         } catch let error as CardLimitError {
             limitAlertMessage = error.localizedDescription
@@ -116,6 +120,20 @@ final class AddCardSheetViewModel: ObservableObject {
         }
     }
 
+    func setSelectedImage(imageUrl: String, localPath: String) {
+        selectedImageUrl = imageUrl
+        selectedImageCacheURL = localPath
+    }
+    
+    func clearSelectedImage() {
+        // Delete the cached image file if it exists
+        if let imageCacheURL = selectedImageCacheURL {
+            try? PexelsService.shared.deleteImage(at: imageCacheURL)
+        }
+        selectedImageUrl = nil
+        selectedImageCacheURL = nil
+    }
+    
     func cancel() {
         cancellables.removeAll()
     }

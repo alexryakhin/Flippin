@@ -7,5 +7,7 @@
 		<string>remote-notification</string>
 		<string>fetch</string>
 	</array>
+	<key>PEXELS_API_KEY</key>
+	<string>563492ad6f9170000100000126e48586a278499298d539010fe7b7ca</string>
 </dict>
 </plist>

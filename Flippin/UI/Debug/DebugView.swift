@@ -111,6 +111,18 @@ struct DebugView: View {
                 }
 
                 HStack {
+                    Text("Cards with Images")
+                        .font(.subheadline)
+                        .foregroundStyle(.primary)
+
+                    Spacer()
+
+                    Text("\(cardsProvider.cards.filter(\.hasImage).count)")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                }
+
+                HStack {
                     Text("Card Limit")
                         .font(.subheadline)
                         .foregroundStyle(.primary)
@@ -227,6 +239,14 @@ struct DebugView: View {
                         try AudioCacheService.shared.clearCache()
                     } catch {
                         print("Failed to clear audio cache: \(error)")
+                    }
+                }
+
+                HeaderButton("Clear Image Cache", role: .destructive) {
+                    do {
+                        try ImageCacheService.shared.clearCache()
+                    } catch {
+                        print("Failed to clear image cache: \(error)")
                     }
                 }
 

@@ -16,6 +16,8 @@ final class EditCardSheetViewModel: ObservableObject {
     @Published var isTranslating: Bool = false
     @Published var newTagText: String = ""
     @Published var notes: String = ""
+    @Published var selectedImageUrl: String?
+    @Published var selectedImageCacheURL: String?
     
     private var cancellables = Set<AnyCancellable>()
     private let tagManager = TagManager.shared
@@ -97,6 +99,17 @@ final class EditCardSheetViewModel: ObservableObject {
         card.backText = trimmedNative
         card.notes = trimmedNotes
 
+        // Handle image if provided
+        if let imageUrl = selectedImageUrl, let imageCacheURL = selectedImageCacheURL {
+            // Delete old image if it exists and is different
+            if let oldCacheURL = card.imageCacheURL, oldCacheURL != imageCacheURL {
+                try? PexelsService.shared.deleteImage(at: oldCacheURL)
+            }
+            
+            card.imageURL = imageUrl
+            card.imageCacheURL = imageCacheURL
+        }
+
         AnalyticsService.trackCardEvent(
             .cardEdited,
             cardLanguage: card.frontLanguage?.rawValue,
@@ -104,6 +117,25 @@ final class EditCardSheetViewModel: ObservableObject {
             tagCount: card.tagNames.count
         )
 
+        try? CoreDataService.shared.saveContext()
+        objectWillChange.send()
+    }
+    
+    func setSelectedImage(imageUrl: String, localPath: String) {
+        selectedImageUrl = imageUrl
+        selectedImageCacheURL = localPath
+    }
+    
+    func clearSelectedImage() {
+        // Delete the cached image file if it exists
+        if let imageCacheURL = card.imageCacheURL {
+            try? PexelsService.shared.deleteImage(at: imageCacheURL)
+        }
+        
+        selectedImageUrl = nil
+        selectedImageCacheURL = nil
+        card.imageURL = nil
+        card.imageCacheURL = nil
         try? CoreDataService.shared.saveContext()
         objectWillChange.send()
     }

@@ -27,30 +27,55 @@ struct MainTabView: View {
     // MARK: - Body
 
     var body: some View {
+        if #available(iOS 26, *) {
+            nativeTabBarContent
+        } else {
+            tabBarImitationContent
+        }
+    }
+    
+    // MARK: - Native TabBar Content (iOS 26+)
+    
+    @available(iOS 26, *)
+    private var nativeTabBarContent: some View {
         NavigationStack(path: $navigationManager.navigationPath) {
-            ZStack {
-                AnimatedBackground(style: colorManager.backgroundStyle)
-                VStack {
-                    switch navigationManager.selectedTab {
-                    case .study:
-                        CardStackTab.ContentView()
-                    case .practice:
-                        PracticeTab.ContentView()
-                    case .analytics:
-                        AnalyticsTab.ContentView()
-                    case .settings:
-                        SettingsView()
+            TabView(selection: $navigationManager.selectedTab) {
+                CardStackTab.ContentView()
+                    .tabItem {
+                        TabBarItem.study.imageSelected
+                        Text(TabBarItem.study.title)
                     }
-                }
+                    .tag(TabBarItem.study)
+
+                PracticeTab.ContentView()
+                    .tabItem {
+                        TabBarItem.practice.image
+                        Text(TabBarItem.practice.title)
+                    }
+                    .tag(TabBarItem.practice)
+
+                AnalyticsTab.ContentView()
+                    .tabItem {
+                        TabBarItem.analytics.image
+                        Text(TabBarItem.analytics.title)
+                    }
+                    .tag(TabBarItem.analytics)
+
+                SettingsView()
+                    .tabItem {
+                        TabBarItem.settings.image
+                        Text(TabBarItem.settings.title)
+                    }
+                    .tag(TabBarItem.settings)
             }
-            .safeAreaInset(edge: .bottom) {
-                tabBarView
-            }
-            .animation(.easeInOut, value: navigationManager.selectedTab)
+            .tint(colorManager.tintColor)
             .ifLet(colorManager.colorScheme) { view, scheme in
                 view.colorScheme(scheme)
             }
-            .tint(colorManager.tintColor)
+            .environment(\.horizontalSizeClass, .compact)
+            .navigationDestination(for: NavigationDestination.self) { destination in
+                destinationView(for: destination)
+            }
             .onAppear {
                 if !didShowWelcomeSheet {
                     showWelcomeSheet = true
@@ -67,33 +92,86 @@ struct MainTabView: View {
                 .interactiveDismissDisabled()
             }
             .premiumAlert(feature: $premiumFeature)
-            .navigationDestination(for: NavigationDestination.self) { destination in
-                switch destination {
-                case .addCard:
-                    AddCardSheet()
-                case .editCard(let card):
-                    EditCardSheet(card: card)
-                case .cardManagement:
-                    MyCardsListView()
-                case .presetCollections:
-                    PresetCollectionsView()
-                case .detailedAnalytics:
-                    DetailedAnalytics.ContentView()
-                case .backgroundPreview:
-                    BackgroundPreviewView()
-                case .backgroundDemo:
-                    BackgroundDemoView()
-                case .about:
-                    AboutView()
-                case .ttsDashboard:
-                    TTSDashboardView()
+        }
+    }
+    
+    // MARK: - TabBar Imitation (iOS 18 and below)
+
+    private var tabBarImitationContent: some View {
+        NavigationStack(path: $navigationManager.navigationPath) {
+            ZStack {
+                Color.clear
+                VStack {
+                    switch navigationManager.selectedTab {
+                    case .study:
+                        CardStackTab.ContentView()
+                    case .practice:
+                        PracticeTab.ContentView()
+                    case .analytics:
+                        AnalyticsTab.ContentView()
+                    case .settings:
+                        SettingsView()
+                    }
                 }
+                .animation(.easeInOut, value: navigationManager.selectedTab)
+            }
+            .safeAreaInset(edge: .bottom) {
+                tabBarView
+                    .padding(.bottom, 8)
+            }
+            .navigationDestination(for: NavigationDestination.self) { destination in
+                destinationView(for: destination)
             }
         }
+        .ignoresSafeArea()
+        .ifLet(colorManager.colorScheme) { view, scheme in
+            view.colorScheme(scheme)
+        }
+        .tint(colorManager.tintColor)
+        .onAppear {
+            if !didShowWelcomeSheet {
+                showWelcomeSheet = true
+                AnalyticsService.trackEvent(.welcomeScreenOpened)
+            }
+        }
+        .sheet(isPresented: $showWelcomeSheet) {
+            WelcomeSheet.ContentView(
+                onContinue: {
+                    didShowWelcomeSheet = true
+                    showWelcomeSheet = false
+                }
+            )
+            .interactiveDismissDisabled()
+        }
+        .premiumAlert(feature: $premiumFeature)
     }
 
     private var tabBarView: some View {
         GlassTabBar(activeTab: $navigationManager.selectedTab)
+    }
+    
+    @ViewBuilder
+    private func destinationView(for destination: NavigationDestination) -> some View {
+        switch destination {
+        case .addCard:
+            AddCardSheet()
+        case .editCard(let card):
+            EditCardSheet(card: card)
+        case .cardManagement:
+            MyCardsListView()
+        case .presetCollections:
+            PresetCollectionsView()
+        case .detailedAnalytics:
+            DetailedAnalytics.ContentView()
+        case .backgroundPreview:
+            BackgroundPreviewView()
+        case .backgroundDemo:
+            BackgroundDemoView()
+        case .about:
+            AboutView()
+        case .ttsDashboard:
+            TTSDashboardView()
+        }
     }
 }
 

@@ -55,7 +55,8 @@ enum PracticeTab {
                 }
                 .padding(16)
                 .if(isPad) { view in
-                    view.frame(maxWidth: 500, alignment: .center)
+                    view.frame(maxWidth: 550, alignment: .center)
+                        .frame(maxWidth: .infinity, alignment: .center)
                 }
             }
             .navigation(title: Loc.Study.practice)
@@ -66,6 +67,9 @@ enum PracticeTab {
                 StudyMode.ContentView(studyMode: mode)
             }
             .premiumAlert(feature: $premiumFeature)
+            .background {
+                AnimatedBackground(style: colorManager.backgroundStyle)
+            }
         }
 
         // MARK: - UI Components

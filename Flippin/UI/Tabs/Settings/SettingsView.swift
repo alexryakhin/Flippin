@@ -36,9 +36,11 @@ struct SettingsView: View {
             }
             .padding(16)
             .if(isPad) { view in
-                view.frame(maxWidth: 500, alignment: .center)
+                view.frame(maxWidth: 550, alignment: .center)
+                    .frame(maxWidth: .infinity, alignment: .center)
             }
         }
+        .scrollClipDisabled()
         .navigation(
             title: Loc.NavigationTitles.settings,
             trailingContent: {
@@ -57,6 +59,9 @@ struct SettingsView: View {
         }
         .ifLet(colorManager.colorScheme) { view, scheme in
             view.colorScheme(scheme)
+        }
+        .background {
+            AnimatedBackground(style: colorManager.backgroundStyle)
         }
     }
     

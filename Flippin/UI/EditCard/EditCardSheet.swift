@@ -16,6 +16,8 @@ struct EditCardSheet: View {
     @FocusState private var isUserLanguageTextFieldFocused: Bool
     @FocusState private var isTargetLanguageTextFieldFocused: Bool
     @FocusState private var isNotesTextFieldFocused: Bool
+    
+    @State private var showingImageSearch = false
 
     init(card: CardItem) {
         self._viewModel = StateObject(wrappedValue: EditCardSheetViewModel(card: card))
@@ -27,6 +29,7 @@ struct EditCardSheet: View {
                 languageSelectionSection
                 translationSection
                 notesSection
+                imageSection
                 tagsSection
             }
             .padding(16)
@@ -54,6 +57,13 @@ struct EditCardSheet: View {
             view.colorScheme(scheme)
         }
         .interactiveDismissDisabled()
+        .sheet(isPresented: $showingImageSearch) {
+            ImageSearchView(
+                cardIdentifier: viewModel.card.id ?? "edit_card"
+            ) { imageUrl, localPath in
+                viewModel.setSelectedImage(imageUrl: imageUrl, localPath: localPath)
+            }
+        }
     }
 
     private var languageSelectionSection: some View {
@@ -150,6 +160,101 @@ struct EditCardSheet: View {
             if isNotesTextFieldFocused {
                 SectionHeaderButton(Loc.Buttons.done) {
                     UIApplication.shared.endEditing()
+                }
+            }
+        }
+    }
+    
+    private var imageSection: some View {
+        CustomSectionView(
+            header: "Image",
+            backgroundStyle: .standard
+        ) {
+            VStack(spacing: 12) {
+                // Check if there's a newly selected image
+                if let imageCacheURL = viewModel.selectedImageCacheURL,
+                   let image = PexelsService.shared.getImageFromLocalPath(imageCacheURL) {
+                    // Show newly selected image from cache
+                    HStack(spacing: 12) {
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 60, height: 60)
+                            .cornerRadius(8)
+                            .clipped()
+                        
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("New Image")
+                                .font(.subheadline)
+                                .fontWeight(.medium)
+                            
+                            Text("Tap to change")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                        
+                        Spacer()
+                        
+                        Button("Remove") {
+                            viewModel.clearSelectedImage()
+                        }
+                        .font(.caption)
+                        .foregroundColor(.red)
+                    }
+                    .onTapGesture {
+                        showingImageSearch = true
+                    }
+                } else if let imageCacheURL = viewModel.card.imageCacheURL,
+                          let image = PexelsService.shared.getImageFromLocalPath(imageCacheURL) {
+                    // Show existing card image from cache
+                    HStack(spacing: 12) {
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 60, height: 60)
+                            .cornerRadius(8)
+                            .clipped()
+                        
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("Current Image")
+                                .font(.subheadline)
+                                .fontWeight(.medium)
+                        }
+                        
+                        Spacer()
+                        
+                        Button("Change") {
+                            showingImageSearch = true
+                        }
+                        .font(.caption)
+                        .foregroundColor(colorManager.tintColor)
+                        
+                        Button("Remove") {
+                            viewModel.clearSelectedImage()
+                        }
+                        .font(.caption)
+                        .foregroundColor(.red)
+                    }
+                } else {
+                    // Show add image button
+                    Button(action: {
+                        showingImageSearch = true
+                    }) {
+                        HStack(spacing: 8) {
+                            Image(systemName: "photo")
+                                .font(.title2)
+                                .foregroundColor(colorManager.tintColor)
+                            
+                            Text("Add Image")
+                                .font(.subheadline)
+                                .foregroundColor(colorManager.tintColor)
+                        }
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 12)
+                        .background(colorManager.tintColor.opacity(0.1))
+                        .cornerRadius(8)
+                    }
+                    .buttonStyle(PlainButtonStyle())
                 }
             }
         }

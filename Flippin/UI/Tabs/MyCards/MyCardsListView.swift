@@ -128,7 +128,8 @@ struct MyCardsListView: View {
             }
         }
         .if(isPad) { view in
-            view.frame(maxWidth: 500, alignment: .center)
+            view.frame(maxWidth: 550, alignment: .center)
+                .frame(maxWidth: .infinity, alignment: .center)
         }
         .navigation(
             title: Loc.NavigationTitles.myCards,
