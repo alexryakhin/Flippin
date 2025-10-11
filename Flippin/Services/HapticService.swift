@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-@MainActor
 final class HapticService {
     static let shared = HapticService()
     

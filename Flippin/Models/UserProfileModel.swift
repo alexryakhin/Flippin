@@ -190,7 +190,7 @@ public final class UserProfile: NSManagedObject, Identifiable {
     @NSManaged public var name: String?
     @NSManaged public var ageGroupRaw: String?
     @NSManaged public var genderRaw: String?
-    @NSManaged public var targetLanguageProficiencyRaw: String?
+    @NSManaged public var languageProficienciesRaw: String? // JSON dictionary [languageCode: proficiencyLevel]
     @NSManaged public var selectedInterestsRaw: String?
     @NSManaged public var weeklyPhraseGoal: Int32
     @NSManaged public var learningGoalRaw: String?
@@ -221,14 +221,71 @@ public final class UserProfile: NSManagedObject, Identifiable {
         }
     }
     
-    var targetLanguageProficiency: LanguageProficiency? {
+    // MARK: - Language Proficiencies (Multiple Languages Support)
+    
+    /// Dictionary of [languageCode: proficiencyLevel] for all target languages
+    var languageProficiencies: [String: LanguageProficiency] {
         get {
-            guard let raw = targetLanguageProficiencyRaw else { return nil }
-            return LanguageProficiency(rawValue: raw)
+            guard let raw = languageProficienciesRaw, !raw.isEmpty else {
+                return [:]
+            }
+            
+            // Decode JSON dictionary
+            guard let data = raw.data(using: .utf8),
+                  let dict = try? JSONDecoder().decode([String: String].self, from: data) else {
+                return [:]
+            }
+            
+            // Convert string values to LanguageProficiency enum
+            var result: [String: LanguageProficiency] = [:]
+            for (lang, proficiencyRaw) in dict {
+                if let proficiency = LanguageProficiency(rawValue: proficiencyRaw) {
+                    result[lang] = proficiency
+                }
+            }
+            return result
         }
         set {
-            targetLanguageProficiencyRaw = newValue?.rawValue
+            // Convert enum values to strings
+            let dict = newValue.mapValues { $0.rawValue }
+            
+            // Encode to JSON
+            if let data = try? JSONEncoder().encode(dict),
+               let jsonString = String(data: data, encoding: .utf8) {
+                languageProficienciesRaw = jsonString
+            }
         }
+    }
+    
+    /// Get proficiency for a specific language
+    func getProficiency(for language: Language) -> LanguageProficiency? {
+        return languageProficiencies[language.rawValue]
+    }
+    
+    /// Get proficiency for current target language
+    var currentTargetLanguageProficiency: LanguageProficiency? {
+        return getProficiency(for: LanguageManager.shared.targetLanguage)
+    }
+    
+    /// Set proficiency for a specific language
+    func setLanguageProficiency(_ proficiency: LanguageProficiency, for language: Language) {
+        var proficiencies = languageProficiencies
+        proficiencies[language.rawValue] = proficiency
+        languageProficiencies = proficiencies
+        updatedAt = Date()
+    }
+    
+    /// Remove proficiency for a specific language
+    func removeProficiency(for language: Language) {
+        var proficiencies = languageProficiencies
+        proficiencies.removeValue(forKey: language.rawValue)
+        languageProficiencies = proficiencies
+        updatedAt = Date()
+    }
+    
+    /// Get all languages user is learning
+    var learningLanguages: [Language] {
+        return languageProficiencies.keys.compactMap { Language(rawValue: $0) }
     }
     
     var learningGoal: LearningGoal? {
@@ -279,7 +336,10 @@ public final class UserProfile: NSManagedObject, Identifiable {
             context += "- Gender: \(gender.displayName)\n"
         }
         
-        if let proficiency = targetLanguageProficiency {
+        // Current target language proficiency (only the active one)
+        let currentLanguage = LanguageManager.shared.targetLanguage
+        if let proficiency = getProficiency(for: currentLanguage) {
+            context += "- Target Language: \(currentLanguage.displayName)\n"
             context += "- Language Level: \(proficiency.displayName)\n"
         }
         

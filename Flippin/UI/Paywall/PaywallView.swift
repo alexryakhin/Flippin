@@ -10,10 +10,14 @@ enum Paywall {
         @State private var isAnimating = false
 
         var body: some View {
-            ScrollView {
+            SubscriptionStoreView(groupID: "21731755") {
                 VStack(spacing: 32) {
-                    // Header with subtle animation
                     VStack(spacing: 12) {
+                        Image(.iconRounded)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 144, height: 144)
+
                         Text(Loc.PremiumFeatures.unlockPremium)
                             .font(.system(size: 34, weight: .bold, design: .rounded))
                             .foregroundColor(.primary)
@@ -49,7 +53,7 @@ enum Paywall {
                         }
                         .padding(.top, 8)
                     }
-                    .padding(.top, 20)
+                    .padding(.top, 60)
 
                     // Features with glassmorphism cards
                     VStack(spacing: 12) {
@@ -76,68 +80,28 @@ enum Paywall {
                             .animation(.spring(response: 0.4, dampingFraction: 0.8).delay(Double(features.firstIndex(where: { $0.title == feature.title }) ?? 0) * 0.1), value: isAnimating)
                         }
                     }
-                    .padding(.horizontal, 16)
-
-                    // Subscription Store with polished styling
-                    SubscriptionStoreView(groupID: "21731755")
-                        .subscriptionStoreControlStyle(.prominentPicker)
-                        .subscriptionStoreButtonLabel(.action)
-                        .onInAppPurchaseCompletion { product, result in
-                            handlePurchaseResult(product: product, result: result)
-                        }
-
-                    // Restore Purchases button with modern styling
-                    Button(action: {
-                        Task {
-                            await restorePurchases()
-                        }
-                    }) {
-                        Text(Loc.PremiumFeatures.restorePurchases)
-                            .font(.system(size: 14, weight: .medium, design: .rounded))
-                            .foregroundColor(.secondary)
-                            .padding(.vertical, 8)
-                            .padding(.horizontal, 16)
-                            .background(.ultraThinMaterial)
-                            .clipShape(Capsule())
-                            .overlay(
-                                Capsule()
-                                    .strokeBorder(.white.opacity(0.2), lineWidth: 1)
-                            )
-                    }
-
-                    // Footer with links
-                    VStack(spacing: 8) {
-                        Text(Loc.PremiumFeatures.cancelAnytime)
-
-                        Link(
-                            Loc.AboutApp.termsOfService,
-                            destination: URL(string: "https://www.flippin.app/terms-of-use")!
-                        )
-                        Link(
-                            Loc.AboutApp.privacyPolicy,
-                            destination: URL(string: "https://www.flippin.app/privacy-policy")!
-                        )
-                    }
-                    .font(.system(size: 12, weight: .regular, design: .rounded))
-                    .foregroundStyle(.secondary)
-                    .padding(.bottom, 20)
                 }
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 16)
             }
+            .subscriptionStoreControlStyle(.prominentPicker)
+            .subscriptionStoreButtonLabel(.action)
+            .storeButton(.visible, for: .restorePurchases)
+            .storeButton(.visible, for: .policies)
+            .subscriptionStorePolicyDestination(
+                url: URL(string: "https://www.flippin.app/terms-of-use")!,
+                for: .termsOfService
+            )
+            .subscriptionStorePolicyDestination(
+                url: URL(string: "https://www.flippin.app/privacy-policy")!,
+                for: .privacyPolicy
+            )
+            .onInAppPurchaseCompletion { product, result in
+                handlePurchaseResult(product: product, result: result)
+            }
             .background(
                 WelcomeSheet.AnimatedBackground()
                     .ignoresSafeArea()
-            )
-            .navigation(
-                title: Loc.PremiumFeatures.goPremium,
-                mode: .inline,
-                trailingContent: {
-                    HeaderButton(icon: "xmark") {
-                        dismiss()
-                        HapticService.shared.buttonTapped()
-                    }
-                }
             )
             .ifLet(colorManager.colorScheme) { view, scheme in
                 view.colorScheme(scheme)

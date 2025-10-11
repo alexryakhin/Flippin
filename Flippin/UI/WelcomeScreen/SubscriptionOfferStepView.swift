@@ -13,19 +13,17 @@ extension WelcomeSheet {
         @StateObject private var colorManager = ColorManager.shared
         @StateObject private var purchaseService = PurchaseService.shared
         @State private var animateContent = false
-        
+        @State private var showsBottomButton: Bool = true
+
         let onContinue: () -> Void
         
         var body: some View {
             ZStack {
                 AnimatedBackground()
                     .ignoresSafeArea()
-                
-                ScrollView {
-                    VStack(spacing: 32) {
-                        Spacer()
-                            .frame(height: 20)
-                        
+
+                SubscriptionStoreView(groupID: "21731755") {
+                    VStack(spacing: 16) {
                         VStack(spacing: 24) {
                             ZStack {
                                 Circle()
@@ -39,7 +37,7 @@ extension WelcomeSheet {
                                     .frame(width: 100, height: 100)
                                     .scaleEffect(animateContent ? 1 : 0.5)
                                     .opacity(animateContent ? 1 : 0)
-                                
+
                                 Image(systemName: "crown.fill")
                                     .font(.system(size: 40, weight: .bold))
                                     .foregroundColor(.white)
@@ -47,14 +45,14 @@ extension WelcomeSheet {
                                     .opacity(animateContent ? 1 : 0)
                             }
                             .animation(.easeInOut(duration: 0.5).delay(0.2), value: animateContent)
-                            
+
                             VStack(spacing: 16) {
                                 Text(Loc.UserProfile.trialTitle)
                                     .font(.system(size: 32, weight: .bold, design: .rounded))
                                     .multilineTextAlignment(.center)
                                     .offset(y: animateContent ? 0 : 20)
                                     .opacity(animateContent ? 1 : 0)
-                                
+
                                 Text(Loc.UserProfile.trialSubtitle)
                                     .font(.body)
                                     .foregroundColor(.secondary)
@@ -64,7 +62,7 @@ extension WelcomeSheet {
                             }
                             .animation(.easeInOut(duration: 0.5).delay(0.4), value: animateContent)
                         }
-                        
+
                         VStack(spacing: 12) {
                             ForEach(Array(features.enumerated()), id: \.element.title) { index, feature in
                                 TrialFeatureRow(
@@ -75,77 +73,27 @@ extension WelcomeSheet {
                                 )
                             }
                         }
-                        .padding(.horizontal, 16)
-                        
-                        SubscriptionStoreView(groupID: "21731755")
-                            .subscriptionStoreControlStyle(.prominentPicker)
-                            .subscriptionStoreButtonLabel(.action)
-                            .onInAppPurchaseCompletion { product, result in
-                                handlePurchaseResult(product: product, result: result)
-                            }
-                            .scaleEffect(animateContent ? 1 : 0.95)
-                            .opacity(animateContent ? 1 : 0)
-                            .animation(.easeInOut(duration: 0.5).delay(1.3), value: animateContent)
-                        
-                        Button {
-                            Task {
-                                await restorePurchases()
-                            }
-                        } label: {
-                            Text(Loc.PremiumFeatures.restorePurchases)
-                                .font(.system(size: 14, weight: .medium, design: .rounded))
-                                .foregroundColor(.secondary)
-                                .padding(.vertical, 8)
-                                .padding(.horizontal, 16)
-                                .background(.ultraThinMaterial)
-                                .clipShape(Capsule())
-                        }
-                        
-                        VStack(spacing: 8) {
-                            Text(Loc.PremiumFeatures.cancelAnytime)
-                                .font(.caption)
-                                .foregroundColor(.secondary)
-                            
-                            HStack(spacing: 16) {
-                                Link(
-                                    Loc.AboutApp.termsOfService,
-                                    destination: URL(string: "https://www.flippin.app/terms-of-use")!
-                                )
-                                
-                                Link(
-                                    Loc.AboutApp.privacyPolicy,
-                                    destination: URL(string: "https://www.flippin.app/privacy-policy")!
-                                )
-                            }
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                        }
                     }
-                    .padding(.horizontal, 16)
-                    .padding(.bottom, 100)
                 }
-                
-                VStack {
-                    Spacer()
-                    
-                    NavigationLink(
-                        destination: ReadyStepView(onContinue: onContinue),
-                        label: {
-                            Text(Loc.UserProfile.skipTrial)
-                                .font(.system(size: 16, weight: .semibold, design: .rounded))
-                                .foregroundColor(.primary)
-                                .padding(.vertical, 16)
-                                .frame(maxWidth: .infinity)
-                                .background(.thinMaterial)
-                                .clipShape(RoundedRectangle(cornerRadius: 16))
-                        }
-                    )
-                    .simultaneousGesture(TapGesture().onEnded {
-                        HapticService.shared.buttonTapped()
-                    })
-                    .padding(.horizontal, 16)
-                    .padding(.bottom, 12)
+                .subscriptionStoreControlStyle(.prominentPicker)
+                .subscriptionStoreButtonLabel(.action)
+                .storeButton(.hidden, for: .cancellation)
+                .storeButton(.visible, for: .restorePurchases)
+                .storeButton(.visible, for: .policies)
+                .subscriptionStorePolicyDestination(
+                    url: URL(string: "https://www.flippin.app/terms-of-use")!,
+                    for: .termsOfService
+                )
+                .subscriptionStorePolicyDestination(
+                    url: URL(string: "https://www.flippin.app/privacy-policy")!,
+                    for: .privacyPolicy
+                )
+                .onInAppPurchaseCompletion { product, result in
+                    handlePurchaseResult(product: product, result: result)
                 }
+                .scaleEffect(animateContent ? 1 : 0.95)
+                .opacity(animateContent ? 1 : 0)
+                .animation(.easeInOut(duration: 0.5).delay(1.3), value: animateContent)
             }
             .navigationBarBackButtonHidden(false)
             .onAppear {
@@ -155,6 +103,17 @@ extension WelcomeSheet {
                 }
                 Task {
                     await purchaseService.loadProducts()
+                }
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink(
+                        "Skip",
+                        destination: ReadyStepView(onContinue: onContinue)
+                    )
+                    .simultaneousGesture(TapGesture().onEnded {
+                        HapticService.shared.buttonTapped()
+                    })
                 }
             }
         }

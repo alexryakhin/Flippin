@@ -13,17 +13,17 @@ extension WelcomeSheet {
         @StateObject private var profileService = UserProfileService.shared
         @State private var animateContent = false
         @State private var selectedAgeGroup: AgeGroup?
-        
+
         let onContinue: () -> Void
-        
+
         var body: some View {
             ZStack {
                 AnimatedBackground()
                     .ignoresSafeArea()
-                
+
                 VStack(spacing: 0) {
                     Spacer()
-                    
+
                     VStack(spacing: 24) {
                         ZStack {
                             Circle()
@@ -37,7 +37,7 @@ extension WelcomeSheet {
                                 .frame(width: 100, height: 100)
                                 .scaleEffect(animateContent ? 1 : 0.5)
                                 .opacity(animateContent ? 1 : 0)
-                            
+
                             Image(systemName: "calendar")
                                 .font(.system(size: 40, weight: .medium))
                                 .foregroundColor(.white)
@@ -45,14 +45,14 @@ extension WelcomeSheet {
                                 .opacity(animateContent ? 1 : 0)
                         }
                         .animation(.easeInOut(duration: 0.5).delay(0.2), value: animateContent)
-                        
+
                         VStack(spacing: 16) {
                             Text(Loc.UserProfile.ageGroupTitle)
                                 .font(.system(size: 28, weight: .bold, design: .rounded))
                                 .multilineTextAlignment(.center)
                                 .offset(y: animateContent ? 0 : 20)
                                 .opacity(animateContent ? 1 : 0)
-                            
+
                             Text(Loc.UserProfile.ageGroupSubtitle)
                                 .font(.body)
                                 .foregroundColor(.secondary)
@@ -62,9 +62,9 @@ extension WelcomeSheet {
                         }
                         .animation(.easeInOut(duration: 0.5).delay(0.4), value: animateContent)
                     }
-                    
+
                     Spacer()
-                    
+
                     ScrollView {
                         VStack(spacing: 12) {
                             ForEach(Array(AgeGroup.allCases.enumerated()), id: \.element) { index, ageGroup in
@@ -81,9 +81,9 @@ extension WelcomeSheet {
                             }
                         }
                     }
-                    
+
                     Spacer()
-                    
+
                     NavigationLink(
                         destination: GenderSelectionStepView(onContinue: onContinue),
                         label: {
@@ -111,16 +111,16 @@ extension WelcomeSheet {
             }
             .navigationBarBackButtonHidden(false)
         }
-        
+
         private func saveAndContinue() {
             guard let ageGroup = selectedAgeGroup else { return }
             profileService.updateProfile(ageGroup: ageGroup)
             HapticService.shared.buttonTapped()
         }
     }
-    
+
     // MARK: - Selection Card Component
-    
+
     struct SelectionCard: View {
         let icon: String
         let title: String
@@ -129,7 +129,7 @@ extension WelcomeSheet {
         let animateContent: Bool
         let delay: Double
         let action: () -> Void
-        
+
         init(
             icon: String,
             title: String,
@@ -147,7 +147,7 @@ extension WelcomeSheet {
             self.delay = delay
             self.action = action
         }
-        
+
         var body: some View {
             Button(action: action) {
                 HStack(spacing: 16) {
@@ -155,40 +155,30 @@ extension WelcomeSheet {
                         .font(.title2)
                         .foregroundColor(isSelected ? .white : .accentColor)
                         .frame(width: 40)
-                    
+
                     VStack(alignment: .leading, spacing: 4) {
                         Text(title)
                             .font(.headline)
                             .foregroundColor(isSelected ? .white : .primary)
-                        
+
                         if let description = description {
                             Text(description)
                                 .font(.subheadline)
                                 .foregroundColor(isSelected ? .white.opacity(0.8) : .secondary)
                         }
                     }
-                    
-                    Spacer()
-                    
-                    if isSelected {
-                        Image(systemName: "checkmark.circle.fill")
-                            .foregroundColor(.white)
-                            .font(.title3)
-                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                    Image(systemName: "checkmark.circle.fill")
+                        .foregroundColor(.white)
+                        .font(.title3)
+                        .opacity(isSelected ? 1 : 0)
                 }
                 .padding(20)
                 .background(
                     isSelected
-                        ? LinearGradient(
-                            colors: [.accentColor, .accentColor.opacity(0.8)],
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        )
-                        : LinearGradient(
-                            colors: [.clear, .clear],
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        )
+                    ? Color.accent.gradient
+                    : Color.clear.gradient
                 )
                 .background(.thinMaterial)
                 .clipShape(RoundedRectangle(cornerRadius: 16))

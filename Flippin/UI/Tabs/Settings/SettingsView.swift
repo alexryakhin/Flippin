@@ -223,6 +223,7 @@ struct SettingsView: View {
             header: Loc.Notifications.notifications
         ) {
             FormWithDivider {
+                // Study Reminders Toggle
                 HStack(spacing: 2) {
                     VStack(alignment: .leading, spacing: 4) {
                         Text(Loc.Notifications.studyReminders)
@@ -245,7 +246,34 @@ struct SettingsView: View {
                     ))
                     .labelsHidden()
                 }
+                
+                // Study Reminders Time Picker
+                if notificationService.isStudyRemindersEnabled {
+                    HStack(spacing: 2) {
+                        Text("Time")
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                        
+                        Spacer()
+                        
+                        DatePicker(
+                            "",
+                            selection: Binding(
+                                get: { timeIntervalToDate(notificationService.studyReminderTime) },
+                                set: { newDate in
+                                    let timeInterval = dateToTimeInterval(newDate)
+                                    notificationService.updateStudyReminderTime(timeInterval)
+                                    HapticService.shared.selection()
+                                }
+                            ),
+                            displayedComponents: .hourAndMinute
+                        )
+                        .labelsHidden()
+                        .datePickerStyle(.compact)
+                    }
+                }
 
+                // Difficult Card Reminders Toggle
                 HStack(spacing: 2) {
                     VStack(alignment: .leading, spacing: 4) {
                         Text(Loc.Notifications.difficultCardReminders)
@@ -268,8 +296,50 @@ struct SettingsView: View {
                     ))
                     .labelsHidden()
                 }
+                
+                // Difficult Card Reminders Time Picker
+                if notificationService.isDifficultCardRemindersEnabled {
+                    HStack(spacing: 2) {
+                        Text("Time")
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                        
+                        Spacer()
+                        
+                        DatePicker(
+                            "",
+                            selection: Binding(
+                                get: { timeIntervalToDate(notificationService.difficultCardReminderTime) },
+                                set: { newDate in
+                                    let timeInterval = dateToTimeInterval(newDate)
+                                    notificationService.updateDifficultCardReminderTime(timeInterval)
+                                    HapticService.shared.selection()
+                                }
+                            ),
+                            displayedComponents: .hourAndMinute
+                        )
+                        .labelsHidden()
+                        .datePickerStyle(.compact)
+                    }
+                }
             }
         }
+    }
+    
+    // MARK: - Helper Methods for Time Conversion
+    
+    /// Convert time interval (seconds since midnight) to Date
+    private func timeIntervalToDate(_ timeInterval: TimeInterval) -> Date {
+        let calendar = Calendar.current
+        let startOfDay = calendar.startOfDay(for: Date())
+        return startOfDay.addingTimeInterval(timeInterval)
+    }
+    
+    /// Convert Date to time interval (seconds since midnight)
+    private func dateToTimeInterval(_ date: Date) -> TimeInterval {
+        let calendar = Calendar.current
+        let startOfDay = calendar.startOfDay(for: date)
+        return date.timeIntervalSince(startOfDay)
     }
     
     // MARK: - TTS Dashboard Section

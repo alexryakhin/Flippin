@@ -93,7 +93,7 @@ final class ChatGPTService: ObservableObject {
         
         // Build context
         let userContext = getUserContext()
-        let proficiency = userProfileService.currentProfile?.targetLanguageProficiency?.displayName ?? "Beginner"
+        let proficiency = userProfileService.currentProfile?.currentTargetLanguageProficiency?.displayName ?? "Beginner"
         let userLanguage = languageManager.userLanguage
         
         // Create system prompt

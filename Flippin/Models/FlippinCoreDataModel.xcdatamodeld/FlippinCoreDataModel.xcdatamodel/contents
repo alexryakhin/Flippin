@@ -73,7 +73,7 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="ageGroupRaw" optional="YES" attributeType="String"/>
         <attribute name="genderRaw" optional="YES" attributeType="String"/>
-        <attribute name="targetLanguageProficiencyRaw" optional="YES" attributeType="String"/>
+        <attribute name="languageProficienciesRaw" optional="YES" attributeType="String"/>
         <attribute name="selectedInterestsRaw" optional="YES" attributeType="String"/>
         <attribute name="weeklyPhraseGoal" optional="YES" attributeType="Integer 32" defaultValueString="25" usesScalarValueType="YES"/>
         <attribute name="learningGoalRaw" optional="YES" attributeType="String"/>

@@ -123,7 +123,7 @@ extension WelcomeSheet {
                 }
                 .padding(vertical: 12, horizontal: 16)
                 .onAppear {
-                    if let proficiency = profileService.currentProfile?.targetLanguageProficiency {
+                    if let proficiency = profileService.currentProfile?.currentTargetLanguageProficiency {
                         selectedProficiency = proficiency
                     }
                     withAnimation(.easeInOut(duration: 0.6).delay(0.1)) {

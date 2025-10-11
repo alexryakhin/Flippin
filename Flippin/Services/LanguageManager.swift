@@ -8,7 +8,6 @@
 import Foundation
 import SwiftUI
 
-@MainActor
 final class LanguageManager: ObservableObject {
 
     static let shared = LanguageManager()
@@ -90,12 +89,18 @@ final class LanguageManager: ObservableObject {
     }
 
     func setTargetLanguage(_ language: Language) {
+        let oldLanguage = targetLanguage
         targetLanguage = language
         
+        // Update user profile with new target language
+        Task { @MainActor in
+            UserProfileService.shared.handleTargetLanguageChange(to: language)
+        }
+
         // Haptic feedback for language change
         HapticService.shared.languageChanged()
         
-        AnalyticsService.trackSettingsEvent(.languageChanged, oldValue: targetLanguage.rawValue, newValue: language.rawValue)
+        AnalyticsService.trackSettingsEvent(.languageChanged, oldValue: oldLanguage.rawValue, newValue: language.rawValue)
     }
 
     func resetToSystemLanguage() {

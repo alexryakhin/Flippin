@@ -13,64 +13,60 @@ extension WelcomeSheet {
         @StateObject private var profileService = UserProfileService.shared
         @State private var animateContent = false
         @State private var selectedInterests: Set<PresetModel.Category> = []
-        
+
         let onContinue: () -> Void
-        
+
         let columns = [
             GridItem(.flexible(), spacing: 12),
             GridItem(.flexible(), spacing: 12)
         ]
-        
+
         var body: some View {
             ZStack {
                 AnimatedBackground()
                     .ignoresSafeArea()
-                
-                VStack(spacing: 0) {
-                    Spacer()
-                    
-                    VStack(spacing: 24) {
-                        ZStack {
-                            Circle()
-                                .fill(
-                                    LinearGradient(
-                                        colors: [.indigo, .purple],
-                                        startPoint: .topLeading,
-                                        endPoint: .bottomTrailing
+
+                ScrollView {
+                    VStack(spacing: 16) {
+                        VStack(spacing: 24) {
+                            ZStack {
+                                Circle()
+                                    .fill(
+                                        LinearGradient(
+                                            colors: [.indigo, .purple],
+                                            startPoint: .topLeading,
+                                            endPoint: .bottomTrailing
+                                        )
                                     )
-                                )
-                                .frame(width: 100, height: 100)
-                                .scaleEffect(animateContent ? 1 : 0.5)
-                                .opacity(animateContent ? 1 : 0)
-                            
-                            Image(systemName: "star.fill")
-                                .font(.system(size: 40, weight: .medium))
-                                .foregroundColor(.white)
-                                .scaleEffect(animateContent ? 1 : 0.8)
-                                .opacity(animateContent ? 1 : 0)
+                                    .frame(width: 100, height: 100)
+                                    .scaleEffect(animateContent ? 1 : 0.5)
+                                    .opacity(animateContent ? 1 : 0)
+
+                                Image(systemName: "star.fill")
+                                    .font(.system(size: 40, weight: .medium))
+                                    .foregroundColor(.white)
+                                    .scaleEffect(animateContent ? 1 : 0.8)
+                                    .opacity(animateContent ? 1 : 0)
+                            }
+                            .animation(.easeInOut(duration: 0.5).delay(0.2), value: animateContent)
+
+                            VStack(spacing: 16) {
+                                Text(Loc.UserProfile.interestsTitle)
+                                    .font(.system(size: 28, weight: .bold, design: .rounded))
+                                    .multilineTextAlignment(.center)
+                                    .offset(y: animateContent ? 0 : 20)
+                                    .opacity(animateContent ? 1 : 0)
+
+                                Text(Loc.UserProfile.interestsSubtitle)
+                                    .font(.body)
+                                    .foregroundColor(.secondary)
+                                    .multilineTextAlignment(.center)
+                                    .offset(y: animateContent ? 0 : 20)
+                                    .opacity(animateContent ? 1 : 0)
+                            }
+                            .animation(.easeInOut(duration: 0.5).delay(0.4), value: animateContent)
                         }
-                        .animation(.easeInOut(duration: 0.5).delay(0.2), value: animateContent)
-                        
-                        VStack(spacing: 16) {
-                            Text(Loc.UserProfile.interestsTitle)
-                                .font(.system(size: 28, weight: .bold, design: .rounded))
-                                .multilineTextAlignment(.center)
-                                .offset(y: animateContent ? 0 : 20)
-                                .opacity(animateContent ? 1 : 0)
-                            
-                            Text(Loc.UserProfile.interestsSubtitle)
-                                .font(.body)
-                                .foregroundColor(.secondary)
-                                .multilineTextAlignment(.center)
-                                .offset(y: animateContent ? 0 : 20)
-                                .opacity(animateContent ? 1 : 0)
-                        }
-                        .animation(.easeInOut(duration: 0.5).delay(0.4), value: animateContent)
-                    }
-                    
-                    Spacer()
-                    
-                    ScrollView {
+
                         LazyVGrid(columns: columns, spacing: 12) {
                             ForEach(Array(PresetModel.Category.allCases.enumerated()), id: \.element) { index, category in
                                 InterestCard(
@@ -85,9 +81,9 @@ extension WelcomeSheet {
                             }
                         }
                     }
-                    
-                    Spacer()
-                    
+                    .padding(vertical: 12, horizontal: 16)
+                }
+                .safeAreaInset(edge: .bottom, spacing: .zero) {
                     NavigationLink(
                         destination: WeeklyGoalStepView(onContinue: onContinue),
                         label: {
@@ -104,8 +100,8 @@ extension WelcomeSheet {
                     })
                     .disabled(selectedInterests.isEmpty)
                     .opacity(selectedInterests.isEmpty ? 0.5 : 1)
+                    .padding(vertical: 12, horizontal: 16)
                 }
-                .padding(vertical: 12, horizontal: 16)
                 .onAppear {
                     if let interests = profileService.currentProfile?.selectedInterests {
                         selectedInterests = Set(interests)
@@ -117,7 +113,7 @@ extension WelcomeSheet {
             }
             .navigationBarBackButtonHidden(false)
         }
-        
+
         private func toggleInterest(_ category: PresetModel.Category) {
             if selectedInterests.contains(category) {
                 selectedInterests.remove(category)
@@ -126,16 +122,16 @@ extension WelcomeSheet {
             }
             HapticService.shared.selection()
         }
-        
+
         private func saveAndContinue() {
             guard !selectedInterests.isEmpty else { return }
             profileService.updateProfile(interests: Array(selectedInterests))
             HapticService.shared.buttonTapped()
         }
     }
-    
+
     // MARK: - Interest Card Component
-    
+
     struct InterestCard: View {
         let icon: String
         let title: String
@@ -143,14 +139,14 @@ extension WelcomeSheet {
         let animateContent: Bool
         let delay: Double
         let action: () -> Void
-        
+
         var body: some View {
             Button(action: action) {
                 VStack(spacing: 12) {
                     Image(systemName: icon)
                         .font(.largeTitle)
                         .foregroundColor(isSelected ? .white : .accentColor)
-                    
+
                     Text(title)
                         .font(.subheadline)
                         .fontWeight(.semibold)
@@ -159,21 +155,13 @@ extension WelcomeSheet {
                         .lineLimit(2)
                         .minimumScaleFactor(0.8)
                 }
-                .frame(maxWidth: .infinity)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .padding(.vertical, 20)
                 .padding(.horizontal, 12)
                 .background(
                     isSelected
-                        ? LinearGradient(
-                            colors: [.accentColor, .accentColor.opacity(0.8)],
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        )
-                        : LinearGradient(
-                            colors: [.clear, .clear],
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        )
+                    ? Color.accent.gradient
+                    : Color.clear.gradient
                 )
                 .background(.thinMaterial)
                 .clipShape(RoundedRectangle(cornerRadius: 16))

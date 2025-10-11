@@ -84,7 +84,7 @@ struct AICollectionGeneratorView: View {
                 .padding(.top, 20)
                 
                 // Input section
-                CustomSectionView(header: "Your Request") {
+                CustomSectionView(header: "Your Request", backgroundStyle: .standard) {
                     VStack(alignment: .leading, spacing: 12) {
                         TextEditor(text: $userRequest)
                             .frame(minHeight: 100)
@@ -99,7 +99,7 @@ struct AICollectionGeneratorView: View {
                 }
                 
                 // Card count selector
-                CustomSectionView(header: "Number of Cards") {
+                CustomSectionView(header: "Number of Cards", backgroundStyle: .standard) {
                     Picker("Card Count", selection: $cardCount) {
                         ForEach(cardCountOptions, id: \.self) { count in
                             Text("\(count) cards").tag(count)
@@ -109,7 +109,7 @@ struct AICollectionGeneratorView: View {
                 }
                 
                 // Examples
-                CustomSectionView(header: "Example Requests") {
+                CustomSectionView(header: "Example Requests", backgroundStyle: .standard) {
                     VStack(alignment: .leading, spacing: 8) {
                         ExampleRequestRow(
                             icon: "fork.knife",
@@ -161,13 +161,13 @@ struct AICollectionGeneratorView: View {
                 VStack(spacing: 16) {
                     // Collection header
                     if let collection = generatedCollection {
-                        CustomSectionView(header: collection.collectionName) {
+                        CustomSectionView(header: collection.collectionName, backgroundStyle: .standard) {
                             Text(collection.description)
                                 .font(.subheadline)
                                 .foregroundColor(.secondary)
                         }
                         
-                        CustomSectionView(header: "Generated Cards (\(collection.cards.count))") {
+                        CustomSectionView(header: "Generated Cards (\(collection.cards.count))", backgroundStyle: .standard) {
                             VStack(spacing: 12) {
                                 ForEach(Array(collection.cards.enumerated()), id: \.offset) { index, card in
                                     GeneratedCardRow(card: card)

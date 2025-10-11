@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import DotLottie
 
 struct AICoachCardView: View {
     @StateObject private var chatGPTService = ChatGPTService.shared
@@ -42,6 +43,8 @@ struct AICoachCardView: View {
             headerFontStyle: .large
         ) {
             VStack(alignment: .leading, spacing: 16) {
+                DotLottieAnimation(fileName: "book_loading", config: .init())
+                    .view()
                 if let insight = coachInsight {
                     // Summary
                     Text(insight.title)

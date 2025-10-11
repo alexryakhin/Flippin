@@ -15,9 +15,13 @@ final class NotificationService: NSObject, ObservableObject, UNUserNotificationC
     @Published var isStudyRemindersEnabled = false
     @Published var isDifficultCardRemindersEnabled = false
     @Published var hasNotificationPermission = false
+    @Published var studyReminderTime: TimeInterval = 0 // Seconds since midnight
+    @Published var difficultCardReminderTime: TimeInterval = 0 // Seconds since midnight
 
     private let studyReminderIdentifier = "study_reminder"
     private let difficultCardReminderIdentifier = "difficult_card_reminder"
+    private let defaultStudyReminderTime: TimeInterval = 20 * 3600 + 30 * 60 // 8:30 PM
+    private let defaultDifficultCardReminderTime: TimeInterval = 16 * 3600 + 30 * 60 // 4:30 PM
 
     private override init() {
         super.init()
@@ -156,10 +160,14 @@ final class NotificationService: NSObject, ObservableObject, UNUserNotificationC
         content.body = Loc.Notifications.studyReminderBody
         content.sound = .default
 
-        // Schedule for 8:30 PM tomorrow
+        // Convert time interval to hour and minute
+        let hour = Int(studyReminderTime / 3600)
+        let minute = Int((studyReminderTime.truncatingRemainder(dividingBy: 3600)) / 60)
+
+        // Schedule for tomorrow at the specified time
         var dateComponents = DateComponents()
-        dateComponents.hour = 20
-        dateComponents.minute = 30
+        dateComponents.hour = hour
+        dateComponents.minute = minute
 
         let calendar = Calendar.current
         let tomorrow = calendar.date(byAdding: .day, value: 1, to: Date()) ?? Date()
@@ -174,7 +182,7 @@ final class NotificationService: NSObject, ObservableObject, UNUserNotificationC
             if let error = error {
                 print("❌ Failed to schedule study reminder: \(error)")
             } else {
-                print("✅ Study reminder scheduled for tomorrow at 8:30 PM")
+                print("✅ Study reminder scheduled for tomorrow at \(hour):\(String(format: "%02d", minute))")
             }
         }
     }
@@ -185,10 +193,14 @@ final class NotificationService: NSObject, ObservableObject, UNUserNotificationC
         content.body = Loc.Notifications.difficultCardReminderBody
         content.sound = .default
 
-        // Schedule for 4:30 PM daily
+        // Convert time interval to hour and minute
+        let hour = Int(difficultCardReminderTime / 3600)
+        let minute = Int((difficultCardReminderTime.truncatingRemainder(dividingBy: 3600)) / 60)
+
+        // Schedule daily at the specified time
         var dateComponents = DateComponents()
-        dateComponents.hour = 16
-        dateComponents.minute = 30
+        dateComponents.hour = hour
+        dateComponents.minute = minute
 
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         let request = UNNotificationRequest(identifier: difficultCardReminderIdentifier, content: content, trigger: trigger)
@@ -197,7 +209,7 @@ final class NotificationService: NSObject, ObservableObject, UNUserNotificationC
             if let error = error {
                 print("❌ Failed to schedule difficult card reminder: \(error)")
             } else {
-                print("✅ Difficult card reminder scheduled successfully")
+                print("✅ Difficult card reminder scheduled for \(hour):\(String(format: "%02d", minute)) daily")
             }
         }
     }
@@ -208,17 +220,21 @@ final class NotificationService: NSObject, ObservableObject, UNUserNotificationC
         content.body = Loc.Notifications.difficultCardReminderBody
         content.sound = .default
 
-        // Schedule for 4:30 PM today
+        // Convert time interval to hour and minute
+        let hour = Int(difficultCardReminderTime / 3600)
+        let minute = Int((difficultCardReminderTime.truncatingRemainder(dividingBy: 3600)) / 60)
+
+        // Schedule for today at the specified time
         var dateComponents = DateComponents()
-        dateComponents.hour = 16
-        dateComponents.minute = 30
+        dateComponents.hour = hour
+        dateComponents.minute = minute
 
         let calendar = Calendar.current
         let now = Date()
 
-        // If it's already past 4:30 PM today, schedule for tomorrow
-        if let today430 = calendar.date(bySettingHour: 16, minute: 30, second: 0, of: now),
-           now > today430 {
+        // If it's already past the specified time today, schedule for tomorrow
+        if let todayTime = calendar.date(bySettingHour: hour, minute: minute, second: 0, of: now),
+           now > todayTime {
             dateComponents.day = calendar.component(.day, from: now) + 1
         }
 
@@ -229,7 +245,7 @@ final class NotificationService: NSObject, ObservableObject, UNUserNotificationC
             if let error = error {
                 print("❌ Failed to schedule difficult card reminder for today: \(error)")
             } else {
-                print("✅ Difficult card reminder scheduled for today successfully")
+                print("✅ Difficult card reminder scheduled for today at \(hour):\(String(format: "%02d", minute))")
             }
         }
     }
@@ -245,11 +261,44 @@ final class NotificationService: NSObject, ObservableObject, UNUserNotificationC
     private func loadNotificationSettings() {
         isStudyRemindersEnabled = UserDefaults.standard.bool(forKey: UserDefaultsKey.studyRemindersEnabled)
         isDifficultCardRemindersEnabled = UserDefaults.standard.bool(forKey: UserDefaultsKey.difficultCardRemindersEnabled)
+        
+        // Load times or use defaults
+        let savedStudyTime = UserDefaults.standard.double(forKey: UserDefaultsKey.studyReminderTime)
+        studyReminderTime = savedStudyTime > 0 ? savedStudyTime : defaultStudyReminderTime
+        
+        let savedDifficultTime = UserDefaults.standard.double(forKey: UserDefaultsKey.difficultCardReminderTime)
+        difficultCardReminderTime = savedDifficultTime > 0 ? savedDifficultTime : defaultDifficultCardReminderTime
     }
 
     private func saveNotificationSettings() {
         UserDefaults.standard.set(isStudyRemindersEnabled, forKey: UserDefaultsKey.studyRemindersEnabled)
         UserDefaults.standard.set(isDifficultCardRemindersEnabled, forKey: UserDefaultsKey.difficultCardRemindersEnabled)
+        UserDefaults.standard.set(studyReminderTime, forKey: UserDefaultsKey.studyReminderTime)
+        UserDefaults.standard.set(difficultCardReminderTime, forKey: UserDefaultsKey.difficultCardReminderTime)
+    }
+    
+    /// Update study reminder time and reschedule if enabled
+    func updateStudyReminderTime(_ time: TimeInterval) {
+        studyReminderTime = time
+        saveNotificationSettings()
+        
+        // Reschedule if enabled
+        if isStudyRemindersEnabled && hasNotificationPermission {
+            cancelStudyReminder()
+            scheduleStudyReminder()
+        }
+    }
+    
+    /// Update difficult card reminder time and reschedule if enabled
+    func updateDifficultCardReminderTime(_ time: TimeInterval) {
+        difficultCardReminderTime = time
+        saveNotificationSettings()
+        
+        // Reschedule if enabled
+        if isDifficultCardRemindersEnabled && hasNotificationPermission {
+            cancelDifficultCardReminder()
+            scheduleDifficultCardReminder()
+        }
     }
 
     // MARK: - UNUserNotificationCenterDelegate

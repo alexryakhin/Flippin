@@ -35,6 +35,7 @@ struct DebugView: View {
                  }
                 .padding(16)
             }
+            .groupedBackground()
             .navigationTitle("Debug")
             .navigationBarTitleDisplayMode(.large)
         }
@@ -42,7 +43,7 @@ struct DebugView: View {
 
     // MARK: - Premium Access Section
     private var premiumAccessSection: some View {
-        CustomSectionView(header: "Premium Access") {
+        CustomSectionView(header: "Premium Access", backgroundStyle: .standard) {
             FormWithDivider {
                 HStack {
                     Text("Debug Mode")
@@ -84,7 +85,7 @@ struct DebugView: View {
 
     // MARK: - App State Section
     private var appStateSection: some View {
-        CustomSectionView(header: "App State") {
+        CustomSectionView(header: "App State", backgroundStyle: .standard) {
             FormWithDivider {
                 HStack {
                     Text("Total Cards")
@@ -163,7 +164,7 @@ struct DebugView: View {
 
     // MARK: - Analytics Section
     private var analyticsSection: some View {
-        CustomSectionView(header: "Analytics") {
+        CustomSectionView(header: "Analytics", backgroundStyle: .standard) {
             FormWithDivider {
                 HStack {
                     Text("Study Streak")
@@ -218,7 +219,7 @@ struct DebugView: View {
 
     // MARK: - Cards Section
     private var cardsSection: some View {
-        CustomSectionView(header: "Cards Debug") {
+        CustomSectionView(header: "Cards Debug", backgroundStyle: .standard) {
             HFlow(alignment: .top, spacing: 12) {
                 HeaderButton("Add Test Card") {
                     addTestCard()
@@ -287,7 +288,7 @@ struct DebugView: View {
     
     // MARK: - Remote Config Section
     private var remoteConfigSection: some View {
-        CustomSectionView(header: "Remote Config") {
+        CustomSectionView(header: "Remote Config", backgroundStyle: .standard) {
             FormWithDivider {
                 HStack {
                     Text("Remote Config")

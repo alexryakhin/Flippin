@@ -35,7 +35,7 @@ struct AICoachDetailView: View {
                 .padding(.top, 20)
                 
                 // Insights Section
-                CustomSectionView(header: "Key Insights") {
+                CustomSectionView(header: "Key Insights", backgroundStyle: .standard) {
                     VStack(spacing: 12) {
                         ForEach(Array(insight.insights.enumerated()), id: \.offset) { index, insightItem in
                             InsightRow(insight: insightItem)
@@ -44,7 +44,7 @@ struct AICoachDetailView: View {
                 }
                 
                 // Recommendations Section
-                CustomSectionView(header: "Recommendations") {
+                CustomSectionView(header: "Recommendations", backgroundStyle: .standard) {
                     VStack(spacing: 12) {
                         ForEach(Array(insight.recommendations.enumerated()), id: \.offset) { index, recommendation in
                             RecommendationRow(recommendation: recommendation) {

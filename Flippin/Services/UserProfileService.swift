@@ -78,7 +78,8 @@ final class UserProfileService: ObservableObject {
             profile.gender = gender
         }
         if let proficiency = proficiency {
-            profile.targetLanguageProficiency = proficiency
+            // Set proficiency for current target language
+            profile.setLanguageProficiency(proficiency, for: LanguageManager.shared.targetLanguage)
         }
         if let interests = interests {
             profile.selectedInterests = interests
@@ -119,6 +120,30 @@ final class UserProfileService: ObservableObject {
             return "User Profile: Not available"
         }
         return profile.generateChatGPTContext()
+    }
+    
+    /// Updates language proficiency for a specific language
+    func updateLanguageProficiency(_ proficiency: LanguageProficiency, for language: Language) {
+        let profile = createOrUpdateProfile()
+        profile.setLanguageProficiency(proficiency, for: language)
+        profile.updatedAt = Date()
+        saveContext()
+        print("✅ Updated proficiency for \(language.displayName) to \(proficiency.displayName)")
+    }
+    
+    /// Called when target language changes for premium users
+    func handleTargetLanguageChange(to language: Language) {
+        let profile = createOrUpdateProfile()
+        
+        // If this language doesn't have a proficiency yet, set default to beginner
+        if profile.getProficiency(for: language) == nil {
+            profile.setLanguageProficiency(.beginner, for: language)
+            profile.updatedAt = Date()
+            saveContext()
+            print("✅ Added \(language.displayName) to learning languages with beginner proficiency")
+        } else {
+            print("ℹ️ \(language.displayName) already tracked with \(profile.getProficiency(for: language)!.displayName) proficiency")
+        }
     }
     
     /// Resets the user profile (for debugging)
