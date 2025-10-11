@@ -87,6 +87,16 @@ enum AnalyticsEvent: String, CaseIterable {
     
     // MARK: - Onboarding Events
     case subscriptionPurchased = "subscription_purchased"
+    
+    // MARK: - AI Features Events
+    case aiCollectionGeneratorOpened = "ai_collection_generator_opened"
+    case aiCollectionGenerated = "ai_collection_generated"
+    case aiCollectionImported = "ai_collection_imported"
+    case aiCoachInsightViewed = "ai_coach_insight_viewed"
+    case aiCoachInsightGenerated = "ai_coach_insight_generated"
+    case aiCoachRecommendationTapped = "ai_coach_recommendation_tapped"
+    case aiFeatureError = "ai_feature_error"
+    case aiFeaturePaywallShown = "ai_feature_paywall_shown"
 }
 
 // MARK: - Analytics Service

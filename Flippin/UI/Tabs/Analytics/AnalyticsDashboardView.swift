@@ -41,6 +41,9 @@ enum AnalyticsDashboard {
             VStack(spacing: 16) {
                 // Header with streak
                 streakSection
+                
+                // AI Learning Coach card
+                AICoachCardView()
 
                 // Overview cards
                 overviewSection

@@ -419,10 +419,22 @@ final class SpeechifyService: NSObject, ObservableObject {
     }
     
     private func saveUsageToCoreData() {
+        // Check if we're already in a save context to prevent recursive saves
+        guard !coreDataService.context.hasChanges else {
+            print("⚠️ Core Data context already has changes, skipping save to prevent recursion")
+            return
+        }
+        
         let currentUsage = getCurrentMonthUsage()
         currentUsage.charactersUsed = Int32(charactersUsed)
         currentUsage.charactersLimit = Int32(charactersLimit)
         currentUsage.listeningTimeMinutes = listeningTimeMinutes
+        
+        // Validate the object before saving
+        guard currentUsage.id != nil && currentUsage.month != nil && currentUsage.resetDate != nil else {
+            print("❌ Cannot save SpeechifyUsage - required properties are nil")
+            return
+        }
         
         do {
             try coreDataService.saveContext()
@@ -434,6 +446,7 @@ final class SpeechifyService: NSObject, ObservableObject {
             }
         } catch {
             print("❌ Failed to save Speechify usage: \(error)")
+            // Don't throw the error to prevent app crashes
         }
     }
     
@@ -487,7 +500,7 @@ final class SpeechifyService: NSObject, ObservableObject {
             print("❌ Failed to fetch Speechify usage: \(error)")
         }
         
-        // Create new usage record for current month
+        // Create new usage record for current month - ensure all required properties are set
         let newUsage = SpeechifyUsage(context: coreDataService.context)
         newUsage.id = UUID().uuidString
         newUsage.month = monthString
@@ -497,14 +510,38 @@ final class SpeechifyService: NSObject, ObservableObject {
         newUsage.listeningTimeMinutes = 0.0
         newUsage.resetDate = now
         
+        // Validate the object before saving
+        guard newUsage.id != nil && newUsage.month != nil && newUsage.resetDate != nil else {
+            print("❌ Failed to create SpeechifyUsage - required properties are nil")
+            // Return a fallback usage object
+            return createFallbackUsageRecord(month: monthString, year: Int32(year))
+        }
+        
         do {
             try coreDataService.saveContext()
             print("✅ Created new Speechify usage record for \(monthString) \(year)")
         } catch {
             print("❌ Failed to create Speechify usage record: \(error)")
+            // Return fallback if save fails
+            return createFallbackUsageRecord(month: monthString, year: Int32(year))
         }
         
         return newUsage
+    }
+    
+    private func createFallbackUsageRecord(month: String, year: Int32) -> SpeechifyUsage {
+        // Create a fallback record that doesn't get saved to Core Data
+        let fallback = SpeechifyUsage(context: coreDataService.context)
+        fallback.id = "fallback-\(UUID().uuidString)"
+        fallback.month = month
+        fallback.year = year
+        fallback.charactersUsed = 0
+        fallback.charactersLimit = Int32(charactersLimit)
+        fallback.listeningTimeMinutes = 0.0
+        fallback.resetDate = Date()
+        
+        print("⚠️ Created fallback SpeechifyUsage record for \(month) \(year)")
+        return fallback
     }
     
     private func resetMonthlyUsage() {

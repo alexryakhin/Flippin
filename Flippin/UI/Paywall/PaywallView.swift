@@ -171,6 +171,16 @@ enum Paywall {
         private var features: [FeatureModel] {
             [
                 FeatureModel(
+                    icon: "sparkles",
+                    title: "AI Collection Generator",
+                    description: "Create custom flashcard collections with AI"
+                ),
+                FeatureModel(
+                    icon: "brain.head.profile",
+                    title: "AI Learning Coach",
+                    description: "Get personalized insights and recommendations"
+                ),
+                FeatureModel(
                     icon: "infinity",
                     title: Loc.CardLimits.unlimitedCards,
                     description: Loc.PremiumFeatures.unlimitedCardsDescription

@@ -10,6 +10,7 @@
 		53BEAE352E23A3C8003E07F0 /* Flow in Frameworks */ = {isa = PBXBuildFile; productRef = 53BEAE342E23A3C8003E07F0 /* Flow */; };
 		53BEF19D2E24E1D4002F2A76 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 53BEF19C2E24E1D4002F2A76 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		53BEF19F2E24E1D4002F2A76 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 53BEF19E2E24E1D4002F2A76 /* FirebaseCrashlytics */; };
+		53DB3D0E2E9A486200339F9C /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 53DB3D0D2E9A486200339F9C /* OpenAI */; };
 		53F6489D2E584E1D0088C3B7 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 53F6489C2E584E1D0088C3B7 /* FirebaseRemoteConfig */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		533792DE2E110B250097F5BF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
+				53DB3D0E2E9A486200339F9C /* OpenAI in Frameworks */,
 				53BEF19F2E24E1D4002F2A76 /* FirebaseCrashlytics in Frameworks */,
 				53BEAE352E23A3C8003E07F0 /* Flow in Frameworks */,
 				53BEF19D2E24E1D4002F2A76 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
@@ -97,6 +99,7 @@
 				53BEF19C2E24E1D4002F2A76 /* FirebaseAnalyticsWithoutAdIdSupport */,
 				53BEF19E2E24E1D4002F2A76 /* FirebaseCrashlytics */,
 				53F6489C2E584E1D0088C3B7 /* FirebaseRemoteConfig */,
+				53DB3D0D2E9A486200339F9C /* OpenAI */,
 			);
 			productName = SpeakCards;
 			productReference = 533792E12E110B250097F5BF /* Flippin.app */;
@@ -147,6 +150,7 @@
 			packageReferences = (
 				53BEAE332E23A3C8003E07F0 /* XCRemoteSwiftPackageReference "SwiftUI-Flow" */,
 				53BEF19B2E24E1D4002F2A76 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				53DB3D0C2E9A486200339F9C /* XCRemoteSwiftPackageReference "OpenAI" */,
 			);
 			preferredProjectObjectVersion = 90;
 			productRefGroup = 533792E22E110B250097F5BF /* Products */;
@@ -418,6 +422,14 @@
 				minimumVersion = 11.15.0;
 			};
 		};
+		53DB3D0C2E9A486200339F9C /* XCRemoteSwiftPackageReference "OpenAI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MacPaw/OpenAI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.4.6;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -435,6 +447,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 53BEF19B2E24E1D4002F2A76 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseCrashlytics;
+		};
+		53DB3D0D2E9A486200339F9C /* OpenAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53DB3D0C2E9A486200339F9C /* XCRemoteSwiftPackageReference "OpenAI" */;
+			productName = OpenAI;
 		};
 		53F6489C2E584E1D0088C3B7 /* FirebaseRemoteConfig */ = {
 			isa = XCSwiftPackageProductDependency;

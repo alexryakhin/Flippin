@@ -1,0 +1,55 @@
+/*
+  AIFeatures.strings
+  Flippin
+  
+  AI-powered features localization
+  Language: en
+  Section: ai_features
+*/
+
+// AI Collection Generator
+"aiGeneratorTitle" = "AI Collection Generator";
+"aiGeneratorSubtitle" = "Create custom flashcard collections with AI";
+"aiGeneratorDescription" = "Describe what you want to learn and AI will create a custom flashcard collection for you";
+"yourRequest" = "Your Request";
+"numberOfCards" = "Number of Cards";
+"exampleRequests" = "Example Requests";
+"generateCollection" = "Generate Collection";
+"tryAgain" = "Try Again";
+"importAll" = "Import All";
+"generatedCards" = "Generated Cards";
+"requestPlaceholder" = "e.g., Spanish phrases for ordering at restaurants";
+"characterLimit" = "%d/500 characters";
+"requestTooLong" = "Request too long. Please keep it under 500 characters.";
+
+// AI Learning Coach
+"aiCoachTitle" = "AI Learning Coach";
+"aiCoachDescription" = "Get personalized insights about your learning progress";
+"generateInsights" = "Generate Insights";
+"refreshInsights" = "Refresh Insights";
+"viewDetailedInsights" = "View Detailed Insights";
+"analyzingProgress" = "AI is analyzing your progress...";
+"keyInsights" = "Key Insights";
+"recommendations" = "Recommendations";
+"generatedAt" = "Generated %@";
+
+// Priority Labels
+"highPriority" = "High Priority";
+"mediumPriority" = "Medium Priority";
+"lowPriority" = "Low Priority";
+
+// Premium Gate
+"premiumFeature" = "Premium Feature";
+"aiPremiumDescription" = "Get AI-powered insights about your learning progress";
+"upgradeToPremium" = "Upgrade to Premium";
+"aiUnlimitedAccess" = "AI features available with Premium subscription";
+
+// Errors
+"aiNotReady" = "ChatGPT service is not ready. Please try again later.";
+"aiPremiumRequired" = "AI features are available with Premium subscription";
+"aiFeatureDisabled" = "AI features are temporarily unavailable";
+"aiInvalidResponse" = "Received invalid response from AI. Please try again.";
+"aiNetworkError" = "Network connection failed. Check your internet and try again.";
+"aiUnexpectedError" = "An unexpected error occurred. Please try again.";
+"aiImportFailed" = "Failed to import cards. You may have reached your card limit.";
+

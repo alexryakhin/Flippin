@@ -163,6 +163,8 @@ struct MainTabView: View {
             PresetCollectionsView()
         case .detailedAnalytics:
             DetailedAnalytics.ContentView()
+        case .aiCoachDetail(let insight):
+            AICoachDetailView(insight: insight)
         case .backgroundPreview:
             BackgroundPreviewView()
         case .backgroundDemo:

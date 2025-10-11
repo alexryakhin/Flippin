@@ -13,12 +13,14 @@ struct PresetCollectionsView: View {
     @StateObject private var cardsProvider = CardsProvider.shared
     @StateObject private var colorManager = ColorManager.shared
     @StateObject private var presetService = PresetCollectionService.shared
+    @StateObject private var purchaseService = PurchaseService.shared
 
     @State private var searchText = ""
     @State private var selectedCategory: PresetModel.Category?
     @State private var showingImportAlert = false
     @State private var collectionToImport: PresetCollection?
     @State private var lastSearchText = ""
+    @State private var showingPaywall = false
 
     var filteredCollections: [PresetCollection] {
         var collections: [PresetCollection] = presetService.collections
@@ -55,20 +57,27 @@ struct PresetCollectionsView: View {
     var body: some View {
         VStack(spacing: 0) {
             ScrollView {
-                LazyVGrid(columns: [
-                    GridItem(.flexible(), spacing: 12),
-                    GridItem(.flexible(), spacing: 12)
-                ], spacing: 12) {
-                    ForEach(filteredCollections) { collection in
-                        PresetCollectionCard(collection: collection) {
-                            collectionToImport = collection
-                            showingImportAlert = true
+                VStack(spacing: 16) {
+                    // AI Generator Button
+                    aiGeneratorButton
+                        .padding(.horizontal, 16)
+                        .padding(.top, 12)
+                    
+                    LazyVGrid(columns: [
+                        GridItem(.flexible(), spacing: 12),
+                        GridItem(.flexible(), spacing: 12)
+                    ], spacing: 12) {
+                        ForEach(filteredCollections) { collection in
+                            PresetCollectionCard(collection: collection) {
+                                collectionToImport = collection
+                                showingImportAlert = true
+                            }
+                            .clippedWithPaddingAndBackground()
                         }
-                        .clippedWithPaddingAndBackground()
                     }
+                    .padding(.horizontal, 16)
+                    .padding(.bottom, 12)
                 }
-                .padding(.horizontal, 16)
-                .padding(.vertical, 12)
             }
             .groupedBackground()
             .navigation(
@@ -117,6 +126,73 @@ struct PresetCollectionsView: View {
                 Text(Loc.PresetCollections.importCollectionMessage(collection.name, collection.cardCount))
             }
         }
+        .sheet(isPresented: $showingPaywall) {
+            Paywall.ContentView()
+        }
+    }
+    
+    // MARK: - AI Generator Button
+    
+    private var aiGeneratorButton: some View {
+        NavigationLink(destination: AICollectionGeneratorView()) {
+            HStack(spacing: 12) {
+                Image(systemName: "sparkles")
+                    .font(.title2)
+                    .foregroundColor(.yellow)
+                
+                VStack(alignment: .leading, spacing: 4) {
+                    HStack {
+                        Text("AI Collection Generator")
+                            .font(.headline)
+                            .foregroundColor(.primary)
+                        
+                        if !purchaseService.hasPremiumAccess {
+                            HStack(spacing: 4) {
+                                Image(systemName: "lock.fill")
+                                    .font(.caption2)
+                                Text("Premium")
+                                    .font(.caption)
+                                    .fontWeight(.semibold)
+                            }
+                            .foregroundColor(.yellow)
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 4)
+                            .background(Color.yellow.opacity(0.2))
+                            .cornerRadius(6)
+                        }
+                    }
+                    
+                    Text("Create custom collections with AI")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
+                
+                Spacer()
+                
+                Image(systemName: "chevron.right")
+                    .foregroundColor(.secondary)
+            }
+            .padding(16)
+            .background(
+                LinearGradient(
+                    colors: [Color.yellow.opacity(0.2), Color.orange.opacity(0.2)],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
+            )
+            .background(.thinMaterial)
+            .cornerRadius(16)
+            .overlay(
+                RoundedRectangle(cornerRadius: 16)
+                    .strokeBorder(Color.yellow.opacity(0.5), lineWidth: 2)
+            )
+        }
+        .simultaneousGesture(TapGesture().onEnded {
+            if !purchaseService.hasPremiumAccess {
+                showingPaywall = true
+                AnalyticsService.trackEvent(.aiFeaturePaywallShown)
+            }
+        })
     }
 
     private var categoryFilterView: some View {

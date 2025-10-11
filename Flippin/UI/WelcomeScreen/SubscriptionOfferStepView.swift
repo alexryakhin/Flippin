@@ -178,11 +178,11 @@ extension WelcomeSheet {
         
         private var features: [FeatureItem] {
             [
+                FeatureItem(icon: "sparkles", title: "AI Collection Generator"),
+                FeatureItem(icon: "brain.head.profile", title: "AI Learning Coach"),
                 FeatureItem(icon: "infinity", title: Loc.CardLimits.unlimitedCards),
                 FeatureItem(icon: "waveform", title: "Premium Voices"),
-                FeatureItem(icon: "folder.fill", title: Loc.PremiumFeatures.collections),
-                FeatureItem(icon: "sparkles", title: Loc.PremiumFeatures.premiumBackgrounds),
-                FeatureItem(icon: "chart.line.uptrend.xyaxis", title: Loc.Paywall.advancedAnalyticsTitle)
+                FeatureItem(icon: "folder.fill", title: Loc.PremiumFeatures.collections)
             ]
         }
     }

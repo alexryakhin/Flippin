@@ -22,6 +22,8 @@ final class RemoteConfigService: ObservableObject {
         case speechifyAPIKey = "speechify_api_key"
         case speechifyEnabled = "speechify_enabled"
         case speechifyCharacterLimit = "speechify_character_limit"
+        case chatgptAPIKey = "chatgpt_api_key"
+        case chatgptEnabled = "chatgpt_features_enabled"
     }
 
     private init() {
@@ -39,7 +41,9 @@ final class RemoteConfigService: ObservableObject {
         let defaults: [String: NSObject] = [
             ConfigKey.speechifyAPIKey.rawValue: "" as NSObject,
             ConfigKey.speechifyEnabled.rawValue: false as NSObject,
-            ConfigKey.speechifyCharacterLimit.rawValue: 50000 as NSObject
+            ConfigKey.speechifyCharacterLimit.rawValue: 50000 as NSObject,
+            ConfigKey.chatgptAPIKey.rawValue: "" as NSObject,
+            ConfigKey.chatgptEnabled.rawValue: false as NSObject
         ]
         remoteConfig.setDefaults(defaults)
 
@@ -82,8 +86,18 @@ final class RemoteConfigService: ObservableObject {
     func getSpeechifyCharacterLimit() -> Int {
         return remoteConfig.configValue(forKey: ConfigKey.speechifyCharacterLimit.rawValue).numberValue.intValue
     }
-
-
+    
+    // MARK: - ChatGPT Configuration
+    
+    /// Get ChatGPT API key from Remote Config
+    func getChatGPTAPIKey() -> String {
+        return remoteConfig.configValue(forKey: ConfigKey.chatgptAPIKey.rawValue).stringValue ?? ""
+    }
+    
+    /// Check if ChatGPT features are enabled
+    func isChatGPTEnabled() -> Bool {
+        return remoteConfig.configValue(forKey: ConfigKey.chatgptEnabled.rawValue).boolValue
+    }
 
     /// Check if Remote Config is properly configured
     func isRemoteConfigReady() -> Bool {
