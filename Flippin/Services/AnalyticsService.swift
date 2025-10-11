@@ -83,6 +83,10 @@ enum AnalyticsEvent: String, CaseIterable {
     case difficultCardRemindersEnabled = "difficult_card_reminders_enabled"
     case difficultCardRemindersDisabled = "difficult_card_reminders_disabled"
     case difficultCardReminderScheduled = "difficult_card_reminder_scheduled"
+    case notificationPermissionGranted = "notification_permission_granted"
+    
+    // MARK: - Onboarding Events
+    case subscriptionPurchased = "subscription_purchased"
 }
 
 // MARK: - Analytics Service

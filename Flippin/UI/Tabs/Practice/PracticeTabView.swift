@@ -131,7 +131,7 @@ enum PracticeTab {
 
                         // Practice all cards
                         practiceOptionButton(
-                            image: Image(.icCardStackFill),
+                            image: Image(.cardStackFill),
                             text: Loc.Study.practiceAllCards(cardsProvider.cards.count),
                             color: .blue,
                             action: {

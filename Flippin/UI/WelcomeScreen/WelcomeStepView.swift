@@ -11,8 +11,6 @@ extension WelcomeSheet {
         @StateObject private var colorManager = ColorManager.shared
         @State private var animateContent = false
 
-        let title: String
-        let message: String
         let onContinue: () -> Void
 
         var body: some View {
@@ -32,13 +30,13 @@ extension WelcomeSheet {
                             .animation(.easeInOut(duration: 0.5).delay(0.2), value: animateContent)
 
                         VStack(spacing: 16) {
-                            Text(title)
+                            Text(Loc.WelcomeScreen.welcomeScreenTitle)
                                 .font(.system(size: 32, weight: .bold, design: .rounded))
                                 .multilineTextAlignment(.center)
                                 .offset(y: animateContent ? 0 : 20)
                                 .opacity(animateContent ? 1 : 0)
 
-                            Text(message)
+                            Text(Loc.WelcomeScreen.welcomeScreenMessage)
                                 .font(.body)
                                 .foregroundColor(.secondary)
                                 .multilineTextAlignment(.center)
@@ -92,8 +90,8 @@ extension WelcomeSheet {
                     }
                 }
             }
-            .safeAreaInset(edge: .bottom) {
-                NavigationLink(destination: LanguageSelectionStepView(onContinue: onContinue)) {
+            .safeAreaInset(edge: .bottom, spacing: .zero) {
+                NavigationLink(destination: NameInputStepView(onContinue: onContinue)) {
                     ActionButton(
                         Loc.WelcomeScreen.continueButton,
                         style: .borderedProminent,
@@ -101,6 +99,9 @@ extension WelcomeSheet {
                     )
                     .allowsHitTesting(false)
                 }
+                .simultaneousGesture(TapGesture().onEnded {
+                    HapticService.shared.buttonTapped()
+                })
                 .padding(vertical: 12, horizontal: 16)
             }
             .background {

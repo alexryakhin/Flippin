@@ -26,7 +26,7 @@ enum TabBarItem: Int, CaseIterable {
     var image: Image {
         switch self {
         case .study:
-            Image(.icCardStack)
+            Image(.cardStackFill)
         case .practice:
             Image(systemName: "book")
         case .analytics:
@@ -39,7 +39,7 @@ enum TabBarItem: Int, CaseIterable {
     var imageSelected: Image {
         switch self {
         case .study:
-            Image(.icCardStackFill)
+            Image(.cardStackFill)
         case .practice:
             Image(systemName: "book.fill")
         case .analytics:

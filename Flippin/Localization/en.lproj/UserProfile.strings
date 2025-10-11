@@ -1,0 +1,94 @@
+/*
+  UserProfile.strings
+  Flippin
+  
+  User Profile and Onboarding Localization
+  Language: en
+  Section: user_profile
+*/
+
+// Name Input
+"nameTitle" = "What's Your Name?";
+"nameSubtitle" = "We'd love to know what to call you";
+"namePlaceholder" = "Enter your name";
+
+// Age Group Selection
+"ageGroupTitle" = "What's Your Age Group?";
+"ageGroupSubtitle" = "This helps us personalize your learning experience";
+"ageUnder18" = "Under 18";
+"age18to24" = "18-24";
+"age25to34" = "25-34";
+"age35to44" = "35-44";
+"age45to54" = "45-54";
+"age55plus" = "55+";
+
+// Gender Selection
+"genderTitle" = "How Do You Identify?";
+"genderSubtitle" = "This information helps us customize your experience";
+"genderMale" = "Male";
+"genderFemale" = "Female";
+"genderNonBinary" = "Non-binary";
+"genderPreferNotToSay" = "Prefer not to say";
+
+// Language Proficiency
+"proficiencyLevel" = "Your Level";
+"proficiencyBeginner" = "Beginner";
+"proficiencyIntermediate" = "Intermediate";
+"proficiencyAdvanced" = "Advanced";
+
+// Interests Selection
+"interestsTitle" = "What Interests You?";
+"interestsSubtitle" = "Select topics you'd like to focus on (choose at least one)";
+
+// Weekly Goal
+"weeklyGoalTitle" = "Your Weekly Goal";
+"weeklyGoalSubtitle" = "How many phrases do you want to learn each week?";
+"weeklyGoal10" = "10 phrases";
+"weeklyGoal10Desc" = "Light & Relaxed";
+"weeklyGoal25" = "25 phrases";
+"weeklyGoal25Desc" = "Balanced Approach";
+"weeklyGoal50" = "50 phrases";
+"weeklyGoal50Desc" = "Ambitious Learner";
+"weeklyGoal100" = "100 phrases";
+"weeklyGoal100Desc" = "Intensive Mode";
+
+// Learning Goals
+"learningGoalTitle" = "What's Your Goal?";
+"learningGoalSubtitle" = "Tell us why you're learning a new language";
+"goalTravel" = "Travel Abroad";
+"goalTravelDesc" = "Planning to visit or explore new countries";
+"goalBusiness" = "Business Communication";
+"goalBusinessDesc" = "Professional meetings and networking";
+"goalAcademic" = "Academic Studies";
+"goalAcademicDesc" = "School, university, or research";
+"goalCasual" = "Casual Conversation";
+"goalCasualDesc" = "Chat with friends and make connections";
+"goalCultural" = "Cultural Immersion";
+"goalCulturalDesc" = "Appreciate movies, music, and literature";
+"goalRelocation" = "Moving to Another Country";
+"goalRelocationDesc" = "Preparing for life in a new place";
+
+// Mode Selection
+"modeSelectionTitle" = "Choose Your Mode";
+"modeSelectionSubtitle" = "How do you want to see your cards?";
+
+// Streak Explanation
+"streakTitle" = "Build Your Streak!";
+"streakSubtitle" = "We track your daily practice to keep you motivated";
+"streakFeature1" = "Learn every day to maintain your streak";
+"streakFeature2" = "Track your progress with visual insights";
+"streakFeature3" = "Unlock achievements as you grow";
+
+// Notifications
+"notificationTitle" = "Stay on Track";
+"notificationSubtitle" = "Get gentle reminders to practice daily";
+"notificationFeature1" = "Daily study reminders at your preferred time";
+"notificationFeature2" = "Practice alerts for difficult cards";
+"notificationFeature3" = "Streak notifications to stay motivated";
+"enableNotifications" = "Enable Notifications";
+
+// Subscription Trial
+"trialTitle" = "Try Premium Free for 7 Days";
+"trialSubtitle" = "Unlock all features with full access to premium content";
+"skipTrial" = "Continue without trial";
+

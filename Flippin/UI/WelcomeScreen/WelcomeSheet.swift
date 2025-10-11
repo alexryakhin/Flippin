@@ -17,12 +17,8 @@ enum WelcomeSheet {
 
         var body: some View {
             NavigationView {
-                WelcomeStepView(
-                    title: Loc.WelcomeScreen.welcomeScreenTitle,
-                    message: Loc.WelcomeScreen.welcomeScreenMessage,
-                    onContinue: onContinue
-                )
-                .navigationBarHidden(true)
+                WelcomeStepView(onContinue: onContinue)
+                    .navigationBarHidden(true)
             }
             .onAppear {
                 withAnimation(.easeInOut(duration: 0.6).delay(0.1)) {

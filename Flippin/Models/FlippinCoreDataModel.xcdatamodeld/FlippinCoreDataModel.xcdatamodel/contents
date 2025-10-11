@@ -68,4 +68,18 @@
         <attribute name="resetDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="year" optional="YES" attributeType="Integer 32" defaultValueString="2025" usesScalarValueType="YES"/>
     </entity>
+    <entity name="UserProfile" representedClassName="UserProfile" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="ageGroupRaw" optional="YES" attributeType="String"/>
+        <attribute name="genderRaw" optional="YES" attributeType="String"/>
+        <attribute name="targetLanguageProficiencyRaw" optional="YES" attributeType="String"/>
+        <attribute name="selectedInterestsRaw" optional="YES" attributeType="String"/>
+        <attribute name="weeklyPhraseGoal" optional="YES" attributeType="Integer 32" defaultValueString="25" usesScalarValueType="YES"/>
+        <attribute name="learningGoalRaw" optional="YES" attributeType="String"/>
+        <attribute name="prefersTravelMode" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="onboardingCompletedDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
 </model>

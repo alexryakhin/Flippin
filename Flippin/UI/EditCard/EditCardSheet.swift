@@ -34,7 +34,7 @@ struct EditCardSheet: View {
             }
             .padding(16)
         }
-        .safeAreaInset(edge: .bottom) {
+        .safeAreaInset(edge: .bottom, spacing: .zero) {
             ActionButton(
                 Loc.Buttons.save,
                 style: .borderedProminent

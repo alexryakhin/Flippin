@@ -42,7 +42,7 @@ struct MainTabView: View {
             TabView(selection: $navigationManager.selectedTab) {
                 CardStackTab.ContentView()
                     .tabItem {
-                        TabBarItem.study.imageSelected
+                        TabBarItem.study.image
                         Text(TabBarItem.study.title)
                     }
                     .tag(TabBarItem.study)
@@ -115,7 +115,7 @@ struct MainTabView: View {
                 }
                 .animation(.easeInOut, value: navigationManager.selectedTab)
             }
-            .safeAreaInset(edge: .bottom) {
+            .safeAreaInset(edge: .bottom, spacing: .zero) {
                 tabBarView
                     .padding(.bottom, 8)
             }

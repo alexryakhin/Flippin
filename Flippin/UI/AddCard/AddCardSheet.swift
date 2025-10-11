@@ -46,7 +46,7 @@ struct AddCardSheet: View {
             }
             .padding(16)
         }
-        .safeAreaInset(edge: .bottom) {
+        .safeAreaInset(edge: .bottom, spacing: .zero) {
             saveButton
         }
         .groupedBackground()

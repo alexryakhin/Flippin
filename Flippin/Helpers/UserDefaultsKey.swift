@@ -21,4 +21,5 @@ enum UserDefaultsKey {
     static let speechifySelectedVoice = "speechifySelectedVoice"
     static let speechifyCharactersUsed = "speechifyCharactersUsed"
     static let speechifyCharactersLimit = "speechifyCharactersLimit"
+    static let userProfileCompleted = "userProfileCompleted"
 }

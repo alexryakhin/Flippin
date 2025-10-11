@@ -1,37 +1,35 @@
 //
-//  LanguageSelectionStepView.swift
+//  NameInputStepView.swift
 //  Flippin
 //
-//  Created by Alexander Riakhin on 7/21/25.
+//  Created by Alexander Riakhin on 10/11/25.
 //
+
 import SwiftUI
 
 extension WelcomeSheet {
-    struct LanguageSelectionStepView: View {
-        @StateObject private var languageManager = LanguageManager.shared
+    struct NameInputStepView: View {
         @StateObject private var colorManager = ColorManager.shared
         @StateObject private var profileService = UserProfileService.shared
         @State private var animateContent = false
-        @State private var selectedProficiency: LanguageProficiency = .beginner
-
+        @State private var name = ""
+        
         let onContinue: () -> Void
-
+        
         var body: some View {
             ZStack {
-                // Animated background
                 AnimatedBackground()
                     .ignoresSafeArea()
-
+                
                 VStack(spacing: 0) {
                     Spacer()
-
+                    
                     VStack(spacing: 24) {
-                        // Language selection icon
                         ZStack {
                             Circle()
                                 .fill(
                                     LinearGradient(
-                                        colors: [.orange, .red],
+                                        colors: [.blue, .purple],
                                         startPoint: .topLeading,
                                         endPoint: .bottomTrailing
                                     )
@@ -39,23 +37,23 @@ extension WelcomeSheet {
                                 .frame(width: 100, height: 100)
                                 .scaleEffect(animateContent ? 1 : 0.5)
                                 .opacity(animateContent ? 1 : 0)
-
-                            Image(systemName: "globe")
+                            
+                            Image(systemName: "person.fill")
                                 .font(.system(size: 40, weight: .medium))
                                 .foregroundColor(.white)
                                 .scaleEffect(animateContent ? 1 : 0.8)
                                 .opacity(animateContent ? 1 : 0)
                         }
                         .animation(.easeInOut(duration: 0.5).delay(0.2), value: animateContent)
-
+                        
                         VStack(spacing: 16) {
-                            Text(Loc.WelcomeScreen.chooseLanguages)
+                            Text(Loc.UserProfile.nameTitle)
                                 .font(.system(size: 28, weight: .bold, design: .rounded))
                                 .multilineTextAlignment(.center)
                                 .offset(y: animateContent ? 0 : 20)
                                 .opacity(animateContent ? 1 : 0)
-
-                            Text(Loc.WelcomeScreen.chooseLanguagesDesc)
+                            
+                            Text(Loc.UserProfile.nameSubtitle)
                                 .font(.body)
                                 .foregroundColor(.secondary)
                                 .multilineTextAlignment(.center)
@@ -64,67 +62,51 @@ extension WelcomeSheet {
                         }
                         .animation(.easeInOut(duration: 0.5).delay(0.4), value: animateContent)
                     }
-
+                    
                     Spacer()
-
-                    // Language pickers
+                    
                     VStack(spacing: 16) {
-                        LanguagePickerCard(
-                            title: Loc.WelcomeScreen.myLanguage,
-                            subtitle: Loc.WelcomeScreen.myLanguageDesc,
-                            selection: $languageManager.userLanguageRaw,
-                            animateContent: animateContent,
-                            delay: 0.7
-                        )
-
-                        LanguagePickerCard(
-                            title: Loc.WelcomeScreen.imLearning,
-                            subtitle: Loc.WelcomeScreen.imLearningDesc,
-                            selection: $languageManager.targetLanguageRaw,
-                            animateContent: animateContent,
-                            delay: 0.9
-                        )
-                        
-                        // Proficiency Level Picker
-                        VStack(alignment: .leading, spacing: 8) {
-                            Text(Loc.UserProfile.proficiencyLevel)
-                                .font(.headline)
-                                .offset(x: animateContent ? 0 : -20)
-                                .opacity(animateContent ? 1 : 0)
-                            
-                            Picker(Loc.UserProfile.proficiencyLevel, selection: $selectedProficiency) {
-                                ForEach(LanguageProficiency.allCases) { level in
-                                    Text(level.displayName).tag(level)
+                        TextField(Loc.UserProfile.namePlaceholder, text: $name)
+                            .font(.system(size: 20, weight: .medium, design: .rounded))
+                            .padding(20)
+                            .background(.thinMaterial)
+                            .clipShape(RoundedRectangle(cornerRadius: 16))
+                            .textInputAutocapitalization(.words)
+                            .autocorrectionDisabled()
+                            .submitLabel(.continue)
+                            .onSubmit {
+                                if !name.isEmpty {
+                                    saveAndContinue()
                                 }
                             }
-                            .pickerStyle(.segmented)
                             .scaleEffect(animateContent ? 1 : 0.95)
                             .opacity(animateContent ? 1 : 0)
-                        }
-                        .padding(20)
-                        .background(.thinMaterial)
-                        .clipShape(RoundedRectangle(cornerRadius: 16))
-                        .animation(.easeInOut(duration: 0.4).delay(1.1), value: animateContent)
+                            .animation(.easeInOut(duration: 0.5).delay(0.7), value: animateContent)
                     }
-
+                    
                     Spacer()
-
-                    NavigationLink(destination: InterestsSelectionStepView(onContinue: onContinue)) {
-                        ActionButton(
-                            Loc.WelcomeScreen.continueButton,
-                            style: .borderedProminent,
-                            action: {}
-                        )
-                        .allowsHitTesting(false)
-                    }
+                    
+                    NavigationLink(
+                        destination: AgeGroupSelectionStepView(onContinue: onContinue),
+                        label: {
+                            ActionButton(
+                                Loc.WelcomeScreen.continueButton,
+                                style: .borderedProminent,
+                                action: {}
+                            )
+                            .allowsHitTesting(false)
+                        }
+                    )
                     .simultaneousGesture(TapGesture().onEnded {
                         saveAndContinue()
                     })
+                    .disabled(name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+                    .opacity(name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? 0.5 : 1)
                 }
                 .padding(vertical: 12, horizontal: 16)
                 .onAppear {
-                    if let proficiency = profileService.currentProfile?.targetLanguageProficiency {
-                        selectedProficiency = proficiency
+                    if let existingName = profileService.currentProfile?.name {
+                        name = existingName
                     }
                     withAnimation(.easeInOut(duration: 0.6).delay(0.1)) {
                         animateContent = true
@@ -135,8 +117,11 @@ extension WelcomeSheet {
         }
         
         private func saveAndContinue() {
-            profileService.updateProfile(proficiency: selectedProficiency)
+            let trimmedName = name.trimmingCharacters(in: .whitespacesAndNewlines)
+            guard !trimmedName.isEmpty else { return }
+            profileService.updateProfile(name: trimmedName)
             HapticService.shared.buttonTapped()
         }
     }
 }
+

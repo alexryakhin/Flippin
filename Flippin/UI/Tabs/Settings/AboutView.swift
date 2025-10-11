@@ -95,7 +95,7 @@ struct AboutView: View {
         ) {
             VStack(spacing: 12) {
                 FeatureRow(
-                    icon: .init(.icCardStackFill),
+                    icon: .init(.cardStackFill),
                     title: Loc.AboutApp.smartCards,
                     description: Loc.AboutApp.smartCardsDescription
                 )

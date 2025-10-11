@@ -47,7 +47,7 @@ struct NavigationTitleModifier<TrailingContent: View, BottomContent: View>: View
     func body(content: Content) -> some View {
         content
             .toolbar(.hidden)
-            .safeAreaInset(edge: .top) {
+            .safeAreaInset(edge: .top, spacing: .zero) {
                 VStack(spacing: mode.spacing) {
                     HStack(spacing: mode.spacing) {
                         if showsBackButton {
