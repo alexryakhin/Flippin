@@ -48,8 +48,7 @@ final class ChatGPTService: ObservableObject {
     
     /// Check if user has premium access to AI features
     func isPremiumUser() -> Bool {
-        return purchaseService.isProductPurchased("com.dor.flippin.premium_monthly") ||
-               purchaseService.isProductPurchased("com.dor.flippin.premium_yearly")
+        return purchaseService.hasPremiumAccess
     }
     
     /// Check if AI features can be used

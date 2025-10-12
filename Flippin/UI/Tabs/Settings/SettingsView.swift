@@ -16,6 +16,7 @@ struct SettingsView: View {
     @StateObject private var purchaseService = PurchaseService.shared
     @StateObject private var notificationService = NotificationService.shared
     @StateObject private var navigationManager = NavigationManager.shared
+    @StateObject private var profileService = UserProfileService.shared
     @AppStorage(UserDefaultsKey.cardDisplayMode) private var isTravelMode = false
 
     @State private var newTagText = ""
@@ -401,6 +402,7 @@ struct SettingsView: View {
                 .pickerStyle(.segmented)
                 .padding(.top, 8)
                 .onChange(of: isTravelMode) { _, newValue in
+                    profileService.updateProfile(prefersTravelMode: newValue)
                     AnalyticsService.trackEvent(.travelModeToggled)
                 }
             }
@@ -516,11 +518,11 @@ struct SettingsView: View {
                                 .font(.title2)
                         }
                         
-                        HeaderButton(Loc.SubscriptionManagement.manageSubscription) {
-                            if let url = URL(string: "https://apps.apple.com/account/subscriptions") {
-                                UIApplication.shared.open(url)
-                            }
+                    HeaderButton(Loc.SubscriptionManagement.manageSubscription) {
+                        if let url = URL(string: PrivateConstants.appStoreSubscriptionsURL) {
+                            UIApplication.shared.open(url)
                         }
+                    }
                         .frame(maxWidth: .infinity, alignment: .leading)
                     }
                 }

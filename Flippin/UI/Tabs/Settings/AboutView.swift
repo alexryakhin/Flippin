@@ -6,22 +6,27 @@
 //
 
 import SwiftUI
+import StoreKit
+import Flow
 
 struct AboutView: View {
     @Environment(\.dismiss) var dismiss
+    @Environment(\.requestReview) var requestReview
     @StateObject private var colorManager = ColorManager.shared
-    
+    @State private var safariURL: URL?
+
     private var appVersion: String {
         let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0"
         let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "1"
         return "\(version) (\(build))"
     }
-    
+
     var body: some View {
         ScrollView {
             VStack(spacing: 24) {
                 appInfoSection
                 featuresSection
+                appSupportSection
                 donationSection
                 legalSection
             }
@@ -43,11 +48,12 @@ struct AboutView: View {
         .ifLet(colorManager.colorScheme) { view, scheme in
             view.colorScheme(scheme)
         }
+        .safari(url: $safariURL)
         .onAppear {
             AnalyticsService.trackEvent(.aboutScreenOpened)
         }
     }
-    
+
     // MARK: - App Info Section
     private var appInfoSection: some View {
         CustomSectionView(
@@ -61,25 +67,25 @@ struct AboutView: View {
                         .scaledToFit()
                         .frame(width: 80, height: 80)
                         .clipShape(RoundedRectangle(cornerRadius: 16))
-                    
+
                     VStack(spacing: 4) {
                         Text("Flippin")
                             .font(.title2)
                             .fontWeight(.bold)
-                        
+
                         Text(Loc.AboutApp.tagline)
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
                             .multilineTextAlignment(.center)
                     }
                 }
-                
+
                 // Version Info
                 VStack(spacing: 8) {
                     Text(Loc.AboutApp.version)
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
-                    
+
                     Text(appVersion)
                         .font(.headline)
                         .fontWeight(.medium)
@@ -87,7 +93,7 @@ struct AboutView: View {
             }
         }
     }
-    
+
     // MARK: - Features Section
     private var featuresSection: some View {
         CustomSectionView(
@@ -99,19 +105,19 @@ struct AboutView: View {
                     title: Loc.AboutApp.smartCards,
                     description: Loc.AboutApp.smartCardsDescription
                 )
-                
+
                 FeatureRow(
                     icon: .init(systemName: "globe"),
                     title: Loc.AboutApp.languagesTitle,
                     description: Loc.AboutApp.languagesDescription
                 )
-                
+
                 FeatureRow(
                     icon: .init(systemName: "chart.line.uptrend.xyaxis"),
                     title: Loc.AboutApp.learningAnalytics,
                     description: Loc.AboutApp.learningAnalyticsDescription
                 )
-                
+
                 FeatureRow(
                     icon: .init(systemName: "speaker.wave.2"),
                     title: Loc.AboutApp.tts,
@@ -120,7 +126,44 @@ struct AboutView: View {
             }
         }
     }
-    
+
+    // MARK: - App Support Section
+    private var appSupportSection: some View {
+        CustomSectionView(
+            header: Loc.AboutApp.appSupport
+        ) {
+            VStack(alignment: .leading, spacing: 12) {
+                Text(Loc.AboutApp.appSupportDescription)
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                    .multilineTextAlignment(.leading)
+
+                HFlow(spacing: 12) {
+                    HeaderButton(
+                        Loc.AboutApp.visitWebsite,
+                        icon: "network"
+                    ) {
+                        openWebsite()
+                    }
+                    HeaderButton(
+                        Loc.AboutApp.contactSupport,
+                        icon: "questionmark.circle.fill"
+                    ) {
+                        openSupport()
+                    }
+                    HeaderButton(
+                        Loc.AboutApp.rateOnAppStore,
+                        icon: "star.fill",
+                    ) {
+                        requestReview()
+                    }
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+        }
+    }
+
     // MARK: - Donation Section
     private var donationSection: some View {
         CustomSectionView(
@@ -139,11 +182,26 @@ struct AboutView: View {
                 ) {
                     openDonationLink()
                 }
+
+                Text(Loc.AboutApp.followSocialMedia)
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                    .multilineTextAlignment(.leading)
+                    .padding(.top, 8)
+
+                HStack(spacing: 12) {
+                    HeaderButton(Loc.AboutApp.instagram) {
+                        openInstagram()
+                    }
+                    HeaderButton(Loc.AboutApp.xTwitter) {
+                        openTwitter()
+                    }
+                }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
         }
     }
-    
+
     // MARK: - Legal Section
     private var legalSection: some View {
         CustomSectionView(
@@ -167,25 +225,35 @@ struct AboutView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
         }
     }
-    
+
     // MARK: - Actions
+    private func openWebsite() {
+        safariURL = URL(string: PrivateConstants.websiteURL)
+    }
+
+    private func openSupport() {
+        safariURL = URL(string: PrivateConstants.supportURL)
+    }
+
     private func openDonationLink() {
-        if let url = URL(string: "https://buymeacoffee.com/xander1100001") {
-            UIApplication.shared.open(url)
-            AnalyticsService.trackEvent(.donationLinkOpened)
-        }
+        safariURL = URL(string: PrivateConstants.buyMeACoffeeURL)
+        AnalyticsService.trackEvent(.donationLinkOpened)
     }
-    
+
+    private func openInstagram() {
+        safariURL = URL(string: PrivateConstants.instagramURL)
+    }
+
+    private func openTwitter() {
+        safariURL = URL(string: PrivateConstants.twitterURL)
+    }
+
     private func openPrivacyPolicy() {
-        if let url = URL(string: "https://www.flippin.app/privacy-policy") {
-            UIApplication.shared.open(url)
-        }
+        safariURL = URL(string: PrivateConstants.privacyPolicyURL)
     }
-    
+
     private func openTermsOfService() {
-        if let url = URL(string: "https://www.flippin.app/terms-of-use") {
-            UIApplication.shared.open(url)
-        }
+        safariURL = URL(string: PrivateConstants.termsOfServiceURL)
     }
 }
 
@@ -194,24 +262,24 @@ struct FeatureRow: View {
     let icon: Image
     let title: String
     let description: String
-    
+
     var body: some View {
         HStack(spacing: 12) {
             icon
                 .font(.title3)
                 .foregroundStyle(.tint)
                 .frame(width: 24)
-            
+
             VStack(alignment: .leading, spacing: 2) {
                 Text(title)
                     .font(.subheadline)
                     .fontWeight(.medium)
-                
+
                 Text(description)
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
-            
+
             Spacer()
         }
     }

@@ -1,4 +1,5 @@
 import Foundation
+import RevenueCat
 import StoreKit
 
 struct PurchaseResult {
@@ -8,58 +9,71 @@ struct PurchaseResult {
     let productId: String
 }
 
-// MARK: - Purchase Service
-final class PurchaseService: ObservableObject {
+// MARK: - Purchase Service (RevenueCat)
+final class PurchaseService: NSObject, ObservableObject {
     static let shared = PurchaseService()
-
-    @Published var products: [Product] = []
+    
     @Published var isPurchasing = false
-    @Published var lastTransactionId: String?
-    @Published var isListeningForUpdates = false
-    @Published var purchasedProductIds: Set<String> = []
     @Published var hasPremiumAccess: Bool = false
-
+    @Published var offerings: Offering?
+    @Published var customerInfo: CustomerInfo?
+    
+    // Product IDs (keep for compatibility)
+    private let monthlyProductId = "com.dor.flippin.premium_monthly"
+    private let yearlyProductId = "com.dor.flippin.premium_yearly"
+    
+    // Entitlement identifier (must match your RevenueCat dashboard)
+    private let premiumEntitlementID = "premium"
+    
     // MARK: - Debug Properties
     #if DEBUG
     @Published var isDebugModeEnabled: Bool = false
     #endif
+    
+    // Computed property for products (for compatibility)
+    var products: [StoreProduct] {
+        offerings?.availablePackages.map { $0.storeProduct } ?? []
+    }
+    
+    private override init() {
+        super.init()
 
-    private var productIds = [
-        "com.dor.flippin.premium_monthly",
-        "com.dor.flippin.premium_yearly"
-    ]
-
-    // Cached purchase state for faster loading at app launch
-    private var cachedPurchasedProductIds: Set<String> = []
-
-    private init() {
-        // Load cached purchase state immediately for faster access
+        // Load cached state for immediate access
         loadCachedPurchaseState()
-
+        
+        // Set up RevenueCat delegate
+        Purchases.shared.delegate = self
+        
+        // Initial load
         Task {
-            await loadProducts()
-            await listenForTransactionUpdates()
-            await loadPurchasedProducts()
+            await refreshCustomerInfo()
+            await loadOfferings()
         }
     }
-
-    // MARK: - Product Loading
-    func loadProducts() async {
+    
+    // MARK: - Load Offerings
+    @MainActor
+    func loadOfferings() async {
         do {
-            let products = try await Product.products(for: productIds)
-            await MainActor.run {
-                self.products = products
-            }
-            print("📦 Loaded \(products.count) products")
+            let offerings = try await Purchases.shared.offerings()
+            self.offerings = offerings.current
+            print("📦 Loaded RevenueCat offerings: \(offerings.current?.availablePackages.count ?? 0) packages")
         } catch {
-            print("❌ Failed to load products: \(error)")
-            AnalyticsService.trackErrorEvent(.errorOccurred, errorMessage: error.localizedDescription, errorCode: "load_products_failed")
+            print("❌ Failed to load offerings: \(error)")
+            AnalyticsService.trackErrorEvent(.errorOccurred, errorMessage: error.localizedDescription, errorCode: "load_offerings_failed")
         }
     }
-
+    
+    // MARK: - Load Products (for compatibility)
+    func loadProducts() async {
+        await loadOfferings()
+    }
+    
     // MARK: - Purchase Methods
     func purchaseProduct(_ productId: String) async -> PurchaseResult {
-        guard let product = products.first(where: { $0.id == productId }) else {
+        // Find the package with matching product ID
+        guard let package = offerings?.availablePackages.first(where: { $0.storeProduct.productIdentifier == productId }) else {
+            print("❌ Product not found: \(productId)")
             return PurchaseResult(
                 success: false,
                 transactionId: nil,
@@ -67,94 +81,90 @@ final class PurchaseService: ObservableObject {
                 productId: productId
             )
         }
-
-        isPurchasing = true
-        defer { isPurchasing = false }
-
-        do {
-            let storeProduct = try await Product.products(for: [productId]).first
-            guard let storeProduct = storeProduct else {
-                return PurchaseResult(
-                    success: false,
-                    transactionId: nil,
-                    error: "Product not available",
-                    productId: productId
-                )
+        
+        return await purchasePackage(package)
+    }
+    
+    func purchasePackage(_ package: Package) async -> PurchaseResult {
+        await MainActor.run {
+            isPurchasing = true
+        }
+        defer {
+            Task { @MainActor in
+                isPurchasing = false
             }
-
-            let result = try await storeProduct.purchase()
-
-            switch result {
-            case .success(let verification):
-                let transaction = try checkVerified(verification)
-
-                // Note: Transaction will be finished in the updates listener
-                // We don't call transaction.finish() here to avoid double-finishing
-
-                lastTransactionId = transaction.id.description
-
-                // Track purchase analytics
-                AnalyticsService.trackEvent(.purchaseCompleted, parameters: [
-                    "product_id": productId,
-                    "transaction_id": transaction.id.description,
-                    "price": product.displayPrice
-                ])
-
-                // Haptic feedback for successful purchase
-                await HapticService.shared.purchaseSuccess()
-
-                return PurchaseResult(
-                    success: true,
-                    transactionId: transaction.id.description,
-                    error: nil,
-                    productId: productId
-                )
-
-            case .userCancelled:
+        }
+        
+        do {
+            let (transaction, customerInfo, userCancelled) = try await Purchases.shared.purchase(package: package)
+            
+            if userCancelled {
+                print("⚠️ User cancelled purchase")
                 return PurchaseResult(
                     success: false,
                     transactionId: nil,
                     error: "Purchase cancelled by user",
-                    productId: productId
-                )
-
-            case .pending:
-                return PurchaseResult(
-                    success: false,
-                    transactionId: nil,
-                    error: "Purchase pending approval",
-                    productId: productId
-                )
-
-            @unknown default:
-                return PurchaseResult(
-                    success: false,
-                    transactionId: nil,
-                    error: "Unknown purchase result",
-                    productId: productId
+                    productId: package.storeProduct.productIdentifier
                 )
             }
-
-        } catch {
+            
+            // Update premium access status
+            await updatePremiumAccessStatus(from: customerInfo)
+            
+            let transactionId = transaction?.transactionIdentifier ?? "unknown"
+            
+            // Track analytics
+            AnalyticsService.trackEvent(.purchaseCompleted, parameters: [
+                "product_id": package.storeProduct.productIdentifier,
+                "transaction_id": transactionId,
+                "price": package.storeProduct.localizedPriceString
+            ])
+            
+            // Haptic feedback
+            await HapticService.shared.purchaseSuccess()
+            
+            print("✅ Purchase successful: \(package.storeProduct.productIdentifier)")
+            
+            return PurchaseResult(
+                success: true,
+                transactionId: transactionId,
+                error: nil,
+                productId: package.storeProduct.productIdentifier
+            )
+            
+        } catch let error as ErrorCode {
             print("❌ Purchase failed: \(error)")
-            AnalyticsService.trackErrorEvent(.purchaseFailed, errorMessage: error.localizedDescription)
-
+            
+            let errorMessage = error.localizedDescription
+            AnalyticsService.trackErrorEvent(.purchaseFailed, errorMessage: errorMessage)
+            
             // Haptic feedback for failed purchase
             await HapticService.shared.purchaseFailed()
-
+            
+            return PurchaseResult(
+                success: false,
+                transactionId: nil,
+                error: errorMessage,
+                productId: package.storeProduct.productIdentifier
+            )
+        } catch {
+            print("❌ Unexpected purchase error: \(error)")
+            
+            // Haptic feedback for failed purchase
+            await HapticService.shared.purchaseFailed()
+            
             return PurchaseResult(
                 success: false,
                 transactionId: nil,
                 error: error.localizedDescription,
-                productId: productId
+                productId: package.storeProduct.productIdentifier
             )
         }
     }
-
-    // MARK: - Test Purchase
+    
+    // MARK: - Test Purchase (for compatibility)
     func performTestPurchase() async -> PurchaseResult {
-        // Use the first available product for testing
-        guard let firstProduct = products.first else {
+        guard let firstPackage = offerings?.availablePackages.first else {
             return PurchaseResult(
                 success: false,
                 transactionId: nil,
@@ -162,205 +172,181 @@ final class PurchaseService: ObservableObject {
                 productId: "test"
             )
         }
-
-        print("🧪 Starting test purchase for: \(firstProduct.id)")
-
-        // Wait a bit for the transaction to be processed by the updates listener
-        let result = await purchaseProduct(firstProduct.id)
-
-        if result.success {
-            // Give the transaction updates listener time to process
-            try? await Task.sleep(nanoseconds: 500_000_000) // 0.5 seconds
-        }
-
-        return result
+        
+        print("🧪 Starting test purchase for: \(firstPackage.storeProduct.productIdentifier)")
+        return await purchasePackage(firstPackage)
     }
-
-    // MARK: - Transaction Verification
-    private func checkVerified<T>(_ result: VerificationResult<T>) throws -> T {
-        switch result {
-        case .unverified:
-            throw PurchaseError.verificationFailed
-        case .verified(let safe):
-            return safe
-        }
-    }
-
-    // MARK: - Transaction History
-    func getTransactionHistory() async -> [Transaction] {
-        var transactions: [Transaction] = []
-
-        for await result in Transaction.currentEntitlements {
-            do {
-                let transaction = try checkVerified(result)
-                transactions.append(transaction)
-            } catch {
-                print("❌ Failed to verify transaction: \(error)")
-            }
-        }
-
-        return transactions
-    }
-
-    // MARK: - Transaction Updates Listener
-    private func listenForTransactionUpdates() async {
-        print("🔔 Starting transaction updates listener...")
-        await MainActor.run {
-            isListeningForUpdates = true
-        }
-
-        for await result in Transaction.updates {
-            do {
-                let transaction = try checkVerified(result)
-
-                // Update last transaction ID
-                lastTransactionId = transaction.id.description
-
-                // Add to purchased products
-                await addToPurchasedProducts(transaction.productID)
-
-                // Track transaction update
-                AnalyticsService.trackEvent(.transactionUpdated, parameters: [
-                    "transaction_id": transaction.id.description,
-                    "product_id": transaction.productID,
-                    "purchase_date": transaction.purchaseDate.description
-                ])
-
-                print("📋 Transaction update received: \(transaction.id.description)")
-                print("🛍️ Product: \(transaction.productID)")
-                print("✅ Added to purchased products")
-
-                // Finish the transaction
-                await transaction.finish()
-
-            } catch {
-                print("❌ Failed to verify transaction update: \(error)")
-                AnalyticsService.trackErrorEvent(.transactionVerificationFailed, errorMessage: error.localizedDescription)
-            }
-        }
-    }
-
-    // MARK: - Purchased Products Management
-    private func loadPurchasedProducts() async {
-        print("📦 Loading purchased products...")
-
-        for await result in Transaction.currentEntitlements {
-            do {
-                let transaction = try checkVerified(result)
-                await addToPurchasedProducts(transaction.productID)
-            } catch {
-                print("❌ Failed to verify transaction: \(error)")
-            }
-        }
-
-        // Save the final state after loading from StoreKit
-        await MainActor.run {
-            saveCachedPurchaseState()
-        }
-
-        print("✅ Loaded \(purchasedProductIds.count) purchased products")
-    }
-
-    private func addToPurchasedProducts(_ productId: String) async {
-        await MainActor.run {
-            purchasedProductIds.insert(productId)
-            updatePremiumAccessStatus()
-            saveCachedPurchaseState()
-            print("✅ Added \(productId) to purchased products")
-        }
-    }
-
-    func isProductPurchased(_ productId: String) -> Bool {
-        return purchasedProductIds.contains(productId)
-    }
-
-    func getPurchasedProducts() -> [String] {
-        return Array(purchasedProductIds)
-    }
-
+    
     // MARK: - Restore Purchases
+    @MainActor
     func restorePurchases() async -> Bool {
         do {
-            try await AppStore.sync()
-            await loadPurchasedProducts() // Reload purchased products after sync
+            let customerInfo = try await Purchases.shared.restorePurchases()
+            await updatePremiumAccessStatus(from: customerInfo)
             print("✅ Purchases restored successfully")
-            return true
+            
+            AnalyticsService.trackEvent(.purchasesRestored, parameters: [
+                "has_premium": hasPremiumAccess
+            ])
+            
+            return hasPremiumAccess
         } catch {
             print("❌ Failed to restore purchases: \(error)")
+            AnalyticsService.trackErrorEvent(.errorOccurred, errorMessage: error.localizedDescription, errorCode: "restore_failed")
             return false
         }
     }
-
-    // MARK: - Cached Purchase State Management
-    private func loadCachedPurchaseState() {
-        if let cachedIds = UserDefaults.standard.array(forKey: UserDefaultsKey.cachedPurchasedProducts) as? [String] {
-            cachedPurchasedProductIds = Set(cachedIds)
-            purchasedProductIds = cachedPurchasedProductIds
-            updatePremiumAccessStatus()
-            print("📦 Loaded cached purchase state: \(cachedPurchasedProductIds)")
+    
+    // MARK: - Refresh Customer Info
+    @MainActor
+    func refreshCustomerInfo() async {
+        do {
+            let customerInfo = try await Purchases.shared.customerInfo()
+            self.customerInfo = customerInfo
+            await updatePremiumAccessStatus(from: customerInfo)
+        } catch {
+            print("❌ Failed to refresh customer info: \(error)")
         }
     }
-
-    private func saveCachedPurchaseState() {
-        let idsArray = Array(purchasedProductIds)
-        UserDefaults.standard.set(idsArray, forKey: UserDefaultsKey.cachedPurchasedProducts)
-        print("💾 Saved cached purchase state: \(purchasedProductIds)")
-    }
-
-    // MARK: - Public Purchase Status Management
+    
+    // MARK: - Reload Purchase Status (for compatibility)
     func reloadPurchaseStatus() async {
         print("🔄 Reloading purchase status...")
-        await loadPurchasedProducts()
+        await refreshCustomerInfo()
         print("✅ Purchase status reloaded")
     }
-
-    // MARK: - Premium Access Helper
-    /// Updates the premium access status based on current purchased products
-    private func updatePremiumAccessStatus() {
+    
+    // MARK: - Premium Access Management
+    @MainActor
+    private func updatePremiumAccessStatus(from customerInfo: CustomerInfo) {
         #if DEBUG
         if isDebugModeEnabled {
             hasPremiumAccess = true
-        } else {
-            hasPremiumAccess = isProductPurchased("com.dor.flippin.premium_monthly") ||
-            isProductPurchased("com.dor.flippin.premium_yearly")
+            saveCachedPurchaseState()
+            print("🔐 Premium access: true (debug mode)")
+            return
         }
-        #else
-        hasPremiumAccess = isProductPurchased("com.dor.flippin.premium_monthly") ||
-        isProductPurchased("com.dor.flippin.premium_yearly")
         #endif
+        
+        let hasAccess = customerInfo.entitlements[premiumEntitlementID]?.isActive == true
+        hasPremiumAccess = hasAccess
+        self.customerInfo = customerInfo
+        saveCachedPurchaseState()
+        
+        print("🔐 Premium access: \(hasAccess)")
+        
+        if hasAccess {
+            let activeProducts = customerInfo.activeSubscriptions
+            print("📦 Active subscriptions: \(activeProducts)")
+        }
     }
-
+    
+    // MARK: - Product Purchase Status (for compatibility)
+    func isProductPurchased(_ productId: String) -> Bool {
+        guard let customerInfo = customerInfo else { return false }
+        return customerInfo.activeSubscriptions.contains(productId)
+    }
+    
+    func getPurchasedProducts() -> [String] {
+        guard let customerInfo = customerInfo else { return [] }
+        return Array(customerInfo.activeSubscriptions)
+    }
+    
+    // MARK: - Transaction History (for compatibility)
+    func getTransactionHistory() async -> [StoreTransaction] {
+        // RevenueCat handles this internally, return empty array for compatibility
+        // You can access transaction history through customerInfo.nonSubscriptionTransactions if needed
+        return []
+    }
+    
+    // MARK: - Cached Purchase State Management
+    private func loadCachedPurchaseState() {
+        if let hasPremium = UserDefaults.standard.object(forKey: UserDefaultsKey.cachedPurchasedProducts) as? Bool {
+            hasPremiumAccess = hasPremium
+            print("📦 Loaded cached purchase state: premium = \(hasPremium)")
+        }
+    }
+    
+    private func saveCachedPurchaseState() {
+        UserDefaults.standard.set(hasPremiumAccess, forKey: UserDefaultsKey.cachedPurchasedProducts)
+        print("💾 Saved cached purchase state: premium = \(hasPremiumAccess)")
+    }
+    
+    // MARK: - Get Specific Packages
+    func getMonthlyPackage() -> Package? {
+        return offerings?.availablePackages.first { package in
+            package.storeProduct.productIdentifier == monthlyProductId
+        }
+    }
+    
+    func getYearlyPackage() -> Package? {
+        return offerings?.availablePackages.first { package in
+            package.storeProduct.productIdentifier == yearlyProductId
+        }
+    }
+    
     // MARK: - Debug Methods
     #if DEBUG
     /// Toggle debug mode to enable premium access locally
     func toggleDebugMode() {
         isDebugModeEnabled.toggle()
-        updatePremiumAccessStatus()
+        Task { @MainActor in
+            if let customerInfo = customerInfo {
+                await updatePremiumAccessStatus(from: customerInfo)
+            } else {
+                hasPremiumAccess = isDebugModeEnabled
+                saveCachedPurchaseState()
+            }
+        }
         print("🔧 Debug mode \(isDebugModeEnabled ? "enabled" : "disabled")")
     }
-
+    
     /// Enable debug mode
     func enableDebugMode() {
         isDebugModeEnabled = true
-        updatePremiumAccessStatus()
+        Task { @MainActor in
+            if let customerInfo = customerInfo {
+                await updatePremiumAccessStatus(from: customerInfo)
+            } else {
+                hasPremiumAccess = true
+                saveCachedPurchaseState()
+            }
+        }
         print("🔧 Debug mode enabled")
     }
-
+    
     /// Disable debug mode
     func disableDebugMode() {
         isDebugModeEnabled = false
-        updatePremiumAccessStatus()
+        Task { @MainActor in
+            if let customerInfo = customerInfo {
+                await updatePremiumAccessStatus(from: customerInfo)
+            } else {
+                hasPremiumAccess = false
+                saveCachedPurchaseState()
+            }
+        }
         print("🔧 Debug mode disabled")
     }
     #endif
 }
 
-// MARK: - Purchase Errors
+// MARK: - PurchasesDelegate
+extension PurchaseService: PurchasesDelegate {
+    func purchases(_ purchases: Purchases, receivedUpdated customerInfo: CustomerInfo) {
+        print("📬 Received customer info update from RevenueCat")
+        Task { @MainActor in
+            await updatePremiumAccessStatus(from: customerInfo)
+        }
+    }
+}
+
+// MARK: - Purchase Errors (for compatibility)
 enum PurchaseError: Error, LocalizedError {
     case verificationFailed
     case productNotFound
     case purchaseFailed
-
+    
     var errorDescription: String? {
         switch self {
         case .verificationFailed:

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5315BD5E2E9AA1230017C848 /* DotLottie in Frameworks */ = {isa = PBXBuildFile; productRef = 5315BD5D2E9AA1230017C848 /* DotLottie */; };
+		5315C4AC2E9B75A80017C848 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 5315C4AB2E9B75A80017C848 /* RevenueCat */; };
 		53BEAE352E23A3C8003E07F0 /* Flow in Frameworks */ = {isa = PBXBuildFile; productRef = 53BEAE342E23A3C8003E07F0 /* Flow */; };
 		53BEF19D2E24E1D4002F2A76 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 53BEF19C2E24E1D4002F2A76 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		53BEF19F2E24E1D4002F2A76 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 53BEF19E2E24E1D4002F2A76 /* FirebaseCrashlytics */; };
@@ -46,6 +47,7 @@
 			files = (
 				53DB3D0E2E9A486200339F9C /* OpenAI in Frameworks */,
 				53BEF19F2E24E1D4002F2A76 /* FirebaseCrashlytics in Frameworks */,
+				5315C4AC2E9B75A80017C848 /* RevenueCat in Frameworks */,
 				53BEAE352E23A3C8003E07F0 /* Flow in Frameworks */,
 				53BEF19D2E24E1D4002F2A76 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				53F6489D2E584E1D0088C3B7 /* FirebaseRemoteConfig in Frameworks */,
@@ -103,6 +105,7 @@
 				53F6489C2E584E1D0088C3B7 /* FirebaseRemoteConfig */,
 				53DB3D0D2E9A486200339F9C /* OpenAI */,
 				5315BD5D2E9AA1230017C848 /* DotLottie */,
+				5315C4AB2E9B75A80017C848 /* RevenueCat */,
 			);
 			productName = SpeakCards;
 			productReference = 533792E12E110B250097F5BF /* Flippin.app */;
@@ -155,6 +158,7 @@
 				53BEF19B2E24E1D4002F2A76 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				53DB3D0C2E9A486200339F9C /* XCRemoteSwiftPackageReference "OpenAI" */,
 				5315BD5C2E9AA1230017C848 /* XCRemoteSwiftPackageReference "dotlottie-ios" */,
+				5315C4AA2E9B75A80017C848 /* XCRemoteSwiftPackageReference "purchases-ios" */,
 			);
 			preferredProjectObjectVersion = 90;
 			productRefGroup = 533792E22E110B250097F5BF /* Products */;
@@ -418,6 +422,14 @@
 				kind = branch;
 			};
 		};
+		5315C4AA2E9B75A80017C848 /* XCRemoteSwiftPackageReference "purchases-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RevenueCat/purchases-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.43.0;
+			};
+		};
 		53BEAE332E23A3C8003E07F0 /* XCRemoteSwiftPackageReference "SwiftUI-Flow" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/tevelee/SwiftUI-Flow.git";
@@ -449,6 +461,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5315BD5C2E9AA1230017C848 /* XCRemoteSwiftPackageReference "dotlottie-ios" */;
 			productName = DotLottie;
+		};
+		5315C4AB2E9B75A80017C848 /* RevenueCat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5315C4AA2E9B75A80017C848 /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = RevenueCat;
 		};
 		53BEAE342E23A3C8003E07F0 /* Flow */ = {
 			isa = XCSwiftPackageProductDependency;

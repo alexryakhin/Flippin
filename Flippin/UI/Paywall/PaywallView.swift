@@ -1,5 +1,5 @@
 import SwiftUI
-import StoreKit
+import RevenueCat
 
 enum Paywall {
     struct ContentView: View {
@@ -7,11 +7,15 @@ enum Paywall {
         @StateObject private var purchaseService = PurchaseService.shared
         @StateObject private var colorManager = ColorManager.shared
         @StateObject private var cardsProvider = CardsProvider.shared
-        @State private var isAnimating = false
+        @State private var selectedPackage: Package?
+        @State private var showingRestoreAlert = false
+        @State private var restoreMessage = ""
+        @State private var safariURL: URL?
 
         var body: some View {
-            SubscriptionStoreView(groupID: "21731755") {
-                VStack(spacing: 32) {
+            ScrollView {
+                VStack(spacing: 24) {
+                    // Header
                     VStack(spacing: 12) {
                         Image(.iconRounded)
                             .resizable()
@@ -21,8 +25,6 @@ enum Paywall {
                         Text(Loc.PremiumFeatures.unlockPremium)
                             .font(.system(size: 34, weight: .bold, design: .rounded))
                             .foregroundColor(.primary)
-                            .scaleEffect(isAnimating ? 1.0 : 0.95)
-                            .animation(.easeOut(duration: 0.6), value: isAnimating)
 
                         Text(Loc.PremiumFeatures.masterLanguageLearning)
                             .font(.system(size: 18, weight: .medium, design: .rounded))
@@ -53,7 +55,6 @@ enum Paywall {
                         }
                         .padding(.top, 8)
                     }
-                    .padding(.top, 60)
 
                     // Features with glassmorphism cards
                     VStack(spacing: 12) {
@@ -61,156 +62,306 @@ enum Paywall {
                             .font(.system(size: 24, weight: .semibold, design: .rounded))
                             .foregroundColor(.primary)
 
-                        ForEach(features, id: \.title) { feature in
-                            FeatureRow(
-                                icon: feature.icon,
-                                title: feature.title,
-                                description: feature.description
-                            )
-                            .padding(.horizontal, 20)
-                            .padding(.vertical, 12)
-                            .background(.thinMaterial)
-                            .clipShape(RoundedRectangle(cornerRadius: 16))
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 16)
-                                    .strokeBorder(Color(.systemGray5), lineWidth: 1)
-                            )
-                            .shadow(color: .black.opacity(0.05), radius: 10, x: 0, y: 5)
-                            .scaleEffect(isAnimating ? 1.0 : 0.98)
-                            .animation(.spring(response: 0.4, dampingFraction: 0.8).delay(Double(features.firstIndex(where: { $0.title == feature.title }) ?? 0) * 0.1), value: isAnimating)
+                        ForEach(PremiumFeature.paywallFeatures, id: \.self) { feature in
+                            FeatureRow(feature: feature)
+                                .padding(.horizontal, 20)
+                                .padding(.vertical, 12)
+                                .background(.thinMaterial)
+                                .clipShape(RoundedRectangle(cornerRadius: 16))
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 16)
+                                        .strokeBorder(Color(.systemGray5), lineWidth: 1)
+                                )
+                                .shadow(color: .black.opacity(0.05), radius: 10, x: 0, y: 5)
                         }
                     }
+
+                    // Terms of Service & Privacy Policy
+                    HStack(spacing: 4) {
+                        Button(Loc.AboutApp.termsOfService) {
+                            safariURL = URL(string: PrivateConstants.termsOfServiceURL)
+                        }
+                        Text("and")
+                            .foregroundStyle(.secondary)
+                        Button(Loc.AboutApp.privacyPolicy) {
+                            safariURL = URL(string: PrivateConstants.privacyPolicyURL)
+                        }
+                    }
+                    .font(.caption)
+
+                    // Subscription packages
+                    if let offering = purchaseService.offerings {
+                        VStack(spacing: 12) {
+                            ForEach(offering.availablePackages, id: \.identifier) { package in
+                                PackageSelectionView(
+                                    package: package,
+                                    isSelected: selectedPackage?.identifier == package.identifier,
+                                    tintColor: colorManager.tintColor
+                                )
+                                .onTapGesture {
+                                    withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
+                                        selectedPackage = package
+                                    }
+                                }
+                            }
+                        }
+                        .padding(.top, 8)
+                    }
                 }
+                .padding(vertical: 12, horizontal: 16)
                 .multilineTextAlignment(.center)
-                .padding(.horizontal, 16)
             }
-            .subscriptionStoreControlStyle(.prominentPicker)
-            .subscriptionStoreButtonLabel(.action)
-            .storeButton(.visible, for: .restorePurchases)
-            .storeButton(.visible, for: .policies)
-            .subscriptionStorePolicyDestination(
-                url: URL(string: "https://www.flippin.app/terms-of-use")!,
-                for: .termsOfService
-            )
-            .subscriptionStorePolicyDestination(
-                url: URL(string: "https://www.flippin.app/privacy-policy")!,
-                for: .privacyPolicy
-            )
-            .onInAppPurchaseCompletion { product, result in
-                handlePurchaseResult(product: product, result: result)
-            }
-            .background(
+            .background {
                 WelcomeSheet.AnimatedBackground()
                     .ignoresSafeArea()
-            )
+            }
+            .safeAreaInset(edge: .top, alignment: .trailing, spacing: .zero) {
+                HeaderButton(icon: "xmark") {
+                    AnalyticsService.trackEvent(.paywallClosed)
+                    dismiss()
+                }
+                .padding(vertical: 12, horizontal: 16)
+            }
+            .safeAreaInset(edge: .bottom, spacing: .zero) {
+                // Text "Plan auto-renews for \(price)/\(period) until cancelled."
+                // Two buttons - Subscribe and Restore Subscription
+                VStack(spacing: 12) {
+                    var price: String? {
+                        guard let selectedPackage else { return nil }
+                        switch selectedPackage.storeProduct.subscriptionPeriod?.unit {
+                        case .day:
+                            return selectedPackage.storeProduct.localizedPricePerDay
+                        case .week:
+                            return selectedPackage.storeProduct.localizedPricePerWeek
+                        case .month:
+                            return selectedPackage.storeProduct.localizedPricePerMonth
+                        case .year:
+                            return selectedPackage.storeProduct.localizedPricePerYear
+                        case nil:
+                            return nil
+                        }
+                    }
+                    if let price, let unit = selectedPackage?.storeProduct.subscriptionPeriod?.unit {
+                        Text("Plan auto-renews for \(price)/\(unit) until cancelled.")
+                            .foregroundStyle(.secondary)
+                            .font(.caption)
+                            .multilineTextAlignment(.center)
+                    }
+                    // Subscribe button
+                    ActionButton(
+                        "Subscribe",
+                        style: .borderedProminent,
+                        isLoading: purchaseService.isPurchasing
+                    ) {
+                        purchaseSelectedPackage()
+                    }
+                    .disabled(selectedPackage == nil || purchaseService.isPurchasing)
+
+                    // Restore button
+                    ActionButton(
+                        "Restore Subscription",
+                        style: .bordered
+                    ) {
+                        restorePurchases()
+                    }
+                }
+                .padding(vertical: 12, horizontal: 16)
+                .background(.ultraThinMaterial)
+            }
             .ifLet(colorManager.colorScheme) { view, scheme in
                 view.colorScheme(scheme)
             }
+            .safari(url: $safariURL)
+            .alert("Restore Subscription", isPresented: $showingRestoreAlert) {
+                Button("OK", role: .cancel) { }
+            } message: {
+                Text(restoreMessage)
+            }
+            .task {
+                await purchaseService.loadOfferings()
+                // Pre-select the first package (usually yearly)
+                if let offering = purchaseService.offerings {
+                    selectedPackage = offering.availablePackages.first
+                }
+            }
             .onAppear {
                 AnalyticsService.trackEvent(.paywallOpened)
-                isAnimating = true
-                Task {
-                    await purchaseService.loadProducts()
+            }
+        }
+        
+        private func purchaseSelectedPackage() {
+            guard let package = selectedPackage else { return }
+            
+            Task {
+                let result = await purchaseService.purchasePackage(package)
+                if result.success {
+                    dismiss()
+                } else if let error = result.error {
+                    // Show error if needed
+                    print("Purchase error: \(error)")
                 }
             }
         }
-
-        private func handlePurchaseResult(product: Product, result: Result<Product.PurchaseResult, Error>) {
-            switch result {
-            case .success:
-                dismiss()
-            case .failure(let error):
-                print("Purchase failed: \(error.localizedDescription)")
+        
+        private func restorePurchases() {
+            Task {
+                let success = await purchaseService.restorePurchases()
+                await MainActor.run {
+                    if success {
+                        restoreMessage = "Your subscription have been restored successfully!"
+                        showingRestoreAlert = true
+                        // Dismiss after showing alert
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                            dismiss()
+                        }
+                    } else {
+                        restoreMessage = "No subscription found to restore."
+                        showingRestoreAlert = true
+                    }
+                }
             }
         }
-
-        private func restorePurchases() async {
-            let success = await purchaseService.restorePurchases()
-            if success {
-                dismiss()
-            }
-        }
-
-        // Feature data
-        private var features: [FeatureModel] {
-            [
-                FeatureModel(
-                    icon: "sparkles",
-                    title: "AI Collection Generator",
-                    description: "Create custom flashcard collections with AI"
-                ),
-                FeatureModel(
-                    icon: "brain.head.profile",
-                    title: "AI Learning Coach",
-                    description: "Get personalized insights and recommendations"
-                ),
-                FeatureModel(
-                    icon: "infinity",
-                    title: Loc.CardLimits.unlimitedCards,
-                    description: Loc.PremiumFeatures.unlimitedCardsDescription
-                ),
-                FeatureModel(
-                    icon: "waveform",
-                    title: "Speechify Premium Voices",
-                    description: "Thousands of high-quality voices to personalize your cards"
-                ),
-                FeatureModel(
-                    icon: "folder.fill",
-                    title: Loc.PremiumFeatures.collections,
-                    description: Loc.PremiumFeatures.collectionsDescription
-                ),
-                FeatureModel(
-                    icon: "sparkles",
-                    title: Loc.PremiumFeatures.premiumBackgrounds,
-                    description: Loc.PremiumFeatures.premiumBackgroundsDescription
-                ),
-                FeatureModel(
-                    icon: "globe",
-                    title: Loc.PremiumFeatures.multipleLanguagesTitle,
-                    description: Loc.PremiumFeatures.multipleLanguagesDescription
-                ),
-                FeatureModel(
-                    icon: "chart.line.uptrend.xyaxis",
-                    title: Loc.Paywall.advancedAnalyticsTitle,
-                    description: Loc.Paywall.advancedAnalyticsMessage
-                )
-            ]
-        }
-    }
-
-    // MARK: - Feature Model
-    struct FeatureModel: Identifiable {
-        let id = UUID()
-        let icon: String
-        let title: String
-        let description: String
     }
 
     // MARK: - Feature Row
     struct FeatureRow: View {
-        let icon: String
-        let title: String
-        let description: String
+        let feature: PremiumFeature
 
         var body: some View {
             HStack(spacing: 16) {
-                Image(systemName: icon)
+                Image(systemName: feature.icon)
                     .font(.system(size: 24))
                     .foregroundColor(.accentColor)
                     .frame(width: 40, alignment: .center)
 
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(title)
+                    Text(feature.title)
                         .font(.system(size: 16, weight: .semibold, design: .rounded))
                         .foregroundColor(.primary)
 
-                    Text(description)
+                    Text(feature.description)
                         .font(.system(size: 14, weight: .regular, design: .rounded))
                         .foregroundColor(.secondary)
                 }
                 .multilineTextAlignment(.leading)
 
                 Spacer()
+            }
+        }
+    }
+    
+    // MARK: - Package Selection View
+    struct PackageSelectionView: View {
+        let package: Package
+        let isSelected: Bool
+        let tintColor: Color
+        
+        private var isYearly: Bool {
+            package.storeProduct.subscriptionPeriod?.unit == .year
+        }
+        
+        private var displayTitle: String {
+            if isYearly {
+                return "Annual"
+            } else {
+                return "Monthly"
+            }
+        }
+        
+        private var displayPricePerMonth: String? {
+            guard let price = package.storeProduct.localizedPricePerMonth else { return nil }
+            return "\(price)/month"
+        }
+        
+        var body: some View {
+            HStack(spacing: 16) {
+                // Left side - Product info
+                VStack(alignment: .leading, spacing: 6) {
+                    HStack(spacing: 8) {
+                        Text(displayTitle)
+                            .font(.system(size: 18, weight: .bold, design: .rounded))
+                            .foregroundColor(.primary)
+                        
+                        if isYearly {
+                            Text("BEST VALUE")
+                                .font(.system(size: 10, weight: .bold, design: .rounded))
+                                .foregroundColor(.white)
+                                .padding(.horizontal, 8)
+                                .padding(.vertical, 4)
+                                .background(
+                                    Capsule()
+                                        .fill(tintColor)
+                                )
+                        }
+                    }
+
+                    if let displayPricePerMonth {
+                        Text(displayPricePerMonth)
+                            .font(.system(size: 14, weight: .medium, design: .rounded))
+                            .foregroundColor(.secondary)
+                    }
+                }
+                
+                Spacer()
+                
+                // Right side - Price and selection
+                VStack(alignment: .trailing, spacing: 4) {
+                    Text(package.storeProduct.localizedPriceString)
+                        .font(.system(size: 20, weight: .bold, design: .rounded))
+                        .foregroundColor(.primary)
+                    
+                    if let subscriptionPeriod = package.storeProduct.subscriptionPeriod {
+                        Text(formatSubscriptionPeriod(subscriptionPeriod))
+                            .font(.system(size: 12, weight: .regular, design: .rounded))
+                            .foregroundColor(.secondary)
+                    }
+                }
+                
+                // Selection indicator
+                ZStack {
+                    Circle()
+                        .strokeBorder(isSelected ? tintColor : Color.gray.opacity(0.3), lineWidth: 2)
+                        .frame(width: 24, height: 24)
+                    
+                    if isSelected {
+                        Circle()
+                            .fill(tintColor)
+                            .frame(width: 16, height: 16)
+                    }
+                }
+            }
+            .padding(20)
+            .background(
+                RoundedRectangle(cornerRadius: 16)
+                    .fill(.thinMaterial)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 16)
+                            .strokeBorder(
+                                isSelected ? tintColor : Color.gray.opacity(0.2),
+                                lineWidth: isSelected ? 2 : 1
+                            )
+                    )
+            )
+            .shadow(color: isSelected ? tintColor.opacity(0.2) : .clear, radius: 10, x: 0, y: 5)
+            .scaleEffect(isSelected ? 1.02 : 1.0)
+            .animation(.spring(response: 0.3, dampingFraction: 0.7), value: isSelected)
+        }
+        
+        private func formatSubscriptionPeriod(_ period: SubscriptionPeriod) -> String {
+            let value = period.value
+            let unit = period.unit
+            
+            switch unit {
+            case .day:
+                return value == 1 ? "daily" : "\(value) days"
+            case .week:
+                return value == 1 ? "weekly" : "\(value) weeks"
+            case .month:
+                return value == 1 ? "monthly" : "\(value) months"
+            case .year:
+                return value == 1 ? "yearly" : "\(value) years"
+            @unknown default:
+                return ""
             }
         }
     }

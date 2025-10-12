@@ -71,7 +71,9 @@ enum AnalyticsEvent: String, CaseIterable {
     case transactionVerificationFailed = "transaction_verification_failed"
     case purchaseFailed = "purchase_failed"
     case purchaseCompleted = "purchase_completed"
+    case purchasesRestored = "purchases_restored"
     case paywallOpened = "paywall_opened"
+    case paywallClosed = "paywall_closed"
 
     // MARK: - Preset Collection Events
     case presetCollectionImported = "preset_collection_imported"

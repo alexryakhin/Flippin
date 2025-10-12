@@ -1,0 +1,57 @@
+//
+//  PrivateConstants.swift.template
+//  Flippin
+//
+//  ⚠️ SETUP INSTRUCTIONS:
+//  1. Copy this file and rename it to "PrivateConstants.swift"
+//  2. Replace the placeholder values with your actual API keys and URLs
+//  3. The real PrivateConstants.swift is in .gitignore and won't be committed
+//
+
+enum PrivateConstants {
+    // MARK: - API Keys
+    
+    /// Your RevenueCat Public SDK Key
+    /// Get this from: RevenueCat Dashboard → Project Settings → API Keys
+    /// Example: "appl_aBcDeFgHiJkLmNoPqRsTuVwXyZ"
+    static let revenueCatAPIKey = "YOUR_REVENUECAT_PUBLIC_SDK_KEY_HERE"
+    
+    /// Your Pexels API Key
+    /// Get this from: https://www.pexels.com/api/
+    /// Example: "563492ad6f91700001000001..."
+    static let pexelsAPIKey = "YOUR_PEXELS_API_KEY_HERE"
+    
+    // MARK: - App URLs
+    
+    /// App website
+    static let websiteURL = "https://www.flippin.app"
+    
+    /// Privacy Policy URL
+    static let privacyPolicyURL = "https://www.flippin.app/privacy-policy"
+    
+    /// Terms of Service URL
+    static let termsOfServiceURL = "https://www.flippin.app/terms-of-use"
+    
+    /// Support page URL
+    static let supportURL = "https://www.flippin.app/support"
+    
+    // MARK: - Social & Support
+    
+    /// Buy Me A Coffee donation link
+    static let buyMeACoffeeURL = "https://buymeacoffee.com/YOUR_USERNAME"
+    
+    /// Instagram profile (optional)
+    static let instagramURL = "https://instagram.com/YOUR_INSTAGRAM_USERNAME"
+    
+    /// Twitter/X profile (optional)
+    static let twitterURL = "https://twitter.com/YOUR_TWITTER_USERNAME"
+    
+    // MARK: - Apple URLs
+    
+    /// Apple App Store subscription management
+    static let appStoreSubscriptionsURL = "https://apps.apple.com/account/subscriptions"
+    
+    /// Your app's App Store page
+    static let appStoreURL = "https://apps.apple.com/app/idYOUR_APP_ID"
+}
+

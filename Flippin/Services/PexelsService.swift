@@ -80,11 +80,11 @@ final class PexelsService: ObservableObject {
     private let apiKey: String
     
     private init() {
-        // Get API key from Info.plist or environment
-        self.apiKey = Bundle.main.object(forInfoDictionaryKey: "PEXELS_API_KEY") as? String ?? ""
+        // Get API key from PrivateConstants
+        self.apiKey = PrivateConstants.pexelsAPIKey
         
-        if apiKey.isEmpty {
-            print("⚠️ [PexelsService] PEXELS_API_KEY not found in Info.plist")
+        if apiKey.isEmpty || apiKey == "YOUR_PEXELS_API_KEY_HERE" {
+            print("⚠️ [PexelsService] PEXELS_API_KEY not configured in PrivateConstants.swift")
         }
     }
     

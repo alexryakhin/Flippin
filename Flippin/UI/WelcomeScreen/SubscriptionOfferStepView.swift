@@ -80,14 +80,14 @@ extension WelcomeSheet {
                 .storeButton(.hidden, for: .cancellation)
                 .storeButton(.visible, for: .restorePurchases)
                 .storeButton(.visible, for: .policies)
-                .subscriptionStorePolicyDestination(
-                    url: URL(string: "https://www.flippin.app/terms-of-use")!,
-                    for: .termsOfService
-                )
-                .subscriptionStorePolicyDestination(
-                    url: URL(string: "https://www.flippin.app/privacy-policy")!,
-                    for: .privacyPolicy
-                )
+            .subscriptionStorePolicyDestination(
+                url: URL(string: PrivateConstants.termsOfServiceURL)!,
+                for: .termsOfService
+            )
+            .subscriptionStorePolicyDestination(
+                url: URL(string: PrivateConstants.privacyPolicyURL)!,
+                for: .privacyPolicy
+            )
                 .onInAppPurchaseCompletion { product, result in
                     handlePurchaseResult(product: product, result: result)
                 }

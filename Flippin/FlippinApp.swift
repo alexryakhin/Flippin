@@ -10,6 +10,7 @@ import CoreData
 import Firebase
 import FirebaseAnalytics
 import TipKit
+import RevenueCat
 
 @main
 struct FlippinApp: App {
@@ -31,6 +32,10 @@ struct FlippinApp: App {
 
     init() {
         FirebaseApp.configure()
+        
+        // Configure RevenueCat
+        configureRevenueCat()
+        
         AnalyticsService.trackEvent(.appLaunched)
 
         // Configure TipKit
@@ -41,6 +46,33 @@ struct FlippinApp: App {
 
         // Configure notification center delegate
         UNUserNotificationCenter.current().delegate = NotificationService.shared
+    }
+    
+    private func configureRevenueCat() {
+        // Get API key from PrivateConstants
+        let apiKey = PrivateConstants.revenueCatAPIKey
+        
+        guard !apiKey.isEmpty,
+              apiKey != "YOUR_REVENUECAT_PUBLIC_SDK_KEY_HERE" else {
+            print("⚠️ RevenueCat API key not configured in PrivateConstants.swift")
+            print("⚠️ Please add your RevenueCat Public SDK Key to PrivateConstants.swift")
+            return
+        }
+        
+        // Configure RevenueCat
+        #if DEBUG
+        Purchases.logLevel = .debug
+        #else
+        Purchases.logLevel = .info
+        #endif
+        
+        Purchases.configure(
+            with: Configuration.Builder(withAPIKey: apiKey)
+                .with(appUserID: nil) // RevenueCat will generate anonymous IDs
+                .build()
+        )
+        
+        print("✅ RevenueCat configured successfully")
     }
 
     var body: some Scene {

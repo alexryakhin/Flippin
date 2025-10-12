@@ -1,5 +1,5 @@
 SpeakCards.xcodeproj/xcuserdata/xander1100001.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
 Flippin/Documentation
 
-# SwiftGen generated files
-Flippin/Generated/L10n.swift
+# Private constants with API keys
+Flippin/Helpers/PrivateConstants.swift

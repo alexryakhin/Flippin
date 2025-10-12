@@ -1,7 +1,5 @@
 import SwiftUI
-import StoreKit
-
-typealias SKTransaction = StoreKit.Transaction
+import RevenueCat
 
 #if DEBUG
 struct PurchaseTestView: View {
@@ -9,20 +7,20 @@ struct PurchaseTestView: View {
     @State private var showingAlert = false
     @State private var alertMessage = ""
     @State private var alertTitle = ""
-    @State private var transactionHistory: [SKTransaction] = []
+    @State private var customerInfo: CustomerInfo?
 
     var body: some View {
         List {
             Section("Test Purchase") {
                 VStack(alignment: .leading, spacing: 12) {
-                    Text("Perform a test purchase to get transaction ID")
+                    Text("Perform a test purchase using RevenueCat")
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                     
                     HStack {
-                        Image(systemName: purchaseService.isListeningForUpdates ? "checkmark.circle.fill" : "exclamationmark.triangle.fill")
-                            .foregroundColor(purchaseService.isListeningForUpdates ? .green : .orange)
-                        Text(purchaseService.isListeningForUpdates ? "Transaction listener active" : "Transaction listener not active")
+                        Image(systemName: purchaseService.hasPremiumAccess ? "checkmark.circle.fill" : "xmark.circle.fill")
+                            .foregroundColor(purchaseService.hasPremiumAccess ? .green : .red)
+                        Text(purchaseService.hasPremiumAccess ? "Premium Access Active" : "No Premium Access")
                             .font(.caption)
                             .foregroundColor(.secondary)
                     }
@@ -42,38 +40,19 @@ struct PurchaseTestView: View {
                 .padding(.vertical, 8)
             }
             
-            if let lastTransactionId = purchaseService.lastTransactionId {
-                Section("Last Transaction ID") {
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text("Transaction ID:")
-                            .font(.headline)
-                        Text(lastTransactionId)
-                            .font(.system(.body, design: .monospaced))
-                            .foregroundColor(.secondary)
-                            .textSelection(.enabled)
-                        
-                        HeaderButton("Copy to Clipboard", style: .borderedProminent) {
-                            UIPasteboard.general.string = lastTransactionId
-                            showAlert(title: "Copied!", message: "Transaction ID copied to clipboard")
-                        }
-                    }
-                    .padding(.vertical, 4)
-                }
-            }
-            
-            Section("Available Products") {
-                if purchaseService.products.isEmpty {
-                    Text("No products available")
-                        .foregroundColor(.secondary)
-                } else {
-                    ForEach(purchaseService.products) { product in
-                        ProductRowView(
-                            product: product,
-                            isPurchased: purchaseService.isProductPurchased(product.id)
+            Section("Available Packages") {
+                if let offering = purchaseService.offerings {
+                    ForEach(offering.availablePackages, id: \.identifier) { package in
+                        PackageRowView(
+                            package: package,
+                            isPurchased: purchaseService.isProductPurchased(package.storeProduct.productIdentifier)
                         ) {
-                            await purchaseSpecificProduct(product.id)
+                            await purchaseSpecificPackage(package)
                         }
                     }
+                } else {
+                    Text("No packages available")
+                        .foregroundColor(.secondary)
                 }
             }
             
@@ -97,17 +76,52 @@ struct PurchaseTestView: View {
                 }
             }
             
-            Section("Transaction History") {
-                Button("Load Transaction History") {
+            Section("Customer Info") {
+                Button("Load Customer Info") {
                     Task {
-                        await loadTransactionHistory()
+                        await loadCustomerInfo()
                     }
                 }
 
-                if !transactionHistory.isEmpty {
-                    ForEach(transactionHistory, id: \.id) { transaction in
-                        TransactionRowView(transaction: transaction)
+                if let info = customerInfo {
+                    VStack(alignment: .leading, spacing: 8) {
+                        HStack {
+                            Text("User ID:")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                            Text(info.originalAppUserId)
+                                .font(.system(.caption, design: .monospaced))
+                                .textSelection(.enabled)
+                        }
+                        
+                        HStack {
+                            Text("Active Subscriptions:")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                            Text("\(info.activeSubscriptions.count)")
+                                .font(.caption)
+                        }
+                        
+                        if let entitlement = info.entitlements["premium"] {
+                            VStack(alignment: .leading, spacing: 4) {
+                                HStack {
+                                    Text("Premium Entitlement:")
+                                        .font(.caption)
+                                        .foregroundColor(.secondary)
+                                    Text(entitlement.isActive ? "Active" : "Inactive")
+                                        .font(.caption)
+                                        .foregroundColor(entitlement.isActive ? .green : .red)
+                                }
+                                
+                                if let expirationDate = entitlement.expirationDate {
+                                    Text("Expires: \(expirationDate.formatted())")
+                                        .font(.caption2)
+                                        .foregroundColor(.secondary)
+                                }
+                            }
+                        }
                     }
+                    .padding(.vertical, 4)
                 }
             }
             
@@ -116,9 +130,26 @@ struct PurchaseTestView: View {
                     Task {
                         let success = await purchaseService.restorePurchases()
                         showAlert(
-                            title: success ? "Success" : "Failed",
-                            message: success ? "Purchases restored successfully" : "Failed to restore purchases"
+                            title: success ? "Success" : "No Purchases Found",
+                            message: success ? "Your purchases have been restored!" : "No purchases found to restore"
                         )
+                    }
+                }
+            }
+            
+            Section("Debug Actions") {
+                Button("Reload Offerings") {
+                    Task {
+                        await purchaseService.loadOfferings()
+                        showAlert(title: "Reloaded", message: "Offerings have been reloaded from RevenueCat")
+                    }
+                }
+                
+                Button("Refresh Customer Info") {
+                    Task {
+                        await purchaseService.refreshCustomerInfo()
+                        await loadCustomerInfo()
+                        showAlert(title: "Refreshed", message: "Customer info has been refreshed")
                     }
                 }
             }
@@ -133,7 +164,8 @@ struct PurchaseTestView: View {
         }
         .onAppear {
             Task {
-                await purchaseService.loadProducts()
+                await purchaseService.loadOfferings()
+                await loadCustomerInfo()
             }
         }
     }
@@ -144,30 +176,33 @@ struct PurchaseTestView: View {
             showAlert(
                 title: result.success ? "Success" : "Failed",
                 message: result.success ? 
-                    "Test purchase completed! Transaction ID: \(result.transactionId ?? "Unknown")" :
+                    "Test purchase completed! Product: \(result.productId)" :
                     "Test purchase failed: \(result.error ?? "Unknown error")"
             )
             
-            // Force UI update after purchase
             if result.success {
-                // Small delay to ensure transaction is processed
-                try? await Task.sleep(nanoseconds: 500_000_000) // 0.5 seconds
+                await loadCustomerInfo()
             }
         }
     }
     
-    private func purchaseSpecificProduct(_ productId: String) async {
-        let result = await purchaseService.purchaseProduct(productId)
+    private func purchaseSpecificPackage(_ package: Package) async {
+        let result = await purchaseService.purchasePackage(package)
         showAlert(
             title: result.success ? "Success" : "Failed",
             message: result.success ? 
-                "Purchase completed! Transaction ID: \(result.transactionId ?? "Unknown")" :
+                "Purchase completed! Product: \(result.productId)" :
                 "Purchase failed: \(result.error ?? "Unknown error")"
         )
+        
+        if result.success {
+            await loadCustomerInfo()
+        }
     }
     
-    private func loadTransactionHistory() async {
-        transactionHistory = await purchaseService.getTransactionHistory()
+    private func loadCustomerInfo() async {
+        await purchaseService.refreshCustomerInfo()
+        customerInfo = purchaseService.customerInfo
     }
     
     private func showAlert(title: String, message: String) {
@@ -177,8 +212,8 @@ struct PurchaseTestView: View {
     }
 }
 
-struct ProductRowView: View {
-    let product: Product
+struct PackageRowView: View {
+    let package: Package
     let isPurchased: Bool
     let onPurchase: () async -> Void
     
@@ -189,7 +224,7 @@ struct ProductRowView: View {
             HStack {
                 VStack(alignment: .leading) {
                     HStack {
-                        Text(product.displayName)
+                        Text(package.storeProduct.localizedTitle)
                             .font(.headline)
                         
                         if isPurchased {
@@ -199,7 +234,7 @@ struct ProductRowView: View {
                         }
                     }
                     
-                    Text(product.description)
+                    Text(package.storeProduct.localizedDescription)
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                 }
@@ -216,7 +251,7 @@ struct ProductRowView: View {
                             .background(Color.green.opacity(0.1))
                             .cornerRadius(8)
                     } else {
-                        Text(product.displayPrice)
+                        Text(package.storeProduct.localizedPriceString)
                             .font(.headline)
                             .foregroundColor(.accentColor)
                     }
@@ -249,27 +284,6 @@ struct ProductRowView: View {
                 .background(Color.green.opacity(0.1))
                 .cornerRadius(8)
             }
-        }
-        .padding(.vertical, 4)
-    }
-}
-
-struct TransactionRowView: View {
-    let transaction: SKTransaction
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 6) {
-            Text("Transaction ID: \(transaction.id.description)")
-                .font(.system(.body, design: .monospaced))
-                .textSelection(.enabled)
-            
-            Text("Product: \(transaction.productID)")
-                .font(.subheadline)
-                .foregroundColor(.secondary)
-            
-            Text("Date: \(transaction.purchaseDate.formatted())")
-                .font(.caption)
-                .foregroundColor(.secondary)
         }
         .padding(.vertical, 4)
     }

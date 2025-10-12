@@ -11,26 +11,60 @@ import SwiftUI
  Premium feature types that can trigger the upgrade alert.
  */
 enum PremiumFeature: String, CaseIterable {
+    case aiCollectionGenerator = "ai_collection_generator"
+    case aiLearningCoach = "ai_learning_coach"
     case unlimitedCards = "unlimited_cards"
     case premiumVoices = "premium_voices"
-    case advancedAnalytics = "advanced_analytics"
+    case collections = "collections"
     case customThemes = "custom_themes"
-    case studyModes = "study_modes"
     case languageChange = "language_change"
+    case advancedAnalytics = "advanced_analytics"
     case cardPresets = "card_presets"
+    case studyModes = "study_modes"
+
+    var icon: String {
+        switch self {
+        case .aiCollectionGenerator:
+            return "sparkles"
+        case .aiLearningCoach:
+            return "brain.head.profile"
+        case .unlimitedCards:
+            return "infinity"
+        case .premiumVoices:
+            return "waveform"
+        case .collections:
+            return "folder.fill"
+        case .customThemes:
+            return "sparkles"
+        case .languageChange:
+            return "globe"
+        case .advancedAnalytics:
+            return "chart.line.uptrend.xyaxis"
+        case .cardPresets:
+            return "square.stack.3d.up.fill"
+        case .studyModes:
+            return "book.fill"
+        }
+    }
 
     var title: String {
         switch self {
+        case .aiCollectionGenerator:
+            return "AI Collection Generator"
+        case .aiLearningCoach:
+            return "AI Learning Coach"
         case .unlimitedCards:
-            return Loc.Paywall.unlimitedCardsTitle
+            return Loc.CardLimits.unlimitedCards
         case .premiumVoices:
-            return "Premium voices"
+            return "Speechify Premium Voices"
+        case .collections:
+            return Loc.PremiumFeatures.collections
+        case .customThemes:
+            return Loc.PremiumFeatures.premiumBackgrounds
+        case .languageChange:
+            return Loc.PremiumFeatures.multipleLanguagesTitle
         case .advancedAnalytics:
             return Loc.Paywall.advancedAnalyticsTitle
-        case .customThemes:
-            return Loc.Paywall.customThemesTitle
-        case .languageChange:
-            return Loc.Paywall.languageChangeTitle
         case .cardPresets:
             return Loc.Paywall.cardPresetsTitle
         case .studyModes:
@@ -40,21 +74,66 @@ enum PremiumFeature: String, CaseIterable {
     
     var message: String {
         switch self {
+        case .aiCollectionGenerator:
+            return "Create custom flashcard collections with AI"
+        case .aiLearningCoach:
+            return "Get personalized insights and recommendations"
         case .unlimitedCards:
             return Loc.Paywall.unlimitedCardsMessage
         case .premiumVoices:
             return "Enjoy high-quality audio for all your flashcards!"
-        case .advancedAnalytics:
-            return Loc.Paywall.advancedAnalyticsMessage
+        case .collections:
+            return Loc.PremiumFeatures.collectionsDescription
         case .customThemes:
-            return Loc.Paywall.customThemesMessage
-        case .cardPresets:
-            return Loc.Paywall.cardPresetsMessage
+            return Loc.PremiumFeatures.premiumBackgroundsDescription
         case .languageChange:
             return Loc.Paywall.languageChangeMessage
+        case .advancedAnalytics:
+            return Loc.Paywall.advancedAnalyticsMessage
+        case .cardPresets:
+            return Loc.Paywall.cardPresetsMessage
         case .studyModes:
             return Loc.Paywall.studyModesMessage
         }
+    }
+    
+    var description: String {
+        switch self {
+        case .aiCollectionGenerator:
+            return "Create custom flashcard collections with AI"
+        case .aiLearningCoach:
+            return "Get personalized insights and recommendations"
+        case .unlimitedCards:
+            return Loc.PremiumFeatures.unlimitedCardsDescription
+        case .premiumVoices:
+            return "Thousands of high-quality voices to personalize your cards"
+        case .collections:
+            return Loc.PremiumFeatures.collectionsDescription
+        case .customThemes:
+            return Loc.PremiumFeatures.premiumBackgroundsDescription
+        case .languageChange:
+            return Loc.PremiumFeatures.multipleLanguagesDescription
+        case .advancedAnalytics:
+            return Loc.Paywall.advancedAnalyticsMessage
+        case .cardPresets:
+            return Loc.Paywall.cardPresetsMessage
+        case .studyModes:
+            return Loc.Paywall.studyModesMessage
+        }
+    }
+    
+    /// Features to display in the paywall
+    static var paywallFeatures: [PremiumFeature] {
+        [
+            .aiCollectionGenerator,
+            .aiLearningCoach,
+            .unlimitedCards,
+            .premiumVoices,
+            .collections,
+            .customThemes,
+            .languageChange,
+            .advancedAnalytics
+        ]
     }
 }
 

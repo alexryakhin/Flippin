@@ -121,6 +121,7 @@ extension WelcomeSheet {
         
         private func saveAndContinue() {
             profileService.updateProfile(prefersTravelMode: prefersTravelMode)
+            UserDefaults.standard.set(prefersTravelMode, forKey: UserDefaultsKey.cardDisplayMode)
             HapticService.shared.buttonTapped()
         }
     }
