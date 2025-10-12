@@ -6,7 +6,7 @@ enum UserDefaultsKey {
     static let targetLanguage = "targetLanguage"
     static let userColor = "userColor"
     static let backgroundStyle = "backgroundStyle"
-    static let didShowWelcomeSheet = "didShowWelcomeSheet"
+    static let didShowWelcomeSheet = "didShowWelcomeSheet_v1"
     static let userPreferences = "userPreferences"
     static let savedCards = "savedCards"
     static let appSettings = "appSettings"

@@ -30,8 +30,7 @@ final class CardsProvider: ObservableObject {
 
     /// Returns the maximum number of cards allowed for the current user
     var cardLimit: Int {
-        if PurchaseService.shared.isProductPurchased("com.dor.flippin.premium_monthly") ||
-           PurchaseService.shared.isProductPurchased("com.dor.flippin.premium_yearly") {
+        if purchaseService.hasPremiumAccess {
             return .max
         } else {
             return freeUserCardLimit
@@ -59,6 +58,15 @@ final class CardsProvider: ObservableObject {
 
     private init() {
         fetchCards()
+        
+        // Listen for purchase status changes to update card limits immediately
+        purchaseService.$hasPremiumAccess
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
+                // Force UI update when premium status changes
+                self?.objectWillChange.send()
+            }
+            .store(in: &cancellables)
         
         // Only check for CloudKit sync if cards are empty after initial load
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) { [weak self] in

@@ -22,8 +22,9 @@ final class PurchaseService: NSObject, ObservableObject {
     private let monthlyProductId = "com.dor.flippin.premium_monthly"
     private let yearlyProductId = "com.dor.flippin.premium_yearly"
     
-    // Entitlement identifier (must match your RevenueCat dashboard)
-    private let premiumEntitlementID = "premium"
+    // Entitlement identifiers (must match your RevenueCat dashboard)
+    private let monthlyEntitlementID = "premium_monthly"
+    private let yearlyEntitlementID = "premium_yearly"
     
     // MARK: - Debug Properties
     #if DEBUG
@@ -38,13 +39,13 @@ final class PurchaseService: NSObject, ObservableObject {
     private override init() {
         super.init()
 
-        // Load cached state for immediate access
+        // Load cached state for immediate access - this should happen first
         loadCachedPurchaseState()
         
         // Set up RevenueCat delegate
         Purchases.shared.delegate = self
         
-        // Initial load
+        // Initial load - but don't wait for it to set hasPremiumAccess
         Task {
             await refreshCustomerInfo()
             await loadOfferings()
@@ -110,6 +111,11 @@ final class PurchaseService: NSObject, ObservableObject {
             
             // Update premium access status
             await updatePremiumAccessStatus(from: customerInfo)
+            
+            // Immediately save the new state to cache for instant access
+            await MainActor.run {
+                saveCachedPurchaseState()
+            }
             
             let transactionId = transaction?.transactionIdentifier ?? "unknown"
             
@@ -201,7 +207,11 @@ final class PurchaseService: NSObject, ObservableObject {
     @MainActor
     func refreshCustomerInfo() async {
         do {
+            debugPrint("🔄 [PurchaseService] Fetching customer info from RevenueCat...")
             let customerInfo = try await Purchases.shared.customerInfo()
+            debugPrint("✅ [PurchaseService] Customer info received")
+            debugPrint("🔍 [PurchaseService] Original Request Date:", customerInfo.originalPurchaseDate?.description ?? "nil")
+            debugPrint("🔍 [PurchaseService] All Purchased Product IDs:", customerInfo.allPurchasedProductIdentifiers)
             self.customerInfo = customerInfo
             await updatePremiumAccessStatus(from: customerInfo)
         } catch {
@@ -228,7 +238,37 @@ final class PurchaseService: NSObject, ObservableObject {
         }
         #endif
         
-        let hasAccess = customerInfo.entitlements[premiumEntitlementID]?.isActive == true
+        // Debug logging for entitlements
+        debugPrint("🔍 [PurchaseService] Checking premium access...")
+        debugPrint("🔍 [PurchaseService] Looking for entitlements:", monthlyEntitlementID, "or", yearlyEntitlementID)
+        debugPrint("🔍 [PurchaseService] All entitlements:", customerInfo.entitlements.all.keys)
+        debugPrint("🔍 [PurchaseService] Active subscriptions:", customerInfo.activeSubscriptions)
+        
+        let monthlyEntitlement = customerInfo.entitlements[monthlyEntitlementID]
+        let yearlyEntitlement = customerInfo.entitlements[yearlyEntitlementID]
+        
+        if let monthlyEntitlement = monthlyEntitlement {
+            debugPrint("🔍 [PurchaseService] Monthly entitlement found!")
+            debugPrint("🔍 [PurchaseService]   - isActive:", monthlyEntitlement.isActive)
+            debugPrint("🔍 [PurchaseService]   - willRenew:", monthlyEntitlement.willRenew)
+            debugPrint("🔍 [PurchaseService]   - productIdentifier:", monthlyEntitlement.productIdentifier)
+        }
+        
+        if let yearlyEntitlement = yearlyEntitlement {
+            debugPrint("🔍 [PurchaseService] Yearly entitlement found!")
+            debugPrint("🔍 [PurchaseService]   - isActive:", yearlyEntitlement.isActive)
+            debugPrint("🔍 [PurchaseService]   - willRenew:", yearlyEntitlement.willRenew)
+            debugPrint("🔍 [PurchaseService]   - productIdentifier:", yearlyEntitlement.productIdentifier)
+        }
+        
+        if monthlyEntitlement == nil && yearlyEntitlement == nil {
+            debugPrint("⚠️ [PurchaseService] Neither monthly nor yearly entitlements found in customerInfo!")
+            debugPrint("⚠️ [PurchaseService] This usually means:")
+            debugPrint("⚠️ [PurchaseService]   1. The entitlements are not configured in RevenueCat dashboard")
+            debugPrint("⚠️ [PurchaseService]   2. Or the products are not linked to the entitlements")
+        }
+        
+        let hasAccess = (monthlyEntitlement?.isActive == true) || (yearlyEntitlement?.isActive == true)
         hasPremiumAccess = hasAccess
         self.customerInfo = customerInfo
         saveCachedPurchaseState()
@@ -248,8 +288,18 @@ final class PurchaseService: NSObject, ObservableObject {
     }
     
     func getPurchasedProducts() -> [String] {
-        guard let customerInfo = customerInfo else { return [] }
-        return Array(customerInfo.activeSubscriptions)
+        // Try to get from current customerInfo first
+        if let customerInfo = customerInfo {
+            return Array(customerInfo.activeSubscriptions)
+        }
+        
+        // Fallback to cached subscriptions if customerInfo is not available (offline)
+        if let cachedSubscriptions = UserDefaults.standard.object(forKey: "cached_active_subscriptions") as? [String] {
+            print("📦 Using cached subscriptions for offline access: \(cachedSubscriptions)")
+            return cachedSubscriptions
+        }
+        
+        return []
     }
     
     // MARK: - Transaction History (for compatibility)
@@ -264,12 +314,26 @@ final class PurchaseService: NSObject, ObservableObject {
         if let hasPremium = UserDefaults.standard.object(forKey: UserDefaultsKey.cachedPurchasedProducts) as? Bool {
             hasPremiumAccess = hasPremium
             print("📦 Loaded cached purchase state: premium = \(hasPremium)")
+            
+            // Also load cached subscription info for better offline experience
+            if let cachedSubscriptions = UserDefaults.standard.object(forKey: "cached_active_subscriptions") as? [String] {
+                print("📦 Loaded cached subscriptions: \(cachedSubscriptions)")
+            }
+        } else {
+            print("📦 No cached purchase state found")
         }
     }
     
     private func saveCachedPurchaseState() {
         UserDefaults.standard.set(hasPremiumAccess, forKey: UserDefaultsKey.cachedPurchasedProducts)
         print("💾 Saved cached purchase state: premium = \(hasPremiumAccess)")
+        
+        // Also cache the active subscriptions for better offline experience
+        if let customerInfo = customerInfo {
+            let activeSubscriptions = Array(customerInfo.activeSubscriptions)
+            UserDefaults.standard.set(activeSubscriptions, forKey: "cached_active_subscriptions")
+            print("💾 Saved cached subscriptions: \(activeSubscriptions)")
+        }
     }
     
     // MARK: - Get Specific Packages
@@ -328,13 +392,37 @@ final class PurchaseService: NSObject, ObservableObject {
         }
         print("🔧 Debug mode disabled")
     }
+    
+    /// Sync StoreKit 2 transactions with RevenueCat (useful in simulator)
+    func syncStoreKitTransactions() async {
+        debugPrint("🔄 [PurchaseService] Manually syncing StoreKit 2 transactions...")
+        
+        // Check for unfinished transactions
+        for await transaction in Transaction.unfinished {
+            debugPrint("🔍 [PurchaseService] Found unfinished transaction:", transaction.unsafePayloadValue.productID)
+
+            if let verification = try? transaction.payloadData {
+                debugPrint("🔍 [PurchaseService] Transaction data:", verification.count, "bytes")
+            }
+        }
+        
+        // Check for all transactions
+        for await transaction in Transaction.all {
+            debugPrint("🔍 [PurchaseService] All transactions - Product:", transaction.unsafePayloadValue.productID, "Date:", transaction.unsafePayloadValue.purchaseDate)
+        }
+        
+        // Force refresh after checking transactions
+        await refreshCustomerInfo()
+        debugPrint("✅ [PurchaseService] Transaction sync complete")
+    }
     #endif
 }
 
 // MARK: - PurchasesDelegate
 extension PurchaseService: PurchasesDelegate {
     func purchases(_ purchases: Purchases, receivedUpdated customerInfo: CustomerInfo) {
-        print("📬 Received customer info update from RevenueCat")
+        debugPrint("📬 [PurchaseService] Received customer info update from RevenueCat delegate")
+        debugPrint("🔍 [PurchaseService] Update source: Push notification or background sync")
         Task { @MainActor in
             await updatePremiumAccessStatus(from: customerInfo)
         }
