@@ -1,0 +1,91 @@
+/*
+  UserProfile.strings
+  Flippin
+  
+  User Profile and Onboarding Localization
+  Language: ko
+  Section: user_profile
+*/
+
+// Name Input
+"nameTitle" = "이름이 무엇인가요?";
+"nameSubtitle" = "어떻게 불러드리면 좋을지 알려주세요";
+"namePlaceholder" = "이름을 입력하세요";
+
+// Age Group Selection
+"ageGroupTitle" = "연령대가 어떻게 되나요?";
+"ageGroupSubtitle" = "학습 경험을 개인화하는 데 도움이 됩니다";
+"ageUnder18" = "18세 미만";
+"age18to24" = "18-24세";
+"age25to34" = "25-34세";
+"age35to44" = "35-44세";
+"age45to54" = "45-54세";
+"age55plus" = "55세 이상";
+
+// Gender Selection
+"genderTitle" = "어떻게 정체성을 확인하시나요?";
+"genderSubtitle" = "이 정보는 경험을 맞춤화하는 데 도움이 됩니다";
+"genderMale" = "남성";
+"genderFemale" = "여성";
+"genderPreferNotToSay" = "말하지 않음";
+
+// Language Proficiency
+"proficiencyLevel" = "당신의 레벨";
+"proficiencyBeginner" = "초급";
+"proficiencyIntermediate" = "중급";
+"proficiencyAdvanced" = "고급";
+
+// Interests Selection
+"interestsTitle" = "무엇에 관심이 있나요?";
+"interestsSubtitle" = "집중하고 싶은 주제를 선택하세요 (최소 하나 선택)";
+
+// Weekly Goal
+"weeklyGoalTitle" = "주간 목표";
+"weeklyGoalSubtitle" = "매주 몇 개의 문구를 배우고 싶나요?";
+"weeklyGoal10" = "10개 문구";
+"weeklyGoal10Desc" = "가볍고 편안하게";
+"weeklyGoal25" = "25개 문구";
+"weeklyGoal25Desc" = "균형잡힌 접근";
+"weeklyGoal50" = "50개 문구";
+"weeklyGoal50Desc" = "야심찬 학습자";
+"weeklyGoal100" = "100개 문구";
+"weeklyGoal100Desc" = "집중 모드";
+
+// Learning Goals
+"learningGoalTitle" = "목표가 무엇인가요?";
+"learningGoalSubtitle" = "새로운 언어를 배우는 이유를 알려주세요";
+"goalTravel" = "해외 여행";
+"goalTravelDesc" = "새로운 나라를 방문하거나 탐험할 계획";
+"goalBusiness" = "비즈니스 커뮤니케이션";
+"goalBusinessDesc" = "전문 회의 및 네트워킹";
+"goalAcademic" = "학업";
+"goalAcademicDesc" = "학교, 대학 또는 연구";
+"goalCasual" = "일상 대화";
+"goalCasualDesc" = "친구들과 대화하고 인맥 만들기";
+"goalCultural" = "문화 몰입";
+"goalCulturalDesc" = "영화, 음악, 문학 감상";
+"goalRelocation" = "다른 나라로 이동";
+"goalRelocationDesc" = "새로운 곳에서의 삶을 준비";
+
+// Mode Selection
+"modeSelectionTitle" = "모드를 선택하세요";
+"modeSelectionSubtitle" = "카드를 어떻게 보고 싶나요?";
+
+// Streak Explanation
+"streakTitle" = "연속 기록을 쌓으세요!";
+"streakSubtitle" = "동기부여를 위해 매일의 연습을 추적합니다";
+"streakFeature1" = "매일 배워서 연속 기록을 유지하세요";
+"streakFeature2" = "시각적 인사이트로 진행 상황을 추적하세요";
+"streakFeature3" = "성장하면서 업적을 잠금 해제하세요";
+
+// Notifications
+"notificationTitle" = "계속 나아가세요";
+"notificationSubtitle" = "매일 연습하도록 부드러운 알림을 받으세요";
+"notificationFeature1" = "선호하는 시간에 일일 학습 알림";
+"notificationFeature2" = "어려운 카드에 대한 연습 알림";
+"notificationFeature3" = "동기 부여를 위한 연속 알림";
+"enableNotifications" = "알림 활성화";
+
+// Subscription Trial
+"trialTitle" = "Premium을 7일간 무료로 체험하세요";
+"trialSubtitle" = "프리미엄 콘텐츠에 대한 전체 액세스로 모든 기능을 잠금 해제하세요";

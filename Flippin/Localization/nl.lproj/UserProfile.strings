@@ -1,0 +1,91 @@
+/*
+  UserProfile.strings
+  Flippin
+  
+  User Profile and Onboarding Localization
+  Language: nl
+  Section: user_profile
+*/
+
+// Name Input
+"nameTitle" = "Wat is je naam?";
+"nameSubtitle" = "We willen graag weten hoe we je kunnen noemen";
+"namePlaceholder" = "Voer je naam in";
+
+// Age Group Selection
+"ageGroupTitle" = "Wat is je leeftijdsgroep?";
+"ageGroupSubtitle" = "Dit helpt ons je leerervaring te personaliseren";
+"ageUnder18" = "Jonger dan 18";
+"age18to24" = "18-24";
+"age25to34" = "25-34";
+"age35to44" = "35-44";
+"age45to54" = "45-54";
+"age55plus" = "55+";
+
+// Gender Selection
+"genderTitle" = "Hoe identificeer je jezelf?";
+"genderSubtitle" = "Deze informatie helpt ons je ervaring aan te passen";
+"genderMale" = "Man";
+"genderFemale" = "Vrouw";
+"genderPreferNotToSay" = "Zeg ik liever niet";
+
+// Language Proficiency
+"proficiencyLevel" = "Je niveau";
+"proficiencyBeginner" = "Beginner";
+"proficiencyIntermediate" = "Gemiddeld";
+"proficiencyAdvanced" = "Gevorderd";
+
+// Interests Selection
+"interestsTitle" = "Waar ben je in geïnteresseerd?";
+"interestsSubtitle" = "Selecteer onderwerpen waarop je je wilt richten (kies er minstens één)";
+
+// Weekly Goal
+"weeklyGoalTitle" = "Je wekelijkse doel";
+"weeklyGoalSubtitle" = "Hoeveel zinnen wil je per week leren?";
+"weeklyGoal10" = "10 zinnen";
+"weeklyGoal10Desc" = "Licht en ontspannen";
+"weeklyGoal25" = "25 zinnen";
+"weeklyGoal25Desc" = "Evenwichtige aanpak";
+"weeklyGoal50" = "50 zinnen";
+"weeklyGoal50Desc" = "Ambitieuze leerling";
+"weeklyGoal100" = "100 zinnen";
+"weeklyGoal100Desc" = "Intensieve modus";
+
+// Learning Goals
+"learningGoalTitle" = "Wat is je doel?";
+"learningGoalSubtitle" = "Vertel ons waarom je een nieuwe taal leert";
+"goalTravel" = "Reizen naar het buitenland";
+"goalTravelDesc" = "Van plan om nieuwe landen te bezoeken of te verkennen";
+"goalBusiness" = "Zakelijke communicatie";
+"goalBusinessDesc" = "Professionele vergaderingen en netwerken";
+"goalAcademic" = "Academische studies";
+"goalAcademicDesc" = "School, universiteit of onderzoek";
+"goalCasual" = "Informeel gesprek";
+"goalCasualDesc" = "Chatten met vrienden en connecties maken";
+"goalCultural" = "Culturele onderdompeling";
+"goalCulturalDesc" = "Films, muziek en literatuur waarderen";
+"goalRelocation" = "Verhuizen naar een ander land";
+"goalRelocationDesc" = "Voorbereiden op het leven op een nieuwe plek";
+
+// Mode Selection
+"modeSelectionTitle" = "Kies je modus";
+"modeSelectionSubtitle" = "Hoe wil je je kaarten zien?";
+
+// Streak Explanation
+"streakTitle" = "Bouw je reeks op!";
+"streakSubtitle" = "We volgen je dagelijkse oefening om je gemotiveerd te houden";
+"streakFeature1" = "Leer elke dag om je reeks te behouden";
+"streakFeature2" = "Volg je voortgang met visuele inzichten";
+"streakFeature3" = "Ontgrendel prestaties terwijl je groeit";
+
+// Notifications
+"notificationTitle" = "Blijf op koers";
+"notificationSubtitle" = "Ontvang zachte herinneringen om dagelijks te oefenen";
+"notificationFeature1" = "Dagelijkse studieherinneringen op je voorkeurtijd";
+"notificationFeature2" = "Oefenwaarschuwingen voor moeilijke kaarten";
+"notificationFeature3" = "Reeks meldingen om gemotiveerd te blijven";
+"enableNotifications" = "Meldingen inschakelen";
+
+// Subscription Trial
+"trialTitle" = "Probeer Premium 7 dagen gratis";
+"trialSubtitle" = "Ontgrendel alle functies met volledige toegang tot premium inhoud";

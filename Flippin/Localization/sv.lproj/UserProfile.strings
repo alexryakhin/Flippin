@@ -1,0 +1,91 @@
+/*
+  UserProfile.strings
+  Flippin
+  
+  User Profile and Onboarding Localization
+  Language: sv
+  Section: user_profile
+*/
+
+// Name Input
+"nameTitle" = "Vad heter du?";
+"nameSubtitle" = "Vi skulle vilja veta vad vi ska kalla dig";
+"namePlaceholder" = "Ange ditt namn";
+
+// Age Group Selection
+"ageGroupTitle" = "Vilken åldersgrupp tillhör du?";
+"ageGroupSubtitle" = "Detta hjälper oss att anpassa din lärandeupplevelse";
+"ageUnder18" = "Under 18";
+"age18to24" = "18-24";
+"age25to34" = "25-34";
+"age35to44" = "35-44";
+"age45to54" = "45-54";
+"age55plus" = "55+";
+
+// Gender Selection
+"genderTitle" = "Hur identifierar du dig?";
+"genderSubtitle" = "Denna information hjälper oss att anpassa din upplevelse";
+"genderMale" = "Man";
+"genderFemale" = "Kvinna";
+"genderPreferNotToSay" = "Vill inte säga";
+
+// Language Proficiency
+"proficiencyLevel" = "Din nivå";
+"proficiencyBeginner" = "Nybörjare";
+"proficiencyIntermediate" = "Mellan";
+"proficiencyAdvanced" = "Avancerad";
+
+// Interests Selection
+"interestsTitle" = "Vad är du intresserad av?";
+"interestsSubtitle" = "Välj ämnen du vill fokusera på (välj minst ett)";
+
+// Weekly Goal
+"weeklyGoalTitle" = "Ditt veckomål";
+"weeklyGoalSubtitle" = "Hur många fraser vill du lära dig varje vecka?";
+"weeklyGoal10" = "10 fraser";
+"weeklyGoal10Desc" = "Lätt och avslappnat";
+"weeklyGoal25" = "25 fraser";
+"weeklyGoal25Desc" = "Balanserat tillvägagångssätt";
+"weeklyGoal50" = "50 fraser";
+"weeklyGoal50Desc" = "Ambitiös elev";
+"weeklyGoal100" = "100 fraser";
+"weeklyGoal100Desc" = "Intensivläge";
+
+// Learning Goals
+"learningGoalTitle" = "Vad är ditt mål?";
+"learningGoalSubtitle" = "Berätta varför du lär dig ett nytt språk";
+"goalTravel" = "Resa utomlands";
+"goalTravelDesc" = "Planerar att besöka eller utforska nya länder";
+"goalBusiness" = "Affärskommunikation";
+"goalBusinessDesc" = "Professionella möten och nätverkande";
+"goalAcademic" = "Akademiska studier";
+"goalAcademicDesc" = "Skola, universitet eller forskning";
+"goalCasual" = "Vardagligt samtal";
+"goalCasualDesc" = "Chatta med vänner och skapa kontakter";
+"goalCultural" = "Kulturell fördjupning";
+"goalCulturalDesc" = "Uppskatta film, musik och litteratur";
+"goalRelocation" = "Flytta till ett annat land";
+"goalRelocationDesc" = "Förbereda sig för livet på en ny plats";
+
+// Mode Selection
+"modeSelectionTitle" = "Välj ditt läge";
+"modeSelectionSubtitle" = "Hur vill du se dina kort?";
+
+// Streak Explanation
+"streakTitle" = "Bygg din svit!";
+"streakSubtitle" = "Vi spårar din dagliga övning för att hålla dig motiverad";
+"streakFeature1" = "Lär dig varje dag för att behålla din svit";
+"streakFeature2" = "Spåra dina framsteg med visuella insikter";
+"streakFeature3" = "Lås upp prestationer när du växer";
+
+// Notifications
+"notificationTitle" = "Håll dig på rätt spår";
+"notificationSubtitle" = "Få milda påminnelser att öva dagligen";
+"notificationFeature1" = "Dagliga studiepåminnelser vid din föredragna tid";
+"notificationFeature2" = "Övningsvarningar för svåra kort";
+"notificationFeature3" = "Svitaviseringar för att hålla dig motiverad";
+"enableNotifications" = "Aktivera aviseringar";
+
+// Subscription Trial
+"trialTitle" = "Prova Premium gratis i 7 dagar";
+"trialSubtitle" = "Lås upp alla funktioner med full åtkomst till premiuminnehåll";

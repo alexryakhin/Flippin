@@ -1,0 +1,91 @@
+/*
+  UserProfile.strings
+  Flippin
+  
+  User Profile and Onboarding Localization
+  Language: de
+  Section: user_profile
+*/
+
+// Name Input
+"nameTitle" = "Wie heißen Sie?";
+"nameSubtitle" = "Wir möchten gerne wissen, wie wir Sie nennen sollen";
+"namePlaceholder" = "Geben Sie Ihren Namen ein";
+
+// Age Group Selection
+"ageGroupTitle" = "Wie alt sind Sie?";
+"ageGroupSubtitle" = "Dies hilft uns, Ihr Lernerlebnis zu personalisieren";
+"ageUnder18" = "Unter 18";
+"age18to24" = "18-24";
+"age25to34" = "25-34";
+"age35to44" = "35-44";
+"age45to54" = "45-54";
+"age55plus" = "55+";
+
+// Gender Selection
+"genderTitle" = "Wie identifizieren Sie sich?";
+"genderSubtitle" = "Diese Information hilft uns, Ihre Erfahrung anzupassen";
+"genderMale" = "Männlich";
+"genderFemale" = "Weiblich";
+"genderPreferNotToSay" = "Möchte ich nicht angeben";
+
+// Language Proficiency
+"proficiencyLevel" = "Ihr Niveau";
+"proficiencyBeginner" = "Anfänger";
+"proficiencyIntermediate" = "Mittelstufe";
+"proficiencyAdvanced" = "Fortgeschritten";
+
+// Interests Selection
+"interestsTitle" = "Was interessiert Sie?";
+"interestsSubtitle" = "Wählen Sie Themen aus, auf die Sie sich konzentrieren möchten (mindestens eines)";
+
+// Weekly Goal
+"weeklyGoalTitle" = "Ihr Wochenziel";
+"weeklyGoalSubtitle" = "Wie viele Phrasen möchten Sie pro Woche lernen?";
+"weeklyGoal10" = "10 Phrasen";
+"weeklyGoal10Desc" = "Leicht & Entspannt";
+"weeklyGoal25" = "25 Phrasen";
+"weeklyGoal25Desc" = "Ausgewogener Ansatz";
+"weeklyGoal50" = "50 Phrasen";
+"weeklyGoal50Desc" = "Ehrgeiziger Lerner";
+"weeklyGoal100" = "100 Phrasen";
+"weeklyGoal100Desc" = "Intensivmodus";
+
+// Learning Goals
+"learningGoalTitle" = "Was ist Ihr Ziel?";
+"learningGoalSubtitle" = "Sagen Sie uns, warum Sie eine neue Sprache lernen";
+"goalTravel" = "Reisen ins Ausland";
+"goalTravelDesc" = "Planung, neue Länder zu besuchen oder zu erkunden";
+"goalBusiness" = "Geschäftskommunikation";
+"goalBusinessDesc" = "Berufliche Meetings und Networking";
+"goalAcademic" = "Akademisches Studium";
+"goalAcademicDesc" = "Schule, Universität oder Forschung";
+"goalCasual" = "Lockeres Gespräch";
+"goalCasualDesc" = "Mit Freunden chatten und Kontakte knüpfen";
+"goalCultural" = "Kulturelle Immersion";
+"goalCulturalDesc" = "Filme, Musik und Literatur schätzen";
+"goalRelocation" = "Umzug in ein anderes Land";
+"goalRelocationDesc" = "Vorbereitung auf das Leben an einem neuen Ort";
+
+// Mode Selection
+"modeSelectionTitle" = "Wählen Sie Ihren Modus";
+"modeSelectionSubtitle" = "Wie möchten Sie Ihre Karten sehen?";
+
+// Streak Explanation
+"streakTitle" = "Bauen Sie Ihre Serie auf!";
+"streakSubtitle" = "Wir verfolgen Ihre tägliche Übung, um Sie motiviert zu halten";
+"streakFeature1" = "Lernen Sie jeden Tag, um Ihre Serie aufrechtzuerhalten";
+"streakFeature2" = "Verfolgen Sie Ihren Fortschritt mit visuellen Einblicken";
+"streakFeature3" = "Schalten Sie Erfolge frei, während Sie wachsen";
+
+// Notifications
+"notificationTitle" = "Bleiben Sie auf Kurs";
+"notificationSubtitle" = "Erhalten Sie sanfte Erinnerungen zum täglichen Üben";
+"notificationFeature1" = "Tägliche Lernerinnerungen zu Ihrer bevorzugten Zeit";
+"notificationFeature2" = "Übungswarnungen für schwierige Karten";
+"notificationFeature3" = "Serien-Benachrichtigungen, um motiviert zu bleiben";
+"enableNotifications" = "Benachrichtigungen aktivieren";
+
+// Subscription Trial
+"trialTitle" = "Testen Sie Premium 7 Tage kostenlos";
+"trialSubtitle" = "Schalten Sie alle Funktionen mit vollem Zugriff auf Premium-Inhalte frei";

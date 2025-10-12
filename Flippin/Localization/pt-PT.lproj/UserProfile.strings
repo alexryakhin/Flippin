@@ -1,0 +1,91 @@
+/*
+  UserProfile.strings
+  Flippin
+  
+  User Profile and Onboarding Localization
+  Language: pt-PT
+  Section: user_profile
+*/
+
+// Name Input
+"nameTitle" = "Qual é o teu nome?";
+"nameSubtitle" = "Gostaríamos de saber como te chamar";
+"namePlaceholder" = "Introduz o teu nome";
+
+// Age Group Selection
+"ageGroupTitle" = "Qual é a tua faixa etária?";
+"ageGroupSubtitle" = "Isto ajuda-nos a personalizar a tua experiência de aprendizagem";
+"ageUnder18" = "Menos de 18";
+"age18to24" = "18-24";
+"age25to34" = "25-34";
+"age35to44" = "35-44";
+"age45to54" = "45-54";
+"age55plus" = "55+";
+
+// Gender Selection
+"genderTitle" = "Como te identificas?";
+"genderSubtitle" = "Esta informação ajuda-nos a personalizar a tua experiência";
+"genderMale" = "Masculino";
+"genderFemale" = "Feminino";
+"genderPreferNotToSay" = "Prefiro não dizer";
+
+// Language Proficiency
+"proficiencyLevel" = "O teu nível";
+"proficiencyBeginner" = "Principiante";
+"proficiencyIntermediate" = "Intermédio";
+"proficiencyAdvanced" = "Avançado";
+
+// Interests Selection
+"interestsTitle" = "O que te interessa?";
+"interestsSubtitle" = "Seleciona os tópicos nos quais gostarias de te concentrar (escolhe pelo menos um)";
+
+// Weekly Goal
+"weeklyGoalTitle" = "O teu objetivo semanal";
+"weeklyGoalSubtitle" = "Quantas frases queres aprender por semana?";
+"weeklyGoal10" = "10 frases";
+"weeklyGoal10Desc" = "Leve e descontraído";
+"weeklyGoal25" = "25 frases";
+"weeklyGoal25Desc" = "Abordagem equilibrada";
+"weeklyGoal50" = "50 frases";
+"weeklyGoal50Desc" = "Aprendiz ambicioso";
+"weeklyGoal100" = "100 frases";
+"weeklyGoal100Desc" = "Modo intensivo";
+
+// Learning Goals
+"learningGoalTitle" = "Qual é o teu objetivo?";
+"learningGoalSubtitle" = "Diz-nos porque estás a aprender uma nova língua";
+"goalTravel" = "Viajar para o estrangeiro";
+"goalTravelDesc" = "Planear visitar ou explorar novos países";
+"goalBusiness" = "Comunicação empresarial";
+"goalBusinessDesc" = "Reuniões profissionais e networking";
+"goalAcademic" = "Estudos académicos";
+"goalAcademicDesc" = "Escola, universidade ou investigação";
+"goalCasual" = "Conversação casual";
+"goalCasualDesc" = "Conversar com amigos e fazer conexões";
+"goalCultural" = "Imersão cultural";
+"goalCulturalDesc" = "Apreciar filmes, música e literatura";
+"goalRelocation" = "Mudar para outro país";
+"goalRelocationDesc" = "Preparar-se para a vida num novo lugar";
+
+// Mode Selection
+"modeSelectionTitle" = "Escolhe o teu modo";
+"modeSelectionSubtitle" = "Como queres ver os teus cartões?";
+
+// Streak Explanation
+"streakTitle" = "Constrói a tua sequência!";
+"streakSubtitle" = "Acompanhamos a tua prática diária para te manter motivado";
+"streakFeature1" = "Aprende todos os dias para manter a tua sequência";
+"streakFeature2" = "Acompanha o teu progresso com insights visuais";
+"streakFeature3" = "Desbloqueia conquistas à medida que cresces";
+
+// Notifications
+"notificationTitle" = "Mantém-te no caminho certo";
+"notificationSubtitle" = "Recebe lembretes suaves para praticar diariamente";
+"notificationFeature1" = "Lembretes de estudo diários no teu horário preferido";
+"notificationFeature2" = "Alertas de prática para cartões difíceis";
+"notificationFeature3" = "Notificações de sequência para te manteres motivado";
+"enableNotifications" = "Ativar notificações";
+
+// Subscription Trial
+"trialTitle" = "Experimenta Premium grátis durante 7 dias";
+"trialSubtitle" = "Desbloqueia todos os recursos com acesso completo ao conteúdo premium";

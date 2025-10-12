@@ -1,0 +1,91 @@
+/*
+  UserProfile.strings
+  Flippin
+  
+  User Profile and Onboarding Localization
+  Language: ar
+  Section: user_profile
+*/
+
+// Name Input
+"nameTitle" = "ما اسمك؟";
+"nameSubtitle" = "نود أن نعرف كيف نناديك";
+"namePlaceholder" = "أدخل اسمك";
+
+// Age Group Selection
+"ageGroupTitle" = "ما هي فئتك العمرية؟";
+"ageGroupSubtitle" = "يساعدنا هذا في تخصيص تجربة التعلم الخاصة بك";
+"ageUnder18" = "أقل من 18";
+"age18to24" = "18-24";
+"age25to34" = "25-34";
+"age35to44" = "35-44";
+"age45to54" = "45-54";
+"age55plus" = "55+";
+
+// Gender Selection
+"genderTitle" = "كيف تعرف نفسك؟";
+"genderSubtitle" = "تساعدنا هذه المعلومات في تخصيص تجربتك";
+"genderMale" = "ذكر";
+"genderFemale" = "أنثى";
+"genderPreferNotToSay" = "أفضل عدم الإفصاح";
+
+// Language Proficiency
+"proficiencyLevel" = "مستواك";
+"proficiencyBeginner" = "مبتدئ";
+"proficiencyIntermediate" = "متوسط";
+"proficiencyAdvanced" = "متقدم";
+
+// Interests Selection
+"interestsTitle" = "ما الذي يهمك؟";
+"interestsSubtitle" = "حدد المواضيع التي ترغب في التركيز عليها (اختر واحدًا على الأقل)";
+
+// Weekly Goal
+"weeklyGoalTitle" = "هدفك الأسبوعي";
+"weeklyGoalSubtitle" = "كم عبارة تريد تعلمها كل أسبوع؟";
+"weeklyGoal10" = "10 عبارات";
+"weeklyGoal10Desc" = "خفيف ومريح";
+"weeklyGoal25" = "25 عبارة";
+"weeklyGoal25Desc" = "نهج متوازن";
+"weeklyGoal50" = "50 عبارة";
+"weeklyGoal50Desc" = "متعلم طموح";
+"weeklyGoal100" = "100 عبارة";
+"weeklyGoal100Desc" = "الوضع المكثف";
+
+// Learning Goals
+"learningGoalTitle" = "ما هو هدفك؟";
+"learningGoalSubtitle" = "أخبرنا لماذا تتعلم لغة جديدة";
+"goalTravel" = "السفر للخارج";
+"goalTravelDesc" = "التخطيط لزيارة أو استكشاف بلدان جديدة";
+"goalBusiness" = "التواصل التجاري";
+"goalBusinessDesc" = "الاجتماعات المهنية والتواصل";
+"goalAcademic" = "الدراسات الأكاديمية";
+"goalAcademicDesc" = "المدرسة أو الجامعة أو البحث";
+"goalCasual" = "المحادثة العادية";
+"goalCasualDesc" = "الدردشة مع الأصدقاء وتكوين علاقات";
+"goalCultural" = "الانغماس الثقافي";
+"goalCulturalDesc" = "تقدير الأفلام والموسيقى والأدب";
+"goalRelocation" = "الانتقال إلى بلد آخر";
+"goalRelocationDesc" = "الاستعداد للحياة في مكان جديد";
+
+// Mode Selection
+"modeSelectionTitle" = "اختر وضعك";
+"modeSelectionSubtitle" = "كيف تريد رؤية بطاقاتك؟";
+
+// Streak Explanation
+"streakTitle" = "ابنِ سلسلتك!";
+"streakSubtitle" = "نتتبع ممارستك اليومية لإبقائك متحفزًا";
+"streakFeature1" = "تعلم كل يوم للحفاظ على سلسلتك";
+"streakFeature2" = "تتبع تقدمك برؤى مرئية";
+"streakFeature3" = "افتح الإنجازات مع نموك";
+
+// Notifications
+"notificationTitle" = "ابقَ على المسار الصحيح";
+"notificationSubtitle" = "احصل على تذكيرات لطيفة للممارسة اليومية";
+"notificationFeature1" = "تذكيرات دراسة يومية في وقتك المفضل";
+"notificationFeature2" = "تنبيهات ممارسة للبطاقات الصعبة";
+"notificationFeature3" = "إشعارات السلسلة للبقاء متحفزًا";
+"enableNotifications" = "تفعيل الإشعارات";
+
+// Subscription Trial
+"trialTitle" = "جرب Premium مجانًا لمدة 7 أيام";
+"trialSubtitle" = "افتح جميع الميزات مع وصول كامل إلى المحتوى المميز";

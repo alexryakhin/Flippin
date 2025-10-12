@@ -1,0 +1,91 @@
+/*
+  UserProfile.strings
+  Flippin
+  
+  User Profile and Onboarding Localization
+  Language: zh-Hant
+  Section: user_profile
+*/
+
+// Name Input
+"nameTitle" = "你叫什麼名字？";
+"nameSubtitle" = "我們想知道如何稱呼你";
+"namePlaceholder" = "輸入你的名字";
+
+// Age Group Selection
+"ageGroupTitle" = "你的年齡段是？";
+"ageGroupSubtitle" = "這有助於我們個性化您的學習體驗";
+"ageUnder18" = "18歲以下";
+"age18to24" = "18-24歲";
+"age25to34" = "25-34歲";
+"age35to44" = "35-44歲";
+"age45to54" = "45-54歲";
+"age55plus" = "55歲以上";
+
+// Gender Selection
+"genderTitle" = "你的性別認同是？";
+"genderSubtitle" = "這些資訊有助於我們定製您的體驗";
+"genderMale" = "男性";
+"genderFemale" = "女性";
+"genderPreferNotToSay" = "不願透露";
+
+// Language Proficiency
+"proficiencyLevel" = "你的程度";
+"proficiencyBeginner" = "初級";
+"proficiencyIntermediate" = "中級";
+"proficiencyAdvanced" = "高級";
+
+// Interests Selection
+"interestsTitle" = "你對什麼感興趣？";
+"interestsSubtitle" = "選擇你想重點學習的主題（至少選擇一個）";
+
+// Weekly Goal
+"weeklyGoalTitle" = "你的每週目標";
+"weeklyGoalSubtitle" = "你每週想學習多少短語？";
+"weeklyGoal10" = "10個短語";
+"weeklyGoal10Desc" = "輕鬆放鬆";
+"weeklyGoal25" = "25個短語";
+"weeklyGoal25Desc" = "平衡方法";
+"weeklyGoal50" = "50個短語";
+"weeklyGoal50Desc" = "雄心勃勃的學習者";
+"weeklyGoal100" = "100個短語";
+"weeklyGoal100Desc" = "密集模式";
+
+// Learning Goals
+"learningGoalTitle" = "你的目標是什麼？";
+"learningGoalSubtitle" = "告訴我們你為什麼要學習一門新語言";
+"goalTravel" = "出國旅行";
+"goalTravelDesc" = "計劃訪問或探索新國家";
+"goalBusiness" = "商務溝通";
+"goalBusinessDesc" = "專業會議和社交";
+"goalAcademic" = "學術研究";
+"goalAcademicDesc" = "學校、大學或研究";
+"goalCasual" = "休閒對話";
+"goalCasualDesc" = "與朋友聊天並建立聯繫";
+"goalCultural" = "文化沉浸";
+"goalCulturalDesc" = "欣賞電影、音樂和文學";
+"goalRelocation" = "搬到另一個國家";
+"goalRelocationDesc" = "為在新地方生活做準備";
+
+// Mode Selection
+"modeSelectionTitle" = "選擇你的模式";
+"modeSelectionSubtitle" = "你想如何查看你的卡片？";
+
+// Streak Explanation
+"streakTitle" = "建立你的連續記錄！";
+"streakSubtitle" = "我們追蹤您的每日練習以保持您的動力";
+"streakFeature1" = "每天學習以保持你的連續記錄";
+"streakFeature2" = "透過視覺化洞察追蹤您的進度";
+"streakFeature3" = "隨著成長解鎖成就";
+
+// Notifications
+"notificationTitle" = "保持正軌";
+"notificationSubtitle" = "獲得溫和的提醒以每天練習";
+"notificationFeature1" = "在您偏好的時間獲得每日學習提醒";
+"notificationFeature2" = "困難卡片的練習提醒";
+"notificationFeature3" = "連續記錄通知以保持動力";
+"enableNotifications" = "啟用通知";
+
+// Subscription Trial
+"trialTitle" = "免費試用Premium 7天";
+"trialSubtitle" = "解鎖所有功能，完全訪問進階內容";

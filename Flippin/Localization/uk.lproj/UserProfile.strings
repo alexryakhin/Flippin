@@ -1,0 +1,91 @@
+/*
+  UserProfile.strings
+  Flippin
+  
+  User Profile and Onboarding Localization
+  Language: uk
+  Section: user_profile
+*/
+
+// Name Input
+"nameTitle" = "Як вас звати?";
+"nameSubtitle" = "Ми хотіли б знати, як до вас звертатися";
+"namePlaceholder" = "Введіть ваше ім'я";
+
+// Age Group Selection
+"ageGroupTitle" = "Яка у вас вікова група?";
+"ageGroupSubtitle" = "Це допомагає нам персоналізувати ваш досвід навчання";
+"ageUnder18" = "Молодше 18";
+"age18to24" = "18-24";
+"age25to34" = "25-34";
+"age35to44" = "35-44";
+"age45to54" = "45-54";
+"age55plus" = "55+";
+
+// Gender Selection
+"genderTitle" = "Як ви себе ідентифікуєте?";
+"genderSubtitle" = "Ця інформація допомагає нам налаштувати ваш досвід";
+"genderMale" = "Чоловіча";
+"genderFemale" = "Жіноча";
+"genderPreferNotToSay" = "Віддаю перевагу не говорити";
+
+// Language Proficiency
+"proficiencyLevel" = "Ваш рівень";
+"proficiencyBeginner" = "Початківець";
+"proficiencyIntermediate" = "Середній";
+"proficiencyAdvanced" = "Просунутий";
+
+// Interests Selection
+"interestsTitle" = "Що вас цікавить?";
+"interestsSubtitle" = "Виберіть теми, на яких хочете зосередитися (виберіть принаймні одну)";
+
+// Weekly Goal
+"weeklyGoalTitle" = "Ваша тижнева ціль";
+"weeklyGoalSubtitle" = "Скільки фраз ви хочете вивчити за тиждень?";
+"weeklyGoal10" = "10 фраз";
+"weeklyGoal10Desc" = "Легко і розслаблено";
+"weeklyGoal25" = "25 фраз";
+"weeklyGoal25Desc" = "Збалансований підхід";
+"weeklyGoal50" = "50 фраз";
+"weeklyGoal50Desc" = "Амбітний учень";
+"weeklyGoal100" = "100 фраз";
+"weeklyGoal100Desc" = "Інтенсивний режим";
+
+// Learning Goals
+"learningGoalTitle" = "Яка у вас ціль?";
+"learningGoalSubtitle" = "Розкажіть нам, чому ви вивчаєте нову мову";
+"goalTravel" = "Подорожувати за кордон";
+"goalTravelDesc" = "Планую відвідувати або досліджувати нові країни";
+"goalBusiness" = "Ділове спілкування";
+"goalBusinessDesc" = "Професійні зустрічі та нетворкінг";
+"goalAcademic" = "Академічне навчання";
+"goalAcademicDesc" = "Школа, університет або дослідження";
+"goalCasual" = "Повсякденне спілкування";
+"goalCasualDesc" = "Спілкуватися з друзями та заводити знайомства";
+"goalCultural" = "Культурне занурення";
+"goalCulturalDesc" = "Цінувати фільми, музику та літературу";
+"goalRelocation" = "Переїзд до іншої країни";
+"goalRelocationDesc" = "Підготовка до життя в новому місці";
+
+// Mode Selection
+"modeSelectionTitle" = "Виберіть свій режим";
+"modeSelectionSubtitle" = "Як ви хочете бачити свої картки?";
+
+// Streak Explanation
+"streakTitle" = "Створіть свою серію!";
+"streakSubtitle" = "Ми відстежуємо вашу щоденну практику, щоб підтримувати вашу мотивацію";
+"streakFeature1" = "Вчіться щодня, щоб підтримувати свою серію";
+"streakFeature2" = "Відстежуйте свій прогрес за допомогою візуальних інсайтів";
+"streakFeature3" = "Розблокуйте досягнення в міру зростання";
+
+// Notifications
+"notificationTitle" = "Залишайтеся на курсі";
+"notificationSubtitle" = "Отримуйте м'які нагадування про щоденну практику";
+"notificationFeature1" = "Щоденні нагадування про навчання в зручний для вас час";
+"notificationFeature2" = "Сповіщення про практику складних карток";
+"notificationFeature3" = "Повідомлення про серію для підтримки мотивації";
+"enableNotifications" = "Увімкнути сповіщення";
+
+// Subscription Trial
+"trialTitle" = "Спробуйте Premium безкоштовно протягом 7 днів";
+"trialSubtitle" = "Розблокуйте всі функції з повним доступом до преміум-контенту";

@@ -1,0 +1,91 @@
+/*
+  UserProfile.strings
+  Flippin
+  
+  User Profile and Onboarding Localization
+  Language: ja
+  Section: user_profile
+*/
+
+// Name Input
+"nameTitle" = "お名前は何ですか？";
+"nameSubtitle" = "どのようにお呼びすればよいか教えてください";
+"namePlaceholder" = "お名前を入力してください";
+
+// Age Group Selection
+"ageGroupTitle" = "年齢層は？";
+"ageGroupSubtitle" = "学習体験をパーソナライズするのに役立ちます";
+"ageUnder18" = "18歳未満";
+"age18to24" = "18-24歳";
+"age25to34" = "25-34歳";
+"age35to44" = "35-44歳";
+"age45to54" = "45-54歳";
+"age55plus" = "55歳以上";
+
+// Gender Selection
+"genderTitle" = "性別は？";
+"genderSubtitle" = "この情報は体験をカスタマイズするのに役立ちます";
+"genderMale" = "男性";
+"genderFemale" = "女性";
+"genderPreferNotToSay" = "回答しない";
+
+// Language Proficiency
+"proficiencyLevel" = "あなたのレベル";
+"proficiencyBeginner" = "初級";
+"proficiencyIntermediate" = "中級";
+"proficiencyAdvanced" = "上級";
+
+// Interests Selection
+"interestsTitle" = "何に興味がありますか？";
+"interestsSubtitle" = "集中したいトピックを選択してください（少なくとも1つ選択）";
+
+// Weekly Goal
+"weeklyGoalTitle" = "週間目標";
+"weeklyGoalSubtitle" = "毎週何フレーズ学習したいですか？";
+"weeklyGoal10" = "10フレーズ";
+"weeklyGoal10Desc" = "軽めでリラックス";
+"weeklyGoal25" = "25フレーズ";
+"weeklyGoal25Desc" = "バランスの取れたアプローチ";
+"weeklyGoal50" = "50フレーズ";
+"weeklyGoal50Desc" = "意欲的な学習者";
+"weeklyGoal100" = "100フレーズ";
+"weeklyGoal100Desc" = "集中モード";
+
+// Learning Goals
+"learningGoalTitle" = "目標は何ですか？";
+"learningGoalSubtitle" = "新しい言語を学ぶ理由を教えてください";
+"goalTravel" = "海外旅行";
+"goalTravelDesc" = "新しい国を訪れたり探索したりする予定";
+"goalBusiness" = "ビジネスコミュニケーション";
+"goalBusinessDesc" = "プロフェッショナルな会議とネットワーキング";
+"goalAcademic" = "学術研究";
+"goalAcademicDesc" = "学校、大学、または研究";
+"goalCasual" = "日常会話";
+"goalCasualDesc" = "友達とチャットしたり、つながりを作ったり";
+"goalCultural" = "文化的没入";
+"goalCulturalDesc" = "映画、音楽、文学を鑑賞する";
+"goalRelocation" = "他の国への移住";
+"goalRelocationDesc" = "新しい場所での生活の準備";
+
+// Mode Selection
+"modeSelectionTitle" = "モードを選択";
+"modeSelectionSubtitle" = "カードをどのように表示しますか？";
+
+// Streak Explanation
+"streakTitle" = "連続記録を作ろう！";
+"streakSubtitle" = "モチベーションを保つために毎日の練習を追跡します";
+"streakFeature1" = "毎日学習して連続記録を維持する";
+"streakFeature2" = "視覚的なインサイトで進捗を追跡";
+"streakFeature3" = "成長するにつれて実績をアンロック";
+
+// Notifications
+"notificationTitle" = "軌道に乗る";
+"notificationSubtitle" = "毎日練習するための優しいリマインダーを受け取る";
+"notificationFeature1" = "お好みの時間に毎日の学習リマインダー";
+"notificationFeature2" = "難しいカードの練習アラート";
+"notificationFeature3" = "モチベーションを保つための連続記録通知";
+"enableNotifications" = "通知を有効にする";
+
+// Subscription Trial
+"trialTitle" = "Premium を7日間無料でお試し";
+"trialSubtitle" = "プレミアムコンテンツへのフルアクセスですべての機能をアンロック";

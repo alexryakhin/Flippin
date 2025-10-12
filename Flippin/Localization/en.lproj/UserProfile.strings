@@ -27,7 +27,6 @@
 "genderSubtitle" = "This information helps us customize your experience";
 "genderMale" = "Male";
 "genderFemale" = "Female";
-"genderNonBinary" = "Non-binary";
 "genderPreferNotToSay" = "Prefer not to say";
 
 // Language Proficiency

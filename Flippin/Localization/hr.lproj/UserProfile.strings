@@ -1,0 +1,91 @@
+/*
+  UserProfile.strings
+  Flippin
+  
+  User Profile and Onboarding Localization
+  Language: hr
+  Section: user_profile
+*/
+
+// Name Input
+"nameTitle" = "Kako se zoveš?";
+"nameSubtitle" = "Voljeli bismo znati kako te oslovljavati";
+"namePlaceholder" = "Unesite svoje ime";
+
+// Age Group Selection
+"ageGroupTitle" = "Koja je tvoja dobna skupina?";
+"ageGroupSubtitle" = "To nam pomaže personalizirati tvoje iskustvo učenja";
+"ageUnder18" = "Ispod 18";
+"age18to24" = "18-24";
+"age25to34" = "25-34";
+"age35to44" = "35-44";
+"age45to54" = "45-54";
+"age55plus" = "55+";
+
+// Gender Selection
+"genderTitle" = "Kako se identificiraš?";
+"genderSubtitle" = "Ova informacija nam pomaže prilagoditi tvoje iskustvo";
+"genderMale" = "Muško";
+"genderFemale" = "Žensko";
+"genderPreferNotToSay" = "Radije ne bih rekao/rekla";
+
+// Language Proficiency
+"proficiencyLevel" = "Tvoja razina";
+"proficiencyBeginner" = "Početnik";
+"proficiencyIntermediate" = "Srednja razina";
+"proficiencyAdvanced" = "Napredna razina";
+
+// Interests Selection
+"interestsTitle" = "Što te zanima?";
+"interestsSubtitle" = "Odaberi teme na koje se želiš usredotočiti (odaberi barem jednu)";
+
+// Weekly Goal
+"weeklyGoalTitle" = "Tvoj tjedni cilj";
+"weeklyGoalSubtitle" = "Koliko fraza želiš naučiti svaki tjedan?";
+"weeklyGoal10" = "10 fraza";
+"weeklyGoal10Desc" = "Lagano i opušteno";
+"weeklyGoal25" = "25 fraza";
+"weeklyGoal25Desc" = "Uravnotežen pristup";
+"weeklyGoal50" = "50 fraza";
+"weeklyGoal50Desc" = "Ambiciozan učenik";
+"weeklyGoal100" = "100 fraza";
+"weeklyGoal100Desc" = "Intenzivan način";
+
+// Learning Goals
+"learningGoalTitle" = "Koji je tvoj cilj?";
+"learningGoalSubtitle" = "Reci nam zašto učiš novi jezik";
+"goalTravel" = "Putovanje u inozemstvo";
+"goalTravelDesc" = "Planiram posjetiti ili istražiti nove zemlje";
+"goalBusiness" = "Poslovna komunikacija";
+"goalBusinessDesc" = "Profesionalni sastanci i umrežavanje";
+"goalAcademic" = "Akademske studije";
+"goalAcademicDesc" = "Škola, sveučilište ili istraživanje";
+"goalCasual" = "Ležerni razgovor";
+"goalCasualDesc" = "Razgovarati s prijateljima i stvarati veze";
+"goalCultural" = "Kulturno uranjanje";
+"goalCulturalDesc" = "Cijeniti filmove, glazbu i književnost";
+"goalRelocation" = "Preseljenje u drugu zemlju";
+"goalRelocationDesc" = "Priprema za život na novom mjestu";
+
+// Mode Selection
+"modeSelectionTitle" = "Odaberi svoj način";
+"modeSelectionSubtitle" = "Kako želiš vidjeti svoje kartice?";
+
+// Streak Explanation
+"streakTitle" = "Izgradi svoj niz!";
+"streakSubtitle" = "Pratimo tvoju dnevnu praksu kako bismo te održali motiviranim";
+"streakFeature1" = "Uči svaki dan kako bi održao svoj niz";
+"streakFeature2" = "Prati svoj napredak vizualnim uvidima";
+"streakFeature3" = "Otključaj postignuća dok rastes";
+
+// Notifications
+"notificationTitle" = "Ostani na pravom putu";
+"notificationSubtitle" = "Primaj nježne podsjednike za svakodnevnu vježbu";
+"notificationFeature1" = "Dnevni podsjetnici za učenje u tvoje omiljeno vrijeme";
+"notificationFeature2" = "Upozorenja za vježbu za teške kartice";
+"notificationFeature3" = "Obavijesti o nizu za održavanje motivacije";
+"enableNotifications" = "Omogući obavijesti";
+
+// Subscription Trial
+"trialTitle" = "Isprobaj Premium besplatno 7 dana";
+"trialSubtitle" = "Otključaj sve značajke s punim pristupom premium sadržaju";

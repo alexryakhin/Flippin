@@ -1,0 +1,91 @@
+/*
+  UserProfile.strings
+  Flippin
+  
+  User Profile and Onboarding Localization
+  Language: vi
+  Section: user_profile
+*/
+
+// Name Input
+"nameTitle" = "Tên của bạn là gì?";
+"nameSubtitle" = "Chúng tôi muốn biết nên gọi bạn như thế nào";
+"namePlaceholder" = "Nhập tên của bạn";
+
+// Age Group Selection
+"ageGroupTitle" = "Nhóm tuổi của bạn là gì?";
+"ageGroupSubtitle" = "Điều này giúp chúng tôi cá nhân hóa trải nghiệm học tập của bạn";
+"ageUnder18" = "Dưới 18";
+"age18to24" = "18-24";
+"age25to34" = "25-34";
+"age35to44" = "35-44";
+"age45to54" = "45-54";
+"age55plus" = "55+";
+
+// Gender Selection
+"genderTitle" = "Bạn tự nhận diện như thế nào?";
+"genderSubtitle" = "Thông tin này giúp chúng tôi tùy chỉnh trải nghiệm của bạn";
+"genderMale" = "Nam";
+"genderFemale" = "Nữ";
+"genderPreferNotToSay" = "Không muốn nói";
+
+// Language Proficiency
+"proficiencyLevel" = "Trình độ của bạn";
+"proficiencyBeginner" = "Người mới bắt đầu";
+"proficiencyIntermediate" = "Trung cấp";
+"proficiencyAdvanced" = "Nâng cao";
+
+// Interests Selection
+"interestsTitle" = "Bạn quan tâm đến điều gì?";
+"interestsSubtitle" = "Chọn các chủ đề bạn muốn tập trung vào (chọn ít nhất một)";
+
+// Weekly Goal
+"weeklyGoalTitle" = "Mục tiêu hàng tuần của bạn";
+"weeklyGoalSubtitle" = "Bạn muốn học bao nhiêu cụm từ mỗi tuần?";
+"weeklyGoal10" = "10 cụm từ";
+"weeklyGoal10Desc" = "Nhẹ nhàng và thư giãn";
+"weeklyGoal25" = "25 cụm từ";
+"weeklyGoal25Desc" = "Cách tiếp cận cân bằng";
+"weeklyGoal50" = "50 cụm từ";
+"weeklyGoal50Desc" = "Người học tham vọng";
+"weeklyGoal100" = "100 cụm từ";
+"weeklyGoal100Desc" = "Chế độ chuyên sâu";
+
+// Learning Goals
+"learningGoalTitle" = "Mục tiêu của bạn là gì?";
+"learningGoalSubtitle" = "Cho chúng tôi biết tại sao bạn học một ngôn ngữ mới";
+"goalTravel" = "Du lịch nước ngoài";
+"goalTravelDesc" = "Lên kế hoạch đến thăm hoặc khám phá các quốc gia mới";
+"goalBusiness" = "Giao tiếp kinh doanh";
+"goalBusinessDesc" = "Các cuộc họp chuyên nghiệp và kết nối mạng lưới";
+"goalAcademic" = "Nghiên cứu học thuật";
+"goalAcademicDesc" = "Trường học, đại học hoặc nghiên cứu";
+"goalCasual" = "Trò chuyện thông thường";
+"goalCasualDesc" = "Trò chuyện với bạn bè và tạo kết nối";
+"goalCultural" = "Hòa nhập văn hóa";
+"goalCulturalDesc" = "Thưởng thức phim ảnh, âm nhạc và văn học";
+"goalRelocation" = "Chuyển đến quốc gia khác";
+"goalRelocationDesc" = "Chuẩn bị cho cuộc sống ở nơi mới";
+
+// Mode Selection
+"modeSelectionTitle" = "Chọn chế độ của bạn";
+"modeSelectionSubtitle" = "Bạn muốn xem thẻ của mình như thế nào?";
+
+// Streak Explanation
+"streakTitle" = "Xây dựng chuỗi của bạn!";
+"streakSubtitle" = "Chúng tôi theo dõi việc luyện tập hàng ngày của bạn để giữ cho bạn có động lực";
+"streakFeature1" = "Học mỗi ngày để duy trì chuỗi của bạn";
+"streakFeature2" = "Theo dõi tiến độ của bạn bằng những thông tin trực quan";
+"streakFeature3" = "Mở khóa thành tựu khi bạn phát triển";
+
+// Notifications
+"notificationTitle" = "Giữ đúng hướng";
+"notificationSubtitle" = "Nhận lời nhắc nhẹ nhàng để luyện tập hàng ngày";
+"notificationFeature1" = "Lời nhắc học tập hàng ngày vào thời gian ưa thích của bạn";
+"notificationFeature2" = "Cảnh báo luyện tập cho các thẻ khó";
+"notificationFeature3" = "Thông báo chuỗi để giữ động lực";
+"enableNotifications" = "Bật thông báo";
+
+// Subscription Trial
+"trialTitle" = "Dùng thử Premium miễn phí trong 7 ngày";
+"trialSubtitle" = "Mở khóa tất cả các tính năng với quyền truy cập đầy đủ vào nội dung cao cấp";

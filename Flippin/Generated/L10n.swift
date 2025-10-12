@@ -1520,8 +1520,6 @@ public enum Loc {
     public static let genderFemale = Loc.tr("UserProfile", "genderFemale", fallback: "Female")
     /// Male
     public static let genderMale = Loc.tr("UserProfile", "genderMale", fallback: "Male")
-    /// Non-binary
-    public static let genderNonBinary = Loc.tr("UserProfile", "genderNonBinary", fallback: "Non-binary")
     /// Prefer not to say
     public static let genderPreferNotToSay = Loc.tr("UserProfile", "genderPreferNotToSay", fallback: "Prefer not to say")
     /// This information helps us customize your experience

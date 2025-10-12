@@ -48,7 +48,6 @@ enum AgeGroup: String, Codable, CaseIterable, Identifiable {
 enum Gender: String, Codable, CaseIterable, Identifiable {
     case male
     case female
-    case nonBinary
     case preferNotToSay
     
     var id: String { rawValue }
@@ -57,7 +56,6 @@ enum Gender: String, Codable, CaseIterable, Identifiable {
         switch self {
         case .male: return Loc.UserProfile.genderMale
         case .female: return Loc.UserProfile.genderFemale
-        case .nonBinary: return Loc.UserProfile.genderNonBinary
         case .preferNotToSay: return Loc.UserProfile.genderPreferNotToSay
         }
     }
@@ -66,7 +64,6 @@ enum Gender: String, Codable, CaseIterable, Identifiable {
         switch self {
         case .male: return "person"
         case .female: return "person"
-        case .nonBinary: return "person.2"
         case .preferNotToSay: return "questionmark.circle"
         }
     }

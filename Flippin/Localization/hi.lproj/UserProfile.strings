@@ -1,0 +1,91 @@
+/*
+  UserProfile.strings
+  Flippin
+  
+  User Profile and Onboarding Localization
+  Language: hi
+  Section: user_profile
+*/
+
+// Name Input
+"nameTitle" = "आपका नाम क्या है?";
+"nameSubtitle" = "हम जानना चाहते हैं कि आपको क्या कहें";
+"namePlaceholder" = "अपना नाम दर्ज करें";
+
+// Age Group Selection
+"ageGroupTitle" = "आपका आयु वर्ग क्या है?";
+"ageGroupSubtitle" = "यह हमें आपके सीखने के अनुभव को व्यक्तिगत बनाने में मदद करता है";
+"ageUnder18" = "18 से कम";
+"age18to24" = "18-24";
+"age25to34" = "25-34";
+"age35to44" = "35-44";
+"age45to54" = "45-54";
+"age55plus" = "55+";
+
+// Gender Selection
+"genderTitle" = "आप अपनी पहचान कैसे करते हैं?";
+"genderSubtitle" = "यह जानकारी हमें आपके अनुभव को अनुकूलित करने में मदद करती है";
+"genderMale" = "पुरुष";
+"genderFemale" = "महिला";
+"genderPreferNotToSay" = "नहीं बताना चाहते";
+
+// Language Proficiency
+"proficiencyLevel" = "आपका स्तर";
+"proficiencyBeginner" = "शुरुआती";
+"proficiencyIntermediate" = "मध्यवर्ती";
+"proficiencyAdvanced" = "उन्नत";
+
+// Interests Selection
+"interestsTitle" = "आपकी रुचि किसमें है?";
+"interestsSubtitle" = "उन विषयों का चयन करें जिन पर आप ध्यान केंद्रित करना चाहते हैं (कम से कम एक चुनें)";
+
+// Weekly Goal
+"weeklyGoalTitle" = "आपका साप्ताहिक लक्ष्य";
+"weeklyGoalSubtitle" = "आप प्रत्येक सप्ताह कितने वाक्यांश सीखना चाहते हैं?";
+"weeklyGoal10" = "10 वाक्यांश";
+"weeklyGoal10Desc" = "हल्का और आराम से";
+"weeklyGoal25" = "25 वाक्यांश";
+"weeklyGoal25Desc" = "संतुलित दृष्टिकोण";
+"weeklyGoal50" = "50 वाक्यांश";
+"weeklyGoal50Desc" = "महत्वाकांक्षी सीखने वाला";
+"weeklyGoal100" = "100 वाक्यांश";
+"weeklyGoal100Desc" = "गहन मोड";
+
+// Learning Goals
+"learningGoalTitle" = "आपका लक्ष्य क्या है?";
+"learningGoalSubtitle" = "हमें बताएं कि आप एक नई भाषा क्यों सीख रहे हैं";
+"goalTravel" = "विदेश यात्रा";
+"goalTravelDesc" = "नए देशों की यात्रा या खोज की योजना";
+"goalBusiness" = "व्यापार संचार";
+"goalBusinessDesc" = "पेशेवर बैठकें और नेटवर्किंग";
+"goalAcademic" = "शैक्षणिक अध्ययन";
+"goalAcademicDesc" = "स्कूल, विश्वविद्यालय या अनुसंधान";
+"goalCasual" = "आकस्मिक बातचीत";
+"goalCasualDesc" = "दोस्तों के साथ चैट करें और संबंध बनाएं";
+"goalCultural" = "सांस्कृतिक विसर्जन";
+"goalCulturalDesc" = "फिल्मों, संगीत और साहित्य की सराहना करें";
+"goalRelocation" = "दूसरे देश में जाना";
+"goalRelocationDesc" = "नई जगह पर जीवन की तैयारी";
+
+// Mode Selection
+"modeSelectionTitle" = "अपना मोड चुनें";
+"modeSelectionSubtitle" = "आप अपने कार्ड कैसे देखना चाहते हैं?";
+
+// Streak Explanation
+"streakTitle" = "अपनी लकीर बनाएं!";
+"streakSubtitle" = "हम आपको प्रेरित रखने के लिए आपके दैनिक अभ्यास को ट्रैक करते हैं";
+"streakFeature1" = "अपनी लकीर बनाए रखने के लिए हर दिन सीखें";
+"streakFeature2" = "दृश्य अंतर्दृष्टि के साथ अपनी प्रगति को ट्रैक करें";
+"streakFeature3" = "जैसे-जैसे आप बढ़ते हैं उपलब्धियों को अनलॉक करें";
+
+// Notifications
+"notificationTitle" = "ट्रैक पर रहें";
+"notificationSubtitle" = "दैनिक अभ्यास के लिए कोमल अनुस्मारक प्राप्त करें";
+"notificationFeature1" = "अपने पसंदीदा समय पर दैनिक अध्ययन अनुस्मारक";
+"notificationFeature2" = "कठिन कार्डों के लिए अभ्यास सतर्कता";
+"notificationFeature3" = "प्रेरित रहने के लिए लकीर अधिसूचनाएं";
+"enableNotifications" = "अधिसूचनाएं सक्षम करें";
+
+// Subscription Trial
+"trialTitle" = "Premium को 7 दिनों के लिए मुफ्त में आज़माएं";
+"trialSubtitle" = "प्रीमियम सामग्री तक पूर्ण पहुंच के साथ सभी सुविधाओं को अनलॉक करें";
