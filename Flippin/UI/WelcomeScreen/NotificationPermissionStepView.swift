@@ -11,6 +11,7 @@ extension WelcomeSheet {
     struct NotificationPermissionStepView: View {
         @StateObject private var colorManager = ColorManager.shared
         @StateObject private var notificationService = NotificationService.shared
+        @StateObject private var purchaseService = PurchaseService.shared
         @State private var animateContent = false
         @State private var isRequestingPermission = false
         @State private var hasRequestedPermission = false
@@ -103,20 +104,38 @@ extension WelcomeSheet {
                             }
                             .disabled(isRequestingPermission)
                         } else {
-                            NavigationLink(
-                                destination: SubscriptionOfferStepView(onContinue: onContinue),
-                                label: {
-                                    ActionButton(
-                                        Loc.WelcomeScreen.continueButton,
-                                        style: .borderedProminent,
-                                        action: {}
-                                    )
-                                    .allowsHitTesting(false)
-                                }
-                            )
-                            .simultaneousGesture(TapGesture().onEnded {
-                                HapticService.shared.buttonTapped()
-                            })
+                            // Check if user already has premium access
+                            if purchaseService.hasPremiumAccess {
+                                NavigationLink(
+                                    destination: ReadyStepView(onContinue: onContinue),
+                                    label: {
+                                        ActionButton(
+                                            Loc.WelcomeScreen.continueButton,
+                                            style: .borderedProminent,
+                                            action: {}
+                                        )
+                                        .allowsHitTesting(false)
+                                    }
+                                )
+                                .simultaneousGesture(TapGesture().onEnded {
+                                    HapticService.shared.buttonTapped()
+                                })
+                            } else {
+                                NavigationLink(
+                                    destination: SubscriptionOfferStepView(onContinue: onContinue),
+                                    label: {
+                                        ActionButton(
+                                            Loc.WelcomeScreen.continueButton,
+                                            style: .borderedProminent,
+                                            action: {}
+                                        )
+                                        .allowsHitTesting(false)
+                                    }
+                                )
+                                .simultaneousGesture(TapGesture().onEnded {
+                                    HapticService.shared.buttonTapped()
+                                })
+                            }
                         }
                     }
                 }

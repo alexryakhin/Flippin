@@ -349,6 +349,34 @@ final class PurchaseService: NSObject, ObservableObject {
         }
     }
     
+    // MARK: - Trial Information
+    func hasTrialPeriod(for productId: String) -> Bool {
+        guard let package = offerings?.availablePackages.first(where: { 
+            $0.storeProduct.productIdentifier == productId 
+        }) else { return false }
+        
+        return package.storeProduct.introductoryDiscount != nil
+    }
+    
+    func getTrialDuration(for productId: String) -> String? {
+        guard let package = offerings?.availablePackages.first(where: { 
+            $0.storeProduct.productIdentifier == productId 
+        }),
+        let introDiscount = package.storeProduct.introductoryDiscount else { return nil }
+        switch introDiscount.subscriptionPeriod.unit {
+        case .day:
+            return "\(introDiscount.subscriptionPeriod.value) day\(introDiscount.subscriptionPeriod.value == 1 ? "" : "s")"
+        case .week:
+            return "\(introDiscount.subscriptionPeriod.value) week\(introDiscount.subscriptionPeriod.value == 1 ? "" : "s")"
+        case .month:
+            return "\(introDiscount.subscriptionPeriod.value) month\(introDiscount.subscriptionPeriod.value == 1 ? "" : "s")"
+        case .year:
+            return "\(introDiscount.subscriptionPeriod.value) year\(introDiscount.subscriptionPeriod.value == 1 ? "" : "s")"
+        @unknown default:
+            return nil
+        }
+    }
+    
     // MARK: - Debug Methods
     #if DEBUG
     /// Toggle debug mode to enable premium access locally

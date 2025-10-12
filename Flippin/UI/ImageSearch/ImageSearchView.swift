@@ -123,8 +123,7 @@ struct ImageSearchView: View {
                     Button("Load More") {
                         loadMoreImages()
                     }
-                    .frame(height: 100)
-                    .frame(maxWidth: .infinity)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .background(Color(.systemGray5))
                     .cornerRadius(8)
                     .gridCellColumns(3)

@@ -12,11 +12,11 @@ struct EditCardSheet: View {
     @StateObject private var languageManager = LanguageManager.shared
     @StateObject private var colorManager = ColorManager.shared
     @StateObject private var viewModel: EditCardSheetViewModel
-    
+
     @FocusState private var isUserLanguageTextFieldFocused: Bool
     @FocusState private var isTargetLanguageTextFieldFocused: Bool
     @FocusState private var isNotesTextFieldFocused: Bool
-    
+
     @State private var showingImageSearch = false
 
     init(card: CardItem) {
@@ -164,7 +164,7 @@ struct EditCardSheet: View {
             }
         }
     }
-    
+
     private var imageSection: some View {
         CustomSectionView(
             header: "Image",
@@ -182,24 +182,17 @@ struct EditCardSheet: View {
                             .frame(width: 60, height: 60)
                             .cornerRadius(8)
                             .clipped()
-                        
+
                         VStack(alignment: .leading, spacing: 4) {
-                            Text("New Image")
+                            Text("Image Attached")
                                 .font(.subheadline)
                                 .fontWeight(.medium)
-                            
+
                             Text("Tap to change")
                                 .font(.caption)
-                                .foregroundColor(.secondary)
+                                .foregroundColor(colorManager.tintColor)
                         }
-                        
-                        Spacer()
-                        
-                        Button("Remove") {
-                            viewModel.clearSelectedImage()
-                        }
-                        .font(.caption)
-                        .foregroundColor(.red)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     }
                     .onTapGesture {
                         showingImageSearch = true
@@ -214,49 +207,34 @@ struct EditCardSheet: View {
                             .frame(width: 60, height: 60)
                             .cornerRadius(8)
                             .clipped()
-                        
+
                         VStack(alignment: .leading, spacing: 4) {
                             Text("Current Image")
                                 .font(.subheadline)
                                 .fontWeight(.medium)
+
+                            Button("Tap to change") {
+                                showingImageSearch = true
+                            }
+                            .font(.caption)
+                            .foregroundColor(colorManager.tintColor)
                         }
-                        
-                        Spacer()
-                        
-                        Button("Change") {
-                            showingImageSearch = true
-                        }
-                        .font(.caption)
-                        .foregroundColor(colorManager.tintColor)
-                        
-                        Button("Remove") {
-                            viewModel.clearSelectedImage()
-                        }
-                        .font(.caption)
-                        .foregroundColor(.red)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     }
                 } else {
-                    // Show add image button
-                    Button(action: {
+                    ActionButton("Add Image", systemImage: "photo") {
                         showingImageSearch = true
-                    }) {
-                        HStack(spacing: 8) {
-                            Image(systemName: "photo")
-                                .font(.title2)
-                                .foregroundColor(colorManager.tintColor)
-                            
-                            Text("Add Image")
-                                .font(.subheadline)
-                                .foregroundColor(colorManager.tintColor)
-                        }
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 12)
-                        .background(colorManager.tintColor.opacity(0.1))
-                        .cornerRadius(8)
                     }
-                    .buttonStyle(PlainButtonStyle())
                 }
+            }
+        } trailingContent: {
+            if viewModel.card.imageCacheURL != nil || viewModel.selectedImageCacheURL != nil {
+                Button("Remove") {
+                    viewModel.clearSelectedImage()
+                }
+                .font(.caption)
+                .foregroundColor(.red)
             }
         }
     }
-} 
+}

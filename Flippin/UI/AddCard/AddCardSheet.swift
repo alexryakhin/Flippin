@@ -208,36 +208,23 @@ struct AddCardSheet: View {
                         
                         Spacer()
                         
-                        Button("Remove") {
-                            viewModel.clearSelectedImage()
-                        }
-                        .font(.caption)
-                        .foregroundColor(.red)
                     }
                     .onTapGesture {
                         showingImageSearch = true
                     }
                 } else {
-                    // Show add image button
-                    Button(action: {
+                    ActionButton("Add Image", systemImage: "photo") {
                         showingImageSearch = true
-                    }) {
-                        HStack(spacing: 8) {
-                            Image(systemName: "photo")
-                                .font(.title2)
-                                .foregroundColor(colorManager.tintColor)
-                            
-                            Text("Add Image")
-                                .font(.subheadline)
-                                .foregroundColor(colorManager.tintColor)
-                        }
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 12)
-                        .background(colorManager.tintColor.opacity(0.1))
-                        .cornerRadius(8)
                     }
-                    .buttonStyle(PlainButtonStyle())
                 }
+            }
+        } trailingContent: {
+            if viewModel.selectedImageCacheURL != nil {
+                Button("Remove") {
+                    viewModel.clearSelectedImage()
+                }
+                .font(.caption)
+                .foregroundColor(.red)
             }
         }
     }
