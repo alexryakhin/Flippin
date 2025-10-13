@@ -23,6 +23,25 @@
 "termsOfService" = "सेवा की शर्तें";
 "privacyPolicy" = "गोपनीयता नीति";
 "andPreposition" = "और";
+"skip" = "Skip";
+"ok" = "OK";
+
+// MARK: - Subscription Plans
+"planAutoRenews" = "Plan auto-renews for %@/%@ until cancelled.";
+"annual" = "Annual";
+"monthly" = "Monthly";
+"perMonth" = "/month";
+"bestValue" = "BEST VALUE";
+
+// MARK: - Subscription Periods
+"daily" = "daily";
+"weekly" = "weekly";
+"monthlyPeriod" = "monthly";
+"yearly" = "yearly";
+
+// MARK: - Restore Messages
+"restoreSuccessMessage" = "Your subscription have been restored successfully!";
+"restoreFailureMessage" = "No subscription found to restore.";
 
 // MARK: - Trial
 "trialTitle" = "प्रीमियम को 7 दिनों के लिए निःशुल्क आज़माएं";

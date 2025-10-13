@@ -1,96 +1,191 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<?xml version='1.0' encoding='UTF-8'?>
 <plist version="1.0">
-<dict>
-	<key>cardsCount</key>
 	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@cards@</string>
-		<key>cards</key>
+		<key>cardsCount</key>
 		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>zero</key>
-			<string>0 بطاقة</string>
-			<key>one</key>
-			<string>1 بطاقة</string>
-			<key>other</key>
-			<string>%d بطاقة</string>
+			<key>NSStringLocalizedFormatKey</key>
+			<string>%#@cards@</string>
+			<key>cards</key>
+			<dict>
+				<key>NSStringFormatSpecTypeKey</key>
+				<string>NSStringPluralRuleType</string>
+				<key>NSStringFormatValueTypeKey</key>
+				<string>d</string>
+				<key>zero</key>
+				<string>0 بطاقة</string>
+				<key>one</key>
+				<string>1 بطاقة</string>
+				<key>other</key>
+				<string>%d بطاقة</string>
+			</dict>
+		</dict>
+		<key>sessionsPerDay</key>
+		<dict>
+			<key>NSStringLocalizedFormatKey</key>
+			<string>%#@sessions@</string>
+			<key>sessions</key>
+			<dict>
+				<key>NSStringFormatSpecTypeKey</key>
+				<string>NSStringPluralRuleType</string>
+				<key>NSStringFormatValueTypeKey</key>
+				<string>d</string>
+				<key>zero</key>
+				<string>جلسة/يوم</string>
+				<key>one</key>
+				<string>جلسة/يوم</string>
+				<key>other</key>
+				<string>جلسة/يوم</string>
+			</dict>
+		</dict>
+		<key>tagsCount</key>
+		<dict>
+			<key>NSStringLocalizedFormatKey</key>
+			<string>%#@tags@</string>
+			<key>tags</key>
+			<dict>
+				<key>NSStringFormatSpecTypeKey</key>
+				<string>NSStringPluralRuleType</string>
+				<key>NSStringFormatValueTypeKey</key>
+				<string>d</string>
+				<key>zero</key>
+				<string>0 علامة</string>
+				<key>one</key>
+				<string>1 علامة</string>
+				<key>other</key>
+				<string>%d علامة</string>
+			</dict>
+		</dict>
+		<key>characterLimit</key>
+		<dict>
+			<key>NSStringLocalizedFormatKey</key>
+			<string>%#@characters@/500 حرف</string>
+			<key>characters</key>
+			<dict>
+				<key>NSStringFormatSpecTypeKey</key>
+				<string>NSStringPluralRuleType</string>
+				<key>NSStringFormatValueTypeKey</key>
+				<string>d</string>
+				<key>zero</key>
+				<string>0</string>
+				<key>one</key>
+				<string>%d</string>
+				<key>other</key>
+				<string>%d</string>
+			</dict>
+		</dict>
+		<key>generatedCardsCount</key>
+		<dict>
+			<key>NSStringLocalizedFormatKey</key>
+			<string>البطاقات المُنشأة (%#@cards@)</string>
+			<key>cards</key>
+			<dict>
+				<key>NSStringFormatSpecTypeKey</key>
+				<string>NSStringPluralRuleType</string>
+				<key>NSStringFormatValueTypeKey</key>
+				<string>d</string>
+				<key>zero</key>
+				<string>0</string>
+				<key>one</key>
+				<string>%d</string>
+				<key>other</key>
+				<string>%d</string>
+			</dict>
+		</dict>
+		<key>subscriptionDays</key>
+		<dict>
+			<key>NSStringLocalizedFormatKey</key>
+			<string>%#@days@</string>
+			<key>days</key>
+			<dict>
+				<key>NSStringFormatSpecTypeKey</key>
+				<string>NSStringPluralRuleType</string>
+				<key>NSStringFormatValueTypeKey</key>
+				<string>d</string>
+				<key>zero</key>
+				<string>%d أيام</string>
+				<key>one</key>
+				<string>يوم واحد</string>
+				<key>two</key>
+				<string>يومان</string>
+				<key>few</key>
+				<string>%d أيام</string>
+				<key>many</key>
+				<string>%d يومًا</string>
+				<key>other</key>
+				<string>%d يوم</string>
+			</dict>
+		</dict>
+		<key>subscriptionWeeks</key>
+		<dict>
+			<key>NSStringLocalizedFormatKey</key>
+			<string>%#@weeks@</string>
+			<key>weeks</key>
+			<dict>
+				<key>NSStringFormatSpecTypeKey</key>
+				<string>NSStringPluralRuleType</string>
+				<key>NSStringFormatValueTypeKey</key>
+				<string>d</string>
+				<key>zero</key>
+				<string>%d أسابيع</string>
+				<key>one</key>
+				<string>أسبوع واحد</string>
+				<key>two</key>
+				<string>أسبوعان</string>
+				<key>few</key>
+				<string>%d أسابيع</string>
+				<key>many</key>
+				<string>%d أسبوعًا</string>
+				<key>other</key>
+				<string>%d أسبوع</string>
+			</dict>
+		</dict>
+		<key>subscriptionMonths</key>
+		<dict>
+			<key>NSStringLocalizedFormatKey</key>
+			<string>%#@months@</string>
+			<key>months</key>
+			<dict>
+				<key>NSStringFormatSpecTypeKey</key>
+				<string>NSStringPluralRuleType</string>
+				<key>NSStringFormatValueTypeKey</key>
+				<string>d</string>
+				<key>zero</key>
+				<string>%d أشهر</string>
+				<key>one</key>
+				<string>شهر واحد</string>
+				<key>two</key>
+				<string>شهران</string>
+				<key>few</key>
+				<string>%d أشهر</string>
+				<key>many</key>
+				<string>%d شهرًا</string>
+				<key>other</key>
+				<string>%d شهر</string>
+			</dict>
+		</dict>
+		<key>subscriptionYears</key>
+		<dict>
+			<key>NSStringLocalizedFormatKey</key>
+			<string>%#@years@</string>
+			<key>years</key>
+			<dict>
+				<key>NSStringFormatSpecTypeKey</key>
+				<string>NSStringPluralRuleType</string>
+				<key>NSStringFormatValueTypeKey</key>
+				<string>d</string>
+				<key>zero</key>
+				<string>%d سنوات</string>
+				<key>one</key>
+				<string>سنة واحدة</string>
+				<key>two</key>
+				<string>سنتان</string>
+				<key>few</key>
+				<string>%d سنوات</string>
+				<key>many</key>
+				<string>%d سنة</string>
+				<key>other</key>
+				<string>%d سنة</string>
+			</dict>
 		</dict>
 	</dict>
-	<key>sessionsPerDay</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@sessions@</string>
-		<key>sessions</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>zero</key>
-			<string>جلسة/يوم</string>
-			<key>one</key>
-			<string>جلسة/يوم</string>
-			<key>other</key>
-			<string>جلسة/يوم</string>
-		</dict>
-	</dict>
-	<key>tagsCount</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@tags@</string>
-		<key>tags</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>zero</key>
-			<string>0 علامة</string>
-			<key>one</key>
-			<string>1 علامة</string>
-			<key>other</key>
-			<string>%d علامة</string>
-		</dict>
-	</dict>
-	<key>characterLimit</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@characters@/500 حرف</string>
-		<key>characters</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>zero</key>
-			<string>0</string>
-			<key>one</key>
-			<string>%d</string>
-			<key>other</key>
-			<string>%d</string>
-		</dict>
-	</dict>
-	<key>generatedCardsCount</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>البطاقات المُنشأة (%#@cards@)</string>
-		<key>cards</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>zero</key>
-			<string>0</string>
-			<key>one</key>
-			<string>%d</string>
-			<key>other</key>
-			<string>%d</string>
-		</dict>
-	</dict>
-</dict>
 </plist>

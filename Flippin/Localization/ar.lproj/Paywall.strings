@@ -23,6 +23,25 @@
 "termsOfService" = "شروط الخدمة";
 "privacyPolicy" = "سياسة الخصوصية";
 "andPreposition" = "و";
+"skip" = "تخطي";
+"ok" = "حسناً";
+
+// MARK: - Subscription Plans
+"planAutoRenews" = "يتجدد الاشتراك تلقائياً بـ %@/%@ حتى الإلغاء.";
+"annual" = "سنوي";
+"monthly" = "شهري";
+"perMonth" = "/شهر";
+"bestValue" = "أفضل قيمة";
+
+// MARK: - Subscription Periods
+"daily" = "يومياً";
+"weekly" = "أسبوعياً";
+"monthlyPeriod" = "شهرياً";
+"yearly" = "سنوياً";
+
+// MARK: - Restore Messages
+"restoreSuccessMessage" = "تم استعادة اشتراكك بنجاح!";
+"restoreFailureMessage" = "لم يتم العثور على اشتراك لاستعادته.";
 
 // MARK: - Trial
 "trialTitle" = "جرب بريميوم مجاناً لمدة 7 أيام";

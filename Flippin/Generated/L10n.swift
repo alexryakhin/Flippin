@@ -937,16 +937,40 @@ public enum Loc {
   public enum Paywall {
     /// and
     public static let andPreposition = Loc.tr("Paywall", "andPreposition", fallback: "and")
+    /// Annual
+    public static let annual = Loc.tr("Paywall", "annual", fallback: "Annual")
+    /// BEST VALUE
+    public static let bestValue = Loc.tr("Paywall", "bestValue", fallback: "BEST VALUE")
     /// Cancel
     public static let cancel = Loc.tr("Paywall", "cancel", fallback: "Cancel")
+    /// daily
+    public static let daily = Loc.tr("Paywall", "daily", fallback: "daily")
     /// Go Premium
     public static let goPremium = Loc.tr("Paywall", "goPremium", fallback: "Go Premium")
     /// Master your language learning with exclusive features
     public static let masterLanguageLearning = Loc.tr("Paywall", "masterLanguageLearning", fallback: "Master your language learning with exclusive features")
+    /// Monthly
+    public static let monthly = Loc.tr("Paywall", "monthly", fallback: "Monthly")
+    /// monthly
+    public static let monthlyPeriod = Loc.tr("Paywall", "monthlyPeriod", fallback: "monthly")
+    /// OK
+    public static let ok = Loc.tr("Paywall", "ok", fallback: "OK")
+    /// /month
+    public static let perMonth = Loc.tr("Paywall", "perMonth", fallback: "/month")
+    /// Plan auto-renews for %@/%@ until cancelled.
+    public static func planAutoRenews(_ p1: Any, _ p2: Any) -> String {
+      return Loc.tr("Paywall", "planAutoRenews", String(describing: p1), String(describing: p2), fallback: "Plan auto-renews for %@/%@ until cancelled.")
+    }
     /// Privacy Policy
     public static let privacyPolicy = Loc.tr("Paywall", "privacyPolicy", fallback: "Privacy Policy")
+    /// No subscription found to restore.
+    public static let restoreFailureMessage = Loc.tr("Paywall", "restoreFailureMessage", fallback: "No subscription found to restore.")
     /// Restore Subscription
     public static let restoreSubscription = Loc.tr("Paywall", "restoreSubscription", fallback: "Restore Subscription")
+    /// Your subscription have been restored successfully!
+    public static let restoreSuccessMessage = Loc.tr("Paywall", "restoreSuccessMessage", fallback: "Your subscription have been restored successfully!")
+    /// Skip
+    public static let skip = Loc.tr("Paywall", "skip", fallback: "Skip")
     /// Subscribe
     public static let subscribe = Loc.tr("Paywall", "subscribe", fallback: "Subscribe")
     /// Terms of Service
@@ -968,8 +992,12 @@ public enum Loc {
     public static let upgradeToPremiumTitle = Loc.tr("Paywall", "upgradeToPremiumTitle", fallback: "Upgrade to Premium")
     /// View Options
     public static let viewOptions = Loc.tr("Paywall", "viewOptions", fallback: "View Options")
+    /// weekly
+    public static let weekly = Loc.tr("Paywall", "weekly", fallback: "weekly")
     /// What You Get with Premium
     public static let whatYouGetWithPremium = Loc.tr("Paywall", "whatYouGetWithPremium", fallback: "What You Get with Premium")
+    /// yearly
+    public static let yearly = Loc.tr("Paywall", "yearly", fallback: "yearly")
   }
   public enum Plurals {
     /// Plural format key: "%#@cards@"
@@ -987,6 +1015,22 @@ public enum Loc {
     /// Plural format key: "%#@sessions@"
     public static func sessionsPerDay(_ p1: Int) -> String {
       return Loc.tr("Plurals", "sessionsPerDay", p1, fallback: "Plural format key: \"%#@sessions@\"")
+    }
+    /// Plural format key: "%#@days@"
+    public static func subscriptionDays(_ p1: Int) -> String {
+      return Loc.tr("Plurals", "subscriptionDays", p1, fallback: "Plural format key: \"%#@days@\"")
+    }
+    /// Plural format key: "%#@months@"
+    public static func subscriptionMonths(_ p1: Int) -> String {
+      return Loc.tr("Plurals", "subscriptionMonths", p1, fallback: "Plural format key: \"%#@months@\"")
+    }
+    /// Plural format key: "%#@weeks@"
+    public static func subscriptionWeeks(_ p1: Int) -> String {
+      return Loc.tr("Plurals", "subscriptionWeeks", p1, fallback: "Plural format key: \"%#@weeks@\"")
+    }
+    /// Plural format key: "%#@years@"
+    public static func subscriptionYears(_ p1: Int) -> String {
+      return Loc.tr("Plurals", "subscriptionYears", p1, fallback: "Plural format key: \"%#@years@\"")
     }
     /// Plural format key: "%#@tags@"
     public static func tagsCount(_ p1: Int) -> String {

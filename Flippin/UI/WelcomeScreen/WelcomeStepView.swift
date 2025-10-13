@@ -24,7 +24,7 @@ extension WelcomeSheet {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 144, height: 144)
-                            .foregroundColor(.white)
+                            .foregroundStyle(.white)
                             .scaleEffect(animateContent ? 1 : 0.8)
                             .opacity(animateContent ? 1 : 0)
                             .animation(.easeInOut(duration: 0.5).delay(0.2), value: animateContent)
@@ -38,7 +38,7 @@ extension WelcomeSheet {
 
                             Text(Loc.WelcomeScreen.welcomeScreenMessage)
                                 .font(.body)
-                                .foregroundColor(.secondary)
+                                .foregroundStyle(.secondary)
                                 .multilineTextAlignment(.center)
                                 .lineLimit(nil)
                                 .offset(y: animateContent ? 0 : 20)

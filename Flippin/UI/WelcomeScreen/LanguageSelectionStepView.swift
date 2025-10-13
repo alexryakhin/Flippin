@@ -42,7 +42,7 @@ extension WelcomeSheet {
 
                             Image(systemName: "globe")
                                 .font(.system(size: 40, weight: .medium))
-                                .foregroundColor(.white)
+                                .foregroundStyle(.white)
                                 .scaleEffect(animateContent ? 1 : 0.8)
                                 .opacity(animateContent ? 1 : 0)
                         }
@@ -57,7 +57,7 @@ extension WelcomeSheet {
 
                             Text(Loc.WelcomeScreen.chooseLanguagesDesc)
                                 .font(.body)
-                                .foregroundColor(.secondary)
+                                .foregroundStyle(.secondary)
                                 .multilineTextAlignment(.center)
                                 .offset(y: animateContent ? 0 : 20)
                                 .opacity(animateContent ? 1 : 0)

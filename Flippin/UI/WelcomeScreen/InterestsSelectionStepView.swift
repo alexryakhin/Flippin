@@ -22,94 +22,91 @@ extension WelcomeSheet {
         ]
 
         var body: some View {
-            ZStack {
+            ScrollView {
+                VStack(spacing: 24) {
+                    ZStack {
+                        Circle()
+                            .fill(
+                                LinearGradient(
+                                    colors: [.indigo, .purple],
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
+                                )
+                            )
+                            .frame(width: 100, height: 100)
+                            .scaleEffect(animateContent ? 1 : 0.5)
+                            .opacity(animateContent ? 1 : 0)
+
+                        Image(systemName: "star.fill")
+                            .font(.system(size: 40, weight: .medium))
+                            .foregroundStyle(.white)
+                            .scaleEffect(animateContent ? 1 : 0.8)
+                            .opacity(animateContent ? 1 : 0)
+                    }
+                    .animation(.easeInOut(duration: 0.5).delay(0.2), value: animateContent)
+
+                    VStack(spacing: 16) {
+                        Text(Loc.UserProfile.interestsTitle)
+                            .font(.system(size: 28, weight: .bold, design: .rounded))
+                            .multilineTextAlignment(.center)
+                            .offset(y: animateContent ? 0 : 20)
+                            .opacity(animateContent ? 1 : 0)
+
+                        Text(Loc.UserProfile.interestsSubtitle)
+                            .font(.body)
+                            .foregroundStyle(.secondary)
+                            .multilineTextAlignment(.center)
+                            .offset(y: animateContent ? 0 : 20)
+                            .opacity(animateContent ? 1 : 0)
+                    }
+                    .animation(.easeInOut(duration: 0.5).delay(0.4), value: animateContent)
+
+                    LazyVGrid(columns: columns, spacing: 12) {
+                        ForEach(Array(PresetModel.Category.allCases.enumerated()), id: \.element) { index, category in
+                            InterestCard(
+                                icon: category.icon,
+                                title: category.displayTitle,
+                                isSelected: selectedInterests.contains(category),
+                                animateContent: animateContent,
+                                delay: 0.7 + Double(index) * 0.05
+                            ) {
+                                toggleInterest(category)
+                            }
+                        }
+                    }
+                }
+                .padding(vertical: 12, horizontal: 16)
+            }
+            .safeAreaInset(edge: .bottom, spacing: .zero) {
+                NavigationLink(
+                    destination: WeeklyGoalStepView(onContinue: onContinue),
+                    label: {
+                        ActionButton(
+                            Loc.WelcomeScreen.continueButton,
+                            style: .borderedProminent,
+                            action: {}
+                        )
+                        .allowsHitTesting(false)
+                    }
+                )
+                .simultaneousGesture(TapGesture().onEnded {
+                    saveAndContinue()
+                })
+                .disabled(selectedInterests.isEmpty)
+                .opacity(selectedInterests.isEmpty ? 0.5 : 1)
+                .padding(vertical: 12, horizontal: 16)
+            }
+            .onAppear {
+                if let interests = profileService.currentProfile?.selectedInterests {
+                    selectedInterests = Set(interests)
+                }
+                withAnimation(.easeInOut(duration: 0.6).delay(0.1)) {
+                    animateContent = true
+                }
+            }
+            .background {
                 AnimatedBackground()
                     .ignoresSafeArea()
-
-                ScrollView {
-                    VStack(spacing: 16) {
-                        VStack(spacing: 24) {
-                            ZStack {
-                                Circle()
-                                    .fill(
-                                        LinearGradient(
-                                            colors: [.indigo, .purple],
-                                            startPoint: .topLeading,
-                                            endPoint: .bottomTrailing
-                                        )
-                                    )
-                                    .frame(width: 100, height: 100)
-                                    .scaleEffect(animateContent ? 1 : 0.5)
-                                    .opacity(animateContent ? 1 : 0)
-
-                                Image(systemName: "star.fill")
-                                    .font(.system(size: 40, weight: .medium))
-                                    .foregroundColor(.white)
-                                    .scaleEffect(animateContent ? 1 : 0.8)
-                                    .opacity(animateContent ? 1 : 0)
-                            }
-                            .animation(.easeInOut(duration: 0.5).delay(0.2), value: animateContent)
-
-                            VStack(spacing: 16) {
-                                Text(Loc.UserProfile.interestsTitle)
-                                    .font(.system(size: 28, weight: .bold, design: .rounded))
-                                    .multilineTextAlignment(.center)
-                                    .offset(y: animateContent ? 0 : 20)
-                                    .opacity(animateContent ? 1 : 0)
-
-                                Text(Loc.UserProfile.interestsSubtitle)
-                                    .font(.body)
-                                    .foregroundColor(.secondary)
-                                    .multilineTextAlignment(.center)
-                                    .offset(y: animateContent ? 0 : 20)
-                                    .opacity(animateContent ? 1 : 0)
-                            }
-                            .animation(.easeInOut(duration: 0.5).delay(0.4), value: animateContent)
-                        }
-
-                        LazyVGrid(columns: columns, spacing: 12) {
-                            ForEach(Array(PresetModel.Category.allCases.enumerated()), id: \.element) { index, category in
-                                InterestCard(
-                                    icon: category.icon,
-                                    title: category.displayTitle,
-                                    isSelected: selectedInterests.contains(category),
-                                    animateContent: animateContent,
-                                    delay: 0.7 + Double(index) * 0.05
-                                ) {
-                                    toggleInterest(category)
-                                }
-                            }
-                        }
-                    }
-                    .padding(vertical: 12, horizontal: 16)
-                }
-                .safeAreaInset(edge: .bottom, spacing: .zero) {
-                    NavigationLink(
-                        destination: WeeklyGoalStepView(onContinue: onContinue),
-                        label: {
-                            ActionButton(
-                                Loc.WelcomeScreen.continueButton,
-                                style: .borderedProminent,
-                                action: {}
-                            )
-                            .allowsHitTesting(false)
-                        }
-                    )
-                    .simultaneousGesture(TapGesture().onEnded {
-                        saveAndContinue()
-                    })
-                    .disabled(selectedInterests.isEmpty)
-                    .opacity(selectedInterests.isEmpty ? 0.5 : 1)
-                    .padding(vertical: 12, horizontal: 16)
-                }
-                .onAppear {
-                    if let interests = profileService.currentProfile?.selectedInterests {
-                        selectedInterests = Set(interests)
-                    }
-                    withAnimation(.easeInOut(duration: 0.6).delay(0.1)) {
-                        animateContent = true
-                    }
-                }
             }
             .navigationBarBackButtonHidden(false)
         }
@@ -133,6 +130,8 @@ extension WelcomeSheet {
     // MARK: - Interest Card Component
 
     struct InterestCard: View {
+        @StateObject private var colorManager: ColorManager = .shared
+
         let icon: String
         let title: String
         let isSelected: Bool
@@ -145,12 +144,12 @@ extension WelcomeSheet {
                 VStack(spacing: 12) {
                     Image(systemName: icon)
                         .font(.largeTitle)
-                        .foregroundColor(isSelected ? .white : .accentColor)
+                        .foregroundStyle(isSelected ? .white : colorManager.tintColor)
 
                     Text(title)
                         .font(.subheadline)
                         .fontWeight(.semibold)
-                        .foregroundColor(isSelected ? .white : .primary)
+                        .foregroundStyle(isSelected ? .white : .primary)
                         .multilineTextAlignment(.center)
                         .lineLimit(2)
                         .minimumScaleFactor(0.8)
@@ -160,7 +159,7 @@ extension WelcomeSheet {
                 .padding(.horizontal, 12)
                 .background(
                     isSelected
-                    ? Color.accent.gradient
+                    ? colorManager.tintColor.gradient
                     : Color.clear.gradient
                 )
                 .background(.thinMaterial)
@@ -175,7 +174,7 @@ extension WelcomeSheet {
                 .overlay(alignment: .topTrailing) {
                     if isSelected {
                         Image(systemName: "checkmark.circle.fill")
-                            .foregroundColor(.white)
+                            .foregroundStyle(.white)
                             .font(.title3)
                             .padding(8)
                     }

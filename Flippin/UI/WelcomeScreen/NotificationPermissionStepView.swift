@@ -42,7 +42,7 @@ extension WelcomeSheet {
                             
                             Image(systemName: "bell.fill")
                                 .font(.system(size: 40, weight: .medium))
-                                .foregroundColor(.white)
+                                .foregroundStyle(.white)
                                 .scaleEffect(animateContent ? 1 : 0.8)
                                 .opacity(animateContent ? 1 : 0)
                         }
@@ -57,7 +57,7 @@ extension WelcomeSheet {
                             
                             Text(Loc.UserProfile.notificationSubtitle)
                                 .font(.body)
-                                .foregroundColor(.secondary)
+                                .foregroundStyle(.secondary)
                                 .multilineTextAlignment(.center)
                                 .offset(y: animateContent ? 0 : 20)
                                 .opacity(animateContent ? 1 : 0)
@@ -170,6 +170,8 @@ extension WelcomeSheet {
     // MARK: - Notification Feature Row
     
     struct NotificationFeatureRow: View {
+        @StateObject private var colorManager: ColorManager = .shared
+
         let icon: String
         let text: String
         let animateContent: Bool
@@ -179,14 +181,14 @@ extension WelcomeSheet {
             HStack(spacing: 16) {
                 Image(systemName: icon)
                     .font(.title2)
-                    .foregroundColor(.accentColor)
+                    .foregroundStyle(colorManager.tintColor)
                     .frame(width: 40)
                     .scaleEffect(animateContent ? 1 : 0.5)
                     .opacity(animateContent ? 1 : 0)
                 
                 Text(text)
                     .font(.body)
-                    .foregroundColor(.primary)
+                    .foregroundStyle(.primary)
                     .multilineTextAlignment(.leading)
                     .offset(x: animateContent ? 0 : -20)
                     .opacity(animateContent ? 1 : 0)

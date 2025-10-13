@@ -23,6 +23,25 @@
 "termsOfService" = "Uvjeti Korištenja";
 "privacyPolicy" = "Pravila Privatnosti";
 "andPreposition" = "i";
+"skip" = "Preskoči";
+"ok" = "U redu";
+
+// MARK: - Subscription Plans
+"planAutoRenews" = "Plan se automatski obnavlja za %@/%@ dok se ne otkaže.";
+"annual" = "Godišnji";
+"monthly" = "Mjesečni";
+"perMonth" = "/mjesec";
+"bestValue" = "NAJBOLJA VRIJEDNOST";
+
+// MARK: - Subscription Periods
+"daily" = "dnevno";
+"weekly" = "tjedno";
+"monthlyPeriod" = "mjesečno";
+"yearly" = "godišnje";
+
+// MARK: - Restore Messages
+"restoreSuccessMessage" = "Vaša pretplata je uspješno vraćena!";
+"restoreFailureMessage" = "Nije pronađena pretplata za vraćanje.";
 
 // MARK: - Trial
 "trialTitle" = "Isprobajte Premium besplatno 7 dana";

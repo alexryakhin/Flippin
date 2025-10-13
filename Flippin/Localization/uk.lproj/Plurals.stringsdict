@@ -1,116 +1,195 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<?xml version='1.0' encoding='UTF-8'?>
 <plist version="1.0">
-<dict>
-	<key>cardsCount</key>
 	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@cards@</string>
-		<key>cards</key>
+		<key>cardsCount</key>
 		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>zero</key>
-			<string>0 карток</string>
-			<key>one</key>
-			<string>1 картка</string>
-			<key>few</key>
-			<string>%d картки</string>
-			<key>many</key>
-			<string>%d карток</string>
-			<key>other</key>
-			<string>%d карток</string>
+			<key>NSStringLocalizedFormatKey</key>
+			<string>%#@cards@</string>
+			<key>cards</key>
+			<dict>
+				<key>NSStringFormatSpecTypeKey</key>
+				<string>NSStringPluralRuleType</string>
+				<key>NSStringFormatValueTypeKey</key>
+				<string>d</string>
+				<key>zero</key>
+				<string>0 карток</string>
+				<key>one</key>
+				<string>1 картка</string>
+				<key>few</key>
+				<string>%d картки</string>
+				<key>many</key>
+				<string>%d карток</string>
+				<key>other</key>
+				<string>%d карток</string>
+			</dict>
+		</dict>
+		<key>sessionsPerDay</key>
+		<dict>
+			<key>NSStringLocalizedFormatKey</key>
+			<string>%#@sessions@</string>
+			<key>sessions</key>
+			<dict>
+				<key>NSStringFormatSpecTypeKey</key>
+				<string>NSStringPluralRuleType</string>
+				<key>NSStringFormatValueTypeKey</key>
+				<string>d</string>
+				<key>zero</key>
+				<string>сесій/день</string>
+				<key>one</key>
+				<string>сесія/день</string>
+				<key>few</key>
+				<string>сесії/день</string>
+				<key>many</key>
+				<string>сесій/день</string>
+				<key>other</key>
+				<string>сесій/день</string>
+			</dict>
+		</dict>
+		<key>tagsCount</key>
+		<dict>
+			<key>NSStringLocalizedFormatKey</key>
+			<string>%#@tags@</string>
+			<key>tags</key>
+			<dict>
+				<key>NSStringFormatSpecTypeKey</key>
+				<string>NSStringPluralRuleType</string>
+				<key>NSStringFormatValueTypeKey</key>
+				<string>d</string>
+				<key>zero</key>
+				<string>0 тегів</string>
+				<key>one</key>
+				<string>1 тег</string>
+				<key>few</key>
+				<string>%d теги</string>
+				<key>many</key>
+				<string>%d тегів</string>
+				<key>other</key>
+				<string>%d тегів</string>
+			</dict>
+		</dict>
+		<key>characterLimit</key>
+		<dict>
+			<key>NSStringLocalizedFormatKey</key>
+			<string>%#@characters@/500 символів</string>
+			<key>characters</key>
+			<dict>
+				<key>NSStringFormatSpecTypeKey</key>
+				<string>NSStringPluralRuleType</string>
+				<key>NSStringFormatValueTypeKey</key>
+				<string>d</string>
+				<key>zero</key>
+				<string>0</string>
+				<key>one</key>
+				<string>%d</string>
+				<key>few</key>
+				<string>%d</string>
+				<key>many</key>
+				<string>%d</string>
+				<key>other</key>
+				<string>%d</string>
+			</dict>
+		</dict>
+		<key>generatedCardsCount</key>
+		<dict>
+			<key>NSStringLocalizedFormatKey</key>
+			<string>Згенеровані картки (%#@cards@)</string>
+			<key>cards</key>
+			<dict>
+				<key>NSStringFormatSpecTypeKey</key>
+				<string>NSStringPluralRuleType</string>
+				<key>NSStringFormatValueTypeKey</key>
+				<string>d</string>
+				<key>zero</key>
+				<string>0</string>
+				<key>one</key>
+				<string>%d</string>
+				<key>few</key>
+				<string>%d</string>
+				<key>many</key>
+				<string>%d</string>
+				<key>other</key>
+				<string>%d</string>
+			</dict>
+		</dict>
+		<key>subscriptionDays</key>
+		<dict>
+			<key>NSStringLocalizedFormatKey</key>
+			<string>%#@days@</string>
+			<key>days</key>
+			<dict>
+				<key>NSStringFormatSpecTypeKey</key>
+				<string>NSStringPluralRuleType</string>
+				<key>NSStringFormatValueTypeKey</key>
+				<string>d</string>
+				<key>one</key>
+				<string>%d день</string>
+				<key>few</key>
+				<string>%d дні</string>
+				<key>many</key>
+				<string>%d днів</string>
+				<key>other</key>
+				<string>%d днів</string>
+			</dict>
+		</dict>
+		<key>subscriptionWeeks</key>
+		<dict>
+			<key>NSStringLocalizedFormatKey</key>
+			<string>%#@weeks@</string>
+			<key>weeks</key>
+			<dict>
+				<key>NSStringFormatSpecTypeKey</key>
+				<string>NSStringPluralRuleType</string>
+				<key>NSStringFormatValueTypeKey</key>
+				<string>d</string>
+				<key>one</key>
+				<string>%d тиждень</string>
+				<key>few</key>
+				<string>%d тижні</string>
+				<key>many</key>
+				<string>%d тижнів</string>
+				<key>other</key>
+				<string>%d тижнів</string>
+			</dict>
+		</dict>
+		<key>subscriptionMonths</key>
+		<dict>
+			<key>NSStringLocalizedFormatKey</key>
+			<string>%#@months@</string>
+			<key>months</key>
+			<dict>
+				<key>NSStringFormatSpecTypeKey</key>
+				<string>NSStringPluralRuleType</string>
+				<key>NSStringFormatValueTypeKey</key>
+				<string>d</string>
+				<key>one</key>
+				<string>%d місяць</string>
+				<key>few</key>
+				<string>%d місяці</string>
+				<key>many</key>
+				<string>%d місяців</string>
+				<key>other</key>
+				<string>%d місяців</string>
+			</dict>
+		</dict>
+		<key>subscriptionYears</key>
+		<dict>
+			<key>NSStringLocalizedFormatKey</key>
+			<string>%#@years@</string>
+			<key>years</key>
+			<dict>
+				<key>NSStringFormatSpecTypeKey</key>
+				<string>NSStringPluralRuleType</string>
+				<key>NSStringFormatValueTypeKey</key>
+				<string>d</string>
+				<key>one</key>
+				<string>%d рік</string>
+				<key>few</key>
+				<string>%d роки</string>
+				<key>many</key>
+				<string>%d років</string>
+				<key>other</key>
+				<string>%d років</string>
+			</dict>
 		</dict>
 	</dict>
-	<key>sessionsPerDay</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@sessions@</string>
-		<key>sessions</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>zero</key>
-			<string>сесій/день</string>
-			<key>one</key>
-			<string>сесія/день</string>
-			<key>few</key>
-			<string>сесії/день</string>
-			<key>many</key>
-			<string>сесій/день</string>
-			<key>other</key>
-			<string>сесій/день</string>
-		</dict>
-	</dict>
-	<key>tagsCount</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@tags@</string>
-		<key>tags</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>zero</key>
-			<string>0 тегів</string>
-			<key>one</key>
-			<string>1 тег</string>
-			<key>few</key>
-			<string>%d теги</string>
-			<key>many</key>
-			<string>%d тегів</string>
-			<key>other</key>
-			<string>%d тегів</string>
-		</dict>
-	</dict>
-	<key>characterLimit</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@characters@/500 символів</string>
-		<key>characters</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>zero</key>
-			<string>0</string>
-			<key>one</key>
-			<string>%d</string>
-			<key>few</key>
-			<string>%d</string>
-			<key>many</key>
-			<string>%d</string>
-			<key>other</key>
-			<string>%d</string>
-		</dict>
-	</dict>
-	<key>generatedCardsCount</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>Згенеровані картки (%#@cards@)</string>
-		<key>cards</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>zero</key>
-			<string>0</string>
-			<key>one</key>
-			<string>%d</string>
-			<key>few</key>
-			<string>%d</string>
-			<key>many</key>
-			<string>%d</string>
-			<key>other</key>
-			<string>%d</string>
-		</dict>
-	</dict>
-</dict>
 </plist>

@@ -8,6 +8,8 @@ import SwiftUI
 
 extension WelcomeSheet {
     struct FinalFeatureRow: View {
+        @StateObject private var colorManager: ColorManager = .shared
+
         let icon: String
         let text: String
         let animateContent: Bool
@@ -17,7 +19,7 @@ extension WelcomeSheet {
             HStack(spacing: 16) {
                 Image(systemName: icon)
                     .font(.title2)
-                    .foregroundColor(.accentColor)
+                    .foregroundStyle(colorManager.tintColor)
                     .scaleEffect(animateContent ? 1 : 0.5)
                     .opacity(animateContent ? 1 : 0)
 

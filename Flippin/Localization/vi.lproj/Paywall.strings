@@ -23,6 +23,25 @@
 "termsOfService" = "Điều khoản Dịch vụ";
 "privacyPolicy" = "Chính sách Bảo mật";
 "andPreposition" = "và";
+"skip" = "Bỏ qua";
+"ok" = "OK";
+
+// MARK: - Subscription Plans
+"planAutoRenews" = "Gói tự động gia hạn với giá %@/%@ cho đến khi hủy.";
+"annual" = "Hàng năm";
+"monthly" = "Hàng tháng";
+"perMonth" = "/tháng";
+"bestValue" = "GIÁ TRỊ TỐT NHẤT";
+
+// MARK: - Subscription Periods
+"daily" = "hàng ngày";
+"weekly" = "hàng tuần";
+"monthlyPeriod" = "hàng tháng";
+"yearly" = "hàng năm";
+
+// MARK: - Restore Messages
+"restoreSuccessMessage" = "Đăng ký của bạn đã được khôi phục thành công!";
+"restoreFailureMessage" = "Không tìm thấy đăng ký để khôi phục.";
 
 // MARK: - Trial
 "trialTitle" = "Dùng thử Cao cấp miễn phí trong 7 ngày";

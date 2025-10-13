@@ -23,6 +23,25 @@
 "termsOfService" = "Условия использования";
 "privacyPolicy" = "Политика конфиденциальности";
 "andPreposition" = "и";
+"skip" = "Пропустить";
+"ok" = "OK";
+
+// MARK: - Subscription Plans
+"planAutoRenews" = "План автоматически продлевается за %@/%@ до отмены.";
+"annual" = "Годовой";
+"monthly" = "Месячный";
+"perMonth" = "/месяц";
+"bestValue" = "ЛУЧШЕЕ ПРЕДЛОЖЕНИЕ";
+
+// MARK: - Subscription Periods
+"daily" = "ежедневно";
+"weekly" = "еженедельно";
+"monthlyPeriod" = "ежемесячно";
+"yearly" = "ежегодно";
+
+// MARK: - Restore Messages
+"restoreSuccessMessage" = "Ваша подписка была успешно восстановлена!";
+"restoreFailureMessage" = "Подписка для восстановления не найдена.";
 
 // MARK: - Trial
 "trialTitle" = "Попробуйте Премиум бесплатно на 7 дней";

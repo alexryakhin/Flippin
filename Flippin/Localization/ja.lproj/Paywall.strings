@@ -23,6 +23,25 @@
 "termsOfService" = "利用規約";
 "privacyPolicy" = "プライバシーポリシー";
 "andPreposition" = "と";
+"skip" = "スキップ";
+"ok" = "OK";
+
+// MARK: - Subscription Plans
+"planAutoRenews" = "プランはキャンセルされるまで%@/%@で自動更新されます。";
+"annual" = "年間";
+"monthly" = "月間";
+"perMonth" = "/月";
+"bestValue" = "ベストバリュー";
+
+// MARK: - Subscription Periods
+"daily" = "毎日";
+"weekly" = "毎週";
+"monthlyPeriod" = "毎月";
+"yearly" = "毎年";
+
+// MARK: - Restore Messages
+"restoreSuccessMessage" = "購読が正常に復元されました！";
+"restoreFailureMessage" = "復元する購読が見つかりません。";
 
 // MARK: - Trial
 "trialTitle" = "プレミアムを7日間無料でお試し";

@@ -8,6 +8,8 @@ import SwiftUI
 
 extension WelcomeSheet {
     struct FeatureRow: View {
+        @StateObject private var colorManager: ColorManager = .shared
+
         let icon: String
         let title: String
         let description: String
@@ -18,7 +20,7 @@ extension WelcomeSheet {
             HStack(spacing: 16) {
                 Image(systemName: icon)
                     .font(.title2)
-                    .foregroundColor(.accentColor)
+                    .foregroundStyle(colorManager.tintColor)
                     .frame(width: 32)
                     .scaleEffect(animateContent ? 1 : 0.5)
                     .opacity(animateContent ? 1 : 0)
@@ -31,7 +33,7 @@ extension WelcomeSheet {
 
                     Text(description)
                         .font(.subheadline)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                         .offset(x: animateContent ? 0 : -20)
                         .opacity(animateContent ? 1 : 0)
                 }

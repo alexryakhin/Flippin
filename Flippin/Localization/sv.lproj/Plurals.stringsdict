@@ -1,96 +1,159 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<?xml version='1.0' encoding='UTF-8'?>
 <plist version="1.0">
-<dict>
-	<key>cardsCount</key>
 	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@cards@</string>
-		<key>cards</key>
+		<key>cardsCount</key>
 		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>zero</key>
-			<string>0 kort</string>
-			<key>one</key>
-			<string>1 kort</string>
-			<key>other</key>
-			<string>%d kort</string>
+			<key>NSStringLocalizedFormatKey</key>
+			<string>%#@cards@</string>
+			<key>cards</key>
+			<dict>
+				<key>NSStringFormatSpecTypeKey</key>
+				<string>NSStringPluralRuleType</string>
+				<key>NSStringFormatValueTypeKey</key>
+				<string>d</string>
+				<key>zero</key>
+				<string>0 kort</string>
+				<key>one</key>
+				<string>1 kort</string>
+				<key>other</key>
+				<string>%d kort</string>
+			</dict>
+		</dict>
+		<key>sessionsPerDay</key>
+		<dict>
+			<key>NSStringLocalizedFormatKey</key>
+			<string>%#@sessions@</string>
+			<key>sessions</key>
+			<dict>
+				<key>NSStringFormatSpecTypeKey</key>
+				<string>NSStringPluralRuleType</string>
+				<key>NSStringFormatValueTypeKey</key>
+				<string>d</string>
+				<key>zero</key>
+				<string>sessioner/dag</string>
+				<key>one</key>
+				<string>session/dag</string>
+				<key>other</key>
+				<string>sessioner/dag</string>
+			</dict>
+		</dict>
+		<key>tagsCount</key>
+		<dict>
+			<key>NSStringLocalizedFormatKey</key>
+			<string>%#@tags@</string>
+			<key>tags</key>
+			<dict>
+				<key>NSStringFormatSpecTypeKey</key>
+				<string>NSStringPluralRuleType</string>
+				<key>NSStringFormatValueTypeKey</key>
+				<string>d</string>
+				<key>zero</key>
+				<string>0 taggar</string>
+				<key>one</key>
+				<string>1 tagg</string>
+				<key>other</key>
+				<string>%d taggar</string>
+			</dict>
+		</dict>
+		<key>characterLimit</key>
+		<dict>
+			<key>NSStringLocalizedFormatKey</key>
+			<string>%#@characters@/500 tecken</string>
+			<key>characters</key>
+			<dict>
+				<key>NSStringFormatSpecTypeKey</key>
+				<string>NSStringPluralRuleType</string>
+				<key>NSStringFormatValueTypeKey</key>
+				<string>d</string>
+				<key>zero</key>
+				<string>0</string>
+				<key>one</key>
+				<string>%d</string>
+				<key>other</key>
+				<string>%d</string>
+			</dict>
+		</dict>
+		<key>generatedCardsCount</key>
+		<dict>
+			<key>NSStringLocalizedFormatKey</key>
+			<string>Genererade Kort (%#@cards@)</string>
+			<key>cards</key>
+			<dict>
+				<key>NSStringFormatSpecTypeKey</key>
+				<string>NSStringPluralRuleType</string>
+				<key>NSStringFormatValueTypeKey</key>
+				<string>d</string>
+				<key>zero</key>
+				<string>0</string>
+				<key>one</key>
+				<string>%d</string>
+				<key>other</key>
+				<string>%d</string>
+			</dict>
+		</dict>
+		<key>subscriptionDays</key>
+		<dict>
+			<key>NSStringLocalizedFormatKey</key>
+			<string>%#@days@</string>
+			<key>days</key>
+			<dict>
+				<key>NSStringFormatSpecTypeKey</key>
+				<string>NSStringPluralRuleType</string>
+				<key>NSStringFormatValueTypeKey</key>
+				<string>d</string>
+				<key>one</key>
+				<string>%d dag</string>
+				<key>other</key>
+				<string>%d dagar</string>
+			</dict>
+		</dict>
+		<key>subscriptionWeeks</key>
+		<dict>
+			<key>NSStringLocalizedFormatKey</key>
+			<string>%#@weeks@</string>
+			<key>weeks</key>
+			<dict>
+				<key>NSStringFormatSpecTypeKey</key>
+				<string>NSStringPluralRuleType</string>
+				<key>NSStringFormatValueTypeKey</key>
+				<string>d</string>
+				<key>one</key>
+				<string>%d vecka</string>
+				<key>other</key>
+				<string>%d veckor</string>
+			</dict>
+		</dict>
+		<key>subscriptionMonths</key>
+		<dict>
+			<key>NSStringLocalizedFormatKey</key>
+			<string>%#@months@</string>
+			<key>months</key>
+			<dict>
+				<key>NSStringFormatSpecTypeKey</key>
+				<string>NSStringPluralRuleType</string>
+				<key>NSStringFormatValueTypeKey</key>
+				<string>d</string>
+				<key>one</key>
+				<string>%d månad</string>
+				<key>other</key>
+				<string>%d månader</string>
+			</dict>
+		</dict>
+		<key>subscriptionYears</key>
+		<dict>
+			<key>NSStringLocalizedFormatKey</key>
+			<string>%#@years@</string>
+			<key>years</key>
+			<dict>
+				<key>NSStringFormatSpecTypeKey</key>
+				<string>NSStringPluralRuleType</string>
+				<key>NSStringFormatValueTypeKey</key>
+				<string>d</string>
+				<key>one</key>
+				<string>%d år</string>
+				<key>other</key>
+				<string>%d år</string>
+			</dict>
 		</dict>
 	</dict>
-	<key>sessionsPerDay</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@sessions@</string>
-		<key>sessions</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>zero</key>
-			<string>sessioner/dag</string>
-			<key>one</key>
-			<string>session/dag</string>
-			<key>other</key>
-			<string>sessioner/dag</string>
-		</dict>
-	</dict>
-	<key>tagsCount</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@tags@</string>
-		<key>tags</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>zero</key>
-			<string>0 taggar</string>
-			<key>one</key>
-			<string>1 tagg</string>
-			<key>other</key>
-			<string>%d taggar</string>
-		</dict>
-	</dict>
-	<key>characterLimit</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@characters@/500 tecken</string>
-		<key>characters</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>zero</key>
-			<string>0</string>
-			<key>one</key>
-			<string>%d</string>
-			<key>other</key>
-			<string>%d</string>
-		</dict>
-	</dict>
-	<key>generatedCardsCount</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>Genererade Kort (%#@cards@)</string>
-		<key>cards</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>zero</key>
-			<string>0</string>
-			<key>one</key>
-			<string>%d</string>
-			<key>other</key>
-			<string>%d</string>
-		</dict>
-	</dict>
-</dict>
 </plist>

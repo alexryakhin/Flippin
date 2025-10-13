@@ -23,6 +23,25 @@
 "termsOfService" = "服务条款";
 "privacyPolicy" = "隐私政策";
 "andPreposition" = "和";
+"skip" = "跳过";
+"ok" = "确定";
+
+// MARK: - Subscription Plans
+"planAutoRenews" = "计划将以%@/%@自动续订，直到取消。";
+"annual" = "年度";
+"monthly" = "月度";
+"perMonth" = "/月";
+"bestValue" = "最超值";
+
+// MARK: - Subscription Periods
+"daily" = "每日";
+"weekly" = "每周";
+"monthlyPeriod" = "每月";
+"yearly" = "每年";
+
+// MARK: - Restore Messages
+"restoreSuccessMessage" = "您的订阅已成功恢复！";
+"restoreFailureMessage" = "未找到要恢复的订阅。";
 
 // MARK: - Trial
 "trialTitle" = "免费试用高级版 7 天";

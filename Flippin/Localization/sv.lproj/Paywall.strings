@@ -23,6 +23,25 @@
 "termsOfService" = "Användarvillkor";
 "privacyPolicy" = "Integritetspolicy";
 "andPreposition" = "och";
+"skip" = "Hoppa över";
+"ok" = "OK";
+
+// MARK: - Subscription Plans
+"planAutoRenews" = "Planen förnyas automatiskt för %@/%@ tills den avbryts.";
+"annual" = "Årlig";
+"monthly" = "Månadsvis";
+"perMonth" = "/månad";
+"bestValue" = "BÄSTA VÄRDE";
+
+// MARK: - Subscription Periods
+"daily" = "dagligen";
+"weekly" = "veckovis";
+"monthlyPeriod" = "månadsvis";
+"yearly" = "årligen";
+
+// MARK: - Restore Messages
+"restoreSuccessMessage" = "Din prenumeration har återställts framgångsrikt!";
+"restoreFailureMessage" = "Ingen prenumeration hittades att återställa.";
 
 // MARK: - Trial
 "trialTitle" = "Prova Premium gratis i 7 dagar";

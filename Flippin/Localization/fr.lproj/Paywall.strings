@@ -23,6 +23,25 @@
 "termsOfService" = "Conditions d'utilisation";
 "privacyPolicy" = "Politique de confidentialité";
 "andPreposition" = "et";
+"skip" = "Passer";
+"ok" = "OK";
+
+// MARK: - Subscription Plans
+"planAutoRenews" = "Le plan se renouvelle automatiquement pour %@/%@ jusqu'à l'annulation.";
+"annual" = "Annuel";
+"monthly" = "Mensuel";
+"perMonth" = "/mois";
+"bestValue" = "MEILLEURE VALEUR";
+
+// MARK: - Subscription Periods
+"daily" = "quotidien";
+"weekly" = "hebdomadaire";
+"monthlyPeriod" = "mensuel";
+"yearly" = "annuel";
+
+// MARK: - Restore Messages
+"restoreSuccessMessage" = "Votre abonnement a été restauré avec succès !";
+"restoreFailureMessage" = "Aucun abonnement trouvé à restaurer.";
 
 // MARK: - Trial
 "trialTitle" = "Essayez Premium gratuitement pendant 7 jours";

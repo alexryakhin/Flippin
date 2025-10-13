@@ -1,96 +1,151 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<?xml version='1.0' encoding='UTF-8'?>
 <plist version="1.0">
-<dict>
-	<key>cardsCount</key>
 	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@cards@</string>
-		<key>cards</key>
+		<key>cardsCount</key>
 		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>zero</key>
-			<string>0개 카드</string>
-			<key>one</key>
-			<string>1개 카드</string>
-			<key>other</key>
-			<string>%d개 카드</string>
+			<key>NSStringLocalizedFormatKey</key>
+			<string>%#@cards@</string>
+			<key>cards</key>
+			<dict>
+				<key>NSStringFormatSpecTypeKey</key>
+				<string>NSStringPluralRuleType</string>
+				<key>NSStringFormatValueTypeKey</key>
+				<string>d</string>
+				<key>zero</key>
+				<string>0개 카드</string>
+				<key>one</key>
+				<string>1개 카드</string>
+				<key>other</key>
+				<string>%d개 카드</string>
+			</dict>
+		</dict>
+		<key>sessionsPerDay</key>
+		<dict>
+			<key>NSStringLocalizedFormatKey</key>
+			<string>%#@sessions@</string>
+			<key>sessions</key>
+			<dict>
+				<key>NSStringFormatSpecTypeKey</key>
+				<string>NSStringPluralRuleType</string>
+				<key>NSStringFormatValueTypeKey</key>
+				<string>d</string>
+				<key>zero</key>
+				<string>세션/일</string>
+				<key>one</key>
+				<string>세션/일</string>
+				<key>other</key>
+				<string>세션/일</string>
+			</dict>
+		</dict>
+		<key>tagsCount</key>
+		<dict>
+			<key>NSStringLocalizedFormatKey</key>
+			<string>%#@tags@</string>
+			<key>tags</key>
+			<dict>
+				<key>NSStringFormatSpecTypeKey</key>
+				<string>NSStringPluralRuleType</string>
+				<key>NSStringFormatValueTypeKey</key>
+				<string>d</string>
+				<key>zero</key>
+				<string>0개 태그</string>
+				<key>one</key>
+				<string>1개 태그</string>
+				<key>other</key>
+				<string>%d개 태그</string>
+			</dict>
+		</dict>
+		<key>characterLimit</key>
+		<dict>
+			<key>NSStringLocalizedFormatKey</key>
+			<string>%#@characters@/500자</string>
+			<key>characters</key>
+			<dict>
+				<key>NSStringFormatSpecTypeKey</key>
+				<string>NSStringPluralRuleType</string>
+				<key>NSStringFormatValueTypeKey</key>
+				<string>d</string>
+				<key>zero</key>
+				<string>0</string>
+				<key>one</key>
+				<string>%d</string>
+				<key>other</key>
+				<string>%d</string>
+			</dict>
+		</dict>
+		<key>generatedCardsCount</key>
+		<dict>
+			<key>NSStringLocalizedFormatKey</key>
+			<string>생성된 카드 (%#@cards@)</string>
+			<key>cards</key>
+			<dict>
+				<key>NSStringFormatSpecTypeKey</key>
+				<string>NSStringPluralRuleType</string>
+				<key>NSStringFormatValueTypeKey</key>
+				<string>d</string>
+				<key>zero</key>
+				<string>0</string>
+				<key>one</key>
+				<string>%d</string>
+				<key>other</key>
+				<string>%d</string>
+			</dict>
+		</dict>
+		<key>subscriptionDays</key>
+		<dict>
+			<key>NSStringLocalizedFormatKey</key>
+			<string>%#@days@</string>
+			<key>days</key>
+			<dict>
+				<key>NSStringFormatSpecTypeKey</key>
+				<string>NSStringPluralRuleType</string>
+				<key>NSStringFormatValueTypeKey</key>
+				<string>d</string>
+				<key>other</key>
+				<string>%d일</string>
+			</dict>
+		</dict>
+		<key>subscriptionWeeks</key>
+		<dict>
+			<key>NSStringLocalizedFormatKey</key>
+			<string>%#@weeks@</string>
+			<key>weeks</key>
+			<dict>
+				<key>NSStringFormatSpecTypeKey</key>
+				<string>NSStringPluralRuleType</string>
+				<key>NSStringFormatValueTypeKey</key>
+				<string>d</string>
+				<key>other</key>
+				<string>%d주</string>
+			</dict>
+		</dict>
+		<key>subscriptionMonths</key>
+		<dict>
+			<key>NSStringLocalizedFormatKey</key>
+			<string>%#@months@</string>
+			<key>months</key>
+			<dict>
+				<key>NSStringFormatSpecTypeKey</key>
+				<string>NSStringPluralRuleType</string>
+				<key>NSStringFormatValueTypeKey</key>
+				<string>d</string>
+				<key>other</key>
+				<string>%d개월</string>
+			</dict>
+		</dict>
+		<key>subscriptionYears</key>
+		<dict>
+			<key>NSStringLocalizedFormatKey</key>
+			<string>%#@years@</string>
+			<key>years</key>
+			<dict>
+				<key>NSStringFormatSpecTypeKey</key>
+				<string>NSStringPluralRuleType</string>
+				<key>NSStringFormatValueTypeKey</key>
+				<string>d</string>
+				<key>other</key>
+				<string>%d년</string>
+			</dict>
 		</dict>
 	</dict>
-	<key>sessionsPerDay</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@sessions@</string>
-		<key>sessions</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>zero</key>
-			<string>세션/일</string>
-			<key>one</key>
-			<string>세션/일</string>
-			<key>other</key>
-			<string>세션/일</string>
-		</dict>
-	</dict>
-	<key>tagsCount</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@tags@</string>
-		<key>tags</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>zero</key>
-			<string>0개 태그</string>
-			<key>one</key>
-			<string>1개 태그</string>
-			<key>other</key>
-			<string>%d개 태그</string>
-		</dict>
-	</dict>
-	<key>characterLimit</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@characters@/500자</string>
-		<key>characters</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>zero</key>
-			<string>0</string>
-			<key>one</key>
-			<string>%d</string>
-			<key>other</key>
-			<string>%d</string>
-		</dict>
-	</dict>
-	<key>generatedCardsCount</key>
-	<dict>
-		<key>NSStringLocalizedFormatKey</key>
-		<string>생성된 카드 (%#@cards@)</string>
-		<key>cards</key>
-		<dict>
-			<key>NSStringFormatSpecTypeKey</key>
-			<string>NSStringPluralRuleType</string>
-			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
-			<key>zero</key>
-			<string>0</string>
-			<key>one</key>
-			<string>%d</string>
-			<key>other</key>
-			<string>%d</string>
-		</dict>
-	</dict>
-</dict>
 </plist>

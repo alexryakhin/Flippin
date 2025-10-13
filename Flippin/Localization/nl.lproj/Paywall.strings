@@ -23,6 +23,25 @@
 "termsOfService" = "Servicevoorwaarden";
 "privacyPolicy" = "Privacybeleid";
 "andPreposition" = "en";
+"skip" = "Overslaan";
+"ok" = "OK";
+
+// MARK: - Subscription Plans
+"planAutoRenews" = "Abonnement wordt automatisch verlengd voor %@/%@ totdat het wordt geannuleerd.";
+"annual" = "Jaarlijks";
+"monthly" = "Maandelijks";
+"perMonth" = "/maand";
+"bestValue" = "BESTE WAARDE";
+
+// MARK: - Subscription Periods
+"daily" = "dagelijks";
+"weekly" = "wekelijks";
+"monthlyPeriod" = "maandelijks";
+"yearly" = "jaarlijks";
+
+// MARK: - Restore Messages
+"restoreSuccessMessage" = "Je abonnement is succesvol hersteld!";
+"restoreFailureMessage" = "Geen abonnement gevonden om te herstellen.";
 
 // MARK: - Trial
 "trialTitle" = "Probeer Premium 7 dagen gratis";

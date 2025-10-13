@@ -23,6 +23,25 @@
 "termsOfService" = "Умови використання";
 "privacyPolicy" = "Політика конфіденційності";
 "andPreposition" = "і";
+"skip" = "Пропустити";
+"ok" = "OK";
+
+// MARK: - Subscription Plans
+"planAutoRenews" = "План автоматично продовжується за %@/%@ до скасування.";
+"annual" = "Річний";
+"monthly" = "Місячний";
+"perMonth" = "/місяць";
+"bestValue" = "НАЙКРАЩА ПРОПОЗИЦІЯ";
+
+// MARK: - Subscription Periods
+"daily" = "щодня";
+"weekly" = "щотижня";
+"monthlyPeriod" = "щомісяця";
+"yearly" = "щороку";
+
+// MARK: - Restore Messages
+"restoreSuccessMessage" = "Вашу підписку було успішно відновлено!";
+"restoreFailureMessage" = "Підписку для відновлення не знайдено.";
 
 // MARK: - Trial
 "trialTitle" = "Спробуйте Преміум безкоштовно на 7 днів";

@@ -8,6 +8,7 @@ import SwiftUI
 
 extension WelcomeSheet {
     struct AnimatedBackground: View {
+        @StateObject private var colorManager: ColorManager = .shared
         @State private var animate = false
 
         var body: some View {
@@ -25,7 +26,7 @@ extension WelcomeSheet {
                 // Floating particles
                 ForEach(0..<20, id: \.self) { index in
                     Circle()
-                        .fill(Color.accentColor.opacity(0.1))
+                        .fill(colorManager.tintColor.opacity(0.1))
                         .frame(width: CGFloat.random(in: 4...12))
                         .position(
                             x: CGFloat.random(in: 0...UIScreen.main.bounds.width),

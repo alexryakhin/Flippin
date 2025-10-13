@@ -24,7 +24,7 @@ extension WelcomeSheet {
 
                     Text(subtitle)
                         .font(.subheadline)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                         .offset(x: animateContent ? 0 : -20)
                         .opacity(animateContent ? 1 : 0)
                 }

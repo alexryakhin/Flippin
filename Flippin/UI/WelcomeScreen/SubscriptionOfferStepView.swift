@@ -6,109 +6,156 @@
 //
 
 import SwiftUI
-import StoreKit
+import RevenueCat
 
 extension WelcomeSheet {
     struct SubscriptionOfferStepView: View {
         @StateObject private var colorManager = ColorManager.shared
         @StateObject private var purchaseService = PurchaseService.shared
         @State private var animateContent = false
-        @State private var showsBottomButton: Bool = true
+        @State private var selectedPackage: Package?
+        @State private var showingRestoreAlert = false
+        @State private var restoreMessage = ""
 
         let onContinue: () -> Void
         
         var body: some View {
-            ZStack {
-                AnimatedBackground()
-                    .ignoresSafeArea()
-
-                SubscriptionStoreView(groupID: "21731755") {
-                    VStack(spacing: 16) {
-                        VStack(spacing: 24) {
-                            ZStack {
-                                Circle()
-                                    .fill(
-                                        LinearGradient(
-                                            colors: [.yellow, .orange],
-                                            startPoint: .topLeading,
-                                            endPoint: .bottomTrailing
-                                        )
+            ScrollView {
+                VStack(spacing: 24) {
+                    // Header with crown icon
+                    VStack(spacing: 24) {
+                        ZStack {
+                            Circle()
+                                .fill(
+                                    LinearGradient(
+                                        colors: [.yellow, .orange],
+                                        startPoint: .topLeading,
+                                        endPoint: .bottomTrailing
                                     )
-                                    .frame(width: 100, height: 100)
-                                    .scaleEffect(animateContent ? 1 : 0.5)
-                                    .opacity(animateContent ? 1 : 0)
-
-                                Image(systemName: "crown.fill")
-                                    .font(.system(size: 40, weight: .bold))
-                                    .foregroundColor(.white)
-                                    .scaleEffect(animateContent ? 1 : 0.8)
-                                    .opacity(animateContent ? 1 : 0)
-                            }
-                            .animation(.easeInOut(duration: 0.5).delay(0.2), value: animateContent)
-
-                            VStack(spacing: 16) {
-                                Text(Loc.Paywall.trialTitle)
-                                    .font(.system(size: 32, weight: .bold, design: .rounded))
-                                    .multilineTextAlignment(.center)
-                                    .offset(y: animateContent ? 0 : 20)
-                                    .opacity(animateContent ? 1 : 0)
-
-                                Text(Loc.Paywall.trialSubtitle)
-                                    .font(.body)
-                                    .foregroundColor(.secondary)
-                                    .multilineTextAlignment(.center)
-                                    .offset(y: animateContent ? 0 : 20)
-                                    .opacity(animateContent ? 1 : 0)
-                            }
-                            .animation(.easeInOut(duration: 0.5).delay(0.4), value: animateContent)
-                        }
-
-                        VStack(spacing: 12) {
-                            ForEach(Array(features.enumerated()), id: \.element.title) { index, feature in
-                                TrialFeatureRow(
-                                    icon: feature.icon,
-                                    title: feature.title,
-                                    animateContent: animateContent,
-                                    delay: 0.7 + Double(index) * 0.1
                                 )
-                            }
+                                .frame(width: 100, height: 100)
+                                .scaleEffect(animateContent ? 1 : 0.5)
+                                .opacity(animateContent ? 1 : 0)
+
+                            Image(systemName: "crown.fill")
+                                .font(.system(size: 40, weight: .bold))
+                                .foregroundStyle(.white)
+                                .scaleEffect(animateContent ? 1 : 0.8)
+                                .opacity(animateContent ? 1 : 0)
+                        }
+                        .animation(.easeInOut(duration: 0.5).delay(0.2), value: animateContent)
+
+                        VStack(spacing: 16) {
+                            Text(Loc.Paywall.trialTitle)
+                                .font(.system(size: 32, weight: .bold, design: .rounded))
+                                .multilineTextAlignment(.center)
+                                .offset(y: animateContent ? 0 : 20)
+                                .opacity(animateContent ? 1 : 0)
+
+                            Text(Loc.Paywall.trialSubtitle)
+                                .font(.body)
+                                .foregroundStyle(.secondary)
+                                .multilineTextAlignment(.center)
+                                .offset(y: animateContent ? 0 : 20)
+                                .opacity(animateContent ? 1 : 0)
+                        }
+                        .animation(.easeInOut(duration: 0.5).delay(0.4), value: animateContent)
+                    }
+                    .padding(.top, 20)
+
+                    // Features list
+                    VStack(spacing: 12) {
+                        ForEach(Array(features.enumerated()), id: \.element.title) { index, feature in
+                            TrialFeatureRow(
+                                icon: feature.icon,
+                                title: feature.title,
+                                animateContent: animateContent,
+                                delay: 0.7 + Double(index) * 0.1
+                            )
                         }
                     }
+                    .padding(.horizontal, 16)
+
+                    // Subscription packages
+                    if let offering = purchaseService.offerings {
+                        VStack(spacing: 12) {
+                            ForEach(offering.availablePackages, id: \.identifier) { package in
+                                Paywall.PackageSelectionView(
+                                    package: package,
+                                    isSelected: selectedPackage?.identifier == package.identifier,
+                                    tintColor: colorManager.tintColor
+                                )
+                                .onTapGesture {
+                                    withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
+                                        selectedPackage = package
+                                        HapticService.shared.buttonTapped()
+                                    }
+                                }
+                            }
+                        }
+                        .padding(.horizontal, 16)
+                        .scaleEffect(animateContent ? 1 : 0.95)
+                        .opacity(animateContent ? 1 : 0)
+                        .animation(.easeInOut(duration: 0.5).delay(1.3), value: animateContent)
+                    }
                 }
-                .subscriptionStoreControlStyle(.prominentPicker)
-                .subscriptionStoreButtonLabel(.action)
-                .storeButton(.hidden, for: .cancellation)
-                .storeButton(.visible, for: .restorePurchases)
-                .storeButton(.visible, for: .policies)
-            .subscriptionStorePolicyDestination(
-                url: URL(string: PrivateConstants.termsOfServiceURL)!,
-                for: .termsOfService
-            )
-            .subscriptionStorePolicyDestination(
-                url: URL(string: PrivateConstants.privacyPolicyURL)!,
-                for: .privacyPolicy
-            )
-                .onInAppPurchaseCompletion { product, result in
-                    handlePurchaseResult(product: product, result: result)
+                .padding(.vertical, 12)
+                .multilineTextAlignment(.center)
+            }
+            .background {
+                AnimatedBackground()
+                    .ignoresSafeArea()
+            }
+            .safeAreaInset(edge: .bottom, spacing: .zero) {
+                VStack(spacing: 12) {
+                    var price: String? {
+                        guard let selectedPackage else { return nil }
+                        switch selectedPackage.storeProduct.subscriptionPeriod?.unit {
+                        case .day:
+                            return selectedPackage.storeProduct.localizedPricePerDay
+                        case .week:
+                            return selectedPackage.storeProduct.localizedPricePerWeek
+                        case .month:
+                            return selectedPackage.storeProduct.localizedPricePerMonth
+                        case .year:
+                            return selectedPackage.storeProduct.localizedPricePerYear
+                        case nil:
+                            return nil
+                        }
+                    }
+                    if let price, let unit = selectedPackage?.storeProduct.subscriptionPeriod?.unit {
+                        Text(String(format: Loc.Paywall.planAutoRenews, price, "\(unit)"))
+                            .foregroundStyle(.secondary)
+                            .font(.caption)
+                            .multilineTextAlignment(.center)
+                    }
+                    
+                    // Subscribe button
+                    ActionButton(
+                        Loc.Paywall.subscribe,
+                        style: .borderedProminent,
+                        isLoading: purchaseService.isPurchasing
+                    ) {
+                        purchaseSelectedPackage()
+                    }
+                    .disabled(selectedPackage == nil || purchaseService.isPurchasing)
+
+                    // Restore button
+                    ActionButton(
+                        Loc.Paywall.restoreSubscription,
+                        style: .bordered
+                    ) {
+                        restorePurchases()
+                    }
                 }
-                .scaleEffect(animateContent ? 1 : 0.95)
-                .opacity(animateContent ? 1 : 0)
-                .animation(.easeInOut(duration: 0.5).delay(1.3), value: animateContent)
+                .padding(vertical: 12, horizontal: 16)
+                .background(.ultraThinMaterial)
             }
             .navigationBarBackButtonHidden(false)
-            .onAppear {
-                AnalyticsService.trackEvent(.paywallOpened)
-                withAnimation(.easeInOut(duration: 0.6).delay(0.1)) {
-                    animateContent = true
-                }
-                Task {
-                    await purchaseService.loadProducts()
-                }
-            }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     NavigationLink(
-                        "Skip",
+                        Loc.Paywall.skip,
                         destination: ReadyStepView(onContinue: onContinue)
                     )
                     .simultaneousGesture(TapGesture().onEnded {
@@ -116,22 +163,55 @@ extension WelcomeSheet {
                     })
                 }
             }
-        }
-        
-        private func handlePurchaseResult(product: Product, result: Result<Product.PurchaseResult, Error>) {
-            switch result {
-            case .success:
-                HapticService.shared.success()
-                AnalyticsService.trackEvent(.subscriptionPurchased)
-            case .failure(let error):
-                print("Purchase failed: \(error.localizedDescription)")
+            .alert(Loc.Paywall.restoreSubscription, isPresented: $showingRestoreAlert) {
+                Button(Loc.Paywall.ok, role: .cancel) { }
+            } message: {
+                Text(restoreMessage)
+            }
+            .task {
+                await purchaseService.loadOfferings()
+                // Pre-select the first package (usually yearly)
+                if let offering = purchaseService.offerings {
+                    selectedPackage = offering.availablePackages.first
+                }
+            }
+            .onAppear {
+                AnalyticsService.trackEvent(.paywallOpened)
+                withAnimation(.easeInOut(duration: 0.6).delay(0.1)) {
+                    animateContent = true
+                }
             }
         }
         
-        private func restorePurchases() async {
-            let success = await purchaseService.restorePurchases()
-            if success {
-                HapticService.shared.success()
+        private func purchaseSelectedPackage() {
+            guard let package = selectedPackage else { return }
+            
+            Task {
+                let result = await purchaseService.purchasePackage(package)
+                if result.success {
+                    HapticService.shared.success()
+                    AnalyticsService.trackEvent(.subscriptionPurchased)
+                    // Don't dismiss, let user continue through onboarding
+                } else if let error = result.error {
+                    // Show error if needed
+                    print("Purchase error: \(error)")
+                }
+            }
+        }
+        
+        private func restorePurchases() {
+            Task {
+                let success = await purchaseService.restorePurchases()
+                await MainActor.run {
+                    if success {
+                        HapticService.shared.success()
+                        restoreMessage = Loc.Paywall.restoreSuccessMessage
+                        showingRestoreAlert = true
+                    } else {
+                        restoreMessage = Loc.Paywall.restoreFailureMessage
+                        showingRestoreAlert = true
+                    }
+                }
             }
         }
         
@@ -156,6 +236,8 @@ extension WelcomeSheet {
     // MARK: - Trial Feature Row
     
     struct TrialFeatureRow: View {
+        @StateObject private var colorManager: ColorManager = .shared
+
         let icon: String
         let title: String
         let animateContent: Bool
@@ -165,14 +247,14 @@ extension WelcomeSheet {
             HStack(spacing: 16) {
                 Image(systemName: icon)
                     .font(.title2)
-                    .foregroundColor(.accentColor)
+                    .foregroundStyle(colorManager.tintColor)
                     .frame(width: 40)
                     .scaleEffect(animateContent ? 1 : 0.5)
                     .opacity(animateContent ? 1 : 0)
                 
                 Text(title)
                     .font(.headline)
-                    .foregroundColor(.primary)
+                    .foregroundStyle(.primary)
                     .multilineTextAlignment(.leading)
                     .offset(x: animateContent ? 0 : -20)
                     .opacity(animateContent ? 1 : 0)
@@ -180,7 +262,7 @@ extension WelcomeSheet {
                 Spacer()
                 
                 Image(systemName: "checkmark.circle.fill")
-                    .foregroundColor(.green)
+                    .foregroundStyle(.green)
                     .font(.title3)
                     .scaleEffect(animateContent ? 1 : 0.5)
                     .opacity(animateContent ? 1 : 0)

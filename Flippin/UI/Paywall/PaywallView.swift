@@ -81,7 +81,7 @@ enum Paywall {
                         Button(Loc.AboutApp.termsOfService) {
                             safariURL = URL(string: PrivateConstants.termsOfServiceURL)
                         }
-                        Text("and")
+                        Text(Loc.Paywall.andPreposition)
                             .foregroundStyle(.secondary)
                         Button(Loc.AboutApp.privacyPolicy) {
                             safariURL = URL(string: PrivateConstants.privacyPolicyURL)
@@ -142,14 +142,14 @@ enum Paywall {
                         }
                     }
                     if let price, let unit = selectedPackage?.storeProduct.subscriptionPeriod?.unit {
-                        Text("Plan auto-renews for \(price)/\(unit) until cancelled.")
+                        Text(String(format: Loc.Paywall.planAutoRenews, price, "\(unit)"))
                             .foregroundStyle(.secondary)
                             .font(.caption)
                             .multilineTextAlignment(.center)
                     }
                     // Subscribe button
                     ActionButton(
-                        "Subscribe",
+                        Loc.Paywall.subscribe,
                         style: .borderedProminent,
                         isLoading: purchaseService.isPurchasing
                     ) {
@@ -159,7 +159,7 @@ enum Paywall {
 
                     // Restore button
                     ActionButton(
-                        "Restore Subscription",
+                        Loc.Paywall.restoreSubscription,
                         style: .bordered
                     ) {
                         restorePurchases()
@@ -172,8 +172,8 @@ enum Paywall {
                 view.colorScheme(scheme)
             }
             .safari(url: $safariURL)
-            .alert("Restore Subscription", isPresented: $showingRestoreAlert) {
-                Button("OK", role: .cancel) { }
+            .alert(Loc.Paywall.restoreSubscription, isPresented: $showingRestoreAlert) {
+                Button(Loc.Paywall.ok, role: .cancel) { }
             } message: {
                 Text(restoreMessage)
             }
@@ -208,14 +208,14 @@ enum Paywall {
                 let success = await purchaseService.restorePurchases()
                 await MainActor.run {
                     if success {
-                        restoreMessage = "Your subscription have been restored successfully!"
+                        restoreMessage = Loc.Paywall.restoreSuccessMessage
                         showingRestoreAlert = true
                         // Dismiss after showing alert
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                             dismiss()
                         }
                     } else {
-                        restoreMessage = "No subscription found to restore."
+                        restoreMessage = Loc.Paywall.restoreFailureMessage
                         showingRestoreAlert = true
                     }
                 }
@@ -262,15 +262,15 @@ enum Paywall {
         
         private var displayTitle: String {
             if isYearly {
-                return "Annual"
+                return Loc.Paywall.annual
             } else {
-                return "Monthly"
+                return Loc.Paywall.monthly
             }
         }
         
         private var displayPricePerMonth: String? {
             guard let price = package.storeProduct.localizedPricePerMonth else { return nil }
-            return "\(price)/month"
+            return "\(price)\(Loc.Paywall.perMonth)"
         }
         
         var body: some View {
@@ -283,7 +283,7 @@ enum Paywall {
                             .foregroundColor(.primary)
                         
                         if isYearly {
-                            Text("BEST VALUE")
+                            Text(Loc.Paywall.bestValue)
                                 .font(.system(size: 10, weight: .bold, design: .rounded))
                                 .foregroundColor(.white)
                                 .padding(.horizontal, 8)
@@ -353,13 +353,13 @@ enum Paywall {
             
             switch unit {
             case .day:
-                return value == 1 ? "daily" : "\(value) days"
+                return value == 1 ? Loc.Paywall.daily : Loc.Plurals.subscriptionDays(value)
             case .week:
-                return value == 1 ? "weekly" : "\(value) weeks"
+                return value == 1 ? Loc.Paywall.weekly : Loc.Plurals.subscriptionWeeks(value)
             case .month:
-                return value == 1 ? "monthly" : "\(value) months"
+                return value == 1 ? Loc.Paywall.monthlyPeriod : Loc.Plurals.subscriptionMonths(value)
             case .year:
-                return value == 1 ? "yearly" : "\(value) years"
+                return value == 1 ? Loc.Paywall.yearly : Loc.Plurals.subscriptionYears(value)
             @unknown default:
                 return ""
             }
