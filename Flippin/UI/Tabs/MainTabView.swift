@@ -115,7 +115,7 @@ struct MainTabView: View {
                 }
                 .animation(.easeInOut, value: navigationManager.selectedTab)
             }
-            .safeAreaInset(edge: .bottom, spacing: .zero) {
+            .safeAreaBarIfAvailable {
                 tabBarView
                     .padding(.bottom, 8)
             }
@@ -163,8 +163,8 @@ struct MainTabView: View {
             PresetCollectionsView()
         case .detailedAnalytics:
             DetailedAnalytics.ContentView()
-        case .aiCoachDetail(let insight):
-            AICoachDetailView(insight: insight)
+        case .aiCoachDetail:
+            AICoachDetailView()
         case .backgroundPreview:
             BackgroundPreviewView()
         case .backgroundDemo:

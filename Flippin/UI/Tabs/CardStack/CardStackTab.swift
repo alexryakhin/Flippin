@@ -206,7 +206,7 @@ enum CardStackTab {
                         NavigationManager.shared.navigate(to: .addCard)
                     }
                 }
-                .foregroundColor(colorManager.foregroundColor)
+                .foregroundStyle(colorManager.foregroundColor)
 
                 FeaturedPresetCollections()
             }
@@ -233,7 +233,7 @@ enum CardStackTab {
                         tagManager.clearFilter()
                     }
                 }
-                .foregroundColor(colorManager.foregroundColor)
+                .foregroundStyle(colorManager.foregroundColor)
             }
         }
 
@@ -250,7 +250,7 @@ enum CardStackTab {
                 Text(Loc.ContentViews.noCardsForLanguagePair)
                     .foregroundStyle(.secondary)
             }
-            .foregroundColor(colorManager.foregroundColor)
+            .foregroundStyle(colorManager.foregroundColor)
         }
 
         private var noFavoriteCardsView: some View {
@@ -264,7 +264,7 @@ enum CardStackTab {
                 Text(Loc.TagManagement.noFavoriteCardsDescription)
                     .foregroundStyle(.secondary)
             }
-            .foregroundColor(colorManager.foregroundColor)
+            .foregroundStyle(colorManager.foregroundColor)
         }
         
         private var noDifficultCardsView: some View {
@@ -278,7 +278,7 @@ enum CardStackTab {
                 Text(Loc.CardManagement.noDifficultCardsDescription)
                     .foregroundStyle(.secondary)
             }
-            .foregroundColor(colorManager.foregroundColor)
+            .foregroundStyle(colorManager.foregroundColor)
         }
 
         // MARK: - Actions

@@ -17,6 +17,12 @@
 "usage.monthly_limit_exceeded_message" = "You have reached your monthly limit of 50,000 characters for Speechify TTS. Please try again next month or use Google TTS instead.";
 "usage.remaining_characters" = "Remaining Characters";
 "usage.monthly_usage" = "Monthly Usage";
+"usage.percent_used" = "% used";
+"usage.listening_time" = "Listening Time";
+"usage.preview_cache_size" = "Preview Cache Size";
+"usage.voice_selection" = "Voice Selection";
+"usage.language" = "Language";
+"usage.gender" = "Gender";
 
 // TTS Dashboard
 "dashboard" = "TTS Dashboard";
@@ -56,6 +62,11 @@
 "analytics.total_duration" = "Total Duration";
 "analytics.favorite_language" = "Favorite Language";
 "analytics.premium_usage" = "Premium Usage";
+"analytics.listening_time_trend" = "Listening Time Trend";
+"analytics.no_data" = "No Data";
+"analytics.no_data_description" = "Start using Speechify TTS to see your listening statistics";
+"analytics.total_listening" = "Total Listening";
+"analytics.average_per_month" = "Average/Month";
 
 // TTS Settings
 "settings.text_to_speech" = "Text-to-Speech";

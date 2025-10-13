@@ -1,0 +1,19 @@
+/*
+  notifications.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: nl
+  Section: notifications
+*/
+
+"notifications" = "Meldingen";
+"studyReminders" = "Studieherinneringen";
+"studyRemindersDescription" = "Ontvang dagelijks een herinnering om te studeren op het geselecteerde tijdstip";
+"difficultCardReminders" = "Herinneringen voor moeilijke kaarten";
+"difficultCardRemindersDescription" = "Ontvang dagelijks een herinnering over moeilijke kaarten op het geselecteerde tijdstip";
+"studyReminderTitle" = "Tijd om te studeren!";
+"studyReminderBody" = "Houd je leerreeks gaande. Open Flippin om je flashcards te oefenen.";
+"difficultCardReminderTitle" = "Oefen moeilijke kaarten";
+"difficultCardReminderBody" = "Je hebt enkele uitdagende kaarten die aandacht nodig hebben. Tijd om ze te herhalen!";
+"time" = "Tijd";

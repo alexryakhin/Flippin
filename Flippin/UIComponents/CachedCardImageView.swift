@@ -66,10 +66,10 @@ struct CachedCardImageView: View {
                         VStack(spacing: 8) {
                             Image(systemName: "photo")
                                 .font(.title2)
-                                .foregroundColor(.secondary)
+                                .foregroundStyle(.secondary)
                             Text(Loc.CardImages.imageUnavailable)
                                 .font(.caption)
-                                .foregroundColor(.secondary)
+                                .foregroundStyle(.secondary)
                         }
                     )
                     .cornerRadius(cornerRadius)
@@ -106,12 +106,12 @@ struct CachedCardImageView: View {
                 VStack(spacing: 12) {
                     Image(systemName: "photo.on.rectangle.angled")
                         .font(.system(size: 32, weight: .medium))
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                     
                     Text(Loc.PremiumFeatures.cardImagesPremiumGate)
                         .font(.subheadline)
                         .fontWeight(.medium)
-                        .foregroundColor(.primary)
+                        .foregroundStyle(.primary)
                         .multilineTextAlignment(.center)
                         .lineLimit(3)
                         .padding(.horizontal, 8)

@@ -24,11 +24,11 @@ enum Paywall {
 
                         Text(Loc.Paywall.unlockPremium)
                             .font(.system(size: 34, weight: .bold, design: .rounded))
-                            .foregroundColor(.primary)
+                            .foregroundStyle(.primary)
 
                         Text(Loc.Paywall.masterLanguageLearning)
                             .font(.system(size: 18, weight: .medium, design: .rounded))
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
                             .multilineTextAlignment(.center)
                             .padding(.horizontal, 40)
 
@@ -41,7 +41,7 @@ enum Paywall {
                                 )
                             )
                             .font(.system(size: 14, weight: .medium, design: .rounded))
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
 
                             ProgressView(value: Double(cardsProvider.cards.count), total: Double(cardsProvider.cardLimit))
                                 .progressViewStyle(.linear)
@@ -60,7 +60,7 @@ enum Paywall {
                     VStack(spacing: 12) {
                         Text(Loc.Paywall.whatYouGetWithPremium)
                             .font(.system(size: 24, weight: .semibold, design: .rounded))
-                            .foregroundColor(.primary)
+                            .foregroundStyle(.primary)
 
                         ForEach(PremiumFeature.paywallFeatures, id: \.self) { feature in
                             FeatureRow(feature: feature)
@@ -115,34 +115,19 @@ enum Paywall {
                 WelcomeSheet.AnimatedBackground()
                     .ignoresSafeArea()
             }
-            .safeAreaInset(edge: .top, alignment: .trailing, spacing: .zero) {
+            .safeAreaBarIfAvailable(edge: .top, alignment: .trailing) {
                 HeaderButton(icon: "xmark") {
                     AnalyticsService.trackEvent(.paywallClosed)
                     dismiss()
                 }
                 .padding(vertical: 12, horizontal: 16)
             }
-            .safeAreaInset(edge: .bottom, spacing: .zero) {
+            .safeAreaBarIfAvailable {
                 // Text "Plan auto-renews for \(price)/\(period) until cancelled."
                 // Two buttons - Subscribe and Restore Subscription
                 VStack(spacing: 12) {
-                    var price: String? {
-                        guard let selectedPackage else { return nil }
-                        switch selectedPackage.storeProduct.subscriptionPeriod?.unit {
-                        case .day:
-                            return selectedPackage.storeProduct.localizedPricePerDay
-                        case .week:
-                            return selectedPackage.storeProduct.localizedPricePerWeek
-                        case .month:
-                            return selectedPackage.storeProduct.localizedPricePerMonth
-                        case .year:
-                            return selectedPackage.storeProduct.localizedPricePerYear
-                        case nil:
-                            return nil
-                        }
-                    }
-                    if let price, let unit = selectedPackage?.storeProduct.subscriptionPeriod?.unit {
-                        Text(String(format: Loc.Paywall.planAutoRenews, price, "\(unit)"))
+                    if let product = selectedPackage?.storeProduct, let price = product.localizedPrice {
+                        Text(Loc.Paywall.planAutoRenews(price, product.localizedPeriod))
                             .foregroundStyle(.secondary)
                             .font(.caption)
                             .multilineTextAlignment(.center)
@@ -166,7 +151,7 @@ enum Paywall {
                     }
                 }
                 .padding(vertical: 12, horizontal: 16)
-                .background(.ultraThinMaterial)
+                .materialBackgroundIfNoGlassAvailable()
             }
             .ifLet(colorManager.colorScheme) { view, scheme in
                 view.colorScheme(scheme)
@@ -225,23 +210,25 @@ enum Paywall {
 
     // MARK: - Feature Row
     struct FeatureRow: View {
+        @StateObject private var colorManager = ColorManager.shared
+
         let feature: PremiumFeature
 
         var body: some View {
             HStack(spacing: 16) {
                 Image(systemName: feature.icon)
                     .font(.system(size: 24))
-                    .foregroundColor(.accentColor)
+                    .foregroundStyle(colorManager.tintColor)
                     .frame(width: 40, alignment: .center)
 
                 VStack(alignment: .leading, spacing: 4) {
                     Text(feature.title)
                         .font(.system(size: 16, weight: .semibold, design: .rounded))
-                        .foregroundColor(.primary)
+                        .foregroundStyle(.primary)
 
                     Text(feature.description)
                         .font(.system(size: 14, weight: .regular, design: .rounded))
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                 }
                 .multilineTextAlignment(.leading)
 
@@ -276,29 +263,23 @@ enum Paywall {
         var body: some View {
             HStack(spacing: 16) {
                 // Left side - Product info
-                VStack(alignment: .leading, spacing: 6) {
-                    HStack(spacing: 8) {
-                        Text(displayTitle)
-                            .font(.system(size: 18, weight: .bold, design: .rounded))
-                            .foregroundColor(.primary)
-                        
-                        if isYearly {
-                            Text(Loc.Paywall.bestValue)
-                                .font(.system(size: 10, weight: .bold, design: .rounded))
-                                .foregroundColor(.white)
-                                .padding(.horizontal, 8)
-                                .padding(.vertical, 4)
-                                .background(
-                                    Capsule()
-                                        .fill(tintColor)
-                                )
-                        }
-                    }
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(displayTitle)
+                        .font(.system(size: 18, weight: .bold, design: .rounded))
+                        .foregroundStyle(.primary)
 
                     if let displayPricePerMonth {
                         Text(displayPricePerMonth)
                             .font(.system(size: 14, weight: .medium, design: .rounded))
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
+                    }
+
+                    if isYearly {
+                        TagView(
+                            title: Loc.Paywall.bestValue,
+                            isSelected: true,
+                            size: .small
+                        )
                     }
                 }
                 
@@ -308,12 +289,12 @@ enum Paywall {
                 VStack(alignment: .trailing, spacing: 4) {
                     Text(package.storeProduct.localizedPriceString)
                         .font(.system(size: 20, weight: .bold, design: .rounded))
-                        .foregroundColor(.primary)
+                        .foregroundStyle(.primary)
                     
                     if let subscriptionPeriod = package.storeProduct.subscriptionPeriod {
                         Text(formatSubscriptionPeriod(subscriptionPeriod))
                             .font(.system(size: 12, weight: .regular, design: .rounded))
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
                     }
                 }
                 

@@ -66,12 +66,12 @@ enum AnalyticsDashboard {
                 VStack(alignment: .leading, spacing: 4) {
                     Text(Loc.Analytics.studyStreak)
                         .font(.subheadline)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
 
                     Text(TimeInterval.formatDayCount(analyticsService.studyStreak))
                         .font(.system(.title2, design: .rounded))
                         .bold()
-                        .foregroundColor(colorManager.tintColor)
+                        .foregroundStyle(colorManager.tintColor)
                 }
 
                 Spacer()
@@ -79,7 +79,7 @@ enum AnalyticsDashboard {
                 // Streak icon
                 Image(systemName: "flame.fill")
                     .font(.title)
-                    .foregroundColor(.orange)
+                    .foregroundStyle(.orange)
                     .scaleEffect(analyticsService.studyStreak > 0 ? 1.2 : 0.8)
                     .animation(.easeInOut(duration: 0.3), value: analyticsService.studyStreak)
             }
@@ -224,7 +224,7 @@ enum AnalyticsDashboard {
             VStack(alignment: .leading, spacing: 8) {
                 HStack {
                     Image(systemName: icon)
-                        .foregroundColor(color)
+                        .foregroundStyle(color)
                         .font(.title3)
 
                     Spacer()
@@ -236,7 +236,7 @@ enum AnalyticsDashboard {
 
                 Text(title)
                     .font(.caption)
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
             }
             .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
         }
@@ -257,7 +257,7 @@ enum AnalyticsDashboard {
         var body: some View {
             HStack(spacing: 8) {
                 Image(systemName: icon)
-                    .foregroundColor(color)
+                    .foregroundStyle(color)
                     .font(.subheadline)
                     .frame(width: 24)
 

@@ -15,14 +15,14 @@ struct PurchaseTestView: View {
                 VStack(alignment: .leading, spacing: 12) {
                     Text("Perform a test purchase using RevenueCat")
                         .font(.subheadline)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                     
                     HStack {
                         Image(systemName: purchaseService.hasPremiumAccess ? "checkmark.circle.fill" : "xmark.circle.fill")
-                            .foregroundColor(purchaseService.hasPremiumAccess ? .green : .red)
+                            .foregroundStyle(purchaseService.hasPremiumAccess ? .green : .red)
                         Text(purchaseService.hasPremiumAccess ? "Premium Access Active" : "No Premium Access")
                             .font(.caption)
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
                     }
                     
                     ActionButton(
@@ -52,7 +52,7 @@ struct PurchaseTestView: View {
                     }
                 } else {
                     Text("No packages available")
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                 }
             }
             
@@ -60,13 +60,13 @@ struct PurchaseTestView: View {
                 let purchasedProducts = purchaseService.getPurchasedProducts()
                 if purchasedProducts.isEmpty {
                     Text("No products purchased yet")
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                         .italic()
                 } else {
                     ForEach(purchasedProducts, id: \.self) { productId in
                         HStack {
                             Image(systemName: "checkmark.circle.fill")
-                                .foregroundColor(.green)
+                                .foregroundStyle(.green)
                             Text(productId)
                                 .font(.system(.body, design: .monospaced))
                             Spacer()
@@ -88,7 +88,7 @@ struct PurchaseTestView: View {
                         HStack {
                             Text("User ID:")
                                 .font(.caption)
-                                .foregroundColor(.secondary)
+                                .foregroundStyle(.secondary)
                             Text(info.originalAppUserId)
                                 .font(.system(.caption, design: .monospaced))
                                 .textSelection(.enabled)
@@ -97,7 +97,7 @@ struct PurchaseTestView: View {
                         HStack {
                             Text("Active Subscriptions:")
                                 .font(.caption)
-                                .foregroundColor(.secondary)
+                                .foregroundStyle(.secondary)
                             Text("\(info.activeSubscriptions.count)")
                                 .font(.caption)
                         }
@@ -107,16 +107,16 @@ struct PurchaseTestView: View {
                                 HStack {
                                     Text("Premium Entitlement:")
                                         .font(.caption)
-                                        .foregroundColor(.secondary)
+                                        .foregroundStyle(.secondary)
                                     Text(entitlement.isActive ? "Active" : "Inactive")
                                         .font(.caption)
-                                        .foregroundColor(entitlement.isActive ? .green : .red)
+                                        .foregroundStyle(entitlement.isActive ? .green : .red)
                                 }
                                 
                                 if let expirationDate = entitlement.expirationDate {
                                     Text("Expires: \(expirationDate.formatted())")
                                         .font(.caption2)
-                                        .foregroundColor(.secondary)
+                                        .foregroundStyle(.secondary)
                                 }
                             }
                         }
@@ -229,14 +229,14 @@ struct PackageRowView: View {
                         
                         if isPurchased {
                             Image(systemName: "checkmark.circle.fill")
-                                .foregroundColor(.green)
+                                .foregroundStyle(.green)
                                 .font(.caption)
                         }
                     }
                     
                     Text(package.storeProduct.localizedDescription)
                         .font(.subheadline)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                 }
                 
                 Spacer()
@@ -245,7 +245,7 @@ struct PackageRowView: View {
                     if isPurchased {
                         Text("Purchased")
                             .font(.caption)
-                            .foregroundColor(.green)
+                            .foregroundStyle(.green)
                             .padding(.horizontal, 8)
                             .padding(.vertical, 4)
                             .background(Color.green.opacity(0.1))
@@ -253,7 +253,7 @@ struct PackageRowView: View {
                     } else {
                         Text(package.storeProduct.localizedPriceString)
                             .font(.headline)
-                            .foregroundColor(.accentColor)
+                            .foregroundStyle(.accent)
                     }
                 }
             }
@@ -275,9 +275,9 @@ struct PackageRowView: View {
             } else {
                 HStack {
                     Image(systemName: "checkmark.circle.fill")
-                        .foregroundColor(.green)
+                        .foregroundStyle(.green)
                     Text("Already Purchased")
-                        .foregroundColor(.green)
+                        .foregroundStyle(.green)
                 }
                 .padding(.vertical, 8)
                 .frame(maxWidth: .infinity)

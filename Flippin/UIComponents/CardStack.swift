@@ -37,10 +37,10 @@ public struct CardStack<Data, Content>: View where Data: RandomAccessCollection 
                 VStack(spacing: 16) {
                     Image(systemName: "rectangle.stack")
                         .font(.largeTitle)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                     Text(Loc.ContentViews.noCardsAvailable)
                         .font(.headline)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .accessibilityLabel(Loc.ContentViews.noCardsAvailable)

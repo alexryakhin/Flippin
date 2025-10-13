@@ -95,10 +95,10 @@ extension DetailedAnalytics {
                     VStack(spacing: 12) {
                         Image(systemName: "chart.bar.xaxis")
                             .font(.title2)
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
                         Text(Loc.DetailedAnalytics.noDifficultyDataAvailable)
                             .font(.caption)
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
                     }
                     .frame(height: 100)
                 } else {
@@ -127,12 +127,12 @@ extension DetailedAnalytics {
                     VStack(alignment: .leading, spacing: 4) {
                         Text(Loc.DetailedAnalytics.cardsPerHour)
                             .font(.subheadline)
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
 
                         Text(String(format: "%.1f", learningSpeed.cardsPerHour))
                             .font(.title)
                             .fontWeight(.bold)
-                            .foregroundColor(colorManager.tintColor)
+                            .foregroundStyle(colorManager.tintColor)
                     }
 
                     Spacer()
@@ -140,12 +140,12 @@ extension DetailedAnalytics {
                     VStack(alignment: .trailing, spacing: 4) {
                         Text(Loc.DetailedAnalytics.vsAverage)
                             .font(.caption)
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
 
                         Text(String(format: "%+.1f", learningSpeed.vsAverage))
                             .font(.title2)
                             .fontWeight(.semibold)
-                            .foregroundColor(learningSpeed.vsAverage >= 0 ? .green : .red)
+                            .foregroundStyle(learningSpeed.vsAverage >= 0 ? .green : .red)
                     }
                 }
             }
@@ -163,7 +163,7 @@ extension DetailedAnalytics {
                 VStack(alignment: .leading, spacing: 4) {
                     Text(title)
                         .font(.subheadline)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
 
                     Text(value)
                         .font(.subheadline)
@@ -175,7 +175,7 @@ extension DetailedAnalytics {
                 Text(trend)
                     .font(.caption)
                     .fontWeight(.medium)
-                    .foregroundColor(isPositive ? .green : .red)
+                    .foregroundStyle(isPositive ? .green : .red)
             }
         }
     }
@@ -203,7 +203,7 @@ extension DetailedAnalytics {
 
                 Text(percentage.asPercentage)
                     .font(.caption)
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
             }
         }
     }

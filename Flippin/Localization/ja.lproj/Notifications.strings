@@ -1,0 +1,19 @@
+/*
+  notifications.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ja
+  Section: notifications
+*/
+
+"notifications" = "通知";
+"studyReminders" = "学習リマインダー";
+"studyRemindersDescription" = "選択した時刻に毎日学習のリマインダーを受け取る";
+"difficultCardReminders" = "難しいカードのリマインダー";
+"difficultCardRemindersDescription" = "選択した時刻に毎日難しいカードのリマインダーを受け取る";
+"studyReminderTitle" = "学習の時間です！";
+"studyReminderBody" = "学習の連続記録を続けましょう。Flippinを開いてフラッシュカードを練習しましょう。";
+"difficultCardReminderTitle" = "難しいカードを練習";
+"difficultCardReminderBody" = "注意が必要な難しいカードがあります。復習する時間です！";
+"time" = "時刻";

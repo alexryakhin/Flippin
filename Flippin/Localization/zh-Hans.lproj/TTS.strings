@@ -17,6 +17,12 @@
 "usage.monthly_limit_exceeded_message" = "您已达到Speechify TTS的50,000字符月度限制。请在下个月重试，或使用Google TTS。";
 "usage.remaining_characters" = "剩余字符";
 "usage.monthly_usage" = "月度使用量";
+"usage.percent_used" = "% 已使用";
+"usage.listening_time" = "收听时间";
+"usage.preview_cache_size" = "预览缓存大小";
+"usage.voice_selection" = "语音选择";
+"usage.language" = "语言";
+"usage.gender" = "性别";
 "usage.monthly_limit" = "月度限制";
 
 // TTS Voice Filter Values
@@ -111,6 +117,11 @@
 "analytics.total_duration" = "总时长";
 "analytics.favorite_language" = "最喜欢的语言";
 "analytics.premium_usage" = "优质使用";
+"analytics.listening_time_trend" = "收听时间趋势";
+"analytics.no_data" = "无数据";
+"analytics.no_data_description" = "开始使用 Speechify TTS 以查看您的收听统计";
+"analytics.total_listening" = "总收听";
+"analytics.average_per_month" = "平均/月";
 
 // TTS Settings
 "settings.text_to_speech" = "文本转语音";

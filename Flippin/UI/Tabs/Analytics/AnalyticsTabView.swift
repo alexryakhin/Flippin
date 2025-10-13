@@ -136,7 +136,7 @@ enum AnalyticsTab {
                             NavigationManager.shared.navigate(to: .detailedAnalytics)
                         }
                         .font(.subheadline)
-                        .foregroundColor(colorManager.tintColor)
+                        .foregroundStyle(colorManager.tintColor)
                     }
                 }
 
@@ -151,7 +151,7 @@ enum AnalyticsTab {
                         Text(Loc.Analytics.studySessionsWillAppearHere)
                             .foregroundStyle(.secondary)
                     }
-                    .foregroundColor(colorManager.foregroundColor)
+                    .foregroundStyle(colorManager.foregroundColor)
                 } else {
                     VStack(spacing: 12) {
                         ActivityPreviewRow(
@@ -193,7 +193,7 @@ enum AnalyticsTab {
             HStack(spacing: 12) {
                 Image(systemName: icon)
                     .font(.title2)
-                    .foregroundColor(color)
+                    .foregroundStyle(color)
                     .frame(width: 24)
 
                 VStack(alignment: .leading, spacing: 4) {
@@ -203,7 +203,7 @@ enum AnalyticsTab {
 
                     Text(description)
                         .font(.caption)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                 }
             }
             .padding(.vertical, 4)
@@ -219,7 +219,7 @@ enum AnalyticsTab {
         var body: some View {
             HStack(spacing: 12) {
                 Image(systemName: icon)
-                    .foregroundColor(color)
+                    .foregroundStyle(color)
                     .font(.title3)
 
                 Text(title)

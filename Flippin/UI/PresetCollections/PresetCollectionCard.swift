@@ -18,13 +18,13 @@ struct PresetCollectionCard: View {
             HStack {
                 Image(systemName: collection.systemImageName)
                     .font(.title2)
-                    .foregroundColor(colorManager.tintColor)
+                    .foregroundStyle(colorManager.tintColor)
 
                 Spacer()
 
                 Text("\(collection.cardCount)")
                     .font(.caption)
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
                     .padding(.horizontal, 8)
                     .padding(.vertical, 4)
                     .background(Color(.tertiarySystemGroupedBackground))
@@ -34,12 +34,12 @@ struct PresetCollectionCard: View {
             VStack(alignment: .leading, spacing: 4) {
                 Text(collection.name)
                     .font(.headline)
-                    .foregroundColor(.primary)
+                    .foregroundStyle(.primary)
                     .multilineTextAlignment(.leading)
 
                 Text(collection.description)
                     .font(.caption)
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
                     .multilineTextAlignment(.leading)
                     .lineLimit(3)
             }
@@ -49,11 +49,11 @@ struct PresetCollectionCard: View {
                 ForEach(Array(collection.cards.prefix(3).enumerated()), id: \.offset) { index, card in
                     HStack {
                         Text("•")
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
                             .font(.caption)
                         Text(card.backText)
                             .font(.caption)
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
                             .lineLimit(1)
                         Spacer()
                     }
@@ -62,7 +62,7 @@ struct PresetCollectionCard: View {
                 if collection.cards.count > 3 {
                     Text("+ \(collection.cards.count - 3) more")
                         .font(.caption2)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                         .italic()
                 }
             }

@@ -77,7 +77,7 @@ extension WelcomeSheet {
                 }
                 .padding(vertical: 12, horizontal: 16)
             }
-            .safeAreaInset(edge: .bottom, spacing: .zero) {
+            .safeAreaBarIfAvailable {
                 NavigationLink(
                     destination: WeeklyGoalStepView(onContinue: onContinue),
                     label: {

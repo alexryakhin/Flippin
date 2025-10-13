@@ -43,7 +43,7 @@ extension StudyMode {
                     VStack(alignment: .center, spacing: 16) {
                         Text(Loc.Study.chooseCorrectWord)
                             .font(.subheadline)
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
 
                         HFlow {
                             ForEach(answerOptions, id: \.self) { option in
@@ -152,7 +152,7 @@ extension StudyMode {
                 Text(title)
                     .font(.body)
                     .fontWeight(.medium)
-                    .foregroundColor(foregroundColor)
+                    .foregroundStyle(foregroundColor)
                     .padding(.horizontal, 16)
                     .padding(.vertical, 8)
                     .background(

@@ -13,12 +13,12 @@ struct SpeechifyListeningChart: View {
     @StateObject private var colorManager = ColorManager.shared
     
     var body: some View {
-        CustomSectionView(header: "Listening Time Trend", backgroundStyle: .standard) {
+        CustomSectionView(header: Loc.Tts.Analytics.listeningTimeTrend, backgroundStyle: .standard) {
             if usageHistory.isEmpty {
                 ContentUnavailableView(
-                    "No Data",
+                    Loc.Tts.Analytics.noData,
                     systemImage: "chart.line.uptrend.xyaxis",
-                    description: Text("Start using Speechify TTS to see your listening statistics")
+                    description: Text(Loc.Tts.Analytics.noDataDescription)
                 )
             } else {
                 Chart(usageHistory, id: \.monthYear) { usage in
@@ -78,7 +78,7 @@ struct SpeechifyListeningChart: View {
                 // Summary Stats
                 HStack {
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("Total Listening")
+                        Text(Loc.Tts.Analytics.totalListening)
                             .font(.caption)
                             .foregroundStyle(.secondary)
                         Text(formatTotalListeningTime())
@@ -89,7 +89,7 @@ struct SpeechifyListeningChart: View {
                     Spacer()
 
                     VStack(alignment: .trailing, spacing: 4) {
-                        Text("Average/Month")
+                        Text(Loc.Tts.Analytics.averagePerMonth)
                             .font(.caption)
                             .foregroundStyle(.secondary)
                         Text(formatAverageListeningTime())
@@ -105,23 +105,33 @@ struct SpeechifyListeningChart: View {
     
     private func formatMonthYear(_ monthYear: String) -> String {
         let components = monthYear.split(separator: "-")
-        if components.count == 2 {
-            let month = String(components[0])
-            let year = String(components[1])
-            return "\(month.prefix(3)) '\(year.suffix(2))"
+        guard components.count == 2,
+              let monthInt = Int(components[0]),
+              let yearInt = Int(components[1]) else {
+            return monthYear
         }
-        return monthYear
+        
+        var dateComponents = DateComponents()
+        dateComponents.year = 2000 + yearInt
+        dateComponents.month = monthInt
+        
+        guard let date = Calendar.current.date(from: dateComponents) else {
+            return monthYear
+        }
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM ''yy"
+        return formatter.string(from: date)
     }
     
     private func formatMinutes(_ minutes: Double) -> String {
-        if minutes < 1 {
-            return "\(Int(minutes * 60))s"
-        } else if minutes < 60 {
-            return "\(Int(minutes))m"
-        } else {
-            let hours = Int(minutes / 60)
-            return "\(hours)h"
-        }
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = minutes < 60 ? [.minute, .second] : [.hour, .minute]
+        formatter.unitsStyle = .abbreviated
+        formatter.zeroFormattingBehavior = .dropAll
+        
+        let timeInterval = TimeInterval(minutes * 60)
+        return formatter.string(from: timeInterval) ?? "0"
     }
     
     private func formatTotalListeningTime() -> String {
@@ -130,7 +140,12 @@ struct SpeechifyListeningChart: View {
     }
     
     private func formatAverageListeningTime() -> String {
-        guard !usageHistory.isEmpty else { return "0m" }
+        guard !usageHistory.isEmpty else {
+            let formatter = DateComponentsFormatter()
+            formatter.allowedUnits = [.minute]
+            formatter.unitsStyle = .abbreviated
+            return formatter.string(from: 0) ?? "0"
+        }
         let totalMinutes = usageHistory.reduce(0) { $0 + $1.listeningTimeMinutes }
         let average = totalMinutes / Double(usageHistory.count)
         return formatMinutes(average)

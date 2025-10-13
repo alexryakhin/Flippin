@@ -17,6 +17,12 @@
 "usage.monthly_limit_exceeded_message" = "आप Speechify TTS के लिए 50,000 अक्षरों की मासिक सीमा तक पहुँच चुके हैं। कृपया अगले महीने फिर से प्रयास करें या इसके बजाय Google TTS का उपयोग करें।";
 "usage.remaining_characters" = "शेष अक्षर";
 "usage.monthly_usage" = "मासिक उपयोग";
+"usage.percent_used" = "% उपयोग किया गया";
+"usage.listening_time" = "सुनने का समय";
+"usage.preview_cache_size" = "पूर्वावलोकन कैश आकार";
+"usage.voice_selection" = "आवाज़ चयन";
+"usage.language" = "भाषा";
+"usage.gender" = "लिंग";
 "usage.monthly_limit" = "मासिक सीमा";
 
 // TTS Voice Filter Values
@@ -111,6 +117,11 @@
 "analytics.total_duration" = "कुल अवधि";
 "analytics.favorite_language" = "पसंदीदा भाषा";
 "analytics.premium_usage" = "प्रीमियम उपयोग";
+"analytics.listening_time_trend" = "सुनने के समय का रुझान";
+"analytics.no_data" = "कोई डेटा नहीं";
+"analytics.no_data_description" = "अपने सुनने के आंकड़े देखने के लिए Speechify TTS का उपयोग शुरू करें";
+"analytics.total_listening" = "कुल सुनना";
+"analytics.average_per_month" = "औसत/महीना";
 
 // TTS Settings
 "settings.text_to_speech" = "टेक्स्ट-टू-स्पीच";

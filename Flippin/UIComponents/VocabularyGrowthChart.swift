@@ -17,10 +17,10 @@ struct VocabularyGrowthChart: View {
             VStack(spacing: 12) {
                 Image(systemName: "chart.line.uptrend.xyaxis")
                     .font(.title2)
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
                 Text(Loc.SubscriptionManagement.noGrowthDataAvailable)
                     .font(.caption)
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
             }
             .frame(height: 100)
         } else {

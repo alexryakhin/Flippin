@@ -1,0 +1,19 @@
+/*
+  notifications.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ar
+  Section: notifications
+*/
+
+"notifications" = "الإشعارات";
+"studyReminders" = "تذكيرات الدراسة";
+"studyRemindersDescription" = "احصل على تذكير للدراسة في الوقت المحدد يوميًا";
+"difficultCardReminders" = "تذكيرات البطاقات الصعبة";
+"difficultCardRemindersDescription" = "احصل على تذكير حول البطاقات الصعبة في الوقت المحدد يوميًا";
+"studyReminderTitle" = "حان وقت الدراسة!";
+"studyReminderBody" = "حافظ على سلسلة التعلم الخاصة بك. افتح Flippin لممارسة بطاقاتك التعليمية.";
+"difficultCardReminderTitle" = "تمرن على البطاقات الصعبة";
+"difficultCardReminderBody" = "لديك بعض البطاقات الصعبة التي تحتاج إلى اهتمام. حان وقت مراجعتها!";
+"time" = "الوقت";

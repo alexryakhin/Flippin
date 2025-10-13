@@ -1,0 +1,19 @@
+/*
+  notifications.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: hr
+  Section: notifications
+*/
+
+"notifications" = "Obavijesti";
+"studyReminders" = "Podsjetnici za učenje";
+"studyRemindersDescription" = "Primajte dnevne podsjetnike za učenje u odabrano vrijeme";
+"difficultCardReminders" = "Podsjetnici za teške kartice";
+"difficultCardRemindersDescription" = "Primajte dnevne podsjetnike o teškim karticama u odabrano vrijeme";
+"studyReminderTitle" = "Vrijeme za učenje!";
+"studyReminderBody" = "Nastavite svoju seriju učenja. Otvorite Flippin za vježbanje vaših kartica.";
+"difficultCardReminderTitle" = "Vježbajte teške kartice";
+"difficultCardReminderBody" = "Imate neke izazovne kartice koje zahtijevaju pažnju. Vrijeme je da ih ponovite!";
+"time" = "Vrijeme";

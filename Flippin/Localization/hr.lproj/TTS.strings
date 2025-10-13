@@ -17,6 +17,12 @@
 "usage.monthly_limit_exceeded_message" = "Dosegli ste mjesečno ograničenje od 50.000 znakova za Speechify TTS. Pokušajte ponovno sljedeći mjesec ili koristite Google TTS.";
 "usage.remaining_characters" = "Preostali znakovi";
 "usage.monthly_usage" = "Mjesečna upotreba";
+"usage.percent_used" = "% iskorišteno";
+"usage.listening_time" = "Vrijeme slušanja";
+"usage.preview_cache_size" = "Veličina predmemorije za pregled";
+"usage.voice_selection" = "Odabir glasa";
+"usage.language" = "Jezik";
+"usage.gender" = "Spol";
 "usage.monthly_limit" = "Mjesečna granica";
 
 // TTS Voice Filter Values
@@ -111,6 +117,11 @@
 "analytics.total_duration" = "Ukupno trajanje";
 "analytics.favorite_language" = "Omiljeni jezik";
 "analytics.premium_usage" = "Vrhunska upotreba";
+"analytics.listening_time_trend" = "Trend vremena slušanja";
+"analytics.no_data" = "Nema podataka";
+"analytics.no_data_description" = "Počnite koristiti Speechify TTS kako biste vidjeli svoje statistike slušanja";
+"analytics.total_listening" = "Ukupno slušanje";
+"analytics.average_per_month" = "Prosjek/mjesec";
 
 // TTS Settings
 "settings.text_to_speech" = "Pretvaranje teksta u govor";

@@ -235,11 +235,11 @@ struct VoicePickerView: View {
                 // Selection indicator
                 if isSelected {
                     Image(systemName: "checkmark.circle.fill")
-                        .foregroundColor(.blue)
+                        .foregroundStyle(.blue)
                         .font(.title2)
                 } else {
                     Image(systemName: "circle")
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                         .font(.title2)
                 }
 
@@ -259,14 +259,14 @@ struct VoicePickerView: View {
                                 .padding(.horizontal, 6)
                                 .padding(.vertical, 2)
                                 .background(genderColor(for: gender).opacity(0.2))
-                                .foregroundColor(genderColor(for: gender))
+                                .foregroundStyle(genderColor(for: gender))
                                 .cornerRadius(4)
                         }
                     }
 
                     Text(voice.languageDisplayName)
                         .font(.subheadline)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
 
                     // Tags
                     if !voice.tags.isEmpty {
@@ -278,7 +278,7 @@ struct VoicePickerView: View {
                                         .padding(.horizontal, 4)
                                         .padding(.vertical, 2)
                                         .background(Color.secondary.opacity(0.1))
-                                        .foregroundColor(.secondary)
+                                        .foregroundStyle(.secondary)
                                         .cornerRadius(4)
                                 }
                             }
@@ -290,7 +290,7 @@ struct VoicePickerView: View {
                 Button(action: onPreview) {
                     Image(systemName: voice.bestPreviewAudioURL != nil ? "play.circle.fill" : "play.circle.slash")
                         .font(.title2)
-                        .foregroundColor(voice.bestPreviewAudioURL != nil ? .blue : .secondary)
+                        .foregroundStyle(voice.bestPreviewAudioURL != nil ? .blue : .secondary)
                 }
                 .disabled(voice.bestPreviewAudioURL == nil)
             }

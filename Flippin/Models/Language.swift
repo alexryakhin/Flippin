@@ -103,6 +103,28 @@ enum Language: String, Codable, CaseIterable, Identifiable {
         }
     }
     
+    var chatGPTLanguageName: String {
+        switch self {
+        case .english: return "English"
+        case .spanish: return "Spanish"
+        case .french: return "French"
+        case .german: return "German"
+        case .italian: return "Italian"
+        case .portuguese: return "Portuguese"
+        case .dutch: return "Dutch"
+        case .swedish: return "Swedish"
+        case .chinese: return "Chinese (Simplified)"
+        case .japanese: return "Japanese"
+        case .korean: return "Korean"
+        case .vietnamese: return "Vietnamese"
+        case .russian: return "Russian"
+        case .arabic: return "Arabic"
+        case .hindi: return "Hindi"
+        case .croatian: return "Croatian"
+        case .ukranian: return "Ukrainian"
+        }
+    }
+    
     // MARK: - Static Methods
     
     static func fromSystemLocale() -> Language {

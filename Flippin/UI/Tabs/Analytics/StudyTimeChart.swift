@@ -18,11 +18,11 @@ struct StudyTimeChart: View {
             VStack(spacing: 12) {
                 Image(systemName: "chart.bar.xaxis")
                     .font(.title2)
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
 
                 Text(Loc.Analytics.noStudyDataAvailable)
                     .font(.headline)
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         } else {

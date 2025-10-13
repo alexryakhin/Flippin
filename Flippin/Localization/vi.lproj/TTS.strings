@@ -17,6 +17,12 @@
 "usage.monthly_limit_exceeded_message" = "Bạn đã đạt đến giới hạn hàng tháng 50.000 ký tự cho Speechify TTS. Vui lòng thử lại vào tháng tới hoặc sử dụng Google TTS.";
 "usage.remaining_characters" = "Số ký tự còn lại";
 "usage.monthly_usage" = "Sử dụng hàng tháng";
+"usage.percent_used" = "% đã sử dụng";
+"usage.listening_time" = "Thời gian nghe";
+"usage.preview_cache_size" = "Kích thước bộ nhớ đệm xem trước";
+"usage.voice_selection" = "Lựa chọn giọng nói";
+"usage.language" = "Ngôn ngữ";
+"usage.gender" = "Giới tính";
 "usage.monthly_limit" = "Giới hạn hàng tháng";
 
 // TTS Voice Filter Values
@@ -111,6 +117,11 @@
 "analytics.total_duration" = "Tổng thời lượng";
 "analytics.favorite_language" = "Ngôn ngữ yêu thích";
 "analytics.premium_usage" = "Sử dụng cao cấp";
+"analytics.listening_time_trend" = "Xu hướng thời gian nghe";
+"analytics.no_data" = "Không có dữ liệu";
+"analytics.no_data_description" = "Bắt đầu sử dụng Speechify TTS để xem thống kê nghe của bạn";
+"analytics.total_listening" = "Tổng thời gian nghe";
+"analytics.average_per_month" = "Trung bình/tháng";
 
 // TTS Settings
 "settings.text_to_speech" = "Chuyển đổi văn bản thành giọng nói";

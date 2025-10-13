@@ -17,6 +17,12 @@
 "usage.monthly_limit_exceeded_message" = "Du har nått månadsgränsen på 50 000 tecken för Speechify TTS. Försök igen nästa månad eller använd Google TTS istället.";
 "usage.remaining_characters" = "Återstående tecken";
 "usage.monthly_usage" = "Månadsanvändning";
+"usage.percent_used" = "% använt";
+"usage.listening_time" = "Lyssningstid";
+"usage.preview_cache_size" = "Storlek på förhandsgranskningscache";
+"usage.voice_selection" = "Röstval";
+"usage.language" = "Språk";
+"usage.gender" = "Kön";
 "usage.monthly_limit" = "Månadsgräns";
 
 // TTS Voice Filter Values
@@ -111,6 +117,11 @@
 "analytics.total_duration" = "Total varaktighet";
 "analytics.favorite_language" = "Favoritspråk";
 "analytics.premium_usage" = "Premiumanvändning";
+"analytics.listening_time_trend" = "Lyssningstidstrend";
+"analytics.no_data" = "Ingen data";
+"analytics.no_data_description" = "Börja använda Speechify TTS för att se din lyssningsstatistik";
+"analytics.total_listening" = "Total lyssning";
+"analytics.average_per_month" = "Genomsnitt/månad";
 
 // TTS Settings
 "settings.text_to_speech" = "Text-till-tal";

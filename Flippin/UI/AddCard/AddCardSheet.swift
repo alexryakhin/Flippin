@@ -49,7 +49,7 @@ struct AddCardSheet: View {
             }
             .padding(16)
         }
-        .safeAreaInset(edge: .bottom, spacing: .zero) {
+        .safeAreaBarIfAvailable {
             saveButton
         }
         .groupedBackground()
@@ -94,7 +94,6 @@ struct AddCardSheet: View {
         .padding(.bottom)
         .disabled(viewModel.nativeText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ||
                  viewModel.targetText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
-        .gradientStyle(.bottomButtonOnList)
     }
 
     private var languageSelectionSection: some View {
@@ -212,7 +211,7 @@ struct AddCardSheet: View {
                             
                             Text(Loc.CardImages.tapToChange)
                                 .font(.caption)
-                                .foregroundColor(.secondary)
+                                .foregroundStyle(.secondary)
                         }
                         
                         Spacer()
@@ -233,7 +232,7 @@ struct AddCardSheet: View {
                     viewModel.clearSelectedImage()
                 }
                 .font(.caption)
-                .foregroundColor(.red)
+                .foregroundStyle(.red)
             }
         }
     }

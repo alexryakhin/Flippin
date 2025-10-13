@@ -47,12 +47,12 @@ struct TTSDashboardView: View {
 
     // MARK: - Usage Section
     private var usageSection: some View {
-        CustomSectionView(header: "Monthly Usage", backgroundStyle: .standard) {
+        CustomSectionView(header: Loc.Tts.Usage.monthlyUsage, backgroundStyle: .standard) {
             VStack(alignment: .leading, spacing: 16) {
                 // Usage Progress
                 VStack(alignment: .leading, spacing: 8) {
                     HStack {
-                        Text("Characters Used")
+                        Text(Loc.Tts.Analytics.charactersUsed)
                             .font(.subheadline)
                             .foregroundStyle(.primary)
 
@@ -66,7 +66,7 @@ struct TTSDashboardView: View {
                     ProgressView(value: speechifyService.usagePercentage, total: 100)
                         .progressViewStyle(LinearProgressViewStyle(tint: colorManager.tintColor))
 
-                    Text("\(Int(speechifyService.usagePercentage))% used")
+                    Text("\(Int(speechifyService.usagePercentage))\(Loc.Tts.Usage.percentUsed)")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
@@ -74,7 +74,7 @@ struct TTSDashboardView: View {
                 // Usage Stats
                 HStack {
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("Remaining")
+                        Text(Loc.Tts.remaining)
                             .font(.caption)
                             .foregroundStyle(.secondary)
                         Text("\(speechifyService.remainingCharacters)")
@@ -85,7 +85,7 @@ struct TTSDashboardView: View {
                     Spacer()
 
                     VStack(alignment: .trailing, spacing: 4) {
-                        Text("Listening Time")
+                        Text(Loc.Tts.Usage.listeningTime)
                             .font(.caption)
                             .foregroundStyle(.secondary)
                         Text(formatListeningTime(speechifyService.listeningTimeMinutes))
@@ -96,7 +96,7 @@ struct TTSDashboardView: View {
                 
                 // Cache information
                 VStack(alignment: .leading, spacing: 4) {
-                    Text("Preview Cache Size: \(formatBytes(SpeechifyTTSPreviewPlayer.shared.getCacheSize()))")
+                    Text("\(Loc.Tts.Usage.previewCacheSize): \(formatBytes(SpeechifyTTSPreviewPlayer.shared.getCacheSize()))")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
@@ -106,13 +106,13 @@ struct TTSDashboardView: View {
 
     // MARK: - Voice Selection Section
     private var voiceSelectionSection: some View {
-        CustomSectionView(header: "Voice Selection", backgroundStyle: .standard) {
+        CustomSectionView(header: Loc.Tts.Usage.voiceSelection, backgroundStyle: .standard) {
             VStack(alignment: .leading, spacing: 12) {
                 // Selected Voice Display
                 if let selectedVoice = speechifyService.selectedVoice {
                     VStack(alignment: .leading, spacing: 8) {
                         HStack {
-                            Text("Current Voice")
+                            Text(Loc.Tts.currentVoice)
                                 .font(.subheadline)
                                 .foregroundStyle(.primary)
 
@@ -124,7 +124,7 @@ struct TTSDashboardView: View {
                         }
 
                         HStack {
-                            Text("Language")
+                            Text(Loc.Tts.Usage.language)
                                 .font(.subheadline)
                                 .foregroundStyle(.primary)
 
@@ -137,7 +137,7 @@ struct TTSDashboardView: View {
 
                         if let gender = selectedVoice.gender {
                             HStack {
-                                Text("Gender")
+                                Text(Loc.Tts.Usage.gender)
                                     .font(.subheadline)
                                     .foregroundStyle(.primary)
 
@@ -151,7 +151,7 @@ struct TTSDashboardView: View {
                     }
                 }
 
-                HeaderButton("Change Voice", icon: "speaker.wave.3") {
+                HeaderButton(Loc.Tts.changeVoice, icon: "speaker.wave.3") {
                     showingVoicePicker = true
                 }
             }
@@ -174,15 +174,13 @@ struct TTSDashboardView: View {
     }
 
     private func formatListeningTime(_ minutes: Double) -> String {
-        if minutes < 1 {
-            return "\(Int(minutes * 60))s"
-        } else if minutes < 60 {
-            return "\(Int(minutes))m"
-        } else {
-            let hours = Int(minutes / 60)
-            let remainingMinutes = Int(minutes.truncatingRemainder(dividingBy: 60))
-            return "\(hours)h \(remainingMinutes)m"
-        }
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = minutes < 60 ? [.minute, .second] : [.hour, .minute]
+        formatter.unitsStyle = .abbreviated
+        formatter.zeroFormattingBehavior = .pad
+        
+        let timeInterval = TimeInterval(minutes * 60)
+        return formatter.string(from: timeInterval) ?? "\(Int(minutes))m"
     }
     
     private func formatBytes(_ bytes: Int64) -> String {

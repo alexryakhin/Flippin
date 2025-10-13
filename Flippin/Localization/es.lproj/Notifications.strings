@@ -9,10 +9,11 @@
 
 "notifications" = "Notificaciones";
 "studyReminders" = "Recordatorios de Estudio";
-"studyRemindersDescription" = "Recibe recordatorios para estudiar a las 8:30 PM del día siguiente";
+"studyRemindersDescription" = "Recibe recordatorios para estudiar a la hora seleccionada diariamente";
 "difficultCardReminders" = "Recordatorios de Tarjetas Difíciles";
-"difficultCardRemindersDescription" = "Recibe recordatorios sobre tarjetas difíciles a las 4:30 PM diariamente";
+"difficultCardRemindersDescription" = "Recibe recordatorios sobre tarjetas difíciles a la hora seleccionada diariamente";
 "studyReminderTitle" = "¡Hora de Estudiar!";
 "studyReminderBody" = "Mantén tu racha de aprendizaje. Abre Flippin para practicar tus tarjetas.";
-"difficultCardReminderTitle" = "Practica Tarjetas Difíciles";
-"difficultCardReminderBody" = "Tienes algunas tarjetas desafiantes que necesitan atención. ¡Hora de repasarlas!";
+"difficultCardReminderTitle" = "Practicar Tarjetas Difíciles";
+"difficultCardReminderBody" = "Tienes algunas tarjetas desafiantes que necesitan atención. ¡Es hora de repasarlas!";
+"time" = "Hora";

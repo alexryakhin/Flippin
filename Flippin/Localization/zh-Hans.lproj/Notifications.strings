@@ -1,0 +1,19 @@
+/*
+  notifications.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: zh-Hans
+  Section: notifications
+*/
+
+"notifications" = "通知";
+"studyReminders" = "学习提醒";
+"studyRemindersDescription" = "在选定的时间每天收到学习提醒";
+"difficultCardReminders" = "困难卡片提醒";
+"difficultCardRemindersDescription" = "在选定的时间每天收到困难卡片的提醒";
+"studyReminderTitle" = "学习时间到了！";
+"studyReminderBody" = "保持你的学习连胜。打开 Flippin 练习你的闪卡。";
+"difficultCardReminderTitle" = "练习困难卡片";
+"difficultCardReminderBody" = "你有一些需要注意的挑战性卡片。是时候复习它们了！";
+"time" = "时间";

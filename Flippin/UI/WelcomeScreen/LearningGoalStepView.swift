@@ -84,7 +84,7 @@ extension WelcomeSheet {
                     animateContent = true
                 }
             }
-            .safeAreaInset(edge: .bottom, spacing: .zero) {
+            .safeAreaBarIfAvailable {
                 NavigationLink(
                     destination: ModeSelectionStepView(onContinue: onContinue),
                     label: {

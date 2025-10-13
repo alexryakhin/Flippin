@@ -47,7 +47,7 @@ struct NavigationTitleModifier<TrailingContent: View, BottomContent: View>: View
     func body(content: Content) -> some View {
         content
             .toolbar(.hidden)
-            .safeAreaInset(edge: .top, spacing: .zero) {
+            .safeAreaBarIfAvailable(edge: .top) {
                 VStack(spacing: mode.spacing) {
                     HStack(spacing: mode.spacing) {
                         if showsBackButton {
@@ -71,7 +71,7 @@ struct NavigationTitleModifier<TrailingContent: View, BottomContent: View>: View
                 }
                 .padding(vertical: 12, horizontal: 16)
                 .glassBackgroundEffectIfAvailable(
-                    .tint(Color(.systemBackground).opacity(0.5)),
+                    .regular,
                     in: RoundedRectangle(cornerRadius: 32)
                 )
                 .clipShape(RoundedRectangle(cornerRadius: 32))

@@ -14,19 +14,14 @@ struct AICoachCardView: View {
     @StateObject private var purchaseService = PurchaseService.shared
     @StateObject private var colorManager = ColorManager.shared
     @StateObject private var navigationManager = NavigationManager.shared
-    
-    @State private var coachInsight: CoachInsight?
+    @StateObject private var aiCoachService = AICoachService.shared
+
     @State private var isExpanded = false
     @State private var showingError = false
     @State private var errorMessage = ""
-    @State private var showingPaywall = false
-    @State private var lastGeneratedDate: Date?
-    
-    var canRefresh: Bool {
-        guard let lastDate = lastGeneratedDate else { return true }
-        return Date().timeIntervalSince(lastDate) > 3600 // 1 hour cooldown
-    }
-    
+    @State private var premiumFeature: PremiumFeature?
+
+    @ViewBuilder
     var body: some View {
         if purchaseService.hasPremiumAccess {
             premiumView
@@ -36,7 +31,8 @@ struct AICoachCardView: View {
     }
     
     // MARK: - Premium User View
-    
+
+    @ViewBuilder
     private var premiumView: some View {
         CustomSectionView(
             header: Loc.AIFeatures.learningCoach,
@@ -45,19 +41,19 @@ struct AICoachCardView: View {
             VStack(alignment: .leading, spacing: 16) {
                 DotLottieAnimation(fileName: "book_loading", config: .init())
                     .view()
-                if let insight = coachInsight {
+                if let insight = aiCoachService.lastInsight {
                     // Summary
                     Text(insight.title)
                         .font(.headline)
-                        .foregroundColor(.primary)
+                        .foregroundStyle(.primary)
                     
                     Text(insight.summary)
                         .font(.subheadline)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                     
                     // View details button
                     Button {
-                        navigationManager.navigate(to: .aiCoachDetail(insight))
+                        navigationManager.navigate(to: .aiCoachDetail)
                         AnalyticsService.trackEvent(.aiCoachInsightViewed)
                         HapticService.shared.buttonTapped()
                     } label: {
@@ -68,7 +64,7 @@ struct AICoachCardView: View {
                             Spacer()
                             Image(systemName: "arrow.right.circle.fill")
                         }
-                        .foregroundColor(.accentColor)
+                        .foregroundStyle(colorManager.tintColor)
                         .padding(12)
                         .background(Color.accentColor.opacity(0.1))
                         .cornerRadius(10)
@@ -79,7 +75,7 @@ struct AICoachCardView: View {
                         ProgressView()
                         Text(Loc.AIFeatures.analyzingProgress)
                             .font(.subheadline)
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
                     }
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 20)
@@ -87,11 +83,11 @@ struct AICoachCardView: View {
                     VStack(spacing: 12) {
                         Image(systemName: "brain.head.profile")
                             .font(.largeTitle)
-                            .foregroundColor(.purple)
+                            .foregroundStyle(.purple)
                         
                         Text(Loc.AIFeatures.aiCoachEmptyState)
                             .font(.subheadline)
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
                             .multilineTextAlignment(.center)
                         
                         ActionButton(
@@ -100,14 +96,14 @@ struct AICoachCardView: View {
                         ) {
                             generateInsights()
                         }
-                        .disabled(!canRefresh)
+                        .disabled(!aiCoachService.canManuallyRefresh && !aiCoachService.shouldRefreshInsights)
                     }
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 12)
                 }
                 
                 // Refresh button
-                if coachInsight != nil && canRefresh {
+                if aiCoachService.lastInsight != nil && aiCoachService.canManuallyRefresh {
                     Button {
                         generateInsights()
                     } label: {
@@ -116,7 +112,7 @@ struct AICoachCardView: View {
                             Text(Loc.AIFeatures.refreshInsights)
                         }
                         .font(.caption)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                     }
                 }
             }
@@ -129,7 +125,8 @@ struct AICoachCardView: View {
     }
     
     // MARK: - Free User Locked View
-    
+
+    @ViewBuilder
     private var lockedView: some View {
         CustomSectionView(
             header: Loc.AIFeatures.aiCoachTitle,
@@ -139,16 +136,16 @@ struct AICoachCardView: View {
                 HStack(spacing: 12) {
                     Image(systemName: "lock.fill")
                         .font(.title2)
-                        .foregroundColor(.yellow)
+                        .foregroundStyle(.yellow)
                     
                     VStack(alignment: .leading, spacing: 4) {
                         Text(Loc.PremiumFeatures.premiumFeature)
                             .font(.headline)
-                            .foregroundColor(.primary)
+                            .foregroundStyle(.primary)
                         
                         Text(Loc.AIFeatures.aiCoachDescription)
                             .font(.caption)
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
                     }
                     
                     Spacer()
@@ -158,14 +155,12 @@ struct AICoachCardView: View {
                     Loc.Paywall.upgradeToPremiumTitle,
                     style: .borderedProminent
                 ) {
-                    showingPaywall = true
+                    premiumFeature = .aiLearningCoach
                     AnalyticsService.trackEvent(.aiFeaturePaywallShown)
                 }
             }
         }
-        .sheet(isPresented: $showingPaywall) {
-            Paywall.ContentView()
-        }
+        .premiumAlert(feature: $premiumFeature)
     }
     
     // MARK: - Actions
@@ -177,8 +172,7 @@ struct AICoachCardView: View {
                 let insight = try await chatGPTService.generateWeeklyCoachInsights(analyticsData: analyticsData)
                 
                 await MainActor.run {
-                    coachInsight = insight
-                    lastGeneratedDate = Date()
+                    aiCoachService.saveInsight(insight)
                     HapticService.shared.success()
                     AnalyticsService.trackEvent(.aiCoachInsightGenerated)
                 }

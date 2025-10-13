@@ -251,7 +251,7 @@ struct SettingsView: View {
                 // Study Reminders Time Picker
                 if notificationService.isStudyRemindersEnabled {
                     HStack(spacing: 2) {
-                        Text("Time")
+                        Text(Loc.Notifications.time)
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
                         
@@ -301,7 +301,7 @@ struct SettingsView: View {
                 // Difficult Card Reminders Time Picker
                 if notificationService.isDifficultCardRemindersEnabled {
                     HStack(spacing: 2) {
-                        Text("Time")
+                        Text(Loc.Notifications.time)
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
                         
@@ -346,29 +346,29 @@ struct SettingsView: View {
     // MARK: - TTS Dashboard Section
     private var ttsDashboardSection: some View {
         CustomSectionView(
-            header: "Text-to-Speech"
+            header: Loc.Tts.Settings.textToSpeech
         ) {
             VStack(alignment: .leading, spacing: 12) {
                 if purchaseService.hasPremiumAccess {
-                    Text("Configure Speechify TTS for premium voice quality")
+                    Text(Loc.Tts.Settings.speechifyProDescription)
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                         .frame(maxWidth: .infinity, alignment: .leading)
 
                     HeaderButton(
-                        "TTS Dashboard",
+                        Loc.Tts.Settings.dashboard,
                         icon: "speaker.wave.3"
                     ) {
                         navigationManager.navigate(to: .ttsDashboard)
                     }
                 } else {
-                    Text("Preview premium voices and configure TTS settings")
+                    Text(Loc.Tts.Settings.speechifyDescription)
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                         .frame(maxWidth: .infinity, alignment: .leading)
 
                     HeaderButton(
-                        "TTS Preview",
+                        Loc.Tts.Filters.selectVoice,
                         icon: "speaker.wave.3"
                     ) {
                         showingVoicePicker = true

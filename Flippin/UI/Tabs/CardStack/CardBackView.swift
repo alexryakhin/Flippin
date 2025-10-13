@@ -73,7 +73,7 @@ struct CardBackView: View {
                 Text("\(difficultyLevel)")
                     .font(.caption2)
                     .fontWeight(.bold)
-                    .foregroundColor(.white)
+                    .foregroundStyle(.white)
                     .frame(width: 16, height: 16)
                     .background(difficultyColor)
                     .clipShape(Circle())

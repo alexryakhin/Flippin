@@ -33,7 +33,7 @@ struct ImageOnboardingView: View {
 
                             Image(systemName: "photo.on.rectangle.angled")
                                 .font(.system(size: 40, weight: .bold))
-                                .foregroundColor(.white)
+                                .foregroundStyle(.white)
                                 .scaleEffect(animateContent ? 1 : 0.8)
                                 .opacity(animateContent ? 1 : 0)
                         }
@@ -48,7 +48,7 @@ struct ImageOnboardingView: View {
 
                                 Text(Loc.CardImages.ImageOnboarding.subtitle)
                                 .font(.body)
-                                .foregroundColor(.secondary)
+                                .foregroundStyle(.secondary)
                                 .multilineTextAlignment(.center)
                                 .offset(y: animateContent ? 0 : 20)
                                 .opacity(animateContent ? 1 : 0)
@@ -61,7 +61,7 @@ struct ImageOnboardingView: View {
                     VStack(spacing: 24) {
                         Text(Loc.CardImages.ImageOnboarding.previewTitle)
                             .font(.headline)
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
                             .offset(y: animateContent ? 0 : 20)
                             .opacity(animateContent ? 1 : 0)
                             .animation(.easeInOut(duration: 0.5).delay(0.6), value: animateContent)
@@ -70,7 +70,7 @@ struct ImageOnboardingView: View {
                             VStack(spacing: 16) {
                                 Text("\(languageManager.targetLanguage.displayName) → \(languageManager.userLanguage.displayName)")
                                     .font(.caption)
-                                    .foregroundColor(.secondary)
+                                    .foregroundStyle(.secondary)
                                     .textCase(.uppercase)
                                     .tracking(1)
 
@@ -117,9 +117,9 @@ struct ImageOnboardingView: View {
                 WelcomeSheet.AnimatedBackground()
                     .ignoresSafeArea()
             }
-            .safeAreaInset(edge: .bottom, spacing: .zero) {
-            ActionButton(
-                Loc.CardImages.ImageOnboarding.getStarted,
+            .safeAreaBarIfAvailable {
+                ActionButton(
+                    Loc.CardImages.ImageOnboarding.getStarted,
                     style: .borderedProminent
                 ) {
                     onContinue()
@@ -132,7 +132,7 @@ struct ImageOnboardingView: View {
                     Button(Loc.CardImages.ImageOnboarding.skip) {
                         onContinue()
                     }
-                    .foregroundColor(colorManager.tintColor)
+                    .foregroundStyle(colorManager.tintColor)
                 }
             }
         }
@@ -261,17 +261,17 @@ extension ImageOnboardingView {
 
                     Image(systemName: icon)
                         .font(.system(size: 20, weight: .medium))
-                        .foregroundColor(colorManager.tintColor)
+                        .foregroundStyle(colorManager.tintColor)
                 }
 
                 VStack(alignment: .leading, spacing: 4) {
                     Text(title)
                         .font(.headline)
-                        .foregroundColor(.primary)
+                        .foregroundStyle(.primary)
 
                     Text(description)
                         .font(.subheadline)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                         .lineLimit(nil)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)

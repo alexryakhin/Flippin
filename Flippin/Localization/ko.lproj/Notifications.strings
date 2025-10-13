@@ -1,0 +1,19 @@
+/*
+  notifications.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: ko
+  Section: notifications
+*/
+
+"notifications" = "알림";
+"studyReminders" = "학습 알림";
+"studyRemindersDescription" = "선택한 시간에 매일 학습 알림을 받습니다";
+"difficultCardReminders" = "어려운 카드 알림";
+"difficultCardRemindersDescription" = "선택한 시간에 매일 어려운 카드에 대한 알림을 받습니다";
+"studyReminderTitle" = "학습 시간입니다!";
+"studyReminderBody" = "학습 연속 기록을 유지하세요. Flippin을 열어 플래시카드를 연습하세요.";
+"difficultCardReminderTitle" = "어려운 카드 연습";
+"difficultCardReminderBody" = "주의가 필요한 어려운 카드가 있습니다. 복습할 시간입니다!";
+"time" = "시간";

@@ -17,6 +17,12 @@
 "usage.monthly_limit_exceeded_message" = "Вы достигли месячного лимита в 50 000 символов для Speechify TTS. Попробуйте снова в следующем месяце или используйте Google TTS.";
 "usage.remaining_characters" = "Оставшиеся символы";
 "usage.monthly_usage" = "Месячное использование";
+"usage.percent_used" = "% использовано";
+"usage.listening_time" = "Время прослушивания";
+"usage.preview_cache_size" = "Размер кеша предпросмотра";
+"usage.voice_selection" = "Выбор голоса";
+"usage.language" = "Язык";
+"usage.gender" = "Пол";
 "usage.monthly_limit" = "Месячный лимит";
 
 // TTS Voice Filter Values
@@ -111,6 +117,11 @@
 "analytics.total_duration" = "Общая длительность";
 "analytics.favorite_language" = "Любимый язык";
 "analytics.premium_usage" = "Премиум-использование";
+"analytics.listening_time_trend" = "Тенденция времени прослушивания";
+"analytics.no_data" = "Нет данных";
+"analytics.no_data_description" = "Начните использовать Speechify TTS, чтобы увидеть статистику прослушивания";
+"analytics.total_listening" = "Всего прослушивания";
+"analytics.average_per_month" = "Среднее/месяц";
 
 // TTS Settings
 "settings.text_to_speech" = "Преобразование текста в речь";

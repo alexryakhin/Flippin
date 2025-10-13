@@ -84,7 +84,7 @@ enum StudyMode: Int, Identifiable, Hashable {
                     // Progress text
                     Text(Loc.Study.studyProgress(currentCardIndex + 1, studyCards.count))
                         .font(.subheadline)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
 
                     // Progress bar
                     ProgressView(value: Double(currentCardIndex) / Double(studyCards.count))
@@ -202,7 +202,7 @@ enum StudyMode: Int, Identifiable, Hashable {
                     VStack(spacing: 8) {
                         Image(systemName: "checkmark.circle.fill")
                             .font(.system(size: 60))
-                            .foregroundColor(.green)
+                            .foregroundStyle(.green)
 
                         Text(Loc.Study.practiceSessionComplete)
                             .font(.title)
@@ -423,7 +423,7 @@ struct ResultStatRow: View {
     var body: some View {
         HStack(spacing: 12) {
             Image(systemName: icon)
-                .foregroundColor(color)
+                .foregroundStyle(color)
                 .font(.title3)
             
             Text(title)

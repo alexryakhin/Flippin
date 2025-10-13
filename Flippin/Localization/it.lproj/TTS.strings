@@ -17,6 +17,12 @@
 "usage.monthly_limit_exceeded_message" = "Hai raggiunto il limite mensile di 50.000 caratteri per Speechify TTS. Riprova il mese prossimo o utilizza Google TTS.";
 "usage.remaining_characters" = "Caratteri rimanenti";
 "usage.monthly_usage" = "Utilizzo mensile";
+"usage.percent_used" = "% utilizzato";
+"usage.listening_time" = "Tempo di ascolto";
+"usage.preview_cache_size" = "Dimensione cache anteprima";
+"usage.voice_selection" = "Selezione voce";
+"usage.language" = "Lingua";
+"usage.gender" = "Genere";
 "usage.monthly_limit" = "Limite mensile";
 
 // TTS Voice Filter Values
@@ -111,6 +117,11 @@
 "analytics.total_duration" = "Durata totale";
 "analytics.favorite_language" = "Lingua preferita";
 "analytics.premium_usage" = "Utilizzo premium";
+"analytics.listening_time_trend" = "Tendenza tempo di ascolto";
+"analytics.no_data" = "Nessun dato";
+"analytics.no_data_description" = "Inizia a utilizzare Speechify TTS per vedere le tue statistiche di ascolto";
+"analytics.total_listening" = "Ascolto totale";
+"analytics.average_per_month" = "Media/mese";
 
 // TTS Settings
 "settings.text_to_speech" = "Sintesi vocale";

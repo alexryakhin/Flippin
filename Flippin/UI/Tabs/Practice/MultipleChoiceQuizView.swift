@@ -172,7 +172,7 @@ extension StudyMode {
                                 isIncorrect: isIncorrect
                             ))
                     )
-                    .foregroundColor(textColor(
+                    .foregroundStyle(textColor(
                         isSelected: isSelected,
                         isCorrect: isCorrect,
                         isIncorrect: isIncorrect

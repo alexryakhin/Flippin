@@ -65,10 +65,10 @@ struct LineChartView: View {
                                 Text(value.title)
                                     .font(.caption)
                                     .fontWeight(.medium)
-                                    .foregroundColor(.primary)
+                                    .foregroundStyle(.primary)
                                 Text(value.percentage.formattedPercentageWithDecimal)
                                     .font(.caption2)
-                                    .foregroundColor(.secondary)
+                                    .foregroundStyle(.secondary)
                             }
                         }
                     }

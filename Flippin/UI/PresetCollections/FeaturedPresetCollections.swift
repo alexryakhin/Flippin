@@ -36,7 +36,7 @@ struct FeaturedPresetCollections: View {
                 VStack(alignment: .leading, spacing: 16) {
                     Text(Loc.PresetCollections.getStartedWithCollections)
                         .font(.caption)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
 
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 12) {

@@ -15,7 +15,7 @@ enum NavigationDestination: Hashable {
     case cardManagement
     case presetCollections
     case detailedAnalytics
-    case aiCoachDetail(CoachInsight)
+    case aiCoachDetail
     case backgroundPreview
     case backgroundDemo
     case about

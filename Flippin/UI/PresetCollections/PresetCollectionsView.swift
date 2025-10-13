@@ -138,23 +138,23 @@ struct PresetCollectionsView: View {
             HStack(spacing: 12) {
                 Image(systemName: "sparkles")
                     .font(.title2)
-                    .foregroundColor(.yellow)
+                    .foregroundStyle(.yellow)
                 
                 VStack(alignment: .leading, spacing: 4) {
                     HStack {
-                        Text("AI Collection Generator")
+                        Text(Loc.AIFeatures.aiGeneratorTitle)
                             .font(.headline)
-                            .foregroundColor(.primary)
+                            .foregroundStyle(.primary)
                         
                         if !purchaseService.hasPremiumAccess {
                             HStack(spacing: 4) {
                                 Image(systemName: "lock.fill")
                                     .font(.caption2)
-                                Text("Premium")
+                                Text(Loc.PremiumFeatures.premium)
                                     .font(.caption)
                                     .fontWeight(.semibold)
                             }
-                            .foregroundColor(.yellow)
+                            .foregroundStyle(.yellow)
                             .padding(.horizontal, 8)
                             .padding(.vertical, 4)
                             .background(Color.yellow.opacity(0.2))
@@ -162,20 +162,21 @@ struct PresetCollectionsView: View {
                         }
                     }
                     
-                    Text("Create custom collections with AI")
+                    Text(Loc.AIFeatures.aiGeneratorSubtitle)
                         .font(.caption)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                 }
-                
+                .multilineTextAlignment(.leading)
+
                 Spacer()
                 
                 Image(systemName: "chevron.right")
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
             }
             .padding(16)
             .background(
                 LinearGradient(
-                    colors: [Color.yellow.opacity(0.2), Color.orange.opacity(0.2)],
+                    colors: [Color.orange.opacity(0.2), Color.yellow.opacity(0.2)],
                     startPoint: .topLeading,
                     endPoint: .bottomTrailing
                 )

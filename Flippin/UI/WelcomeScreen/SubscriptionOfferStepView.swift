@@ -106,25 +106,10 @@ extension WelcomeSheet {
                 AnimatedBackground()
                     .ignoresSafeArea()
             }
-            .safeAreaInset(edge: .bottom, spacing: .zero) {
+            .safeAreaBarIfAvailable {
                 VStack(spacing: 12) {
-                    var price: String? {
-                        guard let selectedPackage else { return nil }
-                        switch selectedPackage.storeProduct.subscriptionPeriod?.unit {
-                        case .day:
-                            return selectedPackage.storeProduct.localizedPricePerDay
-                        case .week:
-                            return selectedPackage.storeProduct.localizedPricePerWeek
-                        case .month:
-                            return selectedPackage.storeProduct.localizedPricePerMonth
-                        case .year:
-                            return selectedPackage.storeProduct.localizedPricePerYear
-                        case nil:
-                            return nil
-                        }
-                    }
-                    if let price, let unit = selectedPackage?.storeProduct.subscriptionPeriod?.unit {
-                        Text(String(format: Loc.Paywall.planAutoRenews, price, "\(unit)"))
+                    if let product = selectedPackage?.storeProduct, let price = product.localizedPrice {
+                        Text(Loc.Paywall.planAutoRenews(price, product.localizedPeriod))
                             .foregroundStyle(.secondary)
                             .font(.caption)
                             .multilineTextAlignment(.center)
@@ -149,7 +134,7 @@ extension WelcomeSheet {
                     }
                 }
                 .padding(vertical: 12, horizontal: 16)
-                .background(.ultraThinMaterial)
+                .materialBackgroundIfNoGlassAvailable()
             }
             .navigationBarBackButtonHidden(false)
             .toolbar {

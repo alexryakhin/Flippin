@@ -1,0 +1,19 @@
+/*
+  notifications.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: it
+  Section: notifications
+*/
+
+"notifications" = "Notifiche";
+"studyReminders" = "Promemoria di studio";
+"studyRemindersDescription" = "Ricevi un promemoria per studiare all'ora selezionata ogni giorno";
+"difficultCardReminders" = "Promemoria carte difficili";
+"difficultCardRemindersDescription" = "Ricevi un promemoria sulle carte difficili all'ora selezionata ogni giorno";
+"studyReminderTitle" = "È ora di studiare!";
+"studyReminderBody" = "Mantieni la tua serie di apprendimento. Apri Flippin per praticare le tue flashcard.";
+"difficultCardReminderTitle" = "Pratica le carte difficili";
+"difficultCardReminderBody" = "Hai alcune carte impegnative che richiedono attenzione. È ora di rivederle!";
+"time" = "Ora";

@@ -17,6 +17,12 @@
 "usage.monthly_limit_exceeded_message" = "Ви досягли місячного ліміту в 50 000 символів для Speechify TTS. Спробуйте знову наступного місяця або використовуйте Google TTS.";
 "usage.remaining_characters" = "Залишилось символів";
 "usage.monthly_usage" = "Місячне використання";
+"usage.percent_used" = "% використано";
+"usage.listening_time" = "Час прослуховування";
+"usage.preview_cache_size" = "Розмір кешу попереднього перегляду";
+"usage.voice_selection" = "Вибір голосу";
+"usage.language" = "Мова";
+"usage.gender" = "Стать";
 "usage.monthly_limit" = "Місячний ліміт";
 
 // TTS Voice Filter Values
@@ -111,6 +117,11 @@
 "analytics.total_duration" = "Загальна тривалість";
 "analytics.favorite_language" = "Улюблена мова";
 "analytics.premium_usage" = "Преміум-використання";
+"analytics.listening_time_trend" = "Тенденція часу прослуховування";
+"analytics.no_data" = "Немає даних";
+"analytics.no_data_description" = "Почніть використовувати Speechify TTS, щоб побачити статистику прослуховування";
+"analytics.total_listening" = "Усього прослуховування";
+"analytics.average_per_month" = "Середнє/місяць";
 
 // TTS Settings
 "settings.text_to_speech" = "Перетворення тексту в мову";

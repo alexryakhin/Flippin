@@ -1,0 +1,19 @@
+/*
+  notifications.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: uk
+  Section: notifications
+*/
+
+"notifications" = "Сповіщення";
+"studyReminders" = "Нагадування про навчання";
+"studyRemindersDescription" = "Отримуйте щоденні нагадування про навчання у вибраний час";
+"difficultCardReminders" = "Нагадування про складні картки";
+"difficultCardRemindersDescription" = "Отримуйте щоденні нагадування про складні картки у вибраний час";
+"studyReminderTitle" = "Час вчитися!";
+"studyReminderBody" = "Продовжуйте вашу серію навчання. Відкрийте Flippin, щоб практикувати ваші картки.";
+"difficultCardReminderTitle" = "Практикуйте складні картки";
+"difficultCardReminderBody" = "У вас є складні картки, яким потрібна увага. Час повторити їх!";
+"time" = "Час";

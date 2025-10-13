@@ -57,7 +57,7 @@ final class SpeechifyService: NSObject, ObservableObject {
     static let shared = SpeechifyService()
     
     @Published var availableVoices: [SpeechifyVoice] = []
-    @Published var selectedVoiceId: String = ""
+    @Published var selectedVoiceId: String = "nick"
     @Published var charactersUsed: Int = 0
     @Published var charactersLimit: Int = 50000
     @Published var listeningTimeMinutes: Double = 0.0

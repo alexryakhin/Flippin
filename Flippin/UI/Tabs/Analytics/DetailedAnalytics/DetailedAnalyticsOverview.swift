@@ -142,7 +142,7 @@ extension DetailedAnalytics {
                         Text(languageProgress.progress.asPercentage)
                             .font(.subheadline)
                             .fontWeight(.semibold)
-                            .foregroundColor(colorManager.tintColor)
+                            .foregroundStyle(colorManager.tintColor)
                     }
 
                     // Vocabulary count
@@ -155,7 +155,7 @@ extension DetailedAnalytics {
                             Text(Loc.Plurals.cardsCount(languageProgress.vocabularyCount))
                                 .font(.title3)
                                 .fontWeight(.bold)
-                                .foregroundColor(colorManager.tintColor)
+                                .foregroundStyle(colorManager.tintColor)
                         }
                         
                         Spacer()
@@ -163,12 +163,12 @@ extension DetailedAnalytics {
                         VStack(alignment: .trailing, spacing: 4) {
                             Text(Loc.Analytics.mastered)
                                 .font(.caption)
-                                .foregroundColor(.secondary)
+                                .foregroundStyle(.secondary)
                             
                             Text(Loc.Plurals.cardsCount(currentLanguageMastered))
                                 .font(.subheadline)
                                 .fontWeight(.semibold)
-                                .foregroundColor(.green)
+                                .foregroundStyle(.green)
                         }
                     }
                     .padding(.top, 8)
@@ -240,7 +240,7 @@ extension DetailedAnalytics {
             VStack(alignment: .leading, spacing: 8) {
                 HStack {
                     Image(systemName: icon)
-                        .foregroundColor(color)
+                        .foregroundStyle(color)
                         .font(.title3)
 
                     Spacer()
@@ -257,7 +257,7 @@ extension DetailedAnalytics {
 
                 Text(subtitle)
                     .font(.caption2)
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
             }
             .padding(16)
             .clippedWithBackground()
@@ -273,7 +273,7 @@ extension DetailedAnalytics {
         var body: some View {
             HStack(spacing: 12) {
                 Image(systemName: icon)
-                    .foregroundColor(color)
+                    .foregroundStyle(color)
                     .font(.subheadline)
 
                 Text(title)
@@ -298,12 +298,12 @@ extension DetailedAnalytics {
             VStack(spacing: 8) {
                 Image(systemName: icon)
                     .font(.title2)
-                    .foregroundColor(isUnlocked ? color : .gray)
+                    .foregroundStyle(isUnlocked ? color : .gray)
 
                 Text(title)
                     .font(.caption2)
                     .multilineTextAlignment(.center)
-                    .foregroundColor(isUnlocked ? .primary : .secondary)
+                    .foregroundStyle(isUnlocked ? .primary : .secondary)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .clippedWithPaddingAndBackground(

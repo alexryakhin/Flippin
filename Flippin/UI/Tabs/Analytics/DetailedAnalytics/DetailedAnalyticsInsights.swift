@@ -51,10 +51,10 @@ extension DetailedAnalytics {
                     VStack(spacing: 12) {
                         Image(systemName: "lightbulb")
                             .font(.title2)
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
                         Text(Loc.DetailedAnalytics.noInsightsAvailableYet)
                             .font(.caption)
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
                     }
                     .frame(height: 100)
                 } else {
@@ -83,10 +83,10 @@ extension DetailedAnalytics {
                     VStack(spacing: 12) {
                         Image(systemName: "checkmark.circle")
                             .font(.title2)
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
                         Text(Loc.DetailedAnalytics.noRecommendationsAtThisTime)
                             .font(.caption)
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
                     }
                     .frame(height: 100)
                 } else {
@@ -174,7 +174,7 @@ extension DetailedAnalytics {
         var body: some View {
             HStack(spacing: 12) {
                 Image(systemName: icon)
-                    .foregroundColor(color)
+                    .foregroundStyle(color)
                     .font(.title3)
 
                 VStack(alignment: .leading, spacing: 4) {
@@ -184,7 +184,7 @@ extension DetailedAnalytics {
 
                     Text(description)
                         .font(.caption)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
@@ -210,12 +210,12 @@ extension DetailedAnalytics {
 
                 Text(description)
                     .font(.caption)
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
 
                 Button(action: onAction) {
                     Text(action.name)
                         .font(.caption)
-                        .foregroundColor(color)
+                        .foregroundStyle(color)
                         .padding(.horizontal, 12)
                         .padding(.vertical, 6)
                         .background(color.opacity(0.1))
@@ -238,7 +238,7 @@ extension DetailedAnalytics {
         var body: some View {
             HStack(spacing: 12) {
                 Image(systemName: icon)
-                    .foregroundColor(.blue)
+                    .foregroundStyle(.blue)
                     .font(.title3)
 
                 VStack(alignment: .leading, spacing: 4) {
@@ -248,7 +248,7 @@ extension DetailedAnalytics {
 
                     Text(description)
                         .font(.caption)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
             }

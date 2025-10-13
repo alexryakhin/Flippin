@@ -282,7 +282,7 @@ enum PracticeTab {
             VStack(spacing: 8) {
                 Image(systemName: icon)
                     .font(.title2)
-                    .foregroundColor(color)
+                    .foregroundStyle(color)
 
                 Text(value)
                     .font(.title2)
@@ -290,7 +290,7 @@ enum PracticeTab {
 
                 Text(title)
                     .font(.caption)
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
@@ -309,7 +309,7 @@ enum PracticeTab {
         var body: some View {
             HStack(spacing: 12) {
                 Image(systemName: icon)
-                    .foregroundColor(color)
+                    .foregroundStyle(color)
                     .font(.title3)
 
                 Text(title)

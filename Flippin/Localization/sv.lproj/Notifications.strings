@@ -1,0 +1,19 @@
+/*
+  notifications.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: sv
+  Section: notifications
+*/
+
+"notifications" = "Aviseringar";
+"studyReminders" = "Studiepåminnelser";
+"studyRemindersDescription" = "Få påminnelser om att studera vid den valda tiden dagligen";
+"difficultCardReminders" = "Påminnelser om svåra kort";
+"difficultCardRemindersDescription" = "Få påminnelser om svåra kort vid den valda tiden dagligen";
+"studyReminderTitle" = "Dags att studera!";
+"studyReminderBody" = "Fortsätt din inlärningsserie. Öppna Flippin för att öva på dina flashcards.";
+"difficultCardReminderTitle" = "Öva på svåra kort";
+"difficultCardReminderBody" = "Du har några utmanande kort som behöver uppmärksamhet. Dags att repetera dem!";
+"time" = "Tid";

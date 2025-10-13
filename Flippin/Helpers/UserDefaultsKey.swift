@@ -25,4 +25,6 @@ enum UserDefaultsKey {
     static let speechifyCharactersLimit = "speechifyCharactersLimit"
     static let userProfileCompleted = "userProfileCompleted"
     static let hasSeenImageOnboarding = "hasSeenImageOnboarding"
+    static let lastCoachInsight = "lastCoachInsight"
+    static let lastCoachInsightDate = "lastCoachInsightDate"
 }

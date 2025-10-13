@@ -48,10 +48,10 @@ extension DetailedAnalytics {
                     VStack(spacing: 12) {
                         Image(systemName: "timeline.selection")
                             .font(.title2)
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
                         Text(Loc.Analytics.noRecentActivity)
                             .font(.caption)
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
                     }
                     .frame(height: 100)
                 } else {
@@ -81,12 +81,12 @@ extension DetailedAnalytics {
                         VStack(alignment: .leading, spacing: 4) {
                             Text(Loc.DetailedAnalytics.totalVocabulary)
                                 .font(.subheadline)
-                                .foregroundColor(.secondary)
+                                .foregroundStyle(.secondary)
 
                             Text("\(growthData.totalCards)")
                                 .font(.title)
                                 .fontWeight(.bold)
-                                .foregroundColor(colorManager.tintColor)
+                                .foregroundStyle(colorManager.tintColor)
                         }
 
                         Spacer()
@@ -94,12 +94,12 @@ extension DetailedAnalytics {
                         VStack(alignment: .trailing, spacing: 4) {
                             Text(selectedTimeRange.growthPeriodLabel)
                                 .font(.caption)
-                                .foregroundColor(.secondary)
+                                .foregroundStyle(.secondary)
 
                             Text("+\(growthData.weeklyGrowth)")
                                 .font(.title2)
                                 .fontWeight(.semibold)
-                                .foregroundColor(.green)
+                                .foregroundStyle(.green)
                         }
                     }
 
@@ -153,7 +153,7 @@ extension DetailedAnalytics {
                 VStack(alignment: .leading, spacing: 4) {
                     Text(date)
                         .font(.caption)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
 
                     Text(title)
                         .font(.subheadline)
@@ -161,7 +161,7 @@ extension DetailedAnalytics {
 
                     Text(description)
                         .font(.caption)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                 }
 
                 Spacer()

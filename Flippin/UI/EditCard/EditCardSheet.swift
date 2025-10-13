@@ -37,7 +37,7 @@ struct EditCardSheet: View {
             }
             .padding(16)
         }
-        .safeAreaInset(edge: .bottom, spacing: .zero) {
+        .safeAreaBarIfAvailable {
             ActionButton(
                 Loc.Buttons.save,
                 style: .borderedProminent
@@ -48,7 +48,6 @@ struct EditCardSheet: View {
             .padding(.horizontal)
             .padding(.bottom)
             .disabled(viewModel.nativeText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || viewModel.targetText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
-            .gradientStyle(.bottomButtonOnList)
         }
         .groupedBackground()
         .navigation(
@@ -199,7 +198,7 @@ struct EditCardSheet: View {
 
                             Text(Loc.CardImages.tapToChange)
                                 .font(.caption)
-                                .foregroundColor(colorManager.tintColor)
+                                .foregroundStyle(colorManager.tintColor)
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
                     }
@@ -226,7 +225,7 @@ struct EditCardSheet: View {
                                 handleAddImageTap()
                             }
                             .font(.caption)
-                            .foregroundColor(colorManager.tintColor)
+                            .foregroundStyle(colorManager.tintColor)
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
                     }
@@ -242,7 +241,7 @@ struct EditCardSheet: View {
                     viewModel.clearSelectedImage()
                 }
                 .font(.caption)
-                .foregroundColor(.red)
+                .foregroundStyle(.red)
             }
         }
     }

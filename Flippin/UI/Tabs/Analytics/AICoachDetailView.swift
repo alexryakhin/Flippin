@@ -9,8 +9,11 @@ import SwiftUI
 
 struct AICoachDetailView: View {
     @StateObject private var colorManager = ColorManager.shared
+    @StateObject private var aiCoachService = AICoachService.shared
     
-    let insight: CoachInsight
+    private var insight: CoachInsight {
+        aiCoachService.lastInsight ?? CoachInsight.example
+    }
     
     var body: some View {
         ScrollView {
@@ -19,7 +22,7 @@ struct AICoachDetailView: View {
                 VStack(spacing: 12) {
                     Image(systemName: "brain.head.profile")
                         .font(.system(size: 60))
-                        .foregroundColor(.purple)
+                        .foregroundStyle(.purple)
                     
                     Text(insight.title)
                         .font(.title2)
@@ -28,7 +31,7 @@ struct AICoachDetailView: View {
                     
                     Text(insight.summary)
                         .font(.body)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                         .multilineTextAlignment(.center)
                         .padding(.horizontal)
                 }
@@ -54,11 +57,35 @@ struct AICoachDetailView: View {
                     }
                 }
                 
-                // Generated timestamp
-                Text(Loc.AIFeatures.generatedAt(Date().formatted(date: .abbreviated, time: .shortened)))
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-                    .padding(.bottom, 20)
+                // Generated timestamp and refresh button
+                VStack(spacing: 12) {
+                    if let lastDate = aiCoachService.lastInsightDate {
+                        Text(Loc.AIFeatures.generatedAt(lastDate.formatted(date: .abbreviated, time: .shortened)))
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                    
+                    if aiCoachService.shouldRefreshInsights {
+                        ActionButton(
+                            Loc.AIFeatures.generateInsights,
+                            style: .borderedProminent
+                        ) {
+                            // Navigate back and trigger refresh
+                            NavigationManager.shared.navigateToRoot()
+                            // The parent view will handle the refresh
+                        }
+                    } else if aiCoachService.canManuallyRefresh {
+                        ActionButton(
+                            Loc.AIFeatures.refreshInsights,
+                            style: .bordered
+                        ) {
+                            // Navigate back and trigger refresh
+                            NavigationManager.shared.navigateToRoot()
+                            // The parent view will handle the refresh
+                        }
+                    }
+                }
+                .padding(.bottom, 20)
             }
             .padding(.horizontal, 16)
         }
@@ -114,12 +141,12 @@ struct InsightRow: View {
         HStack(alignment: .top, spacing: 12) {
             Image(systemName: insight.icon)
                 .font(.title2)
-                .foregroundColor(iconColor)
+                .foregroundStyle(iconColor)
                 .frame(width: 32)
             
             Text(insight.text)
                 .font(.subheadline)
-                .foregroundColor(.primary)
+                .foregroundStyle(.primary)
                 .fixedSize(horizontal: false, vertical: true)
             
             Spacer()
@@ -133,6 +160,8 @@ struct InsightRow: View {
 // MARK: - Recommendation Row
 
 struct RecommendationRow: View {
+    @StateObject private var colorManager = ColorManager.shared
+
     let recommendation: Recommendation
     let action: () -> Void
     
@@ -158,14 +187,14 @@ struct RecommendationRow: View {
                 HStack {
                     Text(recommendation.action)
                         .font(.headline)
-                        .foregroundColor(.primary)
+                        .foregroundStyle(.primary)
                     
                     Spacer()
                     
                     Text(priorityText)
                         .font(.caption2)
                         .fontWeight(.semibold)
-                        .foregroundColor(.white)
+                        .foregroundStyle(.white)
                         .padding(.horizontal, 8)
                         .padding(.vertical, 4)
                         .background(priorityColor)
@@ -174,13 +203,13 @@ struct RecommendationRow: View {
                 
                 Text(recommendation.description)
                     .font(.subheadline)
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
                     .multilineTextAlignment(.leading)
                 
                 HStack {
                     Spacer()
                     Image(systemName: "arrow.right.circle.fill")
-                        .foregroundColor(.accentColor)
+                        .foregroundStyle(colorManager.tintColor)
                 }
             }
             .padding(12)

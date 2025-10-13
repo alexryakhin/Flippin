@@ -27,10 +27,10 @@ struct BackgroundDemoView: View {
                             VStack {
                                 Image(systemName: style.icon)
                                     .font(.title2)
-                                    .foregroundColor(foregroundColor)
+                                    .foregroundStyle(foregroundColor)
                                 Text(style.displayName)
                                     .font(.caption)
-                                    .foregroundColor(foregroundColor)
+                                    .foregroundStyle(foregroundColor)
                                     .fontWeight(.medium)
                             }
 
@@ -42,7 +42,7 @@ struct BackgroundDemoView: View {
                                         Text(Loc.PremiumFeatures.premium)
                                             .font(.caption)
                                             .fontWeight(.semibold)
-                                            .foregroundColor(.white)
+                                            .foregroundStyle(.white)
                                             .padding(8)
                                             .background(.thinMaterial)
                                             .clipShape(RoundedRectangle(cornerRadius: 8))

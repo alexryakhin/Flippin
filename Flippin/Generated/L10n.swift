@@ -914,8 +914,8 @@ public enum Loc {
     public static let difficultCardReminderBody = Loc.tr("Notifications", "difficultCardReminderBody", fallback: "You have some challenging cards that need attention. Time to review them!")
     /// Difficult Card Reminders
     public static let difficultCardReminders = Loc.tr("Notifications", "difficultCardReminders", fallback: "Difficult Card Reminders")
-    /// Get reminded about difficult cards at 4:30 PM daily
-    public static let difficultCardRemindersDescription = Loc.tr("Notifications", "difficultCardRemindersDescription", fallback: "Get reminded about difficult cards at 4:30 PM daily")
+    /// Get reminded about difficult cards at the selected time daily
+    public static let difficultCardRemindersDescription = Loc.tr("Notifications", "difficultCardRemindersDescription", fallback: "Get reminded about difficult cards at the selected time daily")
     /// Practice Difficult Cards
     public static let difficultCardReminderTitle = Loc.tr("Notifications", "difficultCardReminderTitle", fallback: "Practice Difficult Cards")
     /// notifications.strings
@@ -929,10 +929,12 @@ public enum Loc {
     public static let studyReminderBody = Loc.tr("Notifications", "studyReminderBody", fallback: "Keep your learning streak going. Open Flippin to practice your flashcards.")
     /// Study Reminders
     public static let studyReminders = Loc.tr("Notifications", "studyReminders", fallback: "Study Reminders")
-    /// Get reminded to study at 8:30 PM the following day
-    public static let studyRemindersDescription = Loc.tr("Notifications", "studyRemindersDescription", fallback: "Get reminded to study at 8:30 PM the following day")
+    /// Get reminded to study at the selected time daily
+    public static let studyRemindersDescription = Loc.tr("Notifications", "studyRemindersDescription", fallback: "Get reminded to study at the selected time daily")
     /// Time to Study!
     public static let studyReminderTitle = Loc.tr("Notifications", "studyReminderTitle", fallback: "Time to Study!")
+    /// Time
+    public static let time = Loc.tr("Notifications", "time", fallback: "Time")
   }
   public enum Paywall {
     /// and
@@ -1564,12 +1566,20 @@ public enum Loc {
     /// Young Adult
     public static let youngAdult = Loc.tr("TTS", "young-adult", fallback: "Young Adult")
     public enum Analytics {
+      /// Average/Month
+      public static let averagePerMonth = Loc.tr("TTS", "analytics.average_per_month", fallback: "Average/Month")
       /// Characters Used
       public static let charactersUsed = Loc.tr("TTS", "analytics.characters_used", fallback: "Characters Used")
       /// Favorite Language
       public static let favoriteLanguage = Loc.tr("TTS", "analytics.favorite_language", fallback: "Favorite Language")
       /// Favorite Voice
       public static let favoriteVoice = Loc.tr("TTS", "analytics.favorite_voice", fallback: "Favorite Voice")
+      /// Listening Time Trend
+      public static let listeningTimeTrend = Loc.tr("TTS", "analytics.listening_time_trend", fallback: "Listening Time Trend")
+      /// No Data
+      public static let noData = Loc.tr("TTS", "analytics.no_data", fallback: "No Data")
+      /// Start using Speechify TTS to see your listening statistics
+      public static let noDataDescription = Loc.tr("TTS", "analytics.no_data_description", fallback: "Start using Speechify TTS to see your listening statistics")
       /// Premium Usage
       public static let premiumUsage = Loc.tr("TTS", "analytics.premium_usage", fallback: "Premium Usage")
       /// Sessions
@@ -1580,6 +1590,8 @@ public enum Loc {
       public static let totalCharacters = Loc.tr("TTS", "analytics.total_characters", fallback: "Total Characters")
       /// Total Duration
       public static let totalDuration = Loc.tr("TTS", "analytics.total_duration", fallback: "Total Duration")
+      /// Total Listening
+      public static let totalListening = Loc.tr("TTS", "analytics.total_listening", fallback: "Total Listening")
       /// Total Sessions
       public static let totalSessions = Loc.tr("TTS", "analytics.total_sessions", fallback: "Total Sessions")
     }
@@ -1654,6 +1666,12 @@ public enum Loc {
       public static let textToSpeech = Loc.tr("TTS", "settings.text_to_speech", fallback: "Text-to-Speech")
     }
     public enum Usage {
+      /// Gender
+      public static let gender = Loc.tr("TTS", "usage.gender", fallback: "Gender")
+      /// Language
+      public static let language = Loc.tr("TTS", "usage.language", fallback: "Language")
+      /// Listening Time
+      public static let listeningTime = Loc.tr("TTS", "usage.listening_time", fallback: "Listening Time")
       /// Monthly Limit
       public static let monthlyLimit = Loc.tr("TTS", "usage.monthly_limit", fallback: "Monthly Limit")
       /// Monthly Limit Exceeded
@@ -1662,8 +1680,16 @@ public enum Loc {
       public static let monthlyLimitExceededMessage = Loc.tr("TTS", "usage.monthly_limit_exceeded_message", fallback: "You have reached your monthly limit of 50,000 characters for Speechify TTS. Please try again next month or use Google TTS instead.")
       /// Monthly Usage
       public static let monthlyUsage = Loc.tr("TTS", "usage.monthly_usage", fallback: "Monthly Usage")
+      /// % used
+      public static func percentUsed(_ p1: Int) -> String {
+        return Loc.tr("TTS", "usage.percent_used", p1, fallback: "% used")
+      }
+      /// Preview Cache Size
+      public static let previewCacheSize = Loc.tr("TTS", "usage.preview_cache_size", fallback: "Preview Cache Size")
       /// Remaining Characters
       public static let remainingCharacters = Loc.tr("TTS", "usage.remaining_characters", fallback: "Remaining Characters")
+      /// Voice Selection
+      public static let voiceSelection = Loc.tr("TTS", "usage.voice_selection", fallback: "Voice Selection")
     }
   }
   public enum UserProfile {

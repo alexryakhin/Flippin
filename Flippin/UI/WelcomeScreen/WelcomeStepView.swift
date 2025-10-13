@@ -90,7 +90,7 @@ extension WelcomeSheet {
                     }
                 }
             }
-            .safeAreaInset(edge: .bottom, spacing: .zero) {
+            .safeAreaBarIfAvailable {
                 NavigationLink(destination: NameInputStepView(onContinue: onContinue)) {
                     ActionButton(
                         Loc.WelcomeScreen.continueButton,

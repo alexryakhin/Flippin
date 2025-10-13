@@ -56,10 +56,10 @@ struct BackgroundPreviewCard: View {
                 VStack {
                     Image(systemName: style.icon)
                         .font(.title2)
-                        .foregroundColor(foregroundColor)
+                        .foregroundStyle(foregroundColor)
                     Text(style.displayName)
                         .font(.caption)
-                        .foregroundColor(foregroundColor)
+                        .foregroundStyle(foregroundColor)
                         .fontWeight(.medium)
                 }
 

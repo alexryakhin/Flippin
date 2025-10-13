@@ -77,7 +77,7 @@ extension WelcomeSheet {
                 AnimatedBackground()
                     .ignoresSafeArea()
             }
-            .safeAreaInset(edge: .bottom, spacing: .zero) {
+            .safeAreaBarIfAvailable {
                 NavigationLink(
                     destination: GenderSelectionStepView(onContinue: onContinue),
                     label: {

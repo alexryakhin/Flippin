@@ -9,10 +9,11 @@
 
 "notifications" = "Notifications";
 "studyReminders" = "Study Reminders";
-"studyRemindersDescription" = "Get reminded to study at 8:30 PM the following day";
+"studyRemindersDescription" = "Get reminded to study at the selected time daily";
 "difficultCardReminders" = "Difficult Card Reminders";
-"difficultCardRemindersDescription" = "Get reminded about difficult cards at 4:30 PM daily";
+"difficultCardRemindersDescription" = "Get reminded about difficult cards at the selected time daily";
 "studyReminderTitle" = "Time to Study!";
 "studyReminderBody" = "Keep your learning streak going. Open Flippin to practice your flashcards.";
 "difficultCardReminderTitle" = "Practice Difficult Cards";
 "difficultCardReminderBody" = "You have some challenging cards that need attention. Time to review them!";
+"time" = "Time";

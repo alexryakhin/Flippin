@@ -14,17 +14,17 @@ struct AICollectionGeneratorView: View {
     @StateObject private var languageManager = LanguageManager.shared
     @StateObject private var colorManager = ColorManager.shared
     @StateObject private var purchaseService = PurchaseService.shared
-    
+
     @State private var userRequest = ""
-    @State private var cardCount = 25
+    @State private var cardCount = 15
     @State private var generatedCollection: GeneratedCollection?
     @State private var editingCard: GeneratedCard?
     @State private var showingError = false
     @State private var errorMessage = ""
     @State private var showingPaywall = false
-    
-    private let cardCountOptions = [10, 25, 50]
-    
+
+    private let cardCountOptions = [10, 15, 20]
+
     var body: some View {
         VStack(spacing: 0) {
             if generatedCollection == nil {
@@ -59,9 +59,9 @@ struct AICollectionGeneratorView: View {
             }
         }
     }
-    
+
     // MARK: - Request Input View
-    
+
     private var requestInputView: some View {
         ScrollView {
             VStack(spacing: 24) {
@@ -69,20 +69,20 @@ struct AICollectionGeneratorView: View {
                 VStack(spacing: 12) {
                     Image(systemName: "sparkles")
                         .font(.system(size: 60))
-                        .foregroundColor(.yellow)
-                    
+                        .foregroundStyle(.yellow)
+
                     Text(Loc.AIFeatures.aiGeneratorTitle)
                         .font(.title)
                         .fontWeight(.bold)
-                    
+
                     Text(Loc.AIFeatures.aiGeneratorDescription)
                         .font(.subheadline)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                         .multilineTextAlignment(.center)
                         .padding(.horizontal)
                 }
                 .padding(.top, 20)
-                
+
                 // Input section
                 CustomSectionView(header: Loc.AIFeatures.yourRequest, backgroundStyle: .standard) {
                     VStack(alignment: .leading, spacing: 12) {
@@ -91,13 +91,13 @@ struct AICollectionGeneratorView: View {
                             .padding(8)
                             .background(Color(.tertiarySystemGroupedBackground))
                             .cornerRadius(8)
-                        
+
                         Text(Loc.Plurals.characterLimit(userRequest.count))
                             .font(.caption)
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
                     }
                 }
-                
+
                 // Card count selector
                 CustomSectionView(header: Loc.AIFeatures.numberOfCards, backgroundStyle: .standard) {
                     Picker("Card Count", selection: $cardCount) {
@@ -107,7 +107,7 @@ struct AICollectionGeneratorView: View {
                     }
                     .pickerStyle(.segmented)
                 }
-                
+
                 // Examples
                 CustomSectionView(header: Loc.AIFeatures.exampleRequests, backgroundStyle: .standard) {
                     VStack(alignment: .leading, spacing: 8) {
@@ -117,14 +117,14 @@ struct AICollectionGeneratorView: View {
                         ) {
                             userRequest = Loc.AIFeatures.exampleRestaurant
                         }
-                        
+
                         ExampleRequestRow(
                             icon: "airplane",
                             text: Loc.AIFeatures.exampleAirport
                         ) {
                             userRequest = Loc.AIFeatures.exampleAirport
                         }
-                        
+
                         ExampleRequestRow(
                             icon: "briefcase",
                             text: Loc.AIFeatures.exampleBusiness
@@ -133,13 +133,12 @@ struct AICollectionGeneratorView: View {
                         }
                     }
                 }
-                
+
                 Spacer()
             }
-            .padding(.horizontal, 16)
-            .padding(.bottom, 100)
+            .padding(vertical: 12, horizontal: 16)
         }
-        .safeAreaInset(edge: .bottom) {
+        .safeAreaBarIfAvailable {
             ActionButton(
                 Loc.AIFeatures.generateCollection,
                 style: .borderedProminent,
@@ -148,43 +147,49 @@ struct AICollectionGeneratorView: View {
                 generateCollection()
             }
             .disabled(userRequest.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || chatGPTService.isGenerating)
-            .padding(.horizontal, 16)
-            .padding(.vertical, 12)
+            .padding(vertical: 12, horizontal: 16)
         }
     }
-    
+
     // MARK: - Generated Cards View
-    
+
     private var generatedCardsView: some View {
-        VStack(spacing: 0) {
-            ScrollView {
-                VStack(spacing: 16) {
-                    // Collection header
-                    if let collection = generatedCollection {
-                        CustomSectionView(header: collection.collectionName, backgroundStyle: .standard) {
-                            Text(collection.description)
-                                .font(.subheadline)
-                                .foregroundColor(.secondary)
-                        }
-                        
-                        CustomSectionView(
-                            header: Loc.Plurals.generatedCardsCount(collection.cards.count),
-                            backgroundStyle: .standard
-                        ) {
-                            VStack(spacing: 12) {
-                                ForEach(Array(collection.cards.enumerated()), id: \.offset) { index, card in
-                                    GeneratedCardRow(card: card)
-                                }
+        ScrollView {
+            VStack(spacing: 16) {
+                // Collection header
+                if let collection = generatedCollection {
+                    CustomSectionView(header: collection.collectionName, backgroundStyle: .standard) {
+                        Text(collection.description)
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .multilineTextAlignment(.leading)
+                    }
+
+                    CustomSectionView(
+                        header: Loc.Plurals.generatedCardsCount(collection.cards.count),
+                        backgroundStyle: .standard
+                    ) {
+                        VStack(spacing: 12) {
+                            ForEach(Array(collection.cards.enumerated()), id: \.offset) { index, card in
+                                GeneratedCardRow(card: card)
                             }
                         }
                     }
                 }
-                .padding(.horizontal, 16)
-                .padding(.bottom, 100)
             }
-            
+            .padding(vertical: 12, horizontal: 16)
+        }
+        .safeAreaBarIfAvailable {
             // Action buttons
-            HStack(spacing: 12) {
+            VStack(spacing: 12) {
+                ActionButton(
+                    Loc.AIFeatures.importAll,
+                    style: .borderedProminent
+                ) {
+                    importAllCards()
+                }
+
                 ActionButton(
                     Loc.AIFeatures.tryAgain,
                     style: .bordered
@@ -192,31 +197,23 @@ struct AICollectionGeneratorView: View {
                     generatedCollection = nil
                     HapticService.shared.buttonTapped()
                 }
-                
-                ActionButton(
-                    Loc.AIFeatures.importAll,
-                    style: .borderedProminent
-                ) {
-                    importAllCards()
-                }
             }
-            .padding(.horizontal, 16)
-            .padding(.vertical, 12)
+            .padding(vertical: 12, horizontal: 16)
         }
     }
-    
+
     // MARK: - Actions
-    
+
     private func generateCollection() {
         let trimmedRequest = userRequest.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmedRequest.isEmpty else { return }
-        
+
         guard trimmedRequest.count <= 500 else {
             errorMessage = Loc.AIFeatures.requestTooLong
             showingError = true
             return
         }
-        
+
         Task {
             do {
                 let collection = try await chatGPTService.generateCollection(
@@ -224,7 +221,7 @@ struct AICollectionGeneratorView: View {
                     targetLanguage: languageManager.targetLanguage,
                     cardCount: cardCount
                 )
-                
+
                 await MainActor.run {
                     generatedCollection = collection
                     HapticService.shared.success()
@@ -251,13 +248,13 @@ struct AICollectionGeneratorView: View {
             }
         }
     }
-    
+
     private func importAllCards() {
         guard let collection = generatedCollection else { return }
-        
+
         var importedCount = 0
         var failedCount = 0
-        
+
         for card in collection.cards {
             do {
                 try cardsProvider.addCard(
@@ -272,7 +269,7 @@ struct AICollectionGeneratorView: View {
                 print("❌ Failed to import card: \(card.frontText)")
             }
         }
-        
+
         if importedCount > 0 {
             HapticService.shared.success()
             AnalyticsService.trackEvent(.aiCollectionImported, parameters: [
@@ -292,26 +289,28 @@ struct AICollectionGeneratorView: View {
 // MARK: - Example Request Row
 
 struct ExampleRequestRow: View {
+    @StateObject private var colorManager = ColorManager.shared
+
     let icon: String
     let text: String
     let action: () -> Void
-    
+
     var body: some View {
         Button(action: action) {
             HStack(spacing: 12) {
                 Image(systemName: icon)
-                    .foregroundColor(.accentColor)
+                    .foregroundStyle(colorManager.tintColor)
                     .frame(width: 24)
-                
+
                 Text(text)
                     .font(.subheadline)
-                    .foregroundColor(.primary)
+                    .foregroundStyle(.primary)
                     .multilineTextAlignment(.leading)
-                
+
                 Spacer()
-                
+
                 Image(systemName: "arrow.up.forward.circle.fill")
-                    .foregroundColor(.accentColor)
+                    .foregroundStyle(colorManager.tintColor)
             }
             .padding(12)
             .background(Color(.tertiarySystemGroupedBackground))
@@ -325,7 +324,7 @@ struct ExampleRequestRow: View {
 
 struct GeneratedCardRow: View {
     let card: GeneratedCard
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack {
@@ -334,37 +333,32 @@ struct GeneratedCardRow: View {
                         .font(.headline)
                     Text(card.backText)
                         .font(.subheadline)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                 }
-                
+
                 Spacer()
-                
+
                 HStack(spacing: 4) {
                     ForEach(0..<card.difficulty, id: \.self) { _ in
                         Image(systemName: "star.fill")
                             .font(.caption2)
-                            .foregroundColor(.orange)
+                            .foregroundStyle(.orange)
                     }
                 }
             }
-            
+
             if !card.notes.isEmpty {
                 Text(card.notes)
                     .font(.caption)
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
                     .italic()
             }
-            
+
             if !card.tags.isEmpty {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 6) {
                         ForEach(card.tags, id: \.self) { tag in
-                            Text(tag)
-                                .font(.caption2)
-                                .padding(.horizontal, 8)
-                                .padding(.vertical, 4)
-                                .background(Color.accentColor.opacity(0.2))
-                                .cornerRadius(6)
+                            TagView(title: tag, isSelected: true, size: .small)
                         }
                     }
                 }

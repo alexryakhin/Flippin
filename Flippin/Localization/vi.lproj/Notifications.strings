@@ -1,0 +1,19 @@
+/*
+  notifications.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: vi
+  Section: notifications
+*/
+
+"notifications" = "Thông báo";
+"studyReminders" = "Nhắc nhở học tập";
+"studyRemindersDescription" = "Nhận nhắc nhở học tập vào thời gian đã chọn hàng ngày";
+"difficultCardReminders" = "Nhắc nhở thẻ khó";
+"difficultCardRemindersDescription" = "Nhận nhắc nhở về các thẻ khó vào thời gian đã chọn hàng ngày";
+"studyReminderTitle" = "Đã đến giờ học!";
+"studyReminderBody" = "Duy trì chuỗi học tập của bạn. Mở Flippin để luyện tập các thẻ ghi nhớ của bạn.";
+"difficultCardReminderTitle" = "Luyện tập các thẻ khó";
+"difficultCardReminderBody" = "Bạn có một số thẻ thử thách cần chú ý. Đã đến lúc ôn tập chúng!";
+"time" = "Thời gian";

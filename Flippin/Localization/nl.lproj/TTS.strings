@@ -17,6 +17,12 @@
 "usage.monthly_limit_exceeded_message" = "Je hebt de maandlimiet van 50.000 tekens voor Speechify TTS bereikt. Probeer het volgende maand opnieuw of gebruik in plaats daarvan Google TTS.";
 "usage.remaining_characters" = "Resterende tekens";
 "usage.monthly_usage" = "Maandelijks gebruik";
+"usage.percent_used" = "% gebruikt";
+"usage.listening_time" = "Luistertijd";
+"usage.preview_cache_size" = "Grootte voorbeeldcache";
+"usage.voice_selection" = "Stemselectie";
+"usage.language" = "Taal";
+"usage.gender" = "Geslacht";
 "usage.monthly_limit" = "Maandlimiet";
 
 // TTS Voice Filter Values
@@ -111,6 +117,11 @@
 "analytics.total_duration" = "Totale duur";
 "analytics.favorite_language" = "Favoriete taal";
 "analytics.premium_usage" = "Premium gebruik";
+"analytics.listening_time_trend" = "Trend luistertijd";
+"analytics.no_data" = "Geen gegevens";
+"analytics.no_data_description" = "Begin met het gebruik van Speechify TTS om je luisterstatistieken te zien";
+"analytics.total_listening" = "Totaal luisteren";
+"analytics.average_per_month" = "Gemiddeld/maand";
 
 // TTS Settings
 "settings.text_to_speech" = "Tekst-naar-spraak";

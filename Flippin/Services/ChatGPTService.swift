@@ -110,8 +110,8 @@ final class ChatGPTService: ObservableObject {
         - Create exactly \(cardCount) flashcards based on the request
         - frontText should be in \(targetLanguage.displayName)
         - backText should be in \(userLanguage.displayName) (translation)
-        - notes should include usage tips or cultural context
-        - tags should categorize the phrase (e.g., "travel", "food", "greetings")
+        - notes should include usage tips or cultural context in \(userLanguage.chatGPTLanguageName)
+        - tags should categorize the phrase (e.g., "travel", "food", "greetings") in English
         - difficulty should be 1-5, scaled to the student's proficiency level
         - Make cards practical and useful for the student's learning goals
         - Return ONLY valid JSON, no other text
@@ -173,9 +173,14 @@ final class ChatGPTService: ObservableObject {
         // Build context
         let userContext = getUserContext()
         
+        // Get user's language for localization
+        let userLanguage = LanguageManager.shared.userLanguage.chatGPTLanguageName
+        
         // Create system prompt
         let systemPrompt = """
         You are an encouraging language learning coach analyzing student performance.
+        
+        IMPORTANT: Respond in \(userLanguage). All generated content (title, summary, insights, recommendations) must be in \(userLanguage).
         
         Student Profile:
         \(userContext)
@@ -193,6 +198,7 @@ final class ChatGPTService: ObservableObject {
         \(analyticsData.difficultCards.prefix(5).joined(separator: ", "))
         
         Instructions:
+        - Respond in \(userLanguage)
         - Provide a motivating title and summary
         - Generate exactly 3 insights (positive, constructive, or actionable)
         - Each insight needs: icon (SF Symbol name), text, type ("positive"/"warning"/"neutral")

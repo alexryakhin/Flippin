@@ -141,19 +141,22 @@ struct AboutView: View {
                 HFlow(spacing: 12) {
                     HeaderButton(
                         Loc.AboutApp.visitWebsite,
-                        icon: "network"
+                        icon: "network",
+                        style: .borderedProminent
                     ) {
                         openWebsite()
                     }
                     HeaderButton(
                         Loc.AboutApp.contactSupport,
-                        icon: "questionmark.circle.fill"
+                        icon: "questionmark.circle.fill",
+                        style: .borderedProminent
                     ) {
                         openSupport()
                     }
                     HeaderButton(
                         Loc.AboutApp.rateOnAppStore,
                         icon: "star.fill",
+                        style: .borderedProminent
                     ) {
                         requestReview()
                     }
@@ -190,10 +193,16 @@ struct AboutView: View {
                     .padding(.top, 8)
 
                 HStack(spacing: 12) {
-                    HeaderButton(Loc.AboutApp.instagram) {
+                    HeaderButton(
+                        Loc.AboutApp.instagram,
+                        style: .borderedProminent
+                    ) {
                         openInstagram()
                     }
-                    HeaderButton(Loc.AboutApp.xTwitter) {
+                    HeaderButton(
+                        Loc.AboutApp.xTwitter,
+                        style: .borderedProminent
+                    ) {
                         openTwitter()
                     }
                 }

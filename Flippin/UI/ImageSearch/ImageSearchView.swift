@@ -88,7 +88,7 @@ struct ImageSearchView: View {
         VStack(spacing: 16) {
             Image(systemName: "magnifyingglass")
                 .font(.system(size: 60))
-                .foregroundColor(.secondary)
+                .foregroundStyle(.secondary)
             
             Text(Loc.CardImages.ImageSearch.EmptyState.title)
                 .font(.title2)
@@ -96,7 +96,7 @@ struct ImageSearchView: View {
             
             Text(Loc.CardImages.ImageSearch.EmptyState.subtitle)
                 .font(.body)
-                .foregroundColor(.secondary)
+                .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 32)
         }
@@ -232,7 +232,7 @@ struct ImageThumbnailView: View {
                 } else {
                     Image(systemName: "photo")
                         .font(.title2)
-                        .foregroundColor(.secondary)
+                        .foregroundStyle(.secondary)
                 }
 
                 // Selection overlay
@@ -243,7 +243,7 @@ struct ImageThumbnailView: View {
                             Spacer()
                             Image(systemName: "checkmark.circle.fill")
                                 .font(.title2)
-                                .foregroundColor(.white)
+                                .foregroundStyle(.white)
                                 .background(
                                     Circle()
                                         .fill(Color.accentColor)

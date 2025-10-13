@@ -8,11 +8,12 @@
 */
 
 "notifications" = "Notifications";
-"studyReminders" = "Rappels d'Étude";
-"studyRemindersDescription" = "Recevez des rappels pour étudier à 20h30 le lendemain";
-"difficultCardReminders" = "Rappels de Cartes Difficiles";
-"difficultCardRemindersDescription" = "Recevez des rappels sur les cartes difficiles à 16h30 quotidiennement";
-"studyReminderTitle" = "Heure d'Étudier !";
-"studyReminderBody" = "Maintenez votre série d'apprentissage. Ouvrez Flippin pour pratiquer vos cartes.";
-"difficultCardReminderTitle" = "Pratiquez les Cartes Difficiles";
-"difficultCardReminderBody" = "Vous avez des cartes difficiles qui nécessitent attention. Il est temps de les réviser !";
+"studyReminders" = "Rappels d'étude";
+"studyRemindersDescription" = "Recevez un rappel pour étudier à l'heure sélectionnée quotidiennement";
+"difficultCardReminders" = "Rappels de cartes difficiles";
+"difficultCardRemindersDescription" = "Recevez un rappel concernant les cartes difficiles à l'heure sélectionnée quotidiennement";
+"studyReminderTitle" = "C'est l'heure d'étudier !";
+"studyReminderBody" = "Maintenez votre série d'apprentissage. Ouvrez Flippin pour pratiquer vos cartes mémoire.";
+"difficultCardReminderTitle" = "Pratiquer les cartes difficiles";
+"difficultCardReminderBody" = "Vous avez des cartes difficiles qui nécessitent de l'attention. Il est temps de les réviser !";
+"time" = "Heure";

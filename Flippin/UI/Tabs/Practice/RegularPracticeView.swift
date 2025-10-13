@@ -14,7 +14,7 @@ extension StudyMode {
                 VStack(spacing: 8) {
                     Text(Loc.Study.translateTo(card.frontLanguage?.displayName ?? Loc.PresetCollections.targetLanguage))
                         .font(.subheadline)
-                        .foregroundColor(colorManager.foregroundColor)
+                        .foregroundStyle(colorManager.foregroundColor)
 
                     Text(card.backText.orEmpty)
                         .font(.title2)
@@ -30,7 +30,7 @@ extension StudyMode {
                     VStack(spacing: 8) {
                         Text(Loc.Study.correctAnswer)
                             .font(.subheadline)
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
 
                         Text(card.frontText.orEmpty)
                             .font(.title3)

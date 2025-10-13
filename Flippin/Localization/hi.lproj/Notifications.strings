@@ -1,0 +1,19 @@
+/*
+  notifications.strings
+  Flippin
+  
+  Generated from Localizable.strings
+  Language: hi
+  Section: notifications
+*/
+
+"notifications" = "सूचनाएं";
+"studyReminders" = "अध्ययन अनुस्मारक";
+"studyRemindersDescription" = "चयनित समय पर दैनिक अध्ययन करने की याद दिलाई जाती है";
+"difficultCardReminders" = "कठिन कार्ड अनुस्मारक";
+"difficultCardRemindersDescription" = "चयनित समय पर दैनिक कठिन कार्ड के बारे में याद दिलाई जाती है";
+"studyReminderTitle" = "अध्ययन का समय!";
+"studyReminderBody" = "अपनी सीखने की लकीर जारी रखें। अपने फ्लैशकार्ड का अभ्यास करने के लिए Flippin खोलें।";
+"difficultCardReminderTitle" = "कठिन कार्ड का अभ्यास करें";
+"difficultCardReminderBody" = "आपके पास कुछ चुनौतीपूर्ण कार्ड हैं जिन पर ध्यान देने की आवश्यकता है। उनकी समीक्षा करने का समय आ गया है!";
+"time" = "समय";
