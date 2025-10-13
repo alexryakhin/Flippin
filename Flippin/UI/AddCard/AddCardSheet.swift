@@ -21,6 +21,7 @@ struct AddCardSheet: View {
     // MARK: - State Objects
     
     @StateObject private var languageManager = LanguageManager.shared
+    @StateObject private var purchaseService = PurchaseService.shared
     @StateObject private var colorManager = ColorManager.shared
     @StateObject private var viewModel = AddCardSheetViewModel()
 
@@ -31,6 +32,8 @@ struct AddCardSheet: View {
     @FocusState private var isNotesTextFieldFocused: Bool
     
     @State private var showingImageSearch = false
+    @State private var showingImageOnboarding = false
+    @State private var premiumFeature: PremiumFeature?
 
     // MARK: - Body
     
@@ -69,6 +72,12 @@ struct AddCardSheet: View {
                 viewModel.setSelectedImage(imageUrl: imageUrl, localPath: localPath)
             }
         }
+        .sheet(isPresented: $showingImageOnboarding) {
+            ImageOnboardingView {
+                handleImageOnboardingCompletion()
+            }
+        }
+        .premiumAlert(feature: $premiumFeature)
     }
 
     // MARK: - UI Components
@@ -181,7 +190,7 @@ struct AddCardSheet: View {
     
     private var imageSection: some View {
         CustomSectionView(
-            header: "Image",
+            header: Loc.CardImages.sectionTitle,
             backgroundStyle: .standard
         ) {
             VStack(spacing: 12) {
@@ -197,11 +206,11 @@ struct AddCardSheet: View {
                             .clipped()
                         
                         VStack(alignment: .leading, spacing: 4) {
-                            Text("Image Attached")
+                            Text(Loc.CardImages.imageAttached)
                                 .font(.subheadline)
                                 .fontWeight(.medium)
                             
-                            Text("Tap to change")
+                            Text(Loc.CardImages.tapToChange)
                                 .font(.caption)
                                 .foregroundColor(.secondary)
                         }
@@ -213,19 +222,58 @@ struct AddCardSheet: View {
                         showingImageSearch = true
                     }
                 } else {
-                    ActionButton("Add Image", systemImage: "photo") {
-                        showingImageSearch = true
+                    ActionButton(Loc.CardImages.addImage, systemImage: "photo") {
+                        handleAddImageTap()
                     }
                 }
             }
         } trailingContent: {
             if viewModel.selectedImageCacheURL != nil {
-                Button("Remove") {
+                Button(Loc.CardImages.remove) {
                     viewModel.clearSelectedImage()
                 }
                 .font(.caption)
                 .foregroundColor(.red)
             }
+        }
+    }
+    
+    // MARK: - Image Handling
+    
+    private func handleAddImageTap() {
+        // Check if user has seen image onboarding
+        let hasSeenImageOnboarding = UserDefaults.standard.bool(forKey: UserDefaultsKey.hasSeenImageOnboarding)
+        
+        if hasSeenImageOnboarding {
+            // User has seen onboarding, check premium status
+            if purchaseService.hasPremiumAccess {
+                // Premium user, show image selection
+                showingImageSearch = true
+            } else {
+                // Non-premium user, show premium alert
+                AnalyticsService.trackPremiumFeatureRequested(.images)
+                premiumFeature = .images
+            }
+        } else {
+            // User hasn't seen onboarding, show it first
+            AnalyticsService.trackImageOnboardingEvent(.imageOnboardingShown, userHasPremium: purchaseService.hasPremiumAccess)
+            showingImageOnboarding = true
+        }
+    }
+    
+    private func handleImageOnboardingCompletion() {
+        showingImageOnboarding = false
+        AnalyticsService.trackImageOnboardingEvent(.imageOnboardingCompleted, userHasPremium: purchaseService.hasPremiumAccess)
+        
+        // After onboarding, check premium status
+        if purchaseService.hasPremiumAccess {
+            // Premium user, show image selection and mark onboarding as seen
+            UserDefaults.standard.set(true, forKey: UserDefaultsKey.hasSeenImageOnboarding)
+            showingImageSearch = true
+        } else {
+            // Non-premium user, show premium alert
+            AnalyticsService.trackPremiumFeatureRequested(.images)
+            premiumFeature = .images
         }
     }
 }

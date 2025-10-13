@@ -1,0 +1,63 @@
+/* 
+  CardImages.strings
+  Flippin
+  
+  Localization for card images and image onboarding flow
+*/
+
+// MARK: - Image Onboarding
+"imageOnboarding.title" = "Visual Learning";
+"imageOnboarding.subtitle" = "Add images to your flashcards for better memory retention and visual learning";
+"imageOnboarding.previewTitle" = "See how your cards will look:";
+
+// MARK: - Example Cards
+"imageOnboarding.example.card1" = "I'd like to get your business card, please.";
+"imageOnboarding.example.card2" = "I need to warm up.";
+"imageOnboarding.example.card3" = "I always travel by plane.";
+
+// MARK: - Benefits
+"imageOnboarding.benefit.memory.title" = "Better Memory";
+"imageOnboarding.benefit.memory.description" = "Visual cues help you remember faster";
+
+"imageOnboarding.benefit.visual.title" = "Visual Learning";
+"imageOnboarding.benefit.visual.description" = "Learn with images, not just text";
+
+"imageOnboarding.benefit.enhanced.title" = "Enhanced Experience";
+"imageOnboarding.benefit.enhanced.description" = "Make your flashcards more engaging";
+
+// MARK: - Actions
+"imageOnboarding.getStarted" = "Get Started";
+"imageOnboarding.skip" = "Skip";
+
+// MARK: - Add/Edit Card Image Section
+"sectionTitle" = "Image";
+"imageAttached" = "Image Attached";
+"currentImage" = "Current Image";
+"tapToChange" = "Tap to change";
+"addImage" = "Add Image";
+"remove" = "Remove";
+"imageUnavailable" = "Image unavailable";
+
+// MARK: - Premium Alert
+"premium.title" = "Card Images";
+"premium.message" = "Add beautiful images to your flashcards for better memory retention";
+"premium.description" = "Enhance your learning with visual flashcards that help you remember better";
+
+// MARK: - Image Search
+"imageSearch.title" = "Search Images";
+"imageSearch.searchPrompt" = "Search for images...";
+"imageSearch.cancel" = "Cancel";
+"imageSearch.select" = "Select";
+"imageSearch.loadMore" = "Load More";
+
+// MARK: - Image Search Empty State
+"imageSearch.emptyState.title" = "Search for images";
+"imageSearch.emptyState.subtitle" = "Enter a search term above to find beautiful images from Pexels";
+
+// MARK: - Image Search Errors
+"imageSearch.error.title" = "Error";
+"imageSearch.error.unknown" = "Unknown error occurred";
+"imageSearch.error.ok" = "OK";
+
+// MARK: - Premium Gate
+"premiumGate.message" = "Don't miss out on visual learning, upgrade to Premium";

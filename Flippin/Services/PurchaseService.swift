@@ -126,6 +126,13 @@ final class PurchaseService: NSObject, ObservableObject {
                 "price": package.storeProduct.localizedPriceString
             ])
             
+            // Track conversion if this was triggered by a premium feature
+            // Note: You can enhance this by passing the triggering feature as a parameter
+            AnalyticsService.trackEvent(.premiumFeatureConverted, parameters: [
+                "product_id": package.storeProduct.productIdentifier,
+                "feature": "general_purchase"
+            ])
+            
             // Haptic feedback
             await HapticService.shared.purchaseSuccess()
             

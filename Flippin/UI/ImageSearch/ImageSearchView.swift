@@ -32,11 +32,11 @@ struct ImageSearchView: View {
                     imageGrid
                 }
             }
-            .navigationTitle("Search Images")
+            .navigationTitle(Loc.CardImages.ImageSearch.title)
             .navigationBarTitleDisplayMode(.inline)
             .searchable(
                 text: $searchText,
-                prompt: "Search for images..."
+                prompt: Loc.CardImages.ImageSearch.searchPrompt
             )
             .onSubmit(of: .search) {
                 performSearch()
@@ -49,7 +49,7 @@ struct ImageSearchView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Cancel") {
+                    Button(Loc.CardImages.ImageSearch.cancel) {
                         dismiss()
                     }
                     .disabled(isDownloading)
@@ -66,7 +66,7 @@ struct ImageSearchView: View {
                                 ProgressView()
                                     .scaleEffect(0.8)
                             } else {
-                                Text("Select")
+                                Text(Loc.CardImages.ImageSearch.select)
                                     .fontWeight(.semibold)
                             }
                         }
@@ -75,10 +75,10 @@ struct ImageSearchView: View {
                 }
             }
         }
-        .alert("Error", isPresented: $showingError) {
-            Button("OK") { }
+        .alert(Loc.CardImages.ImageSearch.Error.title, isPresented: $showingError) {
+            Button(Loc.CardImages.ImageSearch.Error.ok) { }
         } message: {
-            Text(errorMessage ?? "Unknown error occurred")
+            Text(errorMessage ?? Loc.CardImages.ImageSearch.Error.unknown)
         }
     }
     
@@ -90,11 +90,11 @@ struct ImageSearchView: View {
                 .font(.system(size: 60))
                 .foregroundColor(.secondary)
             
-            Text("Search for images")
+            Text(Loc.CardImages.ImageSearch.EmptyState.title)
                 .font(.title2)
                 .fontWeight(.medium)
             
-            Text("Enter a search term above to find beautiful images from Pexels")
+            Text(Loc.CardImages.ImageSearch.EmptyState.subtitle)
                 .font(.body)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
@@ -120,7 +120,7 @@ struct ImageSearchView: View {
                 
                 // Load more button
                 if pexelsService.hasMorePages && !pexelsService.isLoading {
-                    Button("Load More") {
+                    Button(Loc.CardImages.ImageSearch.loadMore) {
                         loadMoreImages()
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)

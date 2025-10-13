@@ -99,6 +99,12 @@ enum AnalyticsEvent: String, CaseIterable {
     case aiCoachRecommendationTapped = "ai_coach_recommendation_tapped"
     case aiFeatureError = "ai_feature_error"
     case aiFeaturePaywallShown = "ai_feature_paywall_shown"
+    
+    // MARK: - Conversion Events
+    case premiumFeatureRequested = "premium_feature_requested"
+    case premiumFeatureConverted = "premium_feature_converted"
+    case imageOnboardingShown = "image_onboarding_shown"
+    case imageOnboardingCompleted = "image_onboarding_completed"
 }
 
 // MARK: - Analytics Service
@@ -309,6 +315,37 @@ final class AnalyticsService {
             parameters["description"] = description
         }
         trackEvent(.insightRecommendationAction, parameters: parameters)
+    }
+    
+    /// Track premium feature request
+    /// - Parameter feature: The premium feature that was requested
+    static func trackPremiumFeatureRequested(_ feature: PremiumFeature) {
+        let parameters: [String: Any] = [
+            "feature": feature.rawValue,
+            "feature_title": feature.title
+        ]
+        trackEvent(.premiumFeatureRequested, parameters: parameters)
+    }
+    
+    /// Track premium feature conversion (when user purchases after seeing a feature)
+    /// - Parameter feature: The premium feature that triggered the conversion
+    static func trackPremiumFeatureConverted(_ feature: PremiumFeature) {
+        let parameters: [String: Any] = [
+            "feature": feature.rawValue,
+            "feature_title": feature.title
+        ]
+        trackEvent(.premiumFeatureConverted, parameters: parameters)
+    }
+    
+    /// Track image onboarding events
+    /// - Parameters:
+    ///   - event: The onboarding event (shown or completed)
+    ///   - userHasPremium: Whether the user has premium access
+    static func trackImageOnboardingEvent(_ event: AnalyticsEvent, userHasPremium: Bool) {
+        let parameters: [String: Any] = [
+            "user_has_premium": userHasPremium
+        ]
+        trackEvent(event, parameters: parameters)
     }
 
     // MARK: - User Properties

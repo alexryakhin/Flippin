@@ -107,7 +107,10 @@ final class PexelsService: ObservableObject {
             }
         }
         
-        let urlString = "\(baseURL)/search?query=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")&page=\(page)&per_page=20&orientation=landscape"
+        // Translate search query to English if user's locale is not English
+        let searchQuery = await translateQueryToEnglishIfNeeded(query)
+        
+        let urlString = "\(baseURL)/search?query=\(searchQuery.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")&page=\(page)&per_page=20&orientation=landscape"
         
         guard let url = URL(string: urlString) else {
             throw PexelsError.invalidURL
@@ -182,6 +185,34 @@ final class PexelsService: ObservableObject {
     /// Check if API key is configured
     var isConfigured: Bool {
         return !apiKey.isEmpty
+    }
+    
+    // MARK: - Private Helpers
+    
+    /// Translates the search query to English if the user's language is not English
+    private func translateQueryToEnglishIfNeeded(_ query: String) async -> String {
+        let userLanguage = LanguageManager.shared.userLanguage
+        
+        // If user's language is English, no translation needed
+        if userLanguage.voiceOverCode == "en" || userLanguage.voiceOverCode.hasPrefix("en-") {
+            print("🖼️ [PexelsService] User language is English, using query as-is: '\(query)'")
+            return query
+        }
+        
+        // Try to translate to English
+        do {
+            let translatedQuery = try await TranslationService.translate(
+                text: query,
+                from: userLanguage.voiceOverCode,
+                to: "en"
+            )
+            print("🖼️ [PexelsService] Translated query '\(query)' → '\(translatedQuery)'")
+            return translatedQuery
+        } catch {
+            print("⚠️ [PexelsService] Translation failed, using original query: \(error)")
+            // Fallback: use original query if translation fails
+            return query
+        }
     }
     
     // MARK: - Image Download and Storage

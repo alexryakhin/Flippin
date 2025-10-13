@@ -21,6 +21,7 @@ enum PremiumFeature: String, CaseIterable {
     case advancedAnalytics = "advanced_analytics"
     case cardPresets = "card_presets"
     case studyModes = "study_modes"
+    case images = "images"
 
     var icon: String {
         switch self {
@@ -44,6 +45,8 @@ enum PremiumFeature: String, CaseIterable {
             return "square.stack.3d.up.fill"
         case .studyModes:
             return "book.fill"
+        case .images:
+            return "photo.on.rectangle.angled"
         }
     }
 
@@ -69,6 +72,8 @@ enum PremiumFeature: String, CaseIterable {
             return Loc.Paywall.cardPresetsTitle
         case .studyModes:
             return Loc.Paywall.studyModesTitle
+        case .images:
+            return Loc.CardImages.Premium.title
         }
     }
     
@@ -94,6 +99,8 @@ enum PremiumFeature: String, CaseIterable {
             return Loc.Paywall.cardPresetsMessage
         case .studyModes:
             return Loc.Paywall.studyModesMessage
+        case .images:
+            return Loc.CardImages.Premium.message
         }
     }
     
@@ -119,20 +126,23 @@ enum PremiumFeature: String, CaseIterable {
             return Loc.Paywall.cardPresetsMessage
         case .studyModes:
             return Loc.Paywall.studyModesMessage
+        case .images:
+            return Loc.CardImages.Premium.description
         }
     }
     
     /// Features to display in the paywall
     static var paywallFeatures: [PremiumFeature] {
         [
-            .aiCollectionGenerator,
-            .aiLearningCoach,
-            .unlimitedCards,
-            .premiumVoices,
-            .collections,
-            .customThemes,
-            .languageChange,
-            .advancedAnalytics
+            .unlimitedCards,        // Core value proposition - most important
+            .images,               // Visual appeal - high engagement
+            .aiCollectionGenerator, // AI features - modern appeal
+            .aiLearningCoach,       // AI features - personalized learning
+            .premiumVoices,         // Audio enhancement - practical benefit
+            .collections,           // Organization - productivity
+            .advancedAnalytics,     // Progress tracking - motivation
+            .customThemes,          // Personalization - nice to have
+            .languageChange         // Flexibility - advanced users
         ]
     }
 }

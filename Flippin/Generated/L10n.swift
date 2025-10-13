@@ -346,6 +346,103 @@ public enum Loc {
     /// Skip
     public static let skip = Loc.tr("Buttons", "skip", fallback: "Skip")
   }
+  public enum CardImages {
+    /// Add Image
+    public static let addImage = Loc.tr("CardImages", "addImage", fallback: "Add Image")
+    /// Current Image
+    public static let currentImage = Loc.tr("CardImages", "currentImage", fallback: "Current Image")
+    /// Image Attached
+    public static let imageAttached = Loc.tr("CardImages", "imageAttached", fallback: "Image Attached")
+    /// Image unavailable
+    public static let imageUnavailable = Loc.tr("CardImages", "imageUnavailable", fallback: "Image unavailable")
+    /// Remove
+    public static let remove = Loc.tr("CardImages", "remove", fallback: "Remove")
+    /// Image
+    public static let sectionTitle = Loc.tr("CardImages", "sectionTitle", fallback: "Image")
+    /// Tap to change
+    public static let tapToChange = Loc.tr("CardImages", "tapToChange", fallback: "Tap to change")
+    public enum ImageOnboarding {
+      /// Get Started
+      public static let getStarted = Loc.tr("CardImages", "imageOnboarding.getStarted", fallback: "Get Started")
+      /// See how your cards will look:
+      public static let previewTitle = Loc.tr("CardImages", "imageOnboarding.previewTitle", fallback: "See how your cards will look:")
+      /// Skip
+      public static let skip = Loc.tr("CardImages", "imageOnboarding.skip", fallback: "Skip")
+      /// Add images to your flashcards for better memory retention and visual learning
+      public static let subtitle = Loc.tr("CardImages", "imageOnboarding.subtitle", fallback: "Add images to your flashcards for better memory retention and visual learning")
+      /// CardImages.strings
+      ///   Flippin
+      ///   
+      ///   Localization for card images and image onboarding flow
+      public static let title = Loc.tr("CardImages", "imageOnboarding.title", fallback: "Visual Learning")
+      public enum Benefit {
+        public enum Enhanced {
+          /// Make your flashcards more engaging
+          public static let description = Loc.tr("CardImages", "imageOnboarding.benefit.enhanced.description", fallback: "Make your flashcards more engaging")
+          /// Enhanced Experience
+          public static let title = Loc.tr("CardImages", "imageOnboarding.benefit.enhanced.title", fallback: "Enhanced Experience")
+        }
+        public enum Memory {
+          /// Visual cues help you remember faster
+          public static let description = Loc.tr("CardImages", "imageOnboarding.benefit.memory.description", fallback: "Visual cues help you remember faster")
+          /// Better Memory
+          public static let title = Loc.tr("CardImages", "imageOnboarding.benefit.memory.title", fallback: "Better Memory")
+        }
+        public enum Visual {
+          /// Learn with images, not just text
+          public static let description = Loc.tr("CardImages", "imageOnboarding.benefit.visual.description", fallback: "Learn with images, not just text")
+          /// Visual Learning
+          public static let title = Loc.tr("CardImages", "imageOnboarding.benefit.visual.title", fallback: "Visual Learning")
+        }
+      }
+      public enum Example {
+        /// I'd like to get your business card, please.
+        public static let card1 = Loc.tr("CardImages", "imageOnboarding.example.card1", fallback: "I'd like to get your business card, please.")
+        /// I need to warm up.
+        public static let card2 = Loc.tr("CardImages", "imageOnboarding.example.card2", fallback: "I need to warm up.")
+        /// I always travel by plane.
+        public static let card3 = Loc.tr("CardImages", "imageOnboarding.example.card3", fallback: "I always travel by plane.")
+      }
+    }
+    public enum ImageSearch {
+      /// Cancel
+      public static let cancel = Loc.tr("CardImages", "imageSearch.cancel", fallback: "Cancel")
+      /// Load More
+      public static let loadMore = Loc.tr("CardImages", "imageSearch.loadMore", fallback: "Load More")
+      /// Search for images...
+      public static let searchPrompt = Loc.tr("CardImages", "imageSearch.searchPrompt", fallback: "Search for images...")
+      /// Select
+      public static let select = Loc.tr("CardImages", "imageSearch.select", fallback: "Select")
+      /// Search Images
+      public static let title = Loc.tr("CardImages", "imageSearch.title", fallback: "Search Images")
+      public enum EmptyState {
+        /// Enter a search term above to find beautiful images from Pexels
+        public static let subtitle = Loc.tr("CardImages", "imageSearch.emptyState.subtitle", fallback: "Enter a search term above to find beautiful images from Pexels")
+        /// Search for images
+        public static let title = Loc.tr("CardImages", "imageSearch.emptyState.title", fallback: "Search for images")
+      }
+      public enum Error {
+        /// OK
+        public static let ok = Loc.tr("CardImages", "imageSearch.error.ok", fallback: "OK")
+        /// Error
+        public static let title = Loc.tr("CardImages", "imageSearch.error.title", fallback: "Error")
+        /// Unknown error occurred
+        public static let unknown = Loc.tr("CardImages", "imageSearch.error.unknown", fallback: "Unknown error occurred")
+      }
+    }
+    public enum Premium {
+      /// Enhance your learning with visual flashcards that help you remember better
+      public static let description = Loc.tr("CardImages", "premium.description", fallback: "Enhance your learning with visual flashcards that help you remember better")
+      /// Add beautiful images to your flashcards for better memory retention
+      public static let message = Loc.tr("CardImages", "premium.message", fallback: "Add beautiful images to your flashcards for better memory retention")
+      /// Card Images
+      public static let title = Loc.tr("CardImages", "premium.title", fallback: "Card Images")
+    }
+    public enum PremiumGate {
+      /// Don't miss out on visual learning, upgrade to Premium
+      public static let message = Loc.tr("CardImages", "premiumGate.message", fallback: "Don't miss out on visual learning, upgrade to Premium")
+    }
+  }
   public enum CardLimits {
     /// Card limit exceeded. You have %d cards out of %d allowed. Upgrade to premium for unlimited cards.
     public static func cardLimitExceeded(_ p1: Int, _ p2: Int) -> String {

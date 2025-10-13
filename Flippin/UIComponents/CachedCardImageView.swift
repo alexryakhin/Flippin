@@ -9,12 +9,14 @@ import SwiftUI
 
 /// A view that displays a card's image with intelligent caching and fallback mechanism.
 /// Tries to load from local cache first, then falls back to web download if needed.
+/// Shows premium gate message for non-premium users when image exists.
 struct CachedCardImageView: View {
     let localPath: String?
     let webUrl: String?
     let maxHeight: CGFloat?
     let cornerRadius: CGFloat
     
+    @StateObject private var purchaseService = PurchaseService.shared
     @State private var image: Image?
     @State private var isLoading = true
     @State private var loadingFailed = false
@@ -33,8 +35,12 @@ struct CachedCardImageView: View {
     
     var body: some View {
         Group {
-            if let image = image {
-                // Successfully loaded image
+            // Check if user has premium access
+            if !purchaseService.hasPremiumAccess && hasImageAvailable {
+                // Premium gate for non-premium users when image exists
+                premiumGateView
+            } else if let image = image {
+                // Successfully loaded image (premium users only)
                 image
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -61,7 +67,7 @@ struct CachedCardImageView: View {
                             Image(systemName: "photo")
                                 .font(.title2)
                                 .foregroundColor(.secondary)
-                            Text("Image unavailable")
+                            Text(Loc.CardImages.imageUnavailable)
                                 .font(.caption)
                                 .foregroundColor(.secondary)
                         }
@@ -74,7 +80,59 @@ struct CachedCardImageView: View {
         }
     }
     
+    // MARK: - Computed Properties
+    
+    /// Checks if there's an image available (either local or web)
+    private var hasImageAvailable: Bool {
+        return localPath != nil || webUrl != nil
+    }
+    
+    // MARK: - Premium Gate View
+    
+    private var premiumGateView: some View {
+        Rectangle()
+            .fill(
+                LinearGradient(
+                    colors: [
+                        Color(.systemGray5),
+                        Color(.systemGray6)
+                    ],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
+            )
+            .frame(maxHeight: maxHeight)
+            .overlay(
+                VStack(spacing: 12) {
+                    Image(systemName: "photo.on.rectangle.angled")
+                        .font(.system(size: 32, weight: .medium))
+                        .foregroundColor(.secondary)
+                    
+                    Text(Loc.CardImages.PremiumGate.message)
+                        .font(.subheadline)
+                        .fontWeight(.medium)
+                        .foregroundColor(.primary)
+                        .multilineTextAlignment(.center)
+                        .lineLimit(3)
+                        .padding(.horizontal, 8)
+                }
+                .padding()
+            )
+            .cornerRadius(cornerRadius)
+    }
+    
+    // MARK: - Private Methods
+    
     private func loadImage() async {
+        // Don't load images for non-premium users
+        guard purchaseService.hasPremiumAccess else {
+            await MainActor.run {
+                isLoading = false
+                loadingFailed = false
+            }
+            return
+        }
+        
         guard let localPath = localPath else {
             await MainActor.run {
                 isLoading = false
