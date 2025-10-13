@@ -1,0 +1,56 @@
+/* 
+  CardImages.strings
+  Flippin
+  
+  Localization for card images and image onboarding flow
+*/
+
+// MARK: - Image Onboarding
+"imageOnboarding.title" = "दृश्य सीखना";
+"imageOnboarding.subtitle" = "बेहतर स्मृति प्रतिधारण और दृश्य सीखने के लिए अपने फ्लैशकार्ड में छवियाँ जोड़ें";
+"imageOnboarding.previewTitle" = "देखें कि आपके कार्ड कैसे दिखेंगे:";
+
+// MARK: - Example Cards
+"imageOnboarding.example.card1" = "मुझे आपका बिजनेस कार्ड चाहिए, कृपया।";
+"imageOnboarding.example.card2" = "मुझे वार्म अप करने की जरूरत है।";
+"imageOnboarding.example.card3" = "मैं हमेशा हवाई जहाज से यात्रा करता हूं।";
+
+// MARK: - Benefits
+"imageOnboarding.benefit.memory.title" = "बेहतर स्मृति";
+"imageOnboarding.benefit.memory.description" = "दृश्य संकेत आपको तेजी से याद रखने में मदद करते हैं";
+
+"imageOnboarding.benefit.visual.title" = "दृश्य सीखना";
+"imageOnboarding.benefit.visual.description" = "केवल पाठ नहीं, छवियों के साथ सीखें";
+
+"imageOnboarding.benefit.enhanced.title" = "उन्नत अनुभव";
+"imageOnboarding.benefit.enhanced.description" = "अपने फ्लैशकार्ड को अधिक आकर्षक बनाएं";
+
+// MARK: - Actions
+"imageOnboarding.getStarted" = "शुरू करें";
+"imageOnboarding.skip" = "छोड़ें";
+
+// MARK: - Add/Edit Card Image Section
+"sectionTitle" = "छवि";
+"imageAttached" = "छवि संलग्न";
+"currentImage" = "वर्तमान छवि";
+"tapToChange" = "बदलने के लिए टैप करें";
+"addImage" = "छवि जोड़ें";
+"remove" = "हटाएं";
+"imageUnavailable" = "छवि उपलब्ध नहीं है";
+
+
+// MARK: - Image Search
+"imageSearch.title" = "छवियाँ खोजें";
+"imageSearch.searchPrompt" = "छवियाँ खोजें...";
+"imageSearch.cancel" = "रद्द करें";
+"imageSearch.select" = "चुनें";
+"imageSearch.loadMore" = "अधिक लोड करें";
+
+// MARK: - Image Search Empty State
+"imageSearch.emptyState.title" = "छवियाँ खोजें";
+"imageSearch.emptyState.subtitle" = "Pexels से सुंदर छवियाँ खोजने के लिए ऊपर खोज शब्द दर्ज करें";
+
+// MARK: - Image Search Errors
+"imageSearch.error.title" = "त्रुटि";
+"imageSearch.error.unknown" = "अज्ञात त्रुटि हुई";
+"imageSearch.error.ok" = "ठीक है";

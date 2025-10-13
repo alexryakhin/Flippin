@@ -1,0 +1,56 @@
+/*
+  AIFeatures.strings
+  Flippin
+  
+  AI-powered features localization
+  Language: nl
+  Section: ai_features
+*/
+
+// AI Collection Generator
+"aiGeneratorTitle" = "AI Collectie Generator";
+"aiGeneratorSubtitle" = "Maak aangepaste flashcard-collecties met AI";
+"aiGeneratorDescription" = "Beschrijf wat je wilt leren en AI maakt een aangepaste flashcard-collectie voor je";
+"yourRequest" = "Jouw Verzoek";
+"numberOfCards" = "Aantal Kaarten";
+"exampleRequests" = "Voorbeeldverzoeken";
+"generateCollection" = "Collectie Genereren";
+"tryAgain" = "Opnieuw Proberen";
+"importAll" = "Alles Importeren";
+"requestPlaceholder" = "bijv., Zinnen voor bestellen in restaurants";
+"requestTooLong" = "Verzoek te lang. Houd het onder 500 tekens.";
+
+// Example Requests
+"exampleRestaurant" = "Zinnen voor bestellen in restaurants";
+"exampleAirport" = "Woordenschat voor navigeren op luchthavens";
+"exampleBusiness" = "Zakelijke vergaderuitdrukkingen";
+
+// AI Learning Coach
+"aiCoachTitle" = "AI Leercoach";
+"learningCoach" = "Leercoach";
+"aiCoachDescription" = "Krijg gepersonaliseerde inzichten over je leervoortgang";
+"aiCoachEmptyState" = "Krijg gepersonaliseerde inzichten over je leren";
+"generateInsights" = "Inzichten Genereren";
+"refreshInsights" = "Inzichten Vernieuwen";
+"viewDetailedInsights" = "Gedetailleerde Inzichten Bekijken";
+"analyzingProgress" = "AI analyseert je voortgang...";
+"keyInsights" = "Belangrijkste Inzichten";
+"recommendations" = "Aanbevelingen";
+"generatedAt" = "Gegenereerd %@";
+"aiInsightsFailed" = "Kan inzichten niet genereren. Probeer het opnieuw.";
+
+// Priority Labels
+"highPriority" = "Hoge Prioriteit";
+"mediumPriority" = "Gemiddelde Prioriteit";
+"lowPriority" = "Lage Prioriteit";
+
+// Errors
+"error" = "Fout";
+"ok" = "OK";
+"aiNotReady" = "ChatGPT-service is niet klaar. Probeer het later opnieuw.";
+"aiFeatureDisabled" = "AI-functies zijn tijdelijk niet beschikbaar";
+"aiInvalidResponse" = "Ongeldige reactie ontvangen van AI. Probeer het opnieuw.";
+"aiNetworkError" = "Netwerkverbinding mislukt. Controleer je internet en probeer opnieuw.";
+"aiUnexpectedError" = "Er is een onverwachte fout opgetreden. Probeer het opnieuw.";
+"aiImportFailed" = "Kan kaarten niet importeren. Je hebt mogelijk je kaartlimiet bereikt.";
+

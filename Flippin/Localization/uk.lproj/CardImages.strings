@@ -1,0 +1,56 @@
+/* 
+  CardImages.strings
+  Flippin
+  
+  Localization for card images and image onboarding flow
+*/
+
+// MARK: - Image Onboarding
+"imageOnboarding.title" = "Візуальне Навчання";
+"imageOnboarding.subtitle" = "Додавайте зображення до флеш-карток для кращого запам'ятовування та візуального навчання";
+"imageOnboarding.previewTitle" = "Подивіться, як виглядатимуть ваші картки:";
+
+// MARK: - Example Cards
+"imageOnboarding.example.card1" = "Я б хотів отримати вашу візитну картку, будь ласка.";
+"imageOnboarding.example.card2" = "Мені потрібно розім'ятися.";
+"imageOnboarding.example.card3" = "Я завжди подорожую літаком.";
+
+// MARK: - Benefits
+"imageOnboarding.benefit.memory.title" = "Краща Пам'ять";
+"imageOnboarding.benefit.memory.description" = "Візуальні підказки допомагають запам'ятовувати швидше";
+
+"imageOnboarding.benefit.visual.title" = "Візуальне Навчання";
+"imageOnboarding.benefit.visual.description" = "Вчіться із зображеннями, а не лише з текстом";
+
+"imageOnboarding.benefit.enhanced.title" = "Покращений Досвід";
+"imageOnboarding.benefit.enhanced.description" = "Зробіть свої флеш-картки більш привабливими";
+
+// MARK: - Actions
+"imageOnboarding.getStarted" = "Почати";
+"imageOnboarding.skip" = "Пропустити";
+
+// MARK: - Add/Edit Card Image Section
+"sectionTitle" = "Зображення";
+"imageAttached" = "Зображення Прикріплено";
+"currentImage" = "Поточне Зображення";
+"tapToChange" = "Натисніть, щоб змінити";
+"addImage" = "Додати Зображення";
+"remove" = "Видалити";
+"imageUnavailable" = "Зображення недоступне";
+
+
+// MARK: - Image Search
+"imageSearch.title" = "Пошук Зображень";
+"imageSearch.searchPrompt" = "Шукати зображення...";
+"imageSearch.cancel" = "Скасувати";
+"imageSearch.select" = "Вибрати";
+"imageSearch.loadMore" = "Завантажити Ще";
+
+// MARK: - Image Search Empty State
+"imageSearch.emptyState.title" = "Шукати зображення";
+"imageSearch.emptyState.subtitle" = "Введіть пошуковий запит вище, щоб знайти красиві зображення на Pexels";
+
+// MARK: - Image Search Errors
+"imageSearch.error.title" = "Помилка";
+"imageSearch.error.unknown" = "Сталася невідома помилка";
+"imageSearch.error.ok" = "OK";

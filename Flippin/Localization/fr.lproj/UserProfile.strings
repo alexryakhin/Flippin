@@ -85,7 +85,3 @@
 "notificationFeature2" = "Alertes de pratique pour les cartes difficiles";
 "notificationFeature3" = "Notifications de série pour rester motivé";
 "enableNotifications" = "Activer les notifications";
-
-// Subscription Trial
-"trialTitle" = "Essayez Premium gratuitement pendant 7 jours";
-"trialSubtitle" = "Débloquez toutes les fonctionnalités avec un accès complet au contenu premium";

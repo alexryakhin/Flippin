@@ -7,31 +7,66 @@
   Section: premium_features
 */
 
-"premiumFeature" = "Premium Funktion";
+"premiumFeature" = "Premiumfunktion";
 "premiumRequired" = "Premium Krävs";
-"upgradeToPremium" = "Uppgradera till Premium";
-"premiumFeatureDescription" = "Få tillgång till alla fördefinierade samlingar och lås upp det obegränsade potentialet för språkinlärning";
+"premiumFeatureDescription" = "Få tillgång till alla förinställda samlingar och lås upp obegränsad språkinlärningspotential";
 "previewBackgrounds" = "Förhandsgranska";
 "colorScheme" = "Färgschema";
 "colorSchemeSystem" = "System";
-"colorSchemeLight" = "Ljus";
-"colorSchemeDark" = "Mörk";
-"unlockPremium" = "Lås upp Premium";
-"masterLanguageLearning" = "Behärska ditt språkinlärning med exklusiva funktioner";
+"colorSchemeLight" = "Ljust";
+"colorSchemeDark" = "Mörkt";
 "usedCardsOfLimit" = "Du har använt %d av %d gratis kort";
-"whatYouGetWithPremium" = "Vad du får med Premium";
-"unlimitedCardsDescription" = "Skapa så många flashcards du vill";
+"unlimitedCardsDescription" = "Skapa så många flashkort du vill";
 "collections" = "30+ Samlingar";
-"collectionsDescription" = "Tillgång till alla fördefinierade vokabulärsamlingar";
+"collectionsDescription" = "Tillgång till alla förinställda ordförrådsamlingar";
 "premiumBackgrounds" = "Premium Bakgrunder";
 "premiumBackgroundsDescription" = "Vackra animerade bakgrunder";
 "changeLanguages" = "Ändra Språk";
-"changeLanguagesDescription" = "Byt mellan olika språkpar när som helst";
+"changeLanguagesDescription" = "Växla mellan olika språkpar när som helst";
 "multipleLanguagesTitle" = "Flera Språk";
-"multipleLanguagesDescription" = "Möjlighet att lära sig flera språk samtidigt";
-"restorePurchases" = "Återställ Köp";
-"cancelAnytime" = "Avbryt när som helst • Inget åtagande";
-"terms" = "Villkor";
-"privacy" = "Integritet";
-"goPremium" = "Gå till Premium";
+"multipleLanguagesDescription" = "Förmåga att lära sig flera språk samtidigt";
 "premium" = "Premium";
+
+// MARK: - Card Images Premium Features
+"cardImages" = "Kortbilder";
+"cardImagesDescription" = "Lägg till vackra bilder till dina flashkort för bättre minnesretention";
+"cardImagesPremiumDescription" = "Förbättra ditt lärande med visuella flashkort som hjälper dig komma ihåg bättre";
+"cardImagesPremiumGate" = "Missa inte visuellt lärande, uppgradera till Premium";
+
+// MARK: - AI Features Premium
+"aiPremiumDescription" = "Få AI-drivna insikter om dina lärandeframsteg";
+"aiUnlimitedAccess" = "AI-funktioner tillgängliga med Premium-prenumeration";
+"aiPremiumRequired" = "AI-funktioner är tillgängliga med Premium-prenumeration";
+"aiCollectionGenerator" = "AI Samlingsgenerator";
+"aiCollectionGeneratorDescription" = "Skapa anpassade flashkortsamlingar med AI";
+"aiLearningCoach" = "AI Inlärningscoach";
+"aiLearningCoachDescription" = "Få personliga insikter och rekommendationer";
+
+// MARK: - Premium Voices
+"premiumVoices" = "Speechify Premium Röster";
+"premiumVoicesMessage" = "Njut av högkvalitativt ljud för alla dina flashkort!";
+"premiumVoicesDescription" = "Tusentals högkvalitativa röster för att personalisera dina kort";
+
+// MARK: - Unlimited Cards
+"unlimitedCardsTitle" = "Obegränsade Kort";
+"unlimitedCardsMessage" = "Uppgradera till premium för att skapa obegränsade kort och låsa upp alla funktioner!";
+
+// MARK: - Advanced Analytics
+"advancedAnalyticsTitle" = "Avancerad Analys";
+"advancedAnalyticsMessage" = "Få detaljerade lärandeinsikter, framstegsdiagram och prestandaanalys med premium!";
+
+// MARK: - Custom Themes
+"customThemesTitle" = "Anpassade Teman";
+"customThemesMessage" = "Lås upp vackra anpassade teman och bakgrunder med premium!";
+
+// MARK: - Language Change
+"languageChangeTitle" = "Språkbyte";
+"languageChangeMessage" = "Välj mellan över 15 språk för att förbättra din lärandeupplevelse med premium!";
+
+// MARK: - Card Presets
+"cardPresetsTitle" = "Kortförval";
+"cardPresetsMessage" = "Utforska en omfattande samling av fördesignade kortförval med premium!";
+
+// MARK: - Study Modes
+"studyModesTitle" = "Studiemodus";
+"studyModesMessage" = "Få tillgång till avancerade studielägen och inlärningstekniker med premium!";

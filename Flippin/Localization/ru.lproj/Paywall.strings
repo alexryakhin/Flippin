@@ -7,19 +7,23 @@
   Section: paywall
 */
 
-"upgradeToPremiumTitle" = "Обновить до премиум";
-"upgradeToPremiumMessage" = "Обновите до премиум, чтобы разблокировать все функции!";
+// MARK: - Paywall UI
+"upgradeToPremiumTitle" = "Перейти на Премиум";
+"upgradeToPremiumMessage" = "Перейдите на премиум, чтобы разблокировать все функции!";
 "cancel" = "Отмена";
-"viewOptions" = "Посмотреть варианты";
-"unlimitedCardsTitle" = "Неограниченные карточки";
-"unlimitedCardsMessage" = "Обновите до премиум, чтобы создавать неограниченное количество карточек и разблокировать все функции!";
-"advancedAnalyticsTitle" = "Расширенная аналитика";
-"advancedAnalyticsMessage" = "Получите детальную аналитику обучения, графики прогресса и аналитику производительности с премиум!";
-"customThemesTitle" = "Пользовательские темы";
-"customThemesMessage" = "Разблокируйте красивые пользовательские темы и фоны с премиум!";
-"languageChangeTitle" = "Изменение языка";
-"languageChangeMessage" = "Выбирайте из более чем 15 языков для улучшения вашего опыта обучения с премиум!";
-"cardPresetsTitle" = "Предустановки карточек";
-"cardPresetsMessage" = "Исследуйте обширную коллекцию предустановленных карточек с премиум!";
-"studyModesTitle" = "Режимы изучения";
-"studyModesMessage" = "Получите доступ к расширенным режимам изучения и техникам обучения с премиум!";
+"viewOptions" = "Просмотр опций";
+"unlockPremium" = "Разблокировать Премиум";
+"goPremium" = "Получить Премиум";
+"whatYouGetWithPremium" = "Что вы получаете с Премиум";
+"masterLanguageLearning" = "Освойте изучение языков с эксклюзивными функциями";
+
+// MARK: - Paywall Actions
+"subscribe" = "Подписаться";
+"restoreSubscription" = "Восстановить подписку";
+"termsOfService" = "Условия использования";
+"privacyPolicy" = "Политика конфиденциальности";
+"andPreposition" = "и";
+
+// MARK: - Trial
+"trialTitle" = "Попробуйте Премиум бесплатно на 7 дней";
+"trialSubtitle" = "Разблокируйте все функции с полным доступом к премиум-контенту";

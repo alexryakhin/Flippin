@@ -47,13 +47,13 @@ extension WelcomeSheet {
                             .animation(.easeInOut(duration: 0.5).delay(0.2), value: animateContent)
 
                             VStack(spacing: 16) {
-                                Text(Loc.UserProfile.trialTitle)
+                                Text(Loc.Paywall.trialTitle)
                                     .font(.system(size: 32, weight: .bold, design: .rounded))
                                     .multilineTextAlignment(.center)
                                     .offset(y: animateContent ? 0 : 20)
                                     .opacity(animateContent ? 1 : 0)
 
-                                Text(Loc.UserProfile.trialSubtitle)
+                                Text(Loc.Paywall.trialSubtitle)
                                     .font(.body)
                                     .foregroundColor(.secondary)
                                     .multilineTextAlignment(.center)
@@ -137,10 +137,10 @@ extension WelcomeSheet {
         
         private var features: [FeatureItem] {
             [
-                FeatureItem(icon: "sparkles", title: "AI Collection Generator"),
-                FeatureItem(icon: "brain.head.profile", title: "AI Learning Coach"),
-                FeatureItem(icon: "infinity", title: Loc.CardLimits.unlimitedCards),
-                FeatureItem(icon: "waveform", title: "Premium Voices"),
+                FeatureItem(icon: "sparkles", title: Loc.PremiumFeatures.aiCollectionGenerator),
+                FeatureItem(icon: "brain.head.profile", title: Loc.PremiumFeatures.aiLearningCoach),
+                FeatureItem(icon: "infinity", title: Loc.PremiumFeatures.unlimitedCardsTitle),
+                FeatureItem(icon: "waveform", title: Loc.PremiumFeatures.premiumVoices),
                 FeatureItem(icon: "folder.fill", title: Loc.PremiumFeatures.collections)
             ]
         }

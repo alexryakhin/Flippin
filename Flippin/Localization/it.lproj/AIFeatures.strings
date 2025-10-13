@@ -1,0 +1,56 @@
+/*
+  AIFeatures.strings
+  Flippin
+  
+  AI-powered features localization
+  Language: it
+  Section: ai_features
+*/
+
+// AI Collection Generator
+"aiGeneratorTitle" = "Generatore di Collezioni AI";
+"aiGeneratorSubtitle" = "Crea collezioni di flashcard personalizzate con AI";
+"aiGeneratorDescription" = "Descrivi cosa vuoi imparare e l'AI creerà una collezione di flashcard personalizzata per te";
+"yourRequest" = "La Tua Richiesta";
+"numberOfCards" = "Numero di Carte";
+"exampleRequests" = "Esempi di Richieste";
+"generateCollection" = "Genera Collezione";
+"tryAgain" = "Riprova";
+"importAll" = "Importa Tutto";
+"requestPlaceholder" = "es., Frasi per ordinare al ristorante";
+"requestTooLong" = "Richiesta troppo lunga. Per favore, mantienila sotto i 500 caratteri.";
+
+// Example Requests
+"exampleRestaurant" = "Frasi per ordinare al ristorante";
+"exampleAirport" = "Vocabolario per navigare negli aeroporti";
+"exampleBusiness" = "Espressioni per riunioni di lavoro";
+
+// AI Learning Coach
+"aiCoachTitle" = "Coach di Apprendimento AI";
+"learningCoach" = "Coach di Apprendimento";
+"aiCoachDescription" = "Ottieni informazioni personalizzate sui tuoi progressi di apprendimento";
+"aiCoachEmptyState" = "Ottieni informazioni personalizzate sul tuo apprendimento";
+"generateInsights" = "Genera Informazioni";
+"refreshInsights" = "Aggiorna Informazioni";
+"viewDetailedInsights" = "Visualizza Informazioni Dettagliate";
+"analyzingProgress" = "L'AI sta analizzando i tuoi progressi...";
+"keyInsights" = "Informazioni Chiave";
+"recommendations" = "Raccomandazioni";
+"generatedAt" = "Generato %@";
+"aiInsightsFailed" = "Impossibile generare informazioni. Per favore, riprova.";
+
+// Priority Labels
+"highPriority" = "Alta Priorità";
+"mediumPriority" = "Priorità Media";
+"lowPriority" = "Bassa Priorità";
+
+// Errors
+"error" = "Errore";
+"ok" = "OK";
+"aiNotReady" = "Il servizio ChatGPT non è pronto. Per favore, riprova più tardi.";
+"aiFeatureDisabled" = "Le funzionalità AI sono temporaneamente non disponibili";
+"aiInvalidResponse" = "Ricevuta risposta non valida dall'AI. Per favore, riprova.";
+"aiNetworkError" = "Connessione di rete fallita. Controlla la tua connessione internet e riprova.";
+"aiUnexpectedError" = "Si è verificato un errore imprevisto. Per favore, riprova.";
+"aiImportFailed" = "Impossibile importare le carte. Potresti aver raggiunto il limite di carte.";
+

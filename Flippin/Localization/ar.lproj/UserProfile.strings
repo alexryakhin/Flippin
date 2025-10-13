@@ -85,7 +85,3 @@
 "notificationFeature2" = "تنبيهات ممارسة للبطاقات الصعبة";
 "notificationFeature3" = "إشعارات السلسلة للبقاء متحفزًا";
 "enableNotifications" = "تفعيل الإشعارات";
-
-// Subscription Trial
-"trialTitle" = "جرب Premium مجانًا لمدة 7 أيام";
-"trialSubtitle" = "افتح جميع الميزات مع وصول كامل إلى المحتوى المميز";

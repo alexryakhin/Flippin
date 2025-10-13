@@ -9,17 +9,13 @@
 
 "premiumFeature" = "Función Premium";
 "premiumRequired" = "Premium Requerido";
-"upgradeToPremium" = "Actualizar a Premium";
 "premiumFeatureDescription" = "Accede a todas las colecciones preestablecidas y desbloquea el potencial ilimitado de aprendizaje de idiomas";
 "previewBackgrounds" = "Vista Previa";
 "colorScheme" = "Esquema de Color";
 "colorSchemeSystem" = "Sistema";
 "colorSchemeLight" = "Claro";
 "colorSchemeDark" = "Oscuro";
-"unlockPremium" = "Desbloquear Premium";
-"masterLanguageLearning" = "Domina tu aprendizaje de idiomas con funciones exclusivas";
 "usedCardsOfLimit" = "Has usado %d de %d tarjetas gratuitas";
-"whatYouGetWithPremium" = "Lo que obtienes con Premium";
 "unlimitedCardsDescription" = "Crea tantas tarjetas de estudio como quieras";
 "collections" = "30+ Colecciones";
 "collectionsDescription" = "Accede a todas las colecciones de vocabulario preestablecidas";
@@ -29,9 +25,48 @@
 "changeLanguagesDescription" = "Cambia entre diferentes pares de idiomas en cualquier momento";
 "multipleLanguagesTitle" = "Múltiples Idiomas";
 "multipleLanguagesDescription" = "Capacidad de aprender múltiples idiomas al mismo tiempo";
-"restorePurchases" = "Restaurar Compras";
-"cancelAnytime" = "Cancela en cualquier momento • Sin compromiso";
-"terms" = "Términos";
-"privacy" = "Privacidad";
-"goPremium" = "Ir a Premium";
 "premium" = "Premium";
+
+// MARK: - Card Images Premium Features
+"cardImages" = "Imágenes de Tarjetas";
+"cardImagesDescription" = "Añade hermosas imágenes a tus tarjetas para mejor retención de memoria";
+"cardImagesPremiumDescription" = "Mejora tu aprendizaje con tarjetas visuales que te ayudan a recordar mejor";
+"cardImagesPremiumGate" = "No te pierdas el aprendizaje visual, actualiza a Premium";
+
+// MARK: - AI Features Premium
+"aiPremiumDescription" = "Obtén información impulsada por IA sobre tu progreso de aprendizaje";
+"aiUnlimitedAccess" = "Funciones de IA disponibles con suscripción Premium";
+"aiPremiumRequired" = "Las funciones de IA están disponibles con suscripción Premium";
+"aiCollectionGenerator" = "Generador de Colecciones IA";
+"aiCollectionGeneratorDescription" = "Crea colecciones de tarjetas personalizadas con IA";
+"aiLearningCoach" = "Entrenador de Aprendizaje IA";
+"aiLearningCoachDescription" = "Obtén información personalizada y recomendaciones";
+
+// MARK: - Premium Voices
+"premiumVoices" = "Voces Premium de Speechify";
+"premiumVoicesMessage" = "¡Disfruta de audio de alta calidad para todas tus tarjetas!";
+"premiumVoicesDescription" = "Miles de voces de alta calidad para personalizar tus tarjetas";
+
+// MARK: - Unlimited Cards
+"unlimitedCardsTitle" = "Tarjetas Ilimitadas";
+"unlimitedCardsMessage" = "¡Actualiza a premium para crear tarjetas ilimitadas y desbloquear todas las funciones!";
+
+// MARK: - Advanced Analytics
+"advancedAnalyticsTitle" = "Análisis Avanzados";
+"advancedAnalyticsMessage" = "¡Obtén información detallada de aprendizaje, gráficos de progreso y análisis de rendimiento con premium!";
+
+// MARK: - Custom Themes
+"customThemesTitle" = "Temas Personalizados";
+"customThemesMessage" = "¡Desbloquea hermosos temas personalizados y fondos con premium!";
+
+// MARK: - Language Change
+"languageChangeTitle" = "Cambio de Idioma";
+"languageChangeMessage" = "¡Elige entre más de 15 idiomas para mejorar tu experiencia de aprendizaje con premium!";
+
+// MARK: - Card Presets
+"cardPresetsTitle" = "Plantillas de Tarjetas";
+"cardPresetsMessage" = "¡Explora una vasta colección de plantillas de tarjetas prediseñadas con premium!";
+
+// MARK: - Study Modes
+"studyModesTitle" = "Modos de Estudio";
+"studyModesMessage" = "¡Accede a modos de estudio avanzados y técnicas de aprendizaje con premium!";

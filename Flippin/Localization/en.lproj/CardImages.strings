@@ -38,10 +38,6 @@
 "remove" = "Remove";
 "imageUnavailable" = "Image unavailable";
 
-// MARK: - Premium Alert
-"premium.title" = "Card Images";
-"premium.message" = "Add beautiful images to your flashcards for better memory retention";
-"premium.description" = "Enhance your learning with visual flashcards that help you remember better";
 
 // MARK: - Image Search
 "imageSearch.title" = "Search Images";
@@ -59,5 +55,3 @@
 "imageSearch.error.unknown" = "Unknown error occurred";
 "imageSearch.error.ok" = "OK";
 
-// MARK: - Premium Gate
-"premiumGate.message" = "Don't miss out on visual learning, upgrade to Premium";

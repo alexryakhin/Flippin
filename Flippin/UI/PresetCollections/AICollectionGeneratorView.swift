@@ -35,15 +35,15 @@ struct AICollectionGeneratorView: View {
         }
         .groupedBackground()
         .navigation(
-            title: "AI Collection Generator",
+            title: Loc.AIFeatures.aiGeneratorTitle,
             mode: .inline,
             showsBackButton: true
         )
         .ifLet(colorManager.colorScheme) { view, scheme in
             view.colorScheme(scheme)
         }
-        .alert("Error", isPresented: $showingError) {
-            Button("OK", role: .cancel) {}
+        .alert(Loc.AIFeatures.error, isPresented: $showingError) {
+            Button(Loc.AIFeatures.ok, role: .cancel) {}
         } message: {
             Text(errorMessage)
         }
@@ -71,11 +71,11 @@ struct AICollectionGeneratorView: View {
                         .font(.system(size: 60))
                         .foregroundColor(.yellow)
                     
-                    Text("AI Collection Generator")
+                    Text(Loc.AIFeatures.aiGeneratorTitle)
                         .font(.title)
                         .fontWeight(.bold)
                     
-                    Text("Describe what you want to learn and AI will create a custom flashcard collection for you")
+                    Text(Loc.AIFeatures.aiGeneratorDescription)
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                         .multilineTextAlignment(.center)
@@ -84,7 +84,7 @@ struct AICollectionGeneratorView: View {
                 .padding(.top, 20)
                 
                 // Input section
-                CustomSectionView(header: "Your Request", backgroundStyle: .standard) {
+                CustomSectionView(header: Loc.AIFeatures.yourRequest, backgroundStyle: .standard) {
                     VStack(alignment: .leading, spacing: 12) {
                         TextEditor(text: $userRequest)
                             .frame(minHeight: 100)
@@ -92,44 +92,44 @@ struct AICollectionGeneratorView: View {
                             .background(Color(.tertiarySystemGroupedBackground))
                             .cornerRadius(8)
                         
-                        Text("\(userRequest.count)/500 characters")
+                        Text(Loc.Plurals.characterLimit(userRequest.count))
                             .font(.caption)
                             .foregroundColor(.secondary)
                     }
                 }
                 
                 // Card count selector
-                CustomSectionView(header: "Number of Cards", backgroundStyle: .standard) {
+                CustomSectionView(header: Loc.AIFeatures.numberOfCards, backgroundStyle: .standard) {
                     Picker("Card Count", selection: $cardCount) {
                         ForEach(cardCountOptions, id: \.self) { count in
-                            Text("\(count) cards").tag(count)
+                            Text(Loc.Plurals.cardsCount(count)).tag(count)
                         }
                     }
                     .pickerStyle(.segmented)
                 }
                 
                 // Examples
-                CustomSectionView(header: "Example Requests", backgroundStyle: .standard) {
+                CustomSectionView(header: Loc.AIFeatures.exampleRequests, backgroundStyle: .standard) {
                     VStack(alignment: .leading, spacing: 8) {
                         ExampleRequestRow(
                             icon: "fork.knife",
-                            text: "Spanish phrases for ordering at restaurants"
+                            text: Loc.AIFeatures.exampleRestaurant
                         ) {
-                            userRequest = "Spanish phrases for ordering at restaurants"
+                            userRequest = Loc.AIFeatures.exampleRestaurant
                         }
                         
                         ExampleRequestRow(
                             icon: "airplane",
-                            text: "French vocabulary for navigating airports"
+                            text: Loc.AIFeatures.exampleAirport
                         ) {
-                            userRequest = "French vocabulary for navigating airports"
+                            userRequest = Loc.AIFeatures.exampleAirport
                         }
                         
                         ExampleRequestRow(
                             icon: "briefcase",
-                            text: "German business meeting expressions"
+                            text: Loc.AIFeatures.exampleBusiness
                         ) {
-                            userRequest = "German business meeting expressions"
+                            userRequest = Loc.AIFeatures.exampleBusiness
                         }
                     }
                 }
@@ -141,7 +141,7 @@ struct AICollectionGeneratorView: View {
         }
         .safeAreaInset(edge: .bottom) {
             ActionButton(
-                "Generate Collection",
+                Loc.AIFeatures.generateCollection,
                 style: .borderedProminent,
                 isLoading: chatGPTService.isGenerating
             ) {
@@ -167,7 +167,10 @@ struct AICollectionGeneratorView: View {
                                 .foregroundColor(.secondary)
                         }
                         
-                        CustomSectionView(header: "Generated Cards (\(collection.cards.count))", backgroundStyle: .standard) {
+                        CustomSectionView(
+                            header: Loc.Plurals.generatedCardsCount(collection.cards.count),
+                            backgroundStyle: .standard
+                        ) {
                             VStack(spacing: 12) {
                                 ForEach(Array(collection.cards.enumerated()), id: \.offset) { index, card in
                                     GeneratedCardRow(card: card)
@@ -183,7 +186,7 @@ struct AICollectionGeneratorView: View {
             // Action buttons
             HStack(spacing: 12) {
                 ActionButton(
-                    "Try Again",
+                    Loc.AIFeatures.tryAgain,
                     style: .bordered
                 ) {
                     generatedCollection = nil
@@ -191,7 +194,7 @@ struct AICollectionGeneratorView: View {
                 }
                 
                 ActionButton(
-                    "Import All",
+                    Loc.AIFeatures.importAll,
                     style: .borderedProminent
                 ) {
                     importAllCards()
@@ -209,7 +212,7 @@ struct AICollectionGeneratorView: View {
         guard !trimmedRequest.isEmpty else { return }
         
         guard trimmedRequest.count <= 500 else {
-            errorMessage = "Request too long. Please keep it under 500 characters."
+            errorMessage = Loc.AIFeatures.requestTooLong
             showingError = true
             return
         }
@@ -241,7 +244,7 @@ struct AICollectionGeneratorView: View {
                 }
             } catch {
                 await MainActor.run {
-                    errorMessage = "An unexpected error occurred. Please try again."
+                    errorMessage = Loc.AIFeatures.aiUnexpectedError
                     showingError = true
                     HapticService.shared.error()
                 }
@@ -279,7 +282,7 @@ struct AICollectionGeneratorView: View {
             ])
             dismiss()
         } else {
-            errorMessage = "Failed to import cards. You may have reached your card limit."
+            errorMessage = Loc.AIFeatures.aiImportFailed
             showingError = true
             HapticService.shared.error()
         }

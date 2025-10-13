@@ -1,0 +1,56 @@
+/*
+  AIFeatures.strings
+  Flippin
+  
+  AI-powered features localization
+  Language: de
+  Section: ai_features
+*/
+
+// AI Collection Generator
+"aiGeneratorTitle" = "KI-Sammlungsgenerator";
+"aiGeneratorSubtitle" = "Erstellen Sie benutzerdefinierte Lernkartensammlungen mit KI";
+"aiGeneratorDescription" = "Beschreiben Sie, was Sie lernen möchten, und die KI erstellt eine benutzerdefinierte Lernkartensammlung für Sie";
+"yourRequest" = "Ihre Anfrage";
+"numberOfCards" = "Anzahl der Karten";
+"exampleRequests" = "Beispielanfragen";
+"generateCollection" = "Sammlung generieren";
+"tryAgain" = "Erneut versuchen";
+"importAll" = "Alle importieren";
+"requestPlaceholder" = "z.B. Phrasen für Restaurantbestellungen";
+"requestTooLong" = "Anfrage zu lang. Bitte halten Sie sie unter 500 Zeichen.";
+
+// Example Requests
+"exampleRestaurant" = "Phrasen für Restaurantbestellungen";
+"exampleAirport" = "Vokabular für Flughafennavigation";
+"exampleBusiness" = "Geschäftstreffen-Ausdrücke";
+
+// AI Learning Coach
+"aiCoachTitle" = "KI-Lerncoach";
+"learningCoach" = "Lerncoach";
+"aiCoachDescription" = "Erhalten Sie personalisierte Einblicke in Ihren Lernfortschritt";
+"aiCoachEmptyState" = "Erhalten Sie personalisierte Einblicke in Ihr Lernen";
+"generateInsights" = "Einblicke generieren";
+"refreshInsights" = "Einblicke aktualisieren";
+"viewDetailedInsights" = "Detaillierte Einblicke anzeigen";
+"analyzingProgress" = "KI analysiert Ihren Fortschritt...";
+"keyInsights" = "Wichtige Erkenntnisse";
+"recommendations" = "Empfehlungen";
+"generatedAt" = "Generiert %@";
+"aiInsightsFailed" = "Einblicke konnten nicht generiert werden. Bitte versuchen Sie es erneut.";
+
+// Priority Labels
+"highPriority" = "Hohe Priorität";
+"mediumPriority" = "Mittlere Priorität";
+"lowPriority" = "Niedrige Priorität";
+
+// Errors
+"error" = "Fehler";
+"ok" = "OK";
+"aiNotReady" = "ChatGPT-Dienst ist nicht bereit. Bitte versuchen Sie es später erneut.";
+"aiFeatureDisabled" = "KI-Funktionen sind vorübergehend nicht verfügbar";
+"aiInvalidResponse" = "Ungültige Antwort von KI erhalten. Bitte versuchen Sie es erneut.";
+"aiNetworkError" = "Netzwerkverbindung fehlgeschlagen. Überprüfen Sie Ihr Internet und versuchen Sie es erneut.";
+"aiUnexpectedError" = "Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es erneut.";
+"aiImportFailed" = "Karten konnten nicht importiert werden. Möglicherweise haben Sie Ihr Kartenlimit erreicht.";
+

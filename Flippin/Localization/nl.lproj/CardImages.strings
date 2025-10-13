@@ -1,0 +1,56 @@
+/* 
+  CardImages.strings
+  Flippin
+  
+  Localization for card images and image onboarding flow
+*/
+
+// MARK: - Image Onboarding
+"imageOnboarding.title" = "Visueel Leren";
+"imageOnboarding.subtitle" = "Voeg afbeeldingen toe aan je flashcards voor beter geheugen en visueel leren";
+"imageOnboarding.previewTitle" = "Bekijk hoe je kaarten eruit zullen zien:";
+
+// MARK: - Example Cards
+"imageOnboarding.example.card1" = "Ik wil graag uw visitekaartje hebben, alstublieft.";
+"imageOnboarding.example.card2" = "Ik moet opwarmen.";
+"imageOnboarding.example.card3" = "Ik reis altijd met het vliegtuig.";
+
+// MARK: - Benefits
+"imageOnboarding.benefit.memory.title" = "Beter Geheugen";
+"imageOnboarding.benefit.memory.description" = "Visuele aanwijzingen helpen je sneller te onthouden";
+
+"imageOnboarding.benefit.visual.title" = "Visueel Leren";
+"imageOnboarding.benefit.visual.description" = "Leer met afbeeldingen, niet alleen tekst";
+
+"imageOnboarding.benefit.enhanced.title" = "Verbeterde Ervaring";
+"imageOnboarding.benefit.enhanced.description" = "Maak je flashcards aantrekkelijker";
+
+// MARK: - Actions
+"imageOnboarding.getStarted" = "Aan de slag";
+"imageOnboarding.skip" = "Overslaan";
+
+// MARK: - Add/Edit Card Image Section
+"sectionTitle" = "Afbeelding";
+"imageAttached" = "Afbeelding Bijgevoegd";
+"currentImage" = "Huidige Afbeelding";
+"tapToChange" = "Tik om te wijzigen";
+"addImage" = "Afbeelding Toevoegen";
+"remove" = "Verwijderen";
+"imageUnavailable" = "Afbeelding niet beschikbaar";
+
+
+// MARK: - Image Search
+"imageSearch.title" = "Afbeeldingen Zoeken";
+"imageSearch.searchPrompt" = "Afbeeldingen zoeken...";
+"imageSearch.cancel" = "Annuleren";
+"imageSearch.select" = "Selecteren";
+"imageSearch.loadMore" = "Meer Laden";
+
+// MARK: - Image Search Empty State
+"imageSearch.emptyState.title" = "Afbeeldingen zoeken";
+"imageSearch.emptyState.subtitle" = "Voer hierboven een zoekterm in om prachtige afbeeldingen van Pexels te vinden";
+
+// MARK: - Image Search Errors
+"imageSearch.error.title" = "Fout";
+"imageSearch.error.unknown" = "Er is een onbekende fout opgetreden";
+"imageSearch.error.ok" = "OK";

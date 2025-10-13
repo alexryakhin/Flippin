@@ -85,7 +85,3 @@
 "notificationFeature2" = "Alertas de práctica para tarjetas difíciles";
 "notificationFeature3" = "Notificaciones de racha para mantenerte motivado";
 "enableNotifications" = "Habilitar notificaciones";
-
-// Subscription Trial
-"trialTitle" = "Prueba Premium gratis durante 7 días";
-"trialSubtitle" = "Desbloquea todas las funciones con acceso completo al contenido premium";

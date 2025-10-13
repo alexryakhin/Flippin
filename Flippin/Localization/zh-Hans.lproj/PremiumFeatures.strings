@@ -9,29 +9,64 @@
 
 "premiumFeature" = "高级功能";
 "premiumRequired" = "需要高级版";
-"upgradeToPremium" = "升级到高级版";
-"premiumFeatureDescription" = "访问所有预设集合并解锁语言学习的无限潜力";
+"premiumFeatureDescription" = "访问所有预设集合并释放无限的语言学习潜力";
 "previewBackgrounds" = "预览";
-"colorScheme" = "颜色方案";
+"colorScheme" = "配色方案";
 "colorSchemeSystem" = "系统";
 "colorSchemeLight" = "浅色";
 "colorSchemeDark" = "深色";
-"unlockPremium" = "解锁高级版";
-"masterLanguageLearning" = "通过专属功能掌握语言学习";
-"usedCardsOfLimit" = "您已使用 %d 张免费卡片中的 %d 张";
-"whatYouGetWithPremium" = "高级版包含的内容";
-"unlimitedCardsDescription" = "创建任意数量的学习卡片";
-"collections" = "30+ 合集";
-"collectionsDescription" = "访问所有预设词汇合集";
+"usedCardsOfLimit" = "您已使用 %d 张免费卡片，共 %d 张";
+"unlimitedCardsDescription" = "创建任意数量的学习卡";
+"collections" = "30+ 个集合";
+"collectionsDescription" = "访问所有预设词汇集合";
 "premiumBackgrounds" = "高级背景";
 "premiumBackgroundsDescription" = "精美的动画背景";
 "changeLanguages" = "更改语言";
 "changeLanguagesDescription" = "随时在不同语言对之间切换";
-"multipleLanguagesTitle" = "多语言";
-"multipleLanguagesDescription" = "能够同时学习多种语言";
-"restorePurchases" = "恢复购买";
-"cancelAnytime" = "随时取消 • 无承诺";
-"terms" = "条款";
-"privacy" = "隐私";
-"goPremium" = "升级到高级版";
+"multipleLanguagesTitle" = "多种语言";
+"multipleLanguagesDescription" = "同时学习多种语言的能力";
 "premium" = "高级版";
+
+// MARK: - Card Images Premium Features
+"cardImages" = "卡片图片";
+"cardImagesDescription" = "为您的学习卡添加精美图片以提高记忆力";
+"cardImagesPremiumDescription" = "通过视觉学习卡增强学习效果，帮助您更好地记忆";
+"cardImagesPremiumGate" = "不要错过视觉学习，升级到高级版";
+
+// MARK: - AI Features Premium
+"aiPremiumDescription" = "获取关于您学习进度的AI驱动洞察";
+"aiUnlimitedAccess" = "AI功能可通过高级订阅使用";
+"aiPremiumRequired" = "AI功能可通过高级订阅使用";
+"aiCollectionGenerator" = "AI集合生成器";
+"aiCollectionGeneratorDescription" = "使用AI创建自定义学习卡集合";
+"aiLearningCoach" = "AI学习教练";
+"aiLearningCoachDescription" = "获取个性化洞察和建议";
+
+// MARK: - Premium Voices
+"premiumVoices" = "Speechify高级语音";
+"premiumVoicesMessage" = "为所有学习卡享受高质量音频！";
+"premiumVoicesDescription" = "数千种高质量语音可个性化您的卡片";
+
+// MARK: - Unlimited Cards
+"unlimitedCardsTitle" = "无限卡片";
+"unlimitedCardsMessage" = "升级到高级版以创建无限卡片并解锁所有功能！";
+
+// MARK: - Advanced Analytics
+"advancedAnalyticsTitle" = "高级分析";
+"advancedAnalyticsMessage" = "通过高级版获取详细的学习洞察、进度图表和性能分析！";
+
+// MARK: - Custom Themes
+"customThemesTitle" = "自定义主题";
+"customThemesMessage" = "通过高级版解锁精美的自定义主题和背景！";
+
+// MARK: - Language Change
+"languageChangeTitle" = "语言更改";
+"languageChangeMessage" = "通过高级版从15种以上语言中选择以增强您的学习体验！";
+
+// MARK: - Card Presets
+"cardPresetsTitle" = "卡片预设";
+"cardPresetsMessage" = "通过高级版探索大量预先设计的卡片预设！";
+
+// MARK: - Study Modes
+"studyModesTitle" = "学习模式";
+"studyModesMessage" = "通过高级版访问高级学习模式和学习技巧！";

@@ -1,0 +1,56 @@
+/*
+  AIFeatures.strings
+  Flippin
+  
+  AI-powered features localization
+  Language: ja
+  Section: ai_features
+*/
+
+// AI Collection Generator
+"aiGeneratorTitle" = "AIコレクションジェネレーター";
+"aiGeneratorSubtitle" = "AIでカスタムフラッシュカードコレクションを作成";
+"aiGeneratorDescription" = "学びたいことを説明すると、AIがカスタムフラッシュカードコレクションを作成します";
+"yourRequest" = "あなたのリクエスト";
+"numberOfCards" = "カード数";
+"exampleRequests" = "リクエスト例";
+"generateCollection" = "コレクションを生成";
+"tryAgain" = "再試行";
+"importAll" = "すべてインポート";
+"requestPlaceholder" = "例：レストランで注文するためのフレーズ";
+"requestTooLong" = "リクエストが長すぎます。500文字以内にしてください。";
+
+// Example Requests
+"exampleRestaurant" = "レストランで注文するためのフレーズ";
+"exampleAirport" = "空港をナビゲートするための語彙";
+"exampleBusiness" = "ビジネス会議の表現";
+
+// AI Learning Coach
+"aiCoachTitle" = "AI学習コーチ";
+"learningCoach" = "学習コーチ";
+"aiCoachDescription" = "学習の進捗状況についてパーソナライズされた洞察を取得";
+"aiCoachEmptyState" = "学習についてパーソナライズされた洞察を取得";
+"generateInsights" = "洞察を生成";
+"refreshInsights" = "洞察を更新";
+"viewDetailedInsights" = "詳細な洞察を表示";
+"analyzingProgress" = "AIが進捗状況を分析中...";
+"keyInsights" = "主要な洞察";
+"recommendations" = "推奨事項";
+"generatedAt" = "生成日時 %@";
+"aiInsightsFailed" = "洞察の生成に失敗しました。もう一度お試しください。";
+
+// Priority Labels
+"highPriority" = "高優先度";
+"mediumPriority" = "中優先度";
+"lowPriority" = "低優先度";
+
+// Errors
+"error" = "エラー";
+"ok" = "OK";
+"aiNotReady" = "ChatGPTサービスの準備ができていません。後でもう一度お試しください。";
+"aiFeatureDisabled" = "AI機能は一時的に利用できません";
+"aiInvalidResponse" = "AIから無効な応答を受信しました。もう一度お試しください。";
+"aiNetworkError" = "ネットワーク接続に失敗しました。インターネットを確認してもう一度お試しください。";
+"aiUnexpectedError" = "予期しないエラーが発生しました。もう一度お試しください。";
+"aiImportFailed" = "カードのインポートに失敗しました。カード制限に達した可能性があります。";
+

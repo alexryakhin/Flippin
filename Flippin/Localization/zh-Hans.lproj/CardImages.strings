@@ -1,0 +1,56 @@
+/* 
+  CardImages.strings
+  Flippin
+  
+  Localization for card images and image onboarding flow
+*/
+
+// MARK: - Image Onboarding
+"imageOnboarding.title" = "视觉学习";
+"imageOnboarding.subtitle" = "为您的学习卡添加图片以提高记忆力和视觉学习效果";
+"imageOnboarding.previewTitle" = "查看您的卡片效果：";
+
+// MARK: - Example Cards
+"imageOnboarding.example.card1" = "我想要您的名片，谢谢。";
+"imageOnboarding.example.card2" = "我需要热身。";
+"imageOnboarding.example.card3" = "我总是坐飞机旅行。";
+
+// MARK: - Benefits
+"imageOnboarding.benefit.memory.title" = "更好的记忆力";
+"imageOnboarding.benefit.memory.description" = "视觉提示帮助您更快记忆";
+
+"imageOnboarding.benefit.visual.title" = "视觉学习";
+"imageOnboarding.benefit.visual.description" = "用图片学习，不只是文字";
+
+"imageOnboarding.benefit.enhanced.title" = "增强体验";
+"imageOnboarding.benefit.enhanced.description" = "让您的学习卡更具吸引力";
+
+// MARK: - Actions
+"imageOnboarding.getStarted" = "开始使用";
+"imageOnboarding.skip" = "跳过";
+
+// MARK: - Add/Edit Card Image Section
+"sectionTitle" = "图片";
+"imageAttached" = "已附加图片";
+"currentImage" = "当前图片";
+"tapToChange" = "点击更改";
+"addImage" = "添加图片";
+"remove" = "删除";
+"imageUnavailable" = "图片不可用";
+
+
+// MARK: - Image Search
+"imageSearch.title" = "搜索图片";
+"imageSearch.searchPrompt" = "搜索图片...";
+"imageSearch.cancel" = "取消";
+"imageSearch.select" = "选择";
+"imageSearch.loadMore" = "加载更多";
+
+// MARK: - Image Search Empty State
+"imageSearch.emptyState.title" = "搜索图片";
+"imageSearch.emptyState.subtitle" = "在上方输入搜索词以从 Pexels 找到精美图片";
+
+// MARK: - Image Search Errors
+"imageSearch.error.title" = "错误";
+"imageSearch.error.unknown" = "发生未知错误";
+"imageSearch.error.ok" = "确定";

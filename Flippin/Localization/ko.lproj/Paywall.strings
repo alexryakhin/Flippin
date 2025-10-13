@@ -7,19 +7,23 @@
   Section: paywall
 */
 
+// MARK: - Paywall UI
 "upgradeToPremiumTitle" = "프리미엄으로 업그레이드";
-"upgradeToPremiumMessage" = "모든 기능을 해제하려면 프리미엄으로 업그레이드하세요!";
+"upgradeToPremiumMessage" = "모든 기능을 잠금 해제하려면 프리미엄으로 업그레이드하세요!";
 "cancel" = "취소";
 "viewOptions" = "옵션 보기";
-"unlimitedCardsTitle" = "무제한 카드";
-"unlimitedCardsMessage" = "무제한 카드를 만들고 모든 기능을 해제하려면 프리미엄으로 업그레이드하세요!";
-"advancedAnalyticsTitle" = "고급 분석";
-"advancedAnalyticsMessage" = "프리미엄으로 상세 학습 통찰, 진행 차트, 성과 분석을 얻으세요!";
-"customThemesTitle" = "맞춤 테마";
-"customThemesMessage" = "프리미엄으로 아름다운 맞춤 테마와 배경을 해제하세요!";
-"languageChangeTitle" = "언어 변경";
-"languageChangeMessage" = "프리미엄으로 15개 이상의 언어 중에서 선택하여 학습 경험을 향상하세요!";
-"cardPresetsTitle" = "카드 프리셋";
-"cardPresetsMessage" = "프리미엄으로 사전 설계된 카드 프리셋의 광범위한 컬렉션을 탐색하세요!";
-"studyModesTitle" = "공부 모드";
-"studyModesMessage" = "프리미엄으로 고급 공부 모드와 학습 기술에 접근하세요!";
+"unlockPremium" = "프리미엄 잠금 해제";
+"goPremium" = "프리미엄으로";
+"whatYouGetWithPremium" = "프리미엄으로 얻을 수 있는 것";
+"masterLanguageLearning" = "독점 기능으로 언어 학습 마스터";
+
+// MARK: - Paywall Actions
+"subscribe" = "구독";
+"restoreSubscription" = "구독 복원";
+"termsOfService" = "서비스 약관";
+"privacyPolicy" = "개인정보 보호정책";
+"andPreposition" = "및";
+
+// MARK: - Trial
+"trialTitle" = "프리미엄을 7일 무료로 체험";
+"trialSubtitle" = "프리미엄 콘텐츠에 대한 완전한 액세스로 모든 기능 잠금 해제";

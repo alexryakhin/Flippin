@@ -1,0 +1,56 @@
+/*
+  AIFeatures.strings
+  Flippin
+  
+  AI-powered features localization
+  Language: hr
+  Section: ai_features
+*/
+
+// AI Collection Generator
+"aiGeneratorTitle" = "AI Generator Kolekcija";
+"aiGeneratorSubtitle" = "Stvorite prilagođene kolekcije flash kartica s AI";
+"aiGeneratorDescription" = "Opišite što želite naučiti i AI će stvoriti prilagođenu kolekciju flash kartica za vas";
+"yourRequest" = "Vaš Zahtjev";
+"numberOfCards" = "Broj Kartica";
+"exampleRequests" = "Primjeri Zahtjeva";
+"generateCollection" = "Generiraj Kolekciju";
+"tryAgain" = "Pokušaj Ponovno";
+"importAll" = "Uvezi Sve";
+"requestPlaceholder" = "npr., Fraze za naručivanje u restoranima";
+"requestTooLong" = "Zahtjev predugačak. Molimo držite ga ispod 500 znakova.";
+
+// Example Requests
+"exampleRestaurant" = "Fraze za naručivanje u restoranima";
+"exampleAirport" = "Vokabular za navigaciju na aerodromima";
+"exampleBusiness" = "Izrazi za poslovne sastanke";
+
+// AI Learning Coach
+"aiCoachTitle" = "AI Trener za Učenje";
+"learningCoach" = "Trener za Učenje";
+"aiCoachDescription" = "Dobijte personalizirane uvide o svom napretku u učenju";
+"aiCoachEmptyState" = "Dobijte personalizirane uvide o svom učenju";
+"generateInsights" = "Generiraj Uvide";
+"refreshInsights" = "Osvježi Uvide";
+"viewDetailedInsights" = "Prikaži Detaljne Uvide";
+"analyzingProgress" = "AI analizira vaš napredak...";
+"keyInsights" = "Ključni Uvidi";
+"recommendations" = "Preporuke";
+"generatedAt" = "Generirano %@";
+"aiInsightsFailed" = "Nije uspjelo generiranje uvida. Molimo pokušajte ponovno.";
+
+// Priority Labels
+"highPriority" = "Visoki Prioritet";
+"mediumPriority" = "Srednji Prioritet";
+"lowPriority" = "Niski Prioritet";
+
+// Errors
+"error" = "Greška";
+"ok" = "U redu";
+"aiNotReady" = "ChatGPT usluga nije spremna. Molimo pokušajte kasnije.";
+"aiFeatureDisabled" = "AI značajke su privremeno nedostupne";
+"aiInvalidResponse" = "Primljen nevažeći odgovor od AI. Molimo pokušajte ponovno.";
+"aiNetworkError" = "Mrežna veza nije uspjela. Provjerite svoj internet i pokušajte ponovno.";
+"aiUnexpectedError" = "Dogodila se neočekivana greška. Molimo pokušajte ponovno.";
+"aiImportFailed" = "Uvoz kartica nije uspio. Možda ste dosegli svoje ograničenje kartica.";
+

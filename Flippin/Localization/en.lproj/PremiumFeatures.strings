@@ -9,17 +9,13 @@
 
 "premiumFeature" = "Premium Feature";
 "premiumRequired" = "Premium Required";
-"upgradeToPremium" = "Upgrade to Premium";
 "premiumFeatureDescription" = "Access all preset collections and unlock unlimited language learning potential";
 "previewBackgrounds" = "Preview";
 "colorScheme" = "Color Scheme";
 "colorSchemeSystem" = "System";
 "colorSchemeLight" = "Light";
 "colorSchemeDark" = "Dark";
-"unlockPremium" = "Unlock Premium";
-"masterLanguageLearning" = "Master your language learning with exclusive features";
 "usedCardsOfLimit" = "You've used %d of %d free cards";
-"whatYouGetWithPremium" = "What You Get with Premium";
 "unlimitedCardsDescription" = "Create as many flashcards as you want";
 "collections" = "30+ Collections";
 "collectionsDescription" = "Access all preset vocabulary collections";
@@ -29,9 +25,48 @@
 "changeLanguagesDescription" = "Switch between different language pairs anytime";
 "multipleLanguagesTitle" = "Multiple Languages";
 "multipleLanguagesDescription" = "Ability to learn multiple languages at the same time";
-"restorePurchases" = "Restore Purchases";
-"cancelAnytime" = "Cancel anytime • No commitment";
-"terms" = "Terms";
-"privacy" = "Privacy";
-"goPremium" = "Go Premium";
 "premium" = "Premium";
+
+// MARK: - Card Images Premium Features
+"cardImages" = "Card Images";
+"cardImagesDescription" = "Add beautiful images to your flashcards for better memory retention";
+"cardImagesPremiumDescription" = "Enhance your learning with visual flashcards that help you remember better";
+"cardImagesPremiumGate" = "Don't miss out on visual learning, upgrade to Premium";
+
+// MARK: - AI Features Premium
+"aiPremiumDescription" = "Get AI-powered insights about your learning progress";
+"aiUnlimitedAccess" = "AI features available with Premium subscription";
+"aiPremiumRequired" = "AI features are available with Premium subscription";
+"aiCollectionGenerator" = "AI Collection Generator";
+"aiCollectionGeneratorDescription" = "Create custom flashcard collections with AI";
+"aiLearningCoach" = "AI Learning Coach";
+"aiLearningCoachDescription" = "Get personalized insights and recommendations";
+
+// MARK: - Premium Voices
+"premiumVoices" = "Speechify Premium Voices";
+"premiumVoicesMessage" = "Enjoy high-quality audio for all your flashcards!";
+"premiumVoicesDescription" = "Thousands of high-quality voices to personalize your cards";
+
+// MARK: - Unlimited Cards
+"unlimitedCardsTitle" = "Unlimited Cards";
+"unlimitedCardsMessage" = "Upgrade to premium to create unlimited cards and unlock all features!";
+
+// MARK: - Advanced Analytics
+"advancedAnalyticsTitle" = "Advanced Analytics";
+"advancedAnalyticsMessage" = "Get detailed learning insights, progress charts, and performance analytics with premium!";
+
+// MARK: - Custom Themes
+"customThemesTitle" = "Custom Themes";
+"customThemesMessage" = "Unlock beautiful custom themes and backgrounds with premium!";
+
+// MARK: - Language Change
+"languageChangeTitle" = "Language Change";
+"languageChangeMessage" = "Choose from over 15 languages to enhance your learning experience with premium!";
+
+// MARK: - Card Presets
+"cardPresetsTitle" = "Card Presets";
+"cardPresetsMessage" = "Explore a vast collection of pre-designed card presets with premium!";
+
+// MARK: - Study Modes
+"studyModesTitle" = "Study Modes";
+"studyModesMessage" = "Access advanced study modes and learning techniques with premium!";

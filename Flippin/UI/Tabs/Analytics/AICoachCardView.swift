@@ -39,7 +39,7 @@ struct AICoachCardView: View {
     
     private var premiumView: some View {
         CustomSectionView(
-            header: "🧠 AI Learning Coach",
+            header: Loc.AIFeatures.learningCoach,
             headerFontStyle: .large
         ) {
             VStack(alignment: .leading, spacing: 16) {
@@ -62,7 +62,7 @@ struct AICoachCardView: View {
                         HapticService.shared.buttonTapped()
                     } label: {
                         HStack {
-                            Text("View Detailed Insights")
+                            Text(Loc.AIFeatures.viewDetailedInsights)
                                 .font(.subheadline)
                                 .fontWeight(.semibold)
                             Spacer()
@@ -77,7 +77,7 @@ struct AICoachCardView: View {
                 } else if chatGPTService.isGenerating {
                     VStack(spacing: 12) {
                         ProgressView()
-                        Text("AI is analyzing your progress...")
+                        Text(Loc.AIFeatures.analyzingProgress)
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                     }
@@ -89,13 +89,13 @@ struct AICoachCardView: View {
                             .font(.largeTitle)
                             .foregroundColor(.purple)
                         
-                        Text("Get personalized insights about your learning")
+                        Text(Loc.AIFeatures.aiCoachEmptyState)
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                             .multilineTextAlignment(.center)
                         
                         ActionButton(
-                            "Generate Insights",
+                            Loc.AIFeatures.generateInsights,
                             style: .borderedProminent
                         ) {
                             generateInsights()
@@ -113,7 +113,7 @@ struct AICoachCardView: View {
                     } label: {
                         HStack {
                             Image(systemName: "arrow.clockwise")
-                            Text("Refresh Insights")
+                            Text(Loc.AIFeatures.refreshInsights)
                         }
                         .font(.caption)
                         .foregroundColor(.secondary)
@@ -121,8 +121,8 @@ struct AICoachCardView: View {
                 }
             }
         }
-        .alert("Error", isPresented: $showingError) {
-            Button("OK", role: .cancel) {}
+        .alert(Loc.AIFeatures.error, isPresented: $showingError) {
+            Button(Loc.AIFeatures.ok, role: .cancel) {}
         } message: {
             Text(errorMessage)
         }
@@ -132,7 +132,7 @@ struct AICoachCardView: View {
     
     private var lockedView: some View {
         CustomSectionView(
-            header: "🧠 AI Learning Coach",
+            header: Loc.AIFeatures.aiCoachTitle,
             headerFontStyle: .large
         ) {
             VStack(spacing: 16) {
@@ -142,11 +142,11 @@ struct AICoachCardView: View {
                         .foregroundColor(.yellow)
                     
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("Premium Feature")
+                        Text(Loc.PremiumFeatures.premiumFeature)
                             .font(.headline)
                             .foregroundColor(.primary)
                         
-                        Text("Get AI-powered insights about your learning progress")
+                        Text(Loc.AIFeatures.aiCoachDescription)
                             .font(.caption)
                             .foregroundColor(.secondary)
                     }
@@ -155,7 +155,7 @@ struct AICoachCardView: View {
                 }
                 
                 ActionButton(
-                    "Upgrade to Premium",
+                    Loc.Paywall.upgradeToPremiumTitle,
                     style: .borderedProminent
                 ) {
                     showingPaywall = true
@@ -193,7 +193,7 @@ struct AICoachCardView: View {
                 }
             } catch {
                 await MainActor.run {
-                    errorMessage = "Failed to generate insights. Please try again."
+                    errorMessage = Loc.AIFeatures.aiInsightsFailed
                     showingError = true
                     HapticService.shared.error()
                 }

@@ -85,7 +85,3 @@
 "notificationFeature2" = "어려운 카드에 대한 연습 알림";
 "notificationFeature3" = "동기 부여를 위한 연속 알림";
 "enableNotifications" = "알림 활성화";
-
-// Subscription Trial
-"trialTitle" = "Premium을 7일간 무료로 체험하세요";
-"trialSubtitle" = "프리미엄 콘텐츠에 대한 전체 액세스로 모든 기능을 잠금 해제하세요";

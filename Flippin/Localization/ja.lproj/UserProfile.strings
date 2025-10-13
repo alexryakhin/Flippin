@@ -85,7 +85,3 @@
 "notificationFeature2" = "難しいカードの練習アラート";
 "notificationFeature3" = "モチベーションを保つための連続記録通知";
 "enableNotifications" = "通知を有効にする";
-
-// Subscription Trial
-"trialTitle" = "Premium を7日間無料でお試し";
-"trialSubtitle" = "プレミアムコンテンツへのフルアクセスですべての機能をアンロック";

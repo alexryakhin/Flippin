@@ -1,0 +1,56 @@
+/* 
+  CardImages.strings
+  Flippin
+  
+  Localization for card images and image onboarding flow
+*/
+
+// MARK: - Image Onboarding
+"imageOnboarding.title" = "التعلم البصري";
+"imageOnboarding.subtitle" = "أضف صوراً إلى بطاقاتك التعليمية لتحسين الاحتفاظ بالذاكرة والتعلم البصري";
+"imageOnboarding.previewTitle" = "شاهد كيف ستبدو بطاقاتك:";
+
+// MARK: - Example Cards
+"imageOnboarding.example.card1" = "أود الحصول على بطاقة عملك، من فضلك.";
+"imageOnboarding.example.card2" = "أحتاج إلى الإحماء.";
+"imageOnboarding.example.card3" = "أسافر دائماً بالطائرة.";
+
+// MARK: - Benefits
+"imageOnboarding.benefit.memory.title" = "ذاكرة أفضل";
+"imageOnboarding.benefit.memory.description" = "تساعدك الإشارات البصرية على التذكر بشكل أسرع";
+
+"imageOnboarding.benefit.visual.title" = "التعلم البصري";
+"imageOnboarding.benefit.visual.description" = "تعلم بالصور، وليس النص فقط";
+
+"imageOnboarding.benefit.enhanced.title" = "تجربة محسّنة";
+"imageOnboarding.benefit.enhanced.description" = "اجعل بطاقاتك التعليمية أكثر جاذبية";
+
+// MARK: - Actions
+"imageOnboarding.getStarted" = "ابدأ";
+"imageOnboarding.skip" = "تخطي";
+
+// MARK: - Add/Edit Card Image Section
+"sectionTitle" = "صورة";
+"imageAttached" = "صورة مرفقة";
+"currentImage" = "الصورة الحالية";
+"tapToChange" = "انقر للتغيير";
+"addImage" = "إضافة صورة";
+"remove" = "إزالة";
+"imageUnavailable" = "الصورة غير متوفرة";
+
+
+// MARK: - Image Search
+"imageSearch.title" = "البحث عن الصور";
+"imageSearch.searchPrompt" = "البحث عن الصور...";
+"imageSearch.cancel" = "إلغاء";
+"imageSearch.select" = "تحديد";
+"imageSearch.loadMore" = "تحميل المزيد";
+
+// MARK: - Image Search Empty State
+"imageSearch.emptyState.title" = "البحث عن الصور";
+"imageSearch.emptyState.subtitle" = "أدخل مصطلح بحث أعلاه للعثور على صور جميلة من Pexels";
+
+// MARK: - Image Search Errors
+"imageSearch.error.title" = "خطأ";
+"imageSearch.error.unknown" = "حدث خطأ غير معروف";
+"imageSearch.error.ok" = "موافق";

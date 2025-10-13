@@ -85,7 +85,3 @@
 "notificationFeature2" = "Оповещения о практике сложных карточек";
 "notificationFeature3" = "Уведомления о серии для поддержания мотивации";
 "enableNotifications" = "Включить уведомления";
-
-// Subscription Trial
-"trialTitle" = "Попробуйте Premium бесплатно в течение 7 дней";
-"trialSubtitle" = "Разблокируйте все функции с полным доступом к премиум-контенту";

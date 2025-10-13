@@ -7,19 +7,23 @@
   Section: paywall
 */
 
+// MARK: - Paywall UI
 "upgradeToPremiumTitle" = "Перейти на Преміум";
-"upgradeToPremiumMessage" = "Оновіть до Преміум, щоб розблокувати всі функції!";
+"upgradeToPremiumMessage" = "Перейдіть на преміум, щоб розблокувати всі функції!";
 "cancel" = "Скасувати";
-"viewOptions" = "Переглянути Варіанти";
-"unlimitedCardsTitle" = "Необмежені Картки";
-"unlimitedCardsMessage" = "Оновіть до Преміум, щоб створювати необмежені картки та розблокувати всі функції!";
-"advancedAnalyticsTitle" = "Розширений Аналіз";
-"advancedAnalyticsMessage" = "Отримуйте детальні інсайти навчання, графіки прогресу та аналізи продуктивності з Преміум!";
-"customThemesTitle" = "Користувацькі Теми";
-"customThemesMessage" = "Розблокуйте красиві користувацькі теми та фони з Преміум!";
-"languageChangeTitle" = "Зміна Мов";
-"languageChangeMessage" = "Вибирайте з-понад 15 мов для покращення вашого досвіду навчання з Преміум!";
-"cardPresetsTitle" = "Попередні Налаштування Карток";
-"cardPresetsMessage" = "Досліджуйте велику колекцію попередньо створених налаштувань карток з Преміум!";
-"studyModesTitle" = "Режими Вивчення";
-"studyModesMessage" = "Отримайте доступ до розширених режимів вивчення та технік навчання з Преміум!";
+"viewOptions" = "Переглянути опції";
+"unlockPremium" = "Розблокувати Преміум";
+"goPremium" = "Отримати Преміум";
+"whatYouGetWithPremium" = "Що ви отримуєте з Преміум";
+"masterLanguageLearning" = "Опануйте вивчення мов з ексклюзивними функціями";
+
+// MARK: - Paywall Actions
+"subscribe" = "Підписатися";
+"restoreSubscription" = "Відновити підписку";
+"termsOfService" = "Умови використання";
+"privacyPolicy" = "Політика конфіденційності";
+"andPreposition" = "і";
+
+// MARK: - Trial
+"trialTitle" = "Спробуйте Преміум безкоштовно на 7 днів";
+"trialSubtitle" = "Розблокуйте всі функції з повним доступом до преміум-контенту";

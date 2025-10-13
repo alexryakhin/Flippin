@@ -86,6 +86,3 @@
 "notificationFeature3" = "Повідомлення про серію для підтримки мотивації";
 "enableNotifications" = "Увімкнути сповіщення";
 
-// Subscription Trial
-"trialTitle" = "Спробуйте Premium безкоштовно протягом 7 днів";
-"trialSubtitle" = "Розблокуйте всі функції з повним доступом до преміум-контенту";

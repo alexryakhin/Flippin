@@ -1,0 +1,56 @@
+/* 
+  CardImages.strings
+  Flippin
+  
+  Localization for card images and image onboarding flow
+*/
+
+// MARK: - Image Onboarding
+"imageOnboarding.title" = "Vizualno Učenje";
+"imageOnboarding.subtitle" = "Dodajte slike svojim flash karticama za bolju memoriju i vizualno učenje";
+"imageOnboarding.previewTitle" = "Pogledajte kako će vaše kartice izgledati:";
+
+// MARK: - Example Cards
+"imageOnboarding.example.card1" = "Želio bih dobiti vašu posjetnu karticu, molim.";
+"imageOnboarding.example.card2" = "Trebam se zagrijati.";
+"imageOnboarding.example.card3" = "Uvijek putujem avionom.";
+
+// MARK: - Benefits
+"imageOnboarding.benefit.memory.title" = "Bolja Memorija";
+"imageOnboarding.benefit.memory.description" = "Vizualni signali pomažu vam da se brže sjetite";
+
+"imageOnboarding.benefit.visual.title" = "Vizualno Učenje";
+"imageOnboarding.benefit.visual.description" = "Učite sa slikama, ne samo tekstom";
+
+"imageOnboarding.benefit.enhanced.title" = "Poboljšano Iskustvo";
+"imageOnboarding.benefit.enhanced.description" = "Učinite svoje flash kartice privlačnijima";
+
+// MARK: - Actions
+"imageOnboarding.getStarted" = "Počni";
+"imageOnboarding.skip" = "Preskoči";
+
+// MARK: - Add/Edit Card Image Section
+"sectionTitle" = "Slika";
+"imageAttached" = "Slika Priložena";
+"currentImage" = "Trenutna Slika";
+"tapToChange" = "Dodirnite za promjenu";
+"addImage" = "Dodaj Sliku";
+"remove" = "Ukloni";
+"imageUnavailable" = "Slika nije dostupna";
+
+
+// MARK: - Image Search
+"imageSearch.title" = "Pretraži Slike";
+"imageSearch.searchPrompt" = "Pretraži slike...";
+"imageSearch.cancel" = "Odustani";
+"imageSearch.select" = "Odaberi";
+"imageSearch.loadMore" = "Učitaj Više";
+
+// MARK: - Image Search Empty State
+"imageSearch.emptyState.title" = "Pretraži slike";
+"imageSearch.emptyState.subtitle" = "Unesite pojam za pretraživanje iznad kako biste pronašli prekrasne slike s Pexelsa";
+
+// MARK: - Image Search Errors
+"imageSearch.error.title" = "Greška";
+"imageSearch.error.unknown" = "Dogodila se nepoznata greška";
+"imageSearch.error.ok" = "U redu";

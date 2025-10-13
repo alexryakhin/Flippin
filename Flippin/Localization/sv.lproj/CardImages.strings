@@ -1,0 +1,56 @@
+/* 
+  CardImages.strings
+  Flippin
+  
+  Localization for card images and image onboarding flow
+*/
+
+// MARK: - Image Onboarding
+"imageOnboarding.title" = "Visuellt Lärande";
+"imageOnboarding.subtitle" = "Lägg till bilder till dina flashkort för bättre minnesretention och visuellt lärande";
+"imageOnboarding.previewTitle" = "Se hur dina kort kommer att se ut:";
+
+// MARK: - Example Cards
+"imageOnboarding.example.card1" = "Jag skulle vilja ha ditt visitkort, tack.";
+"imageOnboarding.example.card2" = "Jag behöver värma upp.";
+"imageOnboarding.example.card3" = "Jag reser alltid med flyg.";
+
+// MARK: - Benefits
+"imageOnboarding.benefit.memory.title" = "Bättre Minne";
+"imageOnboarding.benefit.memory.description" = "Visuella ledtrådar hjälper dig att komma ihåg snabbare";
+
+"imageOnboarding.benefit.visual.title" = "Visuellt Lärande";
+"imageOnboarding.benefit.visual.description" = "Lär dig med bilder, inte bara text";
+
+"imageOnboarding.benefit.enhanced.title" = "Förbättrad Upplevelse";
+"imageOnboarding.benefit.enhanced.description" = "Gör dina flashkort mer engagerande";
+
+// MARK: - Actions
+"imageOnboarding.getStarted" = "Kom igång";
+"imageOnboarding.skip" = "Hoppa över";
+
+// MARK: - Add/Edit Card Image Section
+"sectionTitle" = "Bild";
+"imageAttached" = "Bild Bifogad";
+"currentImage" = "Nuvarande Bild";
+"tapToChange" = "Tryck för att ändra";
+"addImage" = "Lägg till Bild";
+"remove" = "Ta bort";
+"imageUnavailable" = "Bild inte tillgänglig";
+
+
+// MARK: - Image Search
+"imageSearch.title" = "Sök Bilder";
+"imageSearch.searchPrompt" = "Sök bilder...";
+"imageSearch.cancel" = "Avbryt";
+"imageSearch.select" = "Välj";
+"imageSearch.loadMore" = "Ladda Fler";
+
+// MARK: - Image Search Empty State
+"imageSearch.emptyState.title" = "Sök bilder";
+"imageSearch.emptyState.subtitle" = "Ange en sökterm ovan för att hitta vackra bilder från Pexels";
+
+// MARK: - Image Search Errors
+"imageSearch.error.title" = "Fel";
+"imageSearch.error.unknown" = "Ett okänt fel uppstod";
+"imageSearch.error.ok" = "OK";

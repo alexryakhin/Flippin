@@ -1,0 +1,56 @@
+/* 
+  CardImages.strings
+  Flippin
+  
+  Localization for card images and image onboarding flow
+*/
+
+// MARK: - Image Onboarding
+"imageOnboarding.title" = "Visuelles Lernen";
+"imageOnboarding.subtitle" = "Fügen Sie Bilder zu Ihren Lernkarten hinzu für bessere Gedächtnisleistung und visuelles Lernen";
+"imageOnboarding.previewTitle" = "Sehen Sie, wie Ihre Karten aussehen werden:";
+
+// MARK: - Example Cards
+"imageOnboarding.example.card1" = "Ich hätte gerne Ihre Visitenkarte, bitte.";
+"imageOnboarding.example.card2" = "Ich muss mich aufwärmen.";
+"imageOnboarding.example.card3" = "Ich reise immer mit dem Flugzeug.";
+
+// MARK: - Benefits
+"imageOnboarding.benefit.memory.title" = "Besseres Gedächtnis";
+"imageOnboarding.benefit.memory.description" = "Visuelle Hinweise helfen Ihnen, sich schneller zu erinnern";
+
+"imageOnboarding.benefit.visual.title" = "Visuelles Lernen";
+"imageOnboarding.benefit.visual.description" = "Lernen Sie mit Bildern, nicht nur mit Text";
+
+"imageOnboarding.benefit.enhanced.title" = "Verbessertes Erlebnis";
+"imageOnboarding.benefit.enhanced.description" = "Machen Sie Ihre Lernkarten ansprechender";
+
+// MARK: - Actions
+"imageOnboarding.getStarted" = "Loslegen";
+"imageOnboarding.skip" = "Überspringen";
+
+// MARK: - Add/Edit Card Image Section
+"sectionTitle" = "Bild";
+"imageAttached" = "Bild angehängt";
+"currentImage" = "Aktuelles Bild";
+"tapToChange" = "Tippen zum Ändern";
+"addImage" = "Bild hinzufügen";
+"remove" = "Entfernen";
+"imageUnavailable" = "Bild nicht verfügbar";
+
+
+// MARK: - Image Search
+"imageSearch.title" = "Bilder suchen";
+"imageSearch.searchPrompt" = "Nach Bildern suchen...";
+"imageSearch.cancel" = "Abbrechen";
+"imageSearch.select" = "Auswählen";
+"imageSearch.loadMore" = "Mehr laden";
+
+// MARK: - Image Search Empty State
+"imageSearch.emptyState.title" = "Nach Bildern suchen";
+"imageSearch.emptyState.subtitle" = "Geben Sie oben einen Suchbegriff ein, um schöne Bilder von Pexels zu finden";
+
+// MARK: - Image Search Errors
+"imageSearch.error.title" = "Fehler";
+"imageSearch.error.unknown" = "Unbekannter Fehler aufgetreten";
+"imageSearch.error.ok" = "OK";

@@ -7,19 +7,23 @@
   Section: paywall
 */
 
+// MARK: - Paywall UI
 "upgradeToPremiumTitle" = "Uppgradera till Premium";
-"upgradeToPremiumMessage" = "Uppgradera till Premium för att låsa upp alla funktioner!";
+"upgradeToPremiumMessage" = "Uppgradera till premium för att låsa upp alla funktioner!";
 "cancel" = "Avbryt";
 "viewOptions" = "Visa Alternativ";
-"unlimitedCardsTitle" = "Obegränsade Kort";
-"unlimitedCardsMessage" = "Uppgradera till Premium för att skapa obegränsade kort och låsa upp alla funktioner!";
-"advancedAnalyticsTitle" = "Avancerad Analys";
-"advancedAnalyticsMessage" = "Få detaljerade lärinsikter, framstegsgrafer och prestationsanalyser med Premium!";
-"customThemesTitle" = "Anpassade Teman";
-"customThemesMessage" = "Lås upp vackra anpassade teman och bakgrunder med Premium!";
-"languageChangeTitle" = "Ändra Språk";
-"languageChangeMessage" = "Välj mellan över 15 språk för att förbättra din inlärningsupplevelse med Premium!";
-"cardPresetsTitle" = "Kortförinställningar";
-"cardPresetsMessage" = "Utforska en omfattande samling av fördesignade kortförinställningar med Premium!";
-"studyModesTitle" = "Studielägen";
-"studyModesMessage" = "Få tillgång till avancerade studielägen och inlärningstekniker med Premium!";
+"unlockPremium" = "Lås upp Premium";
+"goPremium" = "Skaffa Premium";
+"whatYouGetWithPremium" = "Vad du får med Premium";
+"masterLanguageLearning" = "Bemästra ditt språkinlärning med exklusiva funktioner";
+
+// MARK: - Paywall Actions
+"subscribe" = "Prenumerera";
+"restoreSubscription" = "Återställ Prenumeration";
+"termsOfService" = "Användarvillkor";
+"privacyPolicy" = "Integritetspolicy";
+"andPreposition" = "och";
+
+// MARK: - Trial
+"trialTitle" = "Prova Premium gratis i 7 dagar";
+"trialSubtitle" = "Lås upp alla funktioner med full tillgång till premiuminnehåll";

@@ -1,0 +1,56 @@
+/* 
+  CardImages.strings
+  Flippin
+  
+  Localization for card images and image onboarding flow
+*/
+
+// MARK: - Image Onboarding
+"imageOnboarding.title" = "Apprendimento Visivo";
+"imageOnboarding.subtitle" = "Aggiungi immagini alle tue flashcard per una migliore memorizzazione e apprendimento visivo";
+"imageOnboarding.previewTitle" = "Guarda come appariranno le tue carte:";
+
+// MARK: - Example Cards
+"imageOnboarding.example.card1" = "Vorrei avere il suo biglietto da visita, per favore.";
+"imageOnboarding.example.card2" = "Ho bisogno di scaldarmi.";
+"imageOnboarding.example.card3" = "Viaggio sempre in aereo.";
+
+// MARK: - Benefits
+"imageOnboarding.benefit.memory.title" = "Memoria Migliore";
+"imageOnboarding.benefit.memory.description" = "I segnali visivi ti aiutano a ricordare più velocemente";
+
+"imageOnboarding.benefit.visual.title" = "Apprendimento Visivo";
+"imageOnboarding.benefit.visual.description" = "Impara con le immagini, non solo con il testo";
+
+"imageOnboarding.benefit.enhanced.title" = "Esperienza Migliorata";
+"imageOnboarding.benefit.enhanced.description" = "Rendi le tue flashcard più coinvolgenti";
+
+// MARK: - Actions
+"imageOnboarding.getStarted" = "Inizia";
+"imageOnboarding.skip" = "Salta";
+
+// MARK: - Add/Edit Card Image Section
+"sectionTitle" = "Immagine";
+"imageAttached" = "Immagine Allegata";
+"currentImage" = "Immagine Corrente";
+"tapToChange" = "Tocca per modificare";
+"addImage" = "Aggiungi Immagine";
+"remove" = "Rimuovi";
+"imageUnavailable" = "Immagine non disponibile";
+
+
+// MARK: - Image Search
+"imageSearch.title" = "Cerca Immagini";
+"imageSearch.searchPrompt" = "Cerca immagini...";
+"imageSearch.cancel" = "Annulla";
+"imageSearch.select" = "Seleziona";
+"imageSearch.loadMore" = "Carica Altri";
+
+// MARK: - Image Search Empty State
+"imageSearch.emptyState.title" = "Cerca immagini";
+"imageSearch.emptyState.subtitle" = "Inserisci un termine di ricerca sopra per trovare bellissime immagini da Pexels";
+
+// MARK: - Image Search Errors
+"imageSearch.error.title" = "Errore";
+"imageSearch.error.unknown" = "Si è verificato un errore sconosciuto";
+"imageSearch.error.ok" = "OK";

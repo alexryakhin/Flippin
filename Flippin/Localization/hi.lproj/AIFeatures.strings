@@ -1,0 +1,56 @@
+/*
+  AIFeatures.strings
+  Flippin
+  
+  AI-powered features localization
+  Language: hi
+  Section: ai_features
+*/
+
+// AI Collection Generator
+"aiGeneratorTitle" = "AI संग्रह जनरेटर";
+"aiGeneratorSubtitle" = "AI के साथ कस्टम फ्लैशकार्ड संग्रह बनाएं";
+"aiGeneratorDescription" = "वर्णन करें कि आप क्या सीखना चाहते हैं और AI आपके लिए एक कस्टम फ्लैशकार्ड संग्रह बनाएगा";
+"yourRequest" = "आपका अनुरोध";
+"numberOfCards" = "कार्डों की संख्या";
+"exampleRequests" = "उदाहरण अनुरोध";
+"generateCollection" = "संग्रह उत्पन्न करें";
+"tryAgain" = "फिर से प्रयास करें";
+"importAll" = "सभी आयात करें";
+"requestPlaceholder" = "उदा., रेस्तरां में ऑर्डर करने के लिए वाक्यांश";
+"requestTooLong" = "अनुरोध बहुत लंबा है। कृपया इसे 500 वर्णों के अंदर रखें।";
+
+// Example Requests
+"exampleRestaurant" = "रेस्तरां में ऑर्डर करने के लिए वाक्यांश";
+"exampleAirport" = "हवाई अड्डे में नेविगेट करने के लिए शब्दावली";
+"exampleBusiness" = "व्यापार बैठक अभिव्यक्तियाँ";
+
+// AI Learning Coach
+"aiCoachTitle" = "AI सीखने का कोच";
+"learningCoach" = "सीखने का कोच";
+"aiCoachDescription" = "अपनी सीखने की प्रगति के बारे में वैयक्तिकृत अंतर्दृष्टि प्राप्त करें";
+"aiCoachEmptyState" = "अपनी सीखने के बारे में वैयक्तिकृत अंतर्दृष्टि प्राप्त करें";
+"generateInsights" = "अंतर्दृष्टि उत्पन्न करें";
+"refreshInsights" = "अंतर्दृष्टि रीफ्रेश करें";
+"viewDetailedInsights" = "विस्तृत अंतर्दृष्टि देखें";
+"analyzingProgress" = "AI आपकी प्रगति का विश्लेषण कर रहा है...";
+"keyInsights" = "मुख्य अंतर्दृष्टि";
+"recommendations" = "सिफारिशें";
+"generatedAt" = "उत्पन्न %@";
+"aiInsightsFailed" = "अंतर्दृष्टि उत्पन्न करने में विफल। कृपया फिर से प्रयास करें।";
+
+// Priority Labels
+"highPriority" = "उच्च प्राथमिकता";
+"mediumPriority" = "मध्यम प्राथमिकता";
+"lowPriority" = "निम्न प्राथमिकता";
+
+// Errors
+"error" = "त्रुटि";
+"ok" = "ठीक है";
+"aiNotReady" = "ChatGPT सेवा तैयार नहीं है। कृपया बाद में पुनः प्रयास करें।";
+"aiFeatureDisabled" = "AI सुविधाएं अस्थायी रूप से अनुपलब्ध हैं";
+"aiInvalidResponse" = "AI से अमान्य प्रतिक्रिया प्राप्त हुई। कृपया फिर से प्रयास करें।";
+"aiNetworkError" = "नेटवर्क कनेक्शन विफल रहा। अपना इंटरनेट जांचें और फिर से प्रयास करें।";
+"aiUnexpectedError" = "एक अप्रत्याशित त्रुटि हुई। कृपया फिर से प्रयास करें।";
+"aiImportFailed" = "कार्ड आयात करने में विफल। आप अपनी कार्ड सीमा तक पहुंच गए होंगे।";
+

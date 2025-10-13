@@ -99,6 +99,8 @@ public enum Loc {
   public enum AIFeatures {
     /// Get personalized insights about your learning progress
     public static let aiCoachDescription = Loc.tr("AIFeatures", "aiCoachDescription", fallback: "Get personalized insights about your learning progress")
+    /// Get personalized insights about your learning
+    public static let aiCoachEmptyState = Loc.tr("AIFeatures", "aiCoachEmptyState", fallback: "Get personalized insights about your learning")
     /// AI Learning Coach
     public static let aiCoachTitle = Loc.tr("AIFeatures", "aiCoachTitle", fallback: "AI Learning Coach")
     /// AI features are temporarily unavailable
@@ -116,36 +118,34 @@ public enum Loc {
     public static let aiGeneratorTitle = Loc.tr("AIFeatures", "aiGeneratorTitle", fallback: "AI Collection Generator")
     /// Failed to import cards. You may have reached your card limit.
     public static let aiImportFailed = Loc.tr("AIFeatures", "aiImportFailed", fallback: "Failed to import cards. You may have reached your card limit.")
+    /// Failed to generate insights. Please try again.
+    public static let aiInsightsFailed = Loc.tr("AIFeatures", "aiInsightsFailed", fallback: "Failed to generate insights. Please try again.")
     /// Received invalid response from AI. Please try again.
     public static let aiInvalidResponse = Loc.tr("AIFeatures", "aiInvalidResponse", fallback: "Received invalid response from AI. Please try again.")
     /// Network connection failed. Check your internet and try again.
     public static let aiNetworkError = Loc.tr("AIFeatures", "aiNetworkError", fallback: "Network connection failed. Check your internet and try again.")
     /// ChatGPT service is not ready. Please try again later.
     public static let aiNotReady = Loc.tr("AIFeatures", "aiNotReady", fallback: "ChatGPT service is not ready. Please try again later.")
-    /// Get AI-powered insights about your learning progress
-    public static let aiPremiumDescription = Loc.tr("AIFeatures", "aiPremiumDescription", fallback: "Get AI-powered insights about your learning progress")
-    /// AI features are available with Premium subscription
-    public static let aiPremiumRequired = Loc.tr("AIFeatures", "aiPremiumRequired", fallback: "AI features are available with Premium subscription")
     /// An unexpected error occurred. Please try again.
     public static let aiUnexpectedError = Loc.tr("AIFeatures", "aiUnexpectedError", fallback: "An unexpected error occurred. Please try again.")
-    /// AI features available with Premium subscription
-    public static let aiUnlimitedAccess = Loc.tr("AIFeatures", "aiUnlimitedAccess", fallback: "AI features available with Premium subscription")
     /// AI is analyzing your progress...
     public static let analyzingProgress = Loc.tr("AIFeatures", "analyzingProgress", fallback: "AI is analyzing your progress...")
-    /// %d/500 characters
-    public static func characterLimit(_ p1: Int) -> String {
-      return Loc.tr("AIFeatures", "characterLimit", p1, fallback: "%d/500 characters")
-    }
+    /// Error
+    public static let error = Loc.tr("AIFeatures", "error", fallback: "Error")
+    /// Vocabulary for navigating airports
+    public static let exampleAirport = Loc.tr("AIFeatures", "exampleAirport", fallback: "Vocabulary for navigating airports")
+    /// Business meeting expressions
+    public static let exampleBusiness = Loc.tr("AIFeatures", "exampleBusiness", fallback: "Business meeting expressions")
     /// Example Requests
     public static let exampleRequests = Loc.tr("AIFeatures", "exampleRequests", fallback: "Example Requests")
+    /// Phrases for ordering at restaurants
+    public static let exampleRestaurant = Loc.tr("AIFeatures", "exampleRestaurant", fallback: "Phrases for ordering at restaurants")
     /// Generate Collection
     public static let generateCollection = Loc.tr("AIFeatures", "generateCollection", fallback: "Generate Collection")
     /// Generated %@
     public static func generatedAt(_ p1: Any) -> String {
       return Loc.tr("AIFeatures", "generatedAt", String(describing: p1), fallback: "Generated %@")
     }
-    /// Generated Cards
-    public static let generatedCards = Loc.tr("AIFeatures", "generatedCards", fallback: "Generated Cards")
     /// Generate Insights
     public static let generateInsights = Loc.tr("AIFeatures", "generateInsights", fallback: "Generate Insights")
     /// High Priority
@@ -154,26 +154,26 @@ public enum Loc {
     public static let importAll = Loc.tr("AIFeatures", "importAll", fallback: "Import All")
     /// Key Insights
     public static let keyInsights = Loc.tr("AIFeatures", "keyInsights", fallback: "Key Insights")
+    /// Learning Coach
+    public static let learningCoach = Loc.tr("AIFeatures", "learningCoach", fallback: "Learning Coach")
     /// Low Priority
     public static let lowPriority = Loc.tr("AIFeatures", "lowPriority", fallback: "Low Priority")
     /// Medium Priority
     public static let mediumPriority = Loc.tr("AIFeatures", "mediumPriority", fallback: "Medium Priority")
     /// Number of Cards
     public static let numberOfCards = Loc.tr("AIFeatures", "numberOfCards", fallback: "Number of Cards")
-    /// Premium Feature
-    public static let premiumFeature = Loc.tr("AIFeatures", "premiumFeature", fallback: "Premium Feature")
+    /// OK
+    public static let ok = Loc.tr("AIFeatures", "ok", fallback: "OK")
     /// Recommendations
     public static let recommendations = Loc.tr("AIFeatures", "recommendations", fallback: "Recommendations")
     /// Refresh Insights
     public static let refreshInsights = Loc.tr("AIFeatures", "refreshInsights", fallback: "Refresh Insights")
-    /// e.g., Spanish phrases for ordering at restaurants
-    public static let requestPlaceholder = Loc.tr("AIFeatures", "requestPlaceholder", fallback: "e.g., Spanish phrases for ordering at restaurants")
+    /// e.g., Phrases for ordering at restaurants
+    public static let requestPlaceholder = Loc.tr("AIFeatures", "requestPlaceholder", fallback: "e.g., Phrases for ordering at restaurants")
     /// Request too long. Please keep it under 500 characters.
     public static let requestTooLong = Loc.tr("AIFeatures", "requestTooLong", fallback: "Request too long. Please keep it under 500 characters.")
     /// Try Again
     public static let tryAgain = Loc.tr("AIFeatures", "tryAgain", fallback: "Try Again")
-    /// Upgrade to Premium
-    public static let upgradeToPremium = Loc.tr("AIFeatures", "upgradeToPremium", fallback: "Upgrade to Premium")
     /// View Detailed Insights
     public static let viewDetailedInsights = Loc.tr("AIFeatures", "viewDetailedInsights", fallback: "View Detailed Insights")
     /// Your Request
@@ -429,18 +429,6 @@ public enum Loc {
         /// Unknown error occurred
         public static let unknown = Loc.tr("CardImages", "imageSearch.error.unknown", fallback: "Unknown error occurred")
       }
-    }
-    public enum Premium {
-      /// Enhance your learning with visual flashcards that help you remember better
-      public static let description = Loc.tr("CardImages", "premium.description", fallback: "Enhance your learning with visual flashcards that help you remember better")
-      /// Add beautiful images to your flashcards for better memory retention
-      public static let message = Loc.tr("CardImages", "premium.message", fallback: "Add beautiful images to your flashcards for better memory retention")
-      /// Card Images
-      public static let title = Loc.tr("CardImages", "premium.title", fallback: "Card Images")
-    }
-    public enum PremiumGate {
-      /// Don't miss out on visual learning, upgrade to Premium
-      public static let message = Loc.tr("CardImages", "premiumGate.message", fallback: "Don't miss out on visual learning, upgrade to Premium")
     }
   }
   public enum CardLimits {
@@ -947,32 +935,28 @@ public enum Loc {
     public static let studyReminderTitle = Loc.tr("Notifications", "studyReminderTitle", fallback: "Time to Study!")
   }
   public enum Paywall {
-    /// Get detailed learning insights, progress charts, and performance analytics with premium!
-    public static let advancedAnalyticsMessage = Loc.tr("Paywall", "advancedAnalyticsMessage", fallback: "Get detailed learning insights, progress charts, and performance analytics with premium!")
-    /// Advanced Analytics
-    public static let advancedAnalyticsTitle = Loc.tr("Paywall", "advancedAnalyticsTitle", fallback: "Advanced Analytics")
+    /// and
+    public static let andPreposition = Loc.tr("Paywall", "andPreposition", fallback: "and")
     /// Cancel
     public static let cancel = Loc.tr("Paywall", "cancel", fallback: "Cancel")
-    /// Explore a vast collection of pre-designed card presets with premium!
-    public static let cardPresetsMessage = Loc.tr("Paywall", "cardPresetsMessage", fallback: "Explore a vast collection of pre-designed card presets with premium!")
-    /// Card Presets
-    public static let cardPresetsTitle = Loc.tr("Paywall", "cardPresetsTitle", fallback: "Card Presets")
-    /// Unlock beautiful custom themes and backgrounds with premium!
-    public static let customThemesMessage = Loc.tr("Paywall", "customThemesMessage", fallback: "Unlock beautiful custom themes and backgrounds with premium!")
-    /// Custom Themes
-    public static let customThemesTitle = Loc.tr("Paywall", "customThemesTitle", fallback: "Custom Themes")
-    /// Choose from over 15 languages to enhance your learning experience with premium!
-    public static let languageChangeMessage = Loc.tr("Paywall", "languageChangeMessage", fallback: "Choose from over 15 languages to enhance your learning experience with premium!")
-    /// Language Change
-    public static let languageChangeTitle = Loc.tr("Paywall", "languageChangeTitle", fallback: "Language Change")
-    /// Access advanced study modes and learning techniques with premium!
-    public static let studyModesMessage = Loc.tr("Paywall", "studyModesMessage", fallback: "Access advanced study modes and learning techniques with premium!")
-    /// Study Modes
-    public static let studyModesTitle = Loc.tr("Paywall", "studyModesTitle", fallback: "Study Modes")
-    /// Upgrade to premium to create unlimited cards and unlock all features!
-    public static let unlimitedCardsMessage = Loc.tr("Paywall", "unlimitedCardsMessage", fallback: "Upgrade to premium to create unlimited cards and unlock all features!")
-    /// Unlimited Cards
-    public static let unlimitedCardsTitle = Loc.tr("Paywall", "unlimitedCardsTitle", fallback: "Unlimited Cards")
+    /// Go Premium
+    public static let goPremium = Loc.tr("Paywall", "goPremium", fallback: "Go Premium")
+    /// Master your language learning with exclusive features
+    public static let masterLanguageLearning = Loc.tr("Paywall", "masterLanguageLearning", fallback: "Master your language learning with exclusive features")
+    /// Privacy Policy
+    public static let privacyPolicy = Loc.tr("Paywall", "privacyPolicy", fallback: "Privacy Policy")
+    /// Restore Subscription
+    public static let restoreSubscription = Loc.tr("Paywall", "restoreSubscription", fallback: "Restore Subscription")
+    /// Subscribe
+    public static let subscribe = Loc.tr("Paywall", "subscribe", fallback: "Subscribe")
+    /// Terms of Service
+    public static let termsOfService = Loc.tr("Paywall", "termsOfService", fallback: "Terms of Service")
+    /// Unlock all features with full access to premium content
+    public static let trialSubtitle = Loc.tr("Paywall", "trialSubtitle", fallback: "Unlock all features with full access to premium content")
+    /// Try Premium Free for 7 Days
+    public static let trialTitle = Loc.tr("Paywall", "trialTitle", fallback: "Try Premium Free for 7 Days")
+    /// Unlock Premium
+    public static let unlockPremium = Loc.tr("Paywall", "unlockPremium", fallback: "Unlock Premium")
     /// Upgrade to premium to unlock all features!
     public static let upgradeToPremiumMessage = Loc.tr("Paywall", "upgradeToPremiumMessage", fallback: "Upgrade to premium to unlock all features!")
     /// paywall.strings
@@ -984,11 +968,21 @@ public enum Loc {
     public static let upgradeToPremiumTitle = Loc.tr("Paywall", "upgradeToPremiumTitle", fallback: "Upgrade to Premium")
     /// View Options
     public static let viewOptions = Loc.tr("Paywall", "viewOptions", fallback: "View Options")
+    /// What You Get with Premium
+    public static let whatYouGetWithPremium = Loc.tr("Paywall", "whatYouGetWithPremium", fallback: "What You Get with Premium")
   }
   public enum Plurals {
     /// Plural format key: "%#@cards@"
     public static func cardsCount(_ p1: Int) -> String {
       return Loc.tr("Plurals", "cardsCount", p1, fallback: "Plural format key: \"%#@cards@\"")
+    }
+    /// Plural format key: "%#@characters@/500 characters"
+    public static func characterLimit(_ p1: Int) -> String {
+      return Loc.tr("Plurals", "characterLimit", p1, fallback: "Plural format key: \"%#@characters@/500 characters\"")
+    }
+    /// Plural format key: "Generated Cards (%#@cards@)"
+    public static func generatedCardsCount(_ p1: Int) -> String {
+      return Loc.tr("Plurals", "generatedCardsCount", p1, fallback: "Plural format key: \"Generated Cards (%#@cards@)\"")
     }
     /// Plural format key: "%#@sessions@"
     public static func sessionsPerDay(_ p1: Int) -> String {
@@ -1000,8 +994,36 @@ public enum Loc {
     }
   }
   public enum PremiumFeatures {
-    /// Cancel anytime • No commitment
-    public static let cancelAnytime = Loc.tr("PremiumFeatures", "cancelAnytime", fallback: "Cancel anytime • No commitment")
+    /// Get detailed learning insights, progress charts, and performance analytics with premium!
+    public static let advancedAnalyticsMessage = Loc.tr("PremiumFeatures", "advancedAnalyticsMessage", fallback: "Get detailed learning insights, progress charts, and performance analytics with premium!")
+    /// Advanced Analytics
+    public static let advancedAnalyticsTitle = Loc.tr("PremiumFeatures", "advancedAnalyticsTitle", fallback: "Advanced Analytics")
+    /// AI Collection Generator
+    public static let aiCollectionGenerator = Loc.tr("PremiumFeatures", "aiCollectionGenerator", fallback: "AI Collection Generator")
+    /// Create custom flashcard collections with AI
+    public static let aiCollectionGeneratorDescription = Loc.tr("PremiumFeatures", "aiCollectionGeneratorDescription", fallback: "Create custom flashcard collections with AI")
+    /// AI Learning Coach
+    public static let aiLearningCoach = Loc.tr("PremiumFeatures", "aiLearningCoach", fallback: "AI Learning Coach")
+    /// Get personalized insights and recommendations
+    public static let aiLearningCoachDescription = Loc.tr("PremiumFeatures", "aiLearningCoachDescription", fallback: "Get personalized insights and recommendations")
+    /// Get AI-powered insights about your learning progress
+    public static let aiPremiumDescription = Loc.tr("PremiumFeatures", "aiPremiumDescription", fallback: "Get AI-powered insights about your learning progress")
+    /// AI features are available with Premium subscription
+    public static let aiPremiumRequired = Loc.tr("PremiumFeatures", "aiPremiumRequired", fallback: "AI features are available with Premium subscription")
+    /// AI features available with Premium subscription
+    public static let aiUnlimitedAccess = Loc.tr("PremiumFeatures", "aiUnlimitedAccess", fallback: "AI features available with Premium subscription")
+    /// Card Images
+    public static let cardImages = Loc.tr("PremiumFeatures", "cardImages", fallback: "Card Images")
+    /// Add beautiful images to your flashcards for better memory retention
+    public static let cardImagesDescription = Loc.tr("PremiumFeatures", "cardImagesDescription", fallback: "Add beautiful images to your flashcards for better memory retention")
+    /// Enhance your learning with visual flashcards that help you remember better
+    public static let cardImagesPremiumDescription = Loc.tr("PremiumFeatures", "cardImagesPremiumDescription", fallback: "Enhance your learning with visual flashcards that help you remember better")
+    /// Don't miss out on visual learning, upgrade to Premium
+    public static let cardImagesPremiumGate = Loc.tr("PremiumFeatures", "cardImagesPremiumGate", fallback: "Don't miss out on visual learning, upgrade to Premium")
+    /// Explore a vast collection of pre-designed card presets with premium!
+    public static let cardPresetsMessage = Loc.tr("PremiumFeatures", "cardPresetsMessage", fallback: "Explore a vast collection of pre-designed card presets with premium!")
+    /// Card Presets
+    public static let cardPresetsTitle = Loc.tr("PremiumFeatures", "cardPresetsTitle", fallback: "Card Presets")
     /// Change Languages
     public static let changeLanguages = Loc.tr("PremiumFeatures", "changeLanguages", fallback: "Change Languages")
     /// Switch between different language pairs anytime
@@ -1018,10 +1040,14 @@ public enum Loc {
     public static let colorSchemeLight = Loc.tr("PremiumFeatures", "colorSchemeLight", fallback: "Light")
     /// System
     public static let colorSchemeSystem = Loc.tr("PremiumFeatures", "colorSchemeSystem", fallback: "System")
-    /// Go Premium
-    public static let goPremium = Loc.tr("PremiumFeatures", "goPremium", fallback: "Go Premium")
-    /// Master your language learning with exclusive features
-    public static let masterLanguageLearning = Loc.tr("PremiumFeatures", "masterLanguageLearning", fallback: "Master your language learning with exclusive features")
+    /// Unlock beautiful custom themes and backgrounds with premium!
+    public static let customThemesMessage = Loc.tr("PremiumFeatures", "customThemesMessage", fallback: "Unlock beautiful custom themes and backgrounds with premium!")
+    /// Custom Themes
+    public static let customThemesTitle = Loc.tr("PremiumFeatures", "customThemesTitle", fallback: "Custom Themes")
+    /// Choose from over 15 languages to enhance your learning experience with premium!
+    public static let languageChangeMessage = Loc.tr("PremiumFeatures", "languageChangeMessage", fallback: "Choose from over 15 languages to enhance your learning experience with premium!")
+    /// Language Change
+    public static let languageChangeTitle = Loc.tr("PremiumFeatures", "languageChangeTitle", fallback: "Language Change")
     /// Ability to learn multiple languages at the same time
     public static let multipleLanguagesDescription = Loc.tr("PremiumFeatures", "multipleLanguagesDescription", fallback: "Ability to learn multiple languages at the same time")
     /// Multiple Languages
@@ -1043,26 +1069,28 @@ public enum Loc {
     public static let premiumFeatureDescription = Loc.tr("PremiumFeatures", "premiumFeatureDescription", fallback: "Access all preset collections and unlock unlimited language learning potential")
     /// Premium Required
     public static let premiumRequired = Loc.tr("PremiumFeatures", "premiumRequired", fallback: "Premium Required")
+    /// Speechify Premium Voices
+    public static let premiumVoices = Loc.tr("PremiumFeatures", "premiumVoices", fallback: "Speechify Premium Voices")
+    /// Thousands of high-quality voices to personalize your cards
+    public static let premiumVoicesDescription = Loc.tr("PremiumFeatures", "premiumVoicesDescription", fallback: "Thousands of high-quality voices to personalize your cards")
+    /// Enjoy high-quality audio for all your flashcards!
+    public static let premiumVoicesMessage = Loc.tr("PremiumFeatures", "premiumVoicesMessage", fallback: "Enjoy high-quality audio for all your flashcards!")
     /// Preview
     public static let previewBackgrounds = Loc.tr("PremiumFeatures", "previewBackgrounds", fallback: "Preview")
-    /// Privacy
-    public static let privacy = Loc.tr("PremiumFeatures", "privacy", fallback: "Privacy")
-    /// Restore Purchases
-    public static let restorePurchases = Loc.tr("PremiumFeatures", "restorePurchases", fallback: "Restore Purchases")
-    /// Terms
-    public static let terms = Loc.tr("PremiumFeatures", "terms", fallback: "Terms")
+    /// Access advanced study modes and learning techniques with premium!
+    public static let studyModesMessage = Loc.tr("PremiumFeatures", "studyModesMessage", fallback: "Access advanced study modes and learning techniques with premium!")
+    /// Study Modes
+    public static let studyModesTitle = Loc.tr("PremiumFeatures", "studyModesTitle", fallback: "Study Modes")
     /// Create as many flashcards as you want
     public static let unlimitedCardsDescription = Loc.tr("PremiumFeatures", "unlimitedCardsDescription", fallback: "Create as many flashcards as you want")
-    /// Unlock Premium
-    public static let unlockPremium = Loc.tr("PremiumFeatures", "unlockPremium", fallback: "Unlock Premium")
-    /// Upgrade to Premium
-    public static let upgradeToPremium = Loc.tr("PremiumFeatures", "upgradeToPremium", fallback: "Upgrade to Premium")
+    /// Upgrade to premium to create unlimited cards and unlock all features!
+    public static let unlimitedCardsMessage = Loc.tr("PremiumFeatures", "unlimitedCardsMessage", fallback: "Upgrade to premium to create unlimited cards and unlock all features!")
+    /// Unlimited Cards
+    public static let unlimitedCardsTitle = Loc.tr("PremiumFeatures", "unlimitedCardsTitle", fallback: "Unlimited Cards")
     /// You've used %d of %d free cards
     public static func usedCardsOfLimit(_ p1: Int, _ p2: Int) -> String {
       return Loc.tr("PremiumFeatures", "usedCardsOfLimit", p1, p2, fallback: "You've used %d of %d free cards")
     }
-    /// What You Get with Premium
-    public static let whatYouGetWithPremium = Loc.tr("PremiumFeatures", "whatYouGetWithPremium", fallback: "What You Get with Premium")
   }
   public enum PresetCollections {
     /// All
@@ -1698,10 +1726,6 @@ public enum Loc {
     public static let streakSubtitle = Loc.tr("UserProfile", "streakSubtitle", fallback: "We track your daily practice to keep you motivated")
     /// Build Your Streak!
     public static let streakTitle = Loc.tr("UserProfile", "streakTitle", fallback: "Build Your Streak!")
-    /// Unlock all features with full access to premium content
-    public static let trialSubtitle = Loc.tr("UserProfile", "trialSubtitle", fallback: "Unlock all features with full access to premium content")
-    /// Try Premium Free for 7 Days
-    public static let trialTitle = Loc.tr("UserProfile", "trialTitle", fallback: "Try Premium Free for 7 Days")
     /// 10 phrases
     public static let weeklyGoal10 = Loc.tr("UserProfile", "weeklyGoal10", fallback: "10 phrases")
     /// 100 phrases

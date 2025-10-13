@@ -22,11 +22,11 @@ enum Paywall {
                             .scaledToFit()
                             .frame(width: 144, height: 144)
 
-                        Text(Loc.PremiumFeatures.unlockPremium)
+                        Text(Loc.Paywall.unlockPremium)
                             .font(.system(size: 34, weight: .bold, design: .rounded))
                             .foregroundColor(.primary)
 
-                        Text(Loc.PremiumFeatures.masterLanguageLearning)
+                        Text(Loc.Paywall.masterLanguageLearning)
                             .font(.system(size: 18, weight: .medium, design: .rounded))
                             .foregroundColor(.secondary)
                             .multilineTextAlignment(.center)
@@ -58,7 +58,7 @@ enum Paywall {
 
                     // Features with glassmorphism cards
                     VStack(spacing: 12) {
-                        Text(Loc.PremiumFeatures.whatYouGetWithPremium)
+                        Text(Loc.Paywall.whatYouGetWithPremium)
                             .font(.system(size: 24, weight: .semibold, design: .rounded))
                             .foregroundColor(.primary)
 

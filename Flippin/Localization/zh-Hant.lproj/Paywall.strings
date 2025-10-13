@@ -7,19 +7,23 @@
   Section: paywall
 */
 
+// MARK: - Paywall UI
 "upgradeToPremiumTitle" = "升級到進階版";
 "upgradeToPremiumMessage" = "升級到進階版以解鎖所有功能！";
 "cancel" = "取消";
 "viewOptions" = "查看選項";
-"unlimitedCardsTitle" = "無限卡片";
-"unlimitedCardsMessage" = "升級到進階版以創建無限卡片並解鎖所有功能！";
-"advancedAnalyticsTitle" = "高級分析";
-"advancedAnalyticsMessage" = "通過進階版獲取詳細的學習洞察、進度圖表和性能分析！";
-"customThemesTitle" = "自訂主題";
-"customThemesMessage" = "通過進階版解鎖美麗的自訂主題和背景！";
-"languageChangeTitle" = "更改語言";
-"languageChangeMessage" = "通過進階版從15種以上語言中選擇以提升您的學習體驗！";
-"cardPresetsTitle" = "卡片預設";
-"cardPresetsMessage" = "通過進階版探索大量預設計的卡片預設集合！";
-"studyModesTitle" = "學習模式";
-"studyModesMessage" = "通過進階版存取高級學習模式和學習技術！";
+"unlockPremium" = "解鎖進階版";
+"goPremium" = "獲取進階版";
+"whatYouGetWithPremium" = "進階版包含的內容";
+"masterLanguageLearning" = "透過獨家功能掌握語言學習";
+
+// MARK: - Paywall Actions
+"subscribe" = "訂閱";
+"restoreSubscription" = "恢復訂閱";
+"termsOfService" = "服務條款";
+"privacyPolicy" = "隱私政策";
+"andPreposition" = "和";
+
+// MARK: - Trial
+"trialTitle" = "免費試用進階版 7 天";
+"trialSubtitle" = "解鎖所有功能，完全存取進階內容";

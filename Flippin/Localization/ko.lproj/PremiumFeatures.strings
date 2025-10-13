@@ -9,29 +9,64 @@
 
 "premiumFeature" = "프리미엄 기능";
 "premiumRequired" = "프리미엄 필요";
-"upgradeToPremium" = "프리미엄으로 업그레이드";
-"premiumFeatureDescription" = "모든 프리셋 컬렉션에 접근하고 언어 학습의 무한한 잠재력을 해제하세요";
+"premiumFeatureDescription" = "모든 사전 설정 컬렉션에 액세스하고 무제한 언어 학습 가능성을 잠금 해제하세요";
 "previewBackgrounds" = "미리보기";
-"colorScheme" = "색상 구성표";
+"colorScheme" = "색상 구성";
 "colorSchemeSystem" = "시스템";
-"colorSchemeLight" = "밝게";
-"colorSchemeDark" = "어둡게";
-"unlockPremium" = "프리미엄 잠금 해제";
-"masterLanguageLearning" = "독점 기능으로 언어 학습을 마스터하세요";
-"usedCardsOfLimit" = "무료 카드 %d개 중 %d개를 사용했습니다";
-"whatYouGetWithPremium" = "프리미엄으로 얻는 것";
-"unlimitedCardsDescription" = "원하는 만큼 플래시카드를 만드세요";
-"collections" = "30+ 컬렉션";
-"collectionsDescription" = "모든 사전 정의된 어휘 컬렉션에 접근";
+"colorSchemeLight" = "라이트";
+"colorSchemeDark" = "다크";
+"usedCardsOfLimit" = "%d개 중 %d개의 무료 카드를 사용했습니다";
+"unlimitedCardsDescription" = "원하는 만큼 플래시카드 생성";
+"collections" = "30개 이상의 컬렉션";
+"collectionsDescription" = "모든 사전 설정 어휘 컬렉션에 액세스";
 "premiumBackgrounds" = "프리미엄 배경";
 "premiumBackgroundsDescription" = "아름다운 애니메이션 배경";
 "changeLanguages" = "언어 변경";
-"changeLanguagesDescription" = "언제든지 다른 언어 쌍을 전환하세요";
+"changeLanguagesDescription" = "언제든지 다른 언어 쌍으로 전환";
 "multipleLanguagesTitle" = "다중 언어";
-"multipleLanguagesDescription" = "여러 언어를 동시에 학습할 수 있는 능력";
-"restorePurchases" = "구매 복원";
-"cancelAnytime" = "언제든지 취소 가능 • 약정 없음";
-"terms" = "이용약관";
-"privacy" = "개인정보";
-"goPremium" = "프리미엄으로 가기";
+"multipleLanguagesDescription" = "동시에 여러 언어를 배울 수 있는 능력";
 "premium" = "프리미엄";
+
+// MARK: - Card Images Premium Features
+"cardImages" = "카드 이미지";
+"cardImagesDescription" = "기억력 향상을 위해 플래시카드에 아름다운 이미지 추가";
+"cardImagesPremiumDescription" = "더 나은 기억을 돕는 시각적 플래시카드로 학습 향상";
+"cardImagesPremiumGate" = "시각적 학습을 놓치지 마세요, 프리미엄으로 업그레이드하세요";
+
+// MARK: - AI Features Premium
+"aiPremiumDescription" = "학습 진행 상황에 대한 AI 기반 인사이트 얻기";
+"aiUnlimitedAccess" = "AI 기능은 프리미엄 구독으로 이용 가능";
+"aiPremiumRequired" = "AI 기능은 프리미엄 구독으로 이용 가능합니다";
+"aiCollectionGenerator" = "AI 컬렉션 생성기";
+"aiCollectionGeneratorDescription" = "AI로 맞춤형 플래시카드 컬렉션 생성";
+"aiLearningCoach" = "AI 학습 코치";
+"aiLearningCoachDescription" = "개인화된 인사이트 및 추천 받기";
+
+// MARK: - Premium Voices
+"premiumVoices" = "Speechify 프리미엄 음성";
+"premiumVoicesMessage" = "모든 플래시카드에 고품질 오디오를 즐기세요!";
+"premiumVoicesDescription" = "카드를 개인화할 수 있는 수천 개의 고품질 음성";
+
+// MARK: - Unlimited Cards
+"unlimitedCardsTitle" = "무제한 카드";
+"unlimitedCardsMessage" = "프리미엄으로 업그레이드하여 무제한 카드를 생성하고 모든 기능을 잠금 해제하세요!";
+
+// MARK: - Advanced Analytics
+"advancedAnalyticsTitle" = "고급 분석";
+"advancedAnalyticsMessage" = "프리미엄으로 자세한 학습 인사이트, 진행 차트 및 성능 분석을 얻으세요!";
+
+// MARK: - Custom Themes
+"customThemesTitle" = "맞춤 테마";
+"customThemesMessage" = "프리미엄으로 아름다운 맞춤 테마와 배경을 잠금 해제하세요!";
+
+// MARK: - Language Change
+"languageChangeTitle" = "언어 변경";
+"languageChangeMessage" = "프리미엄으로 15개 이상의 언어 중에서 선택하여 학습 경험을 향상시키세요!";
+
+// MARK: - Card Presets
+"cardPresetsTitle" = "카드 프리셋";
+"cardPresetsMessage" = "프리미엄으로 사전 디자인된 카드 프리셋의 방대한 컬렉션을 탐색하세요!";
+
+// MARK: - Study Modes
+"studyModesTitle" = "학습 모드";
+"studyModesMessage" = "프리미엄으로 고급 학습 모드 및 학습 기술에 액세스하세요!";

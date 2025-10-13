@@ -7,19 +7,23 @@
   Section: paywall
 */
 
+// MARK: - Paywall UI
 "upgradeToPremiumTitle" = "Upgraden naar Premium";
-"upgradeToPremiumMessage" = "Upgrade naar Premium om alle functies te ontgrendelen!";
+"upgradeToPremiumMessage" = "Upgrade naar premium om alle functies te ontgrendelen!";
 "cancel" = "Annuleren";
 "viewOptions" = "Opties Bekijken";
-"unlimitedCardsTitle" = "Onbeperkte Kaarten";
-"unlimitedCardsMessage" = "Upgrade naar Premium om onbeperkte kaarten te maken en alle functies te ontgrendelen!";
-"advancedAnalyticsTitle" = "Geavanceerde Analyse";
-"advancedAnalyticsMessage" = "Krijg gedetailleerde leerinzichten, voortgangsgrafieken en prestatie-analyses met Premium!";
-"customThemesTitle" = "Aangepaste Thema's";
-"customThemesMessage" = "Ontgrendel prachtige aangepaste thema's en achtergronden met Premium!";
-"languageChangeTitle" = "Talen Wijzigen";
-"languageChangeMessage" = "Kies uit meer dan 15 talen om je leerervaring te verbeteren met Premium!";
-"cardPresetsTitle" = "Kaart Presets";
-"cardPresetsMessage" = "Verken een uitgebreide collectie vooraf ontworpen kaart presets met Premium!";
-"studyModesTitle" = "Studiemodi";
-"studyModesMessage" = "Krijg toegang tot geavanceerde studiemodi en leermethoden met Premium!";
+"unlockPremium" = "Premium Ontgrendelen";
+"goPremium" = "Ga Premium";
+"whatYouGetWithPremium" = "Wat je krijgt met Premium";
+"masterLanguageLearning" = "Beheers je taalleerervaring met exclusieve functies";
+
+// MARK: - Paywall Actions
+"subscribe" = "Abonneren";
+"restoreSubscription" = "Abonnement Herstellen";
+"termsOfService" = "Servicevoorwaarden";
+"privacyPolicy" = "Privacybeleid";
+"andPreposition" = "en";
+
+// MARK: - Trial
+"trialTitle" = "Probeer Premium 7 dagen gratis";
+"trialSubtitle" = "Ontgrendel alle functies met volledige toegang tot premium-inhoud";

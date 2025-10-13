@@ -9,29 +9,64 @@
 
 "premiumFeature" = "プレミアム機能";
 "premiumRequired" = "プレミアムが必要";
-"upgradeToPremium" = "プレミアムにアップグレード";
-"premiumFeatureDescription" = "すべてのプリセットコレクションにアクセスし、言語学習の無限の可能性を開放";
+"premiumFeatureDescription" = "すべてのプリセットコレクションにアクセスし、無制限の語学学習の可能性を解き放ちます";
 "previewBackgrounds" = "プレビュー";
 "colorScheme" = "カラースキーム";
 "colorSchemeSystem" = "システム";
 "colorSchemeLight" = "ライト";
 "colorSchemeDark" = "ダーク";
-"unlockPremium" = "プレミアムをアンロック";
-"masterLanguageLearning" = "専用機能で言語学習をマスター";
-"usedCardsOfLimit" = "無料カード %d 枚中 %d 枚を使用済み";
-"whatYouGetWithPremium" = "プレミアムで得られるもの";
+"usedCardsOfLimit" = "%d枚中%d枚の無料カードを使用しました";
 "unlimitedCardsDescription" = "好きなだけフラッシュカードを作成";
-"collections" = "30+ コレクション";
+"collections" = "30以上のコレクション";
 "collectionsDescription" = "すべてのプリセット語彙コレクションにアクセス";
 "premiumBackgrounds" = "プレミアム背景";
 "premiumBackgroundsDescription" = "美しいアニメーション背景";
-"changeLanguages" = "言語変更";
+"changeLanguages" = "言語の変更";
 "changeLanguagesDescription" = "いつでも異なる言語ペアを切り替え";
-"multipleLanguagesTitle" = "複数言語";
-"multipleLanguagesDescription" = "複数の言語を同時に学習する能力";
-"restorePurchases" = "購入を復元";
-"cancelAnytime" = "いつでもキャンセル可能 • 契約なし";
-"terms" = "利用規約";
-"privacy" = "プライバシー";
-"goPremium" = "プレミアムに進む";
+"multipleLanguagesTitle" = "複数の言語";
+"multipleLanguagesDescription" = "同時に複数の言語を学習する機能";
 "premium" = "プレミアム";
+
+// MARK: - Card Images Premium Features
+"cardImages" = "カード画像";
+"cardImagesDescription" = "記憶力向上のためにフラッシュカードに美しい画像を追加";
+"cardImagesPremiumDescription" = "視覚的なフラッシュカードで学習を強化し、より良く記憶";
+"cardImagesPremiumGate" = "視覚学習をお見逃しなく、プレミアムにアップグレード";
+
+// MARK: - AI Features Premium
+"aiPremiumDescription" = "学習の進捗状況についてAI駆動の洞察を取得";
+"aiUnlimitedAccess" = "AI機能はプレミアムサブスクリプションで利用可能";
+"aiPremiumRequired" = "AI機能はプレミアムサブスクリプションで利用可能です";
+"aiCollectionGenerator" = "AIコレクションジェネレーター";
+"aiCollectionGeneratorDescription" = "AIでカスタムフラッシュカードコレクションを作成";
+"aiLearningCoach" = "AI学習コーチ";
+"aiLearningCoachDescription" = "パーソナライズされた洞察と推奨事項を取得";
+
+// MARK: - Premium Voices
+"premiumVoices" = "Speechifyプレミアムボイス";
+"premiumVoicesMessage" = "すべてのフラッシュカードに高品質のオーディオをお楽しみください！";
+"premiumVoicesDescription" = "カードをパーソナライズするための何千もの高品質ボイス";
+
+// MARK: - Unlimited Cards
+"unlimitedCardsTitle" = "無制限カード";
+"unlimitedCardsMessage" = "プレミアムにアップグレードして無制限のカードを作成し、すべての機能をアンロック！";
+
+// MARK: - Advanced Analytics
+"advancedAnalyticsTitle" = "高度な分析";
+"advancedAnalyticsMessage" = "プレミアムで詳細な学習インサイト、進捗グラフ、パフォーマンス分析を取得！";
+
+// MARK: - Custom Themes
+"customThemesTitle" = "カスタムテーマ";
+"customThemesMessage" = "プレミアムで美しいカスタムテーマと背景をアンロック！";
+
+// MARK: - Language Change
+"languageChangeTitle" = "言語変更";
+"languageChangeMessage" = "プレミアムで15以上の言語から選択して学習体験を向上！";
+
+// MARK: - Card Presets
+"cardPresetsTitle" = "カードプリセット";
+"cardPresetsMessage" = "プレミアムで事前にデザインされたカードプリセットの膨大なコレクションを探索！";
+
+// MARK: - Study Modes
+"studyModesTitle" = "学習モード";
+"studyModesMessage" = "プレミアムで高度な学習モードと学習テクニックにアクセス！";

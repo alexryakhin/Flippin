@@ -56,5 +56,41 @@
 			<string>%d개 태그</string>
 		</dict>
 	</dict>
+	<key>characterLimit</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@characters@/500자</string>
+		<key>characters</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>zero</key>
+			<string>0</string>
+			<key>one</key>
+			<string>%d</string>
+			<key>other</key>
+			<string>%d</string>
+		</dict>
+	</dict>
+	<key>generatedCardsCount</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>생성된 카드 (%#@cards@)</string>
+		<key>cards</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>zero</key>
+			<string>0</string>
+			<key>one</key>
+			<string>%d</string>
+			<key>other</key>
+			<string>%d</string>
+		</dict>
+	</dict>
 </dict>
 </plist>

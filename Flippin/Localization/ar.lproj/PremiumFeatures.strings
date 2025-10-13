@@ -8,30 +8,65 @@
 */
 
 "premiumFeature" = "ميزة بريميوم";
-"premiumRequired" = "مطلوب بريميوم";
-"upgradeToPremium" = "الترقية إلى بريميوم";
-"premiumFeatureDescription" = "احصل على الوصول إلى جميع المجموعات المعرفة مسبقاً وافتح الإمكانيات غير المحدودة لتعلم اللغات";
+"premiumRequired" = "يتطلب بريميوم";
+"premiumFeatureDescription" = "الوصول إلى جميع المجموعات المحددة مسبقاً وإطلاق العنان لإمكانيات تعلم اللغة غير المحدودة";
 "previewBackgrounds" = "معاينة";
-"colorScheme" = "مخطط الألوان";
+"colorScheme" = "نظام الألوان";
 "colorSchemeSystem" = "النظام";
 "colorSchemeLight" = "فاتح";
 "colorSchemeDark" = "داكن";
-"unlockPremium" = "افتح بريميوم";
-"masterLanguageLearning" = "أتقن تعلم لغتك بميزات حصرية";
 "usedCardsOfLimit" = "لقد استخدمت %d من %d بطاقة مجانية";
-"whatYouGetWithPremium" = "ما تحصل عليه مع بريميوم";
-"unlimitedCardsDescription" = "أنشئ أكبر عدد تريده من البطاقات التعليمية";
+"unlimitedCardsDescription" = "أنشئ عدداً غير محدود من البطاقات التعليمية";
 "collections" = "+30 مجموعة";
-"collectionsDescription" = "احصل على جميع مجموعات المفردات المعرفة مسبقاً";
+"collectionsDescription" = "الوصول إلى جميع مجموعات المفردات المحددة مسبقاً";
 "premiumBackgrounds" = "خلفيات بريميوم";
 "premiumBackgroundsDescription" = "خلفيات متحركة جميلة";
 "changeLanguages" = "تغيير اللغات";
-"changeLanguagesDescription" = "تبديل بين أزواج اللغات المختلفة في أي وقت";
+"changeLanguagesDescription" = "التبديل بين أزواج اللغات المختلفة في أي وقت";
 "multipleLanguagesTitle" = "لغات متعددة";
-"multipleLanguagesDescription" = "القدرة على تعلم عدة لغات في نفس الوقت";
-"restorePurchases" = "استعادة المشتريات";
-"cancelAnytime" = "إلغاء في أي وقت • بدون التزام";
-"terms" = "الشروط";
-"privacy" = "الخصوصية";
-"goPremium" = "اذهب إلى بريميوم";
+"multipleLanguagesDescription" = "القدرة على تعلم لغات متعددة في نفس الوقت";
 "premium" = "بريميوم";
+
+// MARK: - Card Images Premium Features
+"cardImages" = "صور البطاقات";
+"cardImagesDescription" = "أضف صوراً جميلة إلى بطاقاتك التعليمية لتحسين الاحتفاظ بالذاكرة";
+"cardImagesPremiumDescription" = "عزز تعلمك بالبطاقات التعليمية المرئية التي تساعدك على التذكر بشكل أفضل";
+"cardImagesPremiumGate" = "لا تفوت التعلم البصري، قم بالترقية إلى بريميوم";
+
+// MARK: - AI Features Premium
+"aiPremiumDescription" = "احصل على رؤى مدعومة بالذكاء الاصطناعي حول تقدم تعلمك";
+"aiUnlimitedAccess" = "ميزات الذكاء الاصطناعي متاحة مع اشتراك بريميوم";
+"aiPremiumRequired" = "ميزات الذكاء الاصطناعي متاحة مع اشتراك بريميوم";
+"aiCollectionGenerator" = "مولد المجموعات بالذكاء الاصطناعي";
+"aiCollectionGeneratorDescription" = "أنشئ مجموعات بطاقات تعليمية مخصصة باستخدام الذكاء الاصطناعي";
+"aiLearningCoach" = "مدرب التعلم بالذكاء الاصطناعي";
+"aiLearningCoachDescription" = "احصل على رؤى وتوصيات مخصصة";
+
+// MARK: - Premium Voices
+"premiumVoices" = "أصوات Speechify بريميوم";
+"premiumVoicesMessage" = "استمتع بصوت عالي الجودة لجميع بطاقاتك التعليمية!";
+"premiumVoicesDescription" = "آلاف الأصوات عالية الجودة لتخصيص بطاقاتك";
+
+// MARK: - Unlimited Cards
+"unlimitedCardsTitle" = "بطاقات غير محدودة";
+"unlimitedCardsMessage" = "قم بالترقية إلى بريميوم لإنشاء بطاقات غير محدودة وإلغاء قفل جميع الميزات!";
+
+// MARK: - Advanced Analytics
+"advancedAnalyticsTitle" = "تحليلات متقدمة";
+"advancedAnalyticsMessage" = "احصل على رؤى تعليمية تفصيلية ورسوم بيانية للتقدم وتحليلات الأداء مع بريميوم!";
+
+// MARK: - Custom Themes
+"customThemesTitle" = "سمات مخصصة";
+"customThemesMessage" = "افتح سمات وخلفيات مخصصة جميلة مع بريميوم!";
+
+// MARK: - Language Change
+"languageChangeTitle" = "تغيير اللغة";
+"languageChangeMessage" = "اختر من بين أكثر من 15 لغة لتحسين تجربة التعلم الخاصة بك مع بريميوم!";
+
+// MARK: - Card Presets
+"cardPresetsTitle" = "إعدادات البطاقات المسبقة";
+"cardPresetsMessage" = "استكشف مجموعة واسعة من إعدادات البطاقات المصممة مسبقاً مع بريميوم!";
+
+// MARK: - Study Modes
+"studyModesTitle" = "أوضاع الدراسة";
+"studyModesMessage" = "الوصول إلى أوضاع دراسة متقدمة وتقنيات تعلم مع بريميوم!";

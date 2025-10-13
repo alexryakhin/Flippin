@@ -1,0 +1,56 @@
+/*
+  AIFeatures.strings
+  Flippin
+  
+  AI-powered features localization
+  Language: zh-Hant
+  Section: ai_features
+*/
+
+// AI Collection Generator
+"aiGeneratorTitle" = "AI集合產生器";
+"aiGeneratorSubtitle" = "使用AI建立自訂學習卡集合";
+"aiGeneratorDescription" = "描述您想學習的內容，AI將為您建立自訂學習卡集合";
+"yourRequest" = "您的請求";
+"numberOfCards" = "卡片數量";
+"exampleRequests" = "範例請求";
+"generateCollection" = "產生集合";
+"tryAgain" = "重試";
+"importAll" = "全部匯入";
+"requestPlaceholder" = "例如：餐廳點餐用語";
+"requestTooLong" = "請求太長。請保持在500個字元以內。";
+
+// Example Requests
+"exampleRestaurant" = "餐廳點餐用語";
+"exampleAirport" = "機場導航詞彙";
+"exampleBusiness" = "商務會議表達";
+
+// AI Learning Coach
+"aiCoachTitle" = "AI學習教練";
+"learningCoach" = "學習教練";
+"aiCoachDescription" = "獲取關於您學習進度的個人化洞察";
+"aiCoachEmptyState" = "獲取關於您學習的個人化洞察";
+"generateInsights" = "產生洞察";
+"refreshInsights" = "重新整理洞察";
+"viewDetailedInsights" = "檢視詳細洞察";
+"analyzingProgress" = "AI正在分析您的進度...";
+"keyInsights" = "關鍵洞察";
+"recommendations" = "建議";
+"generatedAt" = "產生於 %@";
+"aiInsightsFailed" = "產生洞察失敗。請重試。";
+
+// Priority Labels
+"highPriority" = "高優先順序";
+"mediumPriority" = "中優先順序";
+"lowPriority" = "低優先順序";
+
+// Errors
+"error" = "錯誤";
+"ok" = "確定";
+"aiNotReady" = "ChatGPT服務未準備好。請稍後重試。";
+"aiFeatureDisabled" = "AI功能暫時無法使用";
+"aiInvalidResponse" = "收到來自AI的無效回應。請重試。";
+"aiNetworkError" = "網路連線失敗。請檢查您的網際網路連線並重試。";
+"aiUnexpectedError" = "發生意外錯誤。請重試。";
+"aiImportFailed" = "匯入卡片失敗。您可能已達到卡片限制。";
+

@@ -7,31 +7,66 @@
   Section: premium_features
 */
 
-"premiumFeature" = "Tính Năng Premium";
-"premiumRequired" = "Yêu Cầu Premium";
-"upgradeToPremium" = "Nâng Cấp Lên Premium";
-"premiumFeatureDescription" = "Truy cập tất cả các bộ sưu tập được định sẵn và mở khóa tiềm năng vô hạn cho việc học ngôn ngữ";
-"previewBackgrounds" = "Xem Trước";
-"colorScheme" = "Bảng Màu";
-"colorSchemeSystem" = "Hệ Thống";
+"premiumFeature" = "Tính năng Cao cấp";
+"premiumRequired" = "Yêu cầu Cao cấp";
+"premiumFeatureDescription" = "Truy cập tất cả các bộ sưu tập đặt trước và mở khóa tiềm năng học ngôn ngữ không giới hạn";
+"previewBackgrounds" = "Xem trước";
+"colorScheme" = "Bảng màu";
+"colorSchemeSystem" = "Hệ thống";
 "colorSchemeLight" = "Sáng";
 "colorSchemeDark" = "Tối";
-"unlockPremium" = "Mở Khóa Premium";
-"masterLanguageLearning" = "Làm chủ việc học ngôn ngữ với các tính năng độc quyền";
 "usedCardsOfLimit" = "Bạn đã sử dụng %d trong số %d thẻ miễn phí";
-"whatYouGetWithPremium" = "Những gì bạn nhận được với Premium";
-"unlimitedCardsDescription" = "Tạo bao nhiêu thẻ học tùy ý";
-"collections" = "30+ Bộ Sưu Tập";
-"collectionsDescription" = "Truy cập tất cả các bộ sưu tập từ vựng được định sẵn";
-"premiumBackgrounds" = "Nền Premium";
-"premiumBackgroundsDescription" = "Nền hoạt ảnh đẹp mắt";
-"changeLanguages" = "Thay Đổi Ngôn Ngữ";
+"unlimitedCardsDescription" = "Tạo bao nhiêu thẻ học tùy thích";
+"collections" = "30+ Bộ sưu tập";
+"collectionsDescription" = "Truy cập tất cả các bộ sưu tập từ vựng đặt trước";
+"premiumBackgrounds" = "Nền Cao cấp";
+"premiumBackgroundsDescription" = "Nền động đẹp mắt";
+"changeLanguages" = "Thay đổi Ngôn ngữ";
 "changeLanguagesDescription" = "Chuyển đổi giữa các cặp ngôn ngữ khác nhau bất cứ lúc nào";
-"multipleLanguagesTitle" = "Nhiều Ngôn Ngữ";
-"multipleLanguagesDescription" = "Khả năng học nhiều ngôn ngữ cùng lúc";
-"restorePurchases" = "Khôi Phục Mua Hàng";
-"cancelAnytime" = "Hủy bất cứ lúc nào • Không cam kết";
-"terms" = "Điều khoản";
-"privacy" = "Quyền riêng tư";
-"goPremium" = "Chuyển sang Premium";
-"premium" = "Premium";
+"multipleLanguagesTitle" = "Nhiều Ngôn ngữ";
+"multipleLanguagesDescription" = "Khả năng học nhiều ngôn ngữ cùng một lúc";
+"premium" = "Cao cấp";
+
+// MARK: - Card Images Premium Features
+"cardImages" = "Hình ảnh Thẻ";
+"cardImagesDescription" = "Thêm hình ảnh đẹp vào thẻ học của bạn để ghi nhớ tốt hơn";
+"cardImagesPremiumDescription" = "Nâng cao học tập với thẻ học trực quan giúp bạn ghi nhớ tốt hơn";
+"cardImagesPremiumGate" = "Đừng bỏ lỡ học tập trực quan, nâng cấp lên Cao cấp";
+
+// MARK: - AI Features Premium
+"aiPremiumDescription" = "Nhận thông tin chi tiết được hỗ trợ bởi AI về tiến trình học tập của bạn";
+"aiUnlimitedAccess" = "Tính năng AI có sẵn với gói đăng ký Cao cấp";
+"aiPremiumRequired" = "Tính năng AI có sẵn với gói đăng ký Cao cấp";
+"aiCollectionGenerator" = "Trình tạo Bộ sưu tập AI";
+"aiCollectionGeneratorDescription" = "Tạo bộ sưu tập thẻ học tùy chỉnh với AI";
+"aiLearningCoach" = "Huấn luyện viên Học tập AI";
+"aiLearningCoachDescription" = "Nhận thông tin chi tiết và đề xuất được cá nhân hóa";
+
+// MARK: - Premium Voices
+"premiumVoices" = "Giọng nói Cao cấp Speechify";
+"premiumVoicesMessage" = "Thưởng thức âm thanh chất lượng cao cho tất cả các thẻ học của bạn!";
+"premiumVoicesDescription" = "Hàng nghìn giọng nói chất lượng cao để cá nhân hóa thẻ của bạn";
+
+// MARK: - Unlimited Cards
+"unlimitedCardsTitle" = "Thẻ Không giới hạn";
+"unlimitedCardsMessage" = "Nâng cấp lên cao cấp để tạo thẻ không giới hạn và mở khóa tất cả tính năng!";
+
+// MARK: - Advanced Analytics
+"advancedAnalyticsTitle" = "Phân tích Nâng cao";
+"advancedAnalyticsMessage" = "Nhận thông tin chi tiết về học tập, biểu đồ tiến trình và phân tích hiệu suất với cao cấp!";
+
+// MARK: - Custom Themes
+"customThemesTitle" = "Chủ đề Tùy chỉnh";
+"customThemesMessage" = "Mở khóa các chủ đề và nền tùy chỉnh đẹp mắt với cao cấp!";
+
+// MARK: - Language Change
+"languageChangeTitle" = "Thay đổi Ngôn ngữ";
+"languageChangeMessage" = "Chọn từ hơn 15 ngôn ngữ để nâng cao trải nghiệm học tập của bạn với cao cấp!";
+
+// MARK: - Card Presets
+"cardPresetsTitle" = "Thiết lập sẵn Thẻ";
+"cardPresetsMessage" = "Khám phá bộ sưu tập rộng lớn các thiết lập sẵn thẻ được thiết kế trước với cao cấp!";
+
+// MARK: - Study Modes
+"studyModesTitle" = "Chế độ Học tập";
+"studyModesMessage" = "Truy cập các chế độ học tập nâng cao và kỹ thuật học tập với cao cấp!";

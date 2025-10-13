@@ -7,19 +7,23 @@
   Section: paywall
 */
 
+// MARK: - Paywall UI
 "upgradeToPremiumTitle" = "Nadogradi na Premium";
-"upgradeToPremiumMessage" = "Nadogradi na Premium kako bi otključao sve značajke!";
+"upgradeToPremiumMessage" = "Nadogradite na premium kako biste otključali sve značajke!";
 "cancel" = "Odustani";
-"viewOptions" = "Pogledaj Opcije";
-"unlimitedCardsTitle" = "Neograničene Kartice";
-"unlimitedCardsMessage" = "Nadogradi na Premium za stvaranje neograničenih kartica i otključavanje svih značajki!";
-"advancedAnalyticsTitle" = "Napredna Analitika";
-"advancedAnalyticsMessage" = "Dobij detaljne uvide u učenje, grafikone napretka i analize performansi s Premium!";
-"customThemesTitle" = "Prilagođene Teme";
-"customThemesMessage" = "Otključaj lijepe prilagođene teme i pozadine s Premium!";
-"languageChangeTitle" = "Promjena Jezika";
-"languageChangeMessage" = "Odaberi između više od 15 jezika za poboljšanje svog iskustva učenja s Premium!";
-"cardPresetsTitle" = "Unaprijed Postavljene Kartice";
-"cardPresetsMessage" = "Istraži opsežnu kolekciju unaprijed dizajniranih postavki kartica s Premium!";
-"studyModesTitle" = "Načini Učenja";
-"studyModesMessage" = "Pristupi naprednim načinima učenja i tehnikama učenja s Premium!";
+"viewOptions" = "Prikaži Opcije";
+"unlockPremium" = "Otključaj Premium";
+"goPremium" = "Nabavi Premium";
+"whatYouGetWithPremium" = "Što dobivate s Premiumom";
+"masterLanguageLearning" = "Ovladajte učenjem jezika s ekskluzivnim značajkama";
+
+// MARK: - Paywall Actions
+"subscribe" = "Pretplati se";
+"restoreSubscription" = "Vrati Pretplatu";
+"termsOfService" = "Uvjeti Korištenja";
+"privacyPolicy" = "Pravila Privatnosti";
+"andPreposition" = "i";
+
+// MARK: - Trial
+"trialTitle" = "Isprobajte Premium besplatno 7 dana";
+"trialSubtitle" = "Otključajte sve značajke s punim pristupom premium sadržaju";

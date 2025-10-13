@@ -108,7 +108,7 @@ struct CachedCardImageView: View {
                         .font(.system(size: 32, weight: .medium))
                         .foregroundColor(.secondary)
                     
-                    Text(Loc.CardImages.PremiumGate.message)
+                    Text(Loc.PremiumFeatures.cardImagesPremiumGate)
                         .font(.subheadline)
                         .fontWeight(.medium)
                         .foregroundColor(.primary)

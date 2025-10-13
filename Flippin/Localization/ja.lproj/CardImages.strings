@@ -1,0 +1,56 @@
+/* 
+  CardImages.strings
+  Flippin
+  
+  Localization for card images and image onboarding flow
+*/
+
+// MARK: - Image Onboarding
+"imageOnboarding.title" = "ビジュアル学習";
+"imageOnboarding.subtitle" = "フラッシュカードに画像を追加して、記憶力とビジュアル学習を向上";
+"imageOnboarding.previewTitle" = "カードがどのように表示されるかを確認:";
+
+// MARK: - Example Cards
+"imageOnboarding.example.card1" = "名刺をいただけますか。";
+"imageOnboarding.example.card2" = "ウォームアップが必要です。";
+"imageOnboarding.example.card3" = "いつも飛行機で旅行します。";
+
+// MARK: - Benefits
+"imageOnboarding.benefit.memory.title" = "記憶力向上";
+"imageOnboarding.benefit.memory.description" = "視覚的な手がかりで早く覚えられる";
+
+"imageOnboarding.benefit.visual.title" = "ビジュアル学習";
+"imageOnboarding.benefit.visual.description" = "テキストだけでなく画像で学習";
+
+"imageOnboarding.benefit.enhanced.title" = "体験の向上";
+"imageOnboarding.benefit.enhanced.description" = "フラッシュカードをより魅力的に";
+
+// MARK: - Actions
+"imageOnboarding.getStarted" = "始める";
+"imageOnboarding.skip" = "スキップ";
+
+// MARK: - Add/Edit Card Image Section
+"sectionTitle" = "画像";
+"imageAttached" = "画像添付済み";
+"currentImage" = "現在の画像";
+"tapToChange" = "タップして変更";
+"addImage" = "画像を追加";
+"remove" = "削除";
+"imageUnavailable" = "画像が利用できません";
+
+
+// MARK: - Image Search
+"imageSearch.title" = "画像を検索";
+"imageSearch.searchPrompt" = "画像を検索...";
+"imageSearch.cancel" = "キャンセル";
+"imageSearch.select" = "選択";
+"imageSearch.loadMore" = "さらに読み込む";
+
+// MARK: - Image Search Empty State
+"imageSearch.emptyState.title" = "画像を検索";
+"imageSearch.emptyState.subtitle" = "上に検索語を入力してPexelsから美しい画像を見つけます";
+
+// MARK: - Image Search Errors
+"imageSearch.error.title" = "エラー";
+"imageSearch.error.unknown" = "不明なエラーが発生しました";
+"imageSearch.error.ok" = "OK";

@@ -1,0 +1,56 @@
+/* 
+  CardImages.strings
+  Flippin
+  
+  Localization for card images and image onboarding flow
+*/
+
+// MARK: - Image Onboarding
+"imageOnboarding.title" = "Apprentissage Visuel";
+"imageOnboarding.subtitle" = "Ajoutez des images à vos cartes pour une meilleure rétention de mémoire et un apprentissage visuel";
+"imageOnboarding.previewTitle" = "Voyez à quoi ressembleront vos cartes :";
+
+// MARK: - Example Cards
+"imageOnboarding.example.card1" = "J'aimerais avoir votre carte de visite, s'il vous plaît.";
+"imageOnboarding.example.card2" = "J'ai besoin de m'échauffer.";
+"imageOnboarding.example.card3" = "Je voyage toujours en avion.";
+
+// MARK: - Benefits
+"imageOnboarding.benefit.memory.title" = "Meilleure Mémoire";
+"imageOnboarding.benefit.memory.description" = "Les indices visuels vous aident à vous souvenir plus rapidement";
+
+"imageOnboarding.benefit.visual.title" = "Apprentissage Visuel";
+"imageOnboarding.benefit.visual.description" = "Apprenez avec des images, pas seulement du texte";
+
+"imageOnboarding.benefit.enhanced.title" = "Expérience Améliorée";
+"imageOnboarding.benefit.enhanced.description" = "Rendez vos cartes plus attrayantes";
+
+// MARK: - Actions
+"imageOnboarding.getStarted" = "Commencer";
+"imageOnboarding.skip" = "Passer";
+
+// MARK: - Add/Edit Card Image Section
+"sectionTitle" = "Image";
+"imageAttached" = "Image Jointe";
+"currentImage" = "Image Actuelle";
+"tapToChange" = "Toucher pour modifier";
+"addImage" = "Ajouter une Image";
+"remove" = "Supprimer";
+"imageUnavailable" = "Image non disponible";
+
+
+// MARK: - Image Search
+"imageSearch.title" = "Rechercher des Images";
+"imageSearch.searchPrompt" = "Rechercher des images...";
+"imageSearch.cancel" = "Annuler";
+"imageSearch.select" = "Sélectionner";
+"imageSearch.loadMore" = "Charger Plus";
+
+// MARK: - Image Search Empty State
+"imageSearch.emptyState.title" = "Rechercher des images";
+"imageSearch.emptyState.subtitle" = "Entrez un terme de recherche ci-dessus pour trouver de belles images sur Pexels";
+
+// MARK: - Image Search Errors
+"imageSearch.error.title" = "Erreur";
+"imageSearch.error.unknown" = "Une erreur inconnue s'est produite";
+"imageSearch.error.ok" = "OK";

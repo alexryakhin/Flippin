@@ -7,19 +7,23 @@
   Section: paywall
 */
 
-"upgradeToPremiumTitle" = "Fazer Upgrade para Premium";
-"upgradeToPremiumMessage" = "Faça upgrade para Premium para desbloquear todas as funcionalidades!";
+// MARK: - Paywall UI
+"upgradeToPremiumTitle" = "Atualizar para Premium";
+"upgradeToPremiumMessage" = "Atualize para Premium para desbloquear todos os recursos!";
 "cancel" = "Cancelar";
 "viewOptions" = "Ver Opções";
-"unlimitedCardsTitle" = "Cartões Ilimitados";
-"unlimitedCardsMessage" = "Faça upgrade para Premium para criar cartões ilimitados e desbloquear todas as funcionalidades!";
-"advancedAnalyticsTitle" = "Análise Avançada";
-"advancedAnalyticsMessage" = "Obtenha insights detalhados de aprendizado, gráficos de progresso e análises de desempenho com Premium!";
-"customThemesTitle" = "Temas Personalizados";
-"customThemesMessage" = "Desbloqueie temas personalizados e fundos lindos com Premium!";
-"languageChangeTitle" = "Mudar Idiomas";
-"languageChangeMessage" = "Escolha entre mais de 15 idiomas para melhorar sua experiência de aprendizado com Premium!";
-"cardPresetsTitle" = "Presets de Cartões";
-"cardPresetsMessage" = "Explore uma vasta coleção de presets de cartões pré-projetados com Premium!";
-"studyModesTitle" = "Modos de Estudo";
-"studyModesMessage" = "Acesse modos de estudo avançados e técnicas de aprendizado com Premium!";
+"unlockPremium" = "Desbloquear Premium";
+"goPremium" = "Ir para Premium";
+"whatYouGetWithPremium" = "O que você ganha com Premium";
+"masterLanguageLearning" = "Domine seu aprendizado de idiomas com recursos exclusivos";
+
+// MARK: - Paywall Actions
+"subscribe" = "Assinar";
+"restoreSubscription" = "Restaurar Assinatura";
+"termsOfService" = "Termos de Serviço";
+"privacyPolicy" = "Política de Privacidade";
+"andPreposition" = "e";
+
+// MARK: - Trial
+"trialTitle" = "Experimente Premium grátis por 7 dias";
+"trialSubtitle" = "Desbloqueie todos os recursos com acesso completo ao conteúdo premium";

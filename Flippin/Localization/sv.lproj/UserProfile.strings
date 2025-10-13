@@ -86,6 +86,3 @@
 "notificationFeature3" = "Svitaviseringar för att hålla dig motiverad";
 "enableNotifications" = "Aktivera aviseringar";
 
-// Subscription Trial
-"trialTitle" = "Prova Premium gratis i 7 dagar";
-"trialSubtitle" = "Lås upp alla funktioner med full åtkomst till premiuminnehåll";

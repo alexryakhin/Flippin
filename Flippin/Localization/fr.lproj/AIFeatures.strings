@@ -1,0 +1,56 @@
+/*
+  AIFeatures.strings
+  Flippin
+  
+  AI-powered features localization
+  Language: fr
+  Section: ai_features
+*/
+
+// AI Collection Generator
+"aiGeneratorTitle" = "Générateur de Collections IA";
+"aiGeneratorSubtitle" = "Créez des collections de cartes personnalisées avec l'IA";
+"aiGeneratorDescription" = "Décrivez ce que vous voulez apprendre et l'IA créera une collection de cartes personnalisée pour vous";
+"yourRequest" = "Votre Demande";
+"numberOfCards" = "Nombre de Cartes";
+"exampleRequests" = "Exemples de Demandes";
+"generateCollection" = "Générer la Collection";
+"tryAgain" = "Réessayer";
+"importAll" = "Tout Importer";
+"requestPlaceholder" = "ex., Phrases pour commander au restaurant";
+"requestTooLong" = "Demande trop longue. Veuillez la garder sous 500 caractères.";
+
+// Example Requests
+"exampleRestaurant" = "Phrases pour commander au restaurant";
+"exampleAirport" = "Vocabulaire pour naviguer dans les aéroports";
+"exampleBusiness" = "Expressions de réunions d'affaires";
+
+// AI Learning Coach
+"aiCoachTitle" = "Coach d'Apprentissage IA";
+"learningCoach" = "Coach d'Apprentissage";
+"aiCoachDescription" = "Obtenez des informations personnalisées sur votre progression d'apprentissage";
+"aiCoachEmptyState" = "Obtenez des informations personnalisées sur votre apprentissage";
+"generateInsights" = "Générer des Informations";
+"refreshInsights" = "Actualiser les Informations";
+"viewDetailedInsights" = "Voir les Informations Détaillées";
+"analyzingProgress" = "L'IA analyse votre progression...";
+"keyInsights" = "Informations Clés";
+"recommendations" = "Recommandations";
+"generatedAt" = "Généré %@";
+"aiInsightsFailed" = "Échec de la génération des informations. Veuillez réessayer.";
+
+// Priority Labels
+"highPriority" = "Haute Priorité";
+"mediumPriority" = "Priorité Moyenne";
+"lowPriority" = "Basse Priorité";
+
+// Errors
+"error" = "Erreur";
+"ok" = "OK";
+"aiNotReady" = "Le service ChatGPT n'est pas prêt. Veuillez réessayer plus tard.";
+"aiFeatureDisabled" = "Les fonctionnalités IA sont temporairement indisponibles";
+"aiInvalidResponse" = "Réponse invalide reçue de l'IA. Veuillez réessayer.";
+"aiNetworkError" = "Échec de la connexion réseau. Vérifiez votre internet et réessayez.";
+"aiUnexpectedError" = "Une erreur inattendue s'est produite. Veuillez réessayer.";
+"aiImportFailed" = "Échec de l'importation des cartes. Vous avez peut-être atteint votre limite de cartes.";
+

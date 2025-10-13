@@ -85,7 +85,3 @@
 "notificationFeature2" = "Übungswarnungen für schwierige Karten";
 "notificationFeature3" = "Serien-Benachrichtigungen, um motiviert zu bleiben";
 "enableNotifications" = "Benachrichtigungen aktivieren";
-
-// Subscription Trial
-"trialTitle" = "Testen Sie Premium 7 Tage kostenlos";
-"trialSubtitle" = "Schalten Sie alle Funktionen mit vollem Zugriff auf Premium-Inhalte frei";

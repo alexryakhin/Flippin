@@ -1,0 +1,56 @@
+/*
+  AIFeatures.strings
+  Flippin
+  
+  AI-powered features localization
+  Language: ru
+  Section: ai_features
+*/
+
+// AI Collection Generator
+"aiGeneratorTitle" = "Генератор коллекций ИИ";
+"aiGeneratorSubtitle" = "Создавайте пользовательские коллекции флеш-карточек с помощью ИИ";
+"aiGeneratorDescription" = "Опишите, что вы хотите изучить, и ИИ создаст для вас пользовательскую коллекцию флеш-карточек";
+"yourRequest" = "Ваш Запрос";
+"numberOfCards" = "Количество Карточек";
+"exampleRequests" = "Примеры Запросов";
+"generateCollection" = "Создать Коллекцию";
+"tryAgain" = "Попробовать Снова";
+"importAll" = "Импортировать Все";
+"requestPlaceholder" = "напр., Фразы для заказа в ресторанах";
+"requestTooLong" = "Запрос слишком длинный. Пожалуйста, сократите его до 500 символов.";
+
+// Example Requests
+"exampleRestaurant" = "Фразы для заказа в ресторанах";
+"exampleAirport" = "Словарь для навигации в аэропортах";
+"exampleBusiness" = "Выражения для деловых встреч";
+
+// AI Learning Coach
+"aiCoachTitle" = "Тренер по обучению ИИ";
+"learningCoach" = "Тренер по обучению";
+"aiCoachDescription" = "Получайте персонализированные рекомендации о вашем прогрессе в обучении";
+"aiCoachEmptyState" = "Получайте персонализированные рекомендации о вашем обучении";
+"generateInsights" = "Создать Рекомендации";
+"refreshInsights" = "Обновить Рекомендации";
+"viewDetailedInsights" = "Посмотреть Подробные Рекомендации";
+"analyzingProgress" = "ИИ анализирует ваш прогресс...";
+"keyInsights" = "Ключевые Выводы";
+"recommendations" = "Рекомендации";
+"generatedAt" = "Создано %@";
+"aiInsightsFailed" = "Не удалось создать рекомендации. Пожалуйста, попробуйте снова.";
+
+// Priority Labels
+"highPriority" = "Высокий Приоритет";
+"mediumPriority" = "Средний Приоритет";
+"lowPriority" = "Низкий Приоритет";
+
+// Errors
+"error" = "Ошибка";
+"ok" = "OK";
+"aiNotReady" = "Сервис ChatGPT не готов. Пожалуйста, попробуйте позже.";
+"aiFeatureDisabled" = "Функции ИИ временно недоступны";
+"aiInvalidResponse" = "Получен недействительный ответ от ИИ. Пожалуйста, попробуйте снова.";
+"aiNetworkError" = "Не удалось подключиться к сети. Проверьте интернет и попробуйте снова.";
+"aiUnexpectedError" = "Произошла неожиданная ошибка. Пожалуйста, попробуйте снова.";
+"aiImportFailed" = "Не удалось импортировать карточки. Возможно, вы достигли лимита карточек.";
+

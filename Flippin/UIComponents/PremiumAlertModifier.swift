@@ -53,13 +53,13 @@ enum PremiumFeature: String, CaseIterable {
     var title: String {
         switch self {
         case .aiCollectionGenerator:
-            return "AI Collection Generator"
+            return Loc.PremiumFeatures.aiCollectionGenerator
         case .aiLearningCoach:
-            return "AI Learning Coach"
+            return Loc.PremiumFeatures.aiLearningCoach
         case .unlimitedCards:
             return Loc.CardLimits.unlimitedCards
         case .premiumVoices:
-            return "Speechify Premium Voices"
+            return Loc.PremiumFeatures.premiumVoices
         case .collections:
             return Loc.PremiumFeatures.collections
         case .customThemes:
@@ -67,53 +67,53 @@ enum PremiumFeature: String, CaseIterable {
         case .languageChange:
             return Loc.PremiumFeatures.multipleLanguagesTitle
         case .advancedAnalytics:
-            return Loc.Paywall.advancedAnalyticsTitle
+            return Loc.PremiumFeatures.advancedAnalyticsTitle
         case .cardPresets:
-            return Loc.Paywall.cardPresetsTitle
+            return Loc.PremiumFeatures.cardPresetsTitle
         case .studyModes:
-            return Loc.Paywall.studyModesTitle
+            return Loc.PremiumFeatures.studyModesTitle
         case .images:
-            return Loc.CardImages.Premium.title
+            return Loc.PremiumFeatures.cardImages
         }
     }
     
     var message: String {
         switch self {
         case .aiCollectionGenerator:
-            return "Create custom flashcard collections with AI"
+            return Loc.PremiumFeatures.aiCollectionGeneratorDescription
         case .aiLearningCoach:
-            return "Get personalized insights and recommendations"
+            return Loc.PremiumFeatures.aiLearningCoachDescription
         case .unlimitedCards:
-            return Loc.Paywall.unlimitedCardsMessage
+            return Loc.PremiumFeatures.unlimitedCardsMessage
         case .premiumVoices:
-            return "Enjoy high-quality audio for all your flashcards!"
+            return Loc.PremiumFeatures.premiumVoicesMessage
         case .collections:
             return Loc.PremiumFeatures.collectionsDescription
         case .customThemes:
             return Loc.PremiumFeatures.premiumBackgroundsDescription
         case .languageChange:
-            return Loc.Paywall.languageChangeMessage
+            return Loc.PremiumFeatures.languageChangeMessage
         case .advancedAnalytics:
-            return Loc.Paywall.advancedAnalyticsMessage
+            return Loc.PremiumFeatures.advancedAnalyticsMessage
         case .cardPresets:
-            return Loc.Paywall.cardPresetsMessage
+            return Loc.PremiumFeatures.cardPresetsMessage
         case .studyModes:
-            return Loc.Paywall.studyModesMessage
+            return Loc.PremiumFeatures.studyModesMessage
         case .images:
-            return Loc.CardImages.Premium.message
+            return Loc.PremiumFeatures.cardImagesDescription
         }
     }
     
     var description: String {
         switch self {
         case .aiCollectionGenerator:
-            return "Create custom flashcard collections with AI"
+            return Loc.PremiumFeatures.aiCollectionGeneratorDescription
         case .aiLearningCoach:
-            return "Get personalized insights and recommendations"
+            return Loc.PremiumFeatures.aiLearningCoachDescription
         case .unlimitedCards:
             return Loc.PremiumFeatures.unlimitedCardsDescription
         case .premiumVoices:
-            return "Thousands of high-quality voices to personalize your cards"
+            return Loc.PremiumFeatures.premiumVoicesDescription
         case .collections:
             return Loc.PremiumFeatures.collectionsDescription
         case .customThemes:
@@ -121,13 +121,13 @@ enum PremiumFeature: String, CaseIterable {
         case .languageChange:
             return Loc.PremiumFeatures.multipleLanguagesDescription
         case .advancedAnalytics:
-            return Loc.Paywall.advancedAnalyticsMessage
+            return Loc.PremiumFeatures.advancedAnalyticsMessage
         case .cardPresets:
-            return Loc.Paywall.cardPresetsMessage
+            return Loc.PremiumFeatures.cardPresetsMessage
         case .studyModes:
-            return Loc.Paywall.studyModesMessage
+            return Loc.PremiumFeatures.studyModesMessage
         case .images:
-            return Loc.CardImages.Premium.description
+            return Loc.PremiumFeatures.cardImagesPremiumDescription
         }
     }
     

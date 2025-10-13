@@ -7,19 +7,23 @@
   Section: paywall
 */
 
-"upgradeToPremiumTitle" = "Nâng Cấp Lên Premium";
-"upgradeToPremiumMessage" = "Nâng cấp lên Premium để mở khóa tất cả các tính năng!";
+// MARK: - Paywall UI
+"upgradeToPremiumTitle" = "Nâng cấp lên Cao cấp";
+"upgradeToPremiumMessage" = "Nâng cấp lên cao cấp để mở khóa tất cả tính năng!";
 "cancel" = "Hủy";
-"viewOptions" = "Xem Tùy Chọn";
-"unlimitedCardsTitle" = "Thẻ Không Giới Hạn";
-"unlimitedCardsMessage" = "Nâng cấp lên Premium để tạo thẻ không giới hạn và mở khóa tất cả tính năng!";
-"advancedAnalyticsTitle" = "Phân Tích Nâng Cao";
-"advancedAnalyticsMessage" = "Nhận thông tin chi tiết về học tập, biểu đồ tiến độ và phân tích hiệu suất với Premium!";
-"customThemesTitle" = "Chủ Đề Tùy Chỉnh";
-"customThemesMessage" = "Mở khóa các chủ đề tùy chỉnh và nền đẹp với Premium!";
-"languageChangeTitle" = "Thay Đổi Ngôn Ngữ";
-"languageChangeMessage" = "Chọn từ hơn 15 ngôn ngữ để nâng cao trải nghiệm học tập với Premium!";
-"cardPresetsTitle" = "Mẫu Thẻ Định Sẵn";
-"cardPresetsMessage" = "Khám phá bộ sưu tập lớn các mẫu thẻ được thiết kế sẵn với Premium!";
-"studyModesTitle" = "Chế Độ Học";
-"studyModesMessage" = "Truy cập các chế độ học nâng cao và kỹ thuật học tập với Premium!";
+"viewOptions" = "Xem Tùy chọn";
+"unlockPremium" = "Mở khóa Cao cấp";
+"goPremium" = "Lấy Cao cấp";
+"whatYouGetWithPremium" = "Những gì bạn nhận được với Cao cấp";
+"masterLanguageLearning" = "Làm chủ việc học ngôn ngữ của bạn với các tính năng độc quyền";
+
+// MARK: - Paywall Actions
+"subscribe" = "Đăng ký";
+"restoreSubscription" = "Khôi phục Đăng ký";
+"termsOfService" = "Điều khoản Dịch vụ";
+"privacyPolicy" = "Chính sách Bảo mật";
+"andPreposition" = "và";
+
+// MARK: - Trial
+"trialTitle" = "Dùng thử Cao cấp miễn phí trong 7 ngày";
+"trialSubtitle" = "Mở khóa tất cả tính năng với quyền truy cập đầy đủ vào nội dung cao cấp";

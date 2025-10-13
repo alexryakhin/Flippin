@@ -7,31 +7,66 @@
   Section: premium_features
 */
 
-"premiumFeature" = "Premium Funkcija";
+"premiumFeature" = "Premium Značajka";
 "premiumRequired" = "Premium Potreban";
-"upgradeToPremium" = "Nadogradi na Premium";
-"premiumFeatureDescription" = "Pristupite svim unaprijed definiranim kolekcijama i otključajte neograničeni potencijal za učenje jezika";
+"premiumFeatureDescription" = "Pristupite svim unaprijed postavljenim kolekcijama i otključajte neograničen potencijal učenja jezika";
 "previewBackgrounds" = "Pregled";
 "colorScheme" = "Shema Boja";
 "colorSchemeSystem" = "Sustav";
-"colorSchemeLight" = "Svijetlo";
-"colorSchemeDark" = "Tamno";
-"unlockPremium" = "Otključaj Premium";
-"masterLanguageLearning" = "Osvladajte svoje učenje jezika s ekskluzivnim značajkama";
-"usedCardsOfLimit" = "Koristili ste %d od %d besplatnih kartica";
-"whatYouGetWithPremium" = "Što dobivate s Premium";
-"unlimitedCardsDescription" = "Stvorite onoliko flashcards koliko želite";
+"colorSchemeLight" = "Svijetla";
+"colorSchemeDark" = "Tamna";
+"usedCardsOfLimit" = "Iskoristili ste %d od %d besplatnih kartica";
+"unlimitedCardsDescription" = "Stvorite koliko god želite flash kartica";
 "collections" = "30+ Kolekcija";
-"collectionsDescription" = "Pristup svim unaprijed definiranim kolekcijama vokabulara";
+"collectionsDescription" = "Pristup svim unaprijed postavljenim kolekcijama rječnika";
 "premiumBackgrounds" = "Premium Pozadine";
-"premiumBackgroundsDescription" = "Lijepi animirani pozadini";
+"premiumBackgroundsDescription" = "Prekrasne animirane pozadine";
 "changeLanguages" = "Promijeni Jezike";
-"changeLanguagesDescription" = "Prebacujte između različitih parova jezika u bilo kojem trenutku";
-"multipleLanguagesTitle" = "Višestruki Jezici";
+"changeLanguagesDescription" = "Prebacujte se između različitih jezičnih parova bilo kada";
+"multipleLanguagesTitle" = "Više Jezika";
 "multipleLanguagesDescription" = "Mogućnost učenja više jezika istovremeno";
-"restorePurchases" = "Vraćanje Kupnji";
-"cancelAnytime" = "Otkažite u bilo kojem trenutku • Bez obveze";
-"terms" = "Uvjeti";
-"privacy" = "Privatnost";
-"goPremium" = "Idi na Premium";
 "premium" = "Premium";
+
+// MARK: - Card Images Premium Features
+"cardImages" = "Slike Kartica";
+"cardImagesDescription" = "Dodajte prekrasne slike svojim flash karticama za bolju memoriju";
+"cardImagesPremiumDescription" = "Poboljšajte učenje vizualnim flash karticama koje vam pomažu bolje zapamtiti";
+"cardImagesPremiumGate" = "Ne propustite vizualno učenje, nadogradite na Premium";
+
+// MARK: - AI Features Premium
+"aiPremiumDescription" = "Dobijte uvide pokretane umjetnom inteligencijom o vašem napretku u učenju";
+"aiUnlimitedAccess" = "AI značajke dostupne s Premium pretplatom";
+"aiPremiumRequired" = "AI značajke su dostupne s Premium pretplatom";
+"aiCollectionGenerator" = "AI Generator Kolekcija";
+"aiCollectionGeneratorDescription" = "Stvorite prilagođene kolekcije flash kartica s AI";
+"aiLearningCoach" = "AI Trener za Učenje";
+"aiLearningCoachDescription" = "Dobijte personalizirane uvide i preporuke";
+
+// MARK: - Premium Voices
+"premiumVoices" = "Speechify Premium Glasovi";
+"premiumVoicesMessage" = "Uživajte u visokokvalitetnom zvuku za sve svoje flash kartice!";
+"premiumVoicesDescription" = "Tisuće visokokvalitetnih glasova za personalizaciju vaših kartica";
+
+// MARK: - Unlimited Cards
+"unlimitedCardsTitle" = "Neograničene Kartice";
+"unlimitedCardsMessage" = "Nadogradite na premium za stvaranje neograničenih kartica i otključavanje svih značajki!";
+
+// MARK: - Advanced Analytics
+"advancedAnalyticsTitle" = "Napredna Analitika";
+"advancedAnalyticsMessage" = "Dobijte detaljne uvide u učenje, grafikone napretka i analizu performansi s premium!";
+
+// MARK: - Custom Themes
+"customThemesTitle" = "Prilagođene Teme";
+"customThemesMessage" = "Otključajte prekrasne prilagođene teme i pozadine s premium!";
+
+// MARK: - Language Change
+"languageChangeTitle" = "Promjena Jezika";
+"languageChangeMessage" = "Birajte između više od 15 jezika za poboljšanje iskustva učenja s premium!";
+
+// MARK: - Card Presets
+"cardPresetsTitle" = "Predloške Kartica";
+"cardPresetsMessage" = "Istražite prostranu kolekciju unaprijed dizajniranih predložaka kartica s premium!";
+
+// MARK: - Study Modes
+"studyModesTitle" = "Načini Učenja";
+"studyModesMessage" = "Pristupite naprednim načinima učenja i tehnikama s premium!";

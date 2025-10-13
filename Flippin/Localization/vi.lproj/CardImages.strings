@@ -1,0 +1,56 @@
+/* 
+  CardImages.strings
+  Flippin
+  
+  Localization for card images and image onboarding flow
+*/
+
+// MARK: - Image Onboarding
+"imageOnboarding.title" = "Học Tập Trực Quan";
+"imageOnboarding.subtitle" = "Thêm hình ảnh vào thẻ học của bạn để ghi nhớ tốt hơn và học tập trực quan";
+"imageOnboarding.previewTitle" = "Xem thẻ của bạn sẽ trông như thế nào:";
+
+// MARK: - Example Cards
+"imageOnboarding.example.card1" = "Tôi muốn nhận danh thiếp của bạn.";
+"imageOnboarding.example.card2" = "Tôi cần khởi động.";
+"imageOnboarding.example.card3" = "Tôi luôn đi du lịch bằng máy bay.";
+
+// MARK: - Benefits
+"imageOnboarding.benefit.memory.title" = "Trí Nhớ Tốt Hơn";
+"imageOnboarding.benefit.memory.description" = "Gợi ý hình ảnh giúp bạn ghi nhớ nhanh hơn";
+
+"imageOnboarding.benefit.visual.title" = "Học Tập Trực Quan";
+"imageOnboarding.benefit.visual.description" = "Học bằng hình ảnh, không chỉ văn bản";
+
+"imageOnboarding.benefit.enhanced.title" = "Trải Nghiệm Nâng Cao";
+"imageOnboarding.benefit.enhanced.description" = "Làm cho thẻ học của bạn hấp dẫn hơn";
+
+// MARK: - Actions
+"imageOnboarding.getStarted" = "Bắt Đầu";
+"imageOnboarding.skip" = "Bỏ Qua";
+
+// MARK: - Add/Edit Card Image Section
+"sectionTitle" = "Hình Ảnh";
+"imageAttached" = "Đã Đính Kèm Hình Ảnh";
+"currentImage" = "Hình Ảnh Hiện Tại";
+"tapToChange" = "Chạm để thay đổi";
+"addImage" = "Thêm Hình Ảnh";
+"remove" = "Xóa";
+"imageUnavailable" = "Hình ảnh không khả dụng";
+
+
+// MARK: - Image Search
+"imageSearch.title" = "Tìm Kiếm Hình Ảnh";
+"imageSearch.searchPrompt" = "Tìm kiếm hình ảnh...";
+"imageSearch.cancel" = "Hủy";
+"imageSearch.select" = "Chọn";
+"imageSearch.loadMore" = "Tải Thêm";
+
+// MARK: - Image Search Empty State
+"imageSearch.emptyState.title" = "Tìm kiếm hình ảnh";
+"imageSearch.emptyState.subtitle" = "Nhập từ khóa tìm kiếm ở trên để tìm hình ảnh đẹp từ Pexels";
+
+// MARK: - Image Search Errors
+"imageSearch.error.title" = "Lỗi";
+"imageSearch.error.unknown" = "Đã xảy ra lỗi không xác định";
+"imageSearch.error.ok" = "OK";

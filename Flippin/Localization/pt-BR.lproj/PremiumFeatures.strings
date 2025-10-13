@@ -9,29 +9,64 @@
 
 "premiumFeature" = "Recurso Premium";
 "premiumRequired" = "Premium Necessário";
-"upgradeToPremium" = "Fazer Upgrade para Premium";
-"premiumFeatureDescription" = "Acesse todas as coleções predefinidas e desbloqueie o potencial ilimitado para aprender idiomas";
-"previewBackgrounds" = "Visualizar";
+"premiumFeatureDescription" = "Acesse todas as coleções predefinidas e desbloqueie o potencial ilimitado de aprendizagem de idiomas";
+"previewBackgrounds" = "Pré-visualização";
 "colorScheme" = "Esquema de Cores";
 "colorSchemeSystem" = "Sistema";
 "colorSchemeLight" = "Claro";
 "colorSchemeDark" = "Escuro";
-"unlockPremium" = "Desbloquear Premium";
-"masterLanguageLearning" = "Domine seu aprendizado de idiomas com recursos exclusivos";
 "usedCardsOfLimit" = "Você usou %d de %d cartões gratuitos";
-"whatYouGetWithPremium" = "O que você ganha com Premium";
-"unlimitedCardsDescription" = "Crie quantos flashcards quiser";
+"unlimitedCardsDescription" = "Crie quantos cartões de estudo quiser";
 "collections" = "30+ Coleções";
 "collectionsDescription" = "Acesse todas as coleções de vocabulário predefinidas";
 "premiumBackgrounds" = "Fundos Premium";
-"premiumBackgroundsDescription" = "Lindos fundos animados";
+"premiumBackgroundsDescription" = "Belos fundos animados";
 "changeLanguages" = "Alterar Idiomas";
 "changeLanguagesDescription" = "Mude entre diferentes pares de idiomas a qualquer momento";
-"multipleLanguagesTitle" = "Múltiplos Idiomas";
-"multipleLanguagesDescription" = "Capacidade de aprender múltiplos idiomas ao mesmo tempo";
-"restorePurchases" = "Restaurar Compras";
-"cancelAnytime" = "Cancele a qualquer momento • Sem compromisso";
-"terms" = "Termos";
-"privacy" = "Privacidade";
-"goPremium" = "Ir para Premium";
+"multipleLanguagesTitle" = "Vários Idiomas";
+"multipleLanguagesDescription" = "Capacidade de aprender vários idiomas ao mesmo tempo";
 "premium" = "Premium";
+
+// MARK: - Card Images Premium Features
+"cardImages" = "Imagens de Cartões";
+"cardImagesDescription" = "Adicione belas imagens aos seus cartões para melhor retenção de memória";
+"cardImagesPremiumDescription" = "Melhore seu aprendizado com cartões visuais que ajudam a memorizar melhor";
+"cardImagesPremiumGate" = "Não perca o aprendizado visual, atualize para Premium";
+
+// MARK: - AI Features Premium
+"aiPremiumDescription" = "Obtenha insights alimentados por IA sobre seu progresso de aprendizagem";
+"aiUnlimitedAccess" = "Recursos de IA disponíveis com assinatura Premium";
+"aiPremiumRequired" = "Os recursos de IA estão disponíveis com assinatura Premium";
+"aiCollectionGenerator" = "Gerador de Coleções IA";
+"aiCollectionGeneratorDescription" = "Crie coleções de cartões personalizadas com IA";
+"aiLearningCoach" = "Treinador de Aprendizagem IA";
+"aiLearningCoachDescription" = "Obtenha insights personalizados e recomendações";
+
+// MARK: - Premium Voices
+"premiumVoices" = "Vozes Premium Speechify";
+"premiumVoicesMessage" = "Desfrute de áudio de alta qualidade para todos os seus cartões!";
+"premiumVoicesDescription" = "Milhares de vozes de alta qualidade para personalizar seus cartões";
+
+// MARK: - Unlimited Cards
+"unlimitedCardsTitle" = "Cartões Ilimitados";
+"unlimitedCardsMessage" = "Atualize para premium para criar cartões ilimitados e desbloquear todos os recursos!";
+
+// MARK: - Advanced Analytics
+"advancedAnalyticsTitle" = "Análises Avançadas";
+"advancedAnalyticsMessage" = "Obtenha insights de aprendizagem detalhados, gráficos de progresso e análises de desempenho com premium!";
+
+// MARK: - Custom Themes
+"customThemesTitle" = "Temas Personalizados";
+"customThemesMessage" = "Desbloqueie belos temas personalizados e fundos com premium!";
+
+// MARK: - Language Change
+"languageChangeTitle" = "Mudança de Idioma";
+"languageChangeMessage" = "Escolha entre mais de 15 idiomas para melhorar sua experiência de aprendizagem com premium!";
+
+// MARK: - Card Presets
+"cardPresetsTitle" = "Modelos de Cartões";
+"cardPresetsMessage" = "Explore uma vasta coleção de modelos de cartões pré-desenhados com premium!";
+
+// MARK: - Study Modes
+"studyModesTitle" = "Modos de Estudo";
+"studyModesMessage" = "Acesse modos de estudo avançados e técnicas de aprendizagem com premium!";

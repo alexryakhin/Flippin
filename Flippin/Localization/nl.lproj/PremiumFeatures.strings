@@ -7,31 +7,66 @@
   Section: premium_features
 */
 
-"premiumFeature" = "Premium Functie";
+"premiumFeature" = "Premium-functie";
 "premiumRequired" = "Premium Vereist";
-"upgradeToPremium" = "Upgraden naar Premium";
-"premiumFeatureDescription" = "Krijg toegang tot alle vooraf gedefinieerde collecties en ontgrendel het onbeperkte potentieel voor taalverwerving";
-"previewBackgrounds" = "Voorvertoning";
+"premiumFeatureDescription" = "Toegang tot alle vooraf ingestelde collecties en ontgrendel onbeperkt taalleeropotentieel";
+"previewBackgrounds" = "Voorbeeld";
 "colorScheme" = "Kleurenschema";
 "colorSchemeSystem" = "Systeem";
 "colorSchemeLight" = "Licht";
 "colorSchemeDark" = "Donker";
-"unlockPremium" = "Premium ontgrendelen";
-"masterLanguageLearning" = "Beheers je taalverwerving met exclusieve functies";
 "usedCardsOfLimit" = "Je hebt %d van %d gratis kaarten gebruikt";
-"whatYouGetWithPremium" = "Wat je krijgt met Premium";
 "unlimitedCardsDescription" = "Maak zoveel flashcards als je wilt";
 "collections" = "30+ Collecties";
-"collectionsDescription" = "Toegang tot alle vooraf gedefinieerde vocabulaire collecties";
+"collectionsDescription" = "Toegang tot alle vooraf ingestelde woordenschatcollecties";
 "premiumBackgrounds" = "Premium Achtergronden";
 "premiumBackgroundsDescription" = "Prachtige geanimeerde achtergronden";
 "changeLanguages" = "Talen Wijzigen";
-"changeLanguagesDescription" = "Wissel op elk moment tussen verschillende taalparen";
+"changeLanguagesDescription" = "Schakel op elk moment tussen verschillende talenparen";
 "multipleLanguagesTitle" = "Meerdere Talen";
 "multipleLanguagesDescription" = "Mogelijkheid om meerdere talen tegelijk te leren";
-"restorePurchases" = "Aankopen Herstellen";
-"cancelAnytime" = "Op elk moment annuleren • Geen verplichting";
-"terms" = "Voorwaarden";
-"privacy" = "Privacy";
-"goPremium" = "Ga naar Premium";
 "premium" = "Premium";
+
+// MARK: - Card Images Premium Features
+"cardImages" = "Kaartafbeeldingen";
+"cardImagesDescription" = "Voeg mooie afbeeldingen toe aan je flashcards voor beter geheugen";
+"cardImagesPremiumDescription" = "Verbeter je leerervaring met visuele flashcards die je helpen beter te onthouden";
+"cardImagesPremiumGate" = "Mis visueel leren niet, upgrade naar Premium";
+
+// MARK: - AI Features Premium
+"aiPremiumDescription" = "Krijg AI-aangedreven inzichten over je leervoortgang";
+"aiUnlimitedAccess" = "AI-functies beschikbaar met Premium-abonnement";
+"aiPremiumRequired" = "AI-functies zijn beschikbaar met Premium-abonnement";
+"aiCollectionGenerator" = "AI Collectie Generator";
+"aiCollectionGeneratorDescription" = "Maak aangepaste flashcard-collecties met AI";
+"aiLearningCoach" = "AI Leercoach";
+"aiLearningCoachDescription" = "Krijg gepersonaliseerde inzichten en aanbevelingen";
+
+// MARK: - Premium Voices
+"premiumVoices" = "Speechify Premium Stemmen";
+"premiumVoicesMessage" = "Geniet van hoogwaardige audio voor al je flashcards!";
+"premiumVoicesDescription" = "Duizenden hoogwaardige stemmen om je kaarten te personaliseren";
+
+// MARK: - Unlimited Cards
+"unlimitedCardsTitle" = "Onbeperkte Kaarten";
+"unlimitedCardsMessage" = "Upgrade naar premium om onbeperkt kaarten te maken en alle functies te ontgrendelen!";
+
+// MARK: - Advanced Analytics
+"advancedAnalyticsTitle" = "Geavanceerde Analytics";
+"advancedAnalyticsMessage" = "Krijg gedetailleerde leerinzichten, voortgangsgrafieken en prestatieanalyses met premium!";
+
+// MARK: - Custom Themes
+"customThemesTitle" = "Aangepaste Thema's";
+"customThemesMessage" = "Ontgrendel prachtige aangepaste thema's en achtergronden met premium!";
+
+// MARK: - Language Change
+"languageChangeTitle" = "Taalwijziging";
+"languageChangeMessage" = "Kies uit meer dan 15 talen om je leerervaring te verbeteren met premium!";
+
+// MARK: - Card Presets
+"cardPresetsTitle" = "Kaartvoorinstellingen";
+"cardPresetsMessage" = "Verken een uitgebreide collectie van vooraf ontworpen kaartvoorinstellingen met premium!";
+
+// MARK: - Study Modes
+"studyModesTitle" = "Studiemodi";
+"studyModesMessage" = "Toegang tot geavanceerde studiemodi en leertechnieken met premium!";

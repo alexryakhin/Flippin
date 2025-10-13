@@ -1,0 +1,56 @@
+/*
+  AIFeatures.strings
+  Flippin
+  
+  AI-powered features localization
+  Language: ar
+  Section: ai_features
+*/
+
+// AI Collection Generator
+"aiGeneratorTitle" = "مولد المجموعات بالذكاء الاصطناعي";
+"aiGeneratorSubtitle" = "أنشئ مجموعات بطاقات تعليمية مخصصة باستخدام الذكاء الاصطناعي";
+"aiGeneratorDescription" = "صف ما تريد تعلمه وسيقوم الذكاء الاصطناعي بإنشاء مجموعة بطاقات تعليمية مخصصة لك";
+"yourRequest" = "طلبك";
+"numberOfCards" = "عدد البطاقات";
+"exampleRequests" = "أمثلة الطلبات";
+"generateCollection" = "إنشاء المجموعة";
+"tryAgain" = "حاول مرة أخرى";
+"importAll" = "استيراد الكل";
+"requestPlaceholder" = "مثال: عبارات للطلب في المطاعم";
+"requestTooLong" = "الطلب طويل جداً. يرجى إبقاؤه أقل من 500 حرف.";
+
+// Example Requests
+"exampleRestaurant" = "عبارات للطلب في المطاعم";
+"exampleAirport" = "مفردات للتنقل في المطارات";
+"exampleBusiness" = "تعبيرات اجتماعات العمل";
+
+// AI Learning Coach
+"aiCoachTitle" = "مدرب التعلم بالذكاء الاصطناعي";
+"learningCoach" = "مدرب التعلم";
+"aiCoachDescription" = "احصل على رؤى مخصصة حول تقدم تعلمك";
+"aiCoachEmptyState" = "احصل على رؤى مخصصة حول تعلمك";
+"generateInsights" = "إنشاء الرؤى";
+"refreshInsights" = "تحديث الرؤى";
+"viewDetailedInsights" = "عرض الرؤى التفصيلية";
+"analyzingProgress" = "الذكاء الاصطناعي يحلل تقدمك...";
+"keyInsights" = "الرؤى الرئيسية";
+"recommendations" = "التوصيات";
+"generatedAt" = "تم الإنشاء %@";
+"aiInsightsFailed" = "فشل إنشاء الرؤى. يرجى المحاولة مرة أخرى.";
+
+// Priority Labels
+"highPriority" = "أولوية عالية";
+"mediumPriority" = "أولوية متوسطة";
+"lowPriority" = "أولوية منخفضة";
+
+// Errors
+"error" = "خطأ";
+"ok" = "موافق";
+"aiNotReady" = "خدمة ChatGPT غير جاهزة. يرجى المحاولة مرة أخرى لاحقاً.";
+"aiFeatureDisabled" = "ميزات الذكاء الاصطناعي غير متاحة مؤقتاً";
+"aiInvalidResponse" = "تم تلقي استجابة غير صالحة من الذكاء الاصطناعي. يرجى المحاولة مرة أخرى.";
+"aiNetworkError" = "فشل الاتصال بالشبكة. تحقق من اتصالك بالإنترنت وحاول مرة أخرى.";
+"aiUnexpectedError" = "حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى.";
+"aiImportFailed" = "فشل استيراد البطاقات. ربما تكون قد وصلت إلى حد البطاقات الخاص بك.";
+

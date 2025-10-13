@@ -7,31 +7,66 @@
   Section: premium_features
 */
 
-"premiumFeature" = "Преміум Функція";
+"premiumFeature" = "Преміум-функція";
 "premiumRequired" = "Потрібен Преміум";
-"upgradeToPremium" = "Перейти на Преміум";
-"premiumFeatureDescription" = "Отримайте доступ до всіх попередньо визначених колекцій та розблокуйте необмежений потенціал для вивчення мов";
-"previewBackgrounds" = "Попередній Перегляд";
-"colorScheme" = "Кольорова Схема";
-"colorSchemeSystem" = "Система";
+"premiumFeatureDescription" = "Отримайте доступ до всіх попередньо встановлених колекцій і розкрийте необмежений потенціал вивчення мов";
+"previewBackgrounds" = "Попередній перегляд";
+"colorScheme" = "Колірна схема";
+"colorSchemeSystem" = "Системна";
 "colorSchemeLight" = "Світла";
 "colorSchemeDark" = "Темна";
-"unlockPremium" = "Розблокувати Преміум";
-"masterLanguageLearning" = "Опануйте вивчення мов з ексклюзивними функціями";
 "usedCardsOfLimit" = "Ви використали %d з %d безкоштовних карток";
-"whatYouGetWithPremium" = "Що ви отримуєте з Преміум";
-"unlimitedCardsDescription" = "Створюйте скільки карток для вивчення, скільки хочете";
+"unlimitedCardsDescription" = "Створюйте стільки флеш-карток, скільки забажаєте";
 "collections" = "30+ Колекцій";
-"collectionsDescription" = "Доступ до всіх попередньо визначених колекцій словника";
-"premiumBackgrounds" = "Преміум Фони";
+"collectionsDescription" = "Доступ до всіх попередньо встановлених колекцій словникового запасу";
+"premiumBackgrounds" = "Преміум-фони";
 "premiumBackgroundsDescription" = "Красиві анімовані фони";
-"changeLanguages" = "Змінити Мови";
+"changeLanguages" = "Зміна мов";
 "changeLanguagesDescription" = "Перемикайтеся між різними мовними парами в будь-який час";
-"multipleLanguagesTitle" = "Декілька Мов";
-"multipleLanguagesDescription" = "Можливість вивчати кілька мов одночасно";
-"restorePurchases" = "Відновити Покупки";
-"cancelAnytime" = "Скасувати в будь-який час • Без зобов’язань";
-"terms" = "Умови";
-"privacy" = "Конфіденційність";
-"goPremium" = "Перейти на Преміум";
+"multipleLanguagesTitle" = "Декілька мов";
+"multipleLanguagesDescription" = "Можливість вивчати декілька мов одночасно";
 "premium" = "Преміум";
+
+// MARK: - Card Images Premium Features
+"cardImages" = "Зображення карток";
+"cardImagesDescription" = "Додавайте красиві зображення до флеш-карток для кращого запам'ятовування";
+"cardImagesPremiumDescription" = "Покращте навчання з візуальними картками, які допоможуть краще запам'ятати";
+"cardImagesPremiumGate" = "Не пропустіть візуальне навчання, перейдіть на Преміум";
+
+// MARK: - AI Features Premium
+"aiPremiumDescription" = "Отримуйте аналітику на основі ШІ про ваш прогрес у навчанні";
+"aiUnlimitedAccess" = "Функції ШІ доступні з підпискою Преміум";
+"aiPremiumRequired" = "Функції ШІ доступні з підпискою Преміум";
+"aiCollectionGenerator" = "Генератор колекцій ШІ";
+"aiCollectionGeneratorDescription" = "Створюйте користувацькі колекції флеш-карток за допомогою ШІ";
+"aiLearningCoach" = "Тренер з навчання ШІ";
+"aiLearningCoachDescription" = "Отримуйте персоналізовані рекомендації та поради";
+
+// MARK: - Premium Voices
+"premiumVoices" = "Преміум-голоси Speechify";
+"premiumVoicesMessage" = "Насолоджуйтесь високоякісним аудіо для всіх ваших карток!";
+"premiumVoicesDescription" = "Тисячі високоякісних голосів для персоналізації карток";
+
+// MARK: - Unlimited Cards
+"unlimitedCardsTitle" = "Необмежені картки";
+"unlimitedCardsMessage" = "Перейдіть на преміум, щоб створювати необмежену кількість карток і розблокувати всі функції!";
+
+// MARK: - Advanced Analytics
+"advancedAnalyticsTitle" = "Розширена аналітика";
+"advancedAnalyticsMessage" = "Отримуйте детальну аналітику навчання, графіки прогресу та аналіз продуктивності з преміум!";
+
+// MARK: - Custom Themes
+"customThemesTitle" = "Користувацькі теми";
+"customThemesMessage" = "Розблокуйте красиві користувацькі теми та фони з преміум!";
+
+// MARK: - Language Change
+"languageChangeTitle" = "Зміна мови";
+"languageChangeMessage" = "Вибирайте з понад 15 мов для покращення досвіду навчання з преміум!";
+
+// MARK: - Card Presets
+"cardPresetsTitle" = "Попередні налаштування карток";
+"cardPresetsMessage" = "Вивчайте велику колекцію попередньо розроблених налаштувань карток з преміум!";
+
+// MARK: - Study Modes
+"studyModesTitle" = "Режими навчання";
+"studyModesMessage" = "Отримайте доступ до розширених режимів навчання та технік з преміум!";

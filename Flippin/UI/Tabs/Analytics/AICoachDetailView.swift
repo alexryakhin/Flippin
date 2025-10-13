@@ -35,7 +35,7 @@ struct AICoachDetailView: View {
                 .padding(.top, 20)
                 
                 // Insights Section
-                CustomSectionView(header: "Key Insights", backgroundStyle: .standard) {
+                CustomSectionView(header: Loc.AIFeatures.keyInsights, backgroundStyle: .standard) {
                     VStack(spacing: 12) {
                         ForEach(Array(insight.insights.enumerated()), id: \.offset) { index, insightItem in
                             InsightRow(insight: insightItem)
@@ -44,7 +44,7 @@ struct AICoachDetailView: View {
                 }
                 
                 // Recommendations Section
-                CustomSectionView(header: "Recommendations", backgroundStyle: .standard) {
+                CustomSectionView(header: Loc.AIFeatures.recommendations, backgroundStyle: .standard) {
                     VStack(spacing: 12) {
                         ForEach(Array(insight.recommendations.enumerated()), id: \.offset) { index, recommendation in
                             RecommendationRow(recommendation: recommendation) {
@@ -55,7 +55,7 @@ struct AICoachDetailView: View {
                 }
                 
                 // Generated timestamp
-                Text("Generated \(Date().formatted(date: .abbreviated, time: .shortened))")
+                Text(Loc.AIFeatures.generatedAt(Date().formatted(date: .abbreviated, time: .shortened)))
                     .font(.caption)
                     .foregroundColor(.secondary)
                     .padding(.bottom, 20)
@@ -64,7 +64,7 @@ struct AICoachDetailView: View {
         }
         .groupedBackground()
         .navigation(
-            title: "AI Coach",
+            title: Loc.AIFeatures.aiCoachTitle,
             mode: .inline,
             showsBackButton: true
         )
@@ -146,9 +146,9 @@ struct RecommendationRow: View {
     
     private var priorityText: String {
         switch recommendation.priority {
-        case 1: return "High Priority"
-        case 2: return "Medium Priority"
-        default: return "Low Priority"
+        case 1: return Loc.AIFeatures.highPriority
+        case 2: return Loc.AIFeatures.mediumPriority
+        default: return Loc.AIFeatures.lowPriority
         }
     }
     

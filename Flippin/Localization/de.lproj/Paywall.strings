@@ -7,19 +7,23 @@
   Section: paywall
 */
 
+// MARK: - Paywall UI
 "upgradeToPremiumTitle" = "Zu Premium upgraden";
 "upgradeToPremiumMessage" = "Upgraden Sie zu Premium, um alle Funktionen freizuschalten!";
 "cancel" = "Abbrechen";
 "viewOptions" = "Optionen anzeigen";
-"unlimitedCardsTitle" = "Unbegrenzte Karten";
-"unlimitedCardsMessage" = "Upgraden Sie zu Premium, um unbegrenzte Karten zu erstellen und alle Funktionen freizuschalten!";
-"advancedAnalyticsTitle" = "Erweiterte Analysen";
-"advancedAnalyticsMessage" = "Erhalten Sie detaillierte Lerneinblicke, Fortschrittsdiagramme und Leistungsanalysen mit Premium!";
-"customThemesTitle" = "Benutzerdefinierte Themen";
-"customThemesMessage" = "Schalten Sie wunderschöne benutzerdefinierte Themen und Hintergründe mit Premium frei!";
-"languageChangeTitle" = "Sprachwechsel";
-"languageChangeMessage" = "Wählen Sie aus über 15 Sprachen, um Ihre Lernerfahrung mit Premium zu verbessern!";
-"cardPresetsTitle" = "Karten-Voreinstellungen";
-"cardPresetsMessage" = "Erkunden Sie eine umfangreiche Sammlung vordefinierter Karten-Voreinstellungen mit Premium!";
-"studyModesTitle" = "Lernmodi";
-"studyModesMessage" = "Greifen Sie auf erweiterte Lernmodi und Lerntechniken mit Premium zu!";
+"unlockPremium" = "Premium freischalten";
+"goPremium" = "Premium werden";
+"whatYouGetWithPremium" = "Was Sie mit Premium erhalten";
+"masterLanguageLearning" = "Meistern Sie Ihr Sprachenlernen mit exklusiven Funktionen";
+
+// MARK: - Paywall Actions
+"subscribe" = "Abonnieren";
+"restoreSubscription" = "Abonnement wiederherstellen";
+"termsOfService" = "Nutzungsbedingungen";
+"privacyPolicy" = "Datenschutzerklärung";
+"andPreposition" = "und";
+
+// MARK: - Trial
+"trialTitle" = "Testen Sie Premium 7 Tage kostenlos";
+"trialSubtitle" = "Schalten Sie alle Funktionen mit vollem Zugriff auf Premium-Inhalte frei";

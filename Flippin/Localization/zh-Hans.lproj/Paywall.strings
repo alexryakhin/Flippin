@@ -7,19 +7,23 @@
   Section: paywall
 */
 
+// MARK: - Paywall UI
 "upgradeToPremiumTitle" = "升级到高级版";
 "upgradeToPremiumMessage" = "升级到高级版以解锁所有功能！";
 "cancel" = "取消";
 "viewOptions" = "查看选项";
-"unlimitedCardsTitle" = "无限卡片";
-"unlimitedCardsMessage" = "升级到高级版以创建无限卡片并解锁所有功能！";
-"advancedAnalyticsTitle" = "高级分析";
-"advancedAnalyticsMessage" = "通过高级版获取详细的学习洞察、进度图表和性能分析！";
-"customThemesTitle" = "自定义主题";
-"customThemesMessage" = "通过高级版解锁美丽的自定义主题和背景！";
-"languageChangeTitle" = "更改语言";
-"languageChangeMessage" = "通过高级版从15种以上语言中选择以提升您的学习体验！";
-"cardPresetsTitle" = "卡片预设";
-"cardPresetsMessage" = "通过高级版探索大量预设计的卡片预设集合！";
-"studyModesTitle" = "学习模式";
-"studyModesMessage" = "通过高级版访问高级学习模式和学习技术！";
+"unlockPremium" = "解锁高级版";
+"goPremium" = "获取高级版";
+"whatYouGetWithPremium" = "高级版包含的内容";
+"masterLanguageLearning" = "通过独家功能掌握语言学习";
+
+// MARK: - Paywall Actions
+"subscribe" = "订阅";
+"restoreSubscription" = "恢复订阅";
+"termsOfService" = "服务条款";
+"privacyPolicy" = "隐私政策";
+"andPreposition" = "和";
+
+// MARK: - Trial
+"trialTitle" = "免费试用高级版 7 天";
+"trialSubtitle" = "解锁所有功能，完全访问高级内容";

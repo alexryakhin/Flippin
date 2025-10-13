@@ -1,0 +1,56 @@
+/*
+  AIFeatures.strings
+  Flippin
+  
+  AI-powered features localization
+  Language: vi
+  Section: ai_features
+*/
+
+// AI Collection Generator
+"aiGeneratorTitle" = "Trình Tạo Bộ Sưu Tập AI";
+"aiGeneratorSubtitle" = "Tạo bộ sưu tập thẻ học tùy chỉnh với AI";
+"aiGeneratorDescription" = "Mô tả những gì bạn muốn học và AI sẽ tạo một bộ sưu tập thẻ học tùy chỉnh cho bạn";
+"yourRequest" = "Yêu Cầu Của Bạn";
+"numberOfCards" = "Số Lượng Thẻ";
+"exampleRequests" = "Ví Dụ Yêu Cầu";
+"generateCollection" = "Tạo Bộ Sưu Tập";
+"tryAgain" = "Thử Lại";
+"importAll" = "Nhập Tất Cả";
+"requestPlaceholder" = "vd., Cụm từ để đặt món tại nhà hàng";
+"requestTooLong" = "Yêu cầu quá dài. Vui lòng giữ dưới 500 ký tự.";
+
+// Example Requests
+"exampleRestaurant" = "Cụm từ để đặt món tại nhà hàng";
+"exampleAirport" = "Từ vựng để di chuyển trong sân bay";
+"exampleBusiness" = "Biểu thức cuộc họp kinh doanh";
+
+// AI Learning Coach
+"aiCoachTitle" = "Huấn Luyện Viên Học Tập AI";
+"learningCoach" = "Huấn Luyện Viên Học Tập";
+"aiCoachDescription" = "Nhận thông tin chi tiết được cá nhân hóa về tiến trình học tập của bạn";
+"aiCoachEmptyState" = "Nhận thông tin chi tiết được cá nhân hóa về việc học của bạn";
+"generateInsights" = "Tạo Thông Tin Chi Tiết";
+"refreshInsights" = "Làm Mới Thông Tin Chi Tiết";
+"viewDetailedInsights" = "Xem Thông Tin Chi Tiết";
+"analyzingProgress" = "AI đang phân tích tiến trình của bạn...";
+"keyInsights" = "Thông Tin Chính";
+"recommendations" = "Đề Xuất";
+"generatedAt" = "Được tạo %@";
+"aiInsightsFailed" = "Không thể tạo thông tin chi tiết. Vui lòng thử lại.";
+
+// Priority Labels
+"highPriority" = "Ưu Tiên Cao";
+"mediumPriority" = "Ưu Tiên Trung Bình";
+"lowPriority" = "Ưu Tiên Thấp";
+
+// Errors
+"error" = "Lỗi";
+"ok" = "OK";
+"aiNotReady" = "Dịch vụ ChatGPT chưa sẵn sàng. Vui lòng thử lại sau.";
+"aiFeatureDisabled" = "Tính năng AI tạm thời không khả dụng";
+"aiInvalidResponse" = "Nhận được phản hồi không hợp lệ từ AI. Vui lòng thử lại.";
+"aiNetworkError" = "Kết nối mạng thất bại. Kiểm tra internet của bạn và thử lại.";
+"aiUnexpectedError" = "Đã xảy ra lỗi không mong muốn. Vui lòng thử lại.";
+"aiImportFailed" = "Không thể nhập thẻ. Bạn có thể đã đạt đến giới hạn thẻ của mình.";
+

@@ -86,6 +86,3 @@
 "notificationFeature3" = "連續記錄通知以保持動力";
 "enableNotifications" = "啟用通知";
 
-// Subscription Trial
-"trialTitle" = "免費試用Premium 7天";
-"trialSubtitle" = "解鎖所有功能，完全訪問進階內容";

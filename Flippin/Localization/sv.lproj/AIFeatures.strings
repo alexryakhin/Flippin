@@ -1,0 +1,56 @@
+/*
+  AIFeatures.strings
+  Flippin
+  
+  AI-powered features localization
+  Language: sv
+  Section: ai_features
+*/
+
+// AI Collection Generator
+"aiGeneratorTitle" = "AI Samlingsgenerator";
+"aiGeneratorSubtitle" = "Skapa anpassade flashkortsamlingar med AI";
+"aiGeneratorDescription" = "Beskriv vad du vill lära dig och AI kommer att skapa en anpassad flashkortsamling för dig";
+"yourRequest" = "Din Förfrågan";
+"numberOfCards" = "Antal Kort";
+"exampleRequests" = "Exempelförfrågningar";
+"generateCollection" = "Generera Samling";
+"tryAgain" = "Försök Igen";
+"importAll" = "Importera Alla";
+"requestPlaceholder" = "t.ex., Fraser för att beställa på restauranger";
+"requestTooLong" = "Förfrågan för lång. Håll den under 500 tecken.";
+
+// Example Requests
+"exampleRestaurant" = "Fraser för att beställa på restauranger";
+"exampleAirport" = "Ordförråd för att navigera på flygplatser";
+"exampleBusiness" = "Affärsmötesuttryck";
+
+// AI Learning Coach
+"aiCoachTitle" = "AI Inlärningscoach";
+"learningCoach" = "Inlärningscoach";
+"aiCoachDescription" = "Få personliga insikter om dina lärandeframsteg";
+"aiCoachEmptyState" = "Få personliga insikter om ditt lärande";
+"generateInsights" = "Generera Insikter";
+"refreshInsights" = "Uppdatera Insikter";
+"viewDetailedInsights" = "Visa Detaljerade Insikter";
+"analyzingProgress" = "AI analyserar dina framsteg...";
+"keyInsights" = "Nyckelinsikter";
+"recommendations" = "Rekommendationer";
+"generatedAt" = "Genererad %@";
+"aiInsightsFailed" = "Kunde inte generera insikter. Försök igen.";
+
+// Priority Labels
+"highPriority" = "Hög Prioritet";
+"mediumPriority" = "Medelhög Prioritet";
+"lowPriority" = "Låg Prioritet";
+
+// Errors
+"error" = "Fel";
+"ok" = "OK";
+"aiNotReady" = "ChatGPT-tjänsten är inte redo. Försök igen senare.";
+"aiFeatureDisabled" = "AI-funktioner är tillfälligt otillgängliga";
+"aiInvalidResponse" = "Fick ogiltigt svar från AI. Försök igen.";
+"aiNetworkError" = "Nätverksanslutning misslyckades. Kontrollera din internetanslutning och försök igen.";
+"aiUnexpectedError" = "Ett oväntat fel uppstod. Försök igen.";
+"aiImportFailed" = "Kunde inte importera kort. Du kan ha nått din kortgräns.";
+

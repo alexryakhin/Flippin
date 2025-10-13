@@ -1,0 +1,56 @@
+/* 
+  CardImages.strings
+  Flippin
+  
+  Localization for card images and image onboarding flow
+*/
+
+// MARK: - Image Onboarding
+"imageOnboarding.title" = "Визуальное Обучение";
+"imageOnboarding.subtitle" = "Добавляйте изображения к флеш-карточкам для лучшего запоминания и визуального обучения";
+"imageOnboarding.previewTitle" = "Посмотрите, как будут выглядеть ваши карточки:";
+
+// MARK: - Example Cards
+"imageOnboarding.example.card1" = "Я бы хотел получить вашу визитную карточку, пожалуйста.";
+"imageOnboarding.example.card2" = "Мне нужно размяться.";
+"imageOnboarding.example.card3" = "Я всегда путешествую на самолёте.";
+
+// MARK: - Benefits
+"imageOnboarding.benefit.memory.title" = "Лучшая Память";
+"imageOnboarding.benefit.memory.description" = "Визуальные подсказки помогают запоминать быстрее";
+
+"imageOnboarding.benefit.visual.title" = "Визуальное Обучение";
+"imageOnboarding.benefit.visual.description" = "Учитесь с изображениями, а не только с текстом";
+
+"imageOnboarding.benefit.enhanced.title" = "Улучшенный Опыт";
+"imageOnboarding.benefit.enhanced.description" = "Сделайте свои флеш-карточки более привлекательными";
+
+// MARK: - Actions
+"imageOnboarding.getStarted" = "Начать";
+"imageOnboarding.skip" = "Пропустить";
+
+// MARK: - Add/Edit Card Image Section
+"sectionTitle" = "Изображение";
+"imageAttached" = "Изображение Прикреплено";
+"currentImage" = "Текущее Изображение";
+"tapToChange" = "Нажмите, чтобы изменить";
+"addImage" = "Добавить Изображение";
+"remove" = "Удалить";
+"imageUnavailable" = "Изображение недоступно";
+
+
+// MARK: - Image Search
+"imageSearch.title" = "Поиск Изображений";
+"imageSearch.searchPrompt" = "Искать изображения...";
+"imageSearch.cancel" = "Отмена";
+"imageSearch.select" = "Выбрать";
+"imageSearch.loadMore" = "Загрузить Еще";
+
+// MARK: - Image Search Empty State
+"imageSearch.emptyState.title" = "Искать изображения";
+"imageSearch.emptyState.subtitle" = "Введите поисковый запрос выше, чтобы найти красивые изображения на Pexels";
+
+// MARK: - Image Search Errors
+"imageSearch.error.title" = "Ошибка";
+"imageSearch.error.unknown" = "Произошла неизвестная ошибка";
+"imageSearch.error.ok" = "OK";

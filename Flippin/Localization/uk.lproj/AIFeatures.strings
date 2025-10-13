@@ -1,0 +1,56 @@
+/*
+  AIFeatures.strings
+  Flippin
+  
+  AI-powered features localization
+  Language: uk
+  Section: ai_features
+*/
+
+// AI Collection Generator
+"aiGeneratorTitle" = "Генератор колекцій ШІ";
+"aiGeneratorSubtitle" = "Створюйте користувацькі колекції флеш-карток за допомогою ШІ";
+"aiGeneratorDescription" = "Опишіть, що ви хочете вивчити, і ШІ створить для вас користувацьку колекцію флеш-карток";
+"yourRequest" = "Ваш Запит";
+"numberOfCards" = "Кількість Карток";
+"exampleRequests" = "Приклади Запитів";
+"generateCollection" = "Створити Колекцію";
+"tryAgain" = "Спробувати Знову";
+"importAll" = "Імпортувати Все";
+"requestPlaceholder" = "напр., Фрази для замовлення в ресторанах";
+"requestTooLong" = "Запит занадто довгий. Будь ласка, скоротіть його до 500 символів.";
+
+// Example Requests
+"exampleRestaurant" = "Фрази для замовлення в ресторанах";
+"exampleAirport" = "Словник для навігації в аеропортах";
+"exampleBusiness" = "Вирази для ділових зустрічей";
+
+// AI Learning Coach
+"aiCoachTitle" = "Тренер з навчання ШІ";
+"learningCoach" = "Тренер з навчання";
+"aiCoachDescription" = "Отримуйте персоналізовані рекомендації про ваш прогрес у навчанні";
+"aiCoachEmptyState" = "Отримуйте персоналізовані рекомендації про ваше навчання";
+"generateInsights" = "Створити Рекомендації";
+"refreshInsights" = "Оновити Рекомендації";
+"viewDetailedInsights" = "Переглянути Детальні Рекомендації";
+"analyzingProgress" = "ШІ аналізує ваш прогрес...";
+"keyInsights" = "Ключові Висновки";
+"recommendations" = "Рекомендації";
+"generatedAt" = "Створено %@";
+"aiInsightsFailed" = "Не вдалося створити рекомендації. Будь ласка, спробуйте знову.";
+
+// Priority Labels
+"highPriority" = "Високий Пріоритет";
+"mediumPriority" = "Середній Пріоритет";
+"lowPriority" = "Низький Пріоритет";
+
+// Errors
+"error" = "Помилка";
+"ok" = "OK";
+"aiNotReady" = "Сервіс ChatGPT не готовий. Будь ласка, спробуйте пізніше.";
+"aiFeatureDisabled" = "Функції ШІ тимчасово недоступні";
+"aiInvalidResponse" = "Отримано недійсну відповідь від ШІ. Будь ласка, спробуйте знову.";
+"aiNetworkError" = "Не вдалося підключитися до мережі. Перевірте інтернет і спробуйте знову.";
+"aiUnexpectedError" = "Сталася неочікувана помилка. Будь ласка, спробуйте знову.";
+"aiImportFailed" = "Не вдалося імпортувати картки. Можливо, ви досягли ліміту карток.";
+

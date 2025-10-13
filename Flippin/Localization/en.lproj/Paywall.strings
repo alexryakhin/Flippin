@@ -7,19 +7,23 @@
   Section: paywall
 */
 
+// MARK: - Paywall UI
 "upgradeToPremiumTitle" = "Upgrade to Premium";
 "upgradeToPremiumMessage" = "Upgrade to premium to unlock all features!";
 "cancel" = "Cancel";
 "viewOptions" = "View Options";
-"unlimitedCardsTitle" = "Unlimited Cards";
-"unlimitedCardsMessage" = "Upgrade to premium to create unlimited cards and unlock all features!";
-"advancedAnalyticsTitle" = "Advanced Analytics";
-"advancedAnalyticsMessage" = "Get detailed learning insights, progress charts, and performance analytics with premium!";
-"customThemesTitle" = "Custom Themes";
-"customThemesMessage" = "Unlock beautiful custom themes and backgrounds with premium!";
-"languageChangeTitle" = "Language Change";
-"languageChangeMessage" = "Choose from over 15 languages to enhance your learning experience with premium!";
-"cardPresetsTitle" = "Card Presets";
-"cardPresetsMessage" = "Explore a vast collection of pre-designed card presets with premium!";
-"studyModesTitle" = "Study Modes";
-"studyModesMessage" = "Access advanced study modes and learning techniques with premium!";
+"unlockPremium" = "Unlock Premium";
+"goPremium" = "Go Premium";
+"whatYouGetWithPremium" = "What You Get with Premium";
+"masterLanguageLearning" = "Master your language learning with exclusive features";
+
+// MARK: - Paywall Actions
+"subscribe" = "Subscribe";
+"restoreSubscription" = "Restore Subscription";
+"termsOfService" = "Terms of Service";
+"privacyPolicy" = "Privacy Policy";
+"andPreposition" = "and";
+
+// MARK: - Trial
+"trialTitle" = "Try Premium Free for 7 Days";
+"trialSubtitle" = "Unlock all features with full access to premium content";
