@@ -207,5 +207,5 @@ extension StudyTimeChart {
 }
 
 #Preview {
-    AnalyticsDashboard.ContentView()
+    AnalyticsDashboard.ContentView(premiumFeature: .constant(nil))
 }

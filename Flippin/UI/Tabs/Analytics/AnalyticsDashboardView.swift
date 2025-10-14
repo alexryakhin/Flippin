@@ -37,13 +37,15 @@ enum AnalyticsDashboard {
 
         @State private var selectedTimeRange: TimeRange = .week
 
+        @Binding var premiumFeature: PremiumFeature?
+
         var body: some View {
             VStack(spacing: 16) {
                 // Header with streak
                 streakSection
                 
                 // AI Learning Coach card
-                AICoachCardView()
+                AICoachCardView(premiumFeature: $premiumFeature)
 
                 // Overview cards
                 overviewSection

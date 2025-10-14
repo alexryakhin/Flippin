@@ -160,6 +160,8 @@ extension WelcomeSheet {
                     HapticService.shared.buttonTapped()
                     
                     if granted {
+                        // Enable both notification options when permission is granted during onboarding
+                        notificationService.enableAllNotificationsForOnboarding()
                         AnalyticsService.trackEvent(.notificationPermissionGranted)
                     }
                 }

@@ -82,7 +82,7 @@ enum AnalyticsTab {
                     }
                 }
             } else {
-                AnalyticsDashboard.ContentView()
+                AnalyticsDashboard.ContentView(premiumFeature: $premiumFeature)
             }
         }
 

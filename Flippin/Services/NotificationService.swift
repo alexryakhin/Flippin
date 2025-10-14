@@ -46,6 +46,24 @@ final class NotificationService: NSObject, ObservableObject, UNUserNotificationC
             return false
         }
     }
+    
+    /// Enable both notification options (used when granting permission during onboarding)
+    func enableAllNotificationsForOnboarding() {
+        // Enable both notification types
+        isStudyRemindersEnabled = true
+        isDifficultCardRemindersEnabled = true
+        
+        // Schedule both notifications
+        scheduleStudyReminder()
+        // Note: Difficult card reminder will be scheduled when there are cards to review
+        
+        // Save settings
+        saveNotificationSettings()
+        
+        // Track analytics
+        AnalyticsService.trackEvent(.studyRemindersEnabled)
+        AnalyticsService.trackEvent(.difficultCardRemindersEnabled)
+    }
 
     /// Toggle study reminders
     func toggleStudyReminders() async {

@@ -18,14 +18,16 @@ struct AICoachCardView: View {
     @State private var isExpanded = false
     @State private var showingError = false
     @State private var errorMessage = ""
-    @State private var premiumFeature: PremiumFeature?
+    @Binding var premiumFeature: PremiumFeature?
 
     @ViewBuilder
     var body: some View {
-        if purchaseService.hasPremiumAccess {
-            premiumView
-        } else {
-            lockedView
+        Group {
+            if purchaseService.hasPremiumAccess {
+                premiumView
+            } else {
+                lockedView
+            }
         }
     }
     
@@ -157,7 +159,6 @@ struct AICoachCardView: View {
                 }
             }
         }
-        .premiumAlert(feature: $premiumFeature)
     }
     
     // MARK: - Actions
