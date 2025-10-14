@@ -17,7 +17,7 @@ final class AlertCenter {
 
     func showAlert(with model: AlertModel) {
         if !Thread.isMainThread {
-            print("❌ [AlertCenter] Must be called from main thread, model: \(model)")
+            debugPrint("❌ [AlertCenter] Must be called from main thread, model: \(model)")
         }
         assert(Thread.isMainThread)
 
@@ -67,7 +67,7 @@ final class AlertCenter {
             topController.present(alertController, animated: true)
             isPresentingAlert = true
         } else {
-            print("⚠️ AlertCenter: Already presenting something. Alert skipped.")
+            debugPrint("⚠️ AlertCenter: Already presenting something. Alert skipped.")
         }
         #elseif os(macOS)
         guard let parentWindow = NSApp.keyWindow else { return }

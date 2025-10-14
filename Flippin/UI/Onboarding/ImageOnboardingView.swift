@@ -286,6 +286,6 @@ extension ImageOnboardingView {
 
 #Preview {
     ImageOnboardingView {
-        print("Onboarding completed")
+        debugPrint("Onboarding completed")
     }
 }

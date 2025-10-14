@@ -32,7 +32,7 @@ final class ChatGPTService: ObservableObject {
         let apiKey = remoteConfigService.getChatGPTAPIKey()
         
         guard !apiKey.isEmpty else {
-            print("⚠️ ChatGPT API key not configured")
+            debugPrint("⚠️ ChatGPT API key not configured")
             isInitialized = false
             return
         }
@@ -41,7 +41,7 @@ final class ChatGPTService: ObservableObject {
         openAI = OpenAI(configuration: configuration)
         isInitialized = true
         
-        print("✅ ChatGPT service initialized")
+        debugPrint("✅ ChatGPT service initialized")
     }
     
     // MARK: - Premium Check
@@ -54,17 +54,17 @@ final class ChatGPTService: ObservableObject {
     /// Check if AI features can be used
     func canUseAIFeatures() -> Bool {
         guard remoteConfigService.isChatGPTEnabled() else {
-            print("⚠️ ChatGPT features disabled in Remote Config")
+            debugPrint("⚠️ ChatGPT features disabled in Remote Config")
             return false
         }
         
         guard isInitialized else {
-            print("⚠️ ChatGPT service not initialized")
+            debugPrint("⚠️ ChatGPT service not initialized")
             return false
         }
         
         guard isPremiumUser() else {
-            print("⚠️ User does not have premium subscription")
+            debugPrint("⚠️ User does not have premium subscription")
             return false
         }
         
@@ -145,10 +145,10 @@ final class ChatGPTService: ObservableObject {
         
         // Log token usage
         if let usage = result.usage {
-            print("📊 ChatGPT tokens used: \(usage.totalTokens) (prompt: \(usage.promptTokens), completion: \(usage.completionTokens))")
+            debugPrint("📊 ChatGPT tokens used: \(usage.totalTokens) (prompt: \(usage.promptTokens), completion: \(usage.completionTokens))")
         }
         
-        print("✅ Generated collection: \(collection.collectionName) with \(collection.cards.count) cards")
+        debugPrint("✅ Generated collection: \(collection.collectionName) with \(collection.cards.count) cards")
         
         return collection
     }
@@ -232,10 +232,10 @@ final class ChatGPTService: ObservableObject {
         let insight = try JSONDecoder().decode(CoachInsight.self, from: jsonData)
         
         if let usage = result.usage {
-            print("📊 ChatGPT tokens used: \(usage.totalTokens)")
+            debugPrint("📊 ChatGPT tokens used: \(usage.totalTokens)")
         }
         
-        print("✅ Generated coach insight: \(insight.title)")
+        debugPrint("✅ Generated coach insight: \(insight.title)")
         
         return insight
     }

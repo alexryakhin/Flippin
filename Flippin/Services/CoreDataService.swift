@@ -57,9 +57,9 @@ public class CoreDataService: ObservableObject {
         DispatchQueue.global(qos: .background).async { [weak self] in
             do {
                 try self?.saveContext()
-                print("☁️ Triggered CloudKit sync check")
+                debugPrint("☁️ Triggered CloudKit sync check")
             } catch {
-                print("❌ Failed to trigger CloudKit sync: \(error)")
+                debugPrint("❌ Failed to trigger CloudKit sync: \(error)")
                 AnalyticsService.trackErrorEvent(.errorOccurred, errorMessage: error.localizedDescription, errorCode: "cloudkit_sync_failed")
             }
         }

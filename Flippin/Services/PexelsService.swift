@@ -84,7 +84,7 @@ final class PexelsService: ObservableObject {
         self.apiKey = PrivateConstants.pexelsAPIKey
         
         if apiKey.isEmpty || apiKey == "YOUR_PEXELS_API_KEY_HERE" {
-            print("⚠️ [PexelsService] PEXELS_API_KEY not configured in PrivateConstants.swift")
+            debugPrint("⚠️ [PexelsService] PEXELS_API_KEY not configured in PrivateConstants.swift")
         }
     }
     
@@ -152,7 +152,7 @@ final class PexelsService: ObservableObject {
                 isLoading = false
             }
             
-            print("🖼️ [PexelsService] Found \(searchResponse.photos.count) photos for query: '\(query)'")
+            debugPrint("🖼️ [PexelsService] Found \(searchResponse.photos.count) photos for query: '\(query)'")
             
         } catch {
             await MainActor.run {
@@ -162,7 +162,7 @@ final class PexelsService: ObservableObject {
             if error is PexelsError {
                 throw error
             } else {
-                print("❌ [PexelsService] Search failed: \(error)")
+                debugPrint("❌ [PexelsService] Search failed: \(error)")
                 throw PexelsError.networkError(error.localizedDescription)
             }
         }
@@ -195,7 +195,7 @@ final class PexelsService: ObservableObject {
         
         // If user's language is English, no translation needed
         if userLanguage.voiceOverCode == "en" || userLanguage.voiceOverCode.hasPrefix("en-") {
-            print("🖼️ [PexelsService] User language is English, using query as-is: '\(query)'")
+            debugPrint("🖼️ [PexelsService] User language is English, using query as-is: '\(query)'")
             return query
         }
         
@@ -206,10 +206,10 @@ final class PexelsService: ObservableObject {
                 from: userLanguage.voiceOverCode,
                 to: "en"
             )
-            print("🖼️ [PexelsService] Translated query '\(query)' → '\(translatedQuery)'")
+            debugPrint("🖼️ [PexelsService] Translated query '\(query)' → '\(translatedQuery)'")
             return translatedQuery
         } catch {
-            print("⚠️ [PexelsService] Translation failed, using original query: \(error)")
+            debugPrint("⚠️ [PexelsService] Translation failed, using original query: \(error)")
             // Fallback: use original query if translation fails
             return query
         }
@@ -243,7 +243,7 @@ final class PexelsService: ObservableObject {
     ///   - identifier: A unique identifier for the card (e.g., card text or UUID)
     /// - Returns: The relative filename of the saved image
     func downloadAndSaveImage(from photo: PexelsPhoto, for identifier: String) async throws -> String {
-        print("📥 [PexelsService] Starting image download for identifier: '\(identifier)'")
+        debugPrint("📥 [PexelsService] Starting image download for identifier: '\(identifier)'")
         
         // Use large size for good quality without excessive file size
         let imageURL = photo.src.large
@@ -287,7 +287,7 @@ final class PexelsService: ObservableObject {
         // Verify file was written
         if FileManager.default.fileExists(atPath: fileURL.path) {
             let fileSize = try FileManager.default.attributesOfItem(atPath: fileURL.path)[.size] as? Int64 ?? 0
-            print("✅ [PexelsService] Image saved successfully! File size: \(fileSize) bytes")
+            debugPrint("✅ [PexelsService] Image saved successfully! File size: \(fileSize) bytes")
         }
         
         // Return only the relative filename (not full path)
@@ -300,22 +300,22 @@ final class PexelsService: ObservableObject {
     /// - Parameter path: The relative filename or absolute path to the image
     /// - Returns: A SwiftUI Image if found, nil otherwise
     func getImageFromLocalPath(_ path: String) -> Image? {
-        print("🔍 [PexelsService] Attempting to load image from path: '\(path)'")
+        debugPrint("🔍 [PexelsService] Attempting to load image from path: '\(path)'")
         
         // Construct full path from documents directory
         let fullPath: String
         if path.hasPrefix("/") {
             // Absolute path (legacy) - use as is
             fullPath = path
-            print("📍 [PexelsService] Using absolute path (legacy): \(fullPath)")
+            debugPrint("📍 [PexelsService] Using absolute path (legacy): \(fullPath)")
         } else {
             // Relative path - construct from documents directory
             do {
                 let documentsDir = try getDocumentsDirectory()
                 fullPath = documentsDir.appendingPathComponent(path).path
-                print("📍 [PexelsService] Constructed full path from relative: \(fullPath)")
+                debugPrint("📍 [PexelsService] Constructed full path from relative: \(fullPath)")
             } catch {
-                print("❌ [PexelsService] Failed to get documents directory: \(error)")
+                debugPrint("❌ [PexelsService] Failed to get documents directory: \(error)")
                 return nil
             }
         }
@@ -324,25 +324,25 @@ final class PexelsService: ObservableObject {
         
         // Verify file exists
         guard FileManager.default.fileExists(atPath: fullPath) else {
-            print("❌ [PexelsService] Image file does not exist at path: \(fullPath)")
+            debugPrint("❌ [PexelsService] Image file does not exist at path: \(fullPath)")
             return nil
         }
         
         // Read cached image data
         guard let data = try? Data(contentsOf: url) else {
-            print("❌ [PexelsService] Failed to read image data from path: \(fullPath)")
+            debugPrint("❌ [PexelsService] Failed to read image data from path: \(fullPath)")
             return nil
         }
         
-        print("📦 [PexelsService] Read \(data.count) bytes from file")
+        debugPrint("📦 [PexelsService] Read \(data.count) bytes from file")
         
         // Create image from cached data
         guard let image = UIImage(data: data) else {
-            print("❌ [PexelsService] Failed to create UIImage from data at path: \(fullPath)")
+            debugPrint("❌ [PexelsService] Failed to create UIImage from data at path: \(fullPath)")
             return nil
         }
         
-        print("✅ [PexelsService] Successfully loaded image from cache: \(fullPath)")
+        debugPrint("✅ [PexelsService] Successfully loaded image from cache: \(fullPath)")
         return Image(uiImage: image)
     }
     
@@ -352,26 +352,26 @@ final class PexelsService: ObservableObject {
     ///   - webUrl: The web URL to download from if local file is missing
     /// - Returns: A tuple containing the image (if found) and optionally a new local path (if re-downloaded)
     func getImageWithFallback(localPath: String, webUrl: String?) async -> (image: Image?, newLocalPath: String?) {
-        print("🔄 [PexelsService] Starting fallback image loading...")
-        print("📍 [PexelsService] Local path: '\(localPath)'")
-        print("🌐 [PexelsService] Web URL: '\(webUrl ?? "nil")'")
+        debugPrint("🔄 [PexelsService] Starting fallback image loading...")
+        debugPrint("📍 [PexelsService] Local path: '\(localPath)'")
+        debugPrint("🌐 [PexelsService] Web URL: '\(webUrl ?? "nil")'")
         
         // STEP 1: Try to load from local cache first
         if let localImage = getImageFromLocalPath(localPath) {
-            print("✅ [PexelsService] Successfully loaded from local cache")
+            debugPrint("✅ [PexelsService] Successfully loaded from local cache")
             return (localImage, nil) // Cache hit - no new path needed
         }
         
-        print("⚠️ [PexelsService] Local cache miss, attempting web fallback...")
+        debugPrint("⚠️ [PexelsService] Local cache miss, attempting web fallback...")
         
         // STEP 2: Cache miss - try to re-download from web URL
         guard let webUrl = webUrl, !webUrl.isEmpty else {
-            print("❌ [PexelsService] No web URL available for fallback")
+            debugPrint("❌ [PexelsService] No web URL available for fallback")
             return (nil, nil)
         }
         
         do {
-            print("📥 [PexelsService] Re-downloading from web URL...")
+            debugPrint("📥 [PexelsService] Re-downloading from web URL...")
             let reDownloadedImage = try await downloadImageFromUrl(webUrl)
             let image = Image(uiImage: reDownloadedImage)
             
@@ -391,11 +391,11 @@ final class PexelsService: ObservableObject {
                 let fileURL = documentsDir.appendingPathComponent(filename)
                 
                 try imageData.write(to: fileURL)
-                print("💾 [PexelsService] Re-downloaded image saved to cache: \(fileURL.path)")
+                debugPrint("💾 [PexelsService] Re-downloaded image saved to cache: \(fileURL.path)")
                 
                 // Verify the file was saved
                 if FileManager.default.fileExists(atPath: fileURL.path) {
-                    print("✅ [PexelsService] Cache restored successfully!")
+                    debugPrint("✅ [PexelsService] Cache restored successfully!")
                     return (image, filename) // Return image and new path
                 }
             }
@@ -403,7 +403,7 @@ final class PexelsService: ObservableObject {
             // Return image even if caching failed
             return (image, nil)
         } catch {
-            print("❌ [PexelsService] Fallback download failed: \(error.localizedDescription)")
+            debugPrint("❌ [PexelsService] Fallback download failed: \(error.localizedDescription)")
             return (nil, nil)
         }
     }
@@ -413,7 +413,7 @@ final class PexelsService: ObservableObject {
     /// Deletes an image from local storage
     /// - Parameter path: The relative filename or absolute path to the image
     func deleteImage(at path: String) throws {
-        print("🗑️ [PexelsService] Attempting to delete image at path: '\(path)'")
+        debugPrint("🗑️ [PexelsService] Attempting to delete image at path: '\(path)'")
         
         // Construct full path
         let fullPath: String
@@ -428,13 +428,13 @@ final class PexelsService: ObservableObject {
         
         // Verify file exists before attempting deletion
         guard FileManager.default.fileExists(atPath: fullPath) else {
-            print("⚠️ [PexelsService] Image file doesn't exist, nothing to delete: \(fullPath)")
+            debugPrint("⚠️ [PexelsService] Image file doesn't exist, nothing to delete: \(fullPath)")
             return
         }
         
         // Delete the file
         try FileManager.default.removeItem(atPath: fullPath)
-        print("✅ [PexelsService] Successfully deleted image: \(fullPath)")
+        debugPrint("✅ [PexelsService] Successfully deleted image: \(fullPath)")
     }
     
     // MARK: - Helper Methods

@@ -289,7 +289,7 @@ struct ImageThumbnailView: View {
 
 #Preview {
     ImageSearchView(cardIdentifier: "preview_card") { imageUrl, localPath in
-        print("Selected image - URL: \(imageUrl), Local: \(localPath)")
+        debugPrint("Selected image - URL: \(imageUrl), Local: \(localPath)")
     }
 }
 

@@ -58,9 +58,9 @@ final class PurchaseService: NSObject, ObservableObject {
         do {
             let offerings = try await Purchases.shared.offerings()
             self.offerings = offerings.current
-            print("📦 Loaded RevenueCat offerings: \(offerings.current?.availablePackages.count ?? 0) packages")
+            debugPrint("📦 Loaded RevenueCat offerings: \(offerings.current?.availablePackages.count ?? 0) packages")
         } catch {
-            print("❌ Failed to load offerings: \(error)")
+            debugPrint("❌ Failed to load offerings: \(error)")
             AnalyticsService.trackErrorEvent(.errorOccurred, errorMessage: error.localizedDescription, errorCode: "load_offerings_failed")
         }
     }
@@ -74,7 +74,7 @@ final class PurchaseService: NSObject, ObservableObject {
     func purchaseProduct(_ productId: String) async -> PurchaseResult {
         // Find the package with matching product ID
         guard let package = offerings?.availablePackages.first(where: { $0.storeProduct.productIdentifier == productId }) else {
-            print("❌ Product not found: \(productId)")
+            debugPrint("❌ Product not found: \(productId)")
             return PurchaseResult(
                 success: false,
                 transactionId: nil,
@@ -100,7 +100,7 @@ final class PurchaseService: NSObject, ObservableObject {
             let (transaction, customerInfo, userCancelled) = try await Purchases.shared.purchase(package: package)
             
             if userCancelled {
-                print("⚠️ User cancelled purchase")
+                debugPrint("⚠️ User cancelled purchase")
                 return PurchaseResult(
                     success: false,
                     transactionId: nil,
@@ -136,7 +136,7 @@ final class PurchaseService: NSObject, ObservableObject {
             // Haptic feedback
             await HapticService.shared.purchaseSuccess()
             
-            print("✅ Purchase successful: \(package.storeProduct.productIdentifier)")
+            debugPrint("✅ Purchase successful: \(package.storeProduct.productIdentifier)")
             
             return PurchaseResult(
                 success: true,
@@ -146,7 +146,7 @@ final class PurchaseService: NSObject, ObservableObject {
             )
             
         } catch let error as ErrorCode {
-            print("❌ Purchase failed: \(error)")
+            debugPrint("❌ Purchase failed: \(error)")
             
             let errorMessage = error.localizedDescription
             AnalyticsService.trackErrorEvent(.purchaseFailed, errorMessage: errorMessage)
@@ -161,7 +161,7 @@ final class PurchaseService: NSObject, ObservableObject {
                 productId: package.storeProduct.productIdentifier
             )
         } catch {
-            print("❌ Unexpected purchase error: \(error)")
+            debugPrint("❌ Unexpected purchase error: \(error)")
             
             // Haptic feedback for failed purchase
             await HapticService.shared.purchaseFailed()
@@ -186,7 +186,7 @@ final class PurchaseService: NSObject, ObservableObject {
             )
         }
         
-        print("🧪 Starting test purchase for: \(firstPackage.storeProduct.productIdentifier)")
+        debugPrint("🧪 Starting test purchase for: \(firstPackage.storeProduct.productIdentifier)")
         return await purchasePackage(firstPackage)
     }
     
@@ -196,7 +196,7 @@ final class PurchaseService: NSObject, ObservableObject {
         do {
             let customerInfo = try await Purchases.shared.restorePurchases()
             await updatePremiumAccessStatus(from: customerInfo)
-            print("✅ Purchases restored successfully")
+            debugPrint("✅ Purchases restored successfully")
             
             AnalyticsService.trackEvent(.purchasesRestored, parameters: [
                 "has_premium": hasPremiumAccess
@@ -204,7 +204,7 @@ final class PurchaseService: NSObject, ObservableObject {
             
             return hasPremiumAccess
         } catch {
-            print("❌ Failed to restore purchases: \(error)")
+            debugPrint("❌ Failed to restore purchases: \(error)")
             AnalyticsService.trackErrorEvent(.errorOccurred, errorMessage: error.localizedDescription, errorCode: "restore_failed")
             return false
         }
@@ -222,15 +222,15 @@ final class PurchaseService: NSObject, ObservableObject {
             self.customerInfo = customerInfo
             await updatePremiumAccessStatus(from: customerInfo)
         } catch {
-            print("❌ Failed to refresh customer info: \(error)")
+            debugPrint("❌ Failed to refresh customer info: \(error)")
         }
     }
     
     // MARK: - Reload Purchase Status (for compatibility)
     func reloadPurchaseStatus() async {
-        print("🔄 Reloading purchase status...")
+        debugPrint("🔄 Reloading purchase status...")
         await refreshCustomerInfo()
-        print("✅ Purchase status reloaded")
+        debugPrint("✅ Purchase status reloaded")
     }
     
     // MARK: - Premium Access Management
@@ -240,7 +240,7 @@ final class PurchaseService: NSObject, ObservableObject {
         if isDebugModeEnabled {
             hasPremiumAccess = true
             saveCachedPurchaseState()
-            print("🔐 Premium access: true (debug mode)")
+            debugPrint("🔐 Premium access: true (debug mode)")
             return
         }
         #endif
@@ -280,11 +280,11 @@ final class PurchaseService: NSObject, ObservableObject {
         self.customerInfo = customerInfo
         saveCachedPurchaseState()
         
-        print("🔐 Premium access: \(hasAccess)")
+        debugPrint("🔐 Premium access: \(hasAccess)")
         
         if hasAccess {
             let activeProducts = customerInfo.activeSubscriptions
-            print("📦 Active subscriptions: \(activeProducts)")
+            debugPrint("📦 Active subscriptions: \(activeProducts)")
         }
     }
     
@@ -302,7 +302,7 @@ final class PurchaseService: NSObject, ObservableObject {
         
         // Fallback to cached subscriptions if customerInfo is not available (offline)
         if let cachedSubscriptions = UserDefaults.standard.object(forKey: "cached_active_subscriptions") as? [String] {
-            print("📦 Using cached subscriptions for offline access: \(cachedSubscriptions)")
+            debugPrint("📦 Using cached subscriptions for offline access: \(cachedSubscriptions)")
             return cachedSubscriptions
         }
         
@@ -320,26 +320,26 @@ final class PurchaseService: NSObject, ObservableObject {
     private func loadCachedPurchaseState() {
         if let hasPremium = UserDefaults.standard.object(forKey: UserDefaultsKey.cachedPurchasedProducts) as? Bool {
             hasPremiumAccess = hasPremium
-            print("📦 Loaded cached purchase state: premium = \(hasPremium)")
+            debugPrint("📦 Loaded cached purchase state: premium = \(hasPremium)")
             
             // Also load cached subscription info for better offline experience
             if let cachedSubscriptions = UserDefaults.standard.object(forKey: "cached_active_subscriptions") as? [String] {
-                print("📦 Loaded cached subscriptions: \(cachedSubscriptions)")
+                debugPrint("📦 Loaded cached subscriptions: \(cachedSubscriptions)")
             }
         } else {
-            print("📦 No cached purchase state found")
+            debugPrint("📦 No cached purchase state found")
         }
     }
     
     private func saveCachedPurchaseState() {
         UserDefaults.standard.set(hasPremiumAccess, forKey: UserDefaultsKey.cachedPurchasedProducts)
-        print("💾 Saved cached purchase state: premium = \(hasPremiumAccess)")
+        debugPrint("💾 Saved cached purchase state: premium = \(hasPremiumAccess)")
         
         // Also cache the active subscriptions for better offline experience
         if let customerInfo = customerInfo {
             let activeSubscriptions = Array(customerInfo.activeSubscriptions)
             UserDefaults.standard.set(activeSubscriptions, forKey: "cached_active_subscriptions")
-            print("💾 Saved cached subscriptions: \(activeSubscriptions)")
+            debugPrint("💾 Saved cached subscriptions: \(activeSubscriptions)")
         }
     }
     
@@ -397,7 +397,7 @@ final class PurchaseService: NSObject, ObservableObject {
                 saveCachedPurchaseState()
             }
         }
-        print("🔧 Debug mode \(isDebugModeEnabled ? "enabled" : "disabled")")
+        debugPrint("🔧 Debug mode \(isDebugModeEnabled ? "enabled" : "disabled")")
     }
     
     /// Enable debug mode
@@ -411,7 +411,7 @@ final class PurchaseService: NSObject, ObservableObject {
                 saveCachedPurchaseState()
             }
         }
-        print("🔧 Debug mode enabled")
+        debugPrint("🔧 Debug mode enabled")
     }
     
     /// Disable debug mode
@@ -425,7 +425,7 @@ final class PurchaseService: NSObject, ObservableObject {
                 saveCachedPurchaseState()
             }
         }
-        print("🔧 Debug mode disabled")
+        debugPrint("🔧 Debug mode disabled")
     }
     
     /// Sync StoreKit 2 transactions with RevenueCat (useful in simulator)

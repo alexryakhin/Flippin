@@ -266,7 +266,7 @@ struct AICollectionGeneratorView: View {
                 importedCount += 1
             } catch {
                 failedCount += 1
-                print("❌ Failed to import card: \(card.frontText)")
+                debugPrint("❌ Failed to import card: \(card.frontText)")
             }
         }
 

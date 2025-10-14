@@ -164,7 +164,7 @@ struct CardFrontView: View {
                       let language = displayLanguage else { return }
                 try await TTSPlayer.shared.play(text, language: language)
             } catch {
-                print("TTS error: \(error)")
+                debugPrint("TTS error: \(error)")
             }
         }
     }

@@ -32,10 +32,10 @@ final class UserProfileService: ObservableObject {
             currentProfile = profiles.first
             
             if currentProfile != nil {
-                print("✅ Loaded user profile")
+                debugPrint("✅ Loaded user profile")
             }
         } catch {
-            print("❌ Failed to load user profile: \(error)")
+            debugPrint("❌ Failed to load user profile: \(error)")
         }
     }
     
@@ -106,7 +106,7 @@ final class UserProfileService: ObservableObject {
         saveContext()
         
         UserDefaults.standard.set(true, forKey: UserDefaultsKey.userProfileCompleted)
-        print("✅ Onboarding completed")
+        debugPrint("✅ Onboarding completed")
     }
     
     /// Checks if onboarding is complete
@@ -128,7 +128,7 @@ final class UserProfileService: ObservableObject {
         profile.setLanguageProficiency(proficiency, for: language)
         profile.updatedAt = Date()
         saveContext()
-        print("✅ Updated proficiency for \(language.displayName) to \(proficiency.displayName)")
+        debugPrint("✅ Updated proficiency for \(language.displayName) to \(proficiency.displayName)")
     }
     
     /// Called when target language changes for premium users
@@ -140,9 +140,9 @@ final class UserProfileService: ObservableObject {
             profile.setLanguageProficiency(.beginner, for: language)
             profile.updatedAt = Date()
             saveContext()
-            print("✅ Added \(language.displayName) to learning languages with beginner proficiency")
+            debugPrint("✅ Added \(language.displayName) to learning languages with beginner proficiency")
         } else {
-            print("ℹ️ \(language.displayName) already tracked with \(profile.getProficiency(for: language)!.displayName) proficiency")
+            debugPrint("ℹ️ \(language.displayName) already tracked with \(profile.getProficiency(for: language)!.displayName) proficiency")
         }
     }
     
@@ -153,7 +153,7 @@ final class UserProfileService: ObservableObject {
             currentProfile = nil
             saveContext()
             UserDefaults.standard.set(false, forKey: UserDefaultsKey.userProfileCompleted)
-            print("🔄 User profile reset")
+            debugPrint("🔄 User profile reset")
         }
     }
     
@@ -163,7 +163,7 @@ final class UserProfileService: ObservableObject {
         do {
             try coreDataService.saveContext()
         } catch {
-            print("❌ Failed to save user profile: \(error)")
+            debugPrint("❌ Failed to save user profile: \(error)")
         }
     }
 }

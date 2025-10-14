@@ -37,11 +37,11 @@ final class ImageCacheService {
         
         // Check if already cached
         if fileManager.fileExists(atPath: cachedURL.path) {
-            print("🖼️ [ImageCacheService] Image already cached: \(cacheKey)")
+            debugPrint("🖼️ [ImageCacheService] Image already cached: \(cacheKey)")
             return cachedURL
         }
         
-        print("🖼️ [ImageCacheService] Downloading image from: \(url.absoluteString)")
+        debugPrint("🖼️ [ImageCacheService] Downloading image from: \(url.absoluteString)")
         
         // Download image
         let (tempURL, response) = try await URLSession.shared.download(for: createImageRequest(for: url))
@@ -56,7 +56,7 @@ final class ImageCacheService {
         // Move to cache directory
         try fileManager.moveItem(at: tempURL, to: cachedURL)
         
-        print("✅ [ImageCacheService] Image cached successfully: \(cacheKey)")
+        debugPrint("✅ [ImageCacheService] Image cached successfully: \(cacheKey)")
         return cachedURL
     }
     
@@ -110,7 +110,7 @@ final class ImageCacheService {
         // Clear memory cache
         memoryCache.removeAllObjects()
         
-        print("🗑️ [ImageCacheService] Cleared \(contents.count) cached images")
+        debugPrint("🗑️ [ImageCacheService] Cleared \(contents.count) cached images")
     }
     
     /// Get cache size in bytes
@@ -140,7 +140,7 @@ final class ImageCacheService {
             let memoryKey = NSString(string: url.absoluteString)
             memoryCache.removeObject(forKey: memoryKey)
             
-            print("🗑️ [ImageCacheService] Removed cached image: \(cacheKey)")
+            debugPrint("🗑️ [ImageCacheService] Removed cached image: \(cacheKey)")
         }
     }
     

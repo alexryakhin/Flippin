@@ -33,24 +33,24 @@ final class SpeechifyTTSPreviewPlayer: NSObject, ObservableObject {
     
     /// Download and play preview audio from URL (matches the working implementation)
     func downloadAndPlayPreview(from url: URL) async throws {
-        print("🎵 [SpeechifyTTSPreviewPlayer] Getting preview from: \(url.absoluteString)")
+        debugPrint("🎵 [SpeechifyTTSPreviewPlayer] Getting preview from: \(url.absoluteString)")
         
         // Check if we already have this preview cached
         if let cachedURL = getCachedPreviewURL(for: url) {
-            print("🎵 [SpeechifyTTSPreviewPlayer] Found cached preview, playing from cache")
+            debugPrint("🎵 [SpeechifyTTSPreviewPlayer] Found cached preview, playing from cache")
             try await play(from: cachedURL)
             return
         }
         
         // Download and cache the audio file
-        print("🎵 [SpeechifyTTSPreviewPlayer] Downloading new preview...")
+        debugPrint("🎵 [SpeechifyTTSPreviewPlayer] Downloading new preview...")
         let cachedURL = try await downloadAndCachePreview(from: url)
         try await play(from: cachedURL)
     }
     
     /// Stop current preview playback
     func stop() async {
-        print("🎵 [SpeechifyTTSPreviewPlayer] Stopping preview playback")
+        debugPrint("🎵 [SpeechifyTTSPreviewPlayer] Stopping preview playback")
         
         await MainActor.run {
             player?.stop()
@@ -94,11 +94,11 @@ final class SpeechifyTTSPreviewPlayer: NSObject, ObservableObject {
             
             // Copy to cache directory
             try fileManager.copyItem(at: tempURL, to: cachedURL)
-            print("✅ [SpeechifyTTSPreviewPlayer] Successfully cached preview audio to \(cachedURL.path)")
+            debugPrint("✅ [SpeechifyTTSPreviewPlayer] Successfully cached preview audio to \(cachedURL.path)")
             
             return cachedURL
         } catch {
-            print("❌ [SpeechifyTTSPreviewPlayer] Failed to download and cache preview: \(error)")
+            debugPrint("❌ [SpeechifyTTSPreviewPlayer] Failed to download and cache preview: \(error)")
             throw PreviewPlayerError.downloadFailed
         }
     }
@@ -111,7 +111,7 @@ final class SpeechifyTTSPreviewPlayer: NSObject, ObservableObject {
             try fileManager.removeItem(at: url)
         }
         
-        print("🗑️ [SpeechifyTTSPreviewPlayer] Cleared \(contents.count) cached preview files")
+        debugPrint("🗑️ [SpeechifyTTSPreviewPlayer] Cleared \(contents.count) cached preview files")
     }
     
     /// Get cache size in bytes
@@ -146,10 +146,10 @@ final class SpeechifyTTSPreviewPlayer: NSObject, ObservableObject {
             player?.play()
             isPlaying = true
             
-            print("🎵 [SpeechifyTTSPreviewPlayer] Preview playback started successfully")
+            debugPrint("🎵 [SpeechifyTTSPreviewPlayer] Preview playback started successfully")
         } catch {
             isPlaying = false
-            print("❌ [SpeechifyTTSPreviewPlayer] Cannot play audio file: \(error), url: \(url)")
+            debugPrint("❌ [SpeechifyTTSPreviewPlayer] Cannot play audio file: \(error), url: \(url)")
             throw PreviewPlayerError.playbackFailed(error.localizedDescription)
         }
     }

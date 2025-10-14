@@ -179,7 +179,7 @@ extension WelcomeSheet {
                     // Don't dismiss, let user continue through onboarding
                 } else if let error = result.error {
                     // Show error if needed
-                    print("Purchase error: \(error)")
+                    debugPrint("Purchase error: \(error)")
                 }
             }
         }

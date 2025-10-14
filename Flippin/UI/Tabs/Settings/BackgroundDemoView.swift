@@ -54,7 +54,7 @@ struct BackgroundDemoView: View {
                     .onTapGesture {
                         if purchaseService.hasPremiumAccess || style.isFree {
                             // This would show the full background in a sheet
-                            print("Selected: \(style.displayName)")
+                            debugPrint("Selected: \(style.displayName)")
                         } else {
                             showPaywall = true
                         }

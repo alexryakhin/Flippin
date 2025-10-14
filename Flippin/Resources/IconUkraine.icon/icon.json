@@ -3,8 +3,8 @@
     {
       "value" : {
         "linear-gradient" : [
-          "display-p3:0.44706,0.73333,0.93725,1.00000",
-          "display-p3:0.21176,0.42745,0.94510,1.00000"
+          "display-p3:0.08093,0.19924,0.95868,1.00000",
+          "srgb:1.00000,0.83922,0.00000,1.00000"
         ]
       }
     },
@@ -25,11 +25,11 @@
         {
           "blend-mode-specializations" : [
             {
-              "value" : "screen"
+              "value" : "normal"
             },
             {
               "appearance" : "dark",
-              "value" : "screen"
+              "value" : "normal"
             }
           ],
           "fill-specializations" : [
@@ -41,20 +41,23 @@
             {
               "appearance" : "dark",
               "value" : {
-                "solid" : "srgb:0.46202,0.83828,1.00000,1.00000"
+                "linear-gradient" : [
+                  "display-p3:0.08093,0.19924,0.95868,1.00000",
+                  "srgb:1.00000,0.83922,0.00000,1.00000"
+                ]
               }
             }
           ],
-          "hidden" : false,
+          "glass" : true,
           "image-name" : "Card.png",
           "name" : "Card",
           "opacity-specializations" : [
             {
-              "value" : 0.7
+              "value" : 0.9
             },
             {
               "appearance" : "dark",
-              "value" : 0.57
+              "value" : 0.9
             }
           ],
           "position" : {
@@ -68,12 +71,27 @@
         {
           "fill-specializations" : [
             {
+              "value" : {
+                "linear-gradient" : [
+                  "display-p3:0.08093,0.19924,0.95868,1.00000",
+                  "srgb:1.00000,0.83922,0.00000,1.00000"
+                ]
+              }
+            },
+            {
               "appearance" : "dark",
               "value" : {
                 "automatic-gradient" : "srgb:0.00000,0.00000,0.00000,1.00000"
               }
+            },
+            {
+              "appearance" : "tinted",
+              "value" : {
+                "solid" : "srgb:0.01680,0.19835,1.00000,1.00000"
+              }
             }
           ],
+          "glass" : true,
           "image-name" : "CardElements.png",
           "name" : "CardElements",
           "position" : {
@@ -87,41 +105,6 @@
         {
           "blend-mode-specializations" : [
             {
-              "value" : "screen"
-            },
-            {
-              "appearance" : "dark",
-              "value" : "normal"
-            }
-          ],
-          "fill-specializations" : [
-            {
-              "value" : {
-                "solid" : "srgb:1.00000,1.00000,1.00000,1.00000"
-              }
-            },
-            {
-              "appearance" : "dark",
-              "value" : {
-                "solid" : "srgb:0.31321,0.77925,1.00000,1.00000"
-              }
-            }
-          ],
-          "hidden" : false,
-          "image-name" : "CardFill.png",
-          "name" : "top-background",
-          "opacity" : 0.7,
-          "position" : {
-            "scale" : 0.62,
-            "translation-in-points" : [
-              0,
-              0
-            ]
-          }
-        },
-        {
-          "blend-mode-specializations" : [
-            {
               "value" : "normal"
             },
             {
@@ -138,14 +121,24 @@
             {
               "appearance" : "dark",
               "value" : {
-                "solid" : "srgb:0.46202,0.83828,1.00000,1.00000"
+                "linear-gradient" : [
+                  "display-p3:0.08093,0.19924,0.95868,1.00000",
+                  "srgb:1.00000,0.83922,0.00000,1.00000"
+                ]
               }
             }
           ],
-          "hidden" : false,
           "image-name" : "CardFill.png",
           "name" : "2-right",
-          "opacity" : 0.8,
+          "opacity-specializations" : [
+            {
+              "value" : 0.8
+            },
+            {
+              "appearance" : "dark",
+              "value" : 0.8
+            }
+          ],
           "position" : {
             "scale" : 0.52,
             "translation-in-points" : [
@@ -165,14 +158,16 @@
             {
               "appearance" : "dark",
               "value" : {
-                "solid" : "srgb:0.46202,0.83828,1.00000,1.00000"
+                "linear-gradient" : [
+                  "display-p3:0.08093,0.19924,0.95868,1.00000",
+                  "srgb:1.00000,0.83922,0.00000,1.00000"
+                ]
               }
             }
           ],
-          "hidden" : false,
           "image-name" : "CardFill.png",
           "name" : "2-left",
-          "opacity" : 0.8,
+          "opacity" : 0.9,
           "position" : {
             "scale" : 0.52,
             "translation-in-points" : [
@@ -184,7 +179,7 @@
         {
           "blend-mode-specializations" : [
             {
-              "value" : "screen"
+              "value" : "normal"
             },
             {
               "appearance" : "dark",
@@ -200,13 +195,16 @@
             {
               "appearance" : "dark",
               "value" : {
-                "solid" : "srgb:0.46202,0.83828,1.00000,1.00000"
+                "linear-gradient" : [
+                  "display-p3:0.08093,0.19924,0.95868,1.00000",
+                  "srgb:1.00000,0.83922,0.00000,1.00000"
+                ]
               }
             }
           ],
-          "hidden" : false,
           "image-name" : "CardFill.png",
           "name" : "3-left",
+          "opacity" : 0.9,
           "position" : {
             "scale" : 0.42,
             "translation-in-points" : [
@@ -218,7 +216,7 @@
         {
           "blend-mode-specializations" : [
             {
-              "value" : "screen"
+              "value" : "normal"
             },
             {
               "appearance" : "dark",
@@ -234,12 +232,16 @@
             {
               "appearance" : "dark",
               "value" : {
-                "solid" : "srgb:0.46202,0.83828,1.00000,1.00000"
+                "linear-gradient" : [
+                  "display-p3:0.08093,0.19924,0.95868,1.00000",
+                  "srgb:1.00000,0.83922,0.00000,1.00000"
+                ]
               }
             }
           ],
           "image-name" : "CardFill.png",
           "name" : "3-right",
+          "opacity" : 0.9,
           "position" : {
             "scale" : 0.42,
             "translation-in-points" : [

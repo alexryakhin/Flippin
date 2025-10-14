@@ -89,7 +89,7 @@ final class PresetCollectionService: ObservableObject {
                 )
             }
         } catch {
-            print(error.localizedDescription)
+            debugPrint(error.localizedDescription)
         }
     }
 }

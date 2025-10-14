@@ -17,10 +17,10 @@ enum Paywall {
                 VStack(spacing: 24) {
                     // Header
                     VStack(spacing: 12) {
-                        Image(.iconRounded)
+                        AppIcon.current.image
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 144, height: 144)
+                            .frame(width: 128, height: 128)
 
                         Text(Loc.Paywall.unlockPremium)
                             .font(.system(size: 34, weight: .bold, design: .rounded))
@@ -183,7 +183,7 @@ enum Paywall {
                     dismiss()
                 } else if let error = result.error {
                     // Show error if needed
-                    print("Purchase error: \(error)")
+                    debugPrint("Purchase error: \(error)")
                 }
             }
         }

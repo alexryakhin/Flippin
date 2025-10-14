@@ -13,6 +13,7 @@ struct AboutView: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.requestReview) var requestReview
     @StateObject private var colorManager = ColorManager.shared
+    @StateObject private var appIconService = AppIconService.shared
     @State private var safariURL: URL?
 
     private var appVersion: String {
@@ -62,11 +63,27 @@ struct AboutView: View {
             VStack(spacing: 16) {
                 // App Icon and Name
                 VStack(spacing: 12) {
-                    Image(.iconRounded)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 80, height: 80)
-                        .clipShape(RoundedRectangle(cornerRadius: 16))
+                    Menu {
+                        ForEach(AppIcon.allCases) { icon in
+                            Button {
+                                appIconService.changeIcon(to: icon)
+                            } label: {
+                                HStack {
+                                    Text(icon.displayName)
+                                    if appIconService.currentIcon == icon {
+                                        Spacer()
+                                        Image(systemName: "checkmark")
+                                    }
+                                }
+                            }
+                        }
+                    } label: {
+                        AppIcon.current.image
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 80, height: 80)
+                    }
+                    .buttonStyle(PlainButtonStyle())
 
                     VStack(spacing: 4) {
                         Text("Flippin")

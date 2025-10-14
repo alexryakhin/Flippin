@@ -177,13 +177,13 @@ struct VoicePickerView: View {
             do {
                 guard let previewAudioURL = voice.bestPreviewAudioURL,
                       let url = URL(string: previewAudioURL) else {
-                    print("❌ No preview audio URL available for voice: \(voice.name)")
+                    debugPrint("❌ No preview audio URL available for voice: \(voice.name)")
                     return
                 }
                 
                 try await previewPlayer.downloadAndPlayPreview(from: url)
             } catch {
-                print("❌ Voice preview failed for \(voice.name): \(error)")
+                debugPrint("❌ Voice preview failed for \(voice.name): \(error)")
                 // You could add a toast or alert here to show the error to the user
             }
         }
@@ -196,7 +196,7 @@ struct VoicePickerView: View {
             return
         }
         
-        print("🎤 [VoicePickerView] Saving voice selection: \(tempSelectedVoiceId)")
+        debugPrint("🎤 [VoicePickerView] Saving voice selection: \(tempSelectedVoiceId)")
         
         // Save the new voice selection
         speechifyService.selectVoice(tempSelectedVoiceId)
@@ -205,9 +205,9 @@ struct VoicePickerView: View {
         Task {
             do {
                 try AudioCacheService.shared.clearCache()
-                print("🗑️ [VoicePickerView] Cleared Speechify cache after voice change")
+                debugPrint("🗑️ [VoicePickerView] Cleared Speechify cache after voice change")
             } catch {
-                print("❌ [VoicePickerView] Failed to clear Speechify cache: \(error)")
+                debugPrint("❌ [VoicePickerView] Failed to clear Speechify cache: \(error)")
             }
         }
         

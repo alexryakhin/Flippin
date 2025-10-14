@@ -1,0 +1,258 @@
+{
+  "fill-specializations" : [
+    {
+      "value" : {
+        "linear-gradient" : [
+          "srgb:0.32370,0.10636,0.57486,1.00000",
+          "srgb:0.58106,0.12855,0.57453,1.00000"
+        ]
+      }
+    },
+    {
+      "appearance" : "dark",
+      "value" : {
+        "linear-gradient" : [
+          "srgb:0.26052,0.26052,0.26052,1.00000",
+          "srgb:0.00000,0.00000,0.00000,1.00000"
+        ]
+      }
+    }
+  ],
+  "groups" : [
+    {
+      "blur-material" : null,
+      "layers" : [
+        {
+          "blend-mode-specializations" : [
+            {
+              "value" : "normal"
+            },
+            {
+              "appearance" : "dark",
+              "value" : "normal"
+            }
+          ],
+          "fill-specializations" : [
+            {
+              "value" : {
+                "solid" : "srgb:1.00000,1.00000,1.00000,1.00000"
+              }
+            },
+            {
+              "appearance" : "dark",
+              "value" : {
+                "automatic-gradient" : "display-p3:0.52381,0.16713,0.55630,1.00000"
+              }
+            }
+          ],
+          "glass-specializations" : [
+            {
+              "value" : true
+            },
+            {
+              "appearance" : "dark",
+              "value" : true
+            }
+          ],
+          "image-name" : "Card.png",
+          "name" : "Card",
+          "opacity-specializations" : [
+            {
+              "value" : 0.9
+            },
+            {
+              "appearance" : "dark",
+              "value" : 0.9
+            }
+          ],
+          "position" : {
+            "scale" : 0.62,
+            "translation-in-points" : [
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "fill-specializations" : [
+            {
+              "value" : {
+                "linear-gradient" : [
+                  "srgb:0.58106,0.12855,0.57453,1.00000",
+                  "display-p3:0.68933,0.36135,0.70941,1.00000"
+                ]
+              }
+            },
+            {
+              "appearance" : "dark",
+              "value" : {
+                "automatic-gradient" : "srgb:0.00000,0.00000,0.00000,1.00000"
+              }
+            }
+          ],
+          "glass-specializations" : [
+            {
+              "value" : true
+            },
+            {
+              "appearance" : "dark",
+              "value" : true
+            }
+          ],
+          "image-name" : "CardElements.png",
+          "name" : "CardElements",
+          "position" : {
+            "scale" : 0.62,
+            "translation-in-points" : [
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "blend-mode-specializations" : [
+            {
+              "value" : "normal"
+            },
+            {
+              "appearance" : "dark",
+              "value" : "normal"
+            }
+          ],
+          "fill-specializations" : [
+            {
+              "value" : {
+                "solid" : "srgb:1.00000,1.00000,1.00000,1.00000"
+              }
+            },
+            {
+              "appearance" : "dark",
+              "value" : {
+                "automatic-gradient" : "display-p3:0.52381,0.16713,0.55630,1.00000"
+              }
+            }
+          ],
+          "image-name" : "CardFill.png",
+          "name" : "2-right",
+          "opacity" : 0.9,
+          "position" : {
+            "scale" : 0.52,
+            "translation-in-points" : [
+              88,
+              0
+            ]
+          }
+        },
+        {
+          "blend-mode" : "normal",
+          "fill-specializations" : [
+            {
+              "value" : {
+                "solid" : "srgb:1.00000,1.00000,1.00000,1.00000"
+              }
+            },
+            {
+              "appearance" : "dark",
+              "value" : {
+                "automatic-gradient" : "display-p3:0.52381,0.16713,0.55630,1.00000"
+              }
+            }
+          ],
+          "image-name" : "CardFill.png",
+          "name" : "2-left",
+          "opacity" : 0.9,
+          "position" : {
+            "scale" : 0.52,
+            "translation-in-points" : [
+              -88,
+              0
+            ]
+          }
+        },
+        {
+          "blend-mode-specializations" : [
+            {
+              "value" : "normal"
+            },
+            {
+              "appearance" : "dark",
+              "value" : "normal"
+            }
+          ],
+          "fill-specializations" : [
+            {
+              "value" : {
+                "solid" : "srgb:1.00000,1.00000,1.00000,1.00000"
+              }
+            },
+            {
+              "appearance" : "dark",
+              "value" : {
+                "automatic-gradient" : "display-p3:0.52381,0.16713,0.55630,1.00000"
+              }
+            }
+          ],
+          "image-name" : "CardFill.png",
+          "name" : "3-left",
+          "opacity" : 0.9,
+          "position" : {
+            "scale" : 0.42,
+            "translation-in-points" : [
+              -172,
+              0
+            ]
+          }
+        },
+        {
+          "blend-mode-specializations" : [
+            {
+              "value" : "normal"
+            },
+            {
+              "appearance" : "dark",
+              "value" : "normal"
+            }
+          ],
+          "fill-specializations" : [
+            {
+              "value" : {
+                "solid" : "srgb:1.00000,1.00000,1.00000,1.00000"
+              }
+            },
+            {
+              "appearance" : "dark",
+              "value" : {
+                "automatic-gradient" : "display-p3:0.52381,0.16713,0.55630,1.00000"
+              }
+            }
+          ],
+          "image-name" : "CardFill.png",
+          "name" : "3-right",
+          "opacity" : 0.9,
+          "position" : {
+            "scale" : 0.42,
+            "translation-in-points" : [
+              172,
+              0
+            ]
+          }
+        }
+      ],
+      "lighting" : "individual",
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 1
+      },
+      "specular" : true,
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.5
+      }
+    }
+  ],
+  "supported-platforms" : {
+    "squares" : [
+      "iOS"
+    ]
+  }
+}

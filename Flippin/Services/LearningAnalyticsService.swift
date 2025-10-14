@@ -117,14 +117,14 @@ final class LearningAnalyticsService: ObservableObject {
             cardsReviewed: 0
         )
 
-        print("📚 Started study session: \(sessionType)")
+        debugPrint("📚 Started study session: \(sessionType)")
     }
 
     /// End the current study session
     func endStudySession() {
         guard let session = currentSession,
               let startTime = sessionStartTime else {
-            print("📚 No active session to end")
+            debugPrint("📚 No active session to end")
             return
         }
 
@@ -132,7 +132,7 @@ final class LearningAnalyticsService: ObservableObject {
         session.endTime = Date()
         session.duration = duration
 
-        print("📚 Ending study session: \(duration)s, \(session.cardsReviewed) cards reviewed")
+        debugPrint("📚 Ending study session: \(duration)s, \(session.cardsReviewed) cards reviewed")
 
         // Update daily stats
         updateDailyStats(session: session)
@@ -151,7 +151,7 @@ final class LearningAnalyticsService: ObservableObject {
         currentSession = nil
         sessionStartTime = nil
 
-        print("📚 Study session ended successfully")
+        debugPrint("📚 Study session ended successfully")
     }
 
     /// Record a card review during study session
@@ -238,7 +238,7 @@ final class LearningAnalyticsService: ObservableObject {
                 calculateStreakFromPreviousDays(stats: stats, calendar: calendar, today: today)
             }
         } catch {
-            print("❌ Failed to initialize study streak: \(error)")
+            debugPrint("❌ Failed to initialize study streak: \(error)")
         }
     }
 
@@ -263,7 +263,7 @@ final class LearningAnalyticsService: ObservableObject {
         }
 
         studyStreak = consecutiveDays
-        print("📊 Study streak initialized from previous days: \(consecutiveDays) days")
+        debugPrint("📊 Study streak initialized from previous days: \(consecutiveDays) days")
     }
 
     /// Load card performance data
@@ -278,7 +278,7 @@ final class LearningAnalyticsService: ObservableObject {
                 return (cardId, performance)
             })
         } catch {
-            print("❌ Failed to load card performances: \(error)")
+            debugPrint("❌ Failed to load card performances: \(error)")
         }
     }
 
@@ -292,7 +292,7 @@ final class LearningAnalyticsService: ObservableObject {
             let stats = try coreDataService.context.fetch(request)
             dailyStats = stats.first
         } catch {
-            print("❌ Failed to load daily stats: \(error)")
+            debugPrint("❌ Failed to load daily stats: \(error)")
         }
     }
 
@@ -354,7 +354,7 @@ final class LearningAnalyticsService: ObservableObject {
 
             let oldStreak = studyStreak
             studyStreak = consecutiveDays
-            print("📊 Study streak calculated: \(consecutiveDays) days")
+            debugPrint("📊 Study streak calculated: \(consecutiveDays) days")
             
             // Track study streak extended if it increased
             if studyStreak > oldStreak {
@@ -364,7 +364,7 @@ final class LearningAnalyticsService: ObservableObject {
                 ])
             }
         } catch {
-            print("❌ Failed to calculate study streak: \(error)")
+            debugPrint("❌ Failed to calculate study streak: \(error)")
         }
     }
 
@@ -376,7 +376,7 @@ final class LearningAnalyticsService: ObservableObject {
             let sessions = try coreDataService.context.fetch(request)
             totalStudyTime = sessions.reduce(0) { $0 + $1.duration }
         } catch {
-            print("❌ Failed to calculate total study time: \(error)")
+            debugPrint("❌ Failed to calculate total study time: \(error)")
         }
     }
 
@@ -393,7 +393,7 @@ final class LearningAnalyticsService: ObservableObject {
             let sessions = try coreDataService.context.fetch(request)
             return sessions.reduce(0) { $0 + $1.duration }
         } catch {
-            print("❌ Failed to calculate today's study time: \(error)")
+            debugPrint("❌ Failed to calculate today's study time: \(error)")
             return 0
         }
     }
@@ -409,7 +409,7 @@ final class LearningAnalyticsService: ObservableObject {
             let totalTime = sessions.reduce(0) { $0 + $1.duration }
             return totalTime / Double(sessions.count)
         } catch {
-            print("❌ Failed to calculate average session time: \(error)")
+            debugPrint("❌ Failed to calculate average session time: \(error)")
             return 0
         }
     }
@@ -568,11 +568,11 @@ final class LearningAnalyticsService: ObservableObject {
         if dailyStats == nil {
             let languagePair = "\(languageManager.userLanguage.rawValue)-\(languageManager.targetLanguage.rawValue)"
             dailyStats = DailyStats(date: today, languagePair: languagePair, context: coreDataService.context)
-            print("📊 Created new daily stats for today")
+            debugPrint("📊 Created new daily stats for today")
         }
 
         guard let stats = dailyStats else {
-            print("❌ Failed to get daily stats")
+            debugPrint("❌ Failed to get daily stats")
             return
         }
 
@@ -585,8 +585,8 @@ final class LearningAnalyticsService: ObservableObject {
         calculateStreakWithCurrentStats()
         stats.streakDays = Int32(studyStreak)
 
-        print("📊 Updated daily stats - Added: \(session.duration)s, \(session.cardsReviewed) cards")
-        print("📊 Total today: \(stats.totalStudyTime)s, \(stats.cardsStudied) cards, \(stats.sessionsCompleted) sessions, Streak: \(studyStreak)")
+        debugPrint("📊 Updated daily stats - Added: \(session.duration)s, \(session.cardsReviewed) cards")
+        debugPrint("📊 Total today: \(stats.totalStudyTime)s, \(stats.cardsStudied) cards, \(stats.sessionsCompleted) sessions, Streak: \(studyStreak)")
 
         // Save the updated daily stats
         saveContext()
@@ -628,7 +628,7 @@ final class LearningAnalyticsService: ObservableObject {
 
                 let oldStreak = studyStreak
                 studyStreak = consecutiveDays
-                print("📊 Study streak calculated with current stats: \(consecutiveDays) days")
+                debugPrint("📊 Study streak calculated with current stats: \(consecutiveDays) days")
                 
                 // Track study streak extended if it increased
                 if studyStreak > oldStreak {
@@ -638,7 +638,7 @@ final class LearningAnalyticsService: ObservableObject {
                     ])
                 }
             } catch {
-                print("❌ Failed to calculate streak with current stats: \(error)")
+                debugPrint("❌ Failed to calculate streak with current stats: \(error)")
             }
         }
     }
@@ -659,7 +659,7 @@ final class LearningAnalyticsService: ObservableObject {
                 }
             }
         } catch {
-            print("❌ Failed to get cards by difficulty: \(error)")
+            debugPrint("❌ Failed to get cards by difficulty: \(error)")
             return []
         }
     }
@@ -759,7 +759,7 @@ final class LearningAnalyticsService: ObservableObject {
         guard totalReviews > 0 else { return 0.0 }
         let accuracy = Double(totalCorrect) / Double(totalReviews)
 
-        print("📊 Accuracy calculation: \(totalCorrect) correct out of \(totalReviews) total reviews = \(accuracy * 100)%")
+        debugPrint("📊 Accuracy calculation: \(totalCorrect) correct out of \(totalReviews) total reviews = \(accuracy * 100)%")
 
         return accuracy
     }
@@ -783,7 +783,7 @@ final class LearningAnalyticsService: ObservableObject {
             let totalStudyTimeIncludingCardFlipping = allStats.reduce(0) { $0 + $1.totalStudyTime }
             return totalStudyTimeIncludingCardFlipping
         } catch {
-            print("❌ Failed to calculate total study time including card flipping: \(error)")
+            debugPrint("❌ Failed to calculate total study time including card flipping: \(error)")
             return totalStudyTime // Fallback to formal sessions only
         }
     }
@@ -805,7 +805,7 @@ final class LearningAnalyticsService: ObservableObject {
                 return (date: date, studyTime: stat.totalStudyTime, cardsStudied: Int(stat.cardsStudied))
             }
         } catch {
-            print("❌ Failed to get weekly study data: \(error)")
+            debugPrint("❌ Failed to get weekly study data: \(error)")
             return []
         }
     }
@@ -854,7 +854,7 @@ final class LearningAnalyticsService: ObservableObject {
             }.sorted { $0.date < $1.date }
             
         } catch {
-            print("❌ Failed to fetch study data: \(error)")
+            debugPrint("❌ Failed to fetch study data: \(error)")
             return []
         }
     }
@@ -891,7 +891,7 @@ final class LearningAnalyticsService: ObservableObject {
                 return (date: date, studyTime: stat.totalStudyTime, cardsStudied: Int(stat.cardsStudied))
             }
         } catch {
-            print("❌ Failed to get detailed analytics study data for \(timeRange): \(error)")
+            debugPrint("❌ Failed to get detailed analytics study data for \(timeRange): \(error)")
             return []
         }
     }
@@ -915,7 +915,7 @@ final class LearningAnalyticsService: ObservableObject {
 
             return (mostActiveTime, preferredSessionLength, studyFrequency)
         } catch {
-            print("❌ Failed to get study patterns: \(error)")
+            debugPrint("❌ Failed to get study patterns: \(error)")
             return (Loc.LearningAnalyticsService.notEnoughData, Loc.LearningAnalyticsService.notEnoughData, Loc.LearningAnalyticsService.notEnoughData)
         }
     }
@@ -1059,7 +1059,7 @@ final class LearningAnalyticsService: ObservableObject {
 
             return (totalStudyTime, averageSessionTime, totalSessions)
         } catch {
-            print("❌ Failed to get time range study stats: \(error)")
+            debugPrint("❌ Failed to get time range study stats: \(error)")
             return (0, 0, 0)
         }
     }
@@ -1103,7 +1103,7 @@ final class LearningAnalyticsService: ObservableObject {
                 return AccuracyDataPoint(date: date, accuracy: dailyAccuracy)
             }
         } catch {
-            print("❌ Failed to get accuracy trends: \(error)")
+            debugPrint("❌ Failed to get accuracy trends: \(error)")
             return []
         }
     }
@@ -1173,7 +1173,7 @@ final class LearningAnalyticsService: ObservableObject {
 
             return (averageDuration, cardsPerSession, sessionFrequency)
         } catch {
-            print("❌ Failed to get session performance: \(error)")
+            debugPrint("❌ Failed to get session performance: \(error)")
             return (0, 0, 0)
         }
     }
@@ -1281,7 +1281,7 @@ final class LearningAnalyticsService: ObservableObject {
             }
 
         } catch {
-            print("❌ Failed to get mastery timeline events: \(error)")
+            debugPrint("❌ Failed to get mastery timeline events: \(error)")
         }
 
         return events
@@ -1547,7 +1547,7 @@ final class LearningAnalyticsService: ObservableObject {
             let sessions = try coreDataService.context.fetch(request)
             return sessions.first?.startTime
         } catch {
-            print("❌ Failed to get last study date: \(error)")
+            debugPrint("❌ Failed to get last study date: \(error)")
             return nil
         }
     }
@@ -1587,7 +1587,7 @@ final class LearningAnalyticsService: ObservableObject {
             try coreDataService.saveContext()
             objectWillChange.send()
         } catch {
-            print("❌ Failed to save analytics context: \(error)")
+            debugPrint("❌ Failed to save analytics context: \(error)")
         }
     }
 }

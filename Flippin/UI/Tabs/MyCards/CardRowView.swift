@@ -65,7 +65,7 @@ struct CardRowView: View {
                             try await TTSPlayer.shared.play(text, language: language)
                             AnalyticsService.trackEvent(.cardPlayed)
                         } catch {
-                            print("TTS error: \(error)")
+                            debugPrint("TTS error: \(error)")
                             AnalyticsService.trackErrorEvent(.ttsFailed, errorMessage: error.localizedDescription)
                         }
                     }

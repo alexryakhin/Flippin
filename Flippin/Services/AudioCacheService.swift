@@ -72,7 +72,7 @@ final class AudioCacheService {
                 let _ = try AVAudioPlayer(contentsOf: url)
                 return url
             } catch {
-                print("🎵 [AudioCacheService] Corrupted Speechify cache file detected: \(url.lastPathComponent)")
+                debugPrint("🎵 [AudioCacheService] Corrupted Speechify cache file detected: \(url.lastPathComponent)")
                 // Remove the corrupted file
                 try? fileManager.removeItem(at: url)
                 return nil
@@ -114,7 +114,7 @@ final class AudioCacheService {
         // Save audio data to file
         try audioData.write(to: cacheURL)
         
-        print("🎵 [AudioCacheService] Cached \(provider.rawValue) audio for '\(text.prefix(50))...' in \(language.rawValue)")
+        debugPrint("🎵 [AudioCacheService] Cached \(provider.rawValue) audio for '\(text.prefix(50))...' in \(language.rawValue)")
         return cacheURL
     }
     
@@ -155,33 +155,33 @@ final class AudioCacheService {
         // Move to permanent cache location
         try fileManager.moveItem(at: tempURL, to: cacheURL)
         
-        print("🎵 [AudioCacheService] Cached Google TTS audio for '\(text.prefix(50))...' in \(language.rawValue)")
+        debugPrint("🎵 [AudioCacheService] Cached Google TTS audio for '\(text.prefix(50))...' in \(language.rawValue)")
         return cacheURL
     }
     
     /// Generates audio using Speechify TTS and saves it to cache
     private func generateSpeechifyTTSAudio(for text: String, language: Language) async throws -> URL {
-        print("🎵 [AudioCacheService] generateSpeechifyTTSAudio() started - Thread: \(Thread.isMainThread ? "Main" : "Background")")
+        debugPrint("🎵 [AudioCacheService] generateSpeechifyTTSAudio() started - Thread: \(Thread.isMainThread ? "Main" : "Background")")
         let cacheURL = cachedAudioURL(for: text, language: language, provider: .speechify)
-        print("🎵 [AudioCacheService] Cache URL: \(cacheURL.lastPathComponent)")
+        debugPrint("🎵 [AudioCacheService] Cache URL: \(cacheURL.lastPathComponent)")
         
         // Check if we have enough characters before making API call
         guard SpeechifyService.shared.canSynthesizeText(text) else {
-            print("🎵 [AudioCacheService] Not enough Speechify characters remaining")
+            debugPrint("🎵 [AudioCacheService] Not enough Speechify characters remaining")
             throw AudioCacheError.characterLimitExceeded
         }
         
         // Use SpeechifyService to generate audio data
-        print("🎵 [AudioCacheService] Calling SpeechifyService.synthesizeText()...")
+        debugPrint("🎵 [AudioCacheService] Calling SpeechifyService.synthesizeText()...")
         let audioData = try await SpeechifyService.shared.synthesizeText(text, language: language)
-        print("🎵 [AudioCacheService] SpeechifyService.synthesizeText() completed, got \(audioData.count) bytes")
+        debugPrint("🎵 [AudioCacheService] SpeechifyService.synthesizeText() completed, got \(audioData.count) bytes")
         
         // Save audio data to cache
-        print("🎵 [AudioCacheService] Writing audio data to cache...")
+        debugPrint("🎵 [AudioCacheService] Writing audio data to cache...")
         try audioData.write(to: cacheURL)
-        print("🎵 [AudioCacheService] Audio data written to cache successfully")
+        debugPrint("🎵 [AudioCacheService] Audio data written to cache successfully")
         
-        print("🎵 [AudioCacheService] Cached Speechify TTS audio for '\(text.prefix(50))...' in \(language.rawValue)")
+        debugPrint("🎵 [AudioCacheService] Cached Speechify TTS audio for '\(text.prefix(50))...' in \(language.rawValue)")
         return cacheURL
     }
     
@@ -192,7 +192,7 @@ final class AudioCacheService {
         for url in contents {
             try fileManager.removeItem(at: url)
         }
-        print("🗑️ [AudioCacheService] Cleared audio cache")
+        debugPrint("🗑️ [AudioCacheService] Cleared audio cache")
     }
     
     /// Clears corrupted Speechify cache files
@@ -210,12 +210,12 @@ final class AudioCacheService {
                     // File is corrupted, remove it
                     try fileManager.removeItem(at: url)
                     removedCount += 1
-                    print("🗑️ [AudioCacheService] Removed corrupted Speechify file: \(url.lastPathComponent)")
+                    debugPrint("🗑️ [AudioCacheService] Removed corrupted Speechify file: \(url.lastPathComponent)")
                 }
             }
         }
         
-        print("🗑️ [AudioCacheService] Removed \(removedCount) corrupted Speechify cache files")
+        debugPrint("🗑️ [AudioCacheService] Removed \(removedCount) corrupted Speechify cache files")
     }
     
     /// Gets the total size of the cache directory

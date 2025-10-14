@@ -146,7 +146,7 @@ struct CardBackView: View {
                       let language = displayLanguage else { return }
                 try await ttsPlayer.play(text, language: language)
             } catch {
-                print("TTS error: \(error)")
+                debugPrint("TTS error: \(error)")
             }
         }
     }

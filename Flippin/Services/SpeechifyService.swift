@@ -90,34 +90,34 @@ final class SpeechifyService: NSObject, ObservableObject {
                 saveSettings()
             }
             
-            print("🎤 Loaded \(voices.count) Speechify voices")
+            debugPrint("🎤 Loaded \(voices.count) Speechify voices")
         } catch {
-            print("❌ Failed to load Speechify voices: \(error)")
+            debugPrint("❌ Failed to load Speechify voices: \(error)")
         }
     }
     
     /// Synthesize text using Speechify TTS and return audio data
     func synthesizeText(_ text: String, language: Language) async throws -> Data {
-        print("🎤 [SpeechifyService] synthesizeText() started - Thread: \(Thread.isMainThread ? "Main" : "Background")")
-        print("🎤 [SpeechifyService] Text: '\(text.prefix(50))...', Language: \(language.rawValue)")
+        debugPrint("🎤 [SpeechifyService] synthesizeText() started - Thread: \(Thread.isMainThread ? "Main" : "Background")")
+        debugPrint("🎤 [SpeechifyService] Text: '\(text.prefix(50))...', Language: \(language.rawValue)")
         
         guard !text.isEmpty else { 
-            print("🎤 [SpeechifyService] Empty text error")
+            debugPrint("🎤 [SpeechifyService] Empty text error")
             throw SpeechifyError.emptyText 
         }
         guard hasEnoughCharacters(for: text) else { 
-            print("🎤 [SpeechifyService] Character limit exceeded")
+            debugPrint("🎤 [SpeechifyService] Character limit exceeded")
             throw SpeechifyError.characterLimitExceeded 
         }
 
         do {
-            print("🎤 [SpeechifyService] Calling synthesizeSpeech()...")
+            debugPrint("🎤 [SpeechifyService] Calling synthesizeSpeech()...")
             let audioData = try await synthesizeSpeech(text: text, language: language)
-            print("🎤 [SpeechifyService] synthesizeSpeech() completed, got \(audioData.count) bytes")
-            print("🎤 [SpeechifyService] Speechify TTS synthesized: \(text.count) characters")
+            debugPrint("🎤 [SpeechifyService] synthesizeSpeech() completed, got \(audioData.count) bytes")
+            debugPrint("🎤 [SpeechifyService] Speechify TTS synthesized: \(text.count) characters")
             return audioData
         } catch {
-            print("❌ [SpeechifyService] Speechify TTS failed: \(error)")
+            debugPrint("❌ [SpeechifyService] Speechify TTS failed: \(error)")
             throw error
         }
     }
@@ -136,7 +136,7 @@ final class SpeechifyService: NSObject, ObservableObject {
             charactersLimit = usage.charactersLimit
             saveUsageToCoreData()
         } catch {
-            print("❌ Failed to fetch usage: \(error)")
+            debugPrint("❌ Failed to fetch usage: \(error)")
         }
     }
     
@@ -166,9 +166,10 @@ final class SpeechifyService: NSObject, ObservableObject {
         return availableVoices.first { $0.id == selectedVoiceId }
     }
     
+    #if DEBUG
     /// Debug method to test API response parsing
     func debugTestAPIResponse(_ text: String, language: Language) async throws {
-        print("🔍 [SpeechifyService] DEBUG: Testing API response parsing...")
+        debugPrint("🔍 [SpeechifyService] DEBUG: Testing API response parsing...")
         
         guard let apiKey = getAPIKey() else {
             throw SpeechifyError.apiKeyNotConfigured
@@ -191,16 +192,17 @@ final class SpeechifyService: NSObject, ObservableObject {
         
         request.httpBody = try JSONEncoder().encode(ttsRequest)
         
-        print("🔍 [SpeechifyService] DEBUG: Making API request...")
+        debugPrint("🔍 [SpeechifyService] DEBUG: Making API request...")
         let (data, response) = try await URLSession.shared.data(for: request)
         
-        print("🔍 [SpeechifyService] DEBUG: Got response with \(data.count) bytes")
-        print("🔍 [SpeechifyService] DEBUG: Response preview: \(String(data: data.prefix(200), encoding: .utf8) ?? "Invalid UTF-8")")
+        debugPrint("🔍 [SpeechifyService] DEBUG: Got response with \(data.count) bytes")
+        debugPrint("🔍 [SpeechifyService] DEBUG: Response preview: \(String(data: data.prefix(200), encoding: .utf8) ?? "Invalid UTF-8")")
         
         if let httpResponse = response as? HTTPURLResponse {
-            print("🔍 [SpeechifyService] DEBUG: HTTP status: \(httpResponse.statusCode)")
+            debugPrint("🔍 [SpeechifyService] DEBUG: HTTP status: \(httpResponse.statusCode)")
         }
     }
+    #endif
     
     // MARK: - Private Methods
     
@@ -209,14 +211,14 @@ final class SpeechifyService: NSObject, ObservableObject {
     }
 
     private func synthesizeSpeech(text: String, language: Language) async throws -> Data {
-        print("🎤 [SpeechifyService] synthesizeSpeech() started - Thread: \(Thread.isMainThread ? "Main" : "Background")")
+        debugPrint("🎤 [SpeechifyService] synthesizeSpeech() started - Thread: \(Thread.isMainThread ? "Main" : "Background")")
         
         guard let apiKey = getAPIKey() else {
-            print("🎤 [SpeechifyService] API key not configured")
+            debugPrint("🎤 [SpeechifyService] API key not configured")
             throw SpeechifyError.apiKeyNotConfigured
         }
         
-        print("🎤 [SpeechifyService] API key found, creating request...")
+        debugPrint("🎤 [SpeechifyService] API key found, creating request...")
         let url = URL(string: "\(baseURL)/v1/audio/speech")!
         var request = URLRequest(url: url, cachePolicy: cachePolicy)
         request.httpMethod = "POST"
@@ -232,10 +234,10 @@ final class SpeechifyService: NSObject, ObservableObject {
             model: "simba-multilingual"
         )
         
-        print("🎤 [SpeechifyService] Encoding request body...")
+        debugPrint("🎤 [SpeechifyService] Encoding request body...")
         request.httpBody = try JSONEncoder().encode(ttsRequest)
         
-        print("🎤 [SpeechifyService] Making API request to Speechify...")
+        debugPrint("🎤 [SpeechifyService] Making API request to Speechify...")
         
         // Add timeout protection to prevent UI freezing
         let (data, response) = try await withThrowingTaskGroup(of: (Data, URLResponse).self) { group in
@@ -255,23 +257,23 @@ final class SpeechifyService: NSObject, ObservableObject {
             group.cancelAll()
             return result
         }
-        print("🎤 [SpeechifyService] API request completed, got \(data.count) bytes")
+        debugPrint("🎤 [SpeechifyService] API request completed, got \(data.count) bytes")
         
         guard let httpResponse = response as? HTTPURLResponse,
               httpResponse.statusCode == 200 else {
-            print("🎤 [SpeechifyService] API request failed with status: \((response as? HTTPURLResponse)?.statusCode ?? -1)")
+            debugPrint("🎤 [SpeechifyService] API request failed with status: \((response as? HTTPURLResponse)?.statusCode ?? -1)")
             throw SpeechifyError.apiError("Failed to synthesize speech")
         }
         
-        print("🎤 [SpeechifyService] Decoding response...")
-        print("🎤 [SpeechifyService] Response data size: \(data.count) bytes")
+        debugPrint("🎤 [SpeechifyService] Decoding response...")
+        debugPrint("🎤 [SpeechifyService] Response data size: \(data.count) bytes")
         
         let ttsResponse: SpeechifyTTSResponse
         do {
             ttsResponse = try JSONDecoder().decode(SpeechifyTTSResponse.self, from: data)
         } catch {
-            print("🎤 [SpeechifyService] JSON decode failed: \(error)")
-            print("🎤 [SpeechifyService] Response preview: \(String(data: data.prefix(200), encoding: .utf8) ?? "Invalid UTF-8")")
+            debugPrint("🎤 [SpeechifyService] JSON decode failed: \(error)")
+            debugPrint("🎤 [SpeechifyService] Response preview: \(String(data: data.prefix(200), encoding: .utf8) ?? "Invalid UTF-8")")
             throw SpeechifyError.apiError("Failed to decode API response: \(error.localizedDescription)")
         }
         
@@ -283,21 +285,21 @@ final class SpeechifyService: NSObject, ObservableObject {
         
         // Decode base64 audio data
         guard let audioData = Data(base64Encoded: ttsResponse.audioData) else {
-            print("🎤 [SpeechifyService] Base64 decode failed for audio data")
-            print("🎤 [SpeechifyService] Audio data string length: \(ttsResponse.audioData.count)")
-            print("🎤 [SpeechifyService] Audio data preview: \(ttsResponse.audioData.prefix(100))")
+            debugPrint("🎤 [SpeechifyService] Base64 decode failed for audio data")
+            debugPrint("🎤 [SpeechifyService] Audio data string length: \(ttsResponse.audioData.count)")
+            debugPrint("🎤 [SpeechifyService] Audio data preview: \(ttsResponse.audioData.prefix(100))")
             throw SpeechifyError.apiError("Failed to decode base64 audio data")
         }
         
-        print("🎤 [SpeechifyService] Audio format: \(ttsResponse.audioFormat), Size: \(audioData.count) bytes")
+        debugPrint("🎤 [SpeechifyService] Audio format: \(ttsResponse.audioFormat), Size: \(audioData.count) bytes")
         
         // Try to validate the audio data
         do {
             let testPlayer = try AVAudioPlayer(data: audioData)
-            print("🎤 [SpeechifyService] Audio data validation successful")
+            debugPrint("🎤 [SpeechifyService] Audio data validation successful")
             return audioData
         } catch {
-            print("🎤 [SpeechifyService] Audio data validation failed: \(error)")
+            debugPrint("🎤 [SpeechifyService] Audio data validation failed: \(error)")
             // Try to convert the audio format if possible
             return try await convertAudioFormat(audioData, from: ttsResponse.audioFormat)
         }
@@ -326,7 +328,7 @@ final class SpeechifyService: NSObject, ObservableObject {
     
     /// Converts audio data to a format compatible with AVAudioPlayer
     private func convertAudioFormat(_ audioData: Data, from format: String) async throws -> Data {
-        print("🎤 [SpeechifyService] Attempting to convert audio from \(format) to compatible format")
+        debugPrint("🎤 [SpeechifyService] Attempting to convert audio from \(format) to compatible format")
         
         // For now, we'll try to save the audio to a temporary file and re-read it
         // This sometimes helps with format issues
@@ -338,14 +340,14 @@ final class SpeechifyService: NSObject, ObservableObject {
             
             // Try to read it back with AVAudioPlayer
             let convertedPlayer = try AVAudioPlayer(contentsOf: tempURL)
-            print("🎤 [SpeechifyService] Audio conversion successful")
+            debugPrint("🎤 [SpeechifyService] Audio conversion successful")
             
             // Clean up temp file
             try? FileManager.default.removeItem(at: tempURL)
             
             return audioData // Return original data if file-based player works
         } catch {
-            print("🎤 [SpeechifyService] Audio conversion failed: \(error)")
+            debugPrint("🎤 [SpeechifyService] Audio conversion failed: \(error)")
             
             // Clean up temp file
             try? FileManager.default.removeItem(at: tempURL)
@@ -415,13 +417,13 @@ final class SpeechifyService: NSObject, ObservableObject {
         charactersLimit = Int(currentUsage.charactersLimit)
         listeningTimeMinutes = currentUsage.listeningTimeMinutes
         
-        print("📱 Loaded Speechify usage from Core Data - Characters: \(charactersUsed), Listening: \(listeningTimeMinutes) minutes")
+        debugPrint("📱 Loaded Speechify usage from Core Data - Characters: \(charactersUsed), Listening: \(listeningTimeMinutes) minutes")
     }
     
     private func saveUsageToCoreData() {
         // Check if we're already in a save context to prevent recursive saves
         guard !coreDataService.context.hasChanges else {
-            print("⚠️ Core Data context already has changes, skipping save to prevent recursion")
+            debugPrint("⚠️ Core Data context already has changes, skipping save to prevent recursion")
             return
         }
         
@@ -432,20 +434,20 @@ final class SpeechifyService: NSObject, ObservableObject {
         
         // Validate the object before saving
         guard currentUsage.id != nil && currentUsage.month != nil && currentUsage.resetDate != nil else {
-            print("❌ Cannot save SpeechifyUsage - required properties are nil")
+            debugPrint("❌ Cannot save SpeechifyUsage - required properties are nil")
             return
         }
         
         do {
             try coreDataService.saveContext()
-            print("💾 Saved Speechify usage to Core Data")
+            debugPrint("💾 Saved Speechify usage to Core Data")
             
             // Force CloudKit sync check
             DispatchQueue.global(qos: .background).async {
                 self.coreDataService.checkCloudKitSync()
             }
         } catch {
-            print("❌ Failed to save Speechify usage: \(error)")
+            debugPrint("❌ Failed to save Speechify usage: \(error)")
             // Don't throw the error to prevent app crashes
         }
     }
@@ -468,7 +470,7 @@ final class SpeechifyService: NSObject, ObservableObject {
             
             // If we have multiple records for the same month, merge them and keep the oldest one
             if results.count > 1 {
-                print("⚠️ Found \(results.count) SpeechifyUsage records for \(monthString) \(year), merging...")
+                debugPrint("⚠️ Found \(results.count) SpeechifyUsage records for \(monthString) \(year), merging...")
                 
                 let oldestRecord = results.last!
                 var totalCharactersUsed: Int32 = 0
@@ -481,7 +483,7 @@ final class SpeechifyService: NSObject, ObservableObject {
                     // Delete duplicate records (keep the oldest one)
                     if record != oldestRecord {
                         coreDataService.context.delete(record)
-                        print("🗑️ Deleting duplicate record: \(record.id ?? "unknown")")
+                        debugPrint("🗑️ Deleting duplicate record: \(record.id ?? "unknown")")
                     }
                 }
                 
@@ -490,14 +492,14 @@ final class SpeechifyService: NSObject, ObservableObject {
                 oldestRecord.listeningTimeMinutes = totalListeningTime
                 
                 try coreDataService.saveContext()
-                print("✅ Merged \(results.count) records into one for \(monthString) \(year)")
+                debugPrint("✅ Merged \(results.count) records into one for \(monthString) \(year)")
                 
                 return oldestRecord
             } else if let existingUsage = results.first {
                 return existingUsage
             }
         } catch {
-            print("❌ Failed to fetch Speechify usage: \(error)")
+            debugPrint("❌ Failed to fetch Speechify usage: \(error)")
         }
         
         // Create new usage record for current month - ensure all required properties are set
@@ -512,16 +514,16 @@ final class SpeechifyService: NSObject, ObservableObject {
         
         // Validate the object before saving
         guard newUsage.id != nil && newUsage.month != nil && newUsage.resetDate != nil else {
-            print("❌ Failed to create SpeechifyUsage - required properties are nil")
+            debugPrint("❌ Failed to create SpeechifyUsage - required properties are nil")
             // Return a fallback usage object
             return createFallbackUsageRecord(month: monthString, year: Int32(year))
         }
         
         do {
             try coreDataService.saveContext()
-            print("✅ Created new Speechify usage record for \(monthString) \(year)")
+            debugPrint("✅ Created new Speechify usage record for \(monthString) \(year)")
         } catch {
-            print("❌ Failed to create Speechify usage record: \(error)")
+            debugPrint("❌ Failed to create Speechify usage record: \(error)")
             // Return fallback if save fails
             return createFallbackUsageRecord(month: monthString, year: Int32(year))
         }
@@ -540,7 +542,7 @@ final class SpeechifyService: NSObject, ObservableObject {
         fallback.listeningTimeMinutes = 0.0
         fallback.resetDate = Date()
         
-        print("⚠️ Created fallback SpeechifyUsage record for \(month) \(year)")
+        debugPrint("⚠️ Created fallback SpeechifyUsage record for \(month) \(year)")
         return fallback
     }
     
@@ -552,9 +554,9 @@ final class SpeechifyService: NSObject, ObservableObject {
         
         do {
             try coreDataService.saveContext()
-            print("🔄 Reset Speechify usage for current month")
+            debugPrint("🔄 Reset Speechify usage for current month")
         } catch {
-            print("❌ Failed to reset Speechify usage: \(error)")
+            debugPrint("❌ Failed to reset Speechify usage: \(error)")
         }
     }
     
@@ -568,21 +570,21 @@ final class SpeechifyService: NSObject, ObservableObject {
     /// Debug: Print current usage data for troubleshooting
     func debugCurrentUsage() {
         let currentUsage = getCurrentMonthUsage()
-        print("🔍 Debug - Current Speechify Usage:")
-        print("   ID: \(currentUsage.id ?? "nil")")
-        print("   Month: \(currentUsage.month ?? "nil")")
-        print("   Year: \(currentUsage.year)")
-        print("   Characters Used: \(currentUsage.charactersUsed)")
-        print("   Characters Limit: \(currentUsage.charactersLimit)")
-        print("   Listening Time: \(currentUsage.listeningTimeMinutes) minutes")
-        print("   Reset Date: \(currentUsage.resetDate?.description ?? "nil")")
-        print("   Published Values - Characters: \(charactersUsed), Listening: \(listeningTimeMinutes)")
+        debugPrint("🔍 Debug - Current Speechify Usage:")
+        debugPrint("   ID: \(currentUsage.id ?? "nil")")
+        debugPrint("   Month: \(currentUsage.month ?? "nil")")
+        debugPrint("   Year: \(currentUsage.year)")
+        debugPrint("   Characters Used: \(currentUsage.charactersUsed)")
+        debugPrint("   Characters Limit: \(currentUsage.charactersLimit)")
+        debugPrint("   Listening Time: \(currentUsage.listeningTimeMinutes) minutes")
+        debugPrint("   Reset Date: \(currentUsage.resetDate?.description ?? "nil")")
+        debugPrint("   Published Values - Characters: \(charactersUsed), Listening: \(listeningTimeMinutes)")
     }
     
     /// Refresh usage data from CoreData (useful for checking sync)
     func refreshUsageFromCoreData() {
         loadUsageFromCoreData()
-        print("🔄 Refreshed Speechify usage from Core Data")
+        debugPrint("🔄 Refreshed Speechify usage from Core Data")
     }
     
     /// Clean up duplicate records (run this once to fix existing duplicates)
@@ -601,7 +603,7 @@ final class SpeechifyService: NSObject, ObservableObject {
             let results = try coreDataService.context.fetch(fetchRequest)
             
             if results.count > 1 {
-                print("🧹 Cleaning up \(results.count) duplicate records for \(monthString) \(year)")
+                debugPrint("🧹 Cleaning up \(results.count) duplicate records for \(monthString) \(year)")
                 
                 let oldestRecord = results.last!
                 var totalCharactersUsed: Int32 = 0
@@ -613,7 +615,7 @@ final class SpeechifyService: NSObject, ObservableObject {
                     
                     if record != oldestRecord {
                         coreDataService.context.delete(record)
-                        print("🗑️ Deleted duplicate: \(record.id ?? "unknown")")
+                        debugPrint("🗑️ Deleted duplicate: \(record.id ?? "unknown")")
                     }
                 }
                 
@@ -621,15 +623,15 @@ final class SpeechifyService: NSObject, ObservableObject {
                 oldestRecord.listeningTimeMinutes = totalListeningTime
                 
                 try coreDataService.saveContext()
-                print("✅ Cleanup complete - merged into one record")
+                debugPrint("✅ Cleanup complete - merged into one record")
                 
                 // Refresh the published values
                 loadUsageFromCoreData()
             } else {
-                print("✅ No duplicate records found")
+                debugPrint("✅ No duplicate records found")
             }
         } catch {
-            print("❌ Failed to cleanup duplicates: \(error)")
+            debugPrint("❌ Failed to cleanup duplicates: \(error)")
         }
     }
     
@@ -656,7 +658,7 @@ final class SpeechifyService: NSObject, ObservableObject {
                         history.append(usage)
                     }
                 } catch {
-                    print("❌ Failed to fetch usage history: \(error)")
+                    debugPrint("❌ Failed to fetch usage history: \(error)")
                 }
             }
         }

@@ -20,10 +20,10 @@ extension WelcomeSheet {
                     // App icon and title
                     VStack(spacing: 24) {
                         // Animated app icon
-                        Image(.iconRounded)
+                        AppIcon.current.image
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 144, height: 144)
+                            .frame(width: 128, height: 128)
                             .foregroundStyle(.white)
                             .scaleEffect(animateContent ? 1 : 0.8)
                             .opacity(animateContent ? 1 : 0)

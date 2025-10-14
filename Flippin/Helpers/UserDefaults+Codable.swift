@@ -31,12 +31,12 @@ extension UserDefaults {
         do {
             try setCodable(object, forKey: key)
         } catch {
-            print("Failed to encode object for key '\(key)': \(error)")
+            debugPrint("Failed to encode object for key '\(key)': \(error)")
             // Try to encode the default value as fallback
             do {
                 try setCodable(`default`, forKey: key)
             } catch {
-                print("Failed to encode default object for key '\(key)': \(error)")
+                debugPrint("Failed to encode default object for key '\(key)': \(error)")
             }
         }
     }
@@ -52,7 +52,7 @@ extension UserDefaults {
         do {
             return try JSONDecoder().decode(type, from: data)
         } catch {
-            print("Failed to decode object of type \(type) for key '\(key)': \(error)")
+            debugPrint("Failed to decode object of type \(type) for key '\(key)': \(error)")
             return nil
         }
     }

@@ -30,7 +30,7 @@ final class AICoachService: ObservableObject {
         }
         UserDefaults.standard.set(lastInsightDate, forKey: UserDefaultsKey.lastCoachInsightDate)
         
-        print("✅ Saved coach insight: \(insight.title)")
+        debugPrint("✅ Saved coach insight: \(insight.title)")
     }
     
     /// Check if insights should be refreshed (once per day)
@@ -75,7 +75,7 @@ final class AICoachService: ObservableObject {
         UserDefaults.standard.removeObject(forKey: UserDefaultsKey.lastCoachInsight)
         UserDefaults.standard.removeObject(forKey: UserDefaultsKey.lastCoachInsightDate)
         
-        print("🗑️ Cleared coach insights")
+        debugPrint("🗑️ Cleared coach insights")
     }
     
     // MARK: - Private Methods
@@ -90,7 +90,7 @@ final class AICoachService: ObservableObject {
         if let data = UserDefaults.standard.data(forKey: UserDefaultsKey.lastCoachInsight),
            let insight = try? JSONDecoder().decode(CoachInsight.self, from: data) {
             lastInsight = insight
-            print("📖 Loaded coach insight: \(insight.title)")
+            debugPrint("📖 Loaded coach insight: \(insight.title)")
         }
     }
 }

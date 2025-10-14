@@ -76,7 +76,7 @@ final class AddCardSheetViewModel: ObservableObject {
             // Track successful translation
             AnalyticsService.trackEvent(.translationCompleted)
         } catch {
-            print("Translation failed: \(error)")
+            debugPrint("Translation failed: \(error)")
             AnalyticsService.trackErrorEvent(.translationFailed, errorMessage: error.localizedDescription)
         }
 

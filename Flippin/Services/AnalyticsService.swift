@@ -119,7 +119,7 @@ final class AnalyticsService {
     /// - Parameter event: The analytics event to track
     static func trackEvent(_ event: AnalyticsEvent) {
         Analytics.logEvent(event.rawValue, parameters: nil)
-        print("📊 Analytics: \(event.rawValue)")
+        debugPrint("📊 Analytics: \(event.rawValue)")
     }
 
     /// Track an event with parameters
@@ -128,7 +128,7 @@ final class AnalyticsService {
     ///   - parameters: Additional parameters to include with the event
     static func trackEvent(_ event: AnalyticsEvent, parameters: [String: Any]) {
         Analytics.logEvent(event.rawValue, parameters: parameters)
-        print("📊 Analytics: \(event.rawValue) with parameters: \(parameters)")
+        debugPrint("📊 Analytics: \(event.rawValue) with parameters: \(parameters)")
     }
 
     /// Track card-related events with card information

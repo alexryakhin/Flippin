@@ -42,7 +42,7 @@ final class NotificationService: NSObject, ObservableObject, UNUserNotificationC
             }
             return granted
         } catch {
-            print("❌ Failed to request notification permission: \(error)")
+            debugPrint("❌ Failed to request notification permission: \(error)")
             return false
         }
     }
@@ -82,7 +82,7 @@ final class NotificationService: NSObject, ObservableObject, UNUserNotificationC
                 }
                 AnalyticsService.trackEvent(.difficultCardRemindersEnabled)
                 // Schedule immediately if there are difficult cards
-                let difficultCards = LearningAnalyticsService.shared.getDifficultCardsNeedingReview()
+                let difficultCards = await LearningAnalyticsService.shared.getDifficultCardsNeedingReview()
                 if !difficultCards.isEmpty {
                     scheduleDifficultCardReminder()
                 }
@@ -101,23 +101,25 @@ final class NotificationService: NSObject, ObservableObject, UNUserNotificationC
 
     /// Schedule notifications when user leaves app
     func scheduleNotificationsWhenLeavingApp() {
-        // Schedule study reminder daily if enabled
-        if isStudyRemindersEnabled && hasNotificationPermission {
-            cancelStudyReminder()
-            scheduleStudyReminder()
-        }
-        
-        // Schedule difficult card reminder if enabled and user has difficult cards
+        // Only reschedule difficult card reminder when leaving app (to check current difficult cards)
+        // Study reminder is already scheduled with repeats: true, so no need to reschedule
         if isDifficultCardRemindersEnabled && hasNotificationPermission {
             Task { @MainActor in
                 let difficultCards = LearningAnalyticsService.shared.getDifficultCardsNeedingReview()
                 
                 if !difficultCards.isEmpty {
-                    cancelDifficultCardReminder()
-                    scheduleDifficultCardReminder()
-                    AnalyticsService.trackEvent(.difficultCardReminderScheduled, parameters: [
-                        "difficult_cards_count": difficultCards.count
-                    ])
+                    // Only schedule if not already scheduled
+                    let requests = await UNUserNotificationCenter.current().pendingNotificationRequests()
+                    let hasDifficultCardReminder = requests.contains { $0.identifier == self.difficultCardReminderIdentifier }
+                    if !hasDifficultCardReminder {
+                        DispatchQueue.main.async { [weak self] in
+                            guard let self else { return }
+                            scheduleDifficultCardReminder()
+                            AnalyticsService.trackEvent(.difficultCardReminderScheduled, parameters: [
+                                "difficult_cards_count": difficultCards.count
+                            ])
+                        }
+                    }
                 } else {
                     // Cancel if no difficult cards
                     cancelDifficultCardReminder()
@@ -162,9 +164,9 @@ final class NotificationService: NSObject, ObservableObject, UNUserNotificationC
 
         UNUserNotificationCenter.current().add(request) { error in
             if let error = error {
-                print("❌ Failed to schedule study reminder: \(error)")
+                debugPrint("❌ Failed to schedule study reminder: \(error)")
             } else {
-                print("✅ Study reminder scheduled daily at \(hour):\(String(format: "%02d", minute))")
+                debugPrint("✅ Study reminder scheduled daily at \(hour):\(String(format: "%02d", minute))")
             }
         }
     }
@@ -189,9 +191,9 @@ final class NotificationService: NSObject, ObservableObject, UNUserNotificationC
 
         UNUserNotificationCenter.current().add(request) { error in
             if let error = error {
-                print("❌ Failed to schedule difficult card reminder: \(error)")
+                debugPrint("❌ Failed to schedule difficult card reminder: \(error)")
             } else {
-                print("✅ Difficult card reminder scheduled for \(hour):\(String(format: "%02d", minute)) daily")
+                debugPrint("✅ Difficult card reminder scheduled for \(hour):\(String(format: "%02d", minute)) daily")
             }
         }
     }

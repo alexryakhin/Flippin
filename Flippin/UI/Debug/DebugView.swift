@@ -240,7 +240,7 @@ struct DebugView: View {
                     do {
                         try AudioCacheService.shared.clearCache()
                     } catch {
-                        print("Failed to clear audio cache: \(error)")
+                        debugPrint("Failed to clear audio cache: \(error)")
                     }
                 }
 
@@ -248,7 +248,7 @@ struct DebugView: View {
                     do {
                         try ImageCacheService.shared.clearCache()
                     } catch {
-                        print("Failed to clear image cache: \(error)")
+                        debugPrint("Failed to clear image cache: \(error)")
                     }
                 }
 
@@ -279,12 +279,12 @@ struct DebugView: View {
             notes: "Debug test card",
             tags: []
         )
-        print("🔧 Added test card")
+        debugPrint("🔧 Added test card")
     }
 
     private func clearAllCards() {
         cardsProvider.deleteAllCards()
-        print("🔧 Cleared all cards")
+        debugPrint("🔧 Cleared all cards")
     }
     
     // MARK: - Remote Config Section

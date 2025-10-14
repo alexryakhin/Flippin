@@ -80,7 +80,7 @@ final class CardsProvider: ObservableObject {
     private func checkForCloudKitData() {
         // Only check once if cards are empty at startup
         if cards.isEmpty {
-            print("🔄 No cards found at startup, checking CloudKit sync...")
+            debugPrint("🔄 No cards found at startup, checking CloudKit sync...")
             coreDataService.checkCloudKitSync()
             
             // Try fetching again after a delay
@@ -97,7 +97,7 @@ final class CardsProvider: ObservableObject {
             request.sortDescriptors = [NSSortDescriptor(keyPath: \CardItem.timestamp, ascending: true)]
             let fetchedCards = try coreDataService.context.fetch(request)
             cards = fetchedCards
-            print("📱 Fetched \(fetchedCards.count) cards from Core Data")
+            debugPrint("📱 Fetched \(fetchedCards.count) cards from Core Data")
         } catch {
             errorPublisher.send(error)
         }
@@ -143,7 +143,7 @@ final class CardsProvider: ObservableObject {
         if let imageUrl = imageUrl, let imageCacheURL = imageCacheURL {
             card.imageURL = imageUrl // Web URL for fallback
             card.imageCacheURL = imageCacheURL // Local path for cache
-            print("🖼️ [CardsProvider] Image attached to card - URL: \(imageUrl), Cache: \(imageCacheURL)")
+            debugPrint("🖼️ [CardsProvider] Image attached to card - URL: \(imageUrl), Cache: \(imageCacheURL)")
         }
         
         saveContext()
@@ -194,9 +194,9 @@ final class CardsProvider: ObservableObject {
         if let imageCacheURL = card.imageCacheURL, !imageCacheURL.isEmpty {
             do {
                 try PexelsService.shared.deleteImage(at: imageCacheURL)
-                print("🗑️ [CardsProvider] Deleted cached image: \(imageCacheURL)")
+                debugPrint("🗑️ [CardsProvider] Deleted cached image: \(imageCacheURL)")
             } catch {
-                print("⚠️ [CardsProvider] Failed to delete cached image: \(error)")
+                debugPrint("⚠️ [CardsProvider] Failed to delete cached image: \(error)")
                 // Continue with card deletion even if image cleanup fails
             }
         }
@@ -217,9 +217,9 @@ final class CardsProvider: ObservableObject {
             if let imageCacheURL = card.imageCacheURL, !imageCacheURL.isEmpty {
                 do {
                     try PexelsService.shared.deleteImage(at: imageCacheURL)
-                    print("🗑️ [CardsProvider] Deleted cached image: \(imageCacheURL)")
+                    debugPrint("🗑️ [CardsProvider] Deleted cached image: \(imageCacheURL)")
                 } catch {
-                    print("⚠️ [CardsProvider] Failed to delete cached image: \(error)")
+                    debugPrint("⚠️ [CardsProvider] Failed to delete cached image: \(error)")
                     // Continue with deletion even if image cleanup fails
                 }
             }
@@ -284,13 +284,13 @@ final class CardsProvider: ObservableObject {
                    (card.frontAudioURL == nil || card.backAudioURL == nil)
         }
         
-        print("🎵 [CardsProvider] Caching audio for \(cardsNeedingAudio.count) cards...")
+        debugPrint("🎵 [CardsProvider] Caching audio for \(cardsNeedingAudio.count) cards...")
         
         for card in cardsNeedingAudio {
             await cacheAudioForCard(card)
         }
         
-        print("✅ [CardsProvider] Finished caching audio for all cards")
+        debugPrint("✅ [CardsProvider] Finished caching audio for all cards")
     }
     
     /// Caches audio for both front and back text of a card
@@ -310,9 +310,9 @@ final class CardsProvider: ObservableObject {
             do {
                 let frontAudioURL = try await audioCacheService.cacheAudio(for: frontText, language: frontLanguage, provider: provider)
                 card.frontAudioURL = frontAudioURL.path
-                print("🎵 [CardsProvider] Cached front audio (\(provider.rawValue)) for card: \(frontText.prefix(30))...")
+                debugPrint("🎵 [CardsProvider] Cached front audio (\(provider.rawValue)) for card: \(frontText.prefix(30))...")
             } catch {
-                print("❌ [CardsProvider] Failed to cache front audio: \(error)")
+                debugPrint("❌ [CardsProvider] Failed to cache front audio: \(error)")
             }
         }
         
@@ -321,9 +321,9 @@ final class CardsProvider: ObservableObject {
             do {
                 let backAudioURL = try await audioCacheService.cacheAudio(for: backText, language: backLanguage, provider: provider)
                 card.backAudioURL = backAudioURL.path
-                print("🎵 [CardsProvider] Cached back audio (\(provider.rawValue)) for card: \(backText.prefix(30))...")
+                debugPrint("🎵 [CardsProvider] Cached back audio (\(provider.rawValue)) for card: \(backText.prefix(30))...")
             } catch {
-                print("❌ [CardsProvider] Failed to cache back audio: \(error)")
+                debugPrint("❌ [CardsProvider] Failed to cache back audio: \(error)")
             }
         }
         

@@ -30,7 +30,7 @@ final class TranslationService {
            let firstTranslation = translations.first,
            let translated = firstTranslation.first as? String,
            let detectedLanguage = jsonArray[2] as? String {
-            print("Detected language:", detectedLanguage)
+            debugPrint("Detected language:", detectedLanguage)
             return translated
         }
         AnalyticsService.trackErrorEvent(.translationFailed, errorMessage: "Decoding error")

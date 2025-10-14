@@ -33,27 +33,27 @@ final class TTSPlayer: NSObject, ObservableObject {
             do {
                 try audioCacheService.clearCorruptedSpeechifyCache()
             } catch {
-                print("Failed to clear corrupted Speechify cache on startup: \(error)")
+                debugPrint("Failed to clear corrupted Speechify cache on startup: \(error)")
             }
         }
     }
 
     func play(_ text: String, language: Language) async throws {
-        print("🎵 [TTSPlayer] Starting play() - Thread: \(Thread.isMainThread ? "Main" : "Background")")
+        debugPrint("🎵 [TTSPlayer] Starting play() - Thread: \(Thread.isMainThread ? "Main" : "Background")")
         guard !text.isEmpty else { return }
 
         // Try Speechify first for premium users
         if purchaseService.hasPremiumAccess {
-            print("🎵 [TTSPlayer] Premium user detected, trying Speechify first")
+            debugPrint("🎵 [TTSPlayer] Premium user detected, trying Speechify first")
             
             // Check for cached Speechify audio first
             if let cachedAudioURL = audioCacheService.getCachedAudioURL(for: text, language: language, provider: .speechify) {
-                print("🎵 [TTSPlayer] Found cached Speechify audio, playing immediately")
+                debugPrint("🎵 [TTSPlayer] Found cached Speechify audio, playing immediately")
                 try await playCachedAudio(from: cachedAudioURL)
                 return
             }
             
-            print("🎵 [TTSPlayer] No cached Speechify audio, generating new...")
+            debugPrint("🎵 [TTSPlayer] No cached Speechify audio, generating new...")
             // Try to generate and cache Speechify audio with timeout protection
             do {
                 try await withThrowingTaskGroup(of: Void.self) { group in
@@ -69,27 +69,27 @@ final class TTSPlayer: NSObject, ObservableObject {
                     try await group.next()
                     group.cancelAll()
                 }
-                print("🎵 [TTSPlayer] Speechify TTS completed successfully")
+                debugPrint("🎵 [TTSPlayer] Speechify TTS completed successfully")
                 return
             } catch {
-                print("🎤 [TTSPlayer] Speechify TTS failed, falling back to Google TTS: \(error)")
+                debugPrint("🎤 [TTSPlayer] Speechify TTS failed, falling back to Google TTS: \(error)")
             }
         }
         
-        print("🎵 [TTSPlayer] Trying Google TTS fallback")
+        debugPrint("🎵 [TTSPlayer] Trying Google TTS fallback")
         // Check for cached Google TTS audio
         if let cachedAudioURL = audioCacheService.getCachedAudioURL(for: text, language: language, provider: .google) {
-            print("🎵 [TTSPlayer] Found cached Google audio, playing immediately")
+            debugPrint("🎵 [TTSPlayer] Found cached Google audio, playing immediately")
             try await playCachedAudio(from: cachedAudioURL)
             return
         }
         
         // Try Google TTS, fallback to offline if it fails
         do {
-            print("🎵 [TTSPlayer] Generating new Google TTS audio...")
+            debugPrint("🎵 [TTSPlayer] Generating new Google TTS audio...")
             try await playOnlineTTS(text, language: language)
         } catch {
-            print("🎵 [TTSPlayer] Google TTS failed, falling back to offline TTS")
+            debugPrint("🎵 [TTSPlayer] Google TTS failed, falling back to offline TTS")
             // Fallback to offline TTS
             try await playOfflineTTS(text, language: language)
         }
@@ -110,19 +110,20 @@ final class TTSPlayer: NSObject, ObservableObject {
         }
     }
     
+    #if DEBUG
     /// Debug method to test Speechify TTS without caching
     func debugTestSpeechify(_ text: String, language: Language) async throws {
-        print("🔍 [TTSPlayer] DEBUG: Testing Speechify TTS directly...")
-        print("🔍 [TTSPlayer] DEBUG: Thread: \(Thread.isMainThread ? "Main" : "Background")")
+        debugPrint("🔍 [TTSPlayer] DEBUG: Testing Speechify TTS directly...")
+        debugPrint("🔍 [TTSPlayer] DEBUG: Thread: \(Thread.isMainThread ? "Main" : "Background")")
         
         do {
             let audioData = try await SpeechifyService.shared.synthesizeText(text, language: language)
-            print("🔍 [TTSPlayer] DEBUG: Speechify synthesis successful, got \(audioData.count) bytes")
+            debugPrint("🔍 [TTSPlayer] DEBUG: Speechify synthesis successful, got \(audioData.count) bytes")
             
             // Save to temporary file first (this often fixes format issues)
             let tempURL = FileManager.default.temporaryDirectory.appendingPathComponent("debug_speechify_\(UUID().uuidString).mp3")
             try audioData.write(to: tempURL)
-            print("🔍 [TTSPlayer] DEBUG: Saved audio to temp file: \(tempURL.lastPathComponent)")
+            debugPrint("🔍 [TTSPlayer] DEBUG: Saved audio to temp file: \(tempURL.lastPathComponent)")
             
             // Play from file instead of data
             player = try AVAudioPlayer(contentsOf: tempURL)
@@ -134,18 +135,18 @@ final class TTSPlayer: NSObject, ObservableObject {
                 isPlaying = true
             }
             
-            print("🔍 [TTSPlayer] DEBUG: Audio playback started from file")
+            debugPrint("🔍 [TTSPlayer] DEBUG: Audio playback started from file")
             
             // Clean up temp file after a delay
             DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
                 try? FileManager.default.removeItem(at: tempURL)
             }
         } catch {
-            print("🔍 [TTSPlayer] DEBUG: Speechify test failed: \(error)")
+            debugPrint("🔍 [TTSPlayer] DEBUG: Speechify test failed: \(error)")
             throw error
         }
     }
-    
+    #endif
     
     /// Check if we can use Speechify for the given text without making an API call
     func canUseSpeechify(for text: String) -> Bool {
@@ -190,7 +191,7 @@ final class TTSPlayer: NSObject, ObservableObject {
             isPlaying = true
         }
         
-        print("🎵 [TTSPlayer] Playing cached audio from file: \(url.lastPathComponent)")
+        debugPrint("🎵 [TTSPlayer] Playing cached audio from file: \(url.lastPathComponent)")
         try await play(from: url)
     }
     
@@ -209,39 +210,39 @@ final class TTSPlayer: NSObject, ObservableObject {
             
             // Save the updated card to Core Data
             try CoreDataService.shared.saveContext()
-            print("🎵 [TTSPlayer] Updated card with cached audio URL: \(text.prefix(30))...")
+            debugPrint("🎵 [TTSPlayer] Updated card with cached audio URL: \(text.prefix(30))...")
         }
     }
     
     // MARK: - Speechify TTS
     
     private func playSpeechifyTTS(_ text: String, language: Language) async throws {
-        print("🎤 [TTSPlayer] playSpeechifyTTS() started - Thread: \(Thread.isMainThread ? "Main" : "Background")")
+        debugPrint("🎤 [TTSPlayer] playSpeechifyTTS() started - Thread: \(Thread.isMainThread ? "Main" : "Background")")
         
         // Use AudioCacheService to get or create cached Speechify audio
-        print("🎤 [TTSPlayer] Calling AudioCacheService.cacheAudio() for Speechify...")
+        debugPrint("🎤 [TTSPlayer] Calling AudioCacheService.cacheAudio() for Speechify...")
         let cachedURL = try await audioCacheService.cacheAudio(for: text, language: language, provider: .speechify)
-        print("🎤 [TTSPlayer] AudioCacheService.cacheAudio() completed, got URL: \(cachedURL.lastPathComponent)")
+        debugPrint("🎤 [TTSPlayer] AudioCacheService.cacheAudio() completed, got URL: \(cachedURL.lastPathComponent)")
         
         guard player?.isPlaying == false || player == nil else { 
-            print("🎤 [TTSPlayer] Player already playing, throwing error")
+            debugPrint("🎤 [TTSPlayer] Player already playing, throwing error")
             throw TTSError.alreadyPlaying 
         }
 
-        print("🎤 [TTSPlayer] Setting up audio session...")
+        debugPrint("🎤 [TTSPlayer] Setting up audio session...")
         #if os(iOS)
         let _ = try setupAudioSession()
         #endif
         
-        print("🎤 [TTSPlayer] Setting isPlaying to true...")
+        debugPrint("🎤 [TTSPlayer] Setting isPlaying to true...")
         // Set isPlaying to true before starting playback
         await MainActor.run {
             isPlaying = true
         }
         
-        print("🎤 [TTSPlayer] Starting audio playback...")
+        debugPrint("🎤 [TTSPlayer] Starting audio playback...")
         try await play(from: cachedURL)
-        print("🎤 [TTSPlayer] Speechify audio playback completed")
+        debugPrint("🎤 [TTSPlayer] Speechify audio playback completed")
     }
     
     // MARK: - Online TTS (Google Translate)
@@ -417,7 +418,7 @@ final class TTSPlayer: NSObject, ObservableObject {
 
     @MainActor
     private func play(from url: URL) throws {
-        print("🎵 [TTSPlayer] Playing audio from URL: \(url.lastPathComponent)")
+        debugPrint("🎵 [TTSPlayer] Playing audio from URL: \(url.lastPathComponent)")
         
         // Stop any currently playing audio
         player?.stop()
@@ -428,7 +429,7 @@ final class TTSPlayer: NSObject, ObservableObject {
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
             try AVAudioSession.sharedInstance().setActive(true)
         } catch {
-            print("🎵 [TTSPlayer] Failed to set up audio session: \(error)")
+            debugPrint("🎵 [TTSPlayer] Failed to set up audio session: \(error)")
         }
         
         // Create new player with better error handling
@@ -441,18 +442,18 @@ final class TTSPlayer: NSObject, ObservableObject {
             let success = player?.play() ?? false
             if success {
                 isPlaying = true
-                print("🎵 [TTSPlayer] Audio playback started successfully")
+                debugPrint("🎵 [TTSPlayer] Audio playback started successfully")
             } else {
-                print("🎵 [TTSPlayer] Failed to start audio playback")
+                debugPrint("🎵 [TTSPlayer] Failed to start audio playback")
                 throw TTSError.playbackFailed
             }
         } catch {
-            print("🎵 [TTSPlayer] Failed to create AVAudioPlayer: \(error)")
+            debugPrint("🎵 [TTSPlayer] Failed to create AVAudioPlayer: \(error)")
             // Try to provide more specific error information
             if let nsError = error as NSError? {
-                print("🎵 [TTSPlayer] Error domain: \(nsError.domain), code: \(nsError.code)")
+                debugPrint("🎵 [TTSPlayer] Error domain: \(nsError.domain), code: \(nsError.code)")
                 if nsError.domain == "NSOSStatusErrorDomain" {
-                    print("🎵 [TTSPlayer] Audio format may not be supported by AVAudioPlayer")
+                    debugPrint("🎵 [TTSPlayer] Audio format may not be supported by AVAudioPlayer")
                 }
             }
             throw TTSError.invalidAudioFormat

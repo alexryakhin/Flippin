@@ -54,7 +54,7 @@ extension StudyMode {
             }
             .clippedWithPaddingAndBackgroundMaterial(.regularMaterial)
             .onAppear {
-                print("📊 MultipleChoiceQuizView appeared for card: \(card.frontText.orEmpty)")
+                debugPrint("📊 MultipleChoiceQuizView appeared for card: \(card.frontText.orEmpty)")
                 resetState()
                 generateOptions()
             }
@@ -64,7 +64,7 @@ extension StudyMode {
         // MARK: - Helper Methods
 
         private func resetState() {
-            print("📊 Resetting state for card: \(card.frontText.orEmpty)")
+            debugPrint("📊 Resetting state for card: \(card.frontText.orEmpty)")
             selectedAnswer = nil
             showAnswerResult = false
             isAnswerCorrect = false
@@ -75,9 +75,9 @@ extension StudyMode {
             let correctAnswer = card.backText.orEmpty
             var options = [correctAnswer]
 
-            print("📊 Generating options for card: \(card.frontText.orEmpty)")
-            print("📊 Correct answer: \(correctAnswer)")
-            print("📊 Card back language: \(card.backLanguage?.displayName ?? "unknown")")
+            debugPrint("📊 Generating options for card: \(card.frontText.orEmpty)")
+            debugPrint("📊 Correct answer: \(correctAnswer)")
+            debugPrint("📊 Card back language: \(card.backLanguage?.displayName ?? "unknown")")
 
             // Get other cards with the SAME back language as the current card
             let sameLanguageCards = cardsProvider.cards.filter { otherCard in
@@ -86,7 +86,7 @@ extension StudyMode {
             }
             let shuffledSameLanguage = sameLanguageCards.shuffled()
 
-            print("📊 Available cards with same back language: \(sameLanguageCards.count)")
+            debugPrint("📊 Available cards with same back language: \(sameLanguageCards.count)")
 
             // Add wrong options from cards with the same back language
             // But ensure they are DIFFERENT words, not just different cards
@@ -99,7 +99,7 @@ extension StudyMode {
                 if !usedWords.contains(wrongAnswer) {
                     options.append(wrongAnswer)
                     usedWords.insert(wrongAnswer)
-                    print("📊 Added wrong option: \(wrongAnswer)")
+                    debugPrint("📊 Added wrong option: \(wrongAnswer)")
 
                     // Stop when we have 4 total options
                     if options.count >= 4 {
@@ -115,7 +115,7 @@ extension StudyMode {
                     if !usedWords.contains(option) {
                         options.append(option)
                         usedWords.insert(option)
-                        print("📊 Added generic option: \(option)")
+                        debugPrint("📊 Added generic option: \(option)")
                         break
                     }
                 }
@@ -130,8 +130,8 @@ extension StudyMode {
                 }
             })
 
-            print("📊 Final options: \(multipleChoiceOptions)")
-            print("📊 Correct answer is in options: \(multipleChoiceOptions.contains(correctAnswer))")
+            debugPrint("📊 Final options: \(multipleChoiceOptions)")
+            debugPrint("📊 Correct answer is in options: \(multipleChoiceOptions.contains(correctAnswer))")
         }
 
         private func checkAnswer() {

@@ -29,6 +29,7 @@ struct FlippinApp: App {
     @StateObject private var notificationService = NotificationService.shared
     @StateObject private var speechifyService = SpeechifyService.shared
     @StateObject private var remoteConfigService = RemoteConfigService.shared
+    @StateObject private var appIconService = AppIconService.shared
 
     init() {
         FirebaseApp.configure()
@@ -54,8 +55,8 @@ struct FlippinApp: App {
         
         guard !apiKey.isEmpty,
               apiKey != "YOUR_REVENUECAT_PUBLIC_SDK_KEY_HERE" else {
-            print("⚠️ RevenueCat API key not configured in PrivateConstants.swift")
-            print("⚠️ Please add your RevenueCat Public SDK Key to PrivateConstants.swift")
+            debugPrint("⚠️ RevenueCat API key not configured in PrivateConstants.swift")
+            debugPrint("⚠️ Please add your RevenueCat Public SDK Key to PrivateConstants.swift")
             return
         }
         
@@ -72,7 +73,7 @@ struct FlippinApp: App {
                 .build()
         )
         
-        print("✅ RevenueCat configured successfully")
+        debugPrint("✅ RevenueCat configured successfully")
     }
 
     var body: some Scene {
@@ -117,7 +118,7 @@ struct FlippinApp: App {
     }
 
     private func ensurePurchaseStatusLoaded() async {
-        print("🚀 App startup: Ensuring purchase status is loaded...")
+        debugPrint("🚀 App startup: Ensuring purchase status is loaded...")
 
         // Ensure purchase status is properly loaded
         await purchaseService.loadProducts()
@@ -125,14 +126,14 @@ struct FlippinApp: App {
 
         // Log current status
         let purchasedProducts = purchaseService.getPurchasedProducts()
-        print("📦 Startup: Found \(purchasedProducts.count) purchased products: \(purchasedProducts)")
+        debugPrint("📦 Startup: Found \(purchasedProducts.count) purchased products: \(purchasedProducts)")
 
         // Check card limit status
         let cardLimit = cardsProvider.cardLimit
         let currentCards = cardsProvider.cards.count
         let hasUnlimited = cardsProvider.hasUnlimitedCards
 
-        print("🎯 Startup: Card limit status - Limit: \(cardLimit), Current: \(currentCards), Unlimited: \(hasUnlimited)")
+        debugPrint("🎯 Startup: Card limit status - Limit: \(cardLimit), Current: \(currentCards), Unlimited: \(hasUnlimited)")
 
         AnalyticsService.trackEvent(.appLaunched, parameters: [
             "purchased_products_count": purchasedProducts.count,

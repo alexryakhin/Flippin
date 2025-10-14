@@ -51,7 +51,7 @@ final class TagManager: ObservableObject {
     private func checkForCloudKitData() {
         // Only check once if tags are empty at startup
         if availableTags.isEmpty {
-            print("🏷️ No tags found at startup, checking CloudKit sync...")
+            debugPrint("🏷️ No tags found at startup, checking CloudKit sync...")
             coreDataService.checkCloudKitSync()
             
             // Try fetching again after a delay
@@ -95,9 +95,9 @@ final class TagManager: ObservableObject {
         do {
             let tags = try coreDataService.context.fetch(request)
             availableTags = tags.sorted()
-            print("🏷️ Fetched \(tags.count) tags from Core Data")
+            debugPrint("🏷️ Fetched \(tags.count) tags from Core Data")
         } catch {
-            print("Error fetching tags: \(error)")
+            debugPrint("Error fetching tags: \(error)")
             availableTags = []
         }
     }
@@ -127,7 +127,7 @@ final class TagManager: ObservableObject {
                 AnalyticsService.trackTagEvent(.tagAdded, tagName: trimmedTag, tagCount: availableTags.count)
             }
         } catch {
-            print("Error adding tag: \(error)")
+            debugPrint("Error adding tag: \(error)")
         }
     }
 
@@ -205,7 +205,7 @@ final class TagManager: ObservableObject {
                 return nil
             }
         } catch {
-            print("Error fetching unused tags: \(error)")
+            debugPrint("Error fetching unused tags: \(error)")
             return []
         }
     }
@@ -229,7 +229,7 @@ final class TagManager: ObservableObject {
                 return newTag
             }
         } catch {
-            print("Error finding or creating tag: \(error)")
+            debugPrint("Error finding or creating tag: \(error)")
             return nil
         }
     }

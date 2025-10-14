@@ -67,7 +67,7 @@ final class EditCardSheetViewModel: ObservableObject {
             )
             targetText = translated
         } catch {
-            print("Translation failed: \(error)")
+            debugPrint("Translation failed: \(error)")
             AnalyticsService.trackErrorEvent(.translationFailed, errorMessage: error.localizedDescription)
         }
         

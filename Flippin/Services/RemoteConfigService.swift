@@ -47,7 +47,7 @@ final class RemoteConfigService: ObservableObject {
         ]
         remoteConfig.setDefaults(defaults)
 
-        print("🔧 Remote Config initialized")
+        debugPrint("🔧 Remote Config initialized")
     }
 
     // MARK: - Public Methods
@@ -61,11 +61,11 @@ final class RemoteConfigService: ObservableObject {
                 lastFetchTime = Date()
             }
 
-            print("✅ Remote Config fetched successfully")
-            print("📊 Speechify enabled: \(getSpeechifyEnabled())")
-            print("🔑 API Key configured: \(!getSpeechifyAPIKey().isEmpty)")
+            debugPrint("✅ Remote Config fetched successfully")
+            debugPrint("📊 Speechify enabled: \(getSpeechifyEnabled())")
+            debugPrint("🔑 API Key configured: \(!getSpeechifyAPIKey().isEmpty)")
         } catch {
-            print("❌ Failed to fetch Remote Config: \(error)")
+            debugPrint("❌ Failed to fetch Remote Config: \(error)")
             await MainActor.run {
                 isConfigured = false
             }
@@ -112,9 +112,9 @@ final class RemoteConfigService: ObservableObject {
             isConfigured = true
             lastFetchTime = Date()
 
-            print("🔄 Remote Config force refreshed")
+            debugPrint("🔄 Remote Config force refreshed")
         } catch {
-            print("❌ Failed to force refresh Remote Config: \(error)")
+            debugPrint("❌ Failed to force refresh Remote Config: \(error)")
         }
     }
 }
