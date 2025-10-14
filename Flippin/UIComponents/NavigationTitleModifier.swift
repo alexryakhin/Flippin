@@ -71,7 +71,7 @@ struct NavigationTitleModifier<TrailingContent: View, BottomContent: View>: View
                 }
                 .padding(vertical: 12, horizontal: 16)
                 .glassBackgroundEffectIfAvailable(
-                    .regular,
+                    .tint(Color(.systemBackground).opacity(0.5)),
                     in: RoundedRectangle(cornerRadius: 32)
                 )
                 .clipShape(RoundedRectangle(cornerRadius: 32))

@@ -44,6 +44,12 @@ public enum Loc {
     public static let learningAnalyticsDescription = Loc.tr("AboutApp", "learningAnalyticsDescription", fallback: "Track your progress and get personalized insights")
     /// Legal
     public static let legal = Loc.tr("AboutApp", "legal", fallback: "Legal")
+    /// Master vocabulary in any language with smart definitions, pronunciation, and organization
+    public static let myDictionaryDescription = Loc.tr("AboutApp", "myDictionaryDescription", fallback: "Master vocabulary in any language with smart definitions, pronunciation, and organization")
+    /// My Dictionary | Learn Words
+    public static let myDictionaryTitle = Loc.tr("AboutApp", "myDictionaryTitle", fallback: "My Dictionary | Learn Words")
+    /// My Other Apps
+    public static let myOtherApps = Loc.tr("AboutApp", "myOtherApps", fallback: "My Other Apps")
     /// Privacy Policy
     public static let privacyPolicy = Loc.tr("AboutApp", "privacyPolicy", fallback: "Privacy Policy")
     /// Rate on App Store

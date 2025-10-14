@@ -1,1 +1,1 @@
-lingua,apprendimento,carte,traduzione,studio,educazione,vocabolario,straniero,parole,frasi,duolingo
+vocabolario,frasario,viaggio,parlare,pronuncia,tts,offline,memorizzare,parole,quiz,tutor,pratica

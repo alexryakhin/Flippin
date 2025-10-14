@@ -10,6 +10,7 @@ import StoreKit
 import Flow
 
 struct AboutView: View {
+    @Environment(\.openURL) var openURL
     @Environment(\.dismiss) var dismiss
     @Environment(\.requestReview) var requestReview
     @StateObject private var colorManager = ColorManager.shared
@@ -29,6 +30,7 @@ struct AboutView: View {
                 featuresSection
                 appSupportSection
                 donationSection
+                myOtherAppsSection
                 legalSection
             }
             .padding(16)
@@ -228,6 +230,48 @@ struct AboutView: View {
         }
     }
 
+    // MARK: - My Other Apps Section
+    private var myOtherAppsSection: some View {
+        CustomSectionView(
+            header: Loc.AboutApp.myOtherApps
+        ) {
+            VStack(alignment: .leading, spacing: 12) {
+                // My Dictionary App
+                Button {
+                    openMyDictionary()
+                } label: {
+                    HStack(spacing: 12) {
+                        Image(.myDictionaryIconRounded)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 64, height: 64)
+
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text(Loc.AboutApp.myDictionaryTitle)
+                                .font(.subheadline)
+                                .fontWeight(.semibold)
+                                .foregroundStyle(.primary)
+                            
+                            Text(Loc.AboutApp.myDictionaryDescription)
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                                .lineLimit(3)
+                                .multilineTextAlignment(.leading)
+                        }
+                        
+                        Spacer()
+                        
+                        Image(systemName: "arrow.up.right")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                }
+                .buttonStyle(.plain)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+        }
+    }
+
     // MARK: - Legal Section
     private var legalSection: some View {
         CustomSectionView(
@@ -280,6 +324,11 @@ struct AboutView: View {
 
     private func openTermsOfService() {
         safariURL = URL(string: PrivateConstants.termsOfServiceURL)
+    }
+
+    private func openMyDictionary() {
+        openURL(.init(string: PrivateConstants.myDictionaryAppURL)!)
+        AnalyticsService.trackEvent(.myOtherAppOpened, parameters: ["app_name": "My Dictionary"])
     }
 }
 

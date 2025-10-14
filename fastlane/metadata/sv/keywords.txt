@@ -1,1 +1,1 @@
-språk,inlärning,flashkort,översättning,studier,utbildning,ordförråd,främmande,ord,fraser,duolingo
+ordförråd,frasbok,resa,tala,uttal,tts,offline,memorera,ord,quiz,lärare,övning,röst

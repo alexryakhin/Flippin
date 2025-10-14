@@ -86,11 +86,11 @@ struct AICollectionGeneratorView: View {
                 // Input section
                 CustomSectionView(header: Loc.AIFeatures.yourRequest, backgroundStyle: .standard) {
                     VStack(alignment: .leading, spacing: 12) {
-                        TextEditor(text: $userRequest)
-                            .frame(minHeight: 100)
+                        TextField(Loc.AIFeatures.requestPlaceholder, text: $userRequest, axis: .vertical)
                             .padding(8)
                             .background(Color(.tertiarySystemGroupedBackground))
                             .cornerRadius(8)
+                            .textFieldStyle(.plain)
 
                         Text(Loc.Plurals.characterLimit(userRequest.count))
                             .font(.caption)

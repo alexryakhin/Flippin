@@ -38,6 +38,7 @@ enum AnalyticsEvent: String, CaseIterable {
     case travelModeToggled = "travel_mode_toggled"
     case aboutScreenOpened = "about_screen_opened"
     case donationLinkOpened = "donation_link_opened"
+    case myOtherAppOpened = "my_other_app_opened"
 
     // MARK: - Search Events
     case searchPerformed = "search_performed"

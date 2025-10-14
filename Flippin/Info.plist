@@ -7,56 +7,5 @@
 		<string>remote-notification</string>
 		<string>fetch</string>
 	</array>
-	<key>CFBundleIcons</key>
-	<dict>
-		<key>CFBundleAlternateIcons</key>
-		<dict>
-			<key>IconGreen.icon</key>
-			<dict>
-				<key>CFBundleIconFiles</key>
-				<array>
-					<string>Card</string>
-				</array>
-				<key>UIPrerenderedIcon</key>
-				<false/>
-			</dict>
-			<key>IconPurple.icon</key>
-			<dict>
-				<key>CFBundleIconFiles</key>
-				<array>
-					<string>Card</string>
-				</array>
-				<key>UIPrerenderedIcon</key>
-				<false/>
-			</dict>
-			<key>IconRed.icon</key>
-			<dict>
-				<key>CFBundleIconFiles</key>
-				<array>
-					<string>Card</string>
-				</array>
-				<key>UIPrerenderedIcon</key>
-				<false/>
-			</dict>
-			<key>IconUkraine.icon</key>
-			<dict>
-				<key>CFBundleIconFiles</key>
-				<array>
-					<string>Card</string>
-				</array>
-				<key>UIPrerenderedIcon</key>
-				<false/>
-			</dict>
-		</dict>
-		<key>CFBundlePrimaryIcon</key>
-		<dict>
-			<key>CFBundleIconFiles</key>
-			<array>
-				<string>Card</string>
-			</array>
-			<key>UIPrerenderedIcon</key>
-			<false/>
-		</dict>
-	</dict>
 </dict>
 </plist>

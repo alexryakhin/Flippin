@@ -1,1 +1,1 @@
-idioma,aprendizado,cartões,tradução,estudo,educação,vocabulário,estrangeiro,palavras,frases
+vocabulário,guia,viagem,falar,pronúncia,tts,offline,memorizar,palavras,quiz,tutor,prática,voz

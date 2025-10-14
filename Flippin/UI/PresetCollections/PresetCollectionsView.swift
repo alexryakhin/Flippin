@@ -138,14 +138,14 @@ struct PresetCollectionsView: View {
             HStack(spacing: 12) {
                 Image(systemName: "sparkles")
                     .font(.title2)
-                    .foregroundStyle(.yellow)
-                
+                    .foregroundStyle(colorManager.foregroundColor)
+
                 VStack(alignment: .leading, spacing: 4) {
                     HStack {
                         Text(Loc.AIFeatures.aiGeneratorTitle)
                             .font(.headline)
-                            .foregroundStyle(.primary)
-                        
+                            .foregroundStyle(colorManager.foregroundColor)
+
                         if !purchaseService.hasPremiumAccess {
                             HStack(spacing: 4) {
                                 Image(systemName: "lock.fill")
@@ -154,7 +154,7 @@ struct PresetCollectionsView: View {
                                     .font(.caption)
                                     .fontWeight(.semibold)
                             }
-                            .foregroundStyle(.yellow)
+                            .foregroundStyle(colorManager.foregroundColor)
                             .padding(.horizontal, 8)
                             .padding(.vertical, 4)
                             .background(Color.yellow.opacity(0.2))
@@ -164,28 +164,22 @@ struct PresetCollectionsView: View {
                     
                     Text(Loc.AIFeatures.aiGeneratorSubtitle)
                         .font(.caption)
-                        .foregroundStyle(.secondary)
+                        .foregroundStyle(colorManager.foregroundColor)
                 }
                 .multilineTextAlignment(.leading)
 
                 Spacer()
                 
                 Image(systemName: "chevron.right")
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(colorManager.foregroundColor)
             }
             .padding(16)
-            .background(
-                LinearGradient(
-                    colors: [Color.orange.opacity(0.2), Color.yellow.opacity(0.2)],
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                )
-            )
+            .background(colorManager.tintColor.gradient)
             .background(.thinMaterial)
             .cornerRadius(16)
             .overlay(
                 RoundedRectangle(cornerRadius: 16)
-                    .strokeBorder(Color.yellow.opacity(0.5), lineWidth: 2)
+                    .strokeBorder(Color.gray.opacity(0.5), lineWidth: 2)
             )
         }
         .simultaneousGesture(TapGesture().onEnded {
@@ -194,6 +188,7 @@ struct PresetCollectionsView: View {
                 AnalyticsService.trackEvent(.aiFeaturePaywallShown)
             }
         })
+        .buttonStyle(.plain)
     }
 
     private var categoryFilterView: some View {

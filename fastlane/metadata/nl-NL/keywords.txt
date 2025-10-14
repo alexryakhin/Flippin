@@ -1,1 +1,1 @@
-taal,leren,flitskaarten,vertaling,studie,onderwijs,woordenschat,buitenlands,woorden,zinnen,duolingo
+woordenschat,taalgids,reizen,spreken,uitspraak,tts,offline,onthouden,woorden,quiz,leraar,oefenen

@@ -1,1 +1,1 @@
-language,learning,flashcards,translation,study,education,vocabulary,foreign,words,phrases,duolingo
+vocabulary,phrasebook,travel,speak,pronunciation,tts,offline,memorize,words,quiz,tutor,practice
