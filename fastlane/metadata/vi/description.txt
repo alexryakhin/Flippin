@@ -1,12 +1,27 @@
-Flippin biến việc học ngôn ngữ thành một hoạt động hấp dẫn và đẹp đẽ. Không chỉ là những tấm thẻ - đây là một ứng dụng thông minh giúp học dễ dàng và thú vị.
+Biến đổi hành trình học ngôn ngữ của bạn với Flippin - ứng dụng flashcard thông minh giúp việc thành thạo từ vựng trở nên dễ dàng và đẹp mắt.
 
-Tạo bộ sưu tập từ vựng của riêng bạn, dịch ngay lập tức với Google Translate, nghe phát âm bằng 18 ngôn ngữ và luyện tập ngay cả ở "chế độ du lịch". Tùy chỉnh màu sắc và chủ đề theo sở thích, chọn từ 12 hình nền hoạt hình - từ cực quang và thiên hà đến mưa và sóng - và việc học sẽ trở nên có không khí và truyền cảm hứng.
+HỌC THÔNG MINH HƠN, KHÔNG KHÓ HƠN
+• Dịch tức thì với Google Translate - chạm vào bất kỳ từ nào, không cần chuyển ứng dụng
+• Phát âm bản ngữ bằng hơn 18 ngôn ngữ với chuyển văn bản thành giọng nói
+• AI thông minh theo dõi tiến trình của bạn và đề xuất ôn tập được cá nhân hóa
+• Hệ thống lặp lại ngắt quãng đảm bảo bạn nhớ những gì đã học
+• Hỗ trợ ngoại tuyến hoàn toàn - học mọi lúc mọi nơi
 
-Flippin ghi nhớ tiến độ của bạn, gợi ý những gì cần ôn tập và động viên bằng huy hiệu thành tích. Đồng bộ qua iCloud cho phép tiếp tục học từ bất kỳ thiết bị nào, và hỗ trợ hoàn toàn ngoại tuyến - học từ vựng ở bất cứ đâu.
+ĐẸP MẮT VÀ TÙY CHỈNH
+Chọn từ 12 hình nền động tuyệt đẹp - cực quang, thiên hà, sóng biển và nhiều hơn nữa. Tùy chỉnh màu sắc và chủ đề để tạo môi trường học tập hoàn hảo.
 
-Tiếng Anh, Tây Ban Nha, Pháp, Đức, Ý, Nga, Nhật, Trung và nhiều ngôn ngữ khác - chọn ngôn ngữ bạn cần và mở rộng chân trời của mình.
+HOÀN HẢO CHO DU KHÁCH
+Chuyển sang "Chế độ du lịch" để truy cập nhanh các cụm từ khi đang di chuyển. Tạo bộ sưu tập tùy chỉnh cho điểm đến tiếp theo của bạn.
 
-Flippin phù hợp với mọi người: sinh viên, du khách và đơn giản là những người yêu thích ngôn ngữ. Bắt đầu hành trình ngôn ngữ của bạn ngay bây giờ!
+ĐỒNG BỘ LIỀN MẠCH
+Đồng bộ hóa iCloud giữ tiến trình của bạn được cập nhật trên tất cả thiết bị. Bắt đầu trên iPhone, tiếp tục trên iPad.
 
-Điều khoản Sử dụng: https://www.flippin.app/terms-of-use
-Chính sách Bảo mật: https://www.flippin.app/privacy-policy
+HỖ TRỢ HƠN 18 NGÔN NGỮ
+Tiếng Anh, Tây Ban Nha, Pháp, Đức, Ý, Bồ Đào Nha, Nga, Nhật, Trung, Hàn, Ả Rập, Hindi và nhiều ngôn ngữ khác.
+
+Dù bạn là sinh viên đang chuẩn bị cho kỳ thi, du khách khám phá nền văn hóa mới hay đơn giản là người đam mê ngôn ngữ - Flippin thích ứng với phong cách học tập của bạn.
+
+Tải xuống ngay và thành thạo 100 từ đầu tiên trong tuần này!
+
+Điều khoản sử dụng: https://www.flippin.app/terms-of-use
+Chính sách bảo mật: https://www.flippin.app/privacy-policy
