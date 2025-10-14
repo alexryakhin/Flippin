@@ -59,6 +59,12 @@ final class AddCardSheetViewModel: ObservableObject {
 
     private func translateText(_ text: String) async {
         guard !isTranslating else { return }
+        
+        // Check if online before attempting translation
+        guard NetworkMonitor.shared.isConnected else {
+            debugPrint("⚠️ Translation skipped: No internet connection")
+            return
+        }
 
         isTranslating = true
 

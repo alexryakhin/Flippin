@@ -189,6 +189,7 @@ struct PresetCollectionsView: View {
             }
         })
         .buttonStyle(.plain)
+        .hideIfOffline()
     }
 
     private var categoryFilterView: some View {

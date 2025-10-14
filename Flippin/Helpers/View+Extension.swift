@@ -291,4 +291,22 @@ extension View {
             self.background(material)
         }
     }
+    
+    /// Hides the view when there is no internet connection
+    @ViewBuilder
+    func hideIfOffline() -> some View {
+        HideIfOfflineModifier(content: self)
+    }
+}
+
+// MARK: - Hide If Offline Modifier
+private struct HideIfOfflineModifier<Content: View>: View {
+    @ObservedObject private var networkMonitor = NetworkMonitor.shared
+    let content: Content
+    
+    var body: some View {
+        if networkMonitor.isConnected {
+            content
+        }
+    }
 }

@@ -18,7 +18,8 @@ struct FeaturedPresetCollections: View {
     @State private var collectionToImport: PresetCollection?
     @State private var showingLimitAlert = false
     @State private var limitAlertMessage = ""
-    @State private var premiumFeature: PremiumFeature?
+
+    @Binding var premiumFeature: PremiumFeature?
 
     var featuredCollections: [PresetCollection] {
         presetService.getFeaturedCollections()
@@ -66,7 +67,6 @@ struct FeaturedPresetCollections: View {
                     }
                 }
             }
-            .premiumAlert(feature: $premiumFeature)
             .alert(Loc.PresetCollections.importCollection, isPresented: $showingImportAlert) {
                 Button(Loc.Buttons.cancel, role: .cancel) { }
                 Button(Loc.PresetCollections.importButton) {

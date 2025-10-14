@@ -24,6 +24,7 @@ struct MyCardsListView: View {
     @State private var showingDeleteAlert = false
     @State private var cardToDelete: CardItem?
     @State private var lastSearchText = ""
+    @State private var premiumFeature: PremiumFeature?
 
     var filteredCards: [CardItem] {
         var filtered = cardsProvider.cards
@@ -170,6 +171,7 @@ struct MyCardsListView: View {
         } message: {
             Text(cardToDelete == nil ? Loc.Buttons.deleteAllCardsConfirmation : Loc.Buttons.deleteCardConfirmation)
         }
+        .premiumAlert(feature: $premiumFeature)
     }
 
     private var noCardsView: some View {
@@ -187,7 +189,7 @@ struct MyCardsListView: View {
                     .foregroundStyle(.secondary)
             }
 
-            FeaturedPresetCollections()
+            FeaturedPresetCollections(premiumFeature: $premiumFeature)
                 .padding(.horizontal, 16)
                 .padding(.bottom, 12)
         }

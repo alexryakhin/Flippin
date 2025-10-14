@@ -244,6 +244,7 @@ struct EditCardSheet: View {
                 .foregroundStyle(.red)
             }
         }
+        .hideIfOffline()
     }
     
     // MARK: - Image Handling

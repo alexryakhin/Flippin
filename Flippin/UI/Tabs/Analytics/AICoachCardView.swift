@@ -29,6 +29,7 @@ struct AICoachCardView: View {
                 lockedView
             }
         }
+        .hideIfOffline()
     }
     
     // MARK: - Premium User View

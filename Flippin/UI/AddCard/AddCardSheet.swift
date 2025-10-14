@@ -45,7 +45,10 @@ struct AddCardSheet: View {
                 notesSection
                 imageSection
                 tagsSection
-                FeaturedPresetCollections(bgStyle: .standard)
+                FeaturedPresetCollections(
+                    premiumFeature: $premiumFeature,
+                    bgStyle: .standard
+                )
             }
             .padding(16)
         }
@@ -235,6 +238,7 @@ struct AddCardSheet: View {
                 .foregroundStyle(.red)
             }
         }
+        .hideIfOffline()
     }
     
     // MARK: - Image Handling

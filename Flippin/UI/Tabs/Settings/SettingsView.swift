@@ -376,8 +376,9 @@ struct SettingsView: View {
                 }
             }
         }
+        .hideIfOffline()
         .sheet(isPresented: $showingVoicePicker) {
-            VoicePickerView()
+            VoicePickerView(premiumFeature: $premiumFeature)
         }
     }
     

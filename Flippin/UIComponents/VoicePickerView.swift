@@ -19,7 +19,7 @@ struct VoicePickerView: View {
     @State private var selectedAge: String?
     @State private var selectedTimbre: String?
     @State private var selectedAccent: String?
-    @State private var premiumFeature: PremiumFeature?
+    @Binding var premiumFeature: PremiumFeature?
 
     // Temporary voice selection (not saved until user taps Save)
     @State private var tempSelectedVoiceId: String = ""
@@ -73,7 +73,6 @@ struct VoicePickerView: View {
                 }
             }
         )
-        .premiumAlert(feature: $premiumFeature)
     }
 
     // MARK: - Voice List

@@ -15,6 +15,7 @@ struct TTSDashboardView: View {
     @State private var isLoading = false
     @State private var showingVoicePicker = false
     @State private var usageHistory: [SpeechifyUsage] = []
+    @State private var premiumFeature: PremiumFeature?
 
     var body: some View {
         ScrollView {
@@ -41,7 +42,7 @@ struct TTSDashboardView: View {
             loadUsageHistory()
         }
         .sheet(isPresented: $showingVoicePicker) {
-            VoicePickerView()
+            VoicePickerView(premiumFeature: $premiumFeature)
         }
     }
 

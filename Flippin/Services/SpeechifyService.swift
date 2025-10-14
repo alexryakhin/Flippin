@@ -366,7 +366,7 @@ final class SpeechifyService: NSObject, ObservableObject {
     private func getLanguageCode(for language: Language) -> String {
         switch language {
         case .english: return "en-US"
-        case .spanish: return "es-ES"
+        case .spanish: return "es-MX"
         case .french: return "fr-FR"
         case .german: return "de-DE"
         case .italian: return "it-IT"

@@ -208,7 +208,7 @@ enum CardStackTab {
                 }
                 .foregroundStyle(colorManager.foregroundColor)
 
-                FeaturedPresetCollections()
+                FeaturedPresetCollections(premiumFeature: $premiumFeature)
             }
         }
 

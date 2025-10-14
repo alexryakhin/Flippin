@@ -166,11 +166,22 @@ final class TTSPlayer: NSObject, ObservableObject {
         
         // Check if we have cached audio URL
         if let audioURLString = audioURL, let url = URL(string: audioURLString) {
-            try await playCachedAudio(from: url)
-            return
+            do {
+                try await playCachedAudio(from: url)
+                return
+            } catch {
+                debugPrint("🎵 [TTSPlayer] Cached audio failed, falling back to regeneration: \(error)")
+                // Clear the invalid audio URL from the card
+                if isFront {
+                    card.frontAudioURL = nil
+                } else {
+                    card.backAudioURL = nil
+                }
+                try? CoreDataService.shared.saveContext()
+            }
         }
         
-        // No cached audio - play and cache for future use
+        // No cached audio or cached audio failed - play and cache for future use
         try await playAndCache(text, language: language, card: card, isFront: isFront)
     }
 
@@ -362,7 +373,7 @@ final class TTSPlayer: NSObject, ObservableObject {
         case .english:
             return "en-US"
         case .spanish:
-            return "es-ES"
+            return "es-MX"
         case .french:
             return "fr-FR"
         case .german:
