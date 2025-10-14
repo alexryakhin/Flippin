@@ -5,6 +5,7 @@
 //  Created by Alexander Riakhin on 12/19/25.
 //
 
+#if DEBUG
 import SwiftUI
 import Flow
 
@@ -360,3 +361,4 @@ struct DebugView: View {
         DebugView()
     }
 }
+#endif
