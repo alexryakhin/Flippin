@@ -56,7 +56,7 @@ final class NotificationService: NSObject, ObservableObject, UNUserNotificationC
                 await MainActor.run {
                     isStudyRemindersEnabled = true
                 }
-                // Don't schedule immediately - will be scheduled when user leaves app
+                scheduleStudyReminder()
                 AnalyticsService.trackEvent(.studyRemindersEnabled)
             }
         } else {
@@ -81,7 +81,11 @@ final class NotificationService: NSObject, ObservableObject, UNUserNotificationC
                     isDifficultCardRemindersEnabled = true
                 }
                 AnalyticsService.trackEvent(.difficultCardRemindersEnabled)
-                // Don't schedule immediately - only when user leaves app with difficult cards
+                // Schedule immediately if there are difficult cards
+                let difficultCards = LearningAnalyticsService.shared.getDifficultCardsNeedingReview()
+                if !difficultCards.isEmpty {
+                    scheduleDifficultCardReminder()
+                }
             }
         } else {
             await MainActor.run {
@@ -97,8 +101,9 @@ final class NotificationService: NSObject, ObservableObject, UNUserNotificationC
 
     /// Schedule notifications when user leaves app
     func scheduleNotificationsWhenLeavingApp() {
-        // Schedule study reminder for tomorrow if enabled
+        // Schedule study reminder daily if enabled
         if isStudyRemindersEnabled && hasNotificationPermission {
+            cancelStudyReminder()
             scheduleStudyReminder()
         }
         
@@ -108,10 +113,14 @@ final class NotificationService: NSObject, ObservableObject, UNUserNotificationC
                 let difficultCards = LearningAnalyticsService.shared.getDifficultCardsNeedingReview()
                 
                 if !difficultCards.isEmpty {
-                    scheduleDifficultCardReminderForToday()
+                    cancelDifficultCardReminder()
+                    scheduleDifficultCardReminder()
                     AnalyticsService.trackEvent(.difficultCardReminderScheduled, parameters: [
                         "difficult_cards_count": difficultCards.count
                     ])
+                } else {
+                    // Cancel if no difficult cards
+                    cancelDifficultCardReminder()
                 }
             }
         }
@@ -122,27 +131,6 @@ final class NotificationService: NSObject, ObservableObject, UNUserNotificationC
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
     }
     
-    /// Reschedule study reminder when app becomes active
-    func rescheduleStudyReminderIfNeeded() {
-        guard isStudyRemindersEnabled && hasNotificationPermission else { return }
-        
-        // Check if there's a pending study reminder to reschedule
-        UNUserNotificationCenter.current().getPendingNotificationRequests { requests in
-            let hasStudyReminder = requests.contains { $0.identifier == self.studyReminderIdentifier }
-            
-            if hasStudyReminder {
-                DispatchQueue.main.async {
-                    // Cancel current study reminder
-                    self.cancelStudyReminder()
-                    
-                    // Schedule new reminder for tomorrow
-                    self.scheduleStudyReminder()
-                    
-                    print("🔄 Study reminder rescheduled for tomorrow")
-                }
-            }
-        }
-    }
 
     // MARK: - Private Methods
 
@@ -164,25 +152,19 @@ final class NotificationService: NSObject, ObservableObject, UNUserNotificationC
         let hour = Int(studyReminderTime / 3600)
         let minute = Int((studyReminderTime.truncatingRemainder(dividingBy: 3600)) / 60)
 
-        // Schedule for tomorrow at the specified time
+        // Schedule daily at the specified time
         var dateComponents = DateComponents()
         dateComponents.hour = hour
         dateComponents.minute = minute
 
-        let calendar = Calendar.current
-        let tomorrow = calendar.date(byAdding: .day, value: 1, to: Date()) ?? Date()
-        dateComponents.day = calendar.component(.day, from: tomorrow)
-        dateComponents.month = calendar.component(.month, from: tomorrow)
-        dateComponents.year = calendar.component(.year, from: tomorrow)
-
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         let request = UNNotificationRequest(identifier: studyReminderIdentifier, content: content, trigger: trigger)
 
         UNUserNotificationCenter.current().add(request) { error in
             if let error = error {
                 print("❌ Failed to schedule study reminder: \(error)")
             } else {
-                print("✅ Study reminder scheduled for tomorrow at \(hour):\(String(format: "%02d", minute))")
+                print("✅ Study reminder scheduled daily at \(hour):\(String(format: "%02d", minute))")
             }
         }
     }
@@ -210,42 +192,6 @@ final class NotificationService: NSObject, ObservableObject, UNUserNotificationC
                 print("❌ Failed to schedule difficult card reminder: \(error)")
             } else {
                 print("✅ Difficult card reminder scheduled for \(hour):\(String(format: "%02d", minute)) daily")
-            }
-        }
-    }
-
-    private func scheduleDifficultCardReminderForToday() {
-        let content = UNMutableNotificationContent()
-        content.title = Loc.Notifications.difficultCardReminderTitle
-        content.body = Loc.Notifications.difficultCardReminderBody
-        content.sound = .default
-
-        // Convert time interval to hour and minute
-        let hour = Int(difficultCardReminderTime / 3600)
-        let minute = Int((difficultCardReminderTime.truncatingRemainder(dividingBy: 3600)) / 60)
-
-        // Schedule for today at the specified time
-        var dateComponents = DateComponents()
-        dateComponents.hour = hour
-        dateComponents.minute = minute
-
-        let calendar = Calendar.current
-        let now = Date()
-
-        // If it's already past the specified time today, schedule for tomorrow
-        if let todayTime = calendar.date(bySettingHour: hour, minute: minute, second: 0, of: now),
-           now > todayTime {
-            dateComponents.day = calendar.component(.day, from: now) + 1
-        }
-
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
-        let request = UNNotificationRequest(identifier: "\(difficultCardReminderIdentifier)_\(Date().timeIntervalSince1970)", content: content, trigger: trigger)
-
-        UNUserNotificationCenter.current().add(request) { error in
-            if let error = error {
-                print("❌ Failed to schedule difficult card reminder for today: \(error)")
-            } else {
-                print("✅ Difficult card reminder scheduled for today at \(hour):\(String(format: "%02d", minute))")
             }
         }
     }

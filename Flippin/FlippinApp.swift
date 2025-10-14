@@ -99,7 +99,6 @@ struct FlippinApp: App {
                         notificationService.scheduleNotificationsWhenLeavingApp()
                     case .active:
                         AnalyticsService.trackEvent(.appForegrounded)
-                        notificationService.rescheduleStudyReminderIfNeeded()
                     case .inactive:
                         break
                     @unknown default:
