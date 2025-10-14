@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5315BD5E2E9AA1230017C848 /* DotLottie in Frameworks */ = {isa = PBXBuildFile; productRef = 5315BD5D2E9AA1230017C848 /* DotLottie */; };
 		5315C4AC2E9B75A80017C848 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 5315C4AB2E9B75A80017C848 /* RevenueCat */; };
 		53BEAE352E23A3C8003E07F0 /* Flow in Frameworks */ = {isa = PBXBuildFile; productRef = 53BEAE342E23A3C8003E07F0 /* Flow */; };
 		53BEF19D2E24E1D4002F2A76 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 53BEF19C2E24E1D4002F2A76 /* FirebaseAnalyticsWithoutAdIdSupport */; };
@@ -51,7 +50,6 @@
 				53BEAE352E23A3C8003E07F0 /* Flow in Frameworks */,
 				53BEF19D2E24E1D4002F2A76 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				53F6489D2E584E1D0088C3B7 /* FirebaseRemoteConfig in Frameworks */,
-				5315BD5E2E9AA1230017C848 /* DotLottie in Frameworks */,
 			);
 		};
 /* End PBXFrameworksBuildPhase section */
@@ -104,7 +102,6 @@
 				53BEF19E2E24E1D4002F2A76 /* FirebaseCrashlytics */,
 				53F6489C2E584E1D0088C3B7 /* FirebaseRemoteConfig */,
 				53DB3D0D2E9A486200339F9C /* OpenAI */,
-				5315BD5D2E9AA1230017C848 /* DotLottie */,
 				5315C4AB2E9B75A80017C848 /* RevenueCat */,
 			);
 			productName = SpeakCards;
@@ -157,7 +154,6 @@
 				53BEAE332E23A3C8003E07F0 /* XCRemoteSwiftPackageReference "SwiftUI-Flow" */,
 				53BEF19B2E24E1D4002F2A76 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				53DB3D0C2E9A486200339F9C /* XCRemoteSwiftPackageReference "OpenAI" */,
-				5315BD5C2E9AA1230017C848 /* XCRemoteSwiftPackageReference "dotlottie-ios" */,
 				5315C4AA2E9B75A80017C848 /* XCRemoteSwiftPackageReference "purchases-ios" */,
 			);
 			preferredProjectObjectVersion = 90;
@@ -195,7 +191,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = Flippin/Resources/Flippin.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 24;
+				CURRENT_PROJECT_VERSION = 25;
 				DEVELOPMENT_ASSET_PATHS = Flippin/Resources/Assets.xcassets;
 				DEVELOPMENT_TEAM = 69S862NXBP;
 				ENABLE_APP_SANDBOX = YES;
@@ -237,7 +233,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = Flippin/Resources/Flippin.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 24;
+				CURRENT_PROJECT_VERSION = 25;
 				DEVELOPMENT_ASSET_PATHS = Flippin/Resources/Assets.xcassets;
 				DEVELOPMENT_TEAM = 69S862NXBP;
 				ENABLE_APP_SANDBOX = YES;
@@ -416,14 +412,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		5315BD5C2E9AA1230017C848 /* XCRemoteSwiftPackageReference "dotlottie-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/lottiefiles/dotlottie-ios";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 		5315C4AA2E9B75A80017C848 /* XCRemoteSwiftPackageReference "purchases-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/RevenueCat/purchases-ios.git";
@@ -459,11 +447,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5315BD5D2E9AA1230017C848 /* DotLottie */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5315BD5C2E9AA1230017C848 /* XCRemoteSwiftPackageReference "dotlottie-ios" */;
-			productName = DotLottie;
-		};
 		5315C4AB2E9B75A80017C848 /* RevenueCat */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5315C4AA2E9B75A80017C848 /* XCRemoteSwiftPackageReference "purchases-ios" */;
