@@ -246,8 +246,8 @@
         }
 
         .screenshot-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            transform: scale(1.05);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
         }
 
         .screenshot-header {
@@ -322,6 +322,193 @@
 
         .premium-card p {
             color: #666;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+        }
+
+        .pricing-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 25px;
+            padding: 2.5rem;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .pricing-card.premium {
+            background: linear-gradient(135deg, #1976d2 0%, #42a5f5 100%);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .pricing-card.premium:hover {
+            transform: scale(1.08) translateY(-10px);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background: linear-gradient(135deg, #ff9800, #f57c00);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(255, 152, 0, 0.4);
+        }
+
+        .pricing-header h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #1565c0;
+        }
+
+        .pricing-card.premium .pricing-header h3 {
+            color: white;
+        }
+
+        .pricing-price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #1565c0;
+            margin: 1rem 0;
+        }
+
+        .pricing-card.premium .pricing-price {
+            color: white;
+        }
+
+        .pricing-price span {
+            font-size: 1.2rem;
+            color: #666;
+            font-weight: 400;
+        }
+
+        .pricing-card.premium .pricing-price span {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .pricing-trial {
+            background: rgba(25, 118, 210, 0.1);
+            padding: 0.75rem 1rem;
+            border-radius: 12px;
+            margin: 1rem 0;
+            font-weight: 600;
+            color: #1565c0;
+            font-size: 0.95rem;
+        }
+
+        .pricing-card.premium .pricing-trial {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .pricing-features {
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .pricing-features ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .pricing-features li {
+            padding: 0.75rem 0;
+            color: #666;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .pricing-card.premium .pricing-features li {
+            color: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-features li::before {
+            content: "✓";
+            color: #4caf50;
+            font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .pricing-card.premium .pricing-features li::before {
+            color: #90ee90;
+        }
+
+        .pricing-cta {
+            margin-top: 2rem;
+        }
+
+        .pricing-button {
+            display: block;
+            width: 100%;
+            padding: 1rem 2rem;
+            border-radius: 15px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid #1976d2;
+            background: white;
+            color: #1976d2;
+        }
+
+        .pricing-button:hover {
+            background: #1976d2;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .pricing-card.premium .pricing-button {
+            background: white;
+            color: #1976d2;
+            border: 2px solid white;
+        }
+
+        .pricing-card.premium .pricing-button:hover {
+            background: #f0f0f0;
+            transform: scale(1.05);
+        }
+
+        .pricing-note {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: #999;
+            text-align: center;
+        }
+
+        .pricing-card.premium .pricing-note {
+            color: rgba(255, 255, 255, 0.8);
         }
 
         /* CTA Section */
@@ -424,7 +611,8 @@
             .features-grid,
             .languages-grid,
             .premium-grid,
-            .screenshots-grid {
+            .screenshots-grid,
+            .pricing-container {
                 grid-template-columns: 1fr;
             }
 
@@ -434,6 +622,18 @@
 
             .container {
                 padding: 0 1rem;
+            }
+
+            .pricing-card.premium {
+                transform: scale(1);
+            }
+
+            .pricing-card.premium:hover {
+                transform: translateY(-10px);
+            }
+
+            .pricing-price {
+                font-size: 2.5rem;
             }
         }
 
@@ -473,7 +673,7 @@
                 <li><a href="#features">Features</a></li>
                 <li><a href="#languages">Languages</a></li>
                 <li><a href="#screenshots">Screenshots</a></li>
-                <li><a href="#premium">Premium</a></li>
+                <li><a href="#pricing">Pricing</a></li>
                 <li><a href="support.html">Support</a></li>
                 <li><a href="privacy-policy.html">Privacy</a></li>
                 <li><a href="terms-of-use.html">Terms</a></li>
@@ -486,7 +686,7 @@
         <div class="container">
             <img src="images/flippin-icon.png" alt="Flippin App Icon" class="app-icon fade-in-up">
             <h1 class="fade-in-up">Master Languages <br> with Smart Flashcards</h1>
-            <p class="fade-in-up">Transform your language learning with auto-translation,<br> TTS pronunciation, and personalized analytics.<br> Available in 17 languages.</p>
+            <p class="fade-in-up">Transform your language learning with auto-translation,<br> TTS pronunciation, AI-powered insights,<br> and personalized analytics.<br> Available in 17 languages.</p>
             <a href="https://apps.apple.com/us/app/flippin/id6748499528" class="cta-button fade-in-up" target="_blank">Download on App Store</a>
         </div>
     </section>
@@ -508,35 +708,35 @@
                         <img src="images/text-to-speech.svg" alt="Text-to-Speech">
                     </div>
                     <h3>Text-to-Speech</h3>
-                    <p>Perfect pronunciation with native TTS in all supported languages. Listen and learn.</p>
+                    <p>Perfect pronunciation with native TTS in all supported languages. Premium users get access to Speechify voices.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <img src="images/smart-analytics.svg" alt="Smart Analytics">
                     </div>
-                    <h3>Smart Analytics</h3>
-                    <p>Track your progress with detailed analytics and personalized learning insights.</p>
+                    <h3>AI Learning Coach</h3>
+                    <p>Get personalized insights and recommendations powered by AI. Track progress with detailed analytics dashboard.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <img src="images/beautiful-design.svg" alt="Beautiful Design">
                     </div>
                     <h3>Beautiful Design</h3>
-                    <p>12 stunning animated backgrounds and customizable themes for an engaging experience.</p>
+                    <p>12 stunning animated backgrounds, customizable app icons, and dark/light mode for an engaging experience.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <img src="images/travel-mode.svg" alt="Travel Mode">
+                        <img src="images/travel-mode.svg" alt="Visual Learning">
                     </div>
-                    <h3>Travel Mode</h3>
-                    <p>Reverse language display to practice in both directions and improve fluency.</p>
+                    <h3>Visual Learning</h3>
+                    <p>Add images to your flashcards with Pexels integration. Plus Travel Mode to practice in both directions.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <img src="images/cloud-sync.svg" alt="iCloud Sync">
                     </div>
-                    <h3>iCloud Sync</h3>
-                    <p>Access your flashcards across all your Apple devices with seamless iCloud synchronization.</p>
+                    <h3>iCloud Sync & Reminders</h3>
+                    <p>Access flashcards across all Apple devices with iCloud. Get daily study reminders and difficult card alerts.</p>
                 </div>
             </div>
         </div>
@@ -547,16 +747,16 @@
         <div class="container">
             <h2 class="section-title">Smart Learning Made Simple</h2>
             <p style="text-align: center; font-size: 1.2rem; color: #424242; margin-bottom: 2rem; max-width: 800px; margin-left: auto; margin-right: auto;">
-                Create flashcards with automatic translation, add notes, and organize with tags. Study with beautiful animations and track your progress with detailed analytics.
+                Create flashcards with automatic translation, add images, notes, and organize with tags. Study with beautiful animations and track your progress with AI-powered analytics.
             </p>
             <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 2rem;">
                 <div style="background: white; padding: 1rem 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                    <h4 style="color: #1565c0; margin-bottom: 0.5rem;">Free tier</h4>
+                    <h4 style="color: #1565c0; margin-bottom: 0.5rem;">Free Tier</h4>
                     <p style="color: #666; margin: 0;">40 cards to get started</p>
                 </div>
                 <div style="background: white; padding: 1rem 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
                     <h4 style="color: #1565c0; margin-bottom: 0.5rem;">Premium</h4>
-                    <p style="color: #666; margin: 0;">Unlimited cards & collections</p>
+                    <p style="color: #666; margin: 0;">Unlimited cards + AI features</p>
                 </div>
             </div>
         </div>
@@ -625,59 +825,59 @@
     <!-- App Screenshots -->
     <section class="screenshots" id="screenshots">
         <div class="container">
-            <h2 class="section-title">See My App in Action</h2>
+            <h2 class="section-title">See Flippin in Action</h2>
             <div class="screenshots-grid">
-                <div class="screenshot-card float-animation">
+                <div class="screenshot-card">
                     <div class="screenshot-header">
-                        <h3>Flip cards to learn with beautiful animations</h3>
+                        <h3>Study with beautiful 3D card animations</h3>
                     </div>
                     <div class="screenshot-image">
-                        <img src="images/screenshot-1.png" alt="Flip cards to learn with beautiful animations">
+                        <img src="images/screenshot-1.png" alt="Study with beautiful 3D card animations">
                     </div>
                 </div>
                 
-                <div class="screenshot-card float-animation">
+                <div class="screenshot-card">
                     <div class="screenshot-header">
-                        <h3>Create cards with automatic translation</h3>
+                        <h3>Create cards with automatic translation & images</h3>
                     </div>
                     <div class="screenshot-image">
-                        <img src="images/screenshot-2.png" alt="Create cards with automatic translation">
+                        <img src="images/screenshot-2.png" alt="Create cards with automatic translation and images">
                     </div>
                 </div>
                 
-                <div class="screenshot-card float-animation">
+                <div class="screenshot-card">
                     <div class="screenshot-header">
-                        <h3>Track your learning progress</h3>
+                        <h3>Track your learning progress & streaks</h3>
                     </div>
                     <div class="screenshot-image">
-                        <img src="images/screenshot-3.png" alt="Track your learning progress">
+                        <img src="images/screenshot-3.png" alt="Track your learning progress and streaks">
                     </div>
                 </div>
                 
-                <div class="screenshot-card float-animation">
+                <div class="screenshot-card">
                     <div class="screenshot-header">
-                        <h3>Get your insights and study recommendations</h3>
+                        <h3>AI-powered insights and recommendations</h3>
                     </div>
                     <div class="screenshot-image">
-                        <img src="images/screenshot-4.png" alt="Get your insights and study recommendations">
+                        <img src="images/screenshot-4.png" alt="AI-powered insights and recommendations">
                     </div>
                 </div>
                 
-                <div class="screenshot-card float-animation">
+                <div class="screenshot-card">
                     <div class="screenshot-header">
-                        <h3>Ready-to-use vocabulary collections</h3>
+                        <h3>Ready-to-use collections + AI generator</h3>
                     </div>
                     <div class="screenshot-image">
-                        <img src="images/screenshot-5.png" alt="Ready-to-use vocabulary collections">
+                        <img src="images/screenshot-5.png" alt="Ready-to-use collections and AI generator">
                     </div>
                 </div>
        
-                <div class="screenshot-card float-animation">
+                <div class="screenshot-card">
                     <div class="screenshot-header">
-                        <h3>Beautiful animated backgrounds</h3>
+                        <h3>12 beautiful animated backgrounds</h3>
                     </div>
                     <div class="screenshot-image">
-                        <img src="images/screenshot-6.png" alt="Beautiful animated backgrounds">
+                        <img src="images/screenshot-6.png" alt="12 beautiful animated backgrounds">
                     </div>
                 </div>
             </div>
@@ -694,24 +894,105 @@
                     <p>Create as many flashcards as you need. No limits on your learning journey.</p>
                 </div>
                 <div class="premium-card">
+                    <h3>AI Collection Generator</h3>
+                    <p>Generate custom flashcard collections with AI. Just describe what you want to learn and let AI create personalized cards for you.</p>
+                </div>
+                <div class="premium-card">
+                    <h3>AI Learning Coach</h3>
+                    <p>Get personalized insights and recommendations powered by AI. Analyze your learning patterns and receive actionable tips.</p>
+                </div>
+                <div class="premium-card">
                     <h3>Advanced Analytics</h3>
-                    <p>Detailed insights into your learning patterns, study sessions, and progress tracking.</p>
+                    <p>Detailed dashboard with performance tracking, study session analysis, card difficulty insights, and learning streaks.</p>
                 </div>
                 <div class="premium-card">
                     <h3>Premium Backgrounds</h3>
-                    <p>12 beautiful animated backgrounds to make your study sessions more engaging.</p>
-                </div>
-                <div class="premium-card">
-                    <h3>Personalized Insights</h3>
-                    <p>Calculated recommendations to optimize your learning strategy and improve retention.</p>
+                    <p>11 beautiful animated backgrounds (Lava Lamp, Snow, Rain, Stars, Bubbles, Waves, Particles, Aurora, Fireflies, Ocean, Galaxy).</p>
                 </div>
                 <div class="premium-card">
                     <h3>All Collections</h3>
-                    <p>Access to curated preset collections for popular language learning topics.</p>
+                    <p>Access to all curated preset collections for popular language learning topics in 17 languages.</p>
                 </div>
-                <div class="premium-card">
-                    <h3>Priority Support</h3>
-                    <p>Get faster response times and dedicated support for all your questions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2 class="section-title">Choose Your Plan</h2>
+            <p style="text-align: center; font-size: 1.2rem; color: #424242; margin-bottom: 2rem;">
+                Start with our free tier or unlock premium features with a 7-day free trial
+            </p>
+            
+            <div class="pricing-container">
+                <!-- Free Tier -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Free</h3>
+                    </div>
+                    <div class="pricing-price">
+                        $0
+                        <span>forever</span>
+                    </div>
+                    
+                    <div class="pricing-features">
+                        <ul>
+                            <li>40 flashcards</li>
+                            <li>17 languages supported</li>
+                            <li>Auto-translation</li>
+                            <li>Basic text-to-speech</li>
+                            <li>iCloud sync</li>
+                            <li>Tag & organize cards</li>
+                            <li>Travel mode</li>
+                            <li>Study reminders</li>
+                            <li>5 app icons</li>
+                            <li>Dark/light mode</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pricing-cta">
+                        <a href="https://apps.apple.com/us/app/flippin/id6748499528" class="pricing-button" target="_blank">Get Started Free</a>
+                        <p class="pricing-note">No credit card required</p>
+                    </div>
+                </div>
+                
+                <!-- Premium Tier -->
+                <div class="pricing-card premium">
+                    <div class="pricing-badge">BEST VALUE</div>
+                    <div class="pricing-header">
+                        <h3>Premium</h3>
+                    </div>
+                    <div class="pricing-price">
+                        $3.99
+                        <span>/month</span>
+                    </div>
+                    
+                    <div class="pricing-trial">
+                        🎉 7-Day Free Trial Included
+                    </div>
+                    
+                    <div class="pricing-features">
+                        <ul>
+                            <li><strong>Everything in Free, plus:</strong></li>
+                            <li>Unlimited flashcards</li>
+                            <li>Image attachments</li>
+                            <li>AI Collection Generator</li>
+                            <li>AI Learning Coach</li>
+                            <li>Advanced analytics dashboard</li>
+                            <li>11 premium animated backgrounds</li>
+                            <li>All preset collections</li>
+                            <li>Premium Speechify voices</li>
+                            <li>Learning streaks & badges</li>
+                            <li>Performance insights</li>
+                            <li>Priority support</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pricing-cta">
+                        <a href="https://apps.apple.com/us/app/flippin/id6748499528" class="pricing-button" target="_blank">Start Free Trial</a>
+                        <p class="pricing-note">$29.99/year available • Cancel anytime</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -721,8 +1002,8 @@
     <section class="cta-section" id="download">
         <div class="container">
             <h2>Ready to Start Learning?</h2>
-            <p>Join thousands of language learners who have transformed their skills with Flippin</p>
-            <a href="https://apps.apple.com/us/app/flippin/id6748499528" class="cta-button-white" target="_blank">Download now! App Store</a>
+            <p>Join language learners worldwide using Flippin's AI-powered flashcards</p>
+            <a href="https://apps.apple.com/us/app/flippin/id6748499528" class="cta-button-white" target="_blank">Download on App Store</a>
         </div>
     </section>
 
@@ -746,9 +1027,9 @@
                 <div class="footer-section">
                     <h3>Features</h3>
                     <a href="#features">Auto Translation</a>
-                    <a href="#features">Text-to-Speech</a>
-                    <a href="#features">Smart Analytics</a>
-                    <a href="#premium">Premium Features</a>
+                    <a href="#features">AI Learning Coach</a>
+                    <a href="#features">Visual Learning</a>
+                    <a href="#pricing">Pricing</a>
                 </div>
             </div>
             <div class="footer-bottom">
