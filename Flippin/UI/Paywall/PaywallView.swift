@@ -11,6 +11,23 @@ enum Paywall {
         @State private var showingRestoreAlert = false
         @State private var restoreMessage = ""
         @State private var safariURL: URL?
+        
+        // Computed properties for trial detection
+        private var hasFreeTrial: Bool {
+            guard let package = selectedPackage else { return false }
+            return package.storeProduct.introductoryDiscount != nil
+        }
+        
+        private var trialDays: Int? {
+            guard let package = selectedPackage,
+                  let introDiscount = package.storeProduct.introductoryDiscount else { return nil }
+            
+            // Check if it's a free trial (price should be 0)
+            if introDiscount.price == 0 && introDiscount.subscriptionPeriod.unit == .day {
+                return introDiscount.subscriptionPeriod.value
+            }
+            return nil
+        }
 
         var body: some View {
             ScrollView {
@@ -126,15 +143,24 @@ enum Paywall {
                 // Text "Plan auto-renews for \(price)/\(period) until cancelled."
                 // Two buttons - Subscribe and Restore Subscription
                 VStack(spacing: 12) {
+                    // Show trial information if available
+                    if hasFreeTrial, let trialDays = trialDays {
+                        Text(Loc.Paywall.trialDaysFormat(trialDays))
+                            .foregroundStyle(.secondary)
+                            .font(.subheadline)
+                            .fontWeight(.medium)
+                            .multilineTextAlignment(.center)
+                    }
+                    
                     if let product = selectedPackage?.storeProduct, let price = product.localizedPrice {
                         Text(Loc.Paywall.planAutoRenews(price, product.localizedPeriod))
                             .foregroundStyle(.secondary)
                             .font(.caption)
                             .multilineTextAlignment(.center)
                     }
-                    // Subscribe button
+                    // Subscribe button - shows "Try for Free" if trial is available
                     ActionButton(
-                        Loc.Paywall.subscribe,
+                        hasFreeTrial ? Loc.Paywall.tryForFree : Loc.Paywall.subscribe,
                         style: .borderedProminent,
                         isLoading: purchaseService.isPurchasing
                     ) {

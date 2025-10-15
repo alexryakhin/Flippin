@@ -46,3 +46,5 @@
 // MARK: - Trial
 "trialTitle" = "프리미엄을 7일 무료로 체험";
 "trialSubtitle" = "프리미엄 콘텐츠에 대한 완전한 액세스로 모든 기능 잠금 해제";
+"tryForFree" = "Try for Free";
+"trialDaysFormat" = "%d-day free trial";

@@ -16,54 +16,45 @@ extension WelcomeSheet {
         let onContinue: () -> Void
         
         var body: some View {
-            ZStack {
-                AnimatedBackground()
-                    .ignoresSafeArea()
-                
-                VStack(spacing: 0) {
-                    Spacer()
-                    
-                    VStack(spacing: 24) {
-                        ZStack {
-                            Circle()
-                                .fill(
-                                    LinearGradient(
-                                        colors: [.orange, .red],
-                                        startPoint: .topLeading,
-                                        endPoint: .bottomTrailing
-                                    )
+            ScrollView {
+                VStack(spacing: 24) {
+                    ZStack {
+                        Circle()
+                            .fill(
+                                LinearGradient(
+                                    colors: [.orange, .red],
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
                                 )
-                                .frame(width: 120, height: 120)
-                                .scaleEffect(animateContent ? 1 : 0.5)
-                                .opacity(animateContent ? 1 : 0)
-                            
-                            Image(systemName: "flame.fill")
-                                .font(.system(size: 50, weight: .bold))
-                                .foregroundStyle(.white)
-                                .scaleEffect(flameScale)
-                                .opacity(animateContent ? 1 : 0)
-                        }
-                        .animation(.easeInOut(duration: 0.5).delay(0.2), value: animateContent)
-                        
-                        VStack(spacing: 16) {
-                            Text(Loc.UserProfile.streakTitle)
-                                .font(.system(size: 32, weight: .bold, design: .rounded))
-                                .multilineTextAlignment(.center)
-                                .offset(y: animateContent ? 0 : 20)
-                                .opacity(animateContent ? 1 : 0)
-                            
-                            Text(Loc.UserProfile.streakSubtitle)
-                                .font(.body)
-                                .foregroundStyle(.secondary)
-                                .multilineTextAlignment(.center)
-                                .offset(y: animateContent ? 0 : 20)
-                                .opacity(animateContent ? 1 : 0)
-                        }
-                        .animation(.easeInOut(duration: 0.5).delay(0.4), value: animateContent)
+                            )
+                            .frame(width: 120, height: 120)
+                            .scaleEffect(animateContent ? 1 : 0.5)
+                            .opacity(animateContent ? 1 : 0)
+
+                        Image(systemName: "flame.fill")
+                            .font(.system(size: 50, weight: .bold))
+                            .foregroundStyle(.white)
+                            .scaleEffect(flameScale)
+                            .opacity(animateContent ? 1 : 0)
                     }
-                    
-                    Spacer()
-                    
+                    .animation(.easeInOut(duration: 0.5).delay(0.2), value: animateContent)
+
+                    VStack(spacing: 16) {
+                        Text(Loc.UserProfile.streakTitle)
+                            .font(.system(size: 32, weight: .bold, design: .rounded))
+                            .multilineTextAlignment(.center)
+                            .offset(y: animateContent ? 0 : 20)
+                            .opacity(animateContent ? 1 : 0)
+
+                        Text(Loc.UserProfile.streakSubtitle)
+                            .font(.body)
+                            .foregroundStyle(.secondary)
+                            .multilineTextAlignment(.center)
+                            .offset(y: animateContent ? 0 : 20)
+                            .opacity(animateContent ? 1 : 0)
+                    }
+                    .animation(.easeInOut(duration: 0.5).delay(0.4), value: animateContent)
+
                     VStack(spacing: 16) {
                         StreakFeatureRow(
                             icon: "calendar.badge.checkmark",
@@ -71,14 +62,14 @@ extension WelcomeSheet {
                             animateContent: animateContent,
                             delay: 0.7
                         )
-                        
+
                         StreakFeatureRow(
                             icon: "chart.line.uptrend.xyaxis",
                             text: Loc.UserProfile.streakFeature2,
                             animateContent: animateContent,
                             delay: 0.9
                         )
-                        
+
                         StreakFeatureRow(
                             icon: "trophy.fill",
                             text: Loc.UserProfile.streakFeature3,
@@ -87,37 +78,42 @@ extension WelcomeSheet {
                         )
                     }
                     .padding(.horizontal, 20)
-                    
-                    Spacer()
-                    
-                    NavigationLink(
-                        destination: NotificationPermissionStepView(onContinue: onContinue),
-                        label: {
-                            ActionButton(
-                                Loc.WelcomeScreen.continueButton,
-                                style: .borderedProminent,
-                                action: {}
-                            )
-                            .allowsHitTesting(false)
-                        }
-                    )
-                    .simultaneousGesture(TapGesture().onEnded {
-                        HapticService.shared.buttonTapped()
-                    })
+
                 }
                 .padding(vertical: 12, horizontal: 16)
-                .onAppear {
-                    withAnimation(.easeInOut(duration: 0.6).delay(0.1)) {
-                        animateContent = true
+            }
+            .background {
+                AnimatedBackground()
+                    .ignoresSafeArea()
+            }
+            .safeAreaBarIfAvailable {
+                NavigationLink(
+                    destination: NotificationPermissionStepView(onContinue: onContinue),
+                    label: {
+                        ActionButton(
+                            Loc.WelcomeScreen.continueButton,
+                            style: .borderedProminent,
+                            action: {}
+                        )
+                        .allowsHitTesting(false)
                     }
-                    
-                    withAnimation(
-                        .easeInOut(duration: 1.0)
-                        .repeatForever(autoreverses: true)
-                        .delay(0.5)
-                    ) {
-                        flameScale = 1.15
-                    }
+                )
+                .simultaneousGesture(TapGesture().onEnded {
+                    HapticService.shared.buttonTapped()
+                })
+                .padding(vertical: 12, horizontal: 16)
+            }
+            .onAppear {
+                withAnimation(.easeInOut(duration: 0.6).delay(0.1)) {
+                    animateContent = true
+                }
+
+                withAnimation(
+                    .easeInOut(duration: 1.0)
+                    .repeatForever(autoreverses: true)
+                    .delay(0.5)
+                ) {
+                    flameScale = 1.15
                 }
             }
             .navigationBarBackButtonHidden(false)

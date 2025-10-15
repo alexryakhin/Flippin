@@ -46,3 +46,5 @@
 // MARK: - Trial
 "trialTitle" = "免費試用進階版 7 天";
 "trialSubtitle" = "解鎖所有功能，完全存取進階內容";
+"tryForFree" = "Try for Free";
+"trialDaysFormat" = "%d-day free trial";

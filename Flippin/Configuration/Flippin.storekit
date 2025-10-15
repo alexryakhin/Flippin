@@ -18,58 +18,55 @@
   ],
   "settings" : {
     "_applicationInternalID" : "6748499528",
+    "_askToBuyEnabled" : false,
+    "_billingGracePeriodEnabled" : false,
+    "_billingIssuesEnabled" : false,
     "_developerTeamID" : "69S862NXBP",
+    "_disableDialogs" : false,
     "_failTransactionsEnabled" : false,
-    "_lastSynchronizedDate" : 775036110.23469698,
+    "_lastSynchronizedDate" : 782199772.00897002,
     "_locale" : "en_US",
+    "_renewalBillingIssuesEnabled" : false,
     "_storefront" : "USA",
     "_storeKitErrors" : [
       {
-        "current" : null,
         "enabled" : false,
         "name" : "Load Products"
       },
       {
-        "current" : null,
         "enabled" : false,
         "name" : "Purchase"
       },
       {
-        "current" : null,
         "enabled" : false,
         "name" : "Verification"
       },
       {
-        "current" : null,
         "enabled" : false,
         "name" : "App Store Sync"
       },
       {
-        "current" : null,
         "enabled" : false,
         "name" : "Subscription Status"
       },
       {
-        "current" : null,
         "enabled" : false,
         "name" : "App Transaction"
       },
       {
-        "current" : null,
         "enabled" : false,
         "name" : "Manage Subscriptions Sheet"
       },
       {
-        "current" : null,
         "enabled" : false,
         "name" : "Refund Request Sheet"
       },
       {
-        "current" : null,
         "enabled" : false,
         "name" : "Offer Code Redeem Sheet"
       }
-    ]
+    ],
+    "_timeRate" : 0
   },
   "subscriptionGroups" : [
     {
@@ -90,12 +87,112 @@
           "familyShareable" : true,
           "groupNumber" : 1,
           "internalID" : "6748603046",
-          "introductoryOffer" : null,
+          "introductoryOffer" : {
+            "internalID" : "41FB1E4E",
+            "numberOfPeriods" : 1,
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P1W"
+          },
           "localizations" : [
             {
-              "description" : "Premium Monthly Description",
+              "description" : "Thẻ không giới hạn, bộ sưu tập & phân tích",
+              "displayName" : "Premium Hàng tháng",
+              "locale" : "vi"
+            },
+            {
+              "description" : "무제한 카드, 컬렉션 및 분석.",
+              "displayName" : "프리미엄 월간",
+              "locale" : "ko"
+            },
+            {
+              "description" : "Carte illimitate, collezioni e analisi",
+              "displayName" : "Premium Mensile",
+              "locale" : "it"
+            },
+            {
+              "description" : "Onbeperkte kaarten, collecties & analyses",
+              "displayName" : "Premium Maandelijks",
+              "locale" : "nl"
+            },
+            {
+              "description" : "Tarjetas ilimitadas, colecciones y análisis",
+              "displayName" : "Premium Mensual",
+              "locale" : "es_MX"
+            },
+            {
+              "description" : "بطاقات غير محدودة ومجموعات وتحليلات",
+              "displayName" : "بريميوم شهري",
+              "locale" : "ar"
+            },
+            {
+              "description" : "Неограниченные карточки и аналитика",
+              "displayName" : "Премиум Месячный",
+              "locale" : "ru"
+            },
+            {
+              "description" : "असीमित कार्ड, संग्रह और विश्लेषण।",
+              "displayName" : "प्रीमियम मासिक",
+              "locale" : "hi"
+            },
+            {
+              "description" : "Cartões ilimitados, coleções e análises",
+              "displayName" : "Premium Mensal",
+              "locale" : "pt_PT"
+            },
+            {
+              "description" : "Tarjetas ilimitadas, colecciones y análisis",
+              "displayName" : "Premium Mensual",
+              "locale" : "es_ES"
+            },
+            {
+              "description" : "無限卡片、集合和分析。",
+              "displayName" : "高級月費",
+              "locale" : "zh_Hant"
+            },
+            {
+              "description" : "Cartões ilimitados, coleções e análises",
+              "displayName" : "Premium Mensal",
+              "locale" : "pt_BR"
+            },
+            {
+              "description" : "Unlimited cards, collections, and analytics!",
               "displayName" : "Premium Monthly",
               "locale" : "en_US"
+            },
+            {
+              "description" : "Необмежені картки, колекції та аналітика",
+              "displayName" : "Преміум Місячний",
+              "locale" : "uk"
+            },
+            {
+              "description" : "Cartes illimitées, collections et analyses",
+              "displayName" : "Premium Mensuel",
+              "locale" : "fr"
+            },
+            {
+              "description" : "無制限カード、コレクションと分析。",
+              "displayName" : "プレミアム月額",
+              "locale" : "ja"
+            },
+            {
+              "description" : "无限卡片、集合和分析。",
+              "displayName" : "高级月费",
+              "locale" : "zh_Hans"
+            },
+            {
+              "description" : "Obegränsade kort, samlingar & analyser",
+              "displayName" : "Premium Månadsvis",
+              "locale" : "sv"
+            },
+            {
+              "description" : "Unbegrenzte Karten, Sammlungen & Analysen",
+              "displayName" : "Premium Monatlich",
+              "locale" : "de"
+            },
+            {
+              "description" : "Neograničene kartice, kolekcije i analize",
+              "displayName" : "Premium Mjesečno",
+              "locale" : "hr"
             }
           ],
           "productID" : "com.dor.flippin.premium_monthly",
@@ -118,12 +215,112 @@
           "familyShareable" : true,
           "groupNumber" : 2,
           "internalID" : "6748603055",
-          "introductoryOffer" : null,
+          "introductoryOffer" : {
+            "internalID" : "78D57864",
+            "numberOfPeriods" : 1,
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P1W"
+          },
           "localizations" : [
             {
-              "description" : "Premium Yearly Description",
+              "description" : "Tất cả tính năng premium với tiết kiệm 37%",
+              "displayName" : "Premium Hàng năm",
+              "locale" : "vi"
+            },
+            {
+              "description" : "Alle Premium-Features mit 37% Jahresersparnis",
+              "displayName" : "Premium Jährlich",
+              "locale" : "de"
+            },
+            {
+              "description" : "Sve premium funkcije s 37% godišnje uštede",
+              "displayName" : "Premium Godišnje",
+              "locale" : "hr"
+            },
+            {
+              "description" : "Все премиум функции с экономией 37%.",
+              "displayName" : "Премиум Годовой",
+              "locale" : "ru"
+            },
+            {
+              "description" : "모든 프리미엄 기능, 연간 37% 할인",
+              "displayName" : "프리미엄 연간",
+              "locale" : "ko"
+            },
+            {
+              "description" : "Todas las funciones premium con 37% de ahorro",
+              "displayName" : "Premium Anual",
+              "locale" : "es_MX"
+            },
+            {
+              "description" : "جميع الميزات المميزة مع توفير 37% سنوياً",
+              "displayName" : "بريميوم سنوي",
+              "locale" : "ar"
+            },
+            {
+              "description" : "Alla premium-funktioner med 37% årsbesparing",
+              "displayName" : "Premium Årligen",
+              "locale" : "sv"
+            },
+            {
+              "description" : "所有高級功能，年費節省37%。",
+              "displayName" : "高級年費",
+              "locale" : "zh_Hant"
+            },
+            {
+              "description" : "Tuttele funzioni premium con 37% di risparmio",
+              "displayName" : "Premium Annuale",
+              "locale" : "it"
+            },
+            {
+              "description" : "Toutes les fonctions premium avec d'économie",
+              "displayName" : "Premium Annuel",
+              "locale" : "fr"
+            },
+            {
+              "description" : "Todas as funções premium com 37% de economia",
+              "displayName" : "Premium Anual",
+              "locale" : "pt_BR"
+            },
+            {
+              "description" : "Alle premium functies met 37% jaar besparing",
+              "displayName" : "Premium Jaarlijks",
+              "locale" : "nl"
+            },
+            {
+              "description" : "Всі преміум функції з економією 37% річно",
+              "displayName" : "Преміум Річний",
+              "locale" : "uk"
+            },
+            {
+              "description" : "All premium features with 37% yearly savings",
               "displayName" : "Premium Yearly",
               "locale" : "en_US"
+            },
+            {
+              "description" : "Todas las funciones premium con 37% de ahorro",
+              "displayName" : "Premium Anual",
+              "locale" : "es_ES"
+            },
+            {
+              "description" : "すべてのプレミアム機能、年間37%割引。",
+              "displayName" : "プレミアム年額",
+              "locale" : "ja"
+            },
+            {
+              "description" : "所有高级功能，年费节省37%。",
+              "displayName" : "高级年费",
+              "locale" : "zh_Hans"
+            },
+            {
+              "description" : "सभी प्रीमियम सुविधाएं 37% वार्षिक बचत के साथ।",
+              "displayName" : "प्रीमियम वार्षिक",
+              "locale" : "hi"
+            },
+            {
+              "description" : "Todas as funções premium com 37% de economia",
+              "displayName" : "Premium Anual",
+              "locale" : "pt_PT"
             }
           ],
           "productID" : "com.dor.flippin.premium_yearly",

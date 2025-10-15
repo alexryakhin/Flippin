@@ -16,8 +16,26 @@ extension WelcomeSheet {
         @State private var selectedPackage: Package?
         @State private var showingRestoreAlert = false
         @State private var restoreMessage = ""
+        @State private var safariURL: URL?
 
         let onContinue: () -> Void
+        
+        // Computed properties for trial detection
+        private var hasFreeTrial: Bool {
+            guard let package = selectedPackage else { return false }
+            return package.storeProduct.introductoryDiscount != nil
+        }
+        
+        private var trialDays: Int? {
+            guard let package = selectedPackage,
+                  let introDiscount = package.storeProduct.introductoryDiscount else { return nil }
+            
+            // Check if it's a free trial (price should be 0)
+            if introDiscount.price == 0 && introDiscount.subscriptionPeriod.unit == .day {
+                return introDiscount.subscriptionPeriod.value
+            }
+            return nil
+        }
         
         var body: some View {
             ScrollView {
@@ -76,6 +94,19 @@ extension WelcomeSheet {
                     }
                     .padding(.horizontal, 16)
 
+                    // Terms of Service & Privacy Policy
+                    HStack(spacing: 4) {
+                        Button(Loc.AboutApp.termsOfService) {
+                            safariURL = URL(string: PrivateConstants.termsOfServiceURL)
+                        }
+                        Text(Loc.Paywall.andPreposition)
+                            .foregroundStyle(.secondary)
+                        Button(Loc.AboutApp.privacyPolicy) {
+                            safariURL = URL(string: PrivateConstants.privacyPolicyURL)
+                        }
+                    }
+                    .font(.caption)
+
                     // Subscription packages
                     if let offering = purchaseService.offerings {
                         VStack(spacing: 12) {
@@ -108,6 +139,15 @@ extension WelcomeSheet {
             }
             .safeAreaBarIfAvailable {
                 VStack(spacing: 12) {
+                    // Show trial information if available
+                    if hasFreeTrial, let trialDays = trialDays {
+                        Text(Loc.Paywall.trialDaysFormat(trialDays))
+                            .foregroundStyle(.secondary)
+                            .font(.subheadline)
+                            .fontWeight(.medium)
+                            .multilineTextAlignment(.center)
+                    }
+                    
                     if let product = selectedPackage?.storeProduct, let price = product.localizedPrice {
                         Text(Loc.Paywall.planAutoRenews(price, product.localizedPeriod))
                             .foregroundStyle(.secondary)
@@ -115,9 +155,9 @@ extension WelcomeSheet {
                             .multilineTextAlignment(.center)
                     }
                     
-                    // Subscribe button
+                    // Subscribe button - shows "Try for Free" if trial is available
                     ActionButton(
-                        Loc.Paywall.subscribe,
+                        hasFreeTrial ? Loc.Paywall.tryForFree : Loc.Paywall.subscribe,
                         style: .borderedProminent,
                         isLoading: purchaseService.isPurchasing
                     ) {
@@ -160,6 +200,7 @@ extension WelcomeSheet {
                     selectedPackage = offering.availablePackages.first
                 }
             }
+            .safari(url: $safariURL)
             .onAppear {
                 AnalyticsService.trackEvent(.paywallOpened)
                 withAnimation(.easeInOut(duration: 0.6).delay(0.1)) {

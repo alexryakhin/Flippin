@@ -983,10 +983,16 @@ public enum Loc {
     public static let subscribe = Loc.tr("Paywall", "subscribe", fallback: "Subscribe")
     /// Terms of Service
     public static let termsOfService = Loc.tr("Paywall", "termsOfService", fallback: "Terms of Service")
+    /// %d-day free trial
+    public static func trialDaysFormat(_ p1: Int) -> String {
+      return Loc.tr("Paywall", "trialDaysFormat", p1, fallback: "%d-day free trial")
+    }
     /// Unlock all features with full access to premium content
     public static let trialSubtitle = Loc.tr("Paywall", "trialSubtitle", fallback: "Unlock all features with full access to premium content")
     /// Try Premium Free for 7 Days
     public static let trialTitle = Loc.tr("Paywall", "trialTitle", fallback: "Try Premium Free for 7 Days")
+    /// Try for Free
+    public static let tryForFree = Loc.tr("Paywall", "tryForFree", fallback: "Try for Free")
     /// Unlock Premium
     public static let unlockPremium = Loc.tr("Paywall", "unlockPremium", fallback: "Unlock Premium")
     /// Upgrade to premium to unlock all features!
