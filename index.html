@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flippin - Master Languages with Smart Flashcards</title>
+    <link rel="icon" type="image/png" href="images/flippin-icon.png">
+    <link rel="apple-touch-icon" href="images/flippin-icon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 50%, #90caf9 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #1976d2, #42a5f5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #1976d2;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #42a5f5;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 10rem 0 6rem 0;
+            text-align: center;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 50%, #90caf9 100%);
+        }
+
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 2rem auto;
+            border-radius: 25px;
+            box-shadow: 0 20px 40px rgba(25, 118, 210, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .app-icon:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 30px 60px rgba(25, 118, 210, 0.4);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #1565c0;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #424242;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #1976d2, #42a5f5);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(25, 118, 210, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(25, 118, 210, 0.4);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #1565c0;
+            margin-bottom: 3rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8f2ff 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            border: 1px solid #e1e8ff;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 1rem auto;
+            display: block;
+        }
+
+        .feature-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .feature-card h3 {
+            color: #1565c0;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Languages Section */
+        .languages {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+        }
+
+        .languages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .language-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 80px;
+        }
+
+        .language-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .language-card h4 {
+            color: #1565c0;
+            margin: 0;
+        }
+
+        /* App Screenshots Section */
+        .screenshots {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+        }
+
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .screenshot-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .screenshot-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .screenshot-header {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #1976d2, #42a5f5);
+            color: white;
+            text-align: center;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .screenshot-header h3 {
+            color: white;
+            margin: 0;
+            font-size: 1.4rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .screenshot-image {
+            width: 100%;
+            height: 400px;
+            background: #f8f9ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 1rem;
+        }
+
+        .screenshot-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        /* Premium Features */
+        .premium {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .premium-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .premium-card {
+            background: linear-gradient(135deg, #e8f2ff 0%, #f8f9ff 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 2px solid #e1e8ff;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .premium-card:hover {
+            transform: translateY(-5px);
+            border-color: #42a5f5;
+        }
+
+        .premium-card h3 {
+            color: #1565c0;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .premium-card p {
+            color: #666;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+        }
+
+        .pricing-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 25px;
+            padding: 2.5rem;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .pricing-card.premium {
+            background: linear-gradient(135deg, #1976d2 0%, #42a5f5 100%);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .pricing-card.premium:hover {
+            transform: scale(1.08) translateY(-10px);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background: linear-gradient(135deg, #ff9800, #f57c00);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(255, 152, 0, 0.4);
+        }
+
+        .pricing-header h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #1565c0;
+        }
+
+        .pricing-card.premium .pricing-header h3 {
+            color: white;
+        }
+
+        .pricing-price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #1565c0;
+            margin: 1rem 0;
+        }
+
+        .pricing-card.premium .pricing-price {
+            color: white;
+        }
+
+        .pricing-price span {
+            font-size: 1.2rem;
+            color: #666;
+            font-weight: 400;
+        }
+
+        .pricing-card.premium .pricing-price span {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .pricing-trial {
+            background: rgba(25, 118, 210, 0.1);
+            padding: 0.75rem 1rem;
+            border-radius: 12px;
+            margin: 1rem 0;
+            font-weight: 600;
+            color: #1565c0;
+            font-size: 0.95rem;
+        }
+
+        .pricing-card.premium .pricing-trial {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .pricing-features {
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .pricing-features ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .pricing-features li {
+            padding: 0.75rem 0;
+            color: #666;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .pricing-card.premium .pricing-features li {
+            color: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-features li::before {
+            content: "✓";
+            color: #4caf50;
+            font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .pricing-card.premium .pricing-features li::before {
+            color: #90ee90;
+        }
+
+        .pricing-cta {
+            margin-top: 2rem;
+        }
+
+        .pricing-button {
+            display: block;
+            width: 100%;
+            padding: 1rem 2rem;
+            border-radius: 15px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid #1976d2;
+            background: white;
+            color: #1976d2;
+        }
+
+        .pricing-button:hover {
+            background: #1976d2;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .pricing-card.premium .pricing-button {
+            background: white;
+            color: #1976d2;
+            border: 2px solid white;
+        }
+
+        .pricing-card.premium .pricing-button:hover {
+            background: #f0f0f0;
+            transform: scale(1.05);
+        }
+
+        .pricing-note {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: #999;
+            text-align: center;
+        }
+
+        .pricing-card.premium .pricing-note {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #1976d2, #42a5f5);
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button-white {
+            display: inline-block;
+            background: white;
+            color: #1976d2;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-button-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background: #1565c0;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #90caf9;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #e3f2fd;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #1976d2;
+            padding-top: 2rem;
+            color: #90caf9;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .app-icon {
+                width: 80px;
+                height: 80px;
+                margin-bottom: 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .features-grid,
+            .languages-grid,
+            .premium-grid,
+            .screenshots-grid,
+            .pricing-container {
+                grid-template-columns: 1fr;
+            }
+
+            .screenshot-image {
+                height: 300px;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .pricing-card.premium {
+                transform: scale(1);
+            }
+
+            .pricing-card.premium:hover {
+                transform: translateY(-10px);
+            }
+
+            .pricing-price {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Floating animation for cards */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Flippin</div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#languages">Languages</a></li>
+                <li><a href="#screenshots">Screenshots</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="support.html">Support</a></li>
+                <li><a href="privacy-policy.html">Privacy</a></li>
+                <li><a href="terms-of-use.html">Terms</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <img src="images/flippin-icon.png" alt="Flippin App Icon" class="app-icon fade-in-up">
+            <h1 class="fade-in-up">Master Languages <br> with Smart Flashcards</h1>
+            <p class="fade-in-up">Transform your language learning with auto-translation,<br> TTS pronunciation, AI-powered insights,<br> and personalized analytics.<br> Available in 17 languages.</p>
+            <a href="https://apps.apple.com/us/app/flippin/id6748499528" class="cta-button fade-in-up" target="_blank">Download on App Store</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose Flippin?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="images/auto-translation.svg" alt="Auto Translation">
+                    </div>
+                    <h3>Auto Translation</h3>
+                    <p>Instant translation in 17 languages with Google Translate integration. Create cards in any language pair.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="images/text-to-speech.svg" alt="Text-to-Speech">
+                    </div>
+                    <h3>Text-to-Speech</h3>
+                    <p>Perfect pronunciation with native TTS in all supported languages. Premium users get access to Speechify voices.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="images/smart-analytics.svg" alt="Smart Analytics">
+                    </div>
+                    <h3>AI Learning Coach</h3>
+                    <p>Get personalized insights and recommendations powered by AI. Track progress with detailed analytics dashboard.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="images/beautiful-design.svg" alt="Beautiful Design">
+                    </div>
+                    <h3>Beautiful Design</h3>
+                    <p>12 stunning animated backgrounds, customizable app icons, and dark/light mode for an engaging experience.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="images/travel-mode.svg" alt="Visual Learning">
+                    </div>
+                    <h3>Visual Learning</h3>
+                    <p>Add images to your flashcards with Pexels integration. Plus Travel Mode to practice in both directions.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="images/cloud-sync.svg" alt="iCloud Sync">
+                    </div>
+                    <h3>iCloud Sync & Reminders</h3>
+                    <p>Access flashcards across all Apple devices with iCloud. Get daily study reminders and difficult card alerts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Smart Learning Section -->
+    <section class="languages">
+        <div class="container">
+            <h2 class="section-title">Smart Learning Made Simple</h2>
+            <p style="text-align: center; font-size: 1.2rem; color: #424242; margin-bottom: 2rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+                Create flashcards with automatic translation, add images, notes, and organize with tags. Study with beautiful animations and track your progress with AI-powered analytics.
+            </p>
+            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 2rem;">
+                <div style="background: white; padding: 1rem 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <h4 style="color: #1565c0; margin-bottom: 0.5rem;">Free Tier</h4>
+                    <p style="color: #666; margin: 0;">40 cards to get started</p>
+                </div>
+                <div style="background: white; padding: 1rem 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <h4 style="color: #1565c0; margin-bottom: 0.5rem;">Premium</h4>
+                    <p style="color: #666; margin: 0;">Unlimited cards + AI features</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Languages Section -->
+    <section class="languages" id="languages">
+        <div class="container">
+            <h2 class="section-title">17 Languages Supported</h2>
+            <div class="languages-grid">
+                <div class="language-card">
+                    <h4>English 🇺🇸</h4>
+                </div>
+                <div class="language-card">
+                    <h4>Dutch 🇳🇱</h4>
+                </div>
+                <div class="language-card">
+                    <h4>Russian 🇷🇺</h4>
+                </div>
+                <div class="language-card">
+                    <h4>Spanish 🇪🇸</h4>
+                </div>
+                <div class="language-card">
+                    <h4>Swedish 🇸🇪</h4>
+                </div>
+                <div class="language-card">
+                    <h4>Arabic 🇸🇦</h4>
+                </div>
+                <div class="language-card">
+                    <h4>French 🇫🇷</h4>
+                </div>
+                <div class="language-card">
+                    <h4>Chinese 🇨🇳</h4>
+                </div>
+                <div class="language-card">
+                    <h4>Hindi 🇮🇳</h4>
+                </div>
+                <div class="language-card">
+                    <h4>German 🇩🇪</h4>
+                </div>
+                <div class="language-card">
+                    <h4>Japanese 🇯🇵</h4>
+                </div>
+                <div class="language-card">
+                    <h4>Croatian 🇭🇷</h4>
+                </div>
+                <div class="language-card">
+                    <h4>Italian 🇮🇹</h4>
+                </div>
+                <div class="language-card">
+                    <h4>Korean 🇰🇷</h4>
+                </div>
+                <div class="language-card">
+                    <h4>Ukrainian 🇺🇦</h4>
+                </div>
+                <div class="language-card">
+                    <h4>Portuguese 🇵🇹</h4>
+                </div>
+                <div class="language-card">
+                    <h4>Vietnamese 🇻🇳</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Screenshots -->
+    <section class="screenshots" id="screenshots">
+        <div class="container">
+            <h2 class="section-title">See Flippin in Action</h2>
+            <div class="screenshots-grid">
+                <div class="screenshot-card">
+                    <div class="screenshot-header">
+                        <h3>Study with beautiful 3D card animations</h3>
+                    </div>
+                    <div class="screenshot-image">
+                        <img src="images/screenshot-1.png" alt="Study with beautiful 3D card animations">
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="screenshot-header">
+                        <h3>Create cards with automatic translation & images</h3>
+                    </div>
+                    <div class="screenshot-image">
+                        <img src="images/screenshot-2.png" alt="Create cards with automatic translation and images">
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="screenshot-header">
+                        <h3>Track your learning progress & streaks</h3>
+                    </div>
+                    <div class="screenshot-image">
+                        <img src="images/screenshot-3.png" alt="Track your learning progress and streaks">
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="screenshot-header">
+                        <h3>AI-powered insights and recommendations</h3>
+                    </div>
+                    <div class="screenshot-image">
+                        <img src="images/screenshot-4.png" alt="AI-powered insights and recommendations">
+                    </div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <div class="screenshot-header">
+                        <h3>Ready-to-use collections + AI generator</h3>
+                    </div>
+                    <div class="screenshot-image">
+                        <img src="images/screenshot-5.png" alt="Ready-to-use collections and AI generator">
+                    </div>
+                </div>
+       
+                <div class="screenshot-card">
+                    <div class="screenshot-header">
+                        <h3>12 beautiful animated backgrounds</h3>
+                    </div>
+                    <div class="screenshot-image">
+                        <img src="images/screenshot-6.png" alt="12 beautiful animated backgrounds">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Features -->
+    <section class="premium" id="premium">
+        <div class="container">
+            <h2 class="section-title">Premium Features</h2>
+            <div class="premium-grid">
+                <div class="premium-card">
+                    <h3>Unlimited Cards</h3>
+                    <p>Create as many flashcards as you need. No limits on your learning journey.</p>
+                </div>
+                <div class="premium-card">
+                    <h3>AI Collection Generator</h3>
+                    <p>Generate custom flashcard collections with AI. Just describe what you want to learn and let AI create personalized cards for you.</p>
+                </div>
+                <div class="premium-card">
+                    <h3>AI Learning Coach</h3>
+                    <p>Get personalized insights and recommendations powered by AI. Analyze your learning patterns and receive actionable tips.</p>
+                </div>
+                <div class="premium-card">
+                    <h3>Advanced Analytics</h3>
+                    <p>Detailed dashboard with performance tracking, study session analysis, card difficulty insights, and learning streaks.</p>
+                </div>
+                <div class="premium-card">
+                    <h3>Premium Backgrounds</h3>
+                    <p>11 beautiful animated backgrounds (Lava Lamp, Snow, Rain, Stars, Bubbles, Waves, Particles, Aurora, Fireflies, Ocean, Galaxy).</p>
+                </div>
+                <div class="premium-card">
+                    <h3>All Collections</h3>
+                    <p>Access to all curated preset collections for popular language learning topics in 17 languages.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2 class="section-title">Choose Your Plan</h2>
+            <p style="text-align: center; font-size: 1.2rem; color: #424242; margin-bottom: 2rem;">
+                Start with our free tier or unlock premium features with a 7-day free trial
+            </p>
+            
+            <div class="pricing-container">
+                <!-- Free Tier -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Free</h3>
+                    </div>
+                    <div class="pricing-price">
+                        $0
+                        <span>forever</span>
+                    </div>
+                    
+                    <div class="pricing-features">
+                        <ul>
+                            <li>40 flashcards</li>
+                            <li>17 languages supported</li>
+                            <li>Auto-translation</li>
+                            <li>Basic text-to-speech</li>
+                            <li>iCloud sync</li>
+                            <li>Tag & organize cards</li>
+                            <li>Travel mode</li>
+                            <li>Study reminders</li>
+                            <li>5 app icons</li>
+                            <li>Dark/light mode</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pricing-cta">
+                        <a href="https://apps.apple.com/us/app/flippin/id6748499528" class="pricing-button" target="_blank">Get Started Free</a>
+                        <p class="pricing-note">No credit card required</p>
+                    </div>
+                </div>
+                
+                <!-- Premium Tier -->
+                <div class="pricing-card premium">
+                    <div class="pricing-badge">BEST VALUE</div>
+                    <div class="pricing-header">
+                        <h3>Premium</h3>
+                    </div>
+                    <div class="pricing-price">
+                        $3.99
+                        <span>/month</span>
+                    </div>
+                    
+                    <div class="pricing-trial">
+                        🎉 7-Day Free Trial Included
+                    </div>
+                    
+                    <div class="pricing-features">
+                        <ul>
+                            <li><strong>Everything in Free, plus:</strong></li>
+                            <li>Unlimited flashcards</li>
+                            <li>Image attachments</li>
+                            <li>AI Collection Generator</li>
+                            <li>AI Learning Coach</li>
+                            <li>Advanced analytics dashboard</li>
+                            <li>11 premium animated backgrounds</li>
+                            <li>All preset collections</li>
+                            <li>Premium Speechify voices</li>
+                            <li>Learning streaks & badges</li>
+                            <li>Performance insights</li>
+                            <li>Priority support</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pricing-cta">
+                        <a href="https://apps.apple.com/us/app/flippin/id6748499528" class="pricing-button" target="_blank">Start Free Trial</a>
+                        <p class="pricing-note">$29.99/year available • Cancel anytime</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="download">
+        <div class="container">
+            <h2>Ready to Start Learning?</h2>
+            <p>Join language learners worldwide using Flippin's AI-powered flashcards</p>
+            <a href="https://apps.apple.com/us/app/flippin/id6748499528" class="cta-button-white" target="_blank">Download on App Store</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>If you have any questions about this application, please contact us:</p>
+                    <a href="mailto:support@flippin.app">Email: support@flippin.app</a>
+                    <p>Developer: Alexander Riakhin</p>
+                    <p>We're committed to protecting your privacy and will respond to your inquiries promptly.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="support.html">Support</a>
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="terms-of-use.html">Terms of Use</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Features</h3>
+                    <a href="#features">Auto Translation</a>
+                    <a href="#features">AI Learning Coach</a>
+                    <a href="#features">Visual Learning</a>
+                    <a href="#pricing">Pricing</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Flippin. Developed by Alexander Riakhin. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

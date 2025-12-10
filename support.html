@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - Flippin</title>
+    <link rel="icon" type="image/png" href="images/flippin-icon.png">
+    <link rel="apple-touch-icon" href="images/flippin-icon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 50%, #90caf9 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #1976d2, #42a5f5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #1976d2;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #42a5f5;
+        }
+
+        /* Header */
+        .header {
+            padding: 8rem 0 4rem 0;
+            text-align: center;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 50%, #90caf9 100%);
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            color: #1565c0;
+            margin-bottom: 1rem;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: #424242;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .sidebar {
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8f2ff 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            height: fit-content;
+            position: sticky;
+            top: 120px;
+        }
+
+        .sidebar h3 {
+            color: #1565c0;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar li {
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar a {
+            color: #1976d2;
+            text-decoration: none;
+            padding: 0.5rem 0;
+            display: block;
+            transition: color 0.3s ease;
+        }
+
+        .sidebar a:hover {
+            color: #42a5f5;
+        }
+
+        .content {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section h2 {
+            color: #1565c0;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            border-left: 4px solid #1976d2;
+            padding-left: 1rem;
+        }
+
+        .section h3 {
+            color: #1976d2;
+            margin: 2rem 0 1rem 0;
+            font-size: 1.4rem;
+        }
+
+        .faq-item {
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8f2ff 100%);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 1rem;
+            border: 1px solid #e1e8ff;
+        }
+
+        .faq-item h4 {
+            color: #1565c0;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .faq-item p {
+            color: #666;
+            margin: 0;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, #1976d2, #42a5f5);
+            color: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .contact-box h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .contact-box p {
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-box a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-box a:hover {
+            text-decoration: underline;
+        }
+
+        .solution-list {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid #42a5f5;
+        }
+
+        .solution-list ul {
+            margin: 0;
+            padding-left: 1.5rem;
+        }
+
+        .solution-list li {
+            margin-bottom: 0.5rem;
+            color: #666;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1565c0;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer p {
+            color: #90caf9;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+                margin-bottom: 2rem;
+            }
+
+            .header h1 {
+                font-size: 2.5rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Flippin</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Main</a></li>
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="index.html#languages">Languages</a></li>
+                <li><a href="index.html#premium">Premium</a></li>
+                <li><a href="privacy-policy.html">Privacy</a></li>
+                <li><a href="terms-of-use.html">Terms</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="header">
+        <div class="container">
+            <h1 class="fade-in-up">Support</h1>
+            <p class="fade-in-up">We're here to help you get the most out of Flippin!</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="container">
+            <div class="content-grid">
+                <!-- Sidebar -->
+                <div class="sidebar">
+                    <h3>Quick Navigation</h3>
+                    <ul>
+                        <li><a href="#faq">Frequently Asked Questions</a></li>
+                        <li><a href="#feature-guides">Feature Guides</a></li>
+                        <li><a href="#common-issues">Common Issues & Solutions</a></li>
+                    </ul>
+
+                    <div class="contact-box" style="margin-top: 2rem;">
+                        <h3>Get in Touch</h3>
+                        <p><strong>Email:</strong> <a href="mailto:support@flippin.app">support@flippin.app</a></p>
+                        <p><strong>Developer:</strong> Alexander Riakhin</p>
+                        <p><strong>Response Time:</strong> Within 24 hours</p>
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <div class="content">
+                    <!-- FAQ -->
+                    <div class="section" id="faq">
+                        <h2>Frequently Asked Questions</h2>
+                        
+                        <div class="faq-item">
+                            <h4>How do I create my first flashcard?</h4>
+                            <p>Tap the + button, type your text, and get automatic translation. Add notes and tags to organize your learning.</p>
+                        </div>
+
+                        <div class="faq-item">
+                            <h4>What languages are supported?</h4>
+                            <p>Flippin supports 18 languages including English, Spanish, French, German, Italian, Portuguese, Dutch, Swedish, Chinese, Japanese, Korean, Vietnamese, Russian, Arabic, Hindi, Croatian, and Ukrainian.</p>
+                        </div>
+
+                        <div class="faq-item">
+                            <h4>How does the free tier work?</h4>
+                            <p>Free users can create up to 40 cards and access basic features. Premium unlocks unlimited cards, all collections, and advanced analytics.</p>
+                        </div>
+
+                        <div class="faq-item">
+                            <h4>Can I sync my data across devices?</h4>
+                            <p>Yes! Enable iCloud sync in your device settings to access your flashcards on all your Apple devices.</p>
+                        </div>
+
+                        <div class="faq-item">
+                            <h4>How do I cancel my subscription?</h4>
+                            <p>Go to Settings > [Your Name] > Subscriptions on your device, or manage subscriptions in the App Store.</p>
+                        </div>
+
+                        <div class="faq-item">
+                            <h4>Is my data private?</h4>
+                            <p>Absolutely. Your learning data is stored locally and optionally synced via iCloud. We never share your personal information.</p>
+                        </div>
+                    </div>
+
+                    <!-- Feature Guides -->
+                    <div class="section" id="feature-guides">
+                        <h2>Feature Guides</h2>
+                        
+                        <h3>Learning Analytics</h3>
+                        <p>Track your progress with detailed analytics including study sessions, card mastery, and personalized insights.</p>
+
+                        <h3>Customization</h3>
+                        <p>Choose from 12 beautiful animated backgrounds and customize your learning experience with themes and colors.</p>
+
+                        <h3>Organization</h3>
+                        <p>Use tags to organize your flashcards and filter by language pairs, favorites, or custom categories.</p>
+
+                        <h3>Travel Mode</h3>
+                        <p>Reverse language display to practice in both directions and improve your language skills.</p>
+                    </div>
+
+                    <!-- Common Issues -->
+                    <div class="section" id="common-issues">
+                        <h2>Common Issues & Solutions</h2>
+                        
+                        <h3>Translation Not Working</h3>
+                        <div class="solution-list">
+                            <ul>
+                                <li>Check your internet connection</li>
+                                <li>Ensure the text is not empty</li>
+                                <li>Try refreshing the app</li>
+                            </ul>
+                        </div>
+
+                        <h3>TTS Not Playing</h3>
+                        <div class="solution-list">
+                            <ul>
+                                <li>Check device volume</li>
+                                <li>Ensure language is supported</li>
+                                <li>Try restarting the app</li>
+                            </ul>
+                        </div>
+
+                        <h3>iCloud Sync Issues</h3>
+                        <div class="solution-list">
+                            <ul>
+                                <li>Verify iCloud is enabled</li>
+                                <li>Check available storage</li>
+                                <li>Wait for sync to complete</li>
+                                <li>Try restarting the app</li>
+                            </ul>
+                        </div>
+
+                        <h3>Purchase Problems</h3>
+                        <div class="solution-list">
+                            <ul>
+                                <li>Check App Store connection</li>
+                                <li>Verify payment method</li>
+                                <li>Contact Apple Support if needed</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Still Need Help -->
+                    <div class="section">
+                        <h2>Still Need Help?</h2>
+                        <p>Can't find what you're looking for? Send us a message and we'll get back to you within 24 hours.</p>
+                        
+                        <div class="contact-box">
+                            <h3>Contact Support</h3>
+                            <p><strong>Email:</strong> <a href="mailto:support@flippin.app">support@flippin.app</a></p>
+                            <p><strong>Developer:</strong> Alexander Riakhin</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Flippin. Developed by Alexander Riakhin. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
