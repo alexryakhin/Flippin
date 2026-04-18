@@ -1,0 +1,55 @@
+# Netlify: custom response headers (GitHub Pages does not support these).
+# Keep Link value in sync with _headers and vercel.json.
+[[headers]]
+  for = "/"
+  [headers.values]
+    Link = "</.well-known/api-catalog>; rel=\"api-catalog\", </.well-known/openapi.json>; rel=\"service-desc\", </features.html>; rel=\"service-doc\", </.well-known/health.json>; rel=\"status\", </.well-known/agent-skills/index.json>; rel=\"describedby\""
+    Vary = "Accept"
+
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Link = "</.well-known/api-catalog>; rel=\"api-catalog\", </.well-known/openapi.json>; rel=\"service-desc\", </features.html>; rel=\"service-doc\", </.well-known/health.json>; rel=\"status\", </.well-known/agent-skills/index.json>; rel=\"describedby\""
+    Vary = "Accept"
+
+[[headers]]
+  for = "/.well-known/api-catalog"
+  [headers.values]
+    Content-Type = "application/linkset+json; profile=\"https://www.rfc-editor.org/info/rfc9727\""
+    Access-Control-Allow-Origin = "*"
+
+[[headers]]
+  for = "/.well-known/openapi.json"
+  [headers.values]
+    Content-Type = "application/json; charset=utf-8"
+    Access-Control-Allow-Origin = "*"
+
+[[headers]]
+  for = "/.well-known/health.json"
+  [headers.values]
+    Content-Type = "application/json; charset=utf-8"
+    Access-Control-Allow-Origin = "*"
+
+[[headers]]
+  for = "/.well-known/mcp/server-card.json"
+  [headers.values]
+    Content-Type = "application/json; charset=utf-8"
+    Access-Control-Allow-Origin = "*"
+
+[[headers]]
+  for = "/.well-known/agent-skills/index.json"
+  [headers.values]
+    Content-Type = "application/json; charset=utf-8"
+    Access-Control-Allow-Origin = "*"
+
+[[headers]]
+  for = "/index.md"
+  [headers.values]
+    Content-Type = "text/markdown; charset=utf-8"
+    Access-Control-Allow-Origin = "*"
+
+[[headers]]
+  for = "/.well-known/agent-skills/flippin-website.md"
+  [headers.values]
+    Content-Type = "text/markdown; charset=utf-8"
+    Access-Control-Allow-Origin = "*"

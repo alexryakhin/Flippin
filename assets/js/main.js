@@ -51,5 +51,66 @@
       });
     });
   });
+
+  const modelContext = navigator.modelContext;
+  if (modelContext && typeof modelContext.registerTool === "function") {
+    const appStoreURL =
+      "https://apps.apple.com/us/app/flippin/id6748499528";
+
+    modelContext.registerTool(
+      {
+        name: "open_app_store",
+        title: "Open App Store",
+        description:
+          "Opens the Flippin listing on the Apple App Store in a new tab.",
+        inputSchema: {
+          type: "object",
+          properties: {},
+          additionalProperties: false,
+        },
+        async execute() {
+          window.open(appStoreURL, "_blank", "noopener,noreferrer");
+          return { opened: true, url: appStoreURL };
+        },
+        annotations: { readOnlyHint: true },
+      },
+    );
+
+    modelContext.registerTool(
+      {
+        name: "open_support",
+        title: "Open support page",
+        description:
+          "Navigates to the Flippin support page (FAQ and contact options).",
+        inputSchema: {
+          type: "object",
+          properties: {},
+          additionalProperties: false,
+        },
+        async execute() {
+          window.location.assign("/support.html");
+          return { path: "/support.html" };
+        },
+      },
+    );
+
+    modelContext.registerTool(
+      {
+        name: "open_languages",
+        title: "Open languages page",
+        description:
+          "Navigates to the page listing supported learning languages.",
+        inputSchema: {
+          type: "object",
+          properties: {},
+          additionalProperties: false,
+        },
+        async execute() {
+          window.location.assign("/languages.html");
+          return { path: "/languages.html" };
+        },
+      },
+    );
+  }
 })();
 

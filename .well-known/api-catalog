@@ -1,0 +1,29 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://www.flippin.app/",
+      "service-desc": [
+        {
+          "href": "https://www.flippin.app/.well-known/openapi.json",
+          "type": "application/vnd.oai.openapi+json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://www.flippin.app/features.html",
+          "type": "text/html"
+        },
+        {
+          "href": "https://www.flippin.app/support.html",
+          "type": "text/html"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://www.flippin.app/.well-known/health.json",
+          "type": "application/json"
+        }
+      ]
+    }
+  ]
+}

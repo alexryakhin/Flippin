@@ -1,0 +1,14 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Flippin web presence",
+    "version": "1.0.0",
+    "description": "This hostname serves the public marketing website for the Flippin iOS app. There is no OAuth-protected HTTP API for flashcard data on www.flippin.app. Product functionality is delivered through the App Store app."
+  },
+  "servers": [
+    {
+      "url": "https://www.flippin.app"
+    }
+  ],
+  "paths": {}
+}

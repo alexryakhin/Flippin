@@ -1,0 +1,15 @@
+{
+  "serverInfo": {
+    "name": "Flippin Website",
+    "version": "1.0.0"
+  },
+  "description": "Public marketing site for the Flippin iOS app. This origin does not host a remote Model Context Protocol HTTP endpoint; in supported browsers, pages may register WebMCP tools client-side only.",
+  "transport": {
+    "type": "none"
+  },
+  "capabilities": {
+    "tools": false,
+    "resources": false,
+    "prompts": false
+  }
+}

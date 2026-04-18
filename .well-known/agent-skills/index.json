@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "flippin-website",
+      "type": "skill-md",
+      "description": "Context for agents about the Flippin marketing site, App Store distribution, and support contact.",
+      "url": "https://www.flippin.app/.well-known/agent-skills/flippin-website.md",
+      "digest": "sha256:256778e9d80bf5dbdb02d22f6c6bb9855872aa5d3bcadb42c816ab89e53ee918"
+    }
+  ]
+}
