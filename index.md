@@ -5,14 +5,14 @@ canonical: https://www.flippin.app/
 
 # Flippin — Smart flashcards for language learning
 
-Learn languages with smart flashcards: auto-translation, pronunciation (TTS), and progress analytics. Available in 32 languages. Built for iPhone and iPad.
+Learn languages with smart flashcards: auto-translation, pronunciation (TTS), and progress analytics. Learn any pair of 32 languages. Built for iPhone and iPad (version 2.0, requires iOS 26 or later).
 
 ## Highlights
 
 - Auto-translation
 - Pronunciation (TTS)
 - iCloud sync
-- 7-day free trial (Premium)
+- 7-day free trial on the yearly Premium plan
 
 ## How it works
 
@@ -24,16 +24,16 @@ A simple loop you can stick with: create → study → improve.
 
 ## Pricing
 
-**Free** — $0 forever: 40 flashcards, 32 languages, auto-translation + basic TTS, iCloud sync.
+**Free** — $0 forever, no account needed: up to 40 flashcards, one language pair (from 32 languages), auto-translation, Google and system voices, 11 free preset collections (one per category), streaks and basic stats, iCloud sync.
 
-**Premium** — from **$5.99/month** or **$39.99/year** in many regions (prices vary by country or region): 7-day free trial, unlimited flashcards, AI collection generator + learning coach, advanced analytics. Other plans (e.g. different yearly or lifetime options) may be offered in the App—see [Terms of Use](terms-of-use.html). Cancel anytime in App Store settings.
+**Premium** — **$4.99/month**, **$29.99/year** (7-day free trial on the yearly plan only) or **$79.99 lifetime** (one-time purchase). Prices are in USD and vary by country or region; limited-time offers such as $19.99/year (no trial) may appear in the app. Includes unlimited flashcards, all 30 preset collections, AI collection generator + AI learning coach, card images, emoji mode, switching language pairs, quiz practice sessions, detailed analytics, natural Speechify voices (nearly 1,000), all backgrounds and custom color. See [Terms of Use](terms-of-use.html). Cancel anytime in App Store settings.
 
 ## FAQ (short)
 
-- **Account:** Flippin uses Sign in with Apple.
+- **Account:** Not required. Optional Sign in with Apple syncs your profile, streak and subscription across devices.
 - **Premium:** Cancel in iOS App Store subscription settings.
-- **Devices:** iCloud can sync flashcards across your Apple devices.
-- **Languages:** 32 languages — see [Languages](languages.html).
+- **Devices:** iCloud syncs your flashcards across your Apple devices, with or without an account.
+- **Languages:** 32 learnable languages, any pair — see [Languages](languages.html).
 - **Support:** [support@flippin.app](mailto:support@flippin.app) or [Support](support.html).
 
 ## Download

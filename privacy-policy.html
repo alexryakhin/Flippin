@@ -66,7 +66,7 @@
       <div class="container">
         <div class="legal-header__inner">
           <h1 class="legal-title">Privacy Policy</h1>
-          <div class="legal-meta">Last updated: July 2025</div>
+          <div class="legal-meta">Last updated: October 5, 2026</div>
         </div>
       </div>
     </header>
@@ -74,64 +74,78 @@
     <section class="section" style="padding-top: 0;">
       <div class="container">
         <div class="prose">
-          <p>Welcome to Flippin! We respect your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, and safeguard your data when you use our language learning application.</p>
+          <p>Welcome to Flippin! We respect your privacy and are committed to protecting your personal information. This Privacy Policy explains what data the Flippin app collects, which service providers receive it, and the choices you have. It applies to Flippin 2.0 and later (iPhone and iPad, iOS 26.0 or later).</p>
 
           <div class="callout">
             <strong>Key points</strong>
             <ul>
-              <li>We collect minimal personal data necessary for app functionality</li>
-              <li>Your learning data is stored locally and synced via iCloud (optional)</li>
-              <li>We use Google Translate API for translations (text only)</li>
-              <li>We do not sell or share your personal information</li>
-              <li>You have full control over your data</li>
+              <li>You can use Flippin without an account. Sign in with Apple is optional.</li>
+              <li>Your flashcards are stored on your device and synced through your own iCloud account (if iCloud is on).</li>
+              <li>Text you translate, play aloud, or send to AI features is sent to the service providers listed below only to perform that feature.</li>
+              <li>AI features run through Flippin’s own server; the app never sends your data to OpenAI directly.</li>
+              <li>We do not sell your personal information and we do not show ads.</li>
             </ul>
           </div>
 
           <h2>Information We Collect</h2>
 
-          <h3>Personal Information</h3>
-          <p>We collect minimal personal information to provide you with the best learning experience:</p>
+          <h3>Information you provide</h3>
           <ul>
-            <li><strong>Language Preferences:</strong> Your selected native and target languages</li>
-            <li><strong>Learning Data:</strong> Flashcards you create, study progress, and preferences</li>
-            <li><strong>App Settings:</strong> Background styles, color themes, and other customization options</li>
+            <li><strong>Learning profile:</strong> your native and target languages, level, learning goal, interests, weekly goal and (optionally) your name, entered during onboarding.</li>
+            <li><strong>Flashcards and content:</strong> cards, notes, tags, favorites, images you choose and preset or AI collections you add.</li>
+            <li><strong>App settings:</strong> voices, themes, backgrounds, display mode and notification times.</li>
           </ul>
 
-          <h3>Usage Data</h3>
-          <p>We collect anonymous usage analytics to improve our app and provide personalized learning insights:</p>
+          <h3>Information created as you study</h3>
           <ul>
-            <li><strong>App Lifecycle:</strong> App launch, background, and foreground events</li>
-            <li><strong>Navigation:</strong> Screen opens and user navigation patterns</li>
-            <li><strong>Learning Actions:</strong> Card interactions (flip, play, favorite), study sessions, and learning progress</li>
-            <li><strong>Content Management:</strong> Card creation, editing, deletion, and tag management</li>
-            <li><strong>Search and Filtering:</strong> Search terms and filter usage</li>
-            <li><strong>Settings Changes:</strong> Language preferences, background styles, and app customization</li>
-            <li><strong>Premium Features:</strong> Purchase events and paywall interactions</li>
-            <li><strong>Error Tracking:</strong> Translation failures, TTS errors, and app crashes</li>
-            <li><strong>Personalized Insights:</strong> Actions taken on learning recommendations</li>
-            <li><strong>Performance Metrics:</strong> App performance and feature usage statistics</li>
+            <li><strong>Study data:</strong> study sessions, answers, accuracy, mastery, difficulty, streaks and study time.</li>
           </ul>
+
+          <h3>Account information (optional)</h3>
+          <p>If you choose Sign in with Apple, we receive a user identifier from Apple and, if you allow it, your name and email address (which may be a private relay address). Your learning profile and progress totals (streak, total study time, cards mastered, last study date) are then stored with your account so they follow you across devices.</p>
+
+          <h3>Usage and diagnostic data</h3>
+          <p>We collect app usage events (for example, screens opened, cards created, study sessions, paywall views and purchases) and crash reports to understand how the app is used and to fix problems. We do not attach your name or email address to these events.</p>
 
           <h2>How We Use Your Information</h2>
-          <p>We use the information described above to provide core app functionality, improve features, and (where enabled) sync your content across devices.</p>
+          <ul>
+            <li>To provide core features: translation, pronunciation, study, practice and analytics.</li>
+            <li>To sync your cards (via iCloud) and, if you sign in, your profile, progress and subscription across devices.</li>
+            <li>To personalise AI-generated collections and AI learning-coach insights (Premium).</li>
+            <li>To process purchases and check your Premium status.</li>
+            <li>To send study reminders and offers you allowed through notifications.</li>
+            <li>To measure usage, fix crashes and improve the app.</li>
+          </ul>
 
           <h2>Data Storage and Security</h2>
-          <h3>Local Storage</h3>
-          <p>Your learning data is primarily stored locally on your device. This includes flashcards, progress, and settings.</p>
+          <h3>On your device and in iCloud</h3>
+          <p>Your flashcards, tags, study sessions and per-card progress are stored on your device. If your device is signed into iCloud, Apple’s iCloud (CloudKit) syncs them to your private iCloud database so they are available on your other Apple devices. We cannot access your private iCloud data. Downloaded images and cached audio stay on the device.</p>
 
-          <h3>Cloud Storage (Optional)</h3>
-          <p>If you enable iCloud sync, your data is stored in iCloud and can be available across your Apple devices.</p>
+          <h3>Firebase (only if you sign in)</h3>
+          <p>If you sign in, your learning profile and progress totals are stored in Google Firebase (Firestore) under your account.</p>
 
-          <h3>Third‑Party Services</h3>
+          <h2>Third‑Party Services</h2>
+          <p>Flippin uses the following service providers. Each receives only the data needed for the feature you use:</p>
           <ul>
-            <li><strong>Google Translate API:</strong> For text translation</li>
-            <li><strong>Firebase Analytics:</strong> For anonymous usage analytics and learning insights tracking</li>
-            <li><strong>Apple StoreKit:</strong> For in‑app purchases</li>
+            <li><strong>Apple (iCloud / CloudKit, Translation, StoreKit, Sign in with Apple):</strong> card sync through your own iCloud account; on-device translation through Apple’s Translation framework (text stays on the device); payment processing for in-app purchases; optional sign-in.</li>
+            <li><strong>Google Translate:</strong> the text of a card you are translating, when on-device translation is unavailable, and the text of a card to be spoken by the free Google voices.</li>
+            <li><strong>Speechify (Premium voices):</strong> the text of a card to be spoken and the selected voice.</li>
+            <li><strong>Pexels (card images, Premium):</strong> the search term you type when looking for an image.</li>
+            <li><strong>OpenAI (AI features, Premium):</strong> AI requests are sent to Flippin’s own server, which forwards them to OpenAI. Depending on the feature, a request includes your prompt or card text, your language pair, level and interests, your name if you provided one, and study statistics (such as accuracy, streak and card counts). Your email address is not sent to OpenAI, and requests are made with OpenAI’s response storage turned off. AI features require signing in so your Premium status can be verified.</li>
+            <li><strong>Cloudflare:</strong> hosts Flippin’s AI server. It processes AI requests in transit and keeps per-account usage counters for daily limits; it does not store the content of your requests.</li>
+            <li><strong>RevenueCat:</strong> manages purchases and subscription status. Receives purchase receipts, an anonymous app user ID and, if you sign in, your account ID so your subscription follows you.</li>
+            <li><strong>Google Firebase:</strong> Authentication (optional sign-in), Firestore (profile and progress for signed-in users), Analytics (usage events), Crashlytics (crash reports and device information) and Remote Config (feature settings).</li>
           </ul>
-          <p>In‑app purchase and subscription amounts depend on your App Store region and the plans offered at checkout. Representative plan types and example prices are described in our <a class="focus-ring" href="terms-of-use.html">Terms of Use</a>.</p>
+          <p>These providers process data under their own privacy policies. In‑app purchase and subscription prices depend on your App Store region; see our <a class="focus-ring" href="terms-of-use.html">Terms of Use</a>.</p>
 
           <h2>Your Rights and Choices</h2>
-          <p>You can manage your data within the app and through your device settings (for example, iCloud settings and subscription management).</p>
+          <ul>
+            <li><strong>Use without an account:</strong> signing in is optional, and you can sign out in Settings at any time.</li>
+            <li><strong>iCloud:</strong> turn iCloud sync for Flippin on or off in your device’s iCloud settings.</li>
+            <li><strong>Notifications:</strong> manage them in the app or in iOS Settings.</li>
+            <li><strong>Deleting data:</strong> delete cards in the app, or delete the app to remove local data. To delete your account data stored with Firebase, email <a class="focus-ring" href="mailto:support@flippin.app">support@flippin.app</a> from the address linked to your account and we will remove it.</li>
+            <li><strong>Subscriptions:</strong> manage or cancel in your Apple ID subscription settings.</li>
+          </ul>
 
           <h2>Children’s Privacy</h2>
           <p>Flippin is not intended for children under 13. We do not knowingly collect personal information from children under 13.</p>
