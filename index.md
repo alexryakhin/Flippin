@@ -26,7 +26,7 @@ A simple loop you can stick with: create → study → improve.
 
 **Free** — $0 forever, no account needed: up to 40 flashcards, one language pair (from 32 languages), auto-translation, Google and system voices, 11 free preset collections (one per category), streaks and basic stats, iCloud sync.
 
-**Premium** — **$4.99/month**, **$29.99/year** (7-day free trial on the yearly plan only) or **$79.99 lifetime** (one-time purchase). Prices are in USD and vary by country or region; limited-time offers such as $19.99/year (no trial) may appear in the app. Includes unlimited flashcards, all 30 preset collections, AI collection generator + AI learning coach, card images, emoji mode, switching language pairs, quiz practice sessions, detailed analytics, natural Speechify voices (nearly 1,000), all backgrounds and custom color. See [Terms of Use](terms-of-use.html). Cancel anytime in App Store settings.
+**Premium** — **$4.99/month**, **$29.99/year** (7-day free trial on the yearly plan only) or **$79.99 lifetime** (one-time purchase). Prices are in USD and vary by country or region; limited-time offers such as $19.99/year (no trial) may appear in the app. Includes unlimited flashcards, all 30 preset collections, AI collection generator + AI learning coach, card images, emoji mode, switching language pairs, quiz practice sessions, detailed analytics, and natural Speechify voices (nearly 1,000). See [Terms of Use](terms-of-use.html). Cancel anytime in App Store settings.
 
 ## FAQ (short)
 
