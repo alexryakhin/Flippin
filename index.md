@@ -5,7 +5,7 @@ canonical: https://www.flippin.app/
 
 # Flippin — Smart flashcards for language learning
 
-Learn languages with smart flashcards: auto-translation, pronunciation (TTS), and progress analytics. Learn any pair of 32 languages. Built for iPhone and iPad (version 2.0, requires iOS 26 or later).
+Learn languages with smart flashcards: auto-translation, pronunciation (TTS), and progress analytics. Learn any pair of 32 languages. Built for iPhone and iPad (version 2.0, requires iOS 18 or later).
 
 ## Highlights
 
