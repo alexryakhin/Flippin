@@ -1,17 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="apple-itunes-app" content="app-id=6748499528">
+  <meta charset="utf-8">
   <title>Support — Flippin</title>
-  <meta name="description" content="Flippin support: FAQs, common issues, and how to contact support.">
-  <link rel="icon" type="image/png" href="images/flippin-icon.png">
-  <link rel="apple-touch-icon" href="images/flippin-icon.png">
+  <meta name="description" content="Flippin support: answers to common questions about cards, practice, Premium, sync and languages, and how to contact us at support@flippin.app.">
+  <meta property="og:title" content="Support — Flippin">
+  <meta property="og:description" content="Flippin support: answers to common questions about cards, practice, Premium, sync and languages, and how to contact us at support@flippin.app.">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#0A7AC0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0C141D" media="(prefers-color-scheme: dark)">
+  <meta name="apple-itunes-app" content="app-id=6748499528">
   <link rel="canonical" href="https://www.flippin.app/support.html">
+  <link rel="alternate" hreflang="en" href="https://www.flippin.app/support.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.flippin.app/support.html">
 
-  <link rel="stylesheet" href="assets/css/base.css">
-  <link rel="stylesheet" href="assets/css/pages/support.css">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Flippin">
+  <meta property="og:url" content="https://www.flippin.app/support.html">
+  <meta property="og:image" content="https://www.flippin.app/assets/img/og-en.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://www.flippin.app/assets/img/og-en.png">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="favicons/apple-touch-icon.png">
+  <link rel="manifest" href="favicons/site.webmanifest">
+
+  <link rel="preload" href="assets/fonts/nunito-900-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/nunito-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/site.css?v=17679bde">
+  <script src="assets/js/site.js?v=17679bde" defer></script>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-TT6GZ2QPB6"></script>
@@ -21,217 +43,173 @@
     gtag('js', new Date());
     gtag('config', 'G-TT6GZ2QPB6');
   </script>
-
-  <script defer src="assets/js/main.js"></script>
 </head>
-<body>
-  <a class="skip-link focus-ring" href="#main">Skip to content</a>
+<body class="page-support">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="bar">
+    <div class="bar-inner">
+      <a class="brand" href="./" aria-label="Flippin home">
+        <img src="assets/img/app-icon-64.webp" srcset="assets/img/app-icon-128.webp 2x" alt="" width="36" height="36">
+        <span>Flippin</span>
+      </a>
+      <nav class="bar-nav" aria-label="Main">
+        <a href="features.html">Features</a>
+        <a href="languages.html">Languages</a>
+        <a href="./#pricing">Pricing</a>
+        <a href="support.html">Support</a>
+      </nav>
 
-  <nav class="site-nav" data-site-nav data-open="false" aria-label="Primary">
-    <div class="container">
-      <div class="site-nav__inner">
-        <a class="brand focus-ring" href="index.html" aria-label="Flippin home">
-          <span class="brand__name">Flippin</span>
-        </a>
-
-        <button class="nav-toggle focus-ring" type="button" data-nav-toggle aria-controls="nav-links" aria-expanded="false">
-          Menu
-        </button>
-
-        <ul class="nav-links" id="nav-links">
-          <li><a class="focus-ring" href="index.html#how">How it works</a></li>
-          <li><a class="focus-ring" href="features.html">Features</a></li>
-          <li><a class="focus-ring" href="languages.html">Languages</a></li>
-          <li><a class="focus-ring" href="privacy-policy.html">Privacy</a></li>
-          <li><a class="focus-ring" href="terms-of-use.html">Terms</a></li>
-        </ul>
-
-        <div class="nav-cta">
-          <a
-            class="btn btn--primary focus-ring"
-            href="https://apps.apple.com/us/app/flippin/id6748499528"
-            target="_blank"
-            rel="noopener noreferrer"
-            data-track="cta_appstore_click"
-            data-placement="support_nav"
-          >
-            Download
-          </a>
-        </div>
-      </div>
+      <a class="btn btn-small" href="https://apps.apple.com/us/app/flippin/id6748499528" data-track="cta_appstore_click" data-placement="nav">Download</a>
+      <details class="menu">
+        <summary aria-label="Menu"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></summary>
+        <nav class="menu-panel" aria-label="Main">
+          <a href="features.html">Features</a>
+          <a href="languages.html">Languages</a>
+          <a href="./#pricing">Pricing</a>
+          <a href="support.html">Support</a>
+        </nav>
+      </details>
     </div>
-  </nav>
-
+  </header>
   <main id="main">
-    <section class="page-header">
-      <div class="container">
-        <h1 class="page-header__title">Support</h1>
-        <p class="page-header__text">
-          Quick answers, troubleshooting, and a direct way to reach us.
-          If you’re stuck, email <a class="focus-ring" href="mailto:support@flippin.app">support@flippin.app</a>.
-        </p>
+    <section class="section sky page-hero" aria-labelledby="page-title">
+      <div class="clouds" aria-hidden="true"><span class="cloud c1"></span><span class="cloud c2"></span></div>
+      <div class="wrap page-hero-grid">
+        <div>
+          <p class="eyebrow">Support</p>
+          <h1 class="headline headline-md" id="page-title">We're Here to <span class="pill">Help</span></h1>
+          <p class="lead">Quick answers, fixes for common issues, and a direct line to the developer.</p>
+        </div>
+        <img class="ill page-ill bob" src="assets/img/ill-bell-200.webp" srcset="assets/img/ill-bell-200.webp 200w, assets/img/ill-bell-400.webp 400w" sizes="200px" width="200" height="200" alt="" loading="lazy" decoding="async">
       </div>
     </section>
+<section class="section grid-paper doc-section">
+  <div class="wrap narrow">
+    <div class="cards">
+      <a class="paper card" href="mailto:support@flippin.app?subject=Flippin%20support">
+        <span class="card-label">Email support</span>
+        <span class="card-value">support@flippin.app</span>
+        <p>Bugs, billing questions and ideas. We usually reply within 24 hours.</p>
+      </a>
+      <a class="paper card" href="#faq">
+        <span class="card-label">Quick answers</span>
+        <span class="card-value">Read the FAQ</span>
+        <p>Cards, practice, Premium, sync, languages and your account.</p>
+      </a>
+    </div>
 
-    <section class="section section--surface">
-      <div class="container">
-        <div class="support-layout">
-          <aside class="support-nav card" aria-label="Support navigation">
-            <div class="card__body">
-              <div class="card__title">On this page</div>
-              <a class="focus-ring" href="#faq">FAQs</a>
-              <a class="focus-ring" href="#guides">Feature guides</a>
-              <a class="focus-ring" href="#issues">Common issues</a>
-              <div style="margin-top: var(--space-4);">
-                <div class="card__title">Contact</div>
-                <p class="card__text" style="margin-top: 6px;">
-                  <a class="focus-ring" href="mailto:support@flippin.app">support@flippin.app</a><br>
-                  Response time: within 24 hours
-                </p>
-              </div>
-            </div>
-          </aside>
-
-          <div class="card">
-            <div class="card__body">
-              <section id="faq" aria-labelledby="faq-title">
-                <h2 class="card__title" id="faq-title" style="font-size: 24px;">Frequently asked questions</h2>
-
-                <div class="faq-item">
-                  <details data-faq>
-                    <summary class="focus-ring">How do I create my first flashcard?</summary>
-                    <div class="answer">Tap the + button, type your text, and Flippin will translate it. Add tags to organize and revisit later. You can also add a ready-made collection from Preset Collections in the + menu.</div>
-                  </details>
-                </div>
-                <div class="faq-item">
-                  <details data-faq>
-                    <summary class="focus-ring">What languages are supported?</summary>
-                    <div class="answer">You can learn any pair of 32 languages, and the app is available in 34 interface languages. See the full list on <a class="focus-ring" href="languages.html">Languages</a>.</div>
-                  </details>
-                </div>
-                <div class="faq-item">
-                  <details data-faq>
-                    <summary class="focus-ring">How does the free tier work?</summary>
-                    <div class="answer">Free includes up to 40 cards in one language pair, auto-translation, Google and system voices, 11 free preset collections (one per category), streaks and basic stats, and iCloud sync. Premium unlocks unlimited cards, all 30 collections, the AI collection generator and AI learning coach, card images, emoji mode, switching language pairs, quiz sessions, detailed analytics, and natural Speechify voices.</div>
-                  </details>
-                </div>
-                <div class="faq-item">
-                  <details data-faq>
-                    <summary class="focus-ring">How much does Premium cost?</summary>
-                    <div class="answer">$4.99/month, $29.99/year with a 7-day free trial (yearly plan only), or $79.99 once for lifetime access. Limited-time offers such as $19.99/year (no trial) may appear in the app. Prices are in USD and vary by country or region; the App Store shows your local price before you buy.</div>
-                  </details>
-                </div>
-                <div class="faq-item">
-                  <details data-faq>
-                    <summary class="focus-ring">Do I need an account?</summary>
-                    <div class="answer">No. Flippin works without an account. Sign in with Apple is optional and syncs your profile, streak and subscription across your devices. Your cards sync through iCloud either way.</div>
-                  </details>
-                </div>
-                <div class="faq-item">
-                  <details data-faq>
-                    <summary class="focus-ring">How do I restore my purchase on a new device?</summary>
-                    <div class="answer">Tap Restore Purchases at the bottom of any Premium screen, or in Settings → Subscription. If you signed in with Apple, signing in on the new device also brings your subscription along.</div>
-                  </details>
-                </div>
-                <div class="faq-item">
-                  <details data-faq>
-                    <summary class="focus-ring">What do I need to run Flippin?</summary>
-                    <div class="answer">Flippin 2.0 runs on iPhone and iPad with iOS 18 or later (iPadOS 18 on iPad).</div>
-                  </details>
-                </div>
-                <div class="faq-item">
-                  <details data-faq>
-                    <summary class="focus-ring">How do I cancel Premium?</summary>
-                    <div class="answer">Open iOS Settings → your Apple ID → Subscriptions, then cancel Flippin. You’ll keep access until the period ends.</div>
-                  </details>
-                </div>
-              </section>
-
-              <section id="guides" style="margin-top: var(--space-5);">
-                <h2 class="card__title" style="font-size: 24px;">Feature guides</h2>
-                <p class="card__text">Short guides for the most-used features.</p>
-
-                <h3 style="margin: 18px 0 6px 0; color: var(--text-0);">Analytics</h3>
-                <p class="card__text">Use the analytics screens to spot what’s sticking—and what to review next.</p>
-
-                <h3 style="margin: 18px 0 6px 0; color: var(--text-0);">Organization</h3>
-                <p class="card__text">Tag cards by topic (travel, food, verbs) so you can filter and study in focused sessions.</p>
-
-                <h3 style="margin: 18px 0 6px 0; color: var(--text-0);">Pronunciation</h3>
-                <p class="card__text">Use text‑to‑speech to hear the correct pronunciation and repeat out loud.</p>
-              </section>
-
-              <section id="issues" style="margin-top: var(--space-5);">
-                <h2 class="card__title" style="font-size: 24px;">Common issues</h2>
-
-                <h3 style="margin: 18px 0 6px 0; color: var(--text-0);">Translation not working</h3>
-                <ul class="card__text" style="margin-top: 8px;">
-                  <li>Check your internet connection</li>
-                  <li>Try a shorter phrase</li>
-                  <li>Restart the app</li>
-                </ul>
-
-                <h3 style="margin: 18px 0 6px 0; color: var(--text-0);">Text‑to‑speech not playing</h3>
-                <ul class="card__text" style="margin-top: 8px;">
-                  <li>Check device volume and Silent Mode</li>
-                  <li>Try another card</li>
-                  <li>Restart the app</li>
-                </ul>
-
-                <h3 style="margin: 18px 0 6px 0; color: var(--text-0);">iCloud sync issues</h3>
-                <ul class="card__text" style="margin-top: 8px;">
-                  <li>Verify iCloud is enabled for Flippin</li>
-                  <li>Check iCloud storage</li>
-                  <li>Give it a few minutes to complete sync</li>
-                </ul>
-              </section>
-            </div>
-          </div>
-        </div>
+    <article class="paper doc">
+      <h2 id="faq">Frequently asked questions</h2>
+      <div class="faq">
+        <details data-faq><summary>How do I add my first cards?</summary><div class="faq-a">
+          <p>Tap the round <b>+</b> button at the bottom of the Study screen, type a word or phrase in your language, and the translation fills itself in. Tap swap to type in the other language instead. You can also add ready-made phrases: open Preset Collections with the collections button at the top of the Study screen, preview a collection and add the cards you want.</p>
+        </div></details>
+        <details data-faq><summary>What's included for free?</summary><div class="faq-a">
+          <p>Up to 40 cards in one language pair, automatic translation, notes, tags and favorites, Google and system voices, 11 preset collections (one per topic), Flashcards and Match practice with review of due cards and mistakes, your streak, weekly goal and overview stats, and iCloud sync.</p>
+          <p>Premium adds unlimited cards, all 30 preset collections, the AI collection generator and AI learning coach, the Speak, Listen, Type, Multiple choice and Fill in the blank practice modes, nearly 1,000 natural Speechify voices, card images, AI emoji suggestions and Emoji Mode, switching language pairs, and detailed analytics.</p>
+        </div></details>
+        <details data-faq><summary>How much does Premium cost?</summary><div class="faq-a">
+          <p>$4.99/month, $29.99/year with a 7-day free trial for eligible new subscribers (yearly plan only), or $79.99 once for lifetime access. Limited-time offers such as $19.99/year (no trial) may appear in the app. Prices are in USD and vary by country or region; the App Store shows your price before you buy. See the <a href="terms-of-use.html">Terms of Use</a>.</p>
+        </div></details>
+        <details data-faq><summary>Do I need an account?</summary><div class="faq-a">
+          <p>No. Flippin works without an account. Sign in with Apple is optional and syncs your profile, streak and subscription across devices. Your cards sync through iCloud either way. The AI features need you to sign in so your Premium status can be checked.</p>
+        </div></details>
+        <details data-faq><summary>How do I restore my purchase on a new device?</summary><div class="faq-a">
+          <p>Tap <b>Restore Purchases</b> at the bottom of any Premium screen, or in Settings › Subscription. If you signed in with Apple, signing in on the new device also brings your subscription along.</p>
+        </div></details>
+        <details data-faq><summary>How do I cancel Premium?</summary><div class="faq-a">
+          <p>Open iOS Settings › your name › Subscriptions, then cancel Flippin. You keep Premium until the end of the period you paid for. For refunds, contact <a href="https://reportaproblem.apple.com">Apple</a>; App Store purchases are handled by Apple.</p>
+        </div></details>
+        <details data-faq><summary>How does practice decide which cards I see?</summary><div class="faq-a">
+          <p><b>Review due cards</b> starts with the cards that are due (most overdue first), then your mistakes, then new cards, up to 10 per session. Each answer updates the card's mastery and schedules its next review a few days to a few weeks later. You can also practice your Mistakes, or your Weak, Learning or Strong cards, from the Practice tab.</p>
+        </div></details>
+        <details data-faq><summary>Which languages are supported?</summary><div class="faq-a">
+          <p>You can learn any pair of 32 languages, and the app itself is available in 34 languages. See the full list on <a href="languages.html">Languages</a>. With the free plan you study one language pair; switching to another pair is part of Premium. Your own (native) language can be changed for free.</p>
+        </div></details>
+        <details data-faq><summary>Do my cards sync between my iPhone and iPad?</summary><div class="faq-a">
+          <p>Yes, through iCloud, as long as both devices are signed in to the same iCloud account and iCloud is on for Flippin. Your cards, tags, practice history and progress sync; images you added and saved pronunciations are stored on each device.</p>
+        </div></details>
+        <details data-faq><summary>What do I need to run Flippin?</summary><div class="faq-a">
+          <p>An iPhone or iPad with iOS 18 or later (iPadOS 18 on iPad).</p>
+        </div></details>
       </div>
-    </section>
 
-    <section class="cta-band">
-      <div class="container">
-        <div class="cta-band__inner">
-          <div>
-            <h2 class="cta-band__title">Want to keep learning?</h2>
-            <p class="cta-band__text">Download Flippin and study on the go.</p>
-          </div>
-          <a
-            class="btn btn--inverse focus-ring"
-            href="https://apps.apple.com/us/app/flippin/id6748499528"
-            target="_blank"
-            rel="noopener noreferrer"
-            data-track="cta_footer_click"
-            data-placement="support_cta"
-          >
-            Download on the App Store
-          </a>
-        </div>
+      <h2 id="issues">Common issues</h2>
+      <h3>Translation isn't filling in</h3>
+      <ul>
+        <li>Check your internet connection. Offline, translation works only for languages installed for Apple's on-device translation.</li>
+        <li>Make sure automatic translation is on: Settings › Card Management.</li>
+        <li>Try a shorter phrase, or type the translation yourself.</li>
+      </ul>
+      <h3>No sound when I tap the speaker</h3>
+      <ul>
+        <li>Check the volume and the Silent Mode switch.</li>
+        <li>Try another voice in Settings › Text-to-Speech. Offline, Flippin uses the system voice.</li>
+        <li>If a pronunciation sounds wrong, clear saved pronunciations in the Text-to-Speech settings.</li>
+      </ul>
+      <h3>Speak practice doesn't hear me</h3>
+      <ul>
+        <li>Allow Flippin to use the microphone and speech recognition in iOS Settings › Flippin.</li>
+        <li>Hold the button while you speak, in a quiet place.</li>
+        <li>You can always type the answer instead.</li>
+      </ul>
+      <h3>Cards aren't syncing</h3>
+      <ul>
+        <li>Check that you're signed in to iCloud and that iCloud is on for Flippin.</li>
+        <li>Make sure you have free iCloud storage.</li>
+        <li>Give it a few minutes, then open Flippin on the other device.</li>
+      </ul>
+
+      <h2>Still stuck?</h2>
+      <p>Email <a href="mailto:support@flippin.app">support@flippin.app</a> with your device, iOS version and what happened. Screenshots help.</p>
+    </article>
+  </div>
+</section>
+    <section class="section sky cta-band" aria-labelledby="cta-title">
+      <div class="clouds" aria-hidden="true"><span class="cloud c1"></span><span class="cloud c2"></span></div>
+      <div class="wrap cta-inner reveal">
+        <img class="ill cta-ill bob" src="assets/img/ill-rocket-200.webp" srcset="assets/img/ill-rocket-200.webp 200w, assets/img/ill-rocket-400.webp 400w" sizes="200px" width="200" height="200" alt="" loading="lazy" decoding="async">
+        <h2 class="headline headline-md" id="cta-title">Start <span class="pill">Speaking</span> Today</h2>
+        <p class="lead">Download Flippin for free, pick your languages, and your first phrases are ready to practice.</p>
+        <a class="badge" href="https://apps.apple.com/us/app/flippin/id6748499528" data-track="cta_appstore_click" data-placement="cta_en_page-support">
+          <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" width="180" height="60" loading="lazy">
+        </a>
+        <p class="note">For iPhone and iPad · iOS 18 or later</p>
       </div>
     </section>
   </main>
-
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__grid">
-        <div>
-          <div class="footer__title">Contact</div>
-          <p class="footer__text"><a class="focus-ring" href="mailto:support@flippin.app">support@flippin.app</a></p>
-        </div>
-        <div>
-          <div class="footer__title">Product</div>
-          <p class="footer__text"><a class="focus-ring" href="features.html">Features</a></p>
-          <p class="footer__text"><a class="focus-ring" href="languages.html">Languages</a></p>
-        </div>
-        <div>
-          <div class="footer__title">Legal</div>
-          <p class="footer__text"><a class="focus-ring" href="privacy-policy.html">Privacy Policy</a></p>
-          <p class="footer__text"><a class="focus-ring" href="terms-of-use.html">Terms of Use</a></p>
-        </div>
+  <footer class="foot">
+    <div class="wrap foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="./"><img src="assets/img/app-icon-64.webp" srcset="assets/img/app-icon-128.webp 2x" alt="" width="36" height="36" loading="lazy"><span>Flippin</span></a>
+        <p>Flashcards and speaking practice for the phrases you'll actually say.</p>
+        <p><a href="mailto:support@flippin.app">support@flippin.app</a></p>
       </div>
-      <div class="footer__bottom">&copy; 2026 Flippin. All rights reserved.</div>
+      <nav class="foot-col" aria-label="Flippin">
+        <h2>Flippin</h2>
+        <a href="features.html">Features</a>
+        <a href="languages.html">Languages</a>
+        <a href="./#pricing">Pricing</a>
+        <a href="https://apps.apple.com/us/app/flippin/id6748499528" data-track="cta_appstore_click" data-placement="footer">App Store</a>
+      </nav>
+      <nav class="foot-col" aria-label="Learn">
+        <h2>Learn</h2>
+        <a href="learn/flashcards.html">Flashcard tips</a>
+        <a href="learn/pronunciation.html">Pronunciation</a>
+        <a href="learn/analytics.html">Progress analytics</a>
+        <a href="compare/anki.html">Flippin vs Anki</a>
+      </nav>
+      <nav class="foot-col" aria-label="Help">
+        <h2>Help</h2>
+        <a href="support.html">Support</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-use.html">Terms of Use</a>
+      </nav>
+    </div>
+    <div class="wrap foot-fine">
+      <p>© 2026 Flippin. All rights reserved.</p>
+      <p>Apple, the Apple logo, iPhone and iPad are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc.</p>
+      <p>Set in Nunito (<a href="assets/fonts/Nunito-OFL.txt">SIL Open Font License</a>). 3D illustrations by Soni Sokell.</p>
     </div>
   </footer>
 </body>
