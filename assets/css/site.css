@@ -58,6 +58,8 @@
   --sky-lip: #07588F;
   --cloud: #FFFFFF;
   --stars: none;
+  /* One size per --stars layer: background-size values cycle over every layer, so a short list would tile the glow too. */
+  --stars-size: 360px 360px;
 
   --radius: 24px;
   --wrap: 1180px;
@@ -99,6 +101,7 @@
       radial-gradient(1.1px 1.1px at 84% 82%, rgba(255,255,255,.6) 50%, transparent 51%),
       radial-gradient(1.3px 1.3px at 92% 12%, rgba(255,255,255,.75) 50%, transparent 51%),
       radial-gradient(1px 1px at 24% 54%, rgba(255,255,255,.55) 50%, transparent 51%);
+    --stars-size: 360px 360px, 360px 360px, 360px 360px, 360px 360px, 360px 360px, 360px 360px;
   }
 }
 
@@ -225,7 +228,7 @@ p { margin: 0 0 1em; }
     var(--stars),
     radial-gradient(640px 420px at 80% -8%, var(--sky-glow), transparent 70%),
     linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 45%, var(--sky-bottom) 100%);
-  background-size: 360px 360px, auto, auto;
+  background-size: var(--stars-size), auto, auto;
   padding-bottom: clamp(110px, 12vw, 160px);
 }
 .sky a:not(.btn):not(.badge) { color: #FFFFFF; }
