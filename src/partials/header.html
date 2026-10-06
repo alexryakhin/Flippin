@@ -1,0 +1,26 @@
+  <a class="skip" href="#main">{{skip}}</a>
+  <header class="bar">
+    <div class="bar-inner">
+      <a class="brand" href="{{home}}" aria-label="{{brandHomeLabel}}">
+        <img src="{{img}}app-icon-64.webp" srcset="{{img}}app-icon-128.webp 2x" alt="" width="36" height="36">
+        <span>Flippin</span>
+      </a>
+      <nav class="bar-nav" aria-label="{{navLabel}}">
+        <a href="{{root}}features.html">{{navFeatures}}</a>
+        <a href="{{root}}languages.html">{{navLanguages}}</a>
+        <a href="{{navBase}}#pricing">{{navPricing}}</a>
+        <a href="{{root}}support.html">{{navSupport}}</a>
+      </nav>
+{{languagePicker}}
+      <a class="btn btn-small" href="{{appStore}}" data-track="cta_appstore_click" data-placement="nav">{{navDownload}}</a>
+      <details class="menu">
+        <summary aria-label="{{navMenu}}"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></summary>
+        <nav class="menu-panel" aria-label="{{navLabel}}">
+          <a href="{{root}}features.html">{{navFeatures}}</a>
+          <a href="{{root}}languages.html">{{navLanguages}}</a>
+          <a href="{{navBase}}#pricing">{{navPricing}}</a>
+          <a href="{{root}}support.html">{{navSupport}}</a>
+        </nav>
+      </details>
+    </div>
+  </header>

@@ -1,0 +1,12 @@
+    <section class="section sky cta-band" aria-labelledby="cta-title">
+      <div class="clouds" aria-hidden="true"><span class="cloud c1"></span><span class="cloud c2"></span></div>
+      <div class="wrap cta-inner reveal">
+        {{@ill rocket|cta-ill bob}}
+        <h2 class="headline headline-md" id="cta-title">{{ctaTitle}}</h2>
+        <p class="lead">{{ctaLead}}</p>
+        <a class="badge" href="{{appStore}}" data-track="cta_appstore_click" data-placement="cta_{{site}}_{{pageClass}}">
+          <img src="{{appStoreBadge}}" alt="{{appStoreBadgeAlt}}" width="180" height="60" loading="lazy">
+        </a>
+        <p class="note">{{ctaNote}}</p>
+      </div>
+    </section>

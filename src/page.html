@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="{{lang}}" dir="{{dir}}">
+<head>
+  <meta charset="utf-8">
+  <title>{{pageTitle}} — Flippin</title>
+  <meta name="description" content="{{pageDescription}}">
+  <meta property="og:title" content="{{pageTitle}} — Flippin">
+  <meta property="og:description" content="{{pageDescription}}">
+{{>head}}
+</head>
+<body class="{{pageClass}}">
+{{>header}}
+  <main id="main">
+    <section class="section sky page-hero" aria-labelledby="page-title">
+      <div class="clouds" aria-hidden="true"><span class="cloud c1"></span><span class="cloud c2"></span></div>
+      <div class="wrap page-hero-grid">
+        <div>
+          <p class="eyebrow">{{pageEyebrow}}</p>
+          <h1 class="headline headline-md" id="page-title">{{pageHeading}}</h1>
+          <p class="lead">{{pageLead}}</p>
+        </div>
+        {{@ill {{pageIllustration}}|page-ill bob}}
+      </div>
+    </section>
+{{content}}
+{{>cta}}
+  </main>
+{{>footer}}
+</body>
+</html>
