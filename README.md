@@ -78,6 +78,7 @@ python3 tools/make_assets.py phones cutouts    # just some groups: phones cutout
 python3 tools/build_site.py                    # all pages, share images, sitemap.xml
 python3 tools/build_site.py --no-og            # skip share images (they need Google Chrome)
 python3 tools/check_links.py                   # broken internal links → exit code 1
+python3 tools/audit_i18n.py                    # translations vs English + SEO basics
 python3 -m http.server 8765                    # preview at http://localhost:8765
 ```
 
@@ -92,18 +93,28 @@ apple-touch-icon, share images).
 
 ## Languages
 
-English is the only language today. English pages live at the site root; every other language is
-published in its own folder (`/de/`, `/pt-br/`, …) with the same file names. Every page lists all
-its language versions as `hreflang` alternates (and in `sitemap.xml`).
+The site is published in the app's 34 UI languages: English at the site root and every other
+language in its own folder (`/de/`, `/pt-br/`, `/zh-hant/`, …) with the same file names. Every page
+lists all its language versions as `hreflang` alternates (and in `sitemap.xml`), and an untranslated
+page (if one is ever missing) gets the English page as its canonical.
 
-While there is only one language, the header language picker and the automatic redirect are not
-rendered at all. As soon as a second locale file exists:
-
-- the header shows a language picker that links to the same page in every language and remembers
-  the choice in `localStorage` (`flippin.lang`);
-- on a first visit to an English page, `src/partials/autolang.html` sends visitors to their browser
-  language's version when the site has one. A remembered choice wins; English speakers, crawlers
-  and same-site navigation are never redirected, and translated pages never redirect.
+- The header language picker links to the same page in every language and remembers the choice in
+  `localStorage` (`flippin.lang`).
+- On a first visit to an English page, `src/partials/autolang.html` sends visitors to their browser
+  language's version. A remembered choice wins; English speakers, crawlers and same-site navigation
+  are never redirected, and translated pages never redirect.
+- Each language links to its own App Store storefront and Apple's localized badge. Flippin isn't in
+  the China, Taiwan or Hong Kong stores, so Chinese links use Singapore (`?l=zh-Hans-CN`) and the US
+  store (`?l=zh-Hant-TW`).
+- Copy is written for local search from each store's researched keywords
+  (`fastlane/metadata/<store>/` in the app repo), using the app's own terms
+  (`Flippin/Localization/<lang>.lproj`). Privacy and terms are full translations with a note that the
+  English version prevails.
+- Screenshots are the app's own captures in that language; Arabic and Hebrew cut-outs are mirrored
+  (`RTL_CAPTURES` / `RTL_CHIPS` in `tools/make_assets.py`).
+- `python3 tools/audit_i18n.py` checks every translation against English (keys, template tokens,
+  ids, links, tag counts, metadata) and the built pages' SEO basics (JSON-LD, title and description
+  lengths, `lang`, canonical, hreflang). Run it after any change to English sources or translations.
 
 ### Adding a language
 
@@ -122,9 +133,10 @@ rendered at all. As soon as a second locale file exists:
    folder to the capture language in `SITE_CAPTURES` in `tools/make_assets.py` if the names differ,
    then run `python3 tools/make_assets.py --localized`. Images land in `assets/img/<site>/` and are
    picked up automatically; without them the English images are used.
-4. Run `python3 tools/build_site.py` and `python3 tools/check_links.py`, preview, commit.
-   Languages outside Nunito's Latin/Cyrillic coverage (Greek, Arabic, Hebrew, Hindi, Thai, CJK)
-   fall back to the system rounded/sans font; add a font there if needed.
+4. Run `python3 tools/build_site.py`, `python3 tools/check_links.py` and
+   `python3 tools/audit_i18n.py`, preview, commit. Nunito covers Latin, Cyrillic and Vietnamese;
+   Greek, Arabic, Hebrew, Hindi, Thai and CJK use the system font (headline spacing per script is
+   set with `:lang()` rules in `site.css`).
 
 ## Hosting, headers and agents
 

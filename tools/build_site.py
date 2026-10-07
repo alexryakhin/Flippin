@@ -282,6 +282,7 @@ def common_values(site: str, locales: dict, name: str) -> dict:
         shotsDir=IMG / site,
         assetVersion=asset_version("assets/css/site.css", "assets/js/site.js"),
         canonical=page_url(site, name),
+        homeUrl=page_url(site, "index"),
         ogImage=f"{ORIGIN}assets/img/og-{site}.png",
         alternates=alternates(locales, name),
         languagePicker=language_picker(locales, site, name, base),
@@ -309,6 +310,8 @@ def render_page(site: str, name: str, locales: dict) -> str:
     body = fill(body, values, f"{site}/{name} body")
     if not translated:
         body = f'<div lang="en" dir="ltr">\n{body}\n</div>'
+        # An untranslated copy duplicates the English page: point search engines there.
+        values["canonical"] = page_url(DEFAULT, name)
     if values["pageLayout"] == "doc":
         body = f'<section class="section grid-paper doc-section">\n  <div class="wrap narrow">\n    <article class="paper doc">\n{body}\n    </article>\n  </div>\n</section>'
     values["content"] = body

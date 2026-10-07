@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="zh-Hans" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Flippin：闪卡背单词与口语练习</title>
+  <meta name="description" content="每天说一门新语言。Flippin 把你真正会说的短语变成能听、能翻、能练的闪卡：单词游戏、口语练习、连续学习记录，支持 32 种语言。">
+  <meta property="og:title" content="Flippin：每天说一门新语言">
+  <meta property="og:description" content="每天说一门新语言。Flippin 把你真正会说的短语变成能听、能翻、能练的闪卡：单词游戏、口语练习、连续学习记录，支持 32 种语言。">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#0A7AC0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0C141D" media="(prefers-color-scheme: dark)">
+  <meta name="apple-itunes-app" content="app-id=6748499528">
+  <link rel="canonical" href="https://www.flippin.app/zh-hans/">
+  <link rel="alternate" hreflang="en" href="https://www.flippin.app/">
+  <link rel="alternate" hreflang="ar" href="https://www.flippin.app/ar/">
+  <link rel="alternate" hreflang="ca" href="https://www.flippin.app/ca/">
+  <link rel="alternate" hreflang="cs" href="https://www.flippin.app/cs/">
+  <link rel="alternate" hreflang="da" href="https://www.flippin.app/da/">
+  <link rel="alternate" hreflang="de" href="https://www.flippin.app/de/">
+  <link rel="alternate" hreflang="el" href="https://www.flippin.app/el/">
+  <link rel="alternate" hreflang="es" href="https://www.flippin.app/es/">
+  <link rel="alternate" hreflang="fi" href="https://www.flippin.app/fi/">
+  <link rel="alternate" hreflang="fr" href="https://www.flippin.app/fr/">
+  <link rel="alternate" hreflang="he" href="https://www.flippin.app/he/">
+  <link rel="alternate" hreflang="hi" href="https://www.flippin.app/hi/">
+  <link rel="alternate" hreflang="hr" href="https://www.flippin.app/hr/">
+  <link rel="alternate" hreflang="hu" href="https://www.flippin.app/hu/">
+  <link rel="alternate" hreflang="id" href="https://www.flippin.app/id/">
+  <link rel="alternate" hreflang="it" href="https://www.flippin.app/it/">
+  <link rel="alternate" hreflang="ja" href="https://www.flippin.app/ja/">
+  <link rel="alternate" hreflang="ko" href="https://www.flippin.app/ko/">
+  <link rel="alternate" hreflang="ms" href="https://www.flippin.app/ms/">
+  <link rel="alternate" hreflang="nb" href="https://www.flippin.app/nb/">
+  <link rel="alternate" hreflang="no" href="https://www.flippin.app/nb/">
+  <link rel="alternate" hreflang="nl" href="https://www.flippin.app/nl/">
+  <link rel="alternate" hreflang="pl" href="https://www.flippin.app/pl/">
+  <link rel="alternate" hreflang="pt-PT" href="https://www.flippin.app/pt/">
+  <link rel="alternate" hreflang="pt-BR" href="https://www.flippin.app/pt-br/">
+  <link rel="alternate" hreflang="ro" href="https://www.flippin.app/ro/">
+  <link rel="alternate" hreflang="ru" href="https://www.flippin.app/ru/">
+  <link rel="alternate" hreflang="sk" href="https://www.flippin.app/sk/">
+  <link rel="alternate" hreflang="sv" href="https://www.flippin.app/sv/">
+  <link rel="alternate" hreflang="th" href="https://www.flippin.app/th/">
+  <link rel="alternate" hreflang="tr" href="https://www.flippin.app/tr/">
+  <link rel="alternate" hreflang="uk" href="https://www.flippin.app/uk/">
+  <link rel="alternate" hreflang="vi" href="https://www.flippin.app/vi/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://www.flippin.app/zh-hans/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://www.flippin.app/zh-hant/">
+  <link rel="alternate" hreflang="x-default" href="https://www.flippin.app/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Flippin">
+  <meta property="og:url" content="https://www.flippin.app/zh-hans/">
+  <meta property="og:image" content="https://www.flippin.app/assets/img/og-zh-hans.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://www.flippin.app/assets/img/og-zh-hans.png">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="../favicons/apple-touch-icon.png">
+  <link rel="manifest" href="../favicons/site.webmanifest">
+
+  <link rel="preload" href="../assets/fonts/nunito-900-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/nunito-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/css/site.css?v=732989b6">
+  <script src="../assets/js/site.js?v=732989b6" defer></script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TT6GZ2QPB6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TT6GZ2QPB6');
+  </script>
+  <link rel="api-catalog" href="https://www.flippin.app/.well-known/api-catalog">
+  <link rel="service-desc" href="https://www.flippin.app/.well-known/openapi.json" type="application/vnd.oai.openapi+json">
+  <link rel="service-doc" href="https://www.flippin.app/features.html">
+  <link rel="status" href="https://www.flippin.app/.well-known/health.json" type="application/json">
+  <link rel="describedby" type="application/json" title="Agent skills index" href="https://www.flippin.app/.well-known/agent-skills/index.json">
+  <link rel="alternate" type="text/markdown" href="https://www.flippin.app/index.md">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "Flippin",
+    "operatingSystem": "iOS 18.0 or later",
+    "applicationCategory": "EducationalApplication",
+    "description": "每天说一门新语言。Flippin 把你真正会说的短语变成能听、能翻、能练的闪卡：单词游戏、口语练习、连续学习记录，支持 32 种语言。",
+    "url": "https://www.flippin.app/zh-hans/",
+    "inLanguage": "zh-Hans",
+    "image": "https://www.flippin.app/assets/img/app-icon-256.webp",
+    "screenshot": "https://www.flippin.app/assets/img/og-zh-hans.png",
+    "downloadUrl": "https://apps.apple.com/sg/app/id6748499528?l=zh-Hans-CN",
+    "installUrl": "https://apps.apple.com/sg/app/id6748499528?l=zh-Hans-CN",
+    "author": { "@type": "Person", "name": "Alexander Riakhin" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body class="home">
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="bar">
+    <div class="bar-inner">
+      <a class="brand" href="./" aria-label="Flippin 首页">
+        <img src="../assets/img/app-icon-64.webp" srcset="../assets/img/app-icon-128.webp 2x" alt="" width="36" height="36">
+        <span>Flippin</span>
+      </a>
+      <nav class="bar-nav" aria-label="主导航">
+        <a href="features.html">功能</a>
+        <a href="languages.html">语言</a>
+        <a href="#pricing">价格</a>
+        <a href="support.html">支持</a>
+      </nav>
+      <details class="lang">
+        <summary aria-label="语言"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M2.5 12h19M12 2.5c2.6 2.8 3.9 6 3.9 9.5s-1.3 6.7-3.9 9.5c-2.6-2.8-3.9-6-3.9-9.5s1.3-6.7 3.9-9.5z" fill="none" stroke="currentColor" stroke-width="2"/></svg><span class="lang-code">ZH</span></summary>
+        <ul>
+          <li><a href="../" hreflang="en" lang="en">English</a></li>
+          <li><a href="../ar/" hreflang="ar" lang="ar">العربية</a></li>
+          <li><a href="../ca/" hreflang="ca" lang="ca">Català</a></li>
+          <li><a href="../cs/" hreflang="cs" lang="cs">Čeština</a></li>
+          <li><a href="../da/" hreflang="da" lang="da">Dansk</a></li>
+          <li><a href="../de/" hreflang="de" lang="de">Deutsch</a></li>
+          <li><a href="../el/" hreflang="el" lang="el">Ελληνικά</a></li>
+          <li><a href="../es/" hreflang="es" lang="es">Español</a></li>
+          <li><a href="../fi/" hreflang="fi" lang="fi">Suomi</a></li>
+          <li><a href="../fr/" hreflang="fr" lang="fr">Français</a></li>
+          <li><a href="../he/" hreflang="he" lang="he">עברית</a></li>
+          <li><a href="../hi/" hreflang="hi" lang="hi">हिन्दी</a></li>
+          <li><a href="../hr/" hreflang="hr" lang="hr">Hrvatski</a></li>
+          <li><a href="../hu/" hreflang="hu" lang="hu">Magyar</a></li>
+          <li><a href="../id/" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+          <li><a href="../it/" hreflang="it" lang="it">Italiano</a></li>
+          <li><a href="../ja/" hreflang="ja" lang="ja">日本語</a></li>
+          <li><a href="../ko/" hreflang="ko" lang="ko">한국어</a></li>
+          <li><a href="../ms/" hreflang="ms" lang="ms">Bahasa Melayu</a></li>
+          <li><a href="../nb/" hreflang="nb" lang="nb">Norsk bokmål</a></li>
+          <li><a href="../nl/" hreflang="nl" lang="nl">Nederlands</a></li>
+          <li><a href="../pl/" hreflang="pl" lang="pl">Polski</a></li>
+          <li><a href="../pt/" hreflang="pt-PT" lang="pt-PT">Português (Portugal)</a></li>
+          <li><a href="../pt-br/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li>
+          <li><a href="../ro/" hreflang="ro" lang="ro">Română</a></li>
+          <li><a href="../ru/" hreflang="ru" lang="ru">Русский</a></li>
+          <li><a href="../sk/" hreflang="sk" lang="sk">Slovenčina</a></li>
+          <li><a href="../sv/" hreflang="sv" lang="sv">Svenska</a></li>
+          <li><a href="../th/" hreflang="th" lang="th">ไทย</a></li>
+          <li><a href="../tr/" hreflang="tr" lang="tr">Türkçe</a></li>
+          <li><a href="../uk/" hreflang="uk" lang="uk">Українська</a></li>
+          <li><a href="../vi/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+          <li><a href="../zh-hans/" hreflang="zh-Hans" lang="zh-Hans" aria-current="page">简体中文</a></li>
+          <li><a href="../zh-hant/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li>
+        </ul>
+      </details>
+      <a class="btn btn-small" href="https://apps.apple.com/sg/app/id6748499528?l=zh-Hans-CN" data-track="cta_appstore_click" data-placement="nav">下载</a>
+      <details class="menu">
+        <summary aria-label="菜单"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></summary>
+        <nav class="menu-panel" aria-label="主导航">
+          <a href="features.html">功能</a>
+          <a href="languages.html">语言</a>
+          <a href="#pricing">价格</a>
+          <a href="support.html">支持</a>
+        </nav>
+      </details>
+    </div>
+  </header>
+  <main id="main">
+    <section class="section sky hero" aria-labelledby="hero-title">
+      <div class="clouds" aria-hidden="true"><span class="cloud c1"></span><span class="cloud c2"></span><span class="cloud c3"></span></div>
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">适用于 iPhone 和 iPad 的闪卡背单词与口语练习</p>
+          <h1 class="headline" id="hero-title"><span class="pill">每天</span>说一门新语言</h1>
+          <p class="lead">Flippin 把你真正会说的短语变成智能闪卡，可以听、可以翻、可以练，每天几分钟就够。</p>
+          <div class="actions">
+            <a class="badge" href="https://apps.apple.com/sg/app/id6748499528?l=zh-Hans-CN" data-track="cta_appstore_click" data-placement="hero">
+              <img src="https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/black/zh-cn?size=250x83" alt="在 App Store 下载" width="180" height="60">
+            </a>
+            <a class="btn btn-hero" href="#create">看看怎么用</a>
+          </div>
+          <p class="note">免费开始 · 无需账号 · iOS 18 或更高版本</p>
+        </div>
+        <div class="stage stage-hero">
+          <img class="flag f f-es bob" src="../assets/img/flag-es-128.webp" srcset="../assets/img/flag-es-256.webp 2x" width="96" height="96" alt="" loading="lazy" decoding="async"><img class="flag f f-fr bob" src="../assets/img/flag-fr-128.webp" srcset="../assets/img/flag-fr-256.webp 2x" width="80" height="80" alt="" loading="lazy" decoding="async"><img class="flag f f-jp bob" src="../assets/img/flag-jp-128.webp" srcset="../assets/img/flag-jp-256.webp 2x" width="74" height="74" alt="" loading="lazy" decoding="async"><img class="flag f f-kr bob" src="../assets/img/flag-kr-128.webp" srcset="../assets/img/flag-kr-256.webp 2x" width="70" height="70" alt="" loading="lazy" decoding="async"><img class="flag f f-de bob" src="../assets/img/flag-de-128.webp" srcset="../assets/img/flag-de-256.webp 2x" width="80" height="80" alt="" loading="lazy" decoding="async"><img class="flag f f-pt bob" src="../assets/img/flag-pt-128.webp" srcset="../assets/img/flag-pt-256.webp 2x" width="78" height="78" alt="" loading="lazy" decoding="async">
+          <picture class="phone eager tilt-l"><source media="(prefers-color-scheme: dark)" srcset="../assets/img/zh-hans/phone-study-dark-380.webp 380w, ../assets/img/zh-hans/phone-study-dark-760.webp 760w" sizes="(min-width: 960px) 320px, 62vw"><img src="../assets/img/zh-hans/phone-study-380.webp" srcset="../assets/img/zh-hans/phone-study-380.webp 380w, ../assets/img/zh-hans/phone-study-760.webp 760w" sizes="(min-width: 960px) 320px, 62vw" width="380" height="777" alt="Flippin 学习界面：英语卡片“I love this city.”，连续学习 12 天，每周目标已完成 25 张中的 18 张" fetchpriority="high" decoding="async"></picture>
+        </div>
+      </div>
+      <ul class="wrap stats" aria-label="Flippin 数据一览">
+        <li><strong>32</strong><span>种语言，任意组合</span></li>
+        <li><strong>30</strong><span>个短语合集，11 个免费</span></li>
+        <li><strong>7</strong><span>种练习方式</span></li>
+        <li><strong>约 1,000</strong><span>种自然语音（Premium）</span></li>
+      </ul>
+    </section>
+
+    <section class="section grid-paper feature" id="create" aria-labelledby="create-title">
+      <div class="wrap feature-grid">
+        <div class="feature-copy reveal">
+          <h2 class="headline" id="create-title">输入一次，<span class="pill r">听准发音</span></h2>
+          <p class="lead">用你的母语输入单词或短语，翻译会自动填好。轻点卡片任一面的扬声器，就能听到朗读。</p>
+          <ul class="ticks"><li>边输入边自动翻译；已安装对应语言时，由 Apple 翻译在设备上完成</li><li>轻点切换按钮，用任一语言输入</li><li>用备注、标签和收藏整理所学内容</li><li>免费的 Google 语音和系统语音，语速可调；Premium 再加近 1,000 种自然的 Speechify 语音</li></ul>
+        </div>
+        <div class="stage">
+          <picture class="phone tilt-r"><source media="(prefers-color-scheme: dark)" srcset="../assets/img/zh-hans/phone-add-card-dark-380.webp 380w, ../assets/img/zh-hans/phone-add-card-dark-760.webp 760w" sizes="(min-width: 960px) 320px, 62vw"><img src="../assets/img/zh-hans/phone-add-card-380.webp" srcset="../assets/img/zh-hans/phone-add-card-380.webp 380w, ../assets/img/zh-hans/phone-add-card-760.webp 760w" sizes="(min-width: 960px) 320px, 62vw" width="380" height="777" alt="添加卡片界面：“你能帮我们拍张照吗？”翻译成英语" loading="lazy" decoding="async"></picture>
+          <picture class="cut float fl-panel"><source media="(prefers-color-scheme: dark)" srcset="../assets/img/zh-hans/cut-phrase-panel-dark-360.webp 360w, ../assets/img/zh-hans/cut-phrase-panel-dark-720.webp 720w" sizes="(min-width: 960px) 360px, 70vw"><img src="../assets/img/zh-hans/cut-phrase-panel-360.webp" srcset="../assets/img/zh-hans/cut-phrase-panel-360.webp 360w, ../assets/img/zh-hans/cut-phrase-panel-720.webp 720w" sizes="(min-width: 960px) 360px, 70vw" width="360" height="221" alt="短语面板：中文“你能帮我们拍张照吗？”及其英语翻译“Can you take a photo of us?”" loading="lazy" decoding="async"></picture>
+          <img class="ill ill-tr bob" src="../assets/img/ill-modeListen-200.webp" srcset="../assets/img/ill-modeListen-200.webp 200w, ../assets/img/ill-modeListen-400.webp 400w" sizes="200px" width="200" height="200" alt="" loading="lazy" decoding="async">
+        </div>
+      </div>
+    </section>
+
+    <section class="section sky feature flip" id="games" aria-labelledby="games-title">
+      <div class="clouds" aria-hidden="true"><span class="cloud c1"></span><span class="cloud c2"></span></div>
+      <div class="wrap feature-grid">
+        <div class="feature-copy reveal">
+          <h2 class="headline" id="games-title">让你上瘾的单词<span class="pill">游戏</span></h2>
+          <p class="lead">像游戏一样的短时练习：进度条、连击、即时反馈，结束时还有正确率总结。</p>
+          <ul class="ticks"><li><b>闪卡</b>：先回想，再看答案，然后选“再来”或“记住了” <span class="tag tag-free">免费</span></li><li><b>配对</b>：限时配对六组卡片 <span class="tag tag-free">免费</span></li><li><b>选择题</b>、<b>填空</b>、<b>听力</b>和<b>拼写</b> <span class="tag tag-premium">Premium</span></li><li>答错的卡片会在几张之后再次出现，帮你牢牢记住</li></ul>
+        </div>
+        <div class="stage">
+          <img class="ill ill-tl bob" src="../assets/img/ill-trophy-200.webp" srcset="../assets/img/ill-trophy-200.webp 200w, ../assets/img/ill-trophy-400.webp 400w" sizes="200px" width="200" height="200" alt="" loading="lazy" decoding="async">
+          <picture class="phone tilt-r"><source media="(prefers-color-scheme: dark)" srcset="../assets/img/zh-hans/phone-choice-dark-380.webp 380w, ../assets/img/zh-hans/phone-choice-dark-760.webp 760w" sizes="(min-width: 960px) 320px, 62vw"><img src="../assets/img/zh-hans/phone-choice-380.webp" srcset="../assets/img/zh-hans/phone-choice-380.webp 380w, ../assets/img/zh-hans/phone-choice-760.webp 760w" sizes="(min-width: 960px) 320px, 62vw" width="380" height="777" alt="选择题练习：为“Let's go to the beach.”选出“我们去海滩吧。”，回答正确" loading="lazy" decoding="async"></picture>
+          <picture class="cut float fl-banner"><source media="(prefers-color-scheme: dark)" srcset="../assets/img/zh-hans/cut-nice-banner-dark-360.webp 360w, ../assets/img/zh-hans/cut-nice-banner-dark-720.webp 720w" sizes="(min-width: 960px) 360px, 70vw"><img src="../assets/img/zh-hans/cut-nice-banner-360.webp" srcset="../assets/img/zh-hans/cut-nice-banner-360.webp 360w, ../assets/img/zh-hans/cut-nice-banner-720.webp 720w" sizes="(min-width: 960px) 360px, 70vw" width="360" height="145" alt="反馈横幅：真棒！Let's go to the beach." loading="lazy" decoding="async"></picture>
+          <picture class="cut float fl-tile"><source media="(prefers-color-scheme: dark)" srcset="../assets/img/zh-hans/cut-match-tile-dark-200.webp 200w, ../assets/img/zh-hans/cut-match-tile-dark-400.webp 400w" sizes="(min-width: 960px) 360px, 70vw"><img src="../assets/img/zh-hans/cut-match-tile-200.webp" srcset="../assets/img/zh-hans/cut-match-tile-200.webp 200w, ../assets/img/zh-hans/cut-match-tile-400.webp 400w" sizes="(min-width: 960px) 360px, 70vw" width="200" height="80" alt="配对游戏卡片" loading="lazy" decoding="async"></picture>
+        </div>
+      </div>
+    </section>
+
+    <section class="section grid-paper feature" id="speaking" aria-labelledby="speaking-title">
+      <div class="wrap feature-grid">
+        <div class="feature-copy reveal">
+          <h2 class="headline" id="speaking-title">大声说出来的<span class="pill">口语</span>练习</h2>
+          <p class="lead">按住麦克风说出短语，Flippin 会用语音识别来检查。大声说出来，才能真正变成你的。</p>
+          <ul class="ticks"><li>大声说出短语并获得检查，条件允许时在设备上完成</li><li>现在不方便说话？改为输入答案就行</li><li>开口之前，想听几遍就听几遍</li></ul>
+          <p class="tag-line"><span class="tag tag-premium">Premium</span> 口语、听力和拼写是 Premium 练习模式。</p>
+        </div>
+        <div class="stage">
+          <img class="ill ill-bl bob" src="../assets/img/ill-modeSpeak-200.webp" srcset="../assets/img/ill-modeSpeak-200.webp 200w, ../assets/img/ill-modeSpeak-400.webp 400w" sizes="200px" width="200" height="200" alt="" loading="lazy" decoding="async">
+          <picture class="phone tilt-r"><source media="(prefers-color-scheme: dark)" srcset="../assets/img/zh-hans/phone-speak-dark-380.webp 380w, ../assets/img/zh-hans/phone-speak-dark-760.webp 760w" sizes="(min-width: 960px) 320px, 62vw"><img src="../assets/img/zh-hans/phone-speak-380.webp" srcset="../assets/img/zh-hans/phone-speak-380.webp 380w, ../assets/img/zh-hans/phone-speak-760.webp 760w" sizes="(min-width: 960px) 320px, 62vw" width="380" height="777" alt="口语练习：说出“Let's go to the beach.”，识别正确" loading="lazy" decoding="async"></picture>
+          <picture class="cut float fl-banner"><source media="(prefers-color-scheme: dark)" srcset="../assets/img/zh-hans/cut-speak-banner-dark-360.webp 360w, ../assets/img/zh-hans/cut-speak-banner-dark-720.webp 720w" sizes="(min-width: 960px) 360px, 70vw"><img src="../assets/img/zh-hans/cut-speak-banner-360.webp" srcset="../assets/img/zh-hans/cut-speak-banner-360.webp 360w, ../assets/img/zh-hans/cut-speak-banner-720.webp 720w" sizes="(min-width: 960px) 360px, 70vw" width="360" height="145" alt="反馈横幅：真棒！你说的是：“Let's go to the beach.”" loading="lazy" decoding="async"></picture>
+        </div>
+      </div>
+    </section>
+
+    <section class="section sky feature flip" id="streaks" aria-labelledby="streaks-title">
+      <div class="clouds" aria-hidden="true"><span class="cloud c1"></span><span class="cloud c2"></span></div>
+      <div class="wrap feature-grid">
+        <div class="feature-copy reveal">
+          <h2 class="headline" id="streaks-title">保持<span class="pill">连续学习</span></h2>
+          <p class="lead">每日连续学习、每周目标和贴心提醒，让每天几分钟变成真正的进步。</p>
+          <ul class="ticks"><li>连续学习日历，显示最长连续天数和下一个里程碑</li><li>每周目标可选 10、25、50 或 100 张卡片，达成时还有庆祝</li><li>“复习到期卡片”先复习到期的卡片，再练错题，最后学新卡</li><li>每日学习提醒和困难卡片提醒，时间由你决定</li></ul>
+        </div>
+        <div class="stage">
+          <img class="ill ill-tr bob" src="../assets/img/ill-flame-200.webp" srcset="../assets/img/ill-flame-200.webp 200w, ../assets/img/ill-flame-400.webp 400w" sizes="200px" width="200" height="200" alt="" loading="lazy" decoding="async">
+          <picture class="phone tilt-l"><source media="(prefers-color-scheme: dark)" srcset="../assets/img/zh-hans/phone-streak-dark-380.webp 380w, ../assets/img/zh-hans/phone-streak-dark-760.webp 760w" sizes="(min-width: 960px) 320px, 62vw"><img src="../assets/img/zh-hans/phone-streak-380.webp" srcset="../assets/img/zh-hans/phone-streak-380.webp 380w, ../assets/img/zh-hans/phone-streak-760.webp 760w" sizes="(min-width: 960px) 320px, 62vw" width="380" height="777" alt="连续学习界面：当前连续 12 天，最长连续 12 天，下一个里程碑为 30 天" loading="lazy" decoding="async"></picture>
+          <picture class="cut float fl-chip"><source media="(prefers-color-scheme: dark)" srcset="../assets/img/zh-hans/cut-streak-chip-dark-120.webp 120w, ../assets/img/zh-hans/cut-streak-chip-dark-240.webp 240w" sizes="(min-width: 960px) 360px, 70vw"><img src="../assets/img/zh-hans/cut-streak-chip-120.webp" srcset="../assets/img/zh-hans/cut-streak-chip-120.webp 120w, ../assets/img/zh-hans/cut-streak-chip-240.webp 240w" sizes="(min-width: 960px) 360px, 70vw" width="120" height="61" alt="连续学习标签：12 天" loading="lazy" decoding="async"></picture>
+          <picture class="cut float fl-goal"><source media="(prefers-color-scheme: dark)" srcset="../assets/img/zh-hans/cut-goal-chip-dark-160.webp 160w, ../assets/img/zh-hans/cut-goal-chip-dark-320.webp 320w" sizes="(min-width: 960px) 360px, 70vw"><img src="../assets/img/zh-hans/cut-goal-chip-160.webp" srcset="../assets/img/zh-hans/cut-goal-chip-160.webp 160w, ../assets/img/zh-hans/cut-goal-chip-320.webp 320w" sizes="(min-width: 960px) 360px, 70vw" width="160" height="53" alt="每周目标标签：25 张中的 18 张" loading="lazy" decoding="async"></picture>
+        </div>
+      </div>
+    </section>
+
+    <section class="section grid-paper feature" id="ai" aria-labelledby="ai-title">
+      <div class="wrap feature-grid">
+        <div class="feature-copy reveal">
+          <h2 class="headline" id="ai-title">AI 短语手册，<span class="pill r">几秒</span>生成</h2>
+          <p class="lead">描述一个主题，比如在餐厅点餐，就能得到一套适合你的语言组合和水平、可以直接学习的 10 到 20 张卡片。</p>
+          <ul class="ticks"><li>每张卡片都能编辑，可以只挑想要的，也可以重新生成</li><li>每套卡片都会保存为草稿，不会丢失</li><li>AI 学习教练根据你自己的进度，每天提供学习洞察</li></ul>
+          <p class="tag-line"><span class="tag tag-premium">Premium</span> AI 合集和 AI 学习教练属于 Premium；免费用户可以试用示例卡组。</p>
+        </div>
+        <div class="stage">
+          <img class="ill ill-tr bob" src="../assets/img/ill-sparkles-200.webp" srcset="../assets/img/ill-sparkles-200.webp 200w, ../assets/img/ill-sparkles-400.webp 400w" sizes="200px" width="200" height="200" alt="" loading="lazy" decoding="async">
+          <picture class="phone tilt-r"><img src="../assets/img/zh-hans/phone-ai-result-380.webp" srcset="../assets/img/zh-hans/phone-ai-result-380.webp 380w, ../assets/img/zh-hans/phone-ai-result-760.webp 760w" sizes="(min-width: 960px) 320px, 62vw" width="380" height="777" alt="AI 生成的“美食与餐饮”合集，包含“I'm hungry”“This is delicious”等卡片" loading="lazy" decoding="async"></picture>
+          <picture class="cut float fl-panel"><img src="../assets/img/zh-hans/cut-ai-header-340.webp" srcset="../assets/img/zh-hans/cut-ai-header-340.webp 340w, ../assets/img/zh-hans/cut-ai-header-680.webp 680w" sizes="(min-width: 960px) 360px, 70vw" width="340" height="165" alt="AI 合集标题：美食与餐饮，餐厅和美食体验的必备短语" loading="lazy" decoding="async"></picture>
+        </div>
+      </div>
+    </section>
+
+    <section class="section sky feature flip" id="languages" aria-labelledby="languages-title">
+      <div class="clouds" aria-hidden="true"><span class="cloud c1"></span><span class="cloud c2"></span></div>
+      <div class="wrap feature-grid">
+        <div class="feature-copy reveal">
+          <h2 class="headline" id="languages-title"><span class="pill">32</span> 种语言，任意组合</h2>
+          <p class="lead">从 32 种语言中的任意一种学习另一种。每种语言都有 30 个现成的短语合集，涵盖 11 个主题，从基础、旅行到美食、购物和紧急情况。</p>
+          <ul class="ticks"><li>每个主题 1 个合集免费，共 11 个；Premium 解锁全部 30 个</li><li>每个合集都能预览，挑选你想要的卡片</li><li>根据你的兴趣推荐入门包，卡组永远不会是空的</li></ul>
+          <ul class="flag-row" aria-label="可以学习的 32 种语言">
+            <li title="英语"><img class="flag " src="../assets/img/flag-us-64.webp" srcset="../assets/img/flag-us-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">英语</span></li>
+<li title="西班牙语"><img class="flag " src="../assets/img/flag-es-64.webp" srcset="../assets/img/flag-es-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">西班牙语</span></li>
+<li title="法语"><img class="flag " src="../assets/img/flag-fr-64.webp" srcset="../assets/img/flag-fr-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">法语</span></li>
+<li title="德语"><img class="flag " src="../assets/img/flag-de-64.webp" srcset="../assets/img/flag-de-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">德语</span></li>
+<li title="意大利语"><img class="flag " src="../assets/img/flag-it-64.webp" srcset="../assets/img/flag-it-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">意大利语</span></li>
+<li title="葡萄牙语"><img class="flag " src="../assets/img/flag-pt-64.webp" srcset="../assets/img/flag-pt-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">葡萄牙语</span></li>
+<li title="荷兰语"><img class="flag " src="../assets/img/flag-nl-64.webp" srcset="../assets/img/flag-nl-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">荷兰语</span></li>
+<li title="瑞典语"><img class="flag " src="../assets/img/flag-se-64.webp" srcset="../assets/img/flag-se-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">瑞典语</span></li>
+<li title="中文（简体）"><img class="flag " src="../assets/img/flag-cn-64.webp" srcset="../assets/img/flag-cn-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">中文（简体）</span></li>
+<li title="日语"><img class="flag " src="../assets/img/flag-jp-64.webp" srcset="../assets/img/flag-jp-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">日语</span></li>
+<li title="韩语"><img class="flag " src="../assets/img/flag-kr-64.webp" srcset="../assets/img/flag-kr-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">韩语</span></li>
+<li title="越南语"><img class="flag " src="../assets/img/flag-vn-64.webp" srcset="../assets/img/flag-vn-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">越南语</span></li>
+<li title="俄语"><img class="flag " src="../assets/img/flag-ru-64.webp" srcset="../assets/img/flag-ru-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">俄语</span></li>
+<li title="阿拉伯语"><img class="flag " src="../assets/img/flag-sa-64.webp" srcset="../assets/img/flag-sa-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">阿拉伯语</span></li>
+<li title="印地语"><img class="flag " src="../assets/img/flag-in-64.webp" srcset="../assets/img/flag-in-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">印地语</span></li>
+<li title="克罗地亚语"><img class="flag " src="../assets/img/flag-hr-64.webp" srcset="../assets/img/flag-hr-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">克罗地亚语</span></li>
+<li title="乌克兰语"><img class="flag " src="../assets/img/flag-ua-64.webp" srcset="../assets/img/flag-ua-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">乌克兰语</span></li>
+<li title="加泰罗尼亚语"><img class="flag " src="../assets/img/flag-catalan-64.webp" srcset="../assets/img/flag-catalan-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">加泰罗尼亚语</span></li>
+<li title="捷克语"><img class="flag " src="../assets/img/flag-cz-64.webp" srcset="../assets/img/flag-cz-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">捷克语</span></li>
+<li title="丹麦语"><img class="flag " src="../assets/img/flag-dk-64.webp" srcset="../assets/img/flag-dk-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">丹麦语</span></li>
+<li title="希腊语"><img class="flag " src="../assets/img/flag-gr-64.webp" srcset="../assets/img/flag-gr-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">希腊语</span></li>
+<li title="芬兰语"><img class="flag " src="../assets/img/flag-fi-64.webp" srcset="../assets/img/flag-fi-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">芬兰语</span></li>
+<li title="希伯来语"><img class="flag " src="../assets/img/flag-il-64.webp" srcset="../assets/img/flag-il-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">希伯来语</span></li>
+<li title="匈牙利语"><img class="flag " src="../assets/img/flag-hu-64.webp" srcset="../assets/img/flag-hu-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">匈牙利语</span></li>
+<li title="印度尼西亚语"><img class="flag " src="../assets/img/flag-id-64.webp" srcset="../assets/img/flag-id-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">印度尼西亚语</span></li>
+<li title="马来语"><img class="flag " src="../assets/img/flag-my-64.webp" srcset="../assets/img/flag-my-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">马来语</span></li>
+<li title="挪威语"><img class="flag " src="../assets/img/flag-no-64.webp" srcset="../assets/img/flag-no-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">挪威语</span></li>
+<li title="波兰语"><img class="flag " src="../assets/img/flag-pl-64.webp" srcset="../assets/img/flag-pl-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">波兰语</span></li>
+<li title="罗马尼亚语"><img class="flag " src="../assets/img/flag-ro-64.webp" srcset="../assets/img/flag-ro-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">罗马尼亚语</span></li>
+<li title="斯洛伐克语"><img class="flag " src="../assets/img/flag-sk-64.webp" srcset="../assets/img/flag-sk-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">斯洛伐克语</span></li>
+<li title="泰语"><img class="flag " src="../assets/img/flag-th-64.webp" srcset="../assets/img/flag-th-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">泰语</span></li>
+<li title="土耳其语"><img class="flag " src="../assets/img/flag-tr-64.webp" srcset="../assets/img/flag-tr-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">土耳其语</span></li>
+          </ul>
+          <a class="btn btn-hero" href="languages.html">查看全部语言</a>
+        </div>
+        <div class="stage">
+          <img class="ill ill-bl bob" src="../assets/img/ill-globe-200.webp" srcset="../assets/img/ill-globe-200.webp 200w, ../assets/img/ill-globe-400.webp 400w" sizes="200px" width="200" height="200" alt="" loading="lazy" decoding="async">
+          <picture class="phone tilt-l"><source media="(prefers-color-scheme: dark)" srcset="../assets/img/zh-hans/phone-collections-dark-380.webp 380w, ../assets/img/zh-hans/phone-collections-dark-760.webp 760w" sizes="(min-width: 960px) 320px, 62vw"><img src="../assets/img/zh-hans/phone-collections-380.webp" srcset="../assets/img/zh-hans/phone-collections-380.webp 380w, ../assets/img/zh-hans/phone-collections-760.webp 760w" sizes="(min-width: 960px) 320px, 62vw" width="380" height="777" alt="预设集合界面：基础短语、旅行必备等" loading="lazy" decoding="async"></picture>
+          <picture class="cut float fl-travel"><source media="(prefers-color-scheme: dark)" srcset="../assets/img/zh-hans/cut-travel-card-dark-200.webp 200w, ../assets/img/zh-hans/cut-travel-card-dark-400.webp 400w" sizes="(min-width: 960px) 360px, 70vw"><img src="../assets/img/zh-hans/cut-travel-card-200.webp" srcset="../assets/img/zh-hans/cut-travel-card-200.webp 200w, ../assets/img/zh-hans/cut-travel-card-400.webp 400w" sizes="(min-width: 960px) 360px, 70vw" width="200" height="283" alt="“旅行必备”合集卡片" loading="lazy" decoding="async"></picture>
+        </div>
+      </div>
+    </section>
+
+    <section class="section grid-paper" id="pricing" aria-labelledby="pricing-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2 class="headline" id="pricing-title">免费开始，<span class="pill">Premium</span> 走得更远</h2>
+          <p class="lead">养成学习习惯所需的一切都是免费的。Premium 去除所有限制。</p>
+        </div>
+        <div class="plans">
+          <article class="paper plan reveal">
+            <h3 class="plan-name"><span class="tag tag-free">免费</span></h3>
+            <p class="plan-price">$0</p>
+            <p class="plan-note">无需账号，没有时间限制</p>
+            <ul class="ticks"><li>一个语言组合中最多 40 张卡片</li><li>自动翻译、备注、标签和收藏</li><li>Google 语音和系统语音</li><li>11 个预设短语合集，每个主题一个</li><li>闪卡和配对练习，以及到期卡片和错题复习</li><li>连续学习、每周目标和概览统计</li><li>通过 iCloud 在 iPhone 和 iPad 之间同步</li></ul>
+            <a class="btn btn-secondary" href="https://apps.apple.com/sg/app/id6748499528?l=zh-Hans-CN" data-track="cta_pricing_click" data-placement="pricing_free">开始使用</a>
+          </article>
+          <article class="paper plan plan-premium reveal">
+            <img class="ill plan-ill" src="../assets/img/ill-crown-200.webp" srcset="../assets/img/ill-crown-200.webp 200w, ../assets/img/ill-crown-400.webp 400w" sizes="200px" width="200" height="200" alt="" loading="lazy" decoding="async">
+            <h3 class="plan-name"><span class="tag tag-premium">Premium</span></h3>
+            <p class="plan-price">$39.99<small>/年</small></p>
+            <p class="plan-note">符合条件的新订阅用户可免费试用 7 天 · 或 $5.99/月 · 或一次性支付 $99.99 终身使用</p>
+            <ul class="ticks"><li>无限卡片和全部 30 个预设合集</li><li>AI 合集生成器和 AI 学习教练</li><li>口语、听力、拼写、选择题和填空</li><li>近 1,000 种自然的 Speechify 语音</li><li>卡片图片、AI 表情符号建议和表情符号模式</li><li>切换语言组合</li><li>详细分析：学习时间图表、掌握程度、正确率趋势和徽章</li></ul>
+            <a class="btn" href="https://apps.apple.com/sg/app/id6748499528?l=zh-Hans-CN" data-track="cta_pricing_click" data-placement="pricing_premium">试用 Premium</a>
+          </article>
+        </div>
+        <p class="fine reveal">价格以美元计，为美国地区价格，不同国家或地区的价格有所不同；购买前 App Store 会显示你的价格。除非在当前订阅期结束前至少 24 小时取消，否则订阅会自动续订；你可以在 App Store 账户设置中管理或取消订阅。App 内可能会出现限时优惠。详见<a href="terms-of-use.html">使用条款</a>。</p>
+      </div>
+    </section>
+
+    <section class="section sky" id="faq" aria-labelledby="faq-title">
+      <div class="clouds" aria-hidden="true"><span class="cloud c1"></span><span class="cloud c2"></span></div>
+      <div class="wrap narrow">
+        <div class="section-head reveal">
+          <h2 class="headline" id="faq-title">有疑问？<span class="pill r">这里有答案</span></h2>
+        </div>
+        <div class="faq reveal">
+          <details data-faq><summary>需要注册账号吗？</summary><div class="faq-a">不需要。Flippin 无需账号即可使用，你的卡片通过 iCloud 同步。“通过 Apple 登录”是可选的：它会在设备间同步你的个人资料、连续学习记录和订阅。AI 功能需要登录，以便验证你的 Premium 状态。</div></details>
+          <details data-faq><summary>哪些是免费的？</summary><div class="faq-a">一个语言组合中最多 40 张卡片、自动翻译、Google 语音和系统语音、11 个短语合集、闪卡和配对练习、连续学习、每周目标和概览统计，以及 iCloud 同步。其余功能都可以通过 Premium 解锁。</div></details>
+          <details data-faq><summary>支持哪些设备？</summary><div class="faq-a">运行 iOS 18 或更高版本的 iPhone 和 iPad。开启 iCloud 后，你的卡片和练习记录会在设备之间同步。</div></details>
+          <details data-faq><summary>可以学习哪些语言？</summary><div class="faq-a">32 种语言任意组合，App 本身支持 34 种界面语言。查看<a href="languages.html">完整列表</a>。</div></details>
+          <details data-faq><summary>如何取消 Premium？</summary><div class="faq-a">在 App Store 账户设置中取消：iOS 设置 › 你的姓名 › 订阅 › Flippin。在已付费的订阅期结束前，你仍可继续使用 Premium。</div></details>
+        </div>
+        <p class="faq-more"><a class="btn btn-hero" href="support.html">更多解答</a></p>
+      </div>
+    </section>
+
+    <section class="section grid-paper cta-final" aria-labelledby="cta-title">
+      <div class="wrap cta-inner reveal">
+        <img class="ill cta-ill bob" src="../assets/img/ill-rocket-200.webp" srcset="../assets/img/ill-rocket-200.webp 200w, ../assets/img/ill-rocket-400.webp 400w" sizes="200px" width="200" height="200" alt="" loading="lazy" decoding="async">
+        <h2 class="headline" id="cta-title">今天就开始<span class="pill">开口说</span></h2>
+        <p class="lead">免费下载 Flippin，选好语言，你的第一批短语就可以开始练习了。</p>
+        <a class="badge" href="https://apps.apple.com/sg/app/id6748499528?l=zh-Hans-CN" data-track="cta_appstore_click" data-placement="cta_band">
+          <img src="https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/black/zh-cn?size=250x83" alt="在 App Store 下载" width="180" height="60" loading="lazy">
+        </a>
+        <p class="note">适用于 iPhone 和 iPad · iOS 18 或更高版本</p>
+      </div>
+    </section>
+  </main>
+  <footer class="foot">
+    <div class="wrap foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="./"><img src="../assets/img/app-icon-64.webp" srcset="../assets/img/app-icon-128.webp 2x" alt="" width="36" height="36" loading="lazy"><span>Flippin</span></a>
+        <p>为你真正会说的短语准备的闪卡和口语练习。</p>
+        <p><a href="mailto:support@flippin.app">support@flippin.app</a></p>
+      </div>
+      <nav class="foot-col" aria-label="Flippin">
+        <h2>Flippin</h2>
+        <a href="features.html">功能</a>
+        <a href="languages.html">语言</a>
+        <a href="./#pricing">价格</a>
+        <a href="https://apps.apple.com/sg/app/id6748499528?l=zh-Hans-CN" data-track="cta_appstore_click" data-placement="footer">App Store</a>
+      </nav>
+      <nav class="foot-col" aria-label="学习指南">
+        <h2>学习指南</h2>
+        <a href="learn/flashcards.html">闪卡技巧</a>
+        <a href="learn/pronunciation.html">发音练习</a>
+        <a href="learn/analytics.html">学习进度分析</a>
+        <a href="compare/anki.html">Flippin 与 Anki 对比</a>
+      </nav>
+      <nav class="foot-col" aria-label="帮助">
+        <h2>帮助</h2>
+        <a href="support.html">支持</a>
+        <a href="privacy-policy.html">隐私政策</a>
+        <a href="terms-of-use.html">使用条款</a>
+      </nav>
+    </div>
+    <div class="wrap foot-fine">
+      <p>© 2026 Flippin. 保留所有权利。</p>
+      <p>Apple、Apple 标志、iPhone 和 iPad 是 Apple Inc. 在美国和其他国家和地区注册的商标。App Store 是 Apple Inc. 的服务商标。</p>
+      <p>字体为 Nunito（<a href="../assets/fonts/Nunito-OFL.txt">SIL Open Font License</a>）。3D 插图由 Soni Sokell 创作。</p>
+    </div>
+  </footer>
+</body>
+</html>

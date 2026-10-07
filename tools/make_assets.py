@@ -106,6 +106,8 @@ FONT_SUBSETS = {
                  "U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,"
                  "U+2113,U+2C60-2C7F,U+A720-A7FF",
     "cyrillic": "U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116",
+    "vietnamese": "U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,"
+                  "U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB",
 }
 
 
@@ -159,6 +161,32 @@ def make_phones(lang: str = "en", out: Path = IMG):
                 save_webp(image, out / f"phone-{name}{suffix}-{width}.webp", width)
 
 
+# Capture languages laid out right to left: their screens are mirrored, so are the crop boxes.
+RTL_CAPTURES = {"ar", "he"}
+# The top-bar chips change width with the digits, so in RTL they are found, not mirrored:
+# chip index counted from the trailing (right) edge — 0 is the language chip.
+RTL_CHIPS = {"streak-chip": 1, "goal-chip": 2}
+
+
+def rtl_chip_box(lang: str, index: int, fallback):
+    """Box around the index-th white top-bar chip from the right in the light 01-study capture."""
+    image = Image.open(SHOTS / f"captures-{lang}" / "01-study.png").convert("RGB")
+    y, runs, start = 300, [], None
+    for x in range(image.width + 1):
+        bright = x < image.width and sum(image.getpixel((x, y))) / 3 > 200
+        if bright and start is None:
+            start = x
+        elif not bright and start is not None:
+            if x - start > 80:
+                runs.append((start, x))
+            start = None
+    runs.sort(key=lambda run: -run[0])
+    if len(runs) <= index:
+        return fallback
+    left, right = runs[index]
+    return (left - 10, fallback[1], right + 10, fallback[3])
+
+
 def make_cutouts(lang: str = "en", out: Path = IMG):
     print(f"cutouts ({lang})")
     for suffix, folder in capture_dirs(lang):
@@ -167,7 +195,13 @@ def make_cutouts(lang: str = "en", out: Path = IMG):
             if not source.exists():
                 print(f"  skip {name}{suffix}: {source} missing")
                 continue
-            crop = Image.open(source).convert("RGBA").crop(box)
+            image = Image.open(source).convert("RGBA")
+            if lang in RTL_CAPTURES:
+                left, top, right, bottom = box
+                box = (image.width - right, top, image.width - left, bottom)
+                if name in RTL_CHIPS:
+                    box = rtl_chip_box(lang, RTL_CHIPS[name], box)
+            crop = image.crop(box)
             crop.putalpha(rounded_mask(crop.size, radius))
             for scale in (1, 2):
                 save_webp(crop, out / f"cut-{name}{suffix}-{width * scale}.webp", width * scale, 86)

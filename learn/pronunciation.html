@@ -13,7 +13,79 @@
   <meta name="apple-itunes-app" content="app-id=6748499528">
   <link rel="canonical" href="https://www.flippin.app/learn/pronunciation.html">
   <link rel="alternate" hreflang="en" href="https://www.flippin.app/learn/pronunciation.html">
+  <link rel="alternate" hreflang="ar" href="https://www.flippin.app/ar/learn/pronunciation.html">
+  <link rel="alternate" hreflang="ca" href="https://www.flippin.app/ca/learn/pronunciation.html">
+  <link rel="alternate" hreflang="cs" href="https://www.flippin.app/cs/learn/pronunciation.html">
+  <link rel="alternate" hreflang="da" href="https://www.flippin.app/da/learn/pronunciation.html">
+  <link rel="alternate" hreflang="de" href="https://www.flippin.app/de/learn/pronunciation.html">
+  <link rel="alternate" hreflang="el" href="https://www.flippin.app/el/learn/pronunciation.html">
+  <link rel="alternate" hreflang="es" href="https://www.flippin.app/es/learn/pronunciation.html">
+  <link rel="alternate" hreflang="fi" href="https://www.flippin.app/fi/learn/pronunciation.html">
+  <link rel="alternate" hreflang="fr" href="https://www.flippin.app/fr/learn/pronunciation.html">
+  <link rel="alternate" hreflang="he" href="https://www.flippin.app/he/learn/pronunciation.html">
+  <link rel="alternate" hreflang="hi" href="https://www.flippin.app/hi/learn/pronunciation.html">
+  <link rel="alternate" hreflang="hr" href="https://www.flippin.app/hr/learn/pronunciation.html">
+  <link rel="alternate" hreflang="hu" href="https://www.flippin.app/hu/learn/pronunciation.html">
+  <link rel="alternate" hreflang="id" href="https://www.flippin.app/id/learn/pronunciation.html">
+  <link rel="alternate" hreflang="it" href="https://www.flippin.app/it/learn/pronunciation.html">
+  <link rel="alternate" hreflang="ja" href="https://www.flippin.app/ja/learn/pronunciation.html">
+  <link rel="alternate" hreflang="ko" href="https://www.flippin.app/ko/learn/pronunciation.html">
+  <link rel="alternate" hreflang="ms" href="https://www.flippin.app/ms/learn/pronunciation.html">
+  <link rel="alternate" hreflang="nb" href="https://www.flippin.app/nb/learn/pronunciation.html">
+  <link rel="alternate" hreflang="no" href="https://www.flippin.app/nb/learn/pronunciation.html">
+  <link rel="alternate" hreflang="nl" href="https://www.flippin.app/nl/learn/pronunciation.html">
+  <link rel="alternate" hreflang="pl" href="https://www.flippin.app/pl/learn/pronunciation.html">
+  <link rel="alternate" hreflang="pt-PT" href="https://www.flippin.app/pt/learn/pronunciation.html">
+  <link rel="alternate" hreflang="pt-BR" href="https://www.flippin.app/pt-br/learn/pronunciation.html">
+  <link rel="alternate" hreflang="ro" href="https://www.flippin.app/ro/learn/pronunciation.html">
+  <link rel="alternate" hreflang="ru" href="https://www.flippin.app/ru/learn/pronunciation.html">
+  <link rel="alternate" hreflang="sk" href="https://www.flippin.app/sk/learn/pronunciation.html">
+  <link rel="alternate" hreflang="sv" href="https://www.flippin.app/sv/learn/pronunciation.html">
+  <link rel="alternate" hreflang="th" href="https://www.flippin.app/th/learn/pronunciation.html">
+  <link rel="alternate" hreflang="tr" href="https://www.flippin.app/tr/learn/pronunciation.html">
+  <link rel="alternate" hreflang="uk" href="https://www.flippin.app/uk/learn/pronunciation.html">
+  <link rel="alternate" hreflang="vi" href="https://www.flippin.app/vi/learn/pronunciation.html">
+  <link rel="alternate" hreflang="zh-Hans" href="https://www.flippin.app/zh-hans/learn/pronunciation.html">
+  <link rel="alternate" hreflang="zh-Hant" href="https://www.flippin.app/zh-hant/learn/pronunciation.html">
   <link rel="alternate" hreflang="x-default" href="https://www.flippin.app/learn/pronunciation.html">
+  <script>
+    // First visit to an English page: go to the visitor's language if the site has it. A language
+    // picked in the header is remembered and wins; crawlers and same-site navigation aren't moved.
+    (function () {
+      try {
+        if (/bot|crawl|spider|slurp|lighthouse|preview/i.test(navigator.userAgent)) return;
+        if (document.referrer && new URL(document.referrer).host === location.host) return;
+        // hreflang links are absolute production URLs; map them onto wherever the site is served
+        // (production or a local preview) via this page's canonical path.
+        var canonical = document.querySelector('link[rel="canonical"]');
+        var current = new URL(canonical.href).pathname.slice(1);
+        var here = location.pathname.replace(/index\.html$/, "");
+        var root = here.slice(0, here.length - current.length);
+        var links = {}, saved = null;
+        try { saved = localStorage.getItem("flippin.lang"); } catch (e) {}
+        document.querySelectorAll('link[rel="alternate"][hreflang]').forEach(function (l) {
+          links[l.hreflang.toLowerCase()] = root + new URL(l.href).pathname.slice(1);
+        });
+        var target = saved ? links[saved] : null;
+        if (!saved) {
+          var wanted = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language];
+          for (var i = 0; i < wanted.length && !target; i++) {
+            var tag = String(wanted[i] || "").toLowerCase(), primary = tag.split("-")[0];
+            if (primary === "en") break; // English speakers stay on English
+            if (primary === "zh") tag = /hant|-tw|-hk|-mo/.test(tag) ? "zh-hant" : "zh-hans";
+            if (primary === "nn" || primary === "no") primary = "nb";
+            target = links[tag] || links[primary] || null;
+            if (!target) {
+              for (var code in links) {
+                if (code.split("-")[0] === primary && code !== "x-default") { target = links[code]; break; }
+              }
+            }
+          }
+        }
+        if (target && target !== here) location.replace(target + location.hash);
+      } catch (e) {}
+    })();
+  </script>
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Flippin">
@@ -32,8 +104,8 @@
 
   <link rel="preload" href="../assets/fonts/nunito-900-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/nunito-700-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../assets/css/site.css?v=b8934969">
-  <script src="../assets/js/site.js?v=b8934969" defer></script>
+  <link rel="stylesheet" href="../assets/css/site.css?v=732989b6">
+  <script src="../assets/js/site.js?v=732989b6" defer></script>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-TT6GZ2QPB6"></script>
@@ -42,6 +114,16 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-TT6GZ2QPB6');
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Flippin", "item": "https://www.flippin.app/" },
+      { "@type": "ListItem", "position": 2, "name": "Pronunciation practice", "item": "https://www.flippin.app/learn/pronunciation.html" }
+    ]
+  }
   </script>
 </head>
 <body class="page-learn-pronunciation">
@@ -58,7 +140,45 @@
         <a href="../#pricing">Pricing</a>
         <a href="../support.html">Support</a>
       </nav>
-
+      <details class="lang">
+        <summary aria-label="Language"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M2.5 12h19M12 2.5c2.6 2.8 3.9 6 3.9 9.5s-1.3 6.7-3.9 9.5c-2.6-2.8-3.9-6-3.9-9.5s1.3-6.7 3.9-9.5z" fill="none" stroke="currentColor" stroke-width="2"/></svg><span class="lang-code">EN</span></summary>
+        <ul>
+          <li><a href="../learn/pronunciation.html" hreflang="en" lang="en" aria-current="page">English</a></li>
+          <li><a href="../ar/learn/pronunciation.html" hreflang="ar" lang="ar">العربية</a></li>
+          <li><a href="../ca/learn/pronunciation.html" hreflang="ca" lang="ca">Català</a></li>
+          <li><a href="../cs/learn/pronunciation.html" hreflang="cs" lang="cs">Čeština</a></li>
+          <li><a href="../da/learn/pronunciation.html" hreflang="da" lang="da">Dansk</a></li>
+          <li><a href="../de/learn/pronunciation.html" hreflang="de" lang="de">Deutsch</a></li>
+          <li><a href="../el/learn/pronunciation.html" hreflang="el" lang="el">Ελληνικά</a></li>
+          <li><a href="../es/learn/pronunciation.html" hreflang="es" lang="es">Español</a></li>
+          <li><a href="../fi/learn/pronunciation.html" hreflang="fi" lang="fi">Suomi</a></li>
+          <li><a href="../fr/learn/pronunciation.html" hreflang="fr" lang="fr">Français</a></li>
+          <li><a href="../he/learn/pronunciation.html" hreflang="he" lang="he">עברית</a></li>
+          <li><a href="../hi/learn/pronunciation.html" hreflang="hi" lang="hi">हिन्दी</a></li>
+          <li><a href="../hr/learn/pronunciation.html" hreflang="hr" lang="hr">Hrvatski</a></li>
+          <li><a href="../hu/learn/pronunciation.html" hreflang="hu" lang="hu">Magyar</a></li>
+          <li><a href="../id/learn/pronunciation.html" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+          <li><a href="../it/learn/pronunciation.html" hreflang="it" lang="it">Italiano</a></li>
+          <li><a href="../ja/learn/pronunciation.html" hreflang="ja" lang="ja">日本語</a></li>
+          <li><a href="../ko/learn/pronunciation.html" hreflang="ko" lang="ko">한국어</a></li>
+          <li><a href="../ms/learn/pronunciation.html" hreflang="ms" lang="ms">Bahasa Melayu</a></li>
+          <li><a href="../nb/learn/pronunciation.html" hreflang="nb" lang="nb">Norsk bokmål</a></li>
+          <li><a href="../nl/learn/pronunciation.html" hreflang="nl" lang="nl">Nederlands</a></li>
+          <li><a href="../pl/learn/pronunciation.html" hreflang="pl" lang="pl">Polski</a></li>
+          <li><a href="../pt/learn/pronunciation.html" hreflang="pt-PT" lang="pt-PT">Português (Portugal)</a></li>
+          <li><a href="../pt-br/learn/pronunciation.html" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li>
+          <li><a href="../ro/learn/pronunciation.html" hreflang="ro" lang="ro">Română</a></li>
+          <li><a href="../ru/learn/pronunciation.html" hreflang="ru" lang="ru">Русский</a></li>
+          <li><a href="../sk/learn/pronunciation.html" hreflang="sk" lang="sk">Slovenčina</a></li>
+          <li><a href="../sv/learn/pronunciation.html" hreflang="sv" lang="sv">Svenska</a></li>
+          <li><a href="../th/learn/pronunciation.html" hreflang="th" lang="th">ไทย</a></li>
+          <li><a href="../tr/learn/pronunciation.html" hreflang="tr" lang="tr">Türkçe</a></li>
+          <li><a href="../uk/learn/pronunciation.html" hreflang="uk" lang="uk">Українська</a></li>
+          <li><a href="../vi/learn/pronunciation.html" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+          <li><a href="../zh-hans/learn/pronunciation.html" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li>
+          <li><a href="../zh-hant/learn/pronunciation.html" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li>
+        </ul>
+      </details>
       <a class="btn btn-small" href="https://apps.apple.com/us/app/flippin/id6748499528" data-track="cta_appstore_click" data-placement="nav">Download</a>
       <details class="menu">
         <summary aria-label="Menu"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></summary>
@@ -124,7 +244,7 @@
         <h2 class="headline headline-md" id="cta-title">Start <span class="pill">Speaking</span> Today</h2>
         <p class="lead">Download Flippin for free, pick your languages, and your first phrases are ready to practice.</p>
         <a class="badge" href="https://apps.apple.com/us/app/flippin/id6748499528" data-track="cta_appstore_click" data-placement="cta_en_page-learn-pronunciation">
-          <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" width="180" height="60" loading="lazy">
+          <img src="https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" width="180" height="60" loading="lazy">
         </a>
         <p class="note">For iPhone and iPad · iOS 18 or later</p>
       </div>

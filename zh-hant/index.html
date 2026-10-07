@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="zh-Hant" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Flippin：單字卡背單字與口說練習</title>
+  <meta name="description" content="每天說一種新語言。Flippin 把你真正會說的短語變成能聽、能翻、能練習的單字卡：單字遊戲、口說練習、連續學習紀錄，支援 32 種語言。">
+  <meta property="og:title" content="Flippin：每天說一種新語言">
+  <meta property="og:description" content="每天說一種新語言。Flippin 把你真正會說的短語變成能聽、能翻、能練習的單字卡：單字遊戲、口說練習、連續學習紀錄，支援 32 種語言。">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#0A7AC0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0C141D" media="(prefers-color-scheme: dark)">
+  <meta name="apple-itunes-app" content="app-id=6748499528">
+  <link rel="canonical" href="https://www.flippin.app/zh-hant/">
+  <link rel="alternate" hreflang="en" href="https://www.flippin.app/">
+  <link rel="alternate" hreflang="ar" href="https://www.flippin.app/ar/">
+  <link rel="alternate" hreflang="ca" href="https://www.flippin.app/ca/">
+  <link rel="alternate" hreflang="cs" href="https://www.flippin.app/cs/">
+  <link rel="alternate" hreflang="da" href="https://www.flippin.app/da/">
+  <link rel="alternate" hreflang="de" href="https://www.flippin.app/de/">
+  <link rel="alternate" hreflang="el" href="https://www.flippin.app/el/">
+  <link rel="alternate" hreflang="es" href="https://www.flippin.app/es/">
+  <link rel="alternate" hreflang="fi" href="https://www.flippin.app/fi/">
+  <link rel="alternate" hreflang="fr" href="https://www.flippin.app/fr/">
+  <link rel="alternate" hreflang="he" href="https://www.flippin.app/he/">
+  <link rel="alternate" hreflang="hi" href="https://www.flippin.app/hi/">
+  <link rel="alternate" hreflang="hr" href="https://www.flippin.app/hr/">
+  <link rel="alternate" hreflang="hu" href="https://www.flippin.app/hu/">
+  <link rel="alternate" hreflang="id" href="https://www.flippin.app/id/">
+  <link rel="alternate" hreflang="it" href="https://www.flippin.app/it/">
+  <link rel="alternate" hreflang="ja" href="https://www.flippin.app/ja/">
+  <link rel="alternate" hreflang="ko" href="https://www.flippin.app/ko/">
+  <link rel="alternate" hreflang="ms" href="https://www.flippin.app/ms/">
+  <link rel="alternate" hreflang="nb" href="https://www.flippin.app/nb/">
+  <link rel="alternate" hreflang="no" href="https://www.flippin.app/nb/">
+  <link rel="alternate" hreflang="nl" href="https://www.flippin.app/nl/">
+  <link rel="alternate" hreflang="pl" href="https://www.flippin.app/pl/">
+  <link rel="alternate" hreflang="pt-PT" href="https://www.flippin.app/pt/">
+  <link rel="alternate" hreflang="pt-BR" href="https://www.flippin.app/pt-br/">
+  <link rel="alternate" hreflang="ro" href="https://www.flippin.app/ro/">
+  <link rel="alternate" hreflang="ru" href="https://www.flippin.app/ru/">
+  <link rel="alternate" hreflang="sk" href="https://www.flippin.app/sk/">
+  <link rel="alternate" hreflang="sv" href="https://www.flippin.app/sv/">
+  <link rel="alternate" hreflang="th" href="https://www.flippin.app/th/">
+  <link rel="alternate" hreflang="tr" href="https://www.flippin.app/tr/">
+  <link rel="alternate" hreflang="uk" href="https://www.flippin.app/uk/">
+  <link rel="alternate" hreflang="vi" href="https://www.flippin.app/vi/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://www.flippin.app/zh-hans/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://www.flippin.app/zh-hant/">
+  <link rel="alternate" hreflang="x-default" href="https://www.flippin.app/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Flippin">
+  <meta property="og:url" content="https://www.flippin.app/zh-hant/">
+  <meta property="og:image" content="https://www.flippin.app/assets/img/og-zh-hant.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="zh_TW">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://www.flippin.app/assets/img/og-zh-hant.png">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="../favicons/apple-touch-icon.png">
+  <link rel="manifest" href="../favicons/site.webmanifest">
+
+  <link rel="preload" href="../assets/fonts/nunito-900-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/nunito-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/css/site.css?v=732989b6">
+  <script src="../assets/js/site.js?v=732989b6" defer></script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TT6GZ2QPB6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TT6GZ2QPB6');
+  </script>
+  <link rel="api-catalog" href="https://www.flippin.app/.well-known/api-catalog">
+  <link rel="service-desc" href="https://www.flippin.app/.well-known/openapi.json" type="application/vnd.oai.openapi+json">
+  <link rel="service-doc" href="https://www.flippin.app/features.html">
+  <link rel="status" href="https://www.flippin.app/.well-known/health.json" type="application/json">
+  <link rel="describedby" type="application/json" title="Agent skills index" href="https://www.flippin.app/.well-known/agent-skills/index.json">
+  <link rel="alternate" type="text/markdown" href="https://www.flippin.app/index.md">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "Flippin",
+    "operatingSystem": "iOS 18.0 or later",
+    "applicationCategory": "EducationalApplication",
+    "description": "每天說一種新語言。Flippin 把你真正會說的短語變成能聽、能翻、能練習的單字卡：單字遊戲、口說練習、連續學習紀錄，支援 32 種語言。",
+    "url": "https://www.flippin.app/zh-hant/",
+    "inLanguage": "zh-Hant",
+    "image": "https://www.flippin.app/assets/img/app-icon-256.webp",
+    "screenshot": "https://www.flippin.app/assets/img/og-zh-hant.png",
+    "downloadUrl": "https://apps.apple.com/us/app/id6748499528?l=zh-Hant-TW",
+    "installUrl": "https://apps.apple.com/us/app/id6748499528?l=zh-Hant-TW",
+    "author": { "@type": "Person", "name": "Alexander Riakhin" },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body class="home">
+  <a class="skip" href="#main">跳到主要內容</a>
+  <header class="bar">
+    <div class="bar-inner">
+      <a class="brand" href="./" aria-label="Flippin 首頁">
+        <img src="../assets/img/app-icon-64.webp" srcset="../assets/img/app-icon-128.webp 2x" alt="" width="36" height="36">
+        <span>Flippin</span>
+      </a>
+      <nav class="bar-nav" aria-label="主選單">
+        <a href="features.html">功能</a>
+        <a href="languages.html">語言</a>
+        <a href="#pricing">價格</a>
+        <a href="support.html">支援</a>
+      </nav>
+      <details class="lang">
+        <summary aria-label="語言"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M2.5 12h19M12 2.5c2.6 2.8 3.9 6 3.9 9.5s-1.3 6.7-3.9 9.5c-2.6-2.8-3.9-6-3.9-9.5s1.3-6.7 3.9-9.5z" fill="none" stroke="currentColor" stroke-width="2"/></svg><span class="lang-code">ZH</span></summary>
+        <ul>
+          <li><a href="../" hreflang="en" lang="en">English</a></li>
+          <li><a href="../ar/" hreflang="ar" lang="ar">العربية</a></li>
+          <li><a href="../ca/" hreflang="ca" lang="ca">Català</a></li>
+          <li><a href="../cs/" hreflang="cs" lang="cs">Čeština</a></li>
+          <li><a href="../da/" hreflang="da" lang="da">Dansk</a></li>
+          <li><a href="../de/" hreflang="de" lang="de">Deutsch</a></li>
+          <li><a href="../el/" hreflang="el" lang="el">Ελληνικά</a></li>
+          <li><a href="../es/" hreflang="es" lang="es">Español</a></li>
+          <li><a href="../fi/" hreflang="fi" lang="fi">Suomi</a></li>
+          <li><a href="../fr/" hreflang="fr" lang="fr">Français</a></li>
+          <li><a href="../he/" hreflang="he" lang="he">עברית</a></li>
+          <li><a href="../hi/" hreflang="hi" lang="hi">हिन्दी</a></li>
+          <li><a href="../hr/" hreflang="hr" lang="hr">Hrvatski</a></li>
+          <li><a href="../hu/" hreflang="hu" lang="hu">Magyar</a></li>
+          <li><a href="../id/" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+          <li><a href="../it/" hreflang="it" lang="it">Italiano</a></li>
+          <li><a href="../ja/" hreflang="ja" lang="ja">日本語</a></li>
+          <li><a href="../ko/" hreflang="ko" lang="ko">한국어</a></li>
+          <li><a href="../ms/" hreflang="ms" lang="ms">Bahasa Melayu</a></li>
+          <li><a href="../nb/" hreflang="nb" lang="nb">Norsk bokmål</a></li>
+          <li><a href="../nl/" hreflang="nl" lang="nl">Nederlands</a></li>
+          <li><a href="../pl/" hreflang="pl" lang="pl">Polski</a></li>
+          <li><a href="../pt/" hreflang="pt-PT" lang="pt-PT">Português (Portugal)</a></li>
+          <li><a href="../pt-br/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li>
+          <li><a href="../ro/" hreflang="ro" lang="ro">Română</a></li>
+          <li><a href="../ru/" hreflang="ru" lang="ru">Русский</a></li>
+          <li><a href="../sk/" hreflang="sk" lang="sk">Slovenčina</a></li>
+          <li><a href="../sv/" hreflang="sv" lang="sv">Svenska</a></li>
+          <li><a href="../th/" hreflang="th" lang="th">ไทย</a></li>
+          <li><a href="../tr/" hreflang="tr" lang="tr">Türkçe</a></li>
+          <li><a href="../uk/" hreflang="uk" lang="uk">Українська</a></li>
+          <li><a href="../vi/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+          <li><a href="../zh-hans/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li>
+          <li><a href="../zh-hant/" hreflang="zh-Hant" lang="zh-Hant" aria-current="page">繁體中文</a></li>
+        </ul>
+      </details>
+      <a class="btn btn-small" href="https://apps.apple.com/us/app/id6748499528?l=zh-Hant-TW" data-track="cta_appstore_click" data-placement="nav">下載</a>
+      <details class="menu">
+        <summary aria-label="選單"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></summary>
+        <nav class="menu-panel" aria-label="主選單">
+          <a href="features.html">功能</a>
+          <a href="languages.html">語言</a>
+          <a href="#pricing">價格</a>
+          <a href="support.html">支援</a>
+        </nav>
+      </details>
+    </div>
+  </header>
+  <main id="main">
+    <section class="section sky hero" aria-labelledby="hero-title">
+      <div class="clouds" aria-hidden="true"><span class="cloud c1"></span><span class="cloud c2"></span><span class="cloud c3"></span></div>
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">適用於 iPhone 和 iPad 的單字卡與口說練習</p>
+          <h1 class="headline" id="hero-title"><span class="pill">每天</span>說一種新語言</h1>
+          <p class="lead">Flippin 把你真正會說的短語變成聰明的單字卡，可以聽、可以翻、可以練習，每天幾分鐘就夠。</p>
+          <div class="actions">
+            <a class="badge" href="https://apps.apple.com/us/app/id6748499528?l=zh-Hant-TW" data-track="cta_appstore_click" data-placement="hero">
+              <img src="https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/black/zh-tw?size=250x83" alt="在 App Store 下載" width="180" height="60">
+            </a>
+            <a class="btn btn-hero" href="#create">看看怎麼用</a>
+          </div>
+          <p class="note">免費開始 · 不需要帳號 · iOS 18 或以上版本</p>
+        </div>
+        <div class="stage stage-hero">
+          <img class="flag f f-es bob" src="../assets/img/flag-es-128.webp" srcset="../assets/img/flag-es-256.webp 2x" width="96" height="96" alt="" loading="lazy" decoding="async"><img class="flag f f-fr bob" src="../assets/img/flag-fr-128.webp" srcset="../assets/img/flag-fr-256.webp 2x" width="80" height="80" alt="" loading="lazy" decoding="async"><img class="flag f f-jp bob" src="../assets/img/flag-jp-128.webp" srcset="../assets/img/flag-jp-256.webp 2x" width="74" height="74" alt="" loading="lazy" decoding="async"><img class="flag f f-kr bob" src="../assets/img/flag-kr-128.webp" srcset="../assets/img/flag-kr-256.webp 2x" width="70" height="70" alt="" loading="lazy" decoding="async"><img class="flag f f-de bob" src="../assets/img/flag-de-128.webp" srcset="../assets/img/flag-de-256.webp 2x" width="80" height="80" alt="" loading="lazy" decoding="async"><img class="flag f f-pt bob" src="../assets/img/flag-pt-128.webp" srcset="../assets/img/flag-pt-256.webp 2x" width="78" height="78" alt="" loading="lazy" decoding="async">
+          <picture class="phone eager tilt-l"><source media="(prefers-color-scheme: dark)" srcset="../assets/img/zh-hant/phone-study-dark-380.webp 380w, ../assets/img/zh-hant/phone-study-dark-760.webp 760w" sizes="(min-width: 960px) 320px, 62vw"><img src="../assets/img/zh-hant/phone-study-380.webp" srcset="../assets/img/zh-hant/phone-study-380.webp 380w, ../assets/img/zh-hant/phone-study-760.webp 760w" sizes="(min-width: 960px) 320px, 62vw" width="380" height="777" alt="Flippin 學習畫面：英語卡片「I love this city.」，連續學習 12 天，每週目標已完成 25 張中的 18 張" fetchpriority="high" decoding="async"></picture>
+        </div>
+      </div>
+      <ul class="wrap stats" aria-label="Flippin 數據一覽">
+        <li><strong>32</strong><span>種語言，任意組合</span></li>
+        <li><strong>30</strong><span>個短語集合，11 個免費</span></li>
+        <li><strong>7</strong><span>種練習方式</span></li>
+        <li><strong>約 1,000</strong><span>種自然語音（Premium）</span></li>
+      </ul>
+    </section>
+
+    <section class="section grid-paper feature" id="create" aria-labelledby="create-title">
+      <div class="wrap feature-grid">
+        <div class="feature-copy reveal">
+          <h2 class="headline" id="create-title">輸入一次，<span class="pill r">聽準發音</span></h2>
+          <p class="lead">用你的母語輸入單字或短語，翻譯會自動填好。輕點卡片任一面的揚聲器，就能聽到朗讀。</p>
+          <ul class="ticks"><li>邊輸入邊自動翻譯；已安裝對應語言時，由 Apple 翻譯在裝置上完成</li><li>輕點對調按鈕，用任一語言輸入</li><li>用備註、標籤和最愛整理學習內容</li><li>免費的 Google 語音和系統語音，語速可調整；Premium 再加上近 1,000 種自然的 Speechify 語音</li></ul>
+        </div>
+        <div class="stage">
+          <picture class="phone tilt-r"><source media="(prefers-color-scheme: dark)" srcset="../assets/img/zh-hant/phone-add-card-dark-380.webp 380w, ../assets/img/zh-hant/phone-add-card-dark-760.webp 760w" sizes="(min-width: 960px) 320px, 62vw"><img src="../assets/img/zh-hant/phone-add-card-380.webp" srcset="../assets/img/zh-hant/phone-add-card-380.webp 380w, ../assets/img/zh-hant/phone-add-card-760.webp 760w" sizes="(min-width: 960px) 320px, 62vw" width="380" height="777" alt="新增卡片畫面：「你能幫我們拍張照嗎？」翻譯成英語" loading="lazy" decoding="async"></picture>
+          <picture class="cut float fl-panel"><source media="(prefers-color-scheme: dark)" srcset="../assets/img/zh-hant/cut-phrase-panel-dark-360.webp 360w, ../assets/img/zh-hant/cut-phrase-panel-dark-720.webp 720w" sizes="(min-width: 960px) 360px, 70vw"><img src="../assets/img/zh-hant/cut-phrase-panel-360.webp" srcset="../assets/img/zh-hant/cut-phrase-panel-360.webp 360w, ../assets/img/zh-hant/cut-phrase-panel-720.webp 720w" sizes="(min-width: 960px) 360px, 70vw" width="360" height="221" alt="短語面板：中文「你能幫我們拍張照嗎？」及英語翻譯「Can you take a photo of us?」" loading="lazy" decoding="async"></picture>
+          <img class="ill ill-tr bob" src="../assets/img/ill-modeListen-200.webp" srcset="../assets/img/ill-modeListen-200.webp 200w, ../assets/img/ill-modeListen-400.webp 400w" sizes="200px" width="200" height="200" alt="" loading="lazy" decoding="async">
+        </div>
+      </div>
+    </section>
+
+    <section class="section sky feature flip" id="games" aria-labelledby="games-title">
+      <div class="clouds" aria-hidden="true"><span class="cloud c1"></span><span class="cloud c2"></span></div>
+      <div class="wrap feature-grid">
+        <div class="feature-copy reveal">
+          <h2 class="headline" id="games-title">讓你停不下來的單字<span class="pill">遊戲</span></h2>
+          <p class="lead">像遊戲一樣的短時間練習：進度條、連擊、即時回饋，結束時還有正確率總結。</p>
+          <ul class="ticks"><li><b>閃卡</b>：先回想，再看答案，然後選「再來」或「記住了」 <span class="tag tag-free">免費</span></li><li><b>配對</b>：限時配對六組卡片 <span class="tag tag-free">免費</span></li><li><b>選擇題</b>、<b>填空</b>、<b>聽力</b>和<b>拼寫</b> <span class="tag tag-premium">Premium</span></li><li>答錯的卡片會在幾張之後再次出現，幫你牢牢記住</li></ul>
+        </div>
+        <div class="stage">
+          <img class="ill ill-tl bob" src="../assets/img/ill-trophy-200.webp" srcset="../assets/img/ill-trophy-200.webp 200w, ../assets/img/ill-trophy-400.webp 400w" sizes="200px" width="200" height="200" alt="" loading="lazy" decoding="async">
+          <picture class="phone tilt-r"><source media="(prefers-color-scheme: dark)" srcset="../assets/img/zh-hant/phone-choice-dark-380.webp 380w, ../assets/img/zh-hant/phone-choice-dark-760.webp 760w" sizes="(min-width: 960px) 320px, 62vw"><img src="../assets/img/zh-hant/phone-choice-380.webp" srcset="../assets/img/zh-hant/phone-choice-380.webp 380w, ../assets/img/zh-hant/phone-choice-760.webp 760w" sizes="(min-width: 960px) 320px, 62vw" width="380" height="777" alt="選擇題練習：為「Let's go to the beach.」選出「我們去海灘吧。」，答對了" loading="lazy" decoding="async"></picture>
+          <picture class="cut float fl-banner"><source media="(prefers-color-scheme: dark)" srcset="../assets/img/zh-hant/cut-nice-banner-dark-360.webp 360w, ../assets/img/zh-hant/cut-nice-banner-dark-720.webp 720w" sizes="(min-width: 960px) 360px, 70vw"><img src="../assets/img/zh-hant/cut-nice-banner-360.webp" srcset="../assets/img/zh-hant/cut-nice-banner-360.webp 360w, ../assets/img/zh-hant/cut-nice-banner-720.webp 720w" sizes="(min-width: 960px) 360px, 70vw" width="360" height="145" alt="回饋橫幅：太棒了！Let's go to the beach." loading="lazy" decoding="async"></picture>
+          <picture class="cut float fl-tile"><source media="(prefers-color-scheme: dark)" srcset="../assets/img/zh-hant/cut-match-tile-dark-200.webp 200w, ../assets/img/zh-hant/cut-match-tile-dark-400.webp 400w" sizes="(min-width: 960px) 360px, 70vw"><img src="../assets/img/zh-hant/cut-match-tile-200.webp" srcset="../assets/img/zh-hant/cut-match-tile-200.webp 200w, ../assets/img/zh-hant/cut-match-tile-400.webp 400w" sizes="(min-width: 960px) 360px, 70vw" width="200" height="80" alt="配對遊戲卡片" loading="lazy" decoding="async"></picture>
+        </div>
+      </div>
+    </section>
+
+    <section class="section grid-paper feature" id="speaking" aria-labelledby="speaking-title">
+      <div class="wrap feature-grid">
+        <div class="feature-copy reveal">
+          <h2 class="headline" id="speaking-title">大聲說出來的<span class="pill">口說</span>練習</h2>
+          <p class="lead">按住麥克風說出短語，Flippin 會用語音辨識來檢查。大聲說出來，才能真正變成你的。</p>
+          <ul class="ticks"><li>大聲說出短語並獲得檢查，可行時在裝置上完成</li><li>現在不方便說話？改為輸入答案就好</li><li>開口之前，想聽幾遍就聽幾遍</li></ul>
+          <p class="tag-line"><span class="tag tag-premium">Premium</span> 口說、聽力和拼寫是 Premium 練習模式。</p>
+        </div>
+        <div class="stage">
+          <img class="ill ill-bl bob" src="../assets/img/ill-modeSpeak-200.webp" srcset="../assets/img/ill-modeSpeak-200.webp 200w, ../assets/img/ill-modeSpeak-400.webp 400w" sizes="200px" width="200" height="200" alt="" loading="lazy" decoding="async">
+          <picture class="phone tilt-r"><source media="(prefers-color-scheme: dark)" srcset="../assets/img/zh-hant/phone-speak-dark-380.webp 380w, ../assets/img/zh-hant/phone-speak-dark-760.webp 760w" sizes="(min-width: 960px) 320px, 62vw"><img src="../assets/img/zh-hant/phone-speak-380.webp" srcset="../assets/img/zh-hant/phone-speak-380.webp 380w, ../assets/img/zh-hant/phone-speak-760.webp 760w" sizes="(min-width: 960px) 320px, 62vw" width="380" height="777" alt="口說練習：說出「Let's go to the beach.」，辨識正確" loading="lazy" decoding="async"></picture>
+          <picture class="cut float fl-banner"><source media="(prefers-color-scheme: dark)" srcset="../assets/img/zh-hant/cut-speak-banner-dark-360.webp 360w, ../assets/img/zh-hant/cut-speak-banner-dark-720.webp 720w" sizes="(min-width: 960px) 360px, 70vw"><img src="../assets/img/zh-hant/cut-speak-banner-360.webp" srcset="../assets/img/zh-hant/cut-speak-banner-360.webp 360w, ../assets/img/zh-hant/cut-speak-banner-720.webp 720w" sizes="(min-width: 960px) 360px, 70vw" width="360" height="145" alt="回饋橫幅：太棒了！你說的是：「Let's go to the beach.」" loading="lazy" decoding="async"></picture>
+        </div>
+      </div>
+    </section>
+
+    <section class="section sky feature flip" id="streaks" aria-labelledby="streaks-title">
+      <div class="clouds" aria-hidden="true"><span class="cloud c1"></span><span class="cloud c2"></span></div>
+      <div class="wrap feature-grid">
+        <div class="feature-copy reveal">
+          <h2 class="headline" id="streaks-title">保持<span class="pill">連續學習</span></h2>
+          <p class="lead">每日連續學習、每週目標和貼心提醒，讓每天幾分鐘變成真正的進步。</p>
+          <ul class="ticks"><li>連續學習行事曆，顯示最長連續天數和下一個里程碑</li><li>每週目標可選 10、25、50 或 100 張卡片，達成時還有慶祝</li><li>「複習到期卡片」先複習到期的卡片，再練錯題，最後學新卡</li><li>每日學習提醒和困難卡片提醒，時間由你決定</li></ul>
+        </div>
+        <div class="stage">
+          <img class="ill ill-tr bob" src="../assets/img/ill-flame-200.webp" srcset="../assets/img/ill-flame-200.webp 200w, ../assets/img/ill-flame-400.webp 400w" sizes="200px" width="200" height="200" alt="" loading="lazy" decoding="async">
+          <picture class="phone tilt-l"><source media="(prefers-color-scheme: dark)" srcset="../assets/img/zh-hant/phone-streak-dark-380.webp 380w, ../assets/img/zh-hant/phone-streak-dark-760.webp 760w" sizes="(min-width: 960px) 320px, 62vw"><img src="../assets/img/zh-hant/phone-streak-380.webp" srcset="../assets/img/zh-hant/phone-streak-380.webp 380w, ../assets/img/zh-hant/phone-streak-760.webp 760w" sizes="(min-width: 960px) 320px, 62vw" width="380" height="777" alt="連續學習畫面：目前連續 12 天，最長連續 12 天，下一個里程碑是 30 天" loading="lazy" decoding="async"></picture>
+          <picture class="cut float fl-chip"><source media="(prefers-color-scheme: dark)" srcset="../assets/img/zh-hant/cut-streak-chip-dark-120.webp 120w, ../assets/img/zh-hant/cut-streak-chip-dark-240.webp 240w" sizes="(min-width: 960px) 360px, 70vw"><img src="../assets/img/zh-hant/cut-streak-chip-120.webp" srcset="../assets/img/zh-hant/cut-streak-chip-120.webp 120w, ../assets/img/zh-hant/cut-streak-chip-240.webp 240w" sizes="(min-width: 960px) 360px, 70vw" width="120" height="61" alt="連續學習標籤：12 天" loading="lazy" decoding="async"></picture>
+          <picture class="cut float fl-goal"><source media="(prefers-color-scheme: dark)" srcset="../assets/img/zh-hant/cut-goal-chip-dark-160.webp 160w, ../assets/img/zh-hant/cut-goal-chip-dark-320.webp 320w" sizes="(min-width: 960px) 360px, 70vw"><img src="../assets/img/zh-hant/cut-goal-chip-160.webp" srcset="../assets/img/zh-hant/cut-goal-chip-160.webp 160w, ../assets/img/zh-hant/cut-goal-chip-320.webp 320w" sizes="(min-width: 960px) 360px, 70vw" width="160" height="53" alt="每週目標標籤：25 張中的 18 張" loading="lazy" decoding="async"></picture>
+        </div>
+      </div>
+    </section>
+
+    <section class="section grid-paper feature" id="ai" aria-labelledby="ai-title">
+      <div class="wrap feature-grid">
+        <div class="feature-copy reveal">
+          <h2 class="headline" id="ai-title">AI 短語手冊，<span class="pill r">幾秒</span>完成</h2>
+          <p class="lead">描述一個主題，例如在餐廳點餐，就能得到一套適合你的語言組合和程度、可以直接學習的 10 到 20 張卡片。</p>
+          <ul class="ticks"><li>每張卡片都能編輯，可以只挑想要的，也可以重新產生</li><li>每套卡片都會儲存為草稿，不會遺失</li><li>AI 學習教練根據你自己的進度，每天提供學習洞察</li></ul>
+          <p class="tag-line"><span class="tag tag-premium">Premium</span> AI 集合和 AI 學習教練屬於 Premium；免費使用者可以試用範例卡組。</p>
+        </div>
+        <div class="stage">
+          <img class="ill ill-tr bob" src="../assets/img/ill-sparkles-200.webp" srcset="../assets/img/ill-sparkles-200.webp 200w, ../assets/img/ill-sparkles-400.webp 400w" sizes="200px" width="200" height="200" alt="" loading="lazy" decoding="async">
+          <picture class="phone tilt-r"><img src="../assets/img/zh-hant/phone-ai-result-380.webp" srcset="../assets/img/zh-hant/phone-ai-result-380.webp 380w, ../assets/img/zh-hant/phone-ai-result-760.webp 760w" sizes="(min-width: 960px) 320px, 62vw" width="380" height="777" alt="AI 產生的「美食與餐飲」集合，包含「I'm hungry」「This is delicious」等卡片" loading="lazy" decoding="async"></picture>
+          <picture class="cut float fl-panel"><img src="../assets/img/zh-hant/cut-ai-header-340.webp" srcset="../assets/img/zh-hant/cut-ai-header-340.webp 340w, ../assets/img/zh-hant/cut-ai-header-680.webp 680w" sizes="(min-width: 960px) 360px, 70vw" width="340" height="165" alt="AI 集合標題：美食與餐飲，餐廳和美食體驗的必備短語" loading="lazy" decoding="async"></picture>
+        </div>
+      </div>
+    </section>
+
+    <section class="section sky feature flip" id="languages" aria-labelledby="languages-title">
+      <div class="clouds" aria-hidden="true"><span class="cloud c1"></span><span class="cloud c2"></span></div>
+      <div class="wrap feature-grid">
+        <div class="feature-copy reveal">
+          <h2 class="headline" id="languages-title"><span class="pill">32</span> 種語言，任意組合</h2>
+          <p class="lead">從 32 種語言中的任一種學習另一種。每種語言都有 30 個現成的短語集合，涵蓋 11 個主題，從基礎、旅行到美食、購物和緊急狀況。</p>
+          <ul class="ticks"><li>每個主題 1 個集合免費，共 11 個；Premium 解鎖全部 30 個</li><li>每個集合都能預覽，挑選你想要的卡片</li><li>根據你的興趣推薦入門包，卡組永遠不會是空的</li></ul>
+          <ul class="flag-row" aria-label="可以學習的 32 種語言">
+            <li title="英語"><img class="flag " src="../assets/img/flag-us-64.webp" srcset="../assets/img/flag-us-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">英語</span></li>
+<li title="西班牙語"><img class="flag " src="../assets/img/flag-es-64.webp" srcset="../assets/img/flag-es-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">西班牙語</span></li>
+<li title="法語"><img class="flag " src="../assets/img/flag-fr-64.webp" srcset="../assets/img/flag-fr-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">法語</span></li>
+<li title="德語"><img class="flag " src="../assets/img/flag-de-64.webp" srcset="../assets/img/flag-de-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">德語</span></li>
+<li title="義大利語"><img class="flag " src="../assets/img/flag-it-64.webp" srcset="../assets/img/flag-it-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">義大利語</span></li>
+<li title="葡萄牙語"><img class="flag " src="../assets/img/flag-pt-64.webp" srcset="../assets/img/flag-pt-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">葡萄牙語</span></li>
+<li title="荷蘭語"><img class="flag " src="../assets/img/flag-nl-64.webp" srcset="../assets/img/flag-nl-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">荷蘭語</span></li>
+<li title="瑞典語"><img class="flag " src="../assets/img/flag-se-64.webp" srcset="../assets/img/flag-se-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">瑞典語</span></li>
+<li title="中文（簡體）"><img class="flag " src="../assets/img/flag-cn-64.webp" srcset="../assets/img/flag-cn-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">中文（簡體）</span></li>
+<li title="日語"><img class="flag " src="../assets/img/flag-jp-64.webp" srcset="../assets/img/flag-jp-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">日語</span></li>
+<li title="韓語"><img class="flag " src="../assets/img/flag-kr-64.webp" srcset="../assets/img/flag-kr-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">韓語</span></li>
+<li title="越南語"><img class="flag " src="../assets/img/flag-vn-64.webp" srcset="../assets/img/flag-vn-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">越南語</span></li>
+<li title="俄語"><img class="flag " src="../assets/img/flag-ru-64.webp" srcset="../assets/img/flag-ru-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">俄語</span></li>
+<li title="阿拉伯語"><img class="flag " src="../assets/img/flag-sa-64.webp" srcset="../assets/img/flag-sa-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">阿拉伯語</span></li>
+<li title="印地語"><img class="flag " src="../assets/img/flag-in-64.webp" srcset="../assets/img/flag-in-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">印地語</span></li>
+<li title="克羅埃西亞語"><img class="flag " src="../assets/img/flag-hr-64.webp" srcset="../assets/img/flag-hr-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">克羅埃西亞語</span></li>
+<li title="烏克蘭語"><img class="flag " src="../assets/img/flag-ua-64.webp" srcset="../assets/img/flag-ua-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">烏克蘭語</span></li>
+<li title="加泰隆尼亞語"><img class="flag " src="../assets/img/flag-catalan-64.webp" srcset="../assets/img/flag-catalan-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">加泰隆尼亞語</span></li>
+<li title="捷克語"><img class="flag " src="../assets/img/flag-cz-64.webp" srcset="../assets/img/flag-cz-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">捷克語</span></li>
+<li title="丹麥語"><img class="flag " src="../assets/img/flag-dk-64.webp" srcset="../assets/img/flag-dk-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">丹麥語</span></li>
+<li title="希臘語"><img class="flag " src="../assets/img/flag-gr-64.webp" srcset="../assets/img/flag-gr-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">希臘語</span></li>
+<li title="芬蘭語"><img class="flag " src="../assets/img/flag-fi-64.webp" srcset="../assets/img/flag-fi-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">芬蘭語</span></li>
+<li title="希伯來語"><img class="flag " src="../assets/img/flag-il-64.webp" srcset="../assets/img/flag-il-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">希伯來語</span></li>
+<li title="匈牙利語"><img class="flag " src="../assets/img/flag-hu-64.webp" srcset="../assets/img/flag-hu-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">匈牙利語</span></li>
+<li title="印尼語"><img class="flag " src="../assets/img/flag-id-64.webp" srcset="../assets/img/flag-id-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">印尼語</span></li>
+<li title="馬來語"><img class="flag " src="../assets/img/flag-my-64.webp" srcset="../assets/img/flag-my-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">馬來語</span></li>
+<li title="挪威語"><img class="flag " src="../assets/img/flag-no-64.webp" srcset="../assets/img/flag-no-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">挪威語</span></li>
+<li title="波蘭語"><img class="flag " src="../assets/img/flag-pl-64.webp" srcset="../assets/img/flag-pl-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">波蘭語</span></li>
+<li title="羅馬尼亞語"><img class="flag " src="../assets/img/flag-ro-64.webp" srcset="../assets/img/flag-ro-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">羅馬尼亞語</span></li>
+<li title="斯洛伐克語"><img class="flag " src="../assets/img/flag-sk-64.webp" srcset="../assets/img/flag-sk-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">斯洛伐克語</span></li>
+<li title="泰語"><img class="flag " src="../assets/img/flag-th-64.webp" srcset="../assets/img/flag-th-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">泰語</span></li>
+<li title="土耳其語"><img class="flag " src="../assets/img/flag-tr-64.webp" srcset="../assets/img/flag-tr-128.webp 2x" width="40" height="40" alt="" loading="lazy" decoding="async"><span class="sr">土耳其語</span></li>
+          </ul>
+          <a class="btn btn-hero" href="languages.html">查看所有語言</a>
+        </div>
+        <div class="stage">
+          <img class="ill ill-bl bob" src="../assets/img/ill-globe-200.webp" srcset="../assets/img/ill-globe-200.webp 200w, ../assets/img/ill-globe-400.webp 400w" sizes="200px" width="200" height="200" alt="" loading="lazy" decoding="async">
+          <picture class="phone tilt-l"><source media="(prefers-color-scheme: dark)" srcset="../assets/img/zh-hant/phone-collections-dark-380.webp 380w, ../assets/img/zh-hant/phone-collections-dark-760.webp 760w" sizes="(min-width: 960px) 320px, 62vw"><img src="../assets/img/zh-hant/phone-collections-380.webp" srcset="../assets/img/zh-hant/phone-collections-380.webp 380w, ../assets/img/zh-hant/phone-collections-760.webp 760w" sizes="(min-width: 960px) 320px, 62vw" width="380" height="777" alt="預設集合畫面：基礎短語、旅行必備等" loading="lazy" decoding="async"></picture>
+          <picture class="cut float fl-travel"><source media="(prefers-color-scheme: dark)" srcset="../assets/img/zh-hant/cut-travel-card-dark-200.webp 200w, ../assets/img/zh-hant/cut-travel-card-dark-400.webp 400w" sizes="(min-width: 960px) 360px, 70vw"><img src="../assets/img/zh-hant/cut-travel-card-200.webp" srcset="../assets/img/zh-hant/cut-travel-card-200.webp 200w, ../assets/img/zh-hant/cut-travel-card-400.webp 400w" sizes="(min-width: 960px) 360px, 70vw" width="200" height="283" alt="「旅行必備」集合卡片" loading="lazy" decoding="async"></picture>
+        </div>
+      </div>
+    </section>
+
+    <section class="section grid-paper" id="pricing" aria-labelledby="pricing-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2 class="headline" id="pricing-title">免費開始，<span class="pill">Premium</span> 走得更遠</h2>
+          <p class="lead">養成學習習慣需要的一切都是免費的。Premium 解除所有限制。</p>
+        </div>
+        <div class="plans">
+          <article class="paper plan reveal">
+            <h3 class="plan-name"><span class="tag tag-free">免費</span></h3>
+            <p class="plan-price">$0</p>
+            <p class="plan-note">不需要帳號，沒有時間限制</p>
+            <ul class="ticks"><li>一個語言組合中最多 40 張卡片</li><li>自動翻譯、備註、標籤和最愛</li><li>Google 語音和系統語音</li><li>11 個預設短語集合，每個主題一個</li><li>閃卡和配對練習，以及到期卡片和錯題複習</li><li>連續學習、每週目標和概覽統計</li><li>透過 iCloud 在 iPhone 和 iPad 之間同步</li></ul>
+            <a class="btn btn-secondary" href="https://apps.apple.com/us/app/id6748499528?l=zh-Hant-TW" data-track="cta_pricing_click" data-placement="pricing_free">開始使用</a>
+          </article>
+          <article class="paper plan plan-premium reveal">
+            <img class="ill plan-ill" src="../assets/img/ill-crown-200.webp" srcset="../assets/img/ill-crown-200.webp 200w, ../assets/img/ill-crown-400.webp 400w" sizes="200px" width="200" height="200" alt="" loading="lazy" decoding="async">
+            <h3 class="plan-name"><span class="tag tag-premium">Premium</span></h3>
+            <p class="plan-price">$39.99<small>/年</small></p>
+            <p class="plan-note">符合資格的新訂閱者可免費試用 7 天 · 或 $5.99/月 · 或一次付清 $99.99 終身使用</p>
+            <ul class="ticks"><li>無限卡片和全部 30 個預設集合</li><li>AI 集合產生器和 AI 學習教練</li><li>口說、聽力、拼寫、選擇題和填空</li><li>近 1,000 種自然的 Speechify 語音</li><li>卡片圖片、AI 表情符號建議和表情符號模式</li><li>切換語言組合</li><li>詳細分析：學習時間圖表、熟練程度、正確率趨勢和徽章</li></ul>
+            <a class="btn" href="https://apps.apple.com/us/app/id6748499528?l=zh-Hant-TW" data-track="cta_pricing_click" data-placement="pricing_premium">試用 Premium</a>
+          </article>
+        </div>
+        <p class="fine reveal">價格以美元計，為美國地區價格，依國家或地區而異；購買前 App Store 會顯示你的價格。除非在目前訂閱期間結束前至少 24 小時取消，否則訂閱會自動續訂；你可以在 App Store 帳號設定中管理或取消訂閱。App 內可能會出現限時優惠。請參閱<a href="terms-of-use.html">使用條款</a>。</p>
+      </div>
+    </section>
+
+    <section class="section sky" id="faq" aria-labelledby="faq-title">
+      <div class="clouds" aria-hidden="true"><span class="cloud c1"></span><span class="cloud c2"></span></div>
+      <div class="wrap narrow">
+        <div class="section-head reveal">
+          <h2 class="headline" id="faq-title">有問題嗎？<span class="pill r">這裡有答案</span></h2>
+        </div>
+        <div class="faq reveal">
+          <details data-faq><summary>需要註冊帳號嗎？</summary><div class="faq-a">不需要。Flippin 不需要帳號就能使用，你的卡片會透過 iCloud 同步。「使用 Apple 登入」是選用的：它會在裝置之間同步你的個人資料、連續學習紀錄和訂閱。AI 功能需要登入，以便確認你的 Premium 狀態。</div></details>
+          <details data-faq><summary>哪些是免費的？</summary><div class="faq-a">一個語言組合中最多 40 張卡片、自動翻譯、Google 語音和系統語音、11 個短語集合、閃卡和配對練習、連續學習、每週目標和概覽統計，以及 iCloud 同步。其餘功能都可以透過 Premium 解鎖。</div></details>
+          <details data-faq><summary>支援哪些裝置？</summary><div class="faq-a">執行 iOS 18 或以上版本的 iPhone 和 iPad。開啟 iCloud 後，你的卡片和練習紀錄會在裝置之間同步。</div></details>
+          <details data-faq><summary>可以學習哪些語言？</summary><div class="faq-a">32 種語言任意組合，App 本身支援 34 種介面語言。請參閱<a href="languages.html">完整列表</a>。</div></details>
+          <details data-faq><summary>如何取消 Premium？</summary><div class="faq-a">在 App Store 帳號設定中取消：iOS 設定 › 你的名稱 › 訂閱 › Flippin。在已付費的期間結束前，你仍可繼續使用 Premium。</div></details>
+        </div>
+        <p class="faq-more"><a class="btn btn-hero" href="support.html">更多解答</a></p>
+      </div>
+    </section>
+
+    <section class="section grid-paper cta-final" aria-labelledby="cta-title">
+      <div class="wrap cta-inner reveal">
+        <img class="ill cta-ill bob" src="../assets/img/ill-rocket-200.webp" srcset="../assets/img/ill-rocket-200.webp 200w, ../assets/img/ill-rocket-400.webp 400w" sizes="200px" width="200" height="200" alt="" loading="lazy" decoding="async">
+        <h2 class="headline" id="cta-title">今天就開始<span class="pill">開口說</span></h2>
+        <p class="lead">免費下載 Flippin，選好語言，你的第一批短語就能開始練習了。</p>
+        <a class="badge" href="https://apps.apple.com/us/app/id6748499528?l=zh-Hant-TW" data-track="cta_appstore_click" data-placement="cta_band">
+          <img src="https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/black/zh-tw?size=250x83" alt="在 App Store 下載" width="180" height="60" loading="lazy">
+        </a>
+        <p class="note">適用於 iPhone 和 iPad · iOS 18 或以上版本</p>
+      </div>
+    </section>
+  </main>
+  <footer class="foot">
+    <div class="wrap foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="./"><img src="../assets/img/app-icon-64.webp" srcset="../assets/img/app-icon-128.webp 2x" alt="" width="36" height="36" loading="lazy"><span>Flippin</span></a>
+        <p>為你真正會說的短語準備的單字卡和口說練習。</p>
+        <p><a href="mailto:support@flippin.app">support@flippin.app</a></p>
+      </div>
+      <nav class="foot-col" aria-label="Flippin">
+        <h2>Flippin</h2>
+        <a href="features.html">功能</a>
+        <a href="languages.html">語言</a>
+        <a href="./#pricing">價格</a>
+        <a href="https://apps.apple.com/us/app/id6748499528?l=zh-Hant-TW" data-track="cta_appstore_click" data-placement="footer">App Store</a>
+      </nav>
+      <nav class="foot-col" aria-label="學習指南">
+        <h2>學習指南</h2>
+        <a href="learn/flashcards.html">單字卡技巧</a>
+        <a href="learn/pronunciation.html">發音練習</a>
+        <a href="learn/analytics.html">學習進度分析</a>
+        <a href="compare/anki.html">Flippin 與 Anki 比較</a>
+      </nav>
+      <nav class="foot-col" aria-label="說明">
+        <h2>說明</h2>
+        <a href="support.html">支援</a>
+        <a href="privacy-policy.html">隱私權政策</a>
+        <a href="terms-of-use.html">使用條款</a>
+      </nav>
+    </div>
+    <div class="wrap foot-fine">
+      <p>© 2026 Flippin. 保留一切權利。</p>
+      <p>Apple、Apple 標誌、iPhone 與 iPad 是 Apple Inc. 在美國及其他國家與地區註冊的商標。App Store 是 Apple Inc. 的服務標章。</p>
+      <p>字體為 Nunito（<a href="../assets/fonts/Nunito-OFL.txt">SIL Open Font License</a>）。3D 插圖由 Soni Sokell 創作。</p>
+    </div>
+  </footer>
+</body>
+</html>

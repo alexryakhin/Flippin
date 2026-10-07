@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <title>Flippin: Flashcards & Speaking Practice for iPhone and iPad</title>
-  <meta name="description" content="Speak a new language every day. Flippin turns the phrases you'll actually say into flashcards you can hear, flip and practice: vocab games, speaking practice, streaks and 32 languages.">
+  <meta name="description" content="Flippin turns the phrases you'll actually say into flashcards you can hear, flip and practice, with vocab games, speaking practice and 32 languages.">
   <meta property="og:title" content="Flippin: Speak a New Language Every Day">
-  <meta property="og:description" content="Speak a new language every day. Flippin turns the phrases you'll actually say into flashcards you can hear, flip and practice: vocab games, speaking practice, streaks and 32 languages.">
+  <meta property="og:description" content="Flippin turns the phrases you'll actually say into flashcards you can hear, flip and practice, with vocab games, speaking practice and 32 languages.">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#0A7AC0" media="(prefers-color-scheme: light)">
@@ -13,7 +13,79 @@
   <meta name="apple-itunes-app" content="app-id=6748499528">
   <link rel="canonical" href="https://www.flippin.app/">
   <link rel="alternate" hreflang="en" href="https://www.flippin.app/">
+  <link rel="alternate" hreflang="ar" href="https://www.flippin.app/ar/">
+  <link rel="alternate" hreflang="ca" href="https://www.flippin.app/ca/">
+  <link rel="alternate" hreflang="cs" href="https://www.flippin.app/cs/">
+  <link rel="alternate" hreflang="da" href="https://www.flippin.app/da/">
+  <link rel="alternate" hreflang="de" href="https://www.flippin.app/de/">
+  <link rel="alternate" hreflang="el" href="https://www.flippin.app/el/">
+  <link rel="alternate" hreflang="es" href="https://www.flippin.app/es/">
+  <link rel="alternate" hreflang="fi" href="https://www.flippin.app/fi/">
+  <link rel="alternate" hreflang="fr" href="https://www.flippin.app/fr/">
+  <link rel="alternate" hreflang="he" href="https://www.flippin.app/he/">
+  <link rel="alternate" hreflang="hi" href="https://www.flippin.app/hi/">
+  <link rel="alternate" hreflang="hr" href="https://www.flippin.app/hr/">
+  <link rel="alternate" hreflang="hu" href="https://www.flippin.app/hu/">
+  <link rel="alternate" hreflang="id" href="https://www.flippin.app/id/">
+  <link rel="alternate" hreflang="it" href="https://www.flippin.app/it/">
+  <link rel="alternate" hreflang="ja" href="https://www.flippin.app/ja/">
+  <link rel="alternate" hreflang="ko" href="https://www.flippin.app/ko/">
+  <link rel="alternate" hreflang="ms" href="https://www.flippin.app/ms/">
+  <link rel="alternate" hreflang="nb" href="https://www.flippin.app/nb/">
+  <link rel="alternate" hreflang="no" href="https://www.flippin.app/nb/">
+  <link rel="alternate" hreflang="nl" href="https://www.flippin.app/nl/">
+  <link rel="alternate" hreflang="pl" href="https://www.flippin.app/pl/">
+  <link rel="alternate" hreflang="pt-PT" href="https://www.flippin.app/pt/">
+  <link rel="alternate" hreflang="pt-BR" href="https://www.flippin.app/pt-br/">
+  <link rel="alternate" hreflang="ro" href="https://www.flippin.app/ro/">
+  <link rel="alternate" hreflang="ru" href="https://www.flippin.app/ru/">
+  <link rel="alternate" hreflang="sk" href="https://www.flippin.app/sk/">
+  <link rel="alternate" hreflang="sv" href="https://www.flippin.app/sv/">
+  <link rel="alternate" hreflang="th" href="https://www.flippin.app/th/">
+  <link rel="alternate" hreflang="tr" href="https://www.flippin.app/tr/">
+  <link rel="alternate" hreflang="uk" href="https://www.flippin.app/uk/">
+  <link rel="alternate" hreflang="vi" href="https://www.flippin.app/vi/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://www.flippin.app/zh-hans/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://www.flippin.app/zh-hant/">
   <link rel="alternate" hreflang="x-default" href="https://www.flippin.app/">
+  <script>
+    // First visit to an English page: go to the visitor's language if the site has it. A language
+    // picked in the header is remembered and wins; crawlers and same-site navigation aren't moved.
+    (function () {
+      try {
+        if (/bot|crawl|spider|slurp|lighthouse|preview/i.test(navigator.userAgent)) return;
+        if (document.referrer && new URL(document.referrer).host === location.host) return;
+        // hreflang links are absolute production URLs; map them onto wherever the site is served
+        // (production or a local preview) via this page's canonical path.
+        var canonical = document.querySelector('link[rel="canonical"]');
+        var current = new URL(canonical.href).pathname.slice(1);
+        var here = location.pathname.replace(/index\.html$/, "");
+        var root = here.slice(0, here.length - current.length);
+        var links = {}, saved = null;
+        try { saved = localStorage.getItem("flippin.lang"); } catch (e) {}
+        document.querySelectorAll('link[rel="alternate"][hreflang]').forEach(function (l) {
+          links[l.hreflang.toLowerCase()] = root + new URL(l.href).pathname.slice(1);
+        });
+        var target = saved ? links[saved] : null;
+        if (!saved) {
+          var wanted = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language];
+          for (var i = 0; i < wanted.length && !target; i++) {
+            var tag = String(wanted[i] || "").toLowerCase(), primary = tag.split("-")[0];
+            if (primary === "en") break; // English speakers stay on English
+            if (primary === "zh") tag = /hant|-tw|-hk|-mo/.test(tag) ? "zh-hant" : "zh-hans";
+            if (primary === "nn" || primary === "no") primary = "nb";
+            target = links[tag] || links[primary] || null;
+            if (!target) {
+              for (var code in links) {
+                if (code.split("-")[0] === primary && code !== "x-default") { target = links[code]; break; }
+              }
+            }
+          }
+        }
+        if (target && target !== here) location.replace(target + location.hash);
+      } catch (e) {}
+    })();
+  </script>
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Flippin">
@@ -32,8 +104,8 @@
 
   <link rel="preload" href="assets/fonts/nunito-900-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/nunito-700-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/site.css?v=b8934969">
-  <script src="assets/js/site.js?v=b8934969" defer></script>
+  <link rel="stylesheet" href="assets/css/site.css?v=732989b6">
+  <script src="assets/js/site.js?v=732989b6" defer></script>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-TT6GZ2QPB6"></script>
@@ -56,9 +128,14 @@
     "name": "Flippin",
     "operatingSystem": "iOS 18.0 or later",
     "applicationCategory": "EducationalApplication",
-    "description": "Speak a new language every day. Flippin turns the phrases you'll actually say into flashcards you can hear, flip and practice: vocab games, speaking practice, streaks and 32 languages.",
+    "description": "Flippin turns the phrases you'll actually say into flashcards you can hear, flip and practice, with vocab games, speaking practice and 32 languages.",
     "url": "https://www.flippin.app/",
+    "inLanguage": "en",
+    "image": "https://www.flippin.app/assets/img/app-icon-256.webp",
+    "screenshot": "https://www.flippin.app/assets/img/og-en.png",
     "downloadUrl": "https://apps.apple.com/us/app/flippin/id6748499528",
+    "installUrl": "https://apps.apple.com/us/app/flippin/id6748499528",
+    "author": { "@type": "Person", "name": "Alexander Riakhin" },
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
   }
   </script>
@@ -77,7 +154,45 @@
         <a href="#pricing">Pricing</a>
         <a href="support.html">Support</a>
       </nav>
-
+      <details class="lang">
+        <summary aria-label="Language"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M2.5 12h19M12 2.5c2.6 2.8 3.9 6 3.9 9.5s-1.3 6.7-3.9 9.5c-2.6-2.8-3.9-6-3.9-9.5s1.3-6.7 3.9-9.5z" fill="none" stroke="currentColor" stroke-width="2"/></svg><span class="lang-code">EN</span></summary>
+        <ul>
+          <li><a href="./" hreflang="en" lang="en" aria-current="page">English</a></li>
+          <li><a href="ar/" hreflang="ar" lang="ar">العربية</a></li>
+          <li><a href="ca/" hreflang="ca" lang="ca">Català</a></li>
+          <li><a href="cs/" hreflang="cs" lang="cs">Čeština</a></li>
+          <li><a href="da/" hreflang="da" lang="da">Dansk</a></li>
+          <li><a href="de/" hreflang="de" lang="de">Deutsch</a></li>
+          <li><a href="el/" hreflang="el" lang="el">Ελληνικά</a></li>
+          <li><a href="es/" hreflang="es" lang="es">Español</a></li>
+          <li><a href="fi/" hreflang="fi" lang="fi">Suomi</a></li>
+          <li><a href="fr/" hreflang="fr" lang="fr">Français</a></li>
+          <li><a href="he/" hreflang="he" lang="he">עברית</a></li>
+          <li><a href="hi/" hreflang="hi" lang="hi">हिन्दी</a></li>
+          <li><a href="hr/" hreflang="hr" lang="hr">Hrvatski</a></li>
+          <li><a href="hu/" hreflang="hu" lang="hu">Magyar</a></li>
+          <li><a href="id/" hreflang="id" lang="id">Bahasa Indonesia</a></li>
+          <li><a href="it/" hreflang="it" lang="it">Italiano</a></li>
+          <li><a href="ja/" hreflang="ja" lang="ja">日本語</a></li>
+          <li><a href="ko/" hreflang="ko" lang="ko">한국어</a></li>
+          <li><a href="ms/" hreflang="ms" lang="ms">Bahasa Melayu</a></li>
+          <li><a href="nb/" hreflang="nb" lang="nb">Norsk bokmål</a></li>
+          <li><a href="nl/" hreflang="nl" lang="nl">Nederlands</a></li>
+          <li><a href="pl/" hreflang="pl" lang="pl">Polski</a></li>
+          <li><a href="pt/" hreflang="pt-PT" lang="pt-PT">Português (Portugal)</a></li>
+          <li><a href="pt-br/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li>
+          <li><a href="ro/" hreflang="ro" lang="ro">Română</a></li>
+          <li><a href="ru/" hreflang="ru" lang="ru">Русский</a></li>
+          <li><a href="sk/" hreflang="sk" lang="sk">Slovenčina</a></li>
+          <li><a href="sv/" hreflang="sv" lang="sv">Svenska</a></li>
+          <li><a href="th/" hreflang="th" lang="th">ไทย</a></li>
+          <li><a href="tr/" hreflang="tr" lang="tr">Türkçe</a></li>
+          <li><a href="uk/" hreflang="uk" lang="uk">Українська</a></li>
+          <li><a href="vi/" hreflang="vi" lang="vi">Tiếng Việt</a></li>
+          <li><a href="zh-hans/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li>
+          <li><a href="zh-hant/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li>
+        </ul>
+      </details>
       <a class="btn btn-small" href="https://apps.apple.com/us/app/flippin/id6748499528" data-track="cta_appstore_click" data-placement="nav">Download</a>
       <details class="menu">
         <summary aria-label="Menu"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></summary>
@@ -100,7 +215,7 @@
           <p class="lead">Flippin turns the phrases you'll actually say into smart flashcards you can hear, flip and practice in a few minutes a day.</p>
           <div class="actions">
             <a class="badge" href="https://apps.apple.com/us/app/flippin/id6748499528" data-track="cta_appstore_click" data-placement="hero">
-              <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" width="180" height="60">
+              <img src="https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" width="180" height="60">
             </a>
             <a class="btn btn-hero" href="#create">See how it works</a>
           </div>
@@ -301,7 +416,7 @@
         <h2 class="headline" id="cta-title">Start <span class="pill">Speaking</span> Today</h2>
         <p class="lead">Download Flippin for free, pick your languages, and your first phrases are ready to practice.</p>
         <a class="badge" href="https://apps.apple.com/us/app/flippin/id6748499528" data-track="cta_appstore_click" data-placement="cta_band">
-          <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" width="180" height="60" loading="lazy">
+          <img src="https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" width="180" height="60" loading="lazy">
         </a>
         <p class="note">For iPhone and iPad · iOS 18 or later</p>
       </div>
